@@ -52,9 +52,6 @@ class GetUserSshKeyResult:
     @property
     @pulumi.getter
     def fingerprint(self) -> str:
-        """
-        MD5 message digest of the SSH public key.
-        """
         return pulumi.get(self, "fingerprint")
 
     @property
@@ -68,9 +65,6 @@ class GetUserSshKeyResult:
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
-        """
-        SSH public key.
-        """
         return pulumi.get(self, "public_key")
 
     @property
@@ -81,9 +75,6 @@ class GetUserSshKeyResult:
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the SSH public key. Active means that the key can be used for authentication with an CodeCommit repository. Inactive means that the key cannot be used.
-        """
         return pulumi.get(self, "status")
 
     @property
@@ -112,23 +103,7 @@ def get_user_ssh_key(encoding: Optional[str] = None,
                      username: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSshKeyResult:
     """
-    Use this data source to get information about a SSH public key associated with the specified IAM user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_user_ssh_key(encoding="SSH",
-        ssh_public_key_id="APKARUZ32GUTKIGARLXE",
-        username="test-user")
-    ```
-
-
-    :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-    :param str ssh_public_key_id: Unique identifier for the SSH public key.
-    :param str username: Name of the IAM user associated with the SSH public key.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['encoding'] = encoding
@@ -153,22 +128,6 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
                             username: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSshKeyResult]:
     """
-    Use this data source to get information about a SSH public key associated with the specified IAM user.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.iam.get_user_ssh_key(encoding="SSH",
-        ssh_public_key_id="APKARUZ32GUTKIGARLXE",
-        username="test-user")
-    ```
-
-
-    :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
-    :param str ssh_public_key_id: Unique identifier for the SSH public key.
-    :param str username: Name of the IAM user associated with the SSH public key.
+    Use this data source to access information about an existing resource.
     """
     ...

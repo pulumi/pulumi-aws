@@ -26,16 +26,6 @@ class ComponentArgs:
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Component resource.
-        :param pulumi.Input[str] platform: Platform of the component.
-        :param pulumi.Input[str] version: Version of the component.
-        :param pulumi.Input[str] change_description: Change description of the component.
-        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] description: Description of the component.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        :param pulumi.Input[str] name: Name of the component.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "version", version)
@@ -59,9 +49,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Input[str]:
-        """
-        Platform of the component.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -71,9 +58,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
-        """
-        Version of the component.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -83,9 +67,6 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Change description of the component.
-        """
         return pulumi.get(self, "change_description")
 
     @change_description.setter
@@ -95,9 +76,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -107,9 +85,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the component.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -119,9 +94,6 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -131,9 +103,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the component.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -143,9 +112,6 @@ class ComponentArgs:
     @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of Operating Systems (OS) supported by the component.
-        """
         return pulumi.get(self, "supported_os_versions")
 
     @supported_os_versions.setter
@@ -155,9 +121,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,9 +130,6 @@ class ComponentArgs:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -198,22 +158,6 @@ class _ComponentState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Component resources.
-        :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the component.
-        :param pulumi.Input[str] change_description: Change description of the component.
-        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] date_created: Date the component was created.
-        :param pulumi.Input[str] description: Description of the component.
-        :param pulumi.Input[bool] encrypted: Encryption status of the component.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        :param pulumi.Input[str] name: Name of the component.
-        :param pulumi.Input[str] owner: Owner of the component.
-        :param pulumi.Input[str] platform: Platform of the component.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of the component.
-        :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[str] version: Version of the component.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -251,9 +195,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Required) Amazon Resource Name (ARN) of the component.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -263,9 +204,6 @@ class _ComponentState:
     @property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Change description of the component.
-        """
         return pulumi.get(self, "change_description")
 
     @change_description.setter
@@ -275,9 +213,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -287,9 +222,6 @@ class _ComponentState:
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date the component was created.
-        """
         return pulumi.get(self, "date_created")
 
     @date_created.setter
@@ -299,9 +231,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the component.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -311,9 +240,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Encryption status of the component.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -323,9 +249,6 @@ class _ComponentState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -335,9 +258,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the component.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -347,9 +267,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        Owner of the component.
-        """
         return pulumi.get(self, "owner")
 
     @owner.setter
@@ -359,9 +276,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def platform(self) -> Optional[pulumi.Input[str]]:
-        """
-        Platform of the component.
-        """
         return pulumi.get(self, "platform")
 
     @platform.setter
@@ -371,9 +285,6 @@ class _ComponentState:
     @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of Operating Systems (OS) supported by the component.
-        """
         return pulumi.get(self, "supported_os_versions")
 
     @supported_os_versions.setter
@@ -383,9 +294,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -395,9 +303,6 @@ class _ComponentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -407,9 +312,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the component.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -419,9 +321,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -431,9 +330,6 @@ class _ComponentState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the component.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -458,43 +354,9 @@ class Component(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Image Builder Component.
-
-        ## Example Usage
-        ### URI Document
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.Component("example",
-            platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            version="1.0.0")
-        ```
-
-        ## Import
-
-        `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
-
-        ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
-        ```
-
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
-
+        Create a Component resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] change_description: Change description of the component.
-        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] description: Description of the component.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        :param pulumi.Input[str] name: Name of the component.
-        :param pulumi.Input[str] platform: Platform of the component.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[str] version: Version of the component.
         """
         ...
     @overload
@@ -503,31 +365,7 @@ class Component(pulumi.CustomResource):
                  args: ComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Image Builder Component.
-
-        ## Example Usage
-        ### URI Document
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.imagebuilder.Component("example",
-            platform="Linux",
-            uri=f"s3://{aws_s3_object['example']['bucket']}/{aws_s3_object['example']['key']}",
-            version="1.0.0")
-        ```
-
-        ## Import
-
-        `aws_imagebuilder_components` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
-
-        ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
-        ```
-
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
-
+        Create a Component resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -615,22 +453,6 @@ class Component(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: (Required) Amazon Resource Name (ARN) of the component.
-        :param pulumi.Input[str] change_description: Change description of the component.
-        :param pulumi.Input[str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] date_created: Date the component was created.
-        :param pulumi.Input[str] description: Description of the component.
-        :param pulumi.Input[bool] encrypted: Encryption status of the component.
-        :param pulumi.Input[str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        :param pulumi.Input[str] name: Name of the component.
-        :param pulumi.Input[str] owner: Owner of the component.
-        :param pulumi.Input[str] platform: Platform of the component.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: Set of Operating Systems (OS) supported by the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of the component.
-        :param pulumi.Input[str] uri: S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        :param pulumi.Input[str] version: Version of the component.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -657,128 +479,80 @@ class Component(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        (Required) Amazon Resource Name (ARN) of the component.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Change description of the component.
-        """
         return pulumi.get(self, "change_description")
 
     @property
     @pulumi.getter
     def data(self) -> pulumi.Output[str]:
-        """
-        Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "data")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> pulumi.Output[str]:
-        """
-        Date the component was created.
-        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the component.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[bool]:
-        """
-        Encryption status of the component.
-        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the component.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
-        """
-        Owner of the component.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
-        """
-        Platform of the component.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Set of Operating Systems (OS) supported by the component.
-        """
         return pulumi.get(self, "supported_os_versions")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags for the component. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        Type of the component.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
-        """
-        S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
-        """
         return pulumi.get(self, "uri")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
-        """
-        Version of the component.
-        """
         return pulumi.get(self, "version")
 

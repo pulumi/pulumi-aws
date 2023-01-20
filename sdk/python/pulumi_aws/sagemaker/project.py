@@ -22,10 +22,6 @@ class ProjectArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        :param pulumi.Input[str] project_description: A description for the project.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
@@ -37,9 +33,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Project.
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -49,9 +42,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
     def service_catalog_provisioning_details(self) -> pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']:
-        """
-        The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
@@ -61,9 +51,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the project.
-        """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
@@ -73,9 +60,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,13 +79,6 @@ class _ProjectState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Project resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        :param pulumi.Input[str] project_description: A description for the project.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,9 +98,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +107,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the project.
-        """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
@@ -145,9 +116,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the project.
-        """
         return pulumi.get(self, "project_id")
 
     @project_id.setter
@@ -157,9 +125,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Project.
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -169,9 +134,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
     def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']]:
-        """
-        The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
@@ -181,9 +143,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,9 +152,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -214,37 +170,9 @@ class Project(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Project resource.
-
-         > Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Project("example",
-            project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=aws_servicecatalog_product["example"]["id"],
-            ))
-        ```
-
-        ## Import
-
-        SageMaker Projects can be imported using the `project_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/project:Project example example
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] project_description: A description for the project.
-        :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -253,31 +181,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Project resource.
-
-         > Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.Project("example",
-            project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
-                product_id=aws_servicecatalog_product["example"]["id"],
-            ))
-        ```
-
-        ## Import
-
-        SageMaker Projects can be imported using the `project_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/project:Project example example
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -341,13 +245,6 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        :param pulumi.Input[str] project_description: A description for the project.
-        :param pulumi.Input[str] project_id: The ID of the project.
-        :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,56 +262,35 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Project.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for the project.
-        """
         return pulumi.get(self, "project_description")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the project.
-        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Project.
-        """
         return pulumi.get(self, "project_name")
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
     def service_catalog_provisioning_details(self) -> pulumi.Output['outputs.ProjectServiceCatalogProvisioningDetails']:
-        """
-        The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
-        """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

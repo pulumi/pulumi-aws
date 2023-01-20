@@ -51,25 +51,16 @@ class GetVirtualClusterResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="containerProviders")
     def container_providers(self) -> Sequence['outputs.GetVirtualClusterContainerProviderResult']:
-        """
-        Nested attribute containing information about the underlying container provider (EKS cluster) for your EMR Containers cluster.
-        """
         return pulumi.get(self, "container_providers")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
-        """
-        Unix epoch time stamp in seconds for when the cluster was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
@@ -83,25 +74,16 @@ class GetVirtualClusterResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the cluster.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value mapping of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -130,22 +112,7 @@ def get_virtual_cluster(tags: Optional[Mapping[str, str]] = None,
                         virtual_cluster_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualClusterResult:
     """
-    Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
-
-
-    :param Mapping[str, str] tags: Key-value mapping of resource tags.
-    :param str virtual_cluster_id: ID of the cluster.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -169,21 +136,6 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
                                virtual_cluster_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
-    Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.emrcontainers.get_virtual_cluster(virtual_cluster_id="example id")
-    pulumi.export("name", example.name)
-    pulumi.export("arn", example.arn)
-    ```
-
-
-    :param Mapping[str, str] tags: Key-value mapping of resource tags.
-    :param str virtual_cluster_id: ID of the cluster.
+    Use this data source to access information about an existing resource.
     """
     ...

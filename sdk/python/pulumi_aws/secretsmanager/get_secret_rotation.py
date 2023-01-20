@@ -50,25 +50,16 @@ class GetSecretRotationResult:
     @property
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> bool:
-        """
-        ARN of the secret.
-        """
         return pulumi.get(self, "rotation_enabled")
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> str:
-        """
-        Decrypted part of the protected secret information that was originally provided as a string.
-        """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @property
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRotationRuleResult']:
-        """
-        Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
-        """
         return pulumi.get(self, "rotation_rules")
 
     @property
@@ -93,20 +84,7 @@ class AwaitableGetSecretRotationResult(GetSecretRotationResult):
 def get_secret_rotation(secret_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretRotationResult:
     """
-    Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-    ### Retrieve Secret Rotation Configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.secretsmanager.get_secret_rotation(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
-    ```
-
-
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['secretId'] = secret_id
@@ -125,19 +103,6 @@ def get_secret_rotation(secret_id: Optional[str] = None,
 def get_secret_rotation_output(secret_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretRotationResult]:
     """
-    Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-    ### Retrieve Secret Rotation Configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.secretsmanager.get_secret_rotation(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
-    ```
-
-
-    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
+    Use this data source to access information about an existing resource.
     """
     ...

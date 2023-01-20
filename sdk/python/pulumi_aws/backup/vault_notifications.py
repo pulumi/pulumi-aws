@@ -19,9 +19,6 @@ class VaultNotificationsArgs:
                  sns_topic_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a VaultNotifications resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
-        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
@@ -30,9 +27,6 @@ class VaultNotificationsArgs:
     @property
     @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        An array of events that indicate the status of jobs to back up resources to the backup vault.
-        """
         return pulumi.get(self, "backup_vault_events")
 
     @backup_vault_events.setter
@@ -42,9 +36,6 @@ class VaultNotificationsArgs:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Input[str]:
-        """
-        Name of the backup vault to add notifications for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -54,9 +45,6 @@ class VaultNotificationsArgs:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -73,10 +61,6 @@ class _VaultNotificationsState:
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VaultNotifications resources.
-        :param pulumi.Input[str] backup_vault_arn: The ARN of the vault.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
-        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         if backup_vault_arn is not None:
             pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
@@ -90,9 +74,6 @@ class _VaultNotificationsState:
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the vault.
-        """
         return pulumi.get(self, "backup_vault_arn")
 
     @backup_vault_arn.setter
@@ -102,9 +83,6 @@ class _VaultNotificationsState:
     @property
     @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        An array of events that indicate the status of jobs to back up resources to the backup vault.
-        """
         return pulumi.get(self, "backup_vault_events")
 
     @backup_vault_events.setter
@@ -114,9 +92,6 @@ class _VaultNotificationsState:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the backup vault to add notifications for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -126,9 +101,6 @@ class _VaultNotificationsState:
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @sns_topic_arn.setter
@@ -146,51 +118,9 @@ class VaultNotifications(pulumi.CustomResource):
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AWS Backup vault notifications resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["SNS:Publish"],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["backup.amazonaws.com"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
-        test_topic_policy = aws.sns.TopicPolicy("testTopicPolicy",
-            arn=test_topic.arn,
-            policy=test_policy_document.json)
-        test_vault_notifications = aws.backup.VaultNotifications("testVaultNotifications",
-            backup_vault_name="example_backup_vault",
-            sns_topic_arn=test_topic.arn,
-            backup_vault_events=[
-                "BACKUP_JOB_STARTED",
-                "RESTORE_JOB_COMPLETED",
-            ])
-        ```
-
-        ## Import
-
-        Backup vault notifications can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-        ```
-
+        Create a VaultNotifications resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
-        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         ...
     @overload
@@ -199,46 +129,7 @@ class VaultNotifications(pulumi.CustomResource):
                  args: VaultNotificationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Backup vault notifications resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                actions=["SNS:Publish"],
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["backup.amazonaws.com"],
-                )],
-                resources=[arn],
-                sid="__default_statement_ID",
-            )]))
-        test_topic_policy = aws.sns.TopicPolicy("testTopicPolicy",
-            arn=test_topic.arn,
-            policy=test_policy_document.json)
-        test_vault_notifications = aws.backup.VaultNotifications("testVaultNotifications",
-            backup_vault_name="example_backup_vault",
-            sns_topic_arn=test_topic.arn,
-            backup_vault_events=[
-                "BACKUP_JOB_STARTED",
-                "RESTORE_JOB_COMPLETED",
-            ])
-        ```
-
-        ## Import
-
-        Backup vault notifications can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-        ```
-
+        Create a VaultNotifications resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VaultNotificationsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,10 +188,6 @@ class VaultNotifications(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_vault_arn: The ARN of the vault.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
-        :param pulumi.Input[str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,32 +202,20 @@ class VaultNotifications(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupVaultArn")
     def backup_vault_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the vault.
-        """
         return pulumi.get(self, "backup_vault_arn")
 
     @property
     @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> pulumi.Output[Sequence[str]]:
-        """
-        An array of events that indicate the status of jobs to back up resources to the backup vault.
-        """
         return pulumi.get(self, "backup_vault_events")
 
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
-        """
-        Name of the backup vault to add notifications for.
-        """
         return pulumi.get(self, "backup_vault_name")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-        """
         return pulumi.get(self, "sns_topic_arn")
 

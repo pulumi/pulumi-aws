@@ -25,11 +25,6 @@ class VirtualClusterContainerProvider(dict):
                  id: str,
                  info: 'outputs.VirtualClusterContainerProviderInfo',
                  type: str):
-        """
-        :param str id: The name of the container provider that is running your EMR Containers cluster
-        :param 'VirtualClusterContainerProviderInfoArgs' info: Nested list containing information about the configuration of the container provider
-        :param str type: The type of the container provider
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "info", info)
         pulumi.set(__self__, "type", type)
@@ -37,25 +32,16 @@ class VirtualClusterContainerProvider(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The name of the container provider that is running your EMR Containers cluster
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def info(self) -> 'outputs.VirtualClusterContainerProviderInfo':
-        """
-        Nested list containing information about the configuration of the container provider
-        """
         return pulumi.get(self, "info")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of the container provider
-        """
         return pulumi.get(self, "type")
 
 
@@ -80,17 +66,11 @@ class VirtualClusterContainerProviderInfo(dict):
 
     def __init__(__self__, *,
                  eks_info: 'outputs.VirtualClusterContainerProviderInfoEksInfo'):
-        """
-        :param 'VirtualClusterContainerProviderInfoEksInfoArgs' eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
     def eks_info(self) -> 'outputs.VirtualClusterContainerProviderInfoEksInfo':
-        """
-        Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "eks_info")
 
 
@@ -98,18 +78,12 @@ class VirtualClusterContainerProviderInfo(dict):
 class VirtualClusterContainerProviderInfoEksInfo(dict):
     def __init__(__self__, *,
                  namespace: Optional[str] = None):
-        """
-        :param str namespace: The namespace where the EMR Containers cluster is running
-        """
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[str]:
-        """
-        The namespace where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "namespace")
 
 
@@ -119,11 +93,6 @@ class GetVirtualClusterContainerProviderResult(dict):
                  id: str,
                  infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoResult'],
                  type: str):
-        """
-        :param str id: The name of the container provider that is running your EMR Containers cluster
-        :param Sequence['GetVirtualClusterContainerProviderInfoArgs'] infos: Nested list containing information about the configuration of the container provider
-        :param str type: The type of the container provider
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "infos", infos)
         pulumi.set(__self__, "type", type)
@@ -131,25 +100,16 @@ class GetVirtualClusterContainerProviderResult(dict):
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The name of the container provider that is running your EMR Containers cluster
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def infos(self) -> Sequence['outputs.GetVirtualClusterContainerProviderInfoResult']:
-        """
-        Nested list containing information about the configuration of the container provider
-        """
         return pulumi.get(self, "infos")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of the container provider
-        """
         return pulumi.get(self, "type")
 
 
@@ -157,17 +117,11 @@ class GetVirtualClusterContainerProviderResult(dict):
 class GetVirtualClusterContainerProviderInfoResult(dict):
     def __init__(__self__, *,
                  eks_infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']):
-        """
-        :param Sequence['GetVirtualClusterContainerProviderInfoEksInfoArgs'] eks_infos: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "eks_infos", eks_infos)
 
     @property
     @pulumi.getter(name="eksInfos")
     def eks_infos(self) -> Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']:
-        """
-        Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "eks_infos")
 
 
@@ -175,17 +129,11 @@ class GetVirtualClusterContainerProviderInfoResult(dict):
 class GetVirtualClusterContainerProviderInfoEksInfoResult(dict):
     def __init__(__self__, *,
                  namespace: str):
-        """
-        :param str namespace: The namespace where the EMR Containers cluster is running
-        """
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> str:
-        """
-        The namespace where the EMR Containers cluster is running
-        """
         return pulumi.get(self, "namespace")
 
 

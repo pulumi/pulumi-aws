@@ -60,9 +60,6 @@ class GetSigningProfileResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN for the signing profile.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -81,65 +78,41 @@ class GetSigningProfileResult:
     @property
     @pulumi.getter(name="platformDisplayName")
     def platform_display_name(self) -> str:
-        """
-        A human-readable name for the signing platform associated with the signing profile.
-        """
         return pulumi.get(self, "platform_display_name")
 
     @property
     @pulumi.getter(name="platformId")
     def platform_id(self) -> str:
-        """
-        ID of the platform that is used by the target signing profile.
-        """
         return pulumi.get(self, "platform_id")
 
     @property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> Sequence['outputs.GetSigningProfileRevocationRecordResult']:
-        """
-        Revocation information for a signing profile.
-        """
         return pulumi.get(self, "revocation_records")
 
     @property
     @pulumi.getter(name="signatureValidityPeriods")
     def signature_validity_periods(self) -> Sequence['outputs.GetSigningProfileSignatureValidityPeriodResult']:
-        """
-        The validity period for a signing job.
-        """
         return pulumi.get(self, "signature_validity_periods")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the target signing profile.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        List of tags associated with the signing profile.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        Current version of the signing profile.
-        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="versionArn")
     def version_arn(self) -> str:
-        """
-        Signing profile ARN, including the profile version.
-        """
         return pulumi.get(self, "version_arn")
 
 
@@ -166,20 +139,7 @@ def get_signing_profile(name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSigningProfileResult:
     """
-    Provides information about a Signer Signing Profile.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
-    ```
-
-
-    :param str name: Name of the target signing profile.
-    :param Mapping[str, str] tags: List of tags associated with the signing profile.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -206,19 +166,6 @@ def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
-    Provides information about a Signer Signing Profile.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
-    ```
-
-
-    :param str name: Name of the target signing profile.
-    :param Mapping[str, str] tags: List of tags associated with the signing profile.
+    Use this data source to access information about an existing resource.
     """
     ...

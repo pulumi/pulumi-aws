@@ -152,73 +152,46 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def address(self) -> str:
-        """
-        Hostname of the RDS instance. See also `endpoint` and `port`.
-        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> int:
-        """
-        Allocated storage size specified in gigabytes.
-        """
         return pulumi.get(self, "allocated_storage")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> bool:
-        """
-        Indicates that minor version patches are applied automatically.
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
-        """
-        Name of the Availability Zone the DB instance is located in.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> int:
-        """
-        Specifies the number of days for which automatic DB snapshots are retained.
-        """
         return pulumi.get(self, "backup_retention_period")
 
     @property
     @pulumi.getter(name="caCertIdentifier")
     def ca_cert_identifier(self) -> str:
-        """
-        Identifier of the CA certificate for the DB instance.
-        """
         return pulumi.get(self, "ca_cert_identifier")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> str:
-        """
-        If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
-        """
         return pulumi.get(self, "db_cluster_identifier")
 
     @property
     @pulumi.getter(name="dbInstanceArn")
     def db_instance_arn(self) -> str:
-        """
-        ARN for the DB instance.
-        """
         return pulumi.get(self, "db_instance_arn")
 
     @property
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> str:
-        """
-        Contains the name of the compute and memory capacity class of the DB instance.
-        """
         return pulumi.get(self, "db_instance_class")
 
     @property
@@ -229,81 +202,51 @@ class GetInstanceResult:
     @property
     @pulumi.getter(name="dbInstancePort")
     def db_instance_port(self) -> int:
-        """
-        Port that the DB instance listens on.
-        """
         return pulumi.get(self, "db_instance_port")
 
     @property
     @pulumi.getter(name="dbName")
     def db_name(self) -> str:
-        """
-        Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
-        """
         return pulumi.get(self, "db_name")
 
     @property
     @pulumi.getter(name="dbParameterGroups")
     def db_parameter_groups(self) -> Sequence[str]:
-        """
-        Provides the list of DB parameter groups applied to this DB instance.
-        """
         return pulumi.get(self, "db_parameter_groups")
 
     @property
     @pulumi.getter(name="dbSecurityGroups")
     def db_security_groups(self) -> Sequence[str]:
-        """
-        Provides List of DB security groups associated to this DB instance.
-        """
         return pulumi.get(self, "db_security_groups")
 
     @property
     @pulumi.getter(name="dbSubnetGroup")
     def db_subnet_group(self) -> str:
-        """
-        Name of the subnet group associated with the DB instance.
-        """
         return pulumi.get(self, "db_subnet_group")
 
     @property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Sequence[str]:
-        """
-        List of log types to export to cloudwatch.
-        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
-        """
-        Connection endpoint in `address:port` format.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def engine(self) -> str:
-        """
-        Provides the name of the database engine to be used for this DB instance.
-        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
-        """
-        Database engine version.
-        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> str:
-        """
-        Canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @property
@@ -317,145 +260,91 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def iops(self) -> int:
-        """
-        Provisioned IOPS (I/O operations per second) value.
-        """
         return pulumi.get(self, "iops")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
-        """
-        If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> str:
-        """
-        License model information for this DB instance.
-        """
         return pulumi.get(self, "license_model")
 
     @property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> str:
-        """
-        Contains the master username for the DB instance.
-        """
         return pulumi.get(self, "master_username")
 
     @property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> int:
-        """
-        Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
-        """
         return pulumi.get(self, "monitoring_interval")
 
     @property
     @pulumi.getter(name="monitoringRoleArn")
     def monitoring_role_arn(self) -> str:
-        """
-        ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
-        """
         return pulumi.get(self, "monitoring_role_arn")
 
     @property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> bool:
-        """
-        If the DB instance is a Multi-AZ deployment.
-        """
         return pulumi.get(self, "multi_az")
 
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> str:
-        """
-        Network type of the DB instance.
-        """
         return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="optionGroupMemberships")
     def option_group_memberships(self) -> Sequence[str]:
-        """
-        Provides the list of option group memberships for this DB instance.
-        """
         return pulumi.get(self, "option_group_memberships")
 
     @property
     @pulumi.getter
     def port(self) -> int:
-        """
-        Database port.
-        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> str:
-        """
-        Specifies the daily time range during which automated backups are created.
-        """
         return pulumi.get(self, "preferred_backup_window")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> str:
-        """
-        Specifies the weekly time range during which system maintenance can occur in UTC.
-        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> bool:
-        """
-        Accessibility options for the DB instance.
-        """
         return pulumi.get(self, "publicly_accessible")
 
     @property
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> str:
-        """
-        Identifier of the source DB that this is a replica of.
-        """
         return pulumi.get(self, "replicate_source_db")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
-        """
-        RDS Resource ID of this instance.
-        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> bool:
-        """
-        Whether the DB instance is encrypted.
-        """
         return pulumi.get(self, "storage_encrypted")
 
     @property
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> int:
-        """
-        Storage throughput value for the DB instance.
-        """
         return pulumi.get(self, "storage_throughput")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> str:
-        """
-        Storage type associated with DB instance.
-        """
         return pulumi.get(self, "storage_type")
 
     @property
@@ -466,17 +355,11 @@ class GetInstanceResult:
     @property
     @pulumi.getter
     def timezone(self) -> str:
-        """
-        Time zone of the DB instance.
-        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter(name="vpcSecurityGroups")
     def vpc_security_groups(self) -> Sequence[str]:
-        """
-        Provides a list of VPC security group elements that the DB instance belongs to.
-        """
         return pulumi.get(self, "vpc_security_groups")
 
 
@@ -534,19 +417,7 @@ def get_instance(db_instance_identifier: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
-    Use this data source to get information about an RDS instance
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_instance(db_instance_identifier="my-test-database")
-    ```
-
-
-    :param str db_instance_identifier: Name of the RDS instance
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
@@ -604,18 +475,6 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = No
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
-    Use this data source to get information about an RDS instance
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    database = aws.rds.get_instance(db_instance_identifier="my-test-database")
-    ```
-
-
-    :param str db_instance_identifier: Name of the RDS instance
+    Use this data source to access information about an existing resource.
     """
     ...

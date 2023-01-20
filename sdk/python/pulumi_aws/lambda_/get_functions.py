@@ -34,17 +34,11 @@ class GetFunctionsResult:
     @property
     @pulumi.getter(name="functionArns")
     def function_arns(self) -> Sequence[str]:
-        """
-        A list of Lambda Function ARNs.
-        """
         return pulumi.get(self, "function_arns")
 
     @property
     @pulumi.getter(name="functionNames")
     def function_names(self) -> Sequence[str]:
-        """
-        A list of Lambda Function names.
-        """
         return pulumi.get(self, "function_names")
 
     @property
@@ -69,16 +63,7 @@ class AwaitableGetFunctionsResult(GetFunctionsResult):
 
 def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
     """
-    Data resource to get a list of Lambda Functions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    all = aws.lambda.get_functions()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

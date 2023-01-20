@@ -17,16 +17,12 @@ class OrganizationAdminAccountArgs:
                  admin_account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a OrganizationAdminAccount resource.
-        :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         pulumi.set(__self__, "admin_account_id", admin_account_id)
 
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Input[str]:
-        """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -40,7 +36,6 @@ class _OrganizationAdminAccountState:
                  admin_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
-        :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         if admin_account_id is not None:
             pulumi.set(__self__, "admin_account_id", admin_account_id)
@@ -48,9 +43,6 @@ class _OrganizationAdminAccountState:
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-        """
         return pulumi.get(self, "admin_account_id")
 
     @admin_account_id.setter
@@ -66,30 +58,9 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  admin_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.macie2.Account("exampleAccount")
-        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
-        ## Import
-
-        `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
-
-        ```sh
-         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
-        ```
-
+        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         ...
     @overload
@@ -98,27 +69,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  args: OrganizationAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.macie2.Account("exampleAccount")
-        example_organization_admin_account = aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="ID OF THE ADMIN ACCOUNT",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
-        ## Import
-
-        `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
-
-        ```sh
-         $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
-        ```
-
+        Create a OrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +116,6 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_account_id: The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -177,8 +127,5 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     @property
     @pulumi.getter(name="adminAccountId")
     def admin_account_id(self) -> pulumi.Output[str]:
-        """
-        The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-        """
         return pulumi.get(self, "admin_account_id")
 

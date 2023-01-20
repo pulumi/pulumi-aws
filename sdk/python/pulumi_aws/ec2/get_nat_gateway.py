@@ -61,17 +61,11 @@ class GetNatGatewayResult:
     @property
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> str:
-        """
-        ID of the EIP allocated to the selected Nat Gateway.
-        """
         return pulumi.get(self, "allocation_id")
 
     @property
     @pulumi.getter(name="connectivityType")
     def connectivity_type(self) -> str:
-        """
-        Connectivity type of the NAT Gateway.
-        """
         return pulumi.get(self, "connectivity_type")
 
     @property
@@ -87,25 +81,16 @@ class GetNatGatewayResult:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
-        """
-        The ID of the ENI allocated to the selected Nat Gateway.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
-        """
-        Private Ip address of the selected Nat Gateway.
-        """
         return pulumi.get(self, "private_ip")
 
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> str:
-        """
-        Public Ip (EIP) address of the selected Nat Gateway.
-        """
         return pulumi.get(self, "public_ip")
 
     @property
@@ -156,37 +141,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
                     vpc_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewayResult:
     """
-    Provides details about a specific Nat Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
-    ```
-
-    Usage with tags:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
-        tags={
-            "Name": "gw NAT",
-        })
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: ID of the specific Nat Gateway to retrieve.
-    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Nat Gateway.
-    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -221,36 +176,6 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
-    Provides details about a specific Nat Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
-    ```
-
-    Usage with tags:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
-        tags={
-            "Name": "gw NAT",
-        })
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: ID of the specific Nat Gateway to retrieve.
-    :param str state: State of the NAT gateway (pending | failed | available | deleting | deleted ).
-    :param str subnet_id: ID of subnet that the Nat Gateway resides in.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired Nat Gateway.
-    :param str vpc_id: ID of the VPC that the Nat Gateway resides in.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -18,8 +18,6 @@ class ResourceAssociationArgs:
                  resource_share_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourceAssociation resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "resource_share_arn", resource_share_arn)
@@ -27,9 +25,6 @@ class ResourceAssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -39,9 +34,6 @@ class ResourceAssociationArgs:
     @property
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_share_arn")
 
     @resource_share_arn.setter
@@ -56,8 +48,6 @@ class _ResourceAssociationState:
                  resource_share_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourceAssociation resources.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
@@ -67,9 +57,6 @@ class _ResourceAssociationState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -79,9 +66,6 @@ class _ResourceAssociationState:
     @property
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_share_arn")
 
     @resource_share_arn.setter
@@ -98,33 +82,9 @@ class ResourceAssociation(pulumi.CustomResource):
                  resource_share_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Resource Access Manager (RAM) Resource Association.
-
-        > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
-
-        ## Import
-
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
-
-        ```sh
-         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-        ```
-
+        Create a ResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
         ...
     @overload
@@ -133,29 +93,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  args: ResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Resource Access Manager (RAM) Resource Association.
-
-        > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ram.ResourceAssociation("example",
-            resource_arn=aws_subnet["example"]["arn"],
-            resource_share_arn=aws_ram_resource_share["example"]["arn"])
-        ```
-
-        ## Import
-
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
-
-        ```sh
-         $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
-        ```
-
+        Create a ResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,8 +145,6 @@ class ResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -221,16 +157,10 @@ class ResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
-        """
         return pulumi.get(self, "resource_share_arn")
 

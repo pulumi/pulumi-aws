@@ -41,9 +41,6 @@ class GetQueueResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the queue.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -62,17 +59,11 @@ class GetQueueResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def url(self) -> str:
-        """
-        URL of the queue.
-        """
         return pulumi.get(self, "url")
 
 
@@ -93,22 +84,7 @@ def get_queue(name: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
-    Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-    By using this data source, you can reference SQS queues without having to hardcode
-    the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queue(name="queue")
-    ```
-
-
-    :param str name: Name of the queue to match.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -129,21 +105,6 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
     """
-    Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
-    By using this data source, you can reference SQS queues without having to hardcode
-    the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queue(name="queue")
-    ```
-
-
-    :param str name: Name of the queue to match.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -24,12 +24,6 @@ class ParameterGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ParameterGroup resource.
-        :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
-        :param pulumi.Input[str] description: Description for the parameter group.
-        :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "family", family)
         if description is not None:
@@ -46,9 +40,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def family(self) -> pulumi.Input[str]:
-        """
-        The engine version that the parameter group can be used with.
-        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -58,9 +49,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -70,9 +58,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,9 +67,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -94,9 +76,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
-        """
-        Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -106,9 +85,6 @@ class ParameterGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,14 +105,6 @@ class _ParameterGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ParameterGroup resources.
-        :param pulumi.Input[str] arn: The ARN of the parameter group.
-        :param pulumi.Input[str] description: Description for the parameter group.
-        :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
-        :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -158,9 +126,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the parameter group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -170,9 +135,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -182,9 +144,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def family(self) -> Optional[pulumi.Input[str]]:
-        """
-        The engine version that the parameter group can be used with.
-        """
         return pulumi.get(self, "family")
 
     @family.setter
@@ -194,9 +153,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -206,9 +162,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -218,9 +171,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ParameterGroupParameterArgs']]]]:
-        """
-        Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -230,9 +180,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -242,9 +189,6 @@ class _ParameterGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -265,40 +209,9 @@ class ParameterGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a MemoryDB Parameter Group.
-
-        More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.ParameterGroup("example",
-            family="memorydb_redis6",
-            parameters=[aws.memorydb.ParameterGroupParameterArgs(
-                name="activedefrag",
-                value="yes",
-            )])
-        ```
-
-        ## Import
-
-        Use the `name` to import a parameter group. For example
-
-        ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-        ```
-
+        Create a ParameterGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description for the parameter group.
-        :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
-        :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -307,32 +220,7 @@ class ParameterGroup(pulumi.CustomResource):
                  args: ParameterGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MemoryDB Parameter Group.
-
-        More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.ParameterGroup("example",
-            family="memorydb_redis6",
-            parameters=[aws.memorydb.ParameterGroupParameterArgs(
-                name="activedefrag",
-                value="yes",
-            )])
-        ```
-
-        ## Import
-
-        Use the `name` to import a parameter group. For example
-
-        ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-        ```
-
+        Create a ParameterGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ParameterGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -398,14 +286,6 @@ class ParameterGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the parameter group.
-        :param pulumi.Input[str] description: Description for the parameter group.
-        :param pulumi.Input[str] family: The engine version that the parameter group can be used with.
-        :param pulumi.Input[str] name: The name of the parameter.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParameterGroupParameterArgs']]]] parameters: Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,64 +304,40 @@ class ParameterGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the parameter group.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for the parameter group.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def family(self) -> pulumi.Output[str]:
-        """
-        The engine version that the parameter group can be used with.
-        """
         return pulumi.get(self, "family")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the parameter.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.ParameterGroupParameter']]]:
-        """
-        Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

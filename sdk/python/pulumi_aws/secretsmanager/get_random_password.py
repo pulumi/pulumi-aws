@@ -99,9 +99,6 @@ class GetRandomPasswordResult:
     @property
     @pulumi.getter(name="randomPassword")
     def random_password(self) -> str:
-        """
-        Random password.
-        """
         return pulumi.get(self, "random_password")
 
     @property
@@ -139,28 +136,7 @@ def get_random_password(exclude_characters: Optional[str] = None,
                         require_each_included_type: Optional[bool] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRandomPasswordResult:
     """
-    Generate a random password.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
-    ```
-
-
-    :param str exclude_characters: String of the characters that you don't want in the password.
-    :param bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
-    :param bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
-    :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
-    :param bool include_space: Specifies whether to include the space character.
-    :param int password_length: Length of the password.
-    :param str random_password: Random password.
-    :param bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['excludeCharacters'] = exclude_characters
@@ -200,27 +176,6 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                require_each_included_type: Optional[pulumi.Input[Optional[bool]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
-    Generate a random password.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.secretsmanager.get_random_password(exclude_numbers=True,
-        password_length=50)
-    ```
-
-
-    :param str exclude_characters: String of the characters that you don't want in the password.
-    :param bool exclude_lowercase: Specifies whether to exclude lowercase letters from the password.
-    :param bool exclude_numbers: Specifies whether to exclude numbers from the password.
-    :param bool exclude_punctuation: Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \\ ] ^ _ ` { | } ~ .``
-    :param bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
-    :param bool include_space: Specifies whether to include the space character.
-    :param int password_length: Length of the password.
-    :param str random_password: Random password.
-    :param bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
+    Use this data source to access information about an existing resource.
     """
     ...

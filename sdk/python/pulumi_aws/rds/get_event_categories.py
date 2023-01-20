@@ -35,9 +35,6 @@ class GetEventCategoriesResult:
     @property
     @pulumi.getter(name="eventCategories")
     def event_categories(self) -> Sequence[str]:
-        """
-        List of the event categories.
-        """
         return pulumi.get(self, "event_categories")
 
     @property
@@ -68,30 +65,7 @@ class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
 def get_event_categories(source_type: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventCategoriesResult:
     """
-    ## Example Usage
-
-    List the event categories of all the RDS resources.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_event_categories = aws.rds.get_event_categories()
-    pulumi.export("example", example_event_categories.event_categories)
-    ```
-
-    List the event categories specific to the RDS resource `db-snapshot`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_event_categories = aws.rds.get_event_categories(source_type="db-snapshot")
-    pulumi.export("example", example_event_categories.event_categories)
-    ```
-
-
-    :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['sourceType'] = source_type
@@ -108,29 +82,6 @@ def get_event_categories(source_type: Optional[str] = None,
 def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventCategoriesResult]:
     """
-    ## Example Usage
-
-    List the event categories of all the RDS resources.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_event_categories = aws.rds.get_event_categories()
-    pulumi.export("example", example_event_categories.event_categories)
-    ```
-
-    List the event categories specific to the RDS resource `db-snapshot`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_event_categories = aws.rds.get_event_categories(source_type="db-snapshot")
-    pulumi.export("example", example_event_categories.event_categories)
-    ```
-
-
-    :param str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+    Use this data source to access information about an existing resource.
     """
     ...

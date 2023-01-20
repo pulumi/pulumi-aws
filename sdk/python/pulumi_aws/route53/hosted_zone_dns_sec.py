@@ -18,8 +18,6 @@ class HostedZoneDnsSecArgs:
                  signing_status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedZoneDnsSec resource.
-        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
-        :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         if signing_status is not None:
@@ -28,9 +26,6 @@ class HostedZoneDnsSecArgs:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[str]:
-        """
-        Identifier of the Route 53 Hosted Zone.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -40,9 +35,6 @@ class HostedZoneDnsSecArgs:
     @property
     @pulumi.getter(name="signingStatus")
     def signing_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-        """
         return pulumi.get(self, "signing_status")
 
     @signing_status.setter
@@ -57,8 +49,6 @@ class _HostedZoneDnsSecState:
                  signing_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HostedZoneDnsSec resources.
-        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
-        :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
@@ -68,9 +58,6 @@ class _HostedZoneDnsSecState:
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the Route 53 Hosted Zone.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @hosted_zone_id.setter
@@ -80,9 +67,6 @@ class _HostedZoneDnsSecState:
     @property
     @pulumi.getter(name="signingStatus")
     def signing_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-        """
         return pulumi.get(self, "signing_status")
 
     @signing_status.setter
@@ -99,91 +83,9 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  signing_status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
-
-        !> **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=example_zone.id,
-            key_management_service_arn=example_key.arn)
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        ```
-
-        ## Import
-
-        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
-        ```
-
+        Create a HostedZoneDnsSec resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
-        :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         ...
     @overload
@@ -192,87 +94,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                  args: HostedZoneDnsSecArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Route 53 Hosted Zone Domain Name System Security Extensions (DNSSEC). For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
-
-        !> **WARNING:** If you disable DNSSEC signing for your hosted zone before the DNS changes have propagated, your domain could become unavailable on the internet. When you remove the DS records, you must wait until the longest TTL for the DS records that you remove has expired before you complete the step to disable DNSSEC signing. Please refer to the [Route 53 Developer Guide - Disable DNSSEC](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-disable.html) for a detailed breakdown on the steps required to disable DNSSEC safely for a hosted zone.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example_key = aws.kms.Key("exampleKey",
-            customer_master_key_spec="ECC_NIST_P256",
-            deletion_window_in_days=7,
-            key_usage="SIGN_VERIFY",
-            policy=json.dumps({
-                "Statement": [
-                    {
-                        "Action": [
-                            "kms:DescribeKey",
-                            "kms:GetPublicKey",
-                            "kms:Sign",
-                        ],
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service",
-                        "Resource": "*",
-                        "Condition": {
-                            "StringEquals": {
-                                "aws:SourceAccount": current.account_id,
-                            },
-                            "ArnLike": {
-                                "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:CreateGrant",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "dnssec-route53.amazonaws.com",
-                        },
-                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
-                        "Resource": "*",
-                        "Condition": {
-                            "Bool": {
-                                "kms:GrantIsForAWSResource": "true",
-                            },
-                        },
-                    },
-                    {
-                        "Action": "kms:*",
-                        "Effect": "Allow",
-                        "Principal": {
-                            "AWS": f"arn:aws:iam::{current.account_id}:root",
-                        },
-                        "Resource": "*",
-                        "Sid": "Enable IAM User Permissions",
-                    },
-                ],
-                "Version": "2012-10-17",
-            }))
-        example_zone = aws.route53.Zone("exampleZone")
-        example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=example_zone.id,
-            key_management_service_arn=example_key.arn)
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
-        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
-        ```
-
-        ## Import
-
-        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
-        ```
-
+        Create a HostedZoneDnsSec resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostedZoneDnsSecArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,8 +144,6 @@ class HostedZoneDnsSec(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosted_zone_id: Identifier of the Route 53 Hosted Zone.
-        :param pulumi.Input[str] signing_status: Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,16 +156,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
     @property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the Route 53 Hosted Zone.
-        """
         return pulumi.get(self, "hosted_zone_id")
 
     @property
     @pulumi.getter(name="signingStatus")
     def signing_status(self) -> pulumi.Output[Optional[str]]:
-        """
-        Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-        """
         return pulumi.get(self, "signing_status")
 

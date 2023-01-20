@@ -17,16 +17,12 @@ class SharedDirectoryAccepterArgs:
                  shared_directory_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SharedDirectoryAccepter resource.
-        :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         pulumi.set(__self__, "shared_directory_id", shared_directory_id)
 
     @property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> pulumi.Input[str]:
-        """
-        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        """
         return pulumi.get(self, "shared_directory_id")
 
     @shared_directory_id.setter
@@ -44,11 +40,6 @@ class _SharedDirectoryAccepterState:
                  shared_directory_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SharedDirectoryAccepter resources.
-        :param pulumi.Input[str] method: Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[str] owner_account_id: Account identifier of the directory owner.
-        :param pulumi.Input[str] owner_directory_id: Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -64,9 +55,6 @@ class _SharedDirectoryAccepterState:
     @property
     @pulumi.getter
     def method(self) -> Optional[pulumi.Input[str]]:
-        """
-        Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        """
         return pulumi.get(self, "method")
 
     @method.setter
@@ -76,9 +64,6 @@ class _SharedDirectoryAccepterState:
     @property
     @pulumi.getter
     def notes(self) -> Optional[pulumi.Input[str]]:
-        """
-        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        """
         return pulumi.get(self, "notes")
 
     @notes.setter
@@ -88,9 +73,6 @@ class _SharedDirectoryAccepterState:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Account identifier of the directory owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -100,9 +82,6 @@ class _SharedDirectoryAccepterState:
     @property
     @pulumi.getter(name="ownerDirectoryId")
     def owner_directory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        """
         return pulumi.get(self, "owner_directory_id")
 
     @owner_directory_id.setter
@@ -112,9 +91,6 @@ class _SharedDirectoryAccepterState:
     @property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        """
         return pulumi.get(self, "shared_directory_id")
 
     @shared_directory_id.setter
@@ -130,37 +106,9 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
                  shared_directory_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Accepts a shared directory in a consumer account.
-
-        > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
-            ))
-        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
-        opts=pulumi.ResourceOptions(provider="awsalternate"))
-        ```
-
-        ## Import
-
-        Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-        ```
-
+        Create a SharedDirectoryAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         ...
     @overload
@@ -169,34 +117,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
                  args: SharedDirectoryAccepterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Accepts a shared directory in a consumer account.
-
-        > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
-            directory_id=aws_directory_service_directory["example"]["id"],
-            notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
-                id=data["aws_caller_identity"]["receiver"]["account_id"],
-            ))
-        example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
-        opts=pulumi.ResourceOptions(provider="awsalternate"))
-        ```
-
-        ## Import
-
-        Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-        ```
-
+        Create a SharedDirectoryAccepter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SharedDirectoryAccepterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,11 +172,6 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] method: Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        :param pulumi.Input[str] notes: Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        :param pulumi.Input[str] owner_account_id: Account identifier of the directory owner.
-        :param pulumi.Input[str] owner_directory_id: Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        :param pulumi.Input[str] shared_directory_id: Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -271,40 +187,25 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def method(self) -> pulumi.Output[str]:
-        """
-        Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-        """
         return pulumi.get(self, "method")
 
     @property
     @pulumi.getter
     def notes(self) -> pulumi.Output[str]:
-        """
-        Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        """
         return pulumi.get(self, "notes")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
-        """
-        Account identifier of the directory owner.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter(name="ownerDirectoryId")
     def owner_directory_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-        """
         return pulumi.get(self, "owner_directory_id")
 
     @property
     @pulumi.getter(name="sharedDirectoryId")
     def shared_directory_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        """
         return pulumi.get(self, "shared_directory_id")
 

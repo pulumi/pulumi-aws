@@ -41,9 +41,6 @@ class GetDelegatedServicesResult:
     @property
     @pulumi.getter(name="delegatedServices")
     def delegated_services(self) -> Sequence['outputs.GetDelegatedServicesDelegatedServiceResult']:
-        """
-        Services for which the account is a delegated administrator, which have the following attributes:
-        """
         return pulumi.get(self, "delegated_services")
 
     @property
@@ -69,19 +66,7 @@ class AwaitableGetDelegatedServicesResult(GetDelegatedServicesResult):
 def get_delegated_services(account_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDelegatedServicesResult:
     """
-    Get a list the AWS services for which the specified account is a delegated administrator
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_delegated_services(account_id="AWS ACCOUNT ID")
-    ```
-
-
-    :param str account_id: Account ID number of a delegated administrator account in the organization.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
@@ -98,18 +83,6 @@ def get_delegated_services(account_id: Optional[str] = None,
 def get_delegated_services_output(account_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedServicesResult]:
     """
-    Get a list the AWS services for which the specified account is a delegated administrator
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_delegated_services(account_id="AWS ACCOUNT ID")
-    ```
-
-
-    :param str account_id: Account ID number of a delegated administrator account in the organization.
+    Use this data source to access information about an existing resource.
     """
     ...

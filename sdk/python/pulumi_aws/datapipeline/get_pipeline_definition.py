@@ -51,17 +51,11 @@ class GetPipelineDefinitionResult:
     @property
     @pulumi.getter(name="parameterObjects")
     def parameter_objects(self) -> Sequence['outputs.GetPipelineDefinitionParameterObjectResult']:
-        """
-        Parameter objects used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_objects")
 
     @property
     @pulumi.getter(name="parameterValues")
     def parameter_values(self) -> Optional[Sequence['outputs.GetPipelineDefinitionParameterValueResult']]:
-        """
-        Parameter values used in the pipeline definition. See below
-        """
         return pulumi.get(self, "parameter_values")
 
     @property
@@ -72,9 +66,6 @@ class GetPipelineDefinitionResult:
     @property
     @pulumi.getter(name="pipelineObjects")
     def pipeline_objects(self) -> Sequence['outputs.GetPipelineDefinitionPipelineObjectResult']:
-        """
-        Objects defined in the pipeline. See below
-        """
         return pulumi.get(self, "pipeline_objects")
 
 
@@ -95,20 +86,7 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[pulumi.InputType
                             pipeline_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineDefinitionResult:
     """
-    Provides details about a specific DataPipeline Pipeline Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
-    :param str pipeline_id: ID of the pipeline.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parameterValues'] = parameter_values
@@ -129,19 +107,6 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
                                    pipeline_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
-    Provides details about a specific DataPipeline Pipeline Definition.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline_definition(pipeline_id="pipelineID")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetPipelineDefinitionParameterValueArgs']] parameter_values: Parameter values used in the pipeline definition. See below
-    :param str pipeline_id: ID of the pipeline.
+    Use this data source to access information about an existing resource.
     """
     ...

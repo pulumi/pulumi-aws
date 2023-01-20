@@ -40,11 +40,6 @@ class AppCampaignHook(dict):
                  lambda_function_name: Optional[str] = None,
                  mode: Optional[str] = None,
                  web_url: Optional[str] = None):
-        """
-        :param str lambda_function_name: Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        :param str mode: What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        :param str web_url: Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        """
         if lambda_function_name is not None:
             pulumi.set(__self__, "lambda_function_name", lambda_function_name)
         if mode is not None:
@@ -55,25 +50,16 @@ class AppCampaignHook(dict):
     @property
     @pulumi.getter(name="lambdaFunctionName")
     def lambda_function_name(self) -> Optional[str]:
-        """
-        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        """
         return pulumi.get(self, "lambda_function_name")
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
-        """
-        What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        """
         return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter(name="webUrl")
     def web_url(self) -> Optional[str]:
-        """
-        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        """
         return pulumi.get(self, "web_url")
 
 
@@ -103,12 +89,6 @@ class AppLimits(dict):
                  maximum_duration: Optional[int] = None,
                  messages_per_second: Optional[int] = None,
                  total: Optional[int] = None):
-        """
-        :param int daily: The maximum number of messages that the campaign can send daily.
-        :param int maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        :param int messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        :param int total: The maximum total number of messages that the campaign can send.
-        """
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
         if maximum_duration is not None:
@@ -121,33 +101,21 @@ class AppLimits(dict):
     @property
     @pulumi.getter
     def daily(self) -> Optional[int]:
-        """
-        The maximum number of messages that the campaign can send daily.
-        """
         return pulumi.get(self, "daily")
 
     @property
     @pulumi.getter(name="maximumDuration")
     def maximum_duration(self) -> Optional[int]:
-        """
-        The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        """
         return pulumi.get(self, "maximum_duration")
 
     @property
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> Optional[int]:
-        """
-        The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        """
         return pulumi.get(self, "messages_per_second")
 
     @property
     @pulumi.getter
     def total(self) -> Optional[int]:
-        """
-        The maximum total number of messages that the campaign can send.
-        """
         return pulumi.get(self, "total")
 
 
@@ -156,10 +124,6 @@ class AppQuietTime(dict):
     def __init__(__self__, *,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
-        """
-        :param str end: The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        :param str start: The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        """
         if end is not None:
             pulumi.set(__self__, "end", end)
         if start is not None:
@@ -168,17 +132,11 @@ class AppQuietTime(dict):
     @property
     @pulumi.getter
     def end(self) -> Optional[str]:
-        """
-        The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        """
         return pulumi.get(self, "end")
 
     @property
     @pulumi.getter
     def start(self) -> Optional[str]:
-        """
-        The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        """
         return pulumi.get(self, "start")
 
 

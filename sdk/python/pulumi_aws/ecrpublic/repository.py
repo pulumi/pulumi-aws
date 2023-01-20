@@ -22,9 +22,6 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[str] repository_name: Name of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if catalog_data is not None:
@@ -37,9 +34,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -49,9 +43,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
@@ -70,9 +61,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -93,13 +81,6 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[str] repository_name: Name of the repository.
-        :param pulumi.Input[str] repository_uri: The URI of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,9 +102,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +111,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
@@ -154,9 +129,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -166,9 +138,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -178,9 +147,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URI of the repository.
-        """
         return pulumi.get(self, "repository_uri")
 
     @repository_uri.setter
@@ -190,9 +156,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -202,9 +165,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -223,47 +183,9 @@ class Repository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Public Elastic Container Registry Repository.
-
-        > **NOTE:** This resource can only be used with `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
-            tags={
-                "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
-        ```
-
-        ## Import
-
-        ECR Public Repositories can be imported using the `repository_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ecrpublic/repository:Repository example example
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[str] repository_name: Name of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -272,42 +194,7 @@ class Repository(pulumi.CustomResource):
                  args: RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Public Elastic Container Registry Repository.
-
-        > **NOTE:** This resource can only be used with `us-east-1` region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import base64
-        import pulumi_aws as aws
-
-        us_east1 = aws.Provider("usEast1", region="us-east-1")
-        foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
-                about_text="About Text",
-                architectures=["ARM"],
-                description="Description",
-                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
-                operating_systems=["Linux"],
-                usage_text="Usage Text",
-            ),
-            tags={
-                "env": "production",
-            },
-            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
-        ```
-
-        ## Import
-
-        ECR Public Repositories can be imported using the `repository_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ecrpublic/repository:Repository example example
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -371,13 +258,6 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
-        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[str] repository_name: Name of the repository.
-        :param pulumi.Input[str] repository_uri: The URI of the repository.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -396,17 +276,11 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Full ARN of the repository.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="catalogData")
     def catalog_data(self) -> pulumi.Output[Optional['outputs.RepositoryCatalogData']]:
-        """
-        Catalog data configuration for the repository. See below for schema.
-        """
         return pulumi.get(self, "catalog_data")
 
     @property
@@ -417,40 +291,25 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[str]:
-        """
-        Name of the repository.
-        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter(name="repositoryUri")
     def repository_uri(self) -> pulumi.Output[str]:
-        """
-        The URI of the repository.
-        """
         return pulumi.get(self, "repository_uri")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

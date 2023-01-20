@@ -19,16 +19,12 @@ class OrganizationConfigurationArgs:
                  auto_enable: pulumi.Input['OrganizationConfigurationAutoEnableArgs']):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
-        :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
 
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Input['OrganizationConfigurationAutoEnableArgs']:
-        """
-        Configuration block for auto enabling. See below.
-        """
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -43,8 +39,6 @@ class _OrganizationConfigurationState:
                  max_account_limit_reached: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
-        :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
-        :param pulumi.Input[bool] max_account_limit_reached: Whether your configuration reached the max account limit.
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
@@ -54,9 +48,6 @@ class _OrganizationConfigurationState:
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> Optional[pulumi.Input['OrganizationConfigurationAutoEnableArgs']]:
-        """
-        Configuration block for auto enabling. See below.
-        """
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -66,9 +57,6 @@ class _OrganizationConfigurationState:
     @property
     @pulumi.getter(name="maxAccountLimitReached")
     def max_account_limit_reached(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether your configuration reached the max account limit.
-        """
         return pulumi.get(self, "max_account_limit_reached")
 
     @max_account_limit_reached.setter
@@ -84,28 +72,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Inspector V2 Organization Configuration.
-
-        > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
-
-        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-        ))
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']] auto_enable: Configuration block for auto enabling. See below.
         """
         ...
     @overload
@@ -114,25 +83,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Inspector V2 Organization Configuration.
-
-        > **NOTE:** In order for this resource to work, the account you use must be an Inspector V2 Delegated Admin Account.
-
-        > **NOTE:** When this resource is deleted, EC2 and ECR scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.OrganizationConfiguration("example", auto_enable=aws.inspector2.OrganizationConfigurationAutoEnableArgs(
-            ec2=True,
-            ecr=False,
-        ))
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,8 +132,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationAutoEnableArgs']] auto_enable: Configuration block for auto enabling. See below.
-        :param pulumi.Input[bool] max_account_limit_reached: Whether your configuration reached the max account limit.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -195,16 +144,10 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Output['outputs.OrganizationConfigurationAutoEnable']:
-        """
-        Configuration block for auto enabling. See below.
-        """
         return pulumi.get(self, "auto_enable")
 
     @property
     @pulumi.getter(name="maxAccountLimitReached")
     def max_account_limit_reached(self) -> pulumi.Output[bool]:
-        """
-        Whether your configuration reached the max account limit.
-        """
         return pulumi.get(self, "max_account_limit_reached")
 

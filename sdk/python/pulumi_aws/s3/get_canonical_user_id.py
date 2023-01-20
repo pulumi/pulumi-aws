@@ -31,9 +31,6 @@ class GetCanonicalUserIdResult:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
-        """
-        Human-friendly name linked to the canonical user ID. The bucket owner's display name. **NOTE:** [This value](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTServiceGET.html) is only included in the response in the US East (N. Virginia), US West (N. California), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), EU (Ireland), and South America (São Paulo) regions.
-        """
         return pulumi.get(self, "display_name")
 
     @property
@@ -57,20 +54,7 @@ class AwaitableGetCanonicalUserIdResult(GetCanonicalUserIdResult):
 
 def get_canonical_user_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCanonicalUserIdResult:
     """
-    The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
-    for the effective account in which this provider is working.
-
-    > **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.s3.get_canonical_user_id()
-    pulumi.export("canonicalUserId", current.id)
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

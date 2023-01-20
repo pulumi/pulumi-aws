@@ -53,33 +53,21 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the certificate.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> str:
-        """
-        Type of certificate. For example, `CA`.
-        """
         return pulumi.get(self, "certificate_type")
 
     @property
     @pulumi.getter(name="customerOverride")
     def customer_override(self) -> bool:
-        """
-        Boolean whether there is an override for the default certificate identifier.
-        """
         return pulumi.get(self, "customer_override")
 
     @property
     @pulumi.getter(name="customerOverrideValidTill")
     def customer_override_valid_till(self) -> str:
-        """
-        If there is an override for the default certificate identifier, when the override expires.
-        """
         return pulumi.get(self, "customer_override_valid_till")
 
     @property
@@ -95,25 +83,16 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def thumbprint(self) -> str:
-        """
-        Thumbprint of the certificate.
-        """
         return pulumi.get(self, "thumbprint")
 
     @property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> str:
-        """
-        [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
-        """
         return pulumi.get(self, "valid_from")
 
     @property
     @pulumi.getter(name="validTill")
     def valid_till(self) -> str:
-        """
-        [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
-        """
         return pulumi.get(self, "valid_till")
 
 
@@ -138,20 +117,7 @@ def get_certificate(id: Optional[str] = None,
                     latest_valid_till: Optional[bool] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Information about an RDS Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_certificate(latest_valid_till=True)
-    ```
-
-
-    :param str id: Certificate identifier. For example, `rds-ca-2019`.
-    :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -176,19 +142,6 @@ def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                            latest_valid_till: Optional[pulumi.Input[Optional[bool]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Information about an RDS Certificate.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_certificate(latest_valid_till=True)
-    ```
-
-
-    :param str id: Certificate identifier. For example, `rds-ca-2019`.
-    :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    Use this data source to access information about an existing resource.
     """
     ...

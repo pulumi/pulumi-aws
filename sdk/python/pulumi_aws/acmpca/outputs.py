@@ -47,11 +47,6 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
                  key_algorithm: str,
                  signing_algorithm: str,
                  subject: 'outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject'):
-        """
-        :param str key_algorithm: Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        :param str signing_algorithm: Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        :param 'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs' subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
         pulumi.set(__self__, "subject", subject)
@@ -59,25 +54,16 @@ class CertificateAuthorityCertificateAuthorityConfiguration(dict):
     @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> str:
-        """
-        Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        """
         return pulumi.get(self, "key_algorithm")
 
     @property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> str:
-        """
-        Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        """
         return pulumi.get(self, "signing_algorithm")
 
     @property
     @pulumi.getter
     def subject(self) -> 'outputs.CertificateAuthorityCertificateAuthorityConfigurationSubject':
-        """
-        Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
-        """
         return pulumi.get(self, "subject")
 
 
@@ -122,21 +108,6 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
                  state: Optional[str] = None,
                  surname: Optional[str] = None,
                  title: Optional[str] = None):
-        """
-        :param str common_name: Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
-        :param str country: Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
-        :param str distinguished_name_qualifier: Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
-        :param str generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
-        :param str given_name: First name. Must be less than or equal to 16 characters in length.
-        :param str initials: Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
-        :param str locality: Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
-        :param str organization: Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        :param str organizational_unit: Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        :param str pseudonym: Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
-        :param str state: State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
-        :param str surname: Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
-        :param str title: Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
-        """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
         if country is not None:
@@ -167,105 +138,66 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubject(dict):
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[str]:
-        """
-        Fully qualified domain name (FQDN) associated with the certificate subject. Must be less than or equal to 64 characters in length.
-        """
         return pulumi.get(self, "common_name")
 
     @property
     @pulumi.getter
     def country(self) -> Optional[str]:
-        """
-        Two digit code that specifies the country in which the certificate subject located. Must be less than or equal to 2 characters in length.
-        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[str]:
-        """
-        Disambiguating information for the certificate subject. Must be less than or equal to 64 characters in length.
-        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[str]:
-        """
-        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third. Must be less than or equal to 3 characters in length.
-        """
         return pulumi.get(self, "generation_qualifier")
 
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[str]:
-        """
-        First name. Must be less than or equal to 16 characters in length.
-        """
         return pulumi.get(self, "given_name")
 
     @property
     @pulumi.getter
     def initials(self) -> Optional[str]:
-        """
-        Concatenation that typically contains the first letter of the `given_name`, the first letter of the middle name if one exists, and the first letter of the `surname`. Must be less than or equal to 5 characters in length.
-        """
         return pulumi.get(self, "initials")
 
     @property
     @pulumi.getter
     def locality(self) -> Optional[str]:
-        """
-        Locality (such as a city or town) in which the certificate subject is located. Must be less than or equal to 128 characters in length.
-        """
         return pulumi.get(self, "locality")
 
     @property
     @pulumi.getter
     def organization(self) -> Optional[str]:
-        """
-        Legal name of the organization with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        """
         return pulumi.get(self, "organization")
 
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[str]:
-        """
-        Subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated. Must be less than or equal to 64 characters in length.
-        """
         return pulumi.get(self, "organizational_unit")
 
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[str]:
-        """
-        Typically a shortened version of a longer `given_name`. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza. Must be less than or equal to 128 characters in length.
-        """
         return pulumi.get(self, "pseudonym")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        State in which the subject of the certificate is located. Must be less than or equal to 128 characters in length.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def surname(self) -> Optional[str]:
-        """
-        Family name. In the US and the UK for example, the surname of an individual is ordered last. In Asian cultures the surname is typically ordered first. Must be less than or equal to 40 characters in length.
-        """
         return pulumi.get(self, "surname")
 
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
-        """
-        Title such as Mr. or Ms. which is pre-pended to the name to refer formally to the certificate subject. Must be less than or equal to 64 characters in length.
-        """
         return pulumi.get(self, "title")
 
 
@@ -293,11 +225,6 @@ class CertificateAuthorityRevocationConfiguration(dict):
     def __init__(__self__, *,
                  crl_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration'] = None,
                  ocsp_configuration: Optional['outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration'] = None):
-        """
-        :param 'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs' crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        :param 'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs' ocsp_configuration: Nested argument containing configuration of
-               the custom OCSP responder endpoint. Defined below.
-        """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
         if ocsp_configuration is not None:
@@ -306,18 +233,11 @@ class CertificateAuthorityRevocationConfiguration(dict):
     @property
     @pulumi.getter(name="crlConfiguration")
     def crl_configuration(self) -> Optional['outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration']:
-        """
-        Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        """
         return pulumi.get(self, "crl_configuration")
 
     @property
     @pulumi.getter(name="ocspConfiguration")
     def ocsp_configuration(self) -> Optional['outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration']:
-        """
-        Nested argument containing configuration of
-        the custom OCSP responder endpoint. Defined below.
-        """
         return pulumi.get(self, "ocsp_configuration")
 
 
@@ -352,13 +272,6 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
                  enabled: Optional[bool] = None,
                  s3_bucket_name: Optional[str] = None,
                  s3_object_acl: Optional[str] = None):
-        """
-        :param int expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
-        :param str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
-        :param bool enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
-        :param str s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
-        :param str s3_object_acl: Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
-        """
         pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
@@ -372,41 +285,26 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> int:
-        """
-        Number of days until a certificate expires. Must be between 1 and 5000.
-        """
         return pulumi.get(self, "expiration_in_days")
 
     @property
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[str]:
-        """
-        Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
-        """
         return pulumi.get(self, "custom_cname")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        Boolean value that specifies whether a custom OCSP responder is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[str]:
-        """
-        Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @property
     @pulumi.getter(name="s3ObjectAcl")
     def s3_object_acl(self) -> Optional[str]:
-        """
-        Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
-        """
         return pulumi.get(self, "s3_object_acl")
 
 
@@ -432,10 +330,6 @@ class CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  ocsp_custom_cname: Optional[str] = None):
-        """
-        :param bool enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
-        :param str ocsp_custom_cname: CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-        """
         pulumi.set(__self__, "enabled", enabled)
         if ocsp_custom_cname is not None:
             pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
@@ -443,17 +337,11 @@ class CertificateAuthorityRevocationConfigurationOcspConfiguration(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Boolean value that specifies whether a custom OCSP responder is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="ocspCustomCname")
     def ocsp_custom_cname(self) -> Optional[str]:
-        """
-        CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
-        """
         return pulumi.get(self, "ocsp_custom_cname")
 
 
@@ -462,27 +350,17 @@ class CertificateValidity(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
-        """
-        :param str type: Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
-        :param str value: If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        If `type` is `DAYS`, `MONTHS`, or `YEARS`, the relative time until the certificate expires. If `type` is `ABSOLUTE`, the date in seconds since the Unix epoch. If `type` is `END_DATE`, the  date in RFC 3339 format.
-        """
         return pulumi.get(self, "value")
 
 

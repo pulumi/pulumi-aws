@@ -53,9 +53,6 @@ class GetVpcIamPoolCidrsResult:
     @property
     @pulumi.getter(name="ipamPoolCidrs")
     def ipam_pool_cidrs(self) -> Sequence['outputs.GetVpcIamPoolCidrsIpamPoolCidrResult']:
-        """
-        The CIDRs provisioned into the IPAM pool, described below.
-        """
         return pulumi.get(self, "ipam_pool_cidrs")
 
     @property
@@ -80,13 +77,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
                            ipam_pool_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolCidrsResult:
     """
-    `ec2.get_vpc_iam_pool_cidrs` provides details about an IPAM pool.
-
-    This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-
-
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
-    :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -106,12 +97,6 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
     """
-    `ec2.get_vpc_iam_pool_cidrs` provides details about an IPAM pool.
-
-    This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
-
-
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
-    :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
+    Use this data source to access information about an existing resource.
     """
     ...

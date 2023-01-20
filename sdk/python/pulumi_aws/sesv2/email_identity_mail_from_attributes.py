@@ -19,9 +19,6 @@ class EmailIdentityMailFromAttributesArgs:
                  mail_from_domain: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EmailIdentityMailFromAttributes resource.
-        :param pulumi.Input[str] email_identity: The verified email identity.
-        :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if behavior_on_mx_failure is not None:
@@ -32,9 +29,6 @@ class EmailIdentityMailFromAttributesArgs:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[str]:
-        """
-        The verified email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -44,9 +38,6 @@ class EmailIdentityMailFromAttributesArgs:
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> Optional[pulumi.Input[str]]:
-        """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "behavior_on_mx_failure")
 
     @behavior_on_mx_failure.setter
@@ -56,9 +47,6 @@ class EmailIdentityMailFromAttributesArgs:
     @property
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> Optional[pulumi.Input[str]]:
-        """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "mail_from_domain")
 
     @mail_from_domain.setter
@@ -74,9 +62,6 @@ class _EmailIdentityMailFromAttributesState:
                  mail_from_domain: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityMailFromAttributes resources.
-        :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[str] email_identity: The verified email identity.
-        :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         if behavior_on_mx_failure is not None:
             pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
@@ -88,9 +73,6 @@ class _EmailIdentityMailFromAttributesState:
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> Optional[pulumi.Input[str]]:
-        """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "behavior_on_mx_failure")
 
     @behavior_on_mx_failure.setter
@@ -100,9 +82,6 @@ class _EmailIdentityMailFromAttributesState:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The verified email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -112,9 +91,6 @@ class _EmailIdentityMailFromAttributesState:
     @property
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> Optional[pulumi.Input[str]]:
-        """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "mail_from_domain")
 
     @mail_from_domain.setter
@@ -132,35 +108,9 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
                  mail_from_domain: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_mail_from_attributes = aws.sesv2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
-            email_identity=example_email_identity.email_identity,
-            behavior_on_mx_failure="REJECT_MESSAGE",
-            mail_from_domain=example_email_identity.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
-        ```
-
+        Create a EmailIdentityMailFromAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[str] email_identity: The verified email identity.
-        :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         ...
     @overload
@@ -169,30 +119,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
                  args: EmailIdentityMailFromAttributesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_mail_from_attributes = aws.sesv2.EmailIdentityMailFromAttributes("exampleEmailIdentityMailFromAttributes",
-            email_identity=example_email_identity.email_identity,
-            behavior_on_mx_failure="REJECT_MESSAGE",
-            mail_from_domain=example_email_identity.email_identity.apply(lambda email_identity: f"subdomain.{email_identity}"))
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
-        ```
-
+        Create a EmailIdentityMailFromAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailIdentityMailFromAttributesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +172,6 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] behavior_on_mx_failure: The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        :param pulumi.Input[str] email_identity: The verified email identity.
-        :param pulumi.Input[str] mail_from_domain: The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,24 +185,15 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
     def behavior_on_mx_failure(self) -> pulumi.Output[Optional[str]]:
-        """
-        The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "behavior_on_mx_failure")
 
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[str]:
-        """
-        The verified email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @property
     @pulumi.getter(name="mailFromDomain")
     def mail_from_domain(self) -> pulumi.Output[Optional[str]]:
-        """
-        The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-        """
         return pulumi.get(self, "mail_from_domain")
 

@@ -40,10 +40,6 @@ class _VpcIpamOrganizationAdminAccountState:
                  service_principal: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
-        :param pulumi.Input[str] arn: The Organizations ARN for the delegate account.
-        :param pulumi.Input[str] email: The Organizations email for the delegate account.
-        :param pulumi.Input[str] name: The Organizations name for the delegate account.
-        :param pulumi.Input[str] service_principal: The AWS service principal.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -59,9 +55,6 @@ class _VpcIpamOrganizationAdminAccountState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Organizations ARN for the delegate account.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -80,9 +73,6 @@ class _VpcIpamOrganizationAdminAccountState:
     @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Organizations email for the delegate account.
-        """
         return pulumi.get(self, "email")
 
     @email.setter
@@ -92,9 +82,6 @@ class _VpcIpamOrganizationAdminAccountState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Organizations name for the delegate account.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -104,9 +91,6 @@ class _VpcIpamOrganizationAdminAccountState:
     @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS service principal.
-        """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
@@ -122,30 +106,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
                  delegated_admin_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Enables the IPAM Service and promotes a delegated administrator.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        delegated = aws.get_caller_identity()
-        example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
-        ipam_delegate_account = aws.Provider("ipamDelegateAccount")
-        # authentication arguments omitted
-        ```
-
-        ## Import
-
-        IPAMs can be imported using the `delegate account id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-        ```
-
+        Create a VpcIpamOrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -156,30 +117,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
                  args: VpcIpamOrganizationAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables the IPAM Service and promotes a delegated administrator.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        delegated = aws.get_caller_identity()
-        example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
-        ipam_delegate_account = aws.Provider("ipamDelegateAccount")
-        # authentication arguments omitted
-        ```
-
-        ## Import
-
-        IPAMs can be imported using the `delegate account id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
-        ```
-
+        Create a VpcIpamOrganizationAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpamOrganizationAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,10 +172,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Organizations ARN for the delegate account.
-        :param pulumi.Input[str] email: The Organizations email for the delegate account.
-        :param pulumi.Input[str] name: The Organizations name for the delegate account.
-        :param pulumi.Input[str] service_principal: The AWS service principal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -253,9 +187,6 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Organizations ARN for the delegate account.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -266,24 +197,15 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
-        """
-        The Organizations email for the delegate account.
-        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The Organizations name for the delegate account.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="servicePrincipal")
     def service_principal(self) -> pulumi.Output[str]:
-        """
-        The AWS service principal.
-        """
         return pulumi.get(self, "service_principal")
 

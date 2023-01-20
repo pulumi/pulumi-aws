@@ -49,9 +49,6 @@ class GetResourceResult:
     @property
     @pulumi.getter(name="parentId")
     def parent_id(self) -> str:
-        """
-        Set to the ID of the parent Resource.
-        """
         return pulumi.get(self, "parent_id")
 
     @property
@@ -62,9 +59,6 @@ class GetResourceResult:
     @property
     @pulumi.getter(name="pathPart")
     def path_part(self) -> str:
-        """
-        Set to the path relative to the parent Resource.
-        """
         return pulumi.get(self, "path_part")
 
     @property
@@ -90,23 +84,7 @@ def get_resource(path: Optional[str] = None,
                  rest_api_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
-
-
-    :param str path: Full path of the resource.  If no path is found, an error will be returned.
-    :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['path'] = path
@@ -127,22 +105,6 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
                         rest_api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Use this data source to get the id of a Resource in API Gateway.
-    To fetch the Resource, you must provide the REST API id as well as the full path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_rest_api = aws.apigateway.get_rest_api(name="my-rest-api")
-    my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
-        path="/endpoint/path")
-    ```
-
-
-    :param str path: Full path of the resource.  If no path is found, an error will be returned.
-    :param str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
+    Use this data source to access information about an existing resource.
     """
     ...

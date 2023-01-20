@@ -69,9 +69,6 @@ class GetApiResult:
     @property
     @pulumi.getter(name="apiEndpoint")
     def api_endpoint(self) -> str:
-        """
-        URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-        """
         return pulumi.get(self, "api_endpoint")
 
     @property
@@ -82,53 +79,31 @@ class GetApiResult:
     @property
     @pulumi.getter(name="apiKeySelectionExpression")
     def api_key_selection_expression(self) -> str:
-        """
-        An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        Applicable for WebSocket APIs.
-        """
         return pulumi.get(self, "api_key_selection_expression")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the API.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="corsConfigurations")
     def cors_configurations(self) -> Sequence['outputs.GetApiCorsConfigurationResult']:
-        """
-        Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-        Applicable for HTTP APIs.
-        """
         return pulumi.get(self, "cors_configurations")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the API.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableExecuteApiEndpoint")
     def disable_execute_api_endpoint(self) -> bool:
-        """
-        Whether clients can invoke the API by using the default `execute-api` endpoint.
-        """
         return pulumi.get(self, "disable_execute_api_endpoint")
 
     @property
     @pulumi.getter(name="executionArn")
     def execution_arn(self) -> str:
-        """
-        ARN prefix to be used in an `lambda.Permission`'s `source_arn` attribute
-        or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        """
         return pulumi.get(self, "execution_arn")
 
     @property
@@ -142,41 +117,26 @@ class GetApiResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the API.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> str:
-        """
-        API protocol.
-        """
         return pulumi.get(self, "protocol_type")
 
     @property
     @pulumi.getter(name="routeSelectionExpression")
     def route_selection_expression(self) -> str:
-        """
-        The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        """
         return pulumi.get(self, "route_selection_expression")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        Version identifier for the API.
-        """
         return pulumi.get(self, "version")
 
 
@@ -206,20 +166,7 @@ def get_api(api_id: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
-    Provides details about a specific Amazon API Gateway Version 2 API.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_api(api_id="aabbccddee")
-    ```
-
-
-    :param str api_id: API identifier.
-    :param Mapping[str, str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
@@ -249,19 +196,6 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
     """
-    Provides details about a specific Amazon API Gateway Version 2 API.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigatewayv2.get_api(api_id="aabbccddee")
-    ```
-
-
-    :param str api_id: API identifier.
-    :param Mapping[str, str] tags: Map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     ...

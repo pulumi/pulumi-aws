@@ -19,9 +19,6 @@ class SnapshotArgs:
                  retention_period: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
-        :param pulumi.Input[str] namespace_name: The namespace to create a snapshot for.
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot.
-        :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "snapshot_name", snapshot_name)
@@ -31,9 +28,6 @@ class SnapshotArgs:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Input[str]:
-        """
-        The namespace to create a snapshot for.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -43,9 +37,6 @@ class SnapshotArgs:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Input[str]:
-        """
-        The name of the snapshot.
-        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -55,9 +46,6 @@ class SnapshotArgs:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[int]]:
-        """
-        How long to retain the created snapshot. Default value is `-1`.
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -80,16 +68,6 @@ class _SnapshotState:
                  snapshot_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Snapshot resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts_with_provisioned_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts_with_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-        :param pulumi.Input[str] admin_username: The username of the database within a snapshot.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the snapshot.
-        :param pulumi.Input[str] kms_key_id: The unique identifier of the KMS key used to encrypt the snapshot.
-        :param pulumi.Input[str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-        :param pulumi.Input[str] namespace_name: The namespace to create a snapshot for.
-        :param pulumi.Input[str] owner_account: The owner Amazon Web Services; account of the snapshot.
-        :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot.
         """
         if accounts_with_provisioned_restore_accesses is not None:
             pulumi.set(__self__, "accounts_with_provisioned_restore_accesses", accounts_with_provisioned_restore_accesses)
@@ -115,9 +93,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
     def accounts_with_provisioned_restore_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
-        """
         return pulumi.get(self, "accounts_with_provisioned_restore_accesses")
 
     @accounts_with_provisioned_restore_accesses.setter
@@ -127,9 +102,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="accountsWithRestoreAccesses")
     def accounts_with_restore_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-        """
         return pulumi.get(self, "accounts_with_restore_accesses")
 
     @accounts_with_restore_accesses.setter
@@ -139,9 +111,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username of the database within a snapshot.
-        """
         return pulumi.get(self, "admin_username")
 
     @admin_username.setter
@@ -151,9 +120,6 @@ class _SnapshotState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -163,9 +129,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique identifier of the KMS key used to encrypt the snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -175,9 +138,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="namespaceArn")
     def namespace_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-        """
         return pulumi.get(self, "namespace_arn")
 
     @namespace_arn.setter
@@ -187,9 +147,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace to create a snapshot for.
-        """
         return pulumi.get(self, "namespace_name")
 
     @namespace_name.setter
@@ -199,9 +156,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[str]]:
-        """
-        The owner Amazon Web Services; account of the snapshot.
-        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -211,9 +165,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[int]]:
-        """
-        How long to retain the created snapshot. Default value is `-1`.
-        """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
@@ -223,9 +174,6 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the snapshot.
-        """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
@@ -243,32 +191,9 @@ class Snapshot(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a new Amazon Redshift Serverless Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
-            snapshot_name="example")
-        ```
-
-        ## Import
-
-        Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-        ```
-
+        Create a Snapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] namespace_name: The namespace to create a snapshot for.
-        :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot.
         """
         ...
     @overload
@@ -277,27 +202,7 @@ class Snapshot(pulumi.CustomResource):
                  args: SnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a new Amazon Redshift Serverless Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftserverless.Snapshot("example",
-            namespace_name=aws_redshiftserverless_workgroup["example"]["namespace_name"],
-            snapshot_name="example")
-        ```
-
-        ## Import
-
-        Redshift Serverless Snapshots can be imported using the `snapshot_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-        ```
-
+        Create a Snapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -366,16 +271,6 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts_with_provisioned_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts_with_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-        :param pulumi.Input[str] admin_username: The username of the database within a snapshot.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the snapshot.
-        :param pulumi.Input[str] kms_key_id: The unique identifier of the KMS key used to encrypt the snapshot.
-        :param pulumi.Input[str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-        :param pulumi.Input[str] namespace_name: The namespace to create a snapshot for.
-        :param pulumi.Input[str] owner_account: The owner Amazon Web Services; account of the snapshot.
-        :param pulumi.Input[int] retention_period: How long to retain the created snapshot. Default value is `-1`.
-        :param pulumi.Input[str] snapshot_name: The name of the snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -396,80 +291,50 @@ class Snapshot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountsWithProvisionedRestoreAccesses")
     def accounts_with_provisioned_restore_accesses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
-        """
         return pulumi.get(self, "accounts_with_provisioned_restore_accesses")
 
     @property
     @pulumi.getter(name="accountsWithRestoreAccesses")
     def accounts_with_restore_accesses(self) -> pulumi.Output[Sequence[str]]:
-        """
-        All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
-        """
         return pulumi.get(self, "accounts_with_restore_accesses")
 
     @property
     @pulumi.getter(name="adminUsername")
     def admin_username(self) -> pulumi.Output[str]:
-        """
-        The username of the database within a snapshot.
-        """
         return pulumi.get(self, "admin_username")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
-        """
-        The unique identifier of the KMS key used to encrypt the snapshot.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="namespaceArn")
     def namespace_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
-        """
         return pulumi.get(self, "namespace_arn")
 
     @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[str]:
-        """
-        The namespace to create a snapshot for.
-        """
         return pulumi.get(self, "namespace_name")
 
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> pulumi.Output[str]:
-        """
-        The owner Amazon Web Services; account of the snapshot.
-        """
         return pulumi.get(self, "owner_account")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[int]]:
-        """
-        How long to retain the created snapshot. Default value is `-1`.
-        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter(name="snapshotName")
     def snapshot_name(self) -> pulumi.Output[str]:
-        """
-        The name of the snapshot.
-        """
         return pulumi.get(self, "snapshot_name")
 

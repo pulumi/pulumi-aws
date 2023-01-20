@@ -57,33 +57,21 @@ class GetFunctionUrlResult:
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> str:
-        """
-        Type of authentication that the function URL uses.
-        """
         return pulumi.get(self, "authorization_type")
 
     @property
     @pulumi.getter
     def cors(self) -> Sequence['outputs.GetFunctionUrlCorResult']:
-        """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `lambda.FunctionUrl` resource documentation for more details.
-        """
         return pulumi.get(self, "cors")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
-        """
-        When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> str:
-        """
-        ARN of the function.
-        """
         return pulumi.get(self, "function_arn")
 
     @property
@@ -94,9 +82,6 @@ class GetFunctionUrlResult:
     @property
     @pulumi.getter(name="functionUrl")
     def function_url(self) -> str:
-        """
-        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
-        """
         return pulumi.get(self, "function_url")
 
     @property
@@ -110,9 +95,6 @@ class GetFunctionUrlResult:
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
-        """
-        When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-        """
         return pulumi.get(self, "last_modified_time")
 
     @property
@@ -123,9 +105,6 @@ class GetFunctionUrlResult:
     @property
     @pulumi.getter(name="urlId")
     def url_id(self) -> str:
-        """
-        Generated ID for the endpoint.
-        """
         return pulumi.get(self, "url_id")
 
 
@@ -151,22 +130,7 @@ def get_function_url(function_name: Optional[str] = None,
                      qualifier: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionUrlResult:
     """
-    Provides information about a Lambda function URL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
-    ```
-
-
-    :param str function_name: he name (or ARN) of the Lambda function.
-    :param str qualifier: Alias name or `"$LATEST"`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -192,21 +156,6 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
                             qualifier: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionUrlResult]:
     """
-    Provides information about a Lambda function URL.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    function_name = config.require("functionName")
-    existing = aws.lambda.get_function_url(function_name=function_name)
-    ```
-
-
-    :param str function_name: he name (or ARN) of the Lambda function.
-    :param str qualifier: Alias name or `"$LATEST"`.
+    Use this data source to access information about an existing resource.
     """
     ...

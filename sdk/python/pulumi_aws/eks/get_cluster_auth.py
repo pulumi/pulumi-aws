@@ -48,9 +48,6 @@ class GetClusterAuthResult:
     @property
     @pulumi.getter
     def token(self) -> str:
-        """
-        Token to use to authenticate with the cluster.
-        """
         return pulumi.get(self, "token")
 
 
@@ -68,15 +65,7 @@ class AwaitableGetClusterAuthResult(GetClusterAuthResult):
 def get_cluster_auth(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterAuthResult:
     """
-    Get an authentication token to communicate with an EKS cluster.
-
-    Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-    [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-    This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-    server configured.
-
-
-    :param str name: Name of the cluster
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -93,14 +82,6 @@ def get_cluster_auth(name: Optional[str] = None,
 def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterAuthResult]:
     """
-    Get an authentication token to communicate with an EKS cluster.
-
-    Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
-    [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
-    This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
-    server configured.
-
-
-    :param str name: Name of the cluster
+    Use this data source to access information about an existing resource.
     """
     ...

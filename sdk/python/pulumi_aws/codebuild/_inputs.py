@@ -51,18 +51,6 @@ class ProjectArtifactsArgs:
                  override_artifact_name: Optional[pulumi.Input[bool]] = None,
                  packaging: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
-        :param pulumi.Input[bool] override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
-        :param pulumi.Input[str] packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
-        :param pulumi.Input[str] path: If `type` is set to `S3`, this is the path to the output artifact.
-        """
         pulumi.set(__self__, "type", type)
         if artifact_identifier is not None:
             pulumi.set(__self__, "artifact_identifier", artifact_identifier)
@@ -86,9 +74,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -98,9 +83,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter(name="artifactIdentifier")
     def artifact_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        """
         return pulumi.get(self, "artifact_identifier")
 
     @artifact_identifier.setter
@@ -110,9 +92,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -122,9 +101,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -134,9 +110,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -146,9 +119,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -158,9 +128,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
-        """
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
@@ -170,9 +137,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter(name="overrideArtifactName")
     def override_artifact_name(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         return pulumi.get(self, "override_artifact_name")
 
     @override_artifact_name.setter
@@ -182,9 +146,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -194,9 +155,6 @@ class ProjectArtifactsArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        If `type` is set to `S3`, this is the path to the output artifact.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -211,12 +169,6 @@ class ProjectBuildBatchConfigArgs:
                  combine_artifacts: Optional[pulumi.Input[bool]] = None,
                  restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']] = None,
                  timeout_in_mins: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input[bool] combine_artifacts: Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-        :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs'] restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
-        :param pulumi.Input[int] timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
-        """
         pulumi.set(__self__, "service_role", service_role)
         if combine_artifacts is not None:
             pulumi.set(__self__, "combine_artifacts", combine_artifacts)
@@ -228,9 +180,6 @@ class ProjectBuildBatchConfigArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[str]:
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -240,9 +189,6 @@ class ProjectBuildBatchConfigArgs:
     @property
     @pulumi.getter(name="combineArtifacts")
     def combine_artifacts(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-        """
         return pulumi.get(self, "combine_artifacts")
 
     @combine_artifacts.setter
@@ -252,9 +198,6 @@ class ProjectBuildBatchConfigArgs:
     @property
     @pulumi.getter
     def restrictions(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]:
-        """
-        Configuration block specifying the restrictions for the batch build. Detailed below.
-        """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
@@ -264,9 +207,6 @@ class ProjectBuildBatchConfigArgs:
     @property
     @pulumi.getter(name="timeoutInMins")
     def timeout_in_mins(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
-        """
         return pulumi.get(self, "timeout_in_mins")
 
     @timeout_in_mins.setter
@@ -279,10 +219,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     def __init__(__self__, *,
                  compute_types_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_builds_allowed: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_types_alloweds: An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
-        :param pulumi.Input[int] maximum_builds_allowed: Specifies the maximum number of builds allowed.
-        """
         if compute_types_alloweds is not None:
             pulumi.set(__self__, "compute_types_alloweds", compute_types_alloweds)
         if maximum_builds_allowed is not None:
@@ -291,9 +227,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     @property
     @pulumi.getter(name="computeTypesAlloweds")
     def compute_types_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
-        """
         return pulumi.get(self, "compute_types_alloweds")
 
     @compute_types_alloweds.setter
@@ -303,9 +236,6 @@ class ProjectBuildBatchConfigRestrictionsArgs:
     @property
     @pulumi.getter(name="maximumBuildsAllowed")
     def maximum_builds_allowed(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the maximum number of builds allowed.
-        """
         return pulumi.get(self, "maximum_builds_allowed")
 
     @maximum_builds_allowed.setter
@@ -319,11 +249,6 @@ class ProjectCacheArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         if location is not None:
             pulumi.set(__self__, "location", location)
         if modes is not None:
@@ -334,9 +259,6 @@ class ProjectCacheArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -346,9 +268,6 @@ class ProjectCacheArgs:
     @property
     @pulumi.getter
     def modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        """
         return pulumi.get(self, "modes")
 
     @modes.setter
@@ -358,9 +277,6 @@ class ProjectCacheArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -379,16 +295,6 @@ class ProjectEnvironmentArgs:
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
                  registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
-        """
-        :param pulumi.Input[str] compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
-        :param pulumi.Input[str] image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input[str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
-        :param pulumi.Input[str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-        :param pulumi.Input[bool] privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
-        :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Configuration block. Detailed below.
-        """
         pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "type", type)
@@ -406,9 +312,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Input[str]:
-        """
-        Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
-        """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
@@ -418,9 +321,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter
     def image(self) -> pulumi.Input[str]:
-        """
-        Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        """
         return pulumi.get(self, "image")
 
     @image.setter
@@ -430,9 +330,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -442,9 +339,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
@@ -454,9 +348,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -466,9 +357,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter(name="imagePullCredentialsType")
     def image_pull_credentials_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
-        """
         return pulumi.get(self, "image_pull_credentials_type")
 
     @image_pull_credentials_type.setter
@@ -478,9 +366,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter(name="privilegedMode")
     def privileged_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
-        """
         return pulumi.get(self, "privileged_mode")
 
     @privileged_mode.setter
@@ -490,9 +375,6 @@ class ProjectEnvironmentArgs:
     @property
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "registry_credential")
 
     @registry_credential.setter
@@ -506,11 +388,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] value: Environment variable's value.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if type is not None:
@@ -519,9 +396,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -531,9 +405,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Environment variable's value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -543,9 +414,6 @@ class ProjectEnvironmentEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -558,19 +426,12 @@ class ProjectEnvironmentRegistryCredentialArgs:
     def __init__(__self__, *,
                  credential: pulumi.Input[str],
                  credential_provider: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] credential: ARN or name of credentials created using AWS Secrets Manager.
-        :param pulumi.Input[str] credential_provider: Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
-        """
         pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "credential_provider", credential_provider)
 
     @property
     @pulumi.getter
     def credential(self) -> pulumi.Input[str]:
-        """
-        ARN or name of credentials created using AWS Secrets Manager.
-        """
         return pulumi.get(self, "credential")
 
     @credential.setter
@@ -580,9 +441,6 @@ class ProjectEnvironmentRegistryCredentialArgs:
     @property
     @pulumi.getter(name="credentialProvider")
     def credential_provider(self) -> pulumi.Input[str]:
-        """
-        Service that created the credentials to access a private Docker registry. Valid value: `SECRETS_MANAGER` (AWS Secrets Manager).
-        """
         return pulumi.get(self, "credential_provider")
 
     @credential_provider.setter
@@ -598,13 +456,6 @@ class ProjectFileSystemLocationArgs:
                  mount_options: Optional[pulumi.Input[str]] = None,
                  mount_point: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] identifier: The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[str] mount_options: The mount options for a file system created by AWS EFS.
-        :param pulumi.Input[str] mount_point: The location in the container where you mount the file system.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
         if location is not None:
@@ -619,9 +470,6 @@ class ProjectFileSystemLocationArgs:
     @property
     @pulumi.getter
     def identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-        """
         return pulumi.get(self, "identifier")
 
     @identifier.setter
@@ -631,9 +479,6 @@ class ProjectFileSystemLocationArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -643,9 +488,6 @@ class ProjectFileSystemLocationArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input[str]]:
-        """
-        The mount options for a file system created by AWS EFS.
-        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -655,9 +497,6 @@ class ProjectFileSystemLocationArgs:
     @property
     @pulumi.getter(name="mountPoint")
     def mount_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location in the container where you mount the file system.
-        """
         return pulumi.get(self, "mount_point")
 
     @mount_point.setter
@@ -667,9 +506,6 @@ class ProjectFileSystemLocationArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -682,10 +518,6 @@ class ProjectLogsConfigArgs:
     def __init__(__self__, *,
                  cloudwatch_logs: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']] = None,
                  s3_logs: Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']] = None):
-        """
-        :param pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs'] cloudwatch_logs: Configuration block. Detailed below.
-        :param pulumi.Input['ProjectLogsConfigS3LogsArgs'] s3_logs: Configuration block. Detailed below.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if s3_logs is not None:
@@ -694,9 +526,6 @@ class ProjectLogsConfigArgs:
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -706,9 +535,6 @@ class ProjectLogsConfigArgs:
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
@@ -722,11 +548,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
                  group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] group_name: Group name of the logs in CloudWatch Logs.
-        :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        :param pulumi.Input[str] stream_name: Stream name of the logs in CloudWatch Logs.
-        """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
         if status is not None:
@@ -737,9 +558,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Group name of the logs in CloudWatch Logs.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -749,9 +567,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -761,9 +576,6 @@ class ProjectLogsConfigCloudwatchLogsArgs:
     @property
     @pulumi.getter(name="streamName")
     def stream_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Stream name of the logs in CloudWatch Logs.
-        """
         return pulumi.get(self, "stream_name")
 
     @stream_name.setter
@@ -778,12 +590,6 @@ class ProjectLogsConfigS3LogsArgs:
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[str] status: Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        """
         if bucket_owner_access is not None:
             pulumi.set(__self__, "bucket_owner_access", bucket_owner_access)
         if encryption_disabled is not None:
@@ -796,9 +602,6 @@ class ProjectLogsConfigS3LogsArgs:
     @property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -808,9 +611,6 @@ class ProjectLogsConfigS3LogsArgs:
     @property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -820,9 +620,6 @@ class ProjectLogsConfigS3LogsArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -832,9 +629,6 @@ class ProjectLogsConfigS3LogsArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -855,18 +649,6 @@ class ProjectSecondaryArtifactArgs:
                  override_artifact_name: Optional[pulumi.Input[bool]] = None,
                  packaging: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input[str] bucket_owner_access: Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        :param pulumi.Input[bool] encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] namespace_type: Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
-        :param pulumi.Input[bool] override_artifact_name: Whether a name specified in the build specification overrides the artifact name.
-        :param pulumi.Input[str] packaging: Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
-        :param pulumi.Input[str] path: If `type` is set to `S3`, this is the path to the output artifact.
-        """
         pulumi.set(__self__, "artifact_identifier", artifact_identifier)
         pulumi.set(__self__, "type", type)
         if bucket_owner_access is not None:
@@ -889,9 +671,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter(name="artifactIdentifier")
     def artifact_identifier(self) -> pulumi.Input[str]:
-        """
-        Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        """
         return pulumi.get(self, "artifact_identifier")
 
     @artifact_identifier.setter
@@ -901,9 +680,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -913,9 +689,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter(name="bucketOwnerAccess")
     def bucket_owner_access(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the bucket owner's access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-        """
         return pulumi.get(self, "bucket_owner_access")
 
     @bucket_owner_access.setter
@@ -925,9 +698,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -937,9 +707,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -949,9 +716,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -961,9 +725,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter(name="namespaceType")
     def namespace_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Namespace to use in storing build artifacts. If `type` is set to `S3`, then valid values are `BUILD_ID` or `NONE`.
-        """
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
@@ -973,9 +734,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter(name="overrideArtifactName")
     def override_artifact_name(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether a name specified in the build specification overrides the artifact name.
-        """
         return pulumi.get(self, "override_artifact_name")
 
     @override_artifact_name.setter
@@ -985,9 +743,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of build output artifact to create. If `type` is set to `S3`, valid values are `NONE`, `ZIP`
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -997,9 +752,6 @@ class ProjectSecondaryArtifactArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        If `type` is set to `S3`, this is the path to the output artifact.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -1020,18 +772,6 @@ class ProjectSecondarySourceArgs:
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] source_identifier: An identifier for a source in the build project.
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input['ProjectSecondarySourceAuthArgs'] auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
-        :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
-        :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
-        """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
         if auth is not None:
@@ -1057,9 +797,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> pulumi.Input[str]:
-        """
-        An identifier for a source in the build project.
-        """
         return pulumi.get(self, "source_identifier")
 
     @source_identifier.setter
@@ -1069,9 +806,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1081,9 +815,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['ProjectSecondarySourceAuthArgs']]:
-        """
-        Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        """
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -1093,9 +824,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="buildStatusConfig")
     def build_status_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]:
-        """
-        Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
@@ -1105,9 +833,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
-        """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
-        """
         return pulumi.get(self, "buildspec")
 
     @buildspec.setter
@@ -1117,9 +842,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="gitCloneDepth")
     def git_clone_depth(self) -> Optional[pulumi.Input[int]]:
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
@@ -1129,9 +851,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="gitSubmodulesConfig")
     def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
@@ -1141,9 +860,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -1153,9 +869,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1165,9 +878,6 @@ class ProjectSecondarySourceArgs:
     @property
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
-        """
         return pulumi.get(self, "report_build_status")
 
     @report_build_status.setter
@@ -1180,10 +890,6 @@ class ProjectSecondarySourceAuthArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-        """
         if type is not None:
             warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
             pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
@@ -1197,9 +903,6 @@ class ProjectSecondarySourceAuthArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1209,9 +912,6 @@ class ProjectSecondarySourceAuthArgs:
     @property
     @pulumi.getter
     def resource(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -1224,10 +924,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
                  target_url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         if context is not None:
             pulumi.set(__self__, "context", context)
         if target_url is not None:
@@ -1236,9 +932,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     @property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -1248,9 +941,6 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
     @property
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "target_url")
 
     @target_url.setter
@@ -1262,17 +952,11 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
 class ProjectSecondarySourceGitSubmodulesConfigArgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[bool]):
-        """
-        :param pulumi.Input[bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @property
     @pulumi.getter(name="fetchSubmodules")
     def fetch_submodules(self) -> pulumi.Input[bool]:
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         return pulumi.get(self, "fetch_submodules")
 
     @fetch_submodules.setter
@@ -1285,19 +969,12 @@ class ProjectSecondarySourceVersionArgs:
     def __init__(__self__, *,
                  source_identifier: pulumi.Input[str],
                  source_version: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] source_identifier: An identifier for a source in the build project.
-        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "source_version", source_version)
 
     @property
     @pulumi.getter(name="sourceIdentifier")
     def source_identifier(self) -> pulumi.Input[str]:
-        """
-        An identifier for a source in the build project.
-        """
         return pulumi.get(self, "source_identifier")
 
     @source_identifier.setter
@@ -1307,9 +984,6 @@ class ProjectSecondarySourceVersionArgs:
     @property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> pulumi.Input[str]:
-        """
-        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
@@ -1329,17 +1003,6 @@ class ProjectSourceArgs:
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input['ProjectSourceAuthArgs'] auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
-        :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
-        :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
-        :param pulumi.Input[str] location: Location of the source code from git or s3.
-        :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
-        """
         pulumi.set(__self__, "type", type)
         if auth is not None:
             warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
@@ -1364,9 +1027,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1376,9 +1036,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['ProjectSourceAuthArgs']]:
-        """
-        Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
-        """
         return pulumi.get(self, "auth")
 
     @auth.setter
@@ -1388,9 +1045,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter(name="buildStatusConfig")
     def build_status_config(self) -> Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]:
-        """
-        Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
-        """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
@@ -1400,9 +1054,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter
     def buildspec(self) -> Optional[pulumi.Input[str]]:
-        """
-        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
-        """
         return pulumi.get(self, "buildspec")
 
     @buildspec.setter
@@ -1412,9 +1063,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter(name="gitCloneDepth")
     def git_clone_depth(self) -> Optional[pulumi.Input[int]]:
-        """
-        Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        """
         return pulumi.get(self, "git_clone_depth")
 
     @git_clone_depth.setter
@@ -1424,9 +1072,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter(name="gitSubmodulesConfig")
     def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
@@ -1436,9 +1081,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter(name="insecureSsl")
     def insecure_ssl(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Ignore SSL warnings when connecting to source control.
-        """
         return pulumi.get(self, "insecure_ssl")
 
     @insecure_ssl.setter
@@ -1448,9 +1090,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the source code from git or s3.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -1460,9 +1099,6 @@ class ProjectSourceArgs:
     @property
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
-        """
         return pulumi.get(self, "report_build_status")
 
     @report_build_status.setter
@@ -1475,10 +1111,6 @@ class ProjectSourceAuthArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        :param pulumi.Input[str] resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-        """
         if type is not None:
             warnings.warn("""Use the aws_codebuild_source_credential resource instead""", DeprecationWarning)
             pulumi.log.warn("""type is deprecated: Use the aws_codebuild_source_credential resource instead""")
@@ -1492,9 +1124,6 @@ class ProjectSourceAuthArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1504,9 +1133,6 @@ class ProjectSourceAuthArgs:
     @property
     @pulumi.getter
     def resource(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
-        """
         return pulumi.get(self, "resource")
 
     @resource.setter
@@ -1519,10 +1145,6 @@ class ProjectSourceBuildStatusConfigArgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
                  target_url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] context: Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        :param pulumi.Input[str] target_url: Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         if context is not None:
             pulumi.set(__self__, "context", context)
         if target_url is not None:
@@ -1531,9 +1153,6 @@ class ProjectSourceBuildStatusConfigArgs:
     @property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -1543,9 +1162,6 @@ class ProjectSourceBuildStatusConfigArgs:
     @property
     @pulumi.getter(name="targetUrl")
     def target_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
-        """
         return pulumi.get(self, "target_url")
 
     @target_url.setter
@@ -1557,17 +1173,11 @@ class ProjectSourceBuildStatusConfigArgs:
 class ProjectSourceGitSubmodulesConfigArgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[bool]):
-        """
-        :param pulumi.Input[bool] fetch_submodules: Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         pulumi.set(__self__, "fetch_submodules", fetch_submodules)
 
     @property
     @pulumi.getter(name="fetchSubmodules")
     def fetch_submodules(self) -> pulumi.Input[bool]:
-        """
-        Whether to fetch Git submodules for the AWS CodeBuild build project.
-        """
         return pulumi.get(self, "fetch_submodules")
 
     @fetch_submodules.setter
@@ -1581,11 +1191,6 @@ class ProjectVpcConfigArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Security group IDs to assign to running builds.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: Subnet IDs within which to run builds.
-        :param pulumi.Input[str] vpc_id: ID of the VPC within which to run builds.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "vpc_id", vpc_id)
@@ -1593,9 +1198,6 @@ class ProjectVpcConfigArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Security group IDs to assign to running builds.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -1605,9 +1207,6 @@ class ProjectVpcConfigArgs:
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Subnet IDs within which to run builds.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -1617,9 +1216,6 @@ class ProjectVpcConfigArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
-        """
-        ID of the VPC within which to run builds.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -1632,10 +1228,6 @@ class ReportGroupExportConfigArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  s3_destination: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']] = None):
-        """
-        :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        :param pulumi.Input['ReportGroupExportConfigS3DestinationArgs'] s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        """
         pulumi.set(__self__, "type", type)
         if s3_destination is not None:
             pulumi.set(__self__, "s3_destination", s3_destination)
@@ -1643,9 +1235,6 @@ class ReportGroupExportConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1655,9 +1244,6 @@ class ReportGroupExportConfigArgs:
     @property
     @pulumi.getter(name="s3Destination")
     def s3_destination(self) -> Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']]:
-        """
-        contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
-        """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
@@ -1673,14 +1259,6 @@ class ReportGroupExportConfigS3DestinationArgs:
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
                  packaging: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] bucket: The name of the S3 bucket where the raw data of a report are exported.
-        :param pulumi.Input[str] encryption_key: The encryption key for the report's encrypted raw data. The KMS key ARN.
-        :param pulumi.Input[bool] encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
-               **Note: the API does not currently allow setting encryption as disabled**
-        :param pulumi.Input[str] packaging: The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        :param pulumi.Input[str] path: The path to the exported report's raw data results.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "encryption_key", encryption_key)
         if encryption_disabled is not None:
@@ -1693,9 +1271,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        The name of the S3 bucket where the raw data of a report are exported.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -1705,9 +1280,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[str]:
-        """
-        The encryption key for the report's encrypted raw data. The KMS key ARN.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -1717,10 +1289,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @property
     @pulumi.getter(name="encryptionDisabled")
     def encryption_disabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean value that specifies if the results of a report are encrypted.
-        **Note: the API does not currently allow setting encryption as disabled**
-        """
         return pulumi.get(self, "encryption_disabled")
 
     @encryption_disabled.setter
@@ -1730,9 +1298,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @property
     @pulumi.getter
     def packaging(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of build output artifact to create. Valid values are: `NONE` (default) and `ZIP`.
-        """
         return pulumi.get(self, "packaging")
 
     @packaging.setter
@@ -1742,9 +1307,6 @@ class ReportGroupExportConfigS3DestinationArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the exported report's raw data results.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -1756,18 +1318,12 @@ class ReportGroupExportConfigS3DestinationArgs:
 class WebhookFilterGroupArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]:
-        """
-        A webhook filter for the group. Filter blocks are documented below.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -1781,11 +1337,6 @@ class WebhookFilterGroupFilterArgs:
                  pattern: pulumi.Input[str],
                  type: pulumi.Input[str],
                  exclude_matched_pattern: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] pattern: For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        :param pulumi.Input[str] type: The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
-        :param pulumi.Input[bool] exclude_matched_pattern: If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        """
         pulumi.set(__self__, "pattern", pattern)
         pulumi.set(__self__, "type", type)
         if exclude_matched_pattern is not None:
@@ -1794,9 +1345,6 @@ class WebhookFilterGroupFilterArgs:
     @property
     @pulumi.getter
     def pattern(self) -> pulumi.Input[str]:
-        """
-        For a filter that uses `EVENT` type, a comma-separated string that specifies one event: `PUSH`, `PULL_REQUEST_CREATED`, `PULL_REQUEST_UPDATED`, `PULL_REQUEST_REOPENED`. `PULL_REQUEST_MERGED` works with GitHub & GitHub Enterprise only. For a filter that uses any of the other filter types, a regular expression.
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -1806,9 +1354,6 @@ class WebhookFilterGroupFilterArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1818,9 +1363,6 @@ class WebhookFilterGroupFilterArgs:
     @property
     @pulumi.getter(name="excludeMatchedPattern")
     def exclude_matched_pattern(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If set to `true`, the specified filter does *not* trigger a build. Defaults to `false`.
-        """
         return pulumi.get(self, "exclude_matched_pattern")
 
     @exclude_matched_pattern.setter

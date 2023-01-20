@@ -39,11 +39,6 @@ class ClusterParameterGroupParameter(dict):
                  name: str,
                  value: str,
                  apply_method: Optional[str] = None):
-        """
-        :param str name: The name of the neptune parameter.
-        :param str value: The value of the neptune parameter.
-        :param str apply_method: Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -52,25 +47,16 @@ class ClusterParameterGroupParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the neptune parameter.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the neptune parameter.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[str]:
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         return pulumi.get(self, "apply_method")
 
 
@@ -138,10 +124,6 @@ class GlobalClusterGlobalClusterMember(dict):
     def __init__(__self__, *,
                  db_cluster_arn: Optional[str] = None,
                  is_writer: Optional[bool] = None):
-        """
-        :param str db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
-        :param bool is_writer: Whether the member is the primary DB Cluster.
-        """
         if db_cluster_arn is not None:
             pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
         if is_writer is not None:
@@ -150,17 +132,11 @@ class GlobalClusterGlobalClusterMember(dict):
     @property
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> Optional[str]:
-        """
-        Amazon Resource Name (ARN) of member DB Cluster.
-        """
         return pulumi.get(self, "db_cluster_arn")
 
     @property
     @pulumi.getter(name="isWriter")
     def is_writer(self) -> Optional[bool]:
-        """
-        Whether the member is the primary DB Cluster.
-        """
         return pulumi.get(self, "is_writer")
 
 
@@ -187,11 +163,6 @@ class ParameterGroupParameter(dict):
                  name: str,
                  value: str,
                  apply_method: Optional[str] = None):
-        """
-        :param str name: The name of the Neptune parameter.
-        :param str value: The value of the Neptune parameter.
-        :param str apply_method: The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
         if apply_method is not None:
@@ -200,25 +171,16 @@ class ParameterGroupParameter(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the Neptune parameter.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the Neptune parameter.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> Optional[str]:
-        """
-        The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
         return pulumi.get(self, "apply_method")
 
 

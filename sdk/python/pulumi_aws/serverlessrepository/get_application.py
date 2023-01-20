@@ -47,9 +47,6 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> str:
-        """
-        ARN of the application.
-        """
         return pulumi.get(self, "application_id")
 
     @property
@@ -63,17 +60,11 @@ class GetApplicationResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the application.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="requiredCapabilities")
     def required_capabilities(self) -> Sequence[str]:
-        """
-        A list of capabilities describing the permissions needed to deploy the application.
-        """
         return pulumi.get(self, "required_capabilities")
 
     @property
@@ -84,17 +75,11 @@ class GetApplicationResult:
     @property
     @pulumi.getter(name="sourceCodeUrl")
     def source_code_url(self) -> str:
-        """
-        URL pointing to the source code of the application version.
-        """
         return pulumi.get(self, "source_code_url")
 
     @property
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> str:
-        """
-        URL pointing to the Cloud Formation template for the application version.
-        """
         return pulumi.get(self, "template_url")
 
 
@@ -117,24 +102,7 @@ def get_application(application_id: Optional[str] = None,
                     semantic_version: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
-    Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_application = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack",
-        application_id=example_application.application_id,
-        semantic_version=example_application.semantic_version,
-        capabilities=example_application.required_capabilities)
-    ```
-
-
-    :param str application_id: ARN of the application.
-    :param str semantic_version: Requested version of the application. By default, retrieves the latest version.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -157,23 +125,6 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
                            semantic_version: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
-    Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_application = aws.serverlessrepository.get_application(application_id="arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication")
-    example_cloud_formation_stack = aws.serverlessrepository.CloudFormationStack("exampleCloudFormationStack",
-        application_id=example_application.application_id,
-        semantic_version=example_application.semantic_version,
-        capabilities=example_application.required_capabilities)
-    ```
-
-
-    :param str application_id: ARN of the application.
-    :param str semantic_version: Requested version of the application. By default, retrieves the latest version.
+    Use this data source to access information about an existing resource.
     """
     ...

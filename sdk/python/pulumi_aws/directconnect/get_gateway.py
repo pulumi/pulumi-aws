@@ -38,9 +38,6 @@ class GetGatewayResult:
     @property
     @pulumi.getter(name="amazonSideAsn")
     def amazon_side_asn(self) -> str:
-        """
-        ASN on the Amazon side of the connection.
-        """
         return pulumi.get(self, "amazon_side_asn")
 
     @property
@@ -59,9 +56,6 @@ class GetGatewayResult:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> str:
-        """
-        AWS Account ID of the gateway.
-        """
         return pulumi.get(self, "owner_account_id")
 
 
@@ -80,19 +74,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
 def get_gateway(name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
-    Retrieve information about a Direct Connect Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
-
-
-    :param str name: Name of the gateway to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -110,18 +92,6 @@ def get_gateway(name: Optional[str] = None,
 def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
-    Retrieve information about a Direct Connect Gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.directconnect.get_gateway(name="example")
-    ```
-
-
-    :param str name: Name of the gateway to retrieve.
+    Use this data source to access information about an existing resource.
     """
     ...

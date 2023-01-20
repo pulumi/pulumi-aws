@@ -60,17 +60,11 @@ class GetSchedulingPolicyResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the scheduling policy.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags
-        """
         return pulumi.get(self, "tags")
 
 
@@ -91,20 +85,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
                           tags: Optional[Mapping[str, str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchedulingPolicyResult:
     """
-    The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
-
-
-    :param str arn: ARN of the scheduling policy.
-    :param Mapping[str, str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -125,19 +106,6 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
-    The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
-    ```
-
-
-    :param str arn: ARN of the scheduling policy.
-    :param Mapping[str, str] tags: Key-value map of resource tags
+    Use this data source to access information about an existing resource.
     """
     ...

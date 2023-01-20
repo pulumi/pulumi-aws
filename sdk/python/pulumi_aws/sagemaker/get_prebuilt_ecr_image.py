@@ -70,17 +70,11 @@ class GetPrebuiltEcrImageResult:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> str:
-        """
-        Account ID containing the image. For example, `469771592824`.
-        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="registryPath")
     def registry_path(self) -> str:
-        """
-        Docker image URL. For example, `341280168497.dkr.ecr.ca-central-1.amazonaws.com/sagemaker-sparkml-serving:2.4`.
-        """
         return pulumi.get(self, "registry_path")
 
     @property
@@ -110,27 +104,7 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
                            repository_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrebuiltEcrImageResult:
     """
-    Get information about prebuilt Amazon SageMaker Docker images.
-
-    > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
-    ```
-
-
-    :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-    :param str image_tag: Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-    :param str region: Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-    :param str repository_name: Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dnsSuffix'] = dns_suffix
@@ -157,26 +131,6 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
                                   repository_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
     """
-    Get information about prebuilt Amazon SageMaker Docker images.
-
-    > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
-        repository_name="sagemaker-scikit-learn")
-    ```
-
-
-    :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
-    :param str image_tag: Image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
-    :param str region: Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
-    :param str repository_name: Name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, `tensorflow-training`, `huggingface-tensorflow-training`, `huggingface-tensorflow-inference`, `huggingface-pytorch-training`, and `huggingface-pytorch-inference`.
+    Use this data source to access information about an existing resource.
     """
     ...

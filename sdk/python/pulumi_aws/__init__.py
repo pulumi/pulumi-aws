@@ -8970,6 +8970,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/configurationSetEventDestination",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination": "ConfigurationSetEventDestination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sesv2/dedicatedIpAssignment",
   "fqn": "pulumi_aws.sesv2",
   "classes": {

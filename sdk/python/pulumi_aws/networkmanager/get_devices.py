@@ -54,9 +54,6 @@ class GetDevicesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        IDs of the devices.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -88,24 +85,7 @@ def get_devices(global_network_id: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevicesResult:
     """
-    Retrieve information about devices.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param str global_network_id: ID of the Global Network of the devices to retrieve.
-    :param str site_id: ID of the site of the devices to retrieve.
-    :param Mapping[str, str] tags: Restricts the list to the devices with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -128,23 +108,6 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevicesResult]:
     """
-    Retrieve information about devices.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_devices(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param str global_network_id: ID of the Global Network of the devices to retrieve.
-    :param str site_id: ID of the site of the devices to retrieve.
-    :param Mapping[str, str] tags: Restricts the list to the devices with these tags.
+    Use this data source to access information about an existing resource.
     """
     ...

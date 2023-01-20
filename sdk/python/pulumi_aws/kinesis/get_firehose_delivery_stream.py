@@ -35,9 +35,6 @@ class GetFirehoseDeliveryStreamResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Kinesis Stream (same as id).
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -68,21 +65,7 @@ class AwaitableGetFirehoseDeliveryStreamResult(GetFirehoseDeliveryStreamResult):
 def get_firehose_delivery_stream(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirehoseDeliveryStreamResult:
     """
-    Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
-
-    For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
-
-
-    :param str name: Name of the Kinesis Stream.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -99,20 +82,6 @@ def get_firehose_delivery_stream(name: Optional[str] = None,
 def get_firehose_delivery_stream_output(name: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirehoseDeliveryStreamResult]:
     """
-    Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
-
-    For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_firehose_delivery_stream(name="stream-name")
-    ```
-
-
-    :param str name: Name of the Kinesis Stream.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -39,9 +39,6 @@ class GetLocationsResult:
     @property
     @pulumi.getter(name="locationCodes")
     def location_codes(self) -> Sequence[str]:
-        """
-        Code for the locations.
-        """
         return pulumi.get(self, "location_codes")
 
 
@@ -57,19 +54,7 @@ class AwaitableGetLocationsResult(GetLocationsResult):
 
 def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationsResult:
     """
-    Retrieve information about the AWS Direct Connect locations in the current AWS Region.
-    These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
-
-    > **Note:** This data source is different from the `directconnect.get_location` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    available = aws.directconnect.get_locations()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

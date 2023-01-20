@@ -43,9 +43,6 @@ class GetImageRecipesResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        Set of ARNs of the matched Image Builder Image Recipes.
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -64,9 +61,6 @@ class GetImageRecipesResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
-        """
-        Set of names of the matched Image Builder Image Recipes.
-        """
         return pulumi.get(self, "names")
 
     @property
@@ -92,24 +86,7 @@ def get_image_recipes(filters: Optional[Sequence[pulumi.InputType['GetImageRecip
                       owner: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipesResult:
     """
-    Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipes(filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -130,23 +107,6 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[pu
                              owner: Optional[pulumi.Input[Optional[str]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipesResult]:
     """
-    Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipes(filters=[aws.imagebuilder.GetImageRecipesFilterArgs(
-            name="platform",
-            values=["Linux"],
-        )],
-        owner="Self")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetImageRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
+    Use this data source to access information about an existing resource.
     """
     ...

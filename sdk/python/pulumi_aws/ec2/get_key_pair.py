@@ -61,17 +61,11 @@ class GetKeyPairResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Key Pair.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
-        """
-        Timestamp for when the key pair was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @property
@@ -82,9 +76,6 @@ class GetKeyPairResult:
     @property
     @pulumi.getter
     def fingerprint(self) -> str:
-        """
-        SHA-1 digest of the DER encoded private key.
-        """
         return pulumi.get(self, "fingerprint")
 
     @property
@@ -113,25 +104,16 @@ class GetKeyPairResult:
     @property
     @pulumi.getter(name="keyType")
     def key_type(self) -> str:
-        """
-        Type of key pair.
-        """
         return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> str:
-        """
-        Public key material.
-        """
         return pulumi.get(self, "public_key")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Any tags assigned to the Key Pair.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -161,33 +143,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyPairResult:
     """
-    Use this data source to get information about a specific EC2 Key Pair.
-
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
-    :param bool include_public_key: Whether to include the public key material in the response.
-    :param str key_name: Key Pair name.
-    :param str key_pair_id: Key Pair ID.
-    :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -220,32 +176,6 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyPairResult]:
     """
-    Use this data source to get information about a specific EC2 Key Pair.
-
-    ## Example Usage
-
-    The following example shows how to get a EC2 Key Pair including the public key material from its name.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
-            name="tag:Component",
-            values=["web"],
-        )])
-    pulumi.export("fingerprint", example.fingerprint)
-    pulumi.export("name", example.key_name)
-    pulumi.export("id", example.id)
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
-    :param bool include_public_key: Whether to include the public key material in the response.
-    :param str key_name: Key Pair name.
-    :param str key_pair_id: Key Pair ID.
-    :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
+    Use this data source to access information about an existing resource.
     """
     ...

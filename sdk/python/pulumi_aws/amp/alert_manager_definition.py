@@ -18,8 +18,6 @@ class AlertManagerDefinitionArgs:
                  workspace_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a AlertManagerDefinition resource.
-        :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -27,9 +25,6 @@ class AlertManagerDefinitionArgs:
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Input[str]:
-        """
-        the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -39,9 +34,6 @@ class AlertManagerDefinitionArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
-        """
-        ID of the prometheus workspace the alert manager definition should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -56,8 +48,6 @@ class _AlertManagerDefinitionState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlertManagerDefinition resources.
-        :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
@@ -67,9 +57,6 @@ class _AlertManagerDefinitionState:
     @property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input[str]]:
-        """
-        the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -79,9 +66,6 @@ class _AlertManagerDefinitionState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the prometheus workspace the alert manager definition should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -98,37 +82,9 @@ class AlertManagerDefinition(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_alert_manager_definition = aws.amp.AlertManagerDefinition("demoAlertManagerDefinition",
-            workspace_id=demo_workspace.id,
-            definition=\"\"\"alertmanager_config: |
-          route:
-            receiver: 'default'
-          receivers:
-            - name: 'default'
-        \"\"\")
-        ```
-
-        ## Import
-
-        The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-        ```
-
+        Create a AlertManagerDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         ...
     @overload
@@ -137,33 +93,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
                  args: AlertManagerDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_alert_manager_definition = aws.amp.AlertManagerDefinition("demoAlertManagerDefinition",
-            workspace_id=demo_workspace.id,
-            definition=\"\"\"alertmanager_config: |
-          route:
-            receiver: 'default'
-          receivers:
-            - name: 'default'
-        \"\"\")
-        ```
-
-        ## Import
-
-        The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-        ```
-
+        Create a AlertManagerDefinition resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AlertManagerDefinitionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,8 +145,6 @@ class AlertManagerDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] definition: the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the alert manager definition should be linked to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -229,16 +157,10 @@ class AlertManagerDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[str]:
-        """
-        the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
-        """
-        ID of the prometheus workspace the alert manager definition should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 

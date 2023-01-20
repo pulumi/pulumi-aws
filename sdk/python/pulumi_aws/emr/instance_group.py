@@ -27,15 +27,6 @@ class InstanceGroupArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InstanceGroup resource.
-        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
-        :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -57,9 +48,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[str]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -69,9 +57,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -81,9 +66,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        """
         return pulumi.get(self, "autoscaling_policy")
 
     @autoscaling_policy.setter
@@ -93,9 +75,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -105,9 +84,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="configurationsJson")
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
-        """
-        A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        """
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
@@ -117,9 +93,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
-        """
-        One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -129,9 +102,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -141,9 +111,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        target number of instances for the instance group. defaults to 0.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -153,9 +120,6 @@ class InstanceGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -179,15 +143,6 @@ class _InstanceGroupState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InstanceGroup resources.
-        :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
-        :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         if autoscaling_policy is not None:
             pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
@@ -215,9 +170,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        """
         return pulumi.get(self, "autoscaling_policy")
 
     @autoscaling_policy.setter
@@ -227,9 +179,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -239,9 +188,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -251,9 +197,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="configurationsJson")
     def configurations_json(self) -> Optional[pulumi.Input[str]]:
-        """
-        A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        """
         return pulumi.get(self, "configurations_json")
 
     @configurations_json.setter
@@ -263,9 +206,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]]:
-        """
-        One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -275,9 +215,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -287,9 +224,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        target number of instances for the instance group. defaults to 0.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -299,9 +233,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -311,9 +242,6 @@ class _InstanceGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -355,44 +283,9 @@ class InstanceGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Elastic MapReduce Cluster Instance Group configuration.
-        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-
-        > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
-        web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
-        this provider will resize any Instance Group to zero when destroying the resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
-            instance_count=1,
-            instance_type="m5.xlarge")
-        ```
-
-        ## Import
-
-        EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
-
-        ```sh
-         $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
-        ```
-
+        Create a InstanceGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
-        :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -401,33 +294,7 @@ class InstanceGroup(pulumi.CustomResource):
                  args: InstanceGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Elastic MapReduce Cluster Instance Group configuration.
-        See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/emr/) for more information.
-
-        > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
-        web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
-        this provider will resize any Instance Group to zero when destroying the resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        task = aws.emr.InstanceGroup("task",
-            cluster_id=aws_emr_cluster["tf-test-cluster"]["id"],
-            instance_count=1,
-            instance_type="m5.xlarge")
-        ```
-
-        ## Import
-
-        EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
-
-        ```sh
-         $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
-        ```
-
+        Create a InstanceGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InstanceGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -504,15 +371,6 @@ class InstanceGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autoscaling_policy: The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        :param pulumi.Input[str] bid_price: If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] configurations_json: A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceGroupEbsConfigArgs']]]] ebs_configs: One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] instance_count: target number of instances for the instance group. defaults to 0.
-        :param pulumi.Input[str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -534,73 +392,46 @@ class InstanceGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        """
         return pulumi.get(self, "autoscaling_policy")
 
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> pulumi.Output[Optional[str]]:
-        """
-        If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Output[str]:
-        """
-        ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="configurationsJson")
     def configurations_json(self) -> pulumi.Output[Optional[str]]:
-        """
-        A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
-        """
         return pulumi.get(self, "configurations_json")
 
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> pulumi.Output[Sequence['outputs.InstanceGroupEbsConfig']]:
-        """
-        One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> pulumi.Output[int]:
-        """
-        target number of instances for the instance group. defaults to 0.
-        """
         return pulumi.get(self, "instance_count")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
-        """
-        The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "name")
 
     @property

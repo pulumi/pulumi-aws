@@ -18,8 +18,6 @@ class EventBusPolicyArgs:
                  event_bus_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventBusPolicy resource.
-        :param pulumi.Input[str] policy: The text of the policy.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
         """
         pulumi.set(__self__, "policy", policy)
         if event_bus_name is not None:
@@ -28,9 +26,6 @@ class EventBusPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
-        """
-        The text of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -40,9 +35,6 @@ class EventBusPolicyArgs:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -57,8 +49,6 @@ class _EventBusPolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventBusPolicy resources.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        :param pulumi.Input[str] policy: The text of the policy.
         """
         if event_bus_name is not None:
             pulumi.set(__self__, "event_bus_name", event_bus_name)
@@ -68,9 +58,6 @@ class _EventBusPolicyState:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -80,9 +67,6 @@ class _EventBusPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The text of the policy.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -99,124 +83,9 @@ class EventBusPolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an EventBridge resource policy to support cross-account events.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
-
-        ## Example Usage
-        ### Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="DevAccountAccess",
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-        )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="OrganizationAccess",
-            effect="Allow",
-            actions=[
-                "events:DescribeRule",
-                "events:ListRules",
-                "events:ListTargetsByRule",
-                "events:ListTagsForResource",
-            ],
-            resources=[
-                "arn:aws:events:eu-west-1:123456789012:rule/*",
-                "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable="aws:PrincipalOrgID",
-                values=[aws_organizations_organization["example"]["id"]],
-            )],
-        )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-        ### Multiple Statements
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="DevAccountAccess",
-                effect="Allow",
-                actions=["events:PutEvents"],
-                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["123456789012"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="OrganizationAccess",
-                effect="Allow",
-                actions=[
-                    "events:DescribeRule",
-                    "events:ListRules",
-                    "events:ListTargetsByRule",
-                    "events:ListTagsForResource",
-                ],
-                resources=[
-                    "arn:aws:events:eu-west-1:123456789012:rule/*",
-                    "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-                ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:PrincipalOrgID",
-                    values=[aws_organizations_organization["example"]["id"]],
-                )],
-            ),
-        ])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-
-        ## Import
-
-        EventBridge permissions can be imported using the `event_bus_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-        ```
-
+        Create a EventBusPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        :param pulumi.Input[str] policy: The text of the policy.
         """
         ...
     @overload
@@ -225,120 +94,7 @@ class EventBusPolicy(pulumi.CustomResource):
                  args: EventBusPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an EventBridge resource policy to support cross-account events.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
-
-        ## Example Usage
-        ### Account Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="DevAccountAccess",
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["123456789012"],
-            )],
-        )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-        ### Organization Access
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="OrganizationAccess",
-            effect="Allow",
-            actions=[
-                "events:DescribeRule",
-                "events:ListRules",
-                "events:ListTargetsByRule",
-                "events:ListTagsForResource",
-            ],
-            resources=[
-                "arn:aws:events:eu-west-1:123456789012:rule/*",
-                "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-            ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="AWS",
-                identifiers=["*"],
-            )],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                test="StringEquals",
-                variable="aws:PrincipalOrgID",
-                values=[aws_organizations_organization["example"]["id"]],
-            )],
-        )])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-        ### Multiple Statements
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="DevAccountAccess",
-                effect="Allow",
-                actions=["events:PutEvents"],
-                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["123456789012"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                sid="OrganizationAccess",
-                effect="Allow",
-                actions=[
-                    "events:DescribeRule",
-                    "events:ListRules",
-                    "events:ListTargetsByRule",
-                    "events:ListTagsForResource",
-                ],
-                resources=[
-                    "arn:aws:events:eu-west-1:123456789012:rule/*",
-                    "arn:aws:events:eu-west-1:123456789012:event-bus/default",
-                ],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="AWS",
-                    identifiers=["*"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="aws:PrincipalOrgID",
-                    values=[aws_organizations_organization["example"]["id"]],
-                )],
-            ),
-        ])
-        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
-            policy=test_policy_document.json,
-            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
-        ```
-
-        ## Import
-
-        EventBridge permissions can be imported using the `event_bus_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
-        ```
-
+        Create a EventBusPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventBusPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,8 +144,6 @@ class EventBusPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_bus_name: The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        :param pulumi.Input[str] policy: The text of the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,16 +156,10 @@ class EventBusPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        The text of the policy.
-        """
         return pulumi.get(self, "policy")
 

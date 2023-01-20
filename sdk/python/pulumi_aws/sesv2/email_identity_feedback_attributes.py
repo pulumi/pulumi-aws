@@ -18,8 +18,6 @@ class EmailIdentityFeedbackAttributesArgs:
                  email_forwarding_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a EmailIdentityFeedbackAttributes resource.
-        :param pulumi.Input[str] email_identity: The email identity.
-        :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
         """
         pulumi.set(__self__, "email_identity", email_identity)
         if email_forwarding_enabled is not None:
@@ -28,9 +26,6 @@ class EmailIdentityFeedbackAttributesArgs:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -40,9 +35,6 @@ class EmailIdentityFeedbackAttributesArgs:
     @property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @email_forwarding_enabled.setter
@@ -57,8 +49,6 @@ class _EmailIdentityFeedbackAttributesState:
                  email_identity: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailIdentityFeedbackAttributes resources.
-        :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[str] email_identity: The email identity.
         """
         if email_forwarding_enabled is not None:
             pulumi.set(__self__, "email_forwarding_enabled", email_forwarding_enabled)
@@ -68,9 +58,6 @@ class _EmailIdentityFeedbackAttributesState:
     @property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @email_forwarding_enabled.setter
@@ -80,9 +67,6 @@ class _EmailIdentityFeedbackAttributesState:
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 
     @email_identity.setter
@@ -99,33 +83,9 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  email_identity: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
-            email_forwarding_enabled=True)
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Email Identity Feedback Attributes can be imported using the `email_identity`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-        ```
-
+        Create a EmailIdentityFeedbackAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[str] email_identity: The email identity.
         """
         ...
     @overload
@@ -134,29 +94,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
                  args: EmailIdentityFeedbackAttributesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_email_identity = aws.sesv2.EmailIdentity("exampleEmailIdentity", email_identity="example.com")
-        example_email_identity_feedback_attributes = aws.sesv2.EmailIdentityFeedbackAttributes("exampleEmailIdentityFeedbackAttributes",
-            email_identity=example_email_identity.email_identity,
-            email_forwarding_enabled=True)
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Email Identity Feedback Attributes can be imported using the `email_identity`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
-        ```
-
+        Create a EmailIdentityFeedbackAttributes resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailIdentityFeedbackAttributesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,8 +144,6 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] email_forwarding_enabled: Sets the feedback forwarding configuration for the identity.
-        :param pulumi.Input[str] email_identity: The email identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -220,16 +156,10 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emailForwardingEnabled")
     def email_forwarding_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Sets the feedback forwarding configuration for the identity.
-        """
         return pulumi.get(self, "email_forwarding_enabled")
 
     @property
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[str]:
-        """
-        The email identity.
-        """
         return pulumi.get(self, "email_identity")
 

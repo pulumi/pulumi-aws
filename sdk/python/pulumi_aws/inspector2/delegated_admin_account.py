@@ -17,16 +17,12 @@ class DelegatedAdminAccountArgs:
                  account_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a DelegatedAdminAccount resource.
-        :param pulumi.Input[str] account_id: Account to enable as delegated admin account.
         """
         pulumi.set(__self__, "account_id", account_id)
 
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -41,8 +37,6 @@ class _DelegatedAdminAccountState:
                  relationship_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DelegatedAdminAccount resources.
-        :param pulumi.Input[str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[str] relationship_status: Status of this delegated admin account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -52,9 +46,6 @@ class _DelegatedAdminAccountState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -64,9 +55,6 @@ class _DelegatedAdminAccountState:
     @property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of this delegated admin account.
-        """
         return pulumi.get(self, "relationship_status")
 
     @relationship_status.setter
@@ -82,30 +70,9 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Inspector V2 Delegated Admin Account.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
-        ```
-
-        ## Import
-
-        Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-        ```
-
+        Create a DelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Account to enable as delegated admin account.
         """
         ...
     @overload
@@ -114,27 +81,7 @@ class DelegatedAdminAccount(pulumi.CustomResource):
                  args: DelegatedAdminAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Inspector V2 Delegated Admin Account.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
-        ```
-
-        ## Import
-
-        Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-        ```
-
+        Create a DelegatedAdminAccount resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DelegatedAdminAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,8 +130,6 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: Account to enable as delegated admin account.
-        :param pulumi.Input[str] relationship_status: Status of this delegated admin account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -197,16 +142,10 @@ class DelegatedAdminAccount(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
-        """
-        Account to enable as delegated admin account.
-        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> pulumi.Output[str]:
-        """
-        Status of this delegated admin account.
-        """
         return pulumi.get(self, "relationship_status")
 

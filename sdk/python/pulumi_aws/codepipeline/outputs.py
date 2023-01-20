@@ -33,15 +33,6 @@ class CustomActionTypeConfigurationProperty(dict):
                  description: Optional[str] = None,
                  queryable: Optional[bool] = None,
                  type: Optional[str] = None):
-        """
-        :param bool key: Whether the configuration property is a key.
-        :param str name: The name of the action configuration property.
-        :param bool required: Whether the configuration property is a required value.
-        :param bool secret: Whether the configuration property is secret.
-        :param str description: The description of the action configuration property.
-        :param bool queryable: Indicates that the property will be used in conjunction with PollForJobs.
-        :param str type: The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "required", required)
@@ -56,57 +47,36 @@ class CustomActionTypeConfigurationProperty(dict):
     @property
     @pulumi.getter
     def key(self) -> bool:
-        """
-        Whether the configuration property is a key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the action configuration property.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def required(self) -> bool:
-        """
-        Whether the configuration property is a required value.
-        """
         return pulumi.get(self, "required")
 
     @property
     @pulumi.getter
     def secret(self) -> bool:
-        """
-        Whether the configuration property is secret.
-        """
         return pulumi.get(self, "secret")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        The description of the action configuration property.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def queryable(self) -> Optional[bool]:
-        """
-        Indicates that the property will be used in conjunction with PollForJobs.
-        """
         return pulumi.get(self, "queryable")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        The type of the configuration property. Valid values: `String`, `Number`, `Boolean`
-        """
         return pulumi.get(self, "type")
 
 
@@ -134,27 +104,17 @@ class CustomActionTypeInputArtifactDetails(dict):
     def __init__(__self__, *,
                  maximum_count: int,
                  minimum_count: int):
-        """
-        :param int maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        :param int minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         pulumi.set(__self__, "maximum_count", maximum_count)
         pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
     def maximum_count(self) -> int:
-        """
-        The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         return pulumi.get(self, "maximum_count")
 
     @property
     @pulumi.getter(name="minimumCount")
     def minimum_count(self) -> int:
-        """
-        The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         return pulumi.get(self, "minimum_count")
 
 
@@ -182,27 +142,17 @@ class CustomActionTypeOutputArtifactDetails(dict):
     def __init__(__self__, *,
                  maximum_count: int,
                  minimum_count: int):
-        """
-        :param int maximum_count: The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        :param int minimum_count: The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         pulumi.set(__self__, "maximum_count", maximum_count)
         pulumi.set(__self__, "minimum_count", minimum_count)
 
     @property
     @pulumi.getter(name="maximumCount")
     def maximum_count(self) -> int:
-        """
-        The maximum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         return pulumi.get(self, "maximum_count")
 
     @property
     @pulumi.getter(name="minimumCount")
     def minimum_count(self) -> int:
-        """
-        The minimum number of artifacts allowed for the action type. Min: 0, Max: 5
-        """
         return pulumi.get(self, "minimum_count")
 
 
@@ -236,12 +186,6 @@ class CustomActionTypeSettings(dict):
                  execution_url_template: Optional[str] = None,
                  revision_url_template: Optional[str] = None,
                  third_party_configuration_url: Optional[str] = None):
-        """
-        :param str entity_url_template: The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-        :param str execution_url_template: The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-        :param str revision_url_template: The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-        :param str third_party_configuration_url: The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-        """
         if entity_url_template is not None:
             pulumi.set(__self__, "entity_url_template", entity_url_template)
         if execution_url_template is not None:
@@ -254,33 +198,21 @@ class CustomActionTypeSettings(dict):
     @property
     @pulumi.getter(name="entityUrlTemplate")
     def entity_url_template(self) -> Optional[str]:
-        """
-        The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-        """
         return pulumi.get(self, "entity_url_template")
 
     @property
     @pulumi.getter(name="executionUrlTemplate")
     def execution_url_template(self) -> Optional[str]:
-        """
-        The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-        """
         return pulumi.get(self, "execution_url_template")
 
     @property
     @pulumi.getter(name="revisionUrlTemplate")
     def revision_url_template(self) -> Optional[str]:
-        """
-        The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-        """
         return pulumi.get(self, "revision_url_template")
 
     @property
     @pulumi.getter(name="thirdPartyConfigurationUrl")
     def third_party_configuration_url(self) -> Optional[str]:
-        """
-        The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-        """
         return pulumi.get(self, "third_party_configuration_url")
 
 
@@ -308,12 +240,6 @@ class PipelineArtifactStore(dict):
                  type: str,
                  encryption_key: Optional['outputs.PipelineArtifactStoreEncryptionKey'] = None,
                  region: Optional[str] = None):
-        """
-        :param str location: The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-        :param str type: The type of the artifact store, such as Amazon S3
-        :param 'PipelineArtifactStoreEncryptionKeyArgs' encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
-        :param str region: The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-        """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "type", type)
         if encryption_key is not None:
@@ -324,33 +250,21 @@ class PipelineArtifactStore(dict):
     @property
     @pulumi.getter
     def location(self) -> str:
-        """
-        The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of the artifact store, such as Amazon S3
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional['outputs.PipelineArtifactStoreEncryptionKey']:
-        """
-        The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
-        """
         return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
-        """
-        The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
-        """
         return pulumi.get(self, "region")
 
 
@@ -359,27 +273,17 @@ class PipelineArtifactStoreEncryptionKey(dict):
     def __init__(__self__, *,
                  id: str,
                  type: str):
-        """
-        :param str id: The KMS key ARN or ID
-        :param str type: The type of key; currently only `KMS` is supported
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The KMS key ARN or ID
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of key; currently only `KMS` is supported
-        """
         return pulumi.get(self, "type")
 
 
@@ -388,27 +292,17 @@ class PipelineStage(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.PipelineStageAction'],
                  name: str):
-        """
-        :param Sequence['PipelineStageActionArgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
-        :param str name: The name of the stage.
-        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
     def actions(self) -> Sequence['outputs.PipelineStageAction']:
-        """
-        The action(s) to include in the stage. Defined as an `action` block below
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the stage.
-        """
         return pulumi.get(self, "name")
 
 
@@ -450,20 +344,6 @@ class PipelineStageAction(dict):
                  region: Optional[str] = None,
                  role_arn: Optional[str] = None,
                  run_order: Optional[int] = None):
-        """
-        :param str category: A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-        :param str name: The action declaration's name.
-        :param str owner: The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-        :param str provider: The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        :param str version: A string that identifies the action type.
-        :param Mapping[str, str] configuration: A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        :param Sequence[str] input_artifacts: A list of artifact names to be worked on.
-        :param str namespace: The namespace all output variables will be accessed from.
-        :param Sequence[str] output_artifacts: A list of artifact names to output. Output artifact names must be unique within a pipeline.
-        :param str region: The region in which to run the action.
-        :param str role_arn: The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-        :param int run_order: The order in which actions are run.
-        """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
@@ -487,97 +367,61 @@ class PipelineStageAction(dict):
     @property
     @pulumi.getter
     def category(self) -> str:
-        """
-        A category defines what kind of action can be taken in the stage, and constrains the provider type for the action. Possible values are `Approval`, `Build`, `Deploy`, `Invoke`, `Source` and `Test`.
-        """
         return pulumi.get(self, "category")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The action declaration's name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        The creator of the action being called. Possible values are `AWS`, `Custom` and `ThirdParty`.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def provider(self) -> str:
-        """
-        The provider of the service being called by the action. Valid providers are determined by the action category. Provider names are listed in the [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        """
         return pulumi.get(self, "provider")
 
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        A string that identifies the action type.
-        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Mapping[str, str]]:
-        """
-        A map of the action declaration's configuration. Configurations options for action types and providers can be found in the [Pipeline Structure Reference](http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements) and [Action Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) documentation.
-        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="inputArtifacts")
     def input_artifacts(self) -> Optional[Sequence[str]]:
-        """
-        A list of artifact names to be worked on.
-        """
         return pulumi.get(self, "input_artifacts")
 
     @property
     @pulumi.getter
     def namespace(self) -> Optional[str]:
-        """
-        The namespace all output variables will be accessed from.
-        """
         return pulumi.get(self, "namespace")
 
     @property
     @pulumi.getter(name="outputArtifacts")
     def output_artifacts(self) -> Optional[Sequence[str]]:
-        """
-        A list of artifact names to output. Output artifact names must be unique within a pipeline.
-        """
         return pulumi.get(self, "output_artifacts")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
-        """
-        The region in which to run the action.
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
-        """
-        The ARN of the IAM service role that will perform the declared action. This is assumed through the roleArn for the pipeline.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="runOrder")
     def run_order(self) -> Optional[int]:
-        """
-        The order in which actions are run.
-        """
         return pulumi.get(self, "run_order")
 
 
@@ -605,10 +449,6 @@ class WebhookAuthenticationConfiguration(dict):
     def __init__(__self__, *,
                  allowed_ip_range: Optional[str] = None,
                  secret_token: Optional[str] = None):
-        """
-        :param str allowed_ip_range: A valid CIDR block for `IP` filtering. Required for `IP`.
-        :param str secret_token: The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
-        """
         if allowed_ip_range is not None:
             pulumi.set(__self__, "allowed_ip_range", allowed_ip_range)
         if secret_token is not None:
@@ -617,17 +457,11 @@ class WebhookAuthenticationConfiguration(dict):
     @property
     @pulumi.getter(name="allowedIpRange")
     def allowed_ip_range(self) -> Optional[str]:
-        """
-        A valid CIDR block for `IP` filtering. Required for `IP`.
-        """
         return pulumi.get(self, "allowed_ip_range")
 
     @property
     @pulumi.getter(name="secretToken")
     def secret_token(self) -> Optional[str]:
-        """
-        The shared secret for the GitHub repository webhook. Set this as `secret` in your `github_repository_webhook`'s `configuration` block. Required for `GITHUB_HMAC`.
-        """
         return pulumi.get(self, "secret_token")
 
 
@@ -655,27 +489,17 @@ class WebhookFilter(dict):
     def __init__(__self__, *,
                  json_path: str,
                  match_equals: str):
-        """
-        :param str json_path: The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-        :param str match_equals: The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
-        """
         pulumi.set(__self__, "json_path", json_path)
         pulumi.set(__self__, "match_equals", match_equals)
 
     @property
     @pulumi.getter(name="jsonPath")
     def json_path(self) -> str:
-        """
-        The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-        """
         return pulumi.get(self, "json_path")
 
     @property
     @pulumi.getter(name="matchEquals")
     def match_equals(self) -> str:
-        """
-        The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
-        """
         return pulumi.get(self, "match_equals")
 
 

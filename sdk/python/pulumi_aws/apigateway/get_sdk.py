@@ -50,25 +50,16 @@ class GetSdkResult:
     @property
     @pulumi.getter
     def body(self) -> str:
-        """
-        SDK as a string.
-        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="contentDisposition")
     def content_disposition(self) -> str:
-        """
-        Content-disposition header value in the HTTP response.
-        """
         return pulumi.get(self, "content_disposition")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> str:
-        """
-        Content-type header value in the HTTP response.
-        """
         return pulumi.get(self, "content_type")
 
     @property
@@ -122,28 +113,7 @@ def get_sdk(parameters: Optional[Mapping[str, str]] = None,
             stage_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSdkResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
-        sdk_type="android",
-        parameters={
-            "groupId": "example",
-            "artifactId": "example",
-            "artifactVersion": "example",
-            "invokerPackage": "example",
-        })
-    ```
-
-
-    :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-    :param str rest_api_id: Identifier of the associated REST API.
-    :param str sdk_type: Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-    :param str stage_name: Name of the Stage that will be exported.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['parameters'] = parameters
@@ -171,27 +141,6 @@ def get_sdk_output(parameters: Optional[pulumi.Input[Optional[Mapping[str, str]]
                    stage_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSdkResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.apigateway.get_sdk(rest_api_id=aws_api_gateway_stage["example"]["rest_api_id"],
-        stage_name=aws_api_gateway_stage["example"]["stage_name"],
-        sdk_type="android",
-        parameters={
-            "groupId": "example",
-            "artifactId": "example",
-            "artifactVersion": "example",
-            "invokerPackage": "example",
-        })
-    ```
-
-
-    :param Mapping[str, str] parameters: Key-value map of query string parameters `sdk_type` properties of the SDK. For SDK Type of `objectivec` or `swift`, a parameter named `classPrefix` is required. For SDK Type of `android`, parameters named `groupId`, `artifactId`, `artifactVersion`, and `invokerPackage` are required. For SDK Type of `java`, parameters named `serviceName` and `javaPackageName` are required.
-    :param str rest_api_id: Identifier of the associated REST API.
-    :param str sdk_type: Language for the generated SDK. Currently `java`, `javascript`, `android`, `objectivec` (for iOS), `swift` (for iOS), and `ruby` are supported.
-    :param str stage_name: Name of the Stage that will be exported.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -21,9 +21,6 @@ class BucketCorsConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketCorsConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "cors_rules", cors_rules)
@@ -33,9 +30,6 @@ class BucketCorsConfigurationV2Args:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -45,9 +39,6 @@ class BucketCorsConfigurationV2Args:
     @property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -57,9 +48,6 @@ class BucketCorsConfigurationV2Args:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -75,9 +63,6 @@ class _BucketCorsConfigurationV2State:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketCorsConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -89,9 +74,6 @@ class _BucketCorsConfigurationV2State:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -101,9 +83,6 @@ class _BucketCorsConfigurationV2State:
     @property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketCorsConfigurationV2CorsRuleArgs']]]]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @cors_rules.setter
@@ -113,9 +92,6 @@ class _BucketCorsConfigurationV2State:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -133,56 +109,9 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-
-        > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
-            bucket=example_bucket_v2.id,
-            cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
-                        "PUT",
-                        "POST",
-                    ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
-            ])
-        ```
-
-        ## Import
-
-        S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
-        ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketCorsConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         ...
     @overload
@@ -191,51 +120,7 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
                  args: BucketCorsConfigurationV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
-
-        > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_cors_configuration_v2 = aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2",
-            bucket=example_bucket_v2.id,
-            cors_rules=[
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_headers=["*"],
-                    allowed_methods=[
-                        "PUT",
-                        "POST",
-                    ],
-                    allowed_origins=["https://s3-website-test.domain.example"],
-                    expose_headers=["ETag"],
-                    max_age_seconds=3000,
-                ),
-                aws.s3.BucketCorsConfigurationV2CorsRuleArgs(
-                    allowed_methods=["GET"],
-                    allowed_origins=["*"],
-                ),
-            ])
-        ```
-
-        ## Import
-
-        S3 bucket CORS configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name
-        ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket CORS configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketCorsConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketCorsConfigurationV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,9 +175,6 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketCorsConfigurationV2CorsRuleArgs']]]] cors_rules: Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,24 +188,15 @@ class BucketCorsConfigurationV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="corsRules")
     def cors_rules(self) -> pulumi.Output[Sequence['outputs.BucketCorsConfigurationV2CorsRule']]:
-        """
-        Set of origins and methods (cross-origin access that you want to allow) documented below. You can configure up to 100 rules.
-        """
         return pulumi.get(self, "cors_rules")
 
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 

@@ -18,8 +18,6 @@ class ImageVersionArgs:
                  image_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ImageVersion resource.
-        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
-        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
@@ -27,9 +25,6 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Input[str]:
-        """
-        The registry path of the container image on which this image version is based.
-        """
         return pulumi.get(self, "base_image")
 
     @base_image.setter
@@ -39,9 +34,6 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Input[str]:
-        """
-        The name of the image. Must be unique to your account.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -60,11 +52,6 @@ class _ImageVersionState:
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ImageVersion resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-               * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
-        :param pulumi.Input[str] container_image: The registry path of the container image that contains this image version.
-        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -82,10 +69,6 @@ class _ImageVersionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -95,9 +78,6 @@ class _ImageVersionState:
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry path of the container image on which this image version is based.
-        """
         return pulumi.get(self, "base_image")
 
     @base_image.setter
@@ -107,9 +87,6 @@ class _ImageVersionState:
     @property
     @pulumi.getter(name="containerImage")
     def container_image(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry path of the container image that contains this image version.
-        """
         return pulumi.get(self, "container_image")
 
     @container_image.setter
@@ -128,9 +105,6 @@ class _ImageVersionState:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the image. Must be unique to your account.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -156,32 +130,9 @@ class ImageVersion(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Image Version resource.
-
-        ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
-        ```
-
-        ## Import
-
-        SageMaker Image Versions can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
-        ```
-
+        Create a ImageVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
-        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         ...
     @overload
@@ -190,28 +141,7 @@ class ImageVersion(pulumi.CustomResource):
                  args: ImageVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Image Version resource.
-
-        ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.sagemaker.ImageVersion("test",
-            image_name=aws_sagemaker_image["test"]["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
-        ```
-
-        ## Import
-
-        SageMaker Image Versions can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
-        ```
-
+        Create a ImageVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,11 +201,6 @@ class ImageVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-               * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        :param pulumi.Input[str] base_image: The registry path of the container image on which this image version is based.
-        :param pulumi.Input[str] container_image: The registry path of the container image that contains this image version.
-        :param pulumi.Input[str] image_name: The name of the image. Must be unique to your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,26 +217,16 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
-        * `image_arn`- The Amazon Resource Name (ARN) of the image the version is based on.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Output[str]:
-        """
-        The registry path of the container image on which this image version is based.
-        """
         return pulumi.get(self, "base_image")
 
     @property
     @pulumi.getter(name="containerImage")
     def container_image(self) -> pulumi.Output[str]:
-        """
-        The registry path of the container image that contains this image version.
-        """
         return pulumi.get(self, "container_image")
 
     @property
@@ -322,9 +237,6 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
-        """
-        The name of the image. Must be unique to your account.
-        """
         return pulumi.get(self, "image_name")
 
     @property

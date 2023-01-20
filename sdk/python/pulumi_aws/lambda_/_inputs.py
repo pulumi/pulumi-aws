@@ -40,18 +40,12 @@ __all__ = [
 class AliasRoutingConfigArgs:
     def __init__(__self__, *,
                  additional_version_weights: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] additional_version_weights: A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        """
         if additional_version_weights is not None:
             pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
     @property
     @pulumi.getter(name="additionalVersionWeights")
     def additional_version_weights(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
-        """
-        A map that defines the proportion of events that should be sent to different versions of a lambda function.
-        """
         return pulumi.get(self, "additional_version_weights")
 
     @additional_version_weights.setter
@@ -63,17 +57,11 @@ class AliasRoutingConfigArgs:
 class CodeSigningConfigAllowedPublishersArgs:
     def __init__(__self__, *,
                  signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] signing_profile_version_arns: The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-        """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
     @property
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-        """
         return pulumi.get(self, "signing_profile_version_arns")
 
     @signing_profile_version_arns.setter
@@ -85,17 +73,11 @@ class CodeSigningConfigAllowedPublishersArgs:
 class CodeSigningConfigPoliciesArgs:
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] untrusted_artifact_on_deployment: Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> pulumi.Input[str]:
-        """
-        Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
-        """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
     @untrusted_artifact_on_deployment.setter
@@ -107,18 +89,12 @@ class CodeSigningConfigPoliciesArgs:
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
@@ -130,18 +106,12 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']] = None):
-        """
-        :param pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs'] on_failure: The destination configuration for failed invocations. Detailed below.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
 
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']]:
-        """
-        The destination configuration for failed invocations. Detailed below.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -153,17 +123,11 @@ class EventSourceMappingDestinationConfigArgs:
 class EventSourceMappingDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination resource.
-        """
         pulumi.set(__self__, "destination_arn", destination_arn)
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the destination resource.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -175,18 +139,12 @@ class EventSourceMappingDestinationConfigOnFailureArgs:
 class EventSourceMappingFilterCriteriaArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
-        """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]:
-        """
-        A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -198,18 +156,12 @@ class EventSourceMappingFilterCriteriaArgs:
 class EventSourceMappingFilterCriteriaFilterArgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] pattern: A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
 
     @property
     @pulumi.getter
     def pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
-        """
         return pulumi.get(self, "pattern")
 
     @pattern.setter
@@ -221,17 +173,11 @@ class EventSourceMappingFilterCriteriaFilterArgs:
 class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
                  endpoints: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] endpoints: A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         pulumi.set(__self__, "endpoints", endpoints)
 
     @property
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
-        """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
@@ -243,18 +189,12 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] consumer_group_id: A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
 
     @property
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-        """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
@@ -267,19 +207,12 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  uri: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] type: The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
-        :param pulumi.Input[str] uri: The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "uri", uri)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -289,9 +222,6 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
-        """
-        The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
-        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -303,17 +233,11 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 class FunctionDeadLetterConfigArgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] target_arn: ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
-        """
         pulumi.set(__self__, "target_arn", target_arn)
 
     @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
-        """
         return pulumi.get(self, "target_arn")
 
     @target_arn.setter
@@ -325,18 +249,12 @@ class FunctionDeadLetterConfigArgs:
 class FunctionEnvironmentArgs:
     def __init__(__self__, *,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Map of environment variables that are accessible from the function code during execution.
-        """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of environment variables that are accessible from the function code during execution.
-        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -348,18 +266,12 @@ class FunctionEnvironmentArgs:
 class FunctionEphemeralStorageArgs:
     def __init__(__self__, *,
                  size: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
-        """
         if size is not None:
             pulumi.set(__self__, "size", size)
 
     @property
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -372,10 +284,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']] = None,
                  on_success: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']] = None):
-        """
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs'] on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs'] on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -384,9 +292,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     @property
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']]:
-        """
-        Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
@@ -396,9 +301,6 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
     @property
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']]:
-        """
-        Configuration block with destination configuration for successful asynchronous invocations. See below for details.
-        """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
@@ -410,17 +312,11 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
 class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -432,17 +328,11 @@ class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
 class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] destination: Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -455,19 +345,12 @@ class FunctionFileSystemConfigArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  local_mount_path: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        :param pulumi.Input[str] local_mount_path: Path where the function can access the file system, starting with /mnt/.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -477,9 +360,6 @@ class FunctionFileSystemConfigArgs:
     @property
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> pulumi.Input[str]:
-        """
-        Path where the function can access the file system, starting with /mnt/.
-        """
         return pulumi.get(self, "local_mount_path")
 
     @local_mount_path.setter
@@ -493,11 +373,6 @@ class FunctionImageConfigArgs:
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entry_points: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: Parameters that you want to pass in with `entry_point`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_points: Entry point to your application, which is typically the location of the runtime executable.
-        :param pulumi.Input[str] working_directory: Working directory.
-        """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
         if entry_points is not None:
@@ -508,9 +383,6 @@ class FunctionImageConfigArgs:
     @property
     @pulumi.getter
     def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Parameters that you want to pass in with `entry_point`.
-        """
         return pulumi.get(self, "commands")
 
     @commands.setter
@@ -520,9 +392,6 @@ class FunctionImageConfigArgs:
     @property
     @pulumi.getter(name="entryPoints")
     def entry_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Entry point to your application, which is typically the location of the runtime executable.
-        """
         return pulumi.get(self, "entry_points")
 
     @entry_points.setter
@@ -532,9 +401,6 @@ class FunctionImageConfigArgs:
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
-        """
-        Working directory.
-        """
         return pulumi.get(self, "working_directory")
 
     @working_directory.setter
@@ -547,9 +413,6 @@ class FunctionSnapStartArgs:
     def __init__(__self__, *,
                  apply_on: pulumi.Input[str],
                  optimization_status: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] apply_on: Conditions where snap start is enabled. Valid values are `PublishedVersions`.
-        """
         pulumi.set(__self__, "apply_on", apply_on)
         if optimization_status is not None:
             pulumi.set(__self__, "optimization_status", optimization_status)
@@ -557,9 +420,6 @@ class FunctionSnapStartArgs:
     @property
     @pulumi.getter(name="applyOn")
     def apply_on(self) -> pulumi.Input[str]:
-        """
-        Conditions where snap start is enabled. Valid values are `PublishedVersions`.
-        """
         return pulumi.get(self, "apply_on")
 
     @apply_on.setter
@@ -580,17 +440,11 @@ class FunctionSnapStartArgs:
 class FunctionTracingConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] mode: Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
-        """
         pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
-        """
-        Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
-        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -607,14 +461,6 @@ class FunctionUrlCorsArgs:
                  allow_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  expose_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_age: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[bool] allow_credentials: Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_headers: The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_methods: The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow_origins: The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] expose_headers: The HTTP headers in your function response that you want to expose to origins that call the function URL.
-        :param pulumi.Input[int] max_age: The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
-        """
         if allow_credentials is not None:
             pulumi.set(__self__, "allow_credentials", allow_credentials)
         if allow_headers is not None:
@@ -631,9 +477,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="allowCredentials")
     def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
-        """
         return pulumi.get(self, "allow_credentials")
 
     @allow_credentials.setter
@@ -643,9 +486,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="allowHeaders")
     def allow_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
-        """
         return pulumi.get(self, "allow_headers")
 
     @allow_headers.setter
@@ -655,9 +495,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="allowMethods")
     def allow_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
-        """
         return pulumi.get(self, "allow_methods")
 
     @allow_methods.setter
@@ -667,9 +504,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="allowOrigins")
     def allow_origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
-        """
         return pulumi.get(self, "allow_origins")
 
     @allow_origins.setter
@@ -679,9 +513,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="exposeHeaders")
     def expose_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The HTTP headers in your function response that you want to expose to origins that call the function URL.
-        """
         return pulumi.get(self, "expose_headers")
 
     @expose_headers.setter
@@ -691,9 +522,6 @@ class FunctionUrlCorsArgs:
     @property
     @pulumi.getter(name="maxAge")
     def max_age(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
-        """
         return pulumi.get(self, "max_age")
 
     @max_age.setter
@@ -707,10 +535,6 @@ class FunctionVpcConfigArgs:
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of security group IDs associated with the Lambda function.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs associated with the Lambda function.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_id is not None:
@@ -719,9 +543,6 @@ class FunctionVpcConfigArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of security group IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -731,9 +552,6 @@ class FunctionVpcConfigArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of subnet IDs associated with the Lambda function.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter

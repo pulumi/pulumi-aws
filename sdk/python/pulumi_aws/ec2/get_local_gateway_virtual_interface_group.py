@@ -58,9 +58,6 @@ class GetLocalGatewayVirtualInterfaceGroupResult:
     @property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
     def local_gateway_virtual_interface_ids(self) -> Sequence[str]:
-        """
-        Set of EC2 Local Gateway Virtual Interface identifiers.
-        """
         return pulumi.get(self, "local_gateway_virtual_interface_ids")
 
     @property
@@ -88,22 +85,7 @@ def get_local_gateway_virtual_interface_group(filters: Optional[Sequence[pulumi.
                                               tags: Optional[Mapping[str, str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalGatewayVirtualInterfaceGroupResult:
     """
-    Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=data["aws_ec2_local_gateway"]["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-    :param str id: Identifier of EC2 Local Gateway Virtual Interface Group.
-    :param str local_gateway_id: Identifier of EC2 Local Gateway.
-    :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -128,21 +110,6 @@ def get_local_gateway_virtual_interface_group_output(filters: Optional[pulumi.In
                                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceGroupResult]:
     """
-    Provides details about an EC2 Local Gateway Virtual Interface Group. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_local_gateway_virtual_interface_group(local_gateway_id=data["aws_ec2_local_gateway"]["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceGroupFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
-    :param str id: Identifier of EC2 Local Gateway Virtual Interface Group.
-    :param str local_gateway_id: Identifier of EC2 Local Gateway.
-    :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    Use this data source to access information about an existing resource.
     """
     ...

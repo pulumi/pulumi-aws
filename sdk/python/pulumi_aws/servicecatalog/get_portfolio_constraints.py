@@ -47,9 +47,6 @@ class GetPortfolioConstraintsResult:
     @property
     @pulumi.getter
     def details(self) -> Sequence['outputs.GetPortfolioConstraintsDetailResult']:
-        """
-        List of information about the constraints. See details below.
-        """
         return pulumi.get(self, "details")
 
     @property
@@ -63,17 +60,11 @@ class GetPortfolioConstraintsResult:
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> str:
-        """
-        Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[str]:
-        """
-        Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-        """
         return pulumi.get(self, "product_id")
 
 
@@ -95,22 +86,7 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
                               product_id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortfolioConstraintsResult:
     """
-    Provides information on Service Catalog Portfolio Constraints.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_portfolio_constraints(portfolio_id="port-3lli3b3an")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str portfolio_id: Portfolio identifier.
-    :param str product_id: Product identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -133,21 +109,6 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
                                      product_id: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
     """
-    Provides information on Service Catalog Portfolio Constraints.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_portfolio_constraints(portfolio_id="port-3lli3b3an")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str portfolio_id: Portfolio identifier.
-    :param str product_id: Product identifier.
+    Use this data source to access information about an existing resource.
     """
     ...

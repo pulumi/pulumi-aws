@@ -60,25 +60,16 @@ class GetStreamResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Kinesis Stream (same as id).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="closedShards")
     def closed_shards(self) -> Sequence[str]:
-        """
-        List of shard ids in the CLOSED state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-        """
         return pulumi.get(self, "closed_shards")
 
     @property
     @pulumi.getter(name="creationTimestamp")
     def creation_timestamp(self) -> int:
-        """
-        Approximate UNIX timestamp that the stream was created.
-        """
         return pulumi.get(self, "creation_timestamp")
 
     @property
@@ -92,57 +83,36 @@ class GetStreamResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the Kinesis Stream.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="openShards")
     def open_shards(self) -> Sequence[str]:
-        """
-        List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
-        """
         return pulumi.get(self, "open_shards")
 
     @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> int:
-        """
-        Length of time (in hours) data records are accessible after they are added to the stream.
-        """
         return pulumi.get(self, "retention_period")
 
     @property
     @pulumi.getter(name="shardLevelMetrics")
     def shard_level_metrics(self) -> Sequence[str]:
-        """
-        List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
-        """
         return pulumi.get(self, "shard_level_metrics")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="streamModeDetails")
     def stream_mode_details(self) -> Sequence['outputs.GetStreamStreamModeDetailResult']:
-        """
-        [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
-        """
         return pulumi.get(self, "stream_mode_details")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags to assigned to the stream.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -169,23 +139,7 @@ def get_stream(name: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamResult:
     """
-    Use this data source to get information about a Kinesis Stream for use in other
-    resources.
-
-    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
-
-
-    :param str name: Name of the Kinesis Stream.
-    :param Mapping[str, str] tags: Map of tags to assigned to the stream.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -212,22 +166,6 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
     """
-    Use this data source to get information about a Kinesis Stream for use in other
-    resources.
-
-    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    stream = aws.kinesis.get_stream(name="stream-name")
-    ```
-
-
-    :param str name: Name of the Kinesis Stream.
-    :param Mapping[str, str] tags: Map of tags to assigned to the stream.
+    Use this data source to access information about an existing resource.
     """
     ...

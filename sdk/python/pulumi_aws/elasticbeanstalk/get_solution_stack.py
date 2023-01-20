@@ -51,9 +51,6 @@ class GetSolutionStackResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the solution stack.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -78,24 +75,7 @@ def get_solution_stack(most_recent: Optional[bool] = None,
                        name_regex: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSolutionStackResult:
     """
-    Use this data source to get the name of a elastic beanstalk solution stack.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
-
-
-    :param bool most_recent: If more than one result is returned, use the most
-           recent solution stack.
-    :param str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-           AWS documentation for reference solution stack names.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['mostRecent'] = most_recent
@@ -115,23 +95,6 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
                               name_regex: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionStackResult]:
     """
-    Use this data source to get the name of a elastic beanstalk solution stack.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
-        name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
-    ```
-
-
-    :param bool most_recent: If more than one result is returned, use the most
-           recent solution stack.
-    :param str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-           AWS documentation for reference solution stack names.
+    Use this data source to access information about an existing resource.
     """
     ...

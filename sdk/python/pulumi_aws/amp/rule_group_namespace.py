@@ -19,9 +19,6 @@ class RuleGroupNamespaceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RuleGroupNamespace resource.
-        :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
-        :param pulumi.Input[str] name: The name of the rule group namespace
         """
         pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -31,9 +28,6 @@ class RuleGroupNamespaceArgs:
     @property
     @pulumi.getter
     def data(self) -> pulumi.Input[str]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -43,9 +37,6 @@ class RuleGroupNamespaceArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -55,9 +46,6 @@ class RuleGroupNamespaceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the rule group namespace
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -73,9 +61,6 @@ class _RuleGroupNamespaceState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RuleGroupNamespace resources.
-        :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
         """
         if data is not None:
             pulumi.set(__self__, "data", data)
@@ -87,9 +72,6 @@ class _RuleGroupNamespaceState:
     @property
     @pulumi.getter
     def data(self) -> Optional[pulumi.Input[str]]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @data.setter
@@ -99,9 +81,6 @@ class _RuleGroupNamespaceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the rule group namespace
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +90,6 @@ class _RuleGroupNamespaceState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -131,38 +107,9 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
-            workspace_id=demo_workspace.id,
-            data=\"\"\"groups:
-          - name: test
-            rules:
-            - record: metric:recording_rule
-              expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
-        ```
-
-        ## Import
-
-        The prometheus rule group namespace can be imported using the arn, e.g.,
-
-        ```sh
-         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-        ```
-
+        Create a RuleGroupNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
         """
         ...
     @overload
@@ -171,33 +118,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
                  args: RuleGroupNamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        demo_workspace = aws.amp.Workspace("demoWorkspace")
-        demo_rule_group_namespace = aws.amp.RuleGroupNamespace("demoRuleGroupNamespace",
-            workspace_id=demo_workspace.id,
-            data=\"\"\"groups:
-          - name: test
-            rules:
-            - record: metric:recording_rule
-              expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-        \"\"\")
-        ```
-
-        ## Import
-
-        The prometheus rule group namespace can be imported using the arn, e.g.,
-
-        ```sh
-         $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-        ```
-
+        Create a RuleGroupNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RuleGroupNamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,9 +173,6 @@ class RuleGroupNamespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data: the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        :param pulumi.Input[str] name: The name of the rule group namespace
-        :param pulumi.Input[str] workspace_id: ID of the prometheus workspace the rule group namespace should be linked to
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,24 +186,15 @@ class RuleGroupNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def data(self) -> pulumi.Output[str]:
-        """
-        the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        """
         return pulumi.get(self, "data")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the rule group namespace
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
-        """
-        ID of the prometheus workspace the rule group namespace should be linked to
-        """
         return pulumi.get(self, "workspace_id")
 

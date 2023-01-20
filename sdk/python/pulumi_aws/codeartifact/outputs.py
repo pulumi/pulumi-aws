@@ -39,9 +39,6 @@ class RepositoryExternalConnections(dict):
                  external_connection_name: str,
                  package_format: Optional[str] = None,
                  status: Optional[str] = None):
-        """
-        :param str external_connection_name: The name of the external connection associated with a repository.
-        """
         pulumi.set(__self__, "external_connection_name", external_connection_name)
         if package_format is not None:
             pulumi.set(__self__, "package_format", package_format)
@@ -51,9 +48,6 @@ class RepositoryExternalConnections(dict):
     @property
     @pulumi.getter(name="externalConnectionName")
     def external_connection_name(self) -> str:
-        """
-        The name of the external connection associated with a repository.
-        """
         return pulumi.get(self, "external_connection_name")
 
     @property
@@ -88,17 +82,11 @@ class RepositoryUpstream(dict):
 
     def __init__(__self__, *,
                  repository_name: str):
-        """
-        :param str repository_name: The name of an upstream repository.
-        """
         pulumi.set(__self__, "repository_name", repository_name)
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
-        """
-        The name of an upstream repository.
-        """
         return pulumi.get(self, "repository_name")
 
 

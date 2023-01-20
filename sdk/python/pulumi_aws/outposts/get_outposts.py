@@ -47,9 +47,6 @@ class GetOutpostsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        Set of Amazon Resource Names (ARNs).
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -73,9 +70,6 @@ class GetOutpostsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        Set of identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -110,22 +104,7 @@ def get_outposts(availability_zone: Optional[str] = None,
                  site_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostsResult:
     """
-    Provides details about multiple Outposts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
-    ```
-
-
-    :param str availability_zone: Availability Zone name.
-    :param str availability_zone_id: Availability Zone identifier.
-    :param str owner_id: AWS Account identifier of the Outpost owner.
-    :param str site_id: Site identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
@@ -152,21 +131,6 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]]
                         site_id: Optional[pulumi.Input[Optional[str]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostsResult]:
     """
-    Provides details about multiple Outposts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
-    ```
-
-
-    :param str availability_zone: Availability Zone name.
-    :param str availability_zone_id: Availability Zone identifier.
-    :param str owner_id: AWS Account identifier of the Outpost owner.
-    :param str site_id: Site identifier.
+    Use this data source to access information about an existing resource.
     """
     ...

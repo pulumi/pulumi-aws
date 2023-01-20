@@ -32,20 +32,6 @@ class UserArgs:
                  user_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
-        :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
-        :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input['UserNameArgs'] name: Details about the user's full name. Detailed below.
-        :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        :param pulumi.Input[str] preferred_language: The preferred language of the user.
-        :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[str] timezone: The user's time zone.
-        :param pulumi.Input[str] title: The user's title.
-        :param pulumi.Input[str] user_type: The user type.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
@@ -76,9 +62,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
-        """
-        The name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -88,9 +71,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Input[str]:
-        """
-        The globally unique identifier for the identity store that this user is in.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -100,9 +80,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -112,9 +89,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
-        """
-        Details about the user's address. At most 1 address is allowed. Detailed below.
-        """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
@@ -124,9 +98,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
-        """
-        Details about the user's email. At most 1 email is allowed. Detailed below.
-        """
         return pulumi.get(self, "emails")
 
     @emails.setter
@@ -136,9 +107,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -148,9 +116,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
-        """
-        Details about the user's full name. Detailed below.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -160,9 +125,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @nickname.setter
@@ -172,9 +134,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
-        """
-        Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
@@ -184,9 +143,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        The preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
@@ -196,9 +152,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
@@ -208,9 +161,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -220,9 +170,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's title.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -232,9 +179,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
@@ -263,22 +207,6 @@ class _UserState:
                  user_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
-        :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]] external_ids: A list of identifiers issued to this resource by an external identity provider.
-        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
-        :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input['UserNameArgs'] name: Details about the user's full name. Detailed below.
-        :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        :param pulumi.Input[str] preferred_language: The preferred language of the user.
-        :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[str] timezone: The user's time zone.
-        :param pulumi.Input[str] title: The user's title.
-        :param pulumi.Input[str] user_id: The identifier for this user in the identity store.
-        :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        :param pulumi.Input[str] user_type: The user type.
         """
         if addresses is not None:
             pulumi.set(__self__, "addresses", addresses)
@@ -316,9 +244,6 @@ class _UserState:
     @property
     @pulumi.getter
     def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
-        """
-        Details about the user's address. At most 1 address is allowed. Detailed below.
-        """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
@@ -328,9 +253,6 @@ class _UserState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -340,9 +262,6 @@ class _UserState:
     @property
     @pulumi.getter
     def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
-        """
-        Details about the user's email. At most 1 email is allowed. Detailed below.
-        """
         return pulumi.get(self, "emails")
 
     @emails.setter
@@ -352,9 +271,6 @@ class _UserState:
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]]:
-        """
-        A list of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
@@ -364,9 +280,6 @@ class _UserState:
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The globally unique identifier for the identity store that this user is in.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @identity_store_id.setter
@@ -376,9 +289,6 @@ class _UserState:
     @property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -388,9 +298,6 @@ class _UserState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
-        """
-        Details about the user's full name. Detailed below.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -400,9 +307,6 @@ class _UserState:
     @property
     @pulumi.getter
     def nickname(self) -> Optional[pulumi.Input[str]]:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @nickname.setter
@@ -412,9 +316,6 @@ class _UserState:
     @property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
-        """
-        Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
@@ -424,9 +325,6 @@ class _UserState:
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        The preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @preferred_language.setter
@@ -436,9 +334,6 @@ class _UserState:
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @profile_url.setter
@@ -448,9 +343,6 @@ class _UserState:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -460,9 +352,6 @@ class _UserState:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user's title.
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -472,9 +361,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier for this user in the identity store.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -484,9 +370,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -496,9 +379,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
     @user_type.setter
@@ -527,39 +407,9 @@ class User(pulumi.CustomResource):
                  user_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        This resource manages a User resource within an Identity Store.
-
-        > **Note:** If you use an external identity provider or Active Directory as your identity source,
-        use this resource with caution. IAM Identity Center does not support outbound synchronization,
-        so your identity source does not automatically update with the changes that you make to
-        users using this resource.
-
-        ## Example Usage
-
-        ## Import
-
-        An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
-
-        ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
-        :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
-        :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
-        :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        :param pulumi.Input[str] preferred_language: The preferred language of the user.
-        :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[str] timezone: The user's time zone.
-        :param pulumi.Input[str] title: The user's title.
-        :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        :param pulumi.Input[str] user_type: The user type.
         """
         ...
     @overload
@@ -568,23 +418,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        This resource manages a User resource within an Identity Store.
-
-        > **Note:** If you use an external identity provider or Active Directory as your identity source,
-        use this resource with caution. IAM Identity Center does not support outbound synchronization,
-        so your identity source does not automatically update with the changes that you make to
-        users using this resource.
-
-        ## Example Usage
-
-        ## Import
-
-        An Identity Store User can be imported using the combination `identity_store_id/user_id`. For example
-
-        ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -678,22 +512,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
-        :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArgs']]]] external_ids: A list of identifiers issued to this resource by an external identity provider.
-        :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
-        :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
-        :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        :param pulumi.Input[str] preferred_language: The preferred language of the user.
-        :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
-        :param pulumi.Input[str] timezone: The user's time zone.
-        :param pulumi.Input[str] title: The user's title.
-        :param pulumi.Input[str] user_id: The identifier for this user in the identity store.
-        :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        :param pulumi.Input[str] user_type: The user type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -720,128 +538,80 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def addresses(self) -> pulumi.Output[Optional['outputs.UserAddresses']]:
-        """
-        Details about the user's address. At most 1 address is allowed. Detailed below.
-        """
         return pulumi.get(self, "addresses")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
-        """
-        The name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def emails(self) -> pulumi.Output[Optional['outputs.UserEmails']]:
-        """
-        Details about the user's email. At most 1 email is allowed. Detailed below.
-        """
         return pulumi.get(self, "emails")
 
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> pulumi.Output[Sequence['outputs.UserExternalId']]:
-        """
-        A list of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @property
     @pulumi.getter(name="identityStoreId")
     def identity_store_id(self) -> pulumi.Output[str]:
-        """
-        The globally unique identifier for the identity store that this user is in.
-        """
         return pulumi.get(self, "identity_store_id")
 
     @property
     @pulumi.getter
     def locale(self) -> pulumi.Output[Optional[str]]:
-        """
-        The user's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output['outputs.UserName']:
-        """
-        Details about the user's full name. Detailed below.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def nickname(self) -> pulumi.Output[Optional[str]]:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> pulumi.Output[Optional['outputs.UserPhoneNumbers']]:
-        """
-        Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> pulumi.Output[Optional[str]]:
-        """
-        The preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> pulumi.Output[Optional[str]]:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @property
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
-        """
-        The user's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter
     def title(self) -> pulumi.Output[Optional[str]]:
-        """
-        The user's title.
-        """
         return pulumi.get(self, "title")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
-        """
-        The identifier for this user in the identity store.
-        """
         return pulumi.get(self, "user_id")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
-        """
         return pulumi.get(self, "user_name")
 
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 

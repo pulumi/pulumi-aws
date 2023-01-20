@@ -37,10 +37,6 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
     def __init__(__self__, *,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        :param pulumi.Input[str] principal: Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if principal is not None:
@@ -49,9 +45,6 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -61,9 +54,6 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
-        """
-        Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -76,10 +66,6 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     def __init__(__self__, *,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        :param pulumi.Input[str] principal: Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if principal is not None:
@@ -88,9 +74,6 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -100,9 +83,6 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> Optional[pulumi.Input[str]]:
-        """
-        Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -115,10 +95,6 @@ class PermissionsDataLocationArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) that uniquely identifies the data location resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "arn", arn)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -126,9 +102,6 @@ class PermissionsDataLocationArgs:
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) that uniquely identifies the data location resource.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -138,9 +111,6 @@ class PermissionsDataLocationArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -153,10 +123,6 @@ class PermissionsDatabaseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "name", name)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -164,9 +130,6 @@ class PermissionsDatabaseArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -176,9 +139,6 @@ class PermissionsDatabaseArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -192,11 +152,6 @@ class PermissionsLfTagArgs:
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: The key-name of an LF-Tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of possible values of an LF-Tag.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
         if catalog_id is not None:
@@ -205,9 +160,6 @@ class PermissionsLfTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The key-name of an LF-Tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -217,9 +169,6 @@ class PermissionsLfTagArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of possible values of an LF-Tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -229,9 +178,6 @@ class PermissionsLfTagArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -245,11 +191,6 @@ class PermissionsLfTagPolicyArgs:
                  expressions: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]],
                  resource_type: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        :param pulumi.Input[str] resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "expressions", expressions)
         pulumi.set(__self__, "resource_type", resource_type)
         if catalog_id is not None:
@@ -258,9 +199,6 @@ class PermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter
     def expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]]:
-        """
-        A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        """
         return pulumi.get(self, "expressions")
 
     @expressions.setter
@@ -270,9 +208,6 @@ class PermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
-        """
-        The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -282,9 +217,6 @@ class PermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -297,19 +229,12 @@ class PermissionsLfTagPolicyExpressionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] key: The key-name of an LF-Tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of possible values of an LF-Tag.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The key-name of an LF-Tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -319,9 +244,6 @@ class PermissionsLfTagPolicyExpressionArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of possible values of an LF-Tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -336,12 +258,6 @@ class PermissionsTableArgs:
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  wildcard: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -353,9 +269,6 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -365,9 +278,6 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -377,9 +287,6 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -389,9 +296,6 @@ class PermissionsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -408,14 +312,6 @@ class PermissionsTableWithColumnsArgs:
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wildcard: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: Set of column names for the table.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
         if catalog_id is not None:
@@ -430,9 +326,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -442,9 +335,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -454,9 +344,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -466,9 +353,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of column names for the table.
-        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -478,9 +362,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -490,9 +371,6 @@ class PermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -505,10 +383,6 @@ class ResourceLfTagsDatabaseArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "name", name)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -516,9 +390,6 @@ class ResourceLfTagsDatabaseArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -528,9 +399,6 @@ class ResourceLfTagsDatabaseArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -544,11 +412,6 @@ class ResourceLfTagsLfTagArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: Key name for an existing LF-tag.
-        :param pulumi.Input[str] value: Value from the possible values for the LF-tag.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if catalog_id is not None:
@@ -557,9 +420,6 @@ class ResourceLfTagsLfTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Key name for an existing LF-tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -569,9 +429,6 @@ class ResourceLfTagsLfTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Value from the possible values for the LF-tag.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -581,9 +438,6 @@ class ResourceLfTagsLfTagArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -598,12 +452,6 @@ class ResourceLfTagsTableArgs:
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  wildcard: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         pulumi.set(__self__, "database_name", database_name)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -615,9 +463,6 @@ class ResourceLfTagsTableArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -627,9 +472,6 @@ class ResourceLfTagsTableArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -639,9 +481,6 @@ class ResourceLfTagsTableArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -651,9 +490,6 @@ class ResourceLfTagsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -670,14 +506,6 @@ class ResourceLfTagsTableWithColumnsArgs:
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wildcard: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param pulumi.Input[str] name: Name of the table resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: Set of column names for the table.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        :param pulumi.Input[bool] wildcard: Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
         if catalog_id is not None:
@@ -692,9 +520,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -704,9 +529,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -716,9 +538,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -728,9 +547,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of column names for the table.
-        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -740,9 +556,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -752,9 +565,6 @@ class ResourceLfTagsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -767,19 +577,12 @@ class GetPermissionsDataLocationArgs:
     def __init__(__self__, *,
                  arn: str,
                  catalog_id: str):
-        """
-        :param str arn: ARN that uniquely identifies the data location resource.
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "catalog_id", catalog_id)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN that uniquely identifies the data location resource.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -789,9 +592,6 @@ class GetPermissionsDataLocationArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -804,19 +604,12 @@ class GetPermissionsDatabaseArgs:
     def __init__(__self__, *,
                  catalog_id: str,
                  name: str):
-        """
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param str name: Name of the table resource.
-        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -826,9 +619,6 @@ class GetPermissionsDatabaseArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -842,11 +632,6 @@ class GetPermissionsLfTagArgs:
                  catalog_id: str,
                  key: str,
                  values: Sequence[str]):
-        """
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param str key: Key-name of an LF-Tag.
-        :param Sequence[str] values: List of possible values of an LF-Tag.
-        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -854,9 +639,6 @@ class GetPermissionsLfTagArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -866,9 +648,6 @@ class GetPermissionsLfTagArgs:
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        Key-name of an LF-Tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -878,9 +657,6 @@ class GetPermissionsLfTagArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of possible values of an LF-Tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -894,11 +670,6 @@ class GetPermissionsLfTagPolicyArgs:
                  catalog_id: str,
                  expressions: Sequence['GetPermissionsLfTagPolicyExpressionArgs'],
                  resource_type: str):
-        """
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        :param str resource_type: Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "expressions", expressions)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -906,9 +677,6 @@ class GetPermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -918,9 +686,6 @@ class GetPermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter
     def expressions(self) -> Sequence['GetPermissionsLfTagPolicyExpressionArgs']:
-        """
-        List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
-        """
         return pulumi.get(self, "expressions")
 
     @expressions.setter
@@ -930,9 +695,6 @@ class GetPermissionsLfTagPolicyArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> str:
-        """
-        Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -945,19 +707,12 @@ class GetPermissionsLfTagPolicyExpressionArgs:
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
-        """
-        :param str key: Key-name of an LF-Tag.
-        :param Sequence[str] values: List of possible values of an LF-Tag.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> str:
-        """
-        Key-name of an LF-Tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -967,9 +722,6 @@ class GetPermissionsLfTagPolicyExpressionArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        List of possible values of an LF-Tag.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -984,12 +736,6 @@ class GetPermissionsTableArgs:
                  database_name: str,
                  name: str,
                  wildcard: Optional[bool] = None):
-        """
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param str name: Name of the table resource.
-        :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -999,9 +745,6 @@ class GetPermissionsTableArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -1011,9 +754,6 @@ class GetPermissionsTableArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -1023,9 +763,6 @@ class GetPermissionsTableArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1035,9 +772,6 @@ class GetPermissionsTableArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[bool]:
-        """
-        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter
@@ -1054,14 +788,6 @@ class GetPermissionsTableWithColumnsArgs:
                  column_names: Optional[Sequence[str]] = None,
                  excluded_column_names: Optional[Sequence[str]] = None,
                  wildcard: Optional[bool] = None):
-        """
-        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
-        :param str name: Name of the table resource.
-        :param Sequence[str] column_names: Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
-        :param Sequence[str] excluded_column_names: Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
-        :param bool wildcard: Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
@@ -1075,9 +801,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> str:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -1087,9 +810,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -1099,9 +819,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the table resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1111,9 +828,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[Sequence[str]]:
-        """
-        Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
-        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -1123,9 +837,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[Sequence[str]]:
-        """
-        Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
-        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -1135,9 +846,6 @@ class GetPermissionsTableWithColumnsArgs:
     @property
     @pulumi.getter
     def wildcard(self) -> Optional[bool]:
-        """
-        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
         return pulumi.get(self, "wildcard")
 
     @wildcard.setter

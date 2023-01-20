@@ -18,8 +18,6 @@ class PolicyTableAssociationArgs:
                  transit_gateway_policy_table_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a PolicyTableAssociation resource.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_policy_table_id", transit_gateway_policy_table_id)
@@ -27,9 +25,6 @@ class PolicyTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -39,9 +34,6 @@ class PolicyTableAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayPolicyTableId")
     def transit_gateway_policy_table_id(self) -> pulumi.Input[str]:
-        """
-        Identifier of EC2 Transit Gateway Policy Table.
-        """
         return pulumi.get(self, "transit_gateway_policy_table_id")
 
     @transit_gateway_policy_table_id.setter
@@ -58,10 +50,6 @@ class _PolicyTableAssociationState:
                  transit_gateway_policy_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyTableAssociation resources.
-        :param pulumi.Input[str] resource_id: Identifier of the resource
-        :param pulumi.Input[str] resource_type: Type of the resource
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
@@ -75,9 +63,6 @@ class _PolicyTableAssociationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the resource
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -87,9 +72,6 @@ class _PolicyTableAssociationState:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the resource
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -99,9 +81,6 @@ class _PolicyTableAssociationState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -111,9 +90,6 @@ class _PolicyTableAssociationState:
     @property
     @pulumi.getter(name="transitGatewayPolicyTableId")
     def transit_gateway_policy_table_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of EC2 Transit Gateway Policy Table.
-        """
         return pulumi.get(self, "transit_gateway_policy_table_id")
 
     @transit_gateway_policy_table_id.setter
@@ -130,31 +106,9 @@ class PolicyTableAssociation(pulumi.CustomResource):
                  transit_gateway_policy_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Policy Table association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.PolicyTableAssociation("example",
-            transit_gateway_attachment_id=aws_networkmanager_transit_gateway_peering["example"]["transit_gateway_peering_attachment_id"],
-            transit_gateway_policy_table_id=aws_ec2_transit_gateway_policy_table["example"]["id"])
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_policy_table_association` can be imported by using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-        ```
-
+        Create a PolicyTableAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
         ...
     @overload
@@ -163,27 +117,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
                  args: PolicyTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Policy Table association.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.PolicyTableAssociation("example",
-            transit_gateway_attachment_id=aws_networkmanager_transit_gateway_peering["example"]["transit_gateway_peering_attachment_id"],
-            transit_gateway_policy_table_id=aws_ec2_transit_gateway_policy_table["example"]["id"])
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_policy_table_association` can be imported by using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-        ```
-
+        Create a PolicyTableAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyTableAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,10 +173,6 @@ class PolicyTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_id: Identifier of the resource
-        :param pulumi.Input[str] resource_type: Type of the resource
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
-        :param pulumi.Input[str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -257,32 +187,20 @@ class PolicyTableAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the resource
-        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
-        """
-        Type of the resource
-        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of EC2 Transit Gateway Attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayPolicyTableId")
     def transit_gateway_policy_table_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of EC2 Transit Gateway Policy Table.
-        """
         return pulumi.get(self, "transit_gateway_policy_table_id")
 

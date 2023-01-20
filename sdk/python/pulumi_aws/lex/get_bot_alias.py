@@ -53,49 +53,31 @@ class GetBotAliasResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the bot alias.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="botName")
     def bot_name(self) -> str:
-        """
-        Name of the bot.
-        """
         return pulumi.get(self, "bot_name")
 
     @property
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> str:
-        """
-        Version of the bot that the alias points to.
-        """
         return pulumi.get(self, "bot_version")
 
     @property
     @pulumi.getter
     def checksum(self) -> str:
-        """
-        Checksum of the bot alias.
-        """
         return pulumi.get(self, "checksum")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
-        """
-        Date that the bot alias was created.
-        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the alias.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -109,17 +91,11 @@ class GetBotAliasResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
-        """
-        Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the alias. The name is not case sensitive.
-        """
         return pulumi.get(self, "name")
 
 
@@ -144,21 +120,7 @@ def get_bot_alias(bot_name: Optional[str] = None,
                   name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAliasResult:
     """
-    Provides details about a specific Amazon Lex Bot Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
-        name="OrderFlowersProd")
-    ```
-
-
-    :param str bot_name: Name of the bot.
-    :param str name: Name of the bot alias. The name is case sensitive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['botName'] = bot_name
@@ -183,20 +145,6 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotAliasResult]:
     """
-    Provides details about a specific Amazon Lex Bot Alias.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    order_flowers_prod = aws.lex.get_bot_alias(bot_name="OrderFlowers",
-        name="OrderFlowersProd")
-    ```
-
-
-    :param str bot_name: Name of the bot.
-    :param str name: Name of the bot alias. The name is case sensitive.
+    Use this data source to access information about an existing resource.
     """
     ...

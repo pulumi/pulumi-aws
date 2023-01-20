@@ -22,13 +22,6 @@ class GetRouterConfigurationRouterResult(dict):
                  vendor: str,
                  xslt_template_name: str,
                  xslt_template_name_for_mac_sec: str):
-        """
-        :param str platform: Router platform
-        :param str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-        :param str software: Router operating system
-        :param str vendor: Router vendor
-        :param str xslt_template_name: Router XSLT Template Name
-        """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "router_type_identifier", router_type_identifier)
         pulumi.set(__self__, "software", software)
@@ -39,41 +32,26 @@ class GetRouterConfigurationRouterResult(dict):
     @property
     @pulumi.getter
     def platform(self) -> str:
-        """
-        Router platform
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="routerTypeIdentifier")
     def router_type_identifier(self) -> str:
-        """
-        ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
-        """
         return pulumi.get(self, "router_type_identifier")
 
     @property
     @pulumi.getter
     def software(self) -> str:
-        """
-        Router operating system
-        """
         return pulumi.get(self, "software")
 
     @property
     @pulumi.getter
     def vendor(self) -> str:
-        """
-        Router vendor
-        """
         return pulumi.get(self, "vendor")
 
     @property
     @pulumi.getter(name="xsltTemplateName")
     def xslt_template_name(self) -> str:
-        """
-        Router XSLT Template Name
-        """
         return pulumi.get(self, "xslt_template_name")
 
     @property

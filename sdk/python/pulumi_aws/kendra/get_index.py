@@ -81,146 +81,91 @@ class GetIndexResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Index.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Sequence['outputs.GetIndexCapacityUnitResult']:
-        """
-        Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
-        """
         return pulumi.get(self, "capacity_units")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
-        """
-        Unix datetime that the index was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the Index.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
     def document_metadata_configuration_updates(self) -> Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateResult']:
-        """
-        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
-        """
         return pulumi.get(self, "document_metadata_configuration_updates")
 
     @property
     @pulumi.getter
     def edition(self) -> str:
-        """
-        Amazon Kendra edition for the index.
-        """
         return pulumi.get(self, "edition")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> str:
-        """
-        When the Status field value is `FAILED`, this contains a message that explains why.
-        """
         return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        Identifier of the Index.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Sequence['outputs.GetIndexIndexStatisticResult']:
-        """
-        Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
-        """
         return pulumi.get(self, "index_statistics")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the index field. Minimum length of 1. Maximum length of 30.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfigurations")
     def server_side_encryption_configurations(self) -> Sequence['outputs.GetIndexServerSideEncryptionConfigurationResult']:
-        """
-        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
-        """
         return pulumi.get(self, "server_side_encryption_configurations")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Metadata that helps organize the Indices you create.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
-        """
-        Unix datetime that the index was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> str:
-        """
-        User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.
-        html#Kendra-CreateIndex-request-UserContextPolicy).
-        """
         return pulumi.get(self, "user_context_policy")
 
     @property
     @pulumi.getter(name="userGroupResolutionConfigurations")
     def user_group_resolution_configurations(self) -> Sequence['outputs.GetIndexUserGroupResolutionConfigurationResult']:
-        """
-        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
-        """
         return pulumi.get(self, "user_group_resolution_configurations")
 
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Sequence['outputs.GetIndexUserTokenConfigurationResult']:
-        """
-        A block that specifies the user token configuration. Documented below.
-        """
         return pulumi.get(self, "user_token_configurations")
 
 
@@ -254,20 +199,7 @@ def get_index(id: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
-    Provides details about a specific Amazon Kendra Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param str id: Returns information on a specific Index by id.
-    :param Mapping[str, str] tags: Metadata that helps organize the Indices you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -301,19 +233,6 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
     """
-    Provides details about a specific Amazon Kendra Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param str id: Returns information on a specific Index by id.
-    :param Mapping[str, str] tags: Metadata that helps organize the Indices you create.
+    Use this data source to access information about an existing resource.
     """
     ...

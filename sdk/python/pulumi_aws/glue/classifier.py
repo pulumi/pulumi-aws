@@ -23,11 +23,6 @@ class ClassifierArgs:
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         The set of arguments for constructing a Classifier resource.
-        :param pulumi.Input['ClassifierCsvClassifierArgs'] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
-        :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
         if csv_classifier is not None:
             pulumi.set(__self__, "csv_classifier", csv_classifier)
@@ -43,9 +38,6 @@ class ClassifierArgs:
     @property
     @pulumi.getter(name="csvClassifier")
     def csv_classifier(self) -> Optional[pulumi.Input['ClassifierCsvClassifierArgs']]:
-        """
-        A classifier for Csv content. Defined below.
-        """
         return pulumi.get(self, "csv_classifier")
 
     @csv_classifier.setter
@@ -55,9 +47,6 @@ class ClassifierArgs:
     @property
     @pulumi.getter(name="grokClassifier")
     def grok_classifier(self) -> Optional[pulumi.Input['ClassifierGrokClassifierArgs']]:
-        """
-        A classifier that uses grok patterns. Defined below.
-        """
         return pulumi.get(self, "grok_classifier")
 
     @grok_classifier.setter
@@ -67,9 +56,6 @@ class ClassifierArgs:
     @property
     @pulumi.getter(name="jsonClassifier")
     def json_classifier(self) -> Optional[pulumi.Input['ClassifierJsonClassifierArgs']]:
-        """
-        A classifier for JSON content. Defined below.
-        """
         return pulumi.get(self, "json_classifier")
 
     @json_classifier.setter
@@ -79,9 +65,6 @@ class ClassifierArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the classifier.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,9 +74,6 @@ class ClassifierArgs:
     @property
     @pulumi.getter(name="xmlClassifier")
     def xml_classifier(self) -> Optional[pulumi.Input['ClassifierXmlClassifierArgs']]:
-        """
-        A classifier for XML content. Defined below.
-        """
         return pulumi.get(self, "xml_classifier")
 
     @xml_classifier.setter
@@ -111,11 +91,6 @@ class _ClassifierState:
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         Input properties used for looking up and filtering Classifier resources.
-        :param pulumi.Input['ClassifierCsvClassifierArgs'] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
-        :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
         if csv_classifier is not None:
             pulumi.set(__self__, "csv_classifier", csv_classifier)
@@ -131,9 +106,6 @@ class _ClassifierState:
     @property
     @pulumi.getter(name="csvClassifier")
     def csv_classifier(self) -> Optional[pulumi.Input['ClassifierCsvClassifierArgs']]:
-        """
-        A classifier for Csv content. Defined below.
-        """
         return pulumi.get(self, "csv_classifier")
 
     @csv_classifier.setter
@@ -143,9 +115,6 @@ class _ClassifierState:
     @property
     @pulumi.getter(name="grokClassifier")
     def grok_classifier(self) -> Optional[pulumi.Input['ClassifierGrokClassifierArgs']]:
-        """
-        A classifier that uses grok patterns. Defined below.
-        """
         return pulumi.get(self, "grok_classifier")
 
     @grok_classifier.setter
@@ -155,9 +124,6 @@ class _ClassifierState:
     @property
     @pulumi.getter(name="jsonClassifier")
     def json_classifier(self) -> Optional[pulumi.Input['ClassifierJsonClassifierArgs']]:
-        """
-        A classifier for JSON content. Defined below.
-        """
         return pulumi.get(self, "json_classifier")
 
     @json_classifier.setter
@@ -167,9 +133,6 @@ class _ClassifierState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the classifier.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -179,9 +142,6 @@ class _ClassifierState:
     @property
     @pulumi.getter(name="xmlClassifier")
     def xml_classifier(self) -> Optional[pulumi.Input['ClassifierXmlClassifierArgs']]:
-        """
-        A classifier for XML content. Defined below.
-        """
         return pulumi.get(self, "xml_classifier")
 
     @xml_classifier.setter
@@ -201,77 +161,9 @@ class Classifier(pulumi.CustomResource):
                  xml_classifier: Optional[pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']]] = None,
                  __props__=None):
         """
-        Provides a Glue Classifier resource.
-
-        > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
-
-        ## Example Usage
-        ### Csv Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
-        ```
-        ### Grok Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
-        ```
-        ### JSON Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
-        ```
-        ### XML Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
-        ```
-
-        ## Import
-
-        Glue Classifiers can be imported using their name, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-        ```
-
+        Create a Classifier resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']] json_classifier: A classifier for JSON content. Defined below.
-        :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']] xml_classifier: A classifier for XML content. Defined below.
         """
         ...
     @overload
@@ -280,70 +172,7 @@ class Classifier(pulumi.CustomResource):
                  args: Optional[ClassifierArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue Classifier resource.
-
-        > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
-
-        ## Example Usage
-        ### Csv Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", csv_classifier=aws.glue.ClassifierCsvClassifierArgs(
-            allow_single_column=False,
-            contains_header="PRESENT",
-            delimiter=",",
-            disable_value_trimming=False,
-            headers=[
-                "example1",
-                "example2",
-            ],
-            quote_symbol="'",
-        ))
-        ```
-        ### Grok Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", grok_classifier=aws.glue.ClassifierGrokClassifierArgs(
-            classification="example",
-            grok_pattern="example",
-        ))
-        ```
-        ### JSON Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", json_classifier=aws.glue.ClassifierJsonClassifierArgs(
-            json_path="example",
-        ))
-        ```
-        ### XML Classifier
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Classifier("example", xml_classifier=aws.glue.ClassifierXmlClassifierArgs(
-            classification="example",
-            row_tag="example",
-        ))
-        ```
-
-        ## Import
-
-        Glue Classifiers can be imported using their name, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-        ```
-
+        Create a Classifier resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClassifierArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -400,11 +229,6 @@ class Classifier(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClassifierCsvClassifierArgs']] csv_classifier: A classifier for Csv content. Defined below.
-        :param pulumi.Input[pulumi.InputType['ClassifierGrokClassifierArgs']] grok_classifier: A classifier that uses grok patterns. Defined below.
-        :param pulumi.Input[pulumi.InputType['ClassifierJsonClassifierArgs']] json_classifier: A classifier for JSON content. Defined below.
-        :param pulumi.Input[str] name: The name of the classifier.
-        :param pulumi.Input[pulumi.InputType['ClassifierXmlClassifierArgs']] xml_classifier: A classifier for XML content. Defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -420,40 +244,25 @@ class Classifier(pulumi.CustomResource):
     @property
     @pulumi.getter(name="csvClassifier")
     def csv_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierCsvClassifier']]:
-        """
-        A classifier for Csv content. Defined below.
-        """
         return pulumi.get(self, "csv_classifier")
 
     @property
     @pulumi.getter(name="grokClassifier")
     def grok_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierGrokClassifier']]:
-        """
-        A classifier that uses grok patterns. Defined below.
-        """
         return pulumi.get(self, "grok_classifier")
 
     @property
     @pulumi.getter(name="jsonClassifier")
     def json_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierJsonClassifier']]:
-        """
-        A classifier for JSON content. Defined below.
-        """
         return pulumi.get(self, "json_classifier")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the classifier.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="xmlClassifier")
     def xml_classifier(self) -> pulumi.Output[Optional['outputs.ClassifierXmlClassifier']]:
-        """
-        A classifier for XML content. Defined below.
-        """
         return pulumi.get(self, "xml_classifier")
 

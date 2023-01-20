@@ -53,9 +53,6 @@ class GetTransitGatewayRouteTablesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        Set of Transit Gateway Route Table identifiers.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -80,24 +77,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
                                      tags: Optional[Mapping[str, str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayRouteTablesResult:
     """
-    Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputing all Transit Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", data["aws_ec2_transit_gateway_route_table"]["example"]["ids"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired transit gateway route table.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -117,23 +97,6 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayRouteTablesResult]:
     """
-    Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
-
-    ## Example Usage
-
-    The following shows outputing all Transit Gateway Route Table Ids.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example_transit_gateway_route_tables = aws.ec2.get_transit_gateway_route_tables()
-    pulumi.export("example", data["aws_ec2_transit_gateway_route_table"]["example"]["ids"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired transit gateway route table.
+    Use this data source to access information about an existing resource.
     """
     ...

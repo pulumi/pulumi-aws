@@ -105,26 +105,16 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="aclName")
     def acl_name(self) -> str:
-        """
-        Name of the Access Control List associated with the cluster.
-        """
         return pulumi.get(self, "acl_name")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> bool:
-        """
-        True when the cluster allows automatic minor version upgrades.
-        * `cluster_endpoint`
-        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
@@ -135,41 +125,26 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="dataTiering")
     def data_tiering(self) -> bool:
-        """
-        True when data tiering is enabled.
-        """
         return pulumi.get(self, "data_tiering")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description for the cluster.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="enginePatchVersion")
     def engine_patch_version(self) -> str:
-        """
-        Patch version number of the Redis engine used by the cluster.
-        """
         return pulumi.get(self, "engine_patch_version")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> str:
-        """
-        Version number of the Redis engine used by the cluster.
-        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> str:
-        """
-        Name of the final cluster snapshot to be created when this resource is deleted. If omitted, no final snapshot will be made.
-        """
         return pulumi.get(self, "final_snapshot_name")
 
     @property
@@ -183,107 +158,66 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
-        """
-        ARN of the KMS key used to encrypt the cluster at rest.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> str:
-        """
-        Weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
-        """
         return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of this node.
-        * `endpoint`
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
-        """
-        Compute and memory capacity of the nodes in the cluster.
-        """
         return pulumi.get(self, "node_type")
 
     @property
     @pulumi.getter(name="numReplicasPerShard")
     def num_replicas_per_shard(self) -> int:
-        """
-        The number of replicas to apply to each shard.
-        """
         return pulumi.get(self, "num_replicas_per_shard")
 
     @property
     @pulumi.getter(name="numShards")
     def num_shards(self) -> int:
-        """
-        Number of shards in the cluster.
-        """
         return pulumi.get(self, "num_shards")
 
     @property
     @pulumi.getter(name="parameterGroupName")
     def parameter_group_name(self) -> str:
-        """
-        The name of the parameter group associated with the cluster.
-        """
         return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter
     def port(self) -> int:
-        """
-        Port number that this node is listening on.
-        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[str]:
-        """
-        Set of VPC Security Group ID-s associated with this cluster.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter
     def shards(self) -> Sequence['outputs.GetClusterShardResult']:
-        """
-        Set of shards in this cluster.
-        """
         return pulumi.get(self, "shards")
 
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> int:
-        """
-        The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> str:
-        """
-        Daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of your shard. Example: `05:00-09:00`.
-        """
         return pulumi.get(self, "snapshot_window")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> str:
-        """
-        ARN of the SNS topic to which cluster notifications are sent.
-        * `subnet_group_name` -The name of the subnet group used for the cluster.
-        """
         return pulumi.get(self, "sns_topic_arn")
 
     @property
@@ -294,17 +228,11 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the cluster.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> bool:
-        """
-        When true, in-transit encryption is enabled for the cluster.
-        """
         return pulumi.get(self, "tls_enabled")
 
 
@@ -346,20 +274,7 @@ def get_cluster(name: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Provides information about a MemoryDB Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_cluster(name="my-cluster")
-    ```
-
-
-    :param str name: Name of the cluster.
-    :param Mapping[str, str] tags: Map of tags assigned to the cluster.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -401,19 +316,6 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Provides information about a MemoryDB Cluster.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_cluster(name="my-cluster")
-    ```
-
-
-    :param str name: Name of the cluster.
-    :param Mapping[str, str] tags: Map of tags assigned to the cluster.
+    Use this data source to access information about an existing resource.
     """
     ...

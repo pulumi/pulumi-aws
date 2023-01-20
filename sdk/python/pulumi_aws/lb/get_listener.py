@@ -132,30 +132,7 @@ def get_listener(arn: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
-    > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-
-    Provides information about a Load Balancer Listener.
-
-    This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    listener_arn = config.require("listenerArn")
-    listener = aws.lb.get_listener(arn=listener_arn)
-    selected = aws.lb.get_load_balancer(name="default-public")
-    selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
-        port=443)
-    ```
-
-
-    :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-    :param str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
-    :param int port: Port of the listener. Required if `arn` is not set.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -185,29 +162,6 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
     """
-    > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
-
-    Provides information about a Load Balancer Listener.
-
-    This data source can prove useful when a module accepts an LB Listener as an input variable and needs to know the LB it is attached to, or other information specific to the listener in question.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    listener_arn = config.require("listenerArn")
-    listener = aws.lb.get_listener(arn=listener_arn)
-    selected = aws.lb.get_load_balancer(name="default-public")
-    selected443 = aws.lb.get_listener(load_balancer_arn=selected.arn,
-        port=443)
-    ```
-
-
-    :param str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-    :param str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
-    :param int port: Port of the listener. Required if `arn` is not set.
+    Use this data source to access information about an existing resource.
     """
     ...

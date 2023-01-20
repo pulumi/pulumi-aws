@@ -18,8 +18,6 @@ class ResourceArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Resource resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource, an S3 path.
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
         """
         pulumi.set(__self__, "arn", arn)
         if role_arn is not None:
@@ -28,9 +26,6 @@ class ResourceArgs:
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the resource, an S3 path.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -40,9 +35,6 @@ class ResourceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -58,9 +50,6 @@ class _ResourceState:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource, an S3 path.
-        :param pulumi.Input[str] last_modified: (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -72,9 +61,6 @@ class _ResourceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the resource, an S3 path.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -84,9 +70,6 @@ class _ResourceState:
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[str]]:
-        """
-        (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified")
 
     @last_modified.setter
@@ -96,9 +79,6 @@ class _ResourceState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -115,24 +95,9 @@ class Resource(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
-
-        Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource, an S3 path.
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
         """
         ...
     @overload
@@ -141,20 +106,7 @@ class Resource(pulumi.CustomResource):
                  args: ResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registers a Lake Formation resource (e.g., S3 bucket) as managed by the Data Catalog. In other words, the S3 path is added to the data lake.
-
-        Choose a role that has read/write access to the chosen Amazon S3 path or use the service-linked role. When you register the S3 path, the service-linked role and a new inline policy are created on your behalf. Lake Formation adds the first path to the inline policy and attaches it to the service-linked role. When you register subsequent paths, Lake Formation adds the path to the existing policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket = aws.s3.get_bucket(bucket="an-example-bucket")
-        example_resource = aws.lakeformation.Resource("exampleResource", arn=example_bucket.arn)
-        ```
-
+        Create a Resource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,9 +158,6 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the resource, an S3 path.
-        :param pulumi.Input[str] last_modified: (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[str] role_arn: Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -222,24 +171,15 @@ class Resource(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the resource, an S3 path.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[str]:
-        """
-        (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
-        """
         return pulumi.get(self, "role_arn")
 

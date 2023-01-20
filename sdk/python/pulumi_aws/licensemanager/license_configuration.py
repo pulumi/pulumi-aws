@@ -23,13 +23,6 @@ class LicenseConfigurationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LicenseConfiguration resource.
-        :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
-        :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
-        :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "license_counting_type", license_counting_type)
         if description is not None:
@@ -48,9 +41,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter(name="licenseCountingType")
     def license_counting_type(self) -> pulumi.Input[str]:
-        """
-        Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        """
         return pulumi.get(self, "license_counting_type")
 
     @license_counting_type.setter
@@ -60,9 +50,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the license configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +59,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter(name="licenseCount")
     def license_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of licenses managed by the license configuration.
-        """
         return pulumi.get(self, "license_count")
 
     @license_count.setter
@@ -84,9 +68,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter(name="licenseCountHardLimit")
     def license_count_hard_limit(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets the number of available licenses as a hard limit.
-        """
         return pulumi.get(self, "license_count_hard_limit")
 
     @license_count_hard_limit.setter
@@ -96,9 +77,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter(name="licenseRules")
     def license_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of configured License Manager rules.
-        """
         return pulumi.get(self, "license_rules")
 
     @license_rules.setter
@@ -108,9 +86,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the license configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -120,9 +95,6 @@ class LicenseConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,16 +117,6 @@ class _LicenseConfigurationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LicenseConfiguration resources.
-        :param pulumi.Input[str] arn: The license configuration ARN.
-        :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
-        :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
-        :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
-        :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[str] owner_account_id: Account ID of the owner of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -180,9 +142,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The license configuration ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -192,9 +151,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the license configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -204,9 +160,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="licenseCount")
     def license_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of licenses managed by the license configuration.
-        """
         return pulumi.get(self, "license_count")
 
     @license_count.setter
@@ -216,9 +169,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="licenseCountHardLimit")
     def license_count_hard_limit(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Sets the number of available licenses as a hard limit.
-        """
         return pulumi.get(self, "license_count_hard_limit")
 
     @license_count_hard_limit.setter
@@ -228,9 +178,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="licenseCountingType")
     def license_counting_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        """
         return pulumi.get(self, "license_counting_type")
 
     @license_counting_type.setter
@@ -240,9 +187,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="licenseRules")
     def license_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of configured License Manager rules.
-        """
         return pulumi.get(self, "license_rules")
 
     @license_rules.setter
@@ -252,9 +196,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the license configuration.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -264,9 +205,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Account ID of the owner of the license configuration.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -276,9 +214,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -288,9 +223,6 @@ class _LicenseConfigurationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -312,55 +244,9 @@ class LicenseConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a License Manager license configuration resource.
-
-        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.licensemanager.LicenseConfiguration("example",
-            description="Example",
-            license_count=10,
-            license_count_hard_limit=True,
-            license_counting_type="Socket",
-            license_rules=["#minimumSockets=2"],
-            tags={
-                "foo": "barr",
-            })
-        ```
-        ## Rules
-
-        License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
-
-        * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
-        * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
-        * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
-        * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
-        * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
-        * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
-        * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-
-        ## Import
-
-        License configurations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
-
+        Create a LicenseConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
-        :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
-        :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
-        :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -369,46 +255,7 @@ class LicenseConfiguration(pulumi.CustomResource):
                  args: LicenseConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a License Manager license configuration resource.
-
-        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.licensemanager.LicenseConfiguration("example",
-            description="Example",
-            license_count=10,
-            license_count_hard_limit=True,
-            license_counting_type="Socket",
-            license_rules=["#minimumSockets=2"],
-            tags={
-                "foo": "barr",
-            })
-        ```
-        ## Rules
-
-        License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
-
-        * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
-        * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
-        * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
-        * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
-        * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
-        * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
-        * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-
-        ## Import
-
-        License configurations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
-
+        Create a LicenseConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LicenseConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -479,16 +326,6 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The license configuration ARN.
-        :param pulumi.Input[str] description: Description of the license configuration.
-        :param pulumi.Input[int] license_count: Number of licenses managed by the license configuration.
-        :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
-        :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
-        :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[str] owner_account_id: Account ID of the owner of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -509,80 +346,50 @@ class LicenseConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The license configuration ARN.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the license configuration.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="licenseCount")
     def license_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        Number of licenses managed by the license configuration.
-        """
         return pulumi.get(self, "license_count")
 
     @property
     @pulumi.getter(name="licenseCountHardLimit")
     def license_count_hard_limit(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Sets the number of available licenses as a hard limit.
-        """
         return pulumi.get(self, "license_count_hard_limit")
 
     @property
     @pulumi.getter(name="licenseCountingType")
     def license_counting_type(self) -> pulumi.Output[str]:
-        """
-        Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
-        """
         return pulumi.get(self, "license_counting_type")
 
     @property
     @pulumi.getter(name="licenseRules")
     def license_rules(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Array of configured License Manager rules.
-        """
         return pulumi.get(self, "license_rules")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the license configuration.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
-        """
-        Account ID of the owner of the license configuration.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

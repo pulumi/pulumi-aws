@@ -53,9 +53,6 @@ class GetVpcPeeringConnectionsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        IDs of the VPC Peering Connections.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -80,16 +77,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
                                 tags: Optional[Mapping[str, str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcPeeringConnectionsResult:
     """
-    Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
-
-    Note: To use this data source in a count, the resources should exist before trying to access
-    the data source.
-
-
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -109,15 +97,6 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
                                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
     """
-    Use this data source to get IDs of Amazon VPC peering connections
-    To get more details on each connection, use the data resource ec2.VpcPeeringConnection
-
-    Note: To use this data source in a count, the resources should exist before trying to access
-    the data source.
-
-
-    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired VPC Peering Connection.
+    Use this data source to access information about an existing resource.
     """
     ...

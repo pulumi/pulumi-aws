@@ -59,25 +59,16 @@ class GetAccessPointResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> str:
-        """
-        Amazon Resource Name of the file system.
-        """
         return pulumi.get(self, "file_system_arn")
 
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> str:
-        """
-        ID of the file system for which the access point is intended.
-        """
         return pulumi.get(self, "file_system_id")
 
     @property
@@ -96,9 +87,6 @@ class GetAccessPointResult:
     @property
     @pulumi.getter(name="posixUsers")
     def posix_users(self) -> Sequence['outputs.GetAccessPointPosixUserResult']:
-        """
-        Single element list containing operating system user and group applied to all file system requests made using the access point.
-        """
         return pulumi.get(self, "posix_users")
 
     @property
@@ -109,9 +97,6 @@ class GetAccessPointResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Key-value mapping of resource tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -136,20 +121,7 @@ def get_access_point(access_point_id: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
-    Provides information about an Elastic File System (EFS) Access Point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_point(access_point_id="fsap-12345678")
-    ```
-
-
-    :param str access_point_id: ID that identifies the file system.
-    :param Mapping[str, str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
@@ -174,19 +146,6 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
     """
-    Provides information about an Elastic File System (EFS) Access Point.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_point(access_point_id="fsap-12345678")
-    ```
-
-
-    :param str access_point_id: ID that identifies the file system.
-    :param Mapping[str, str] tags: Key-value mapping of resource tags.
+    Use this data source to access information about an existing resource.
     """
     ...

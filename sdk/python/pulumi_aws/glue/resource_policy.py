@@ -18,8 +18,6 @@ class ResourcePolicyArgs:
                  enable_hybrid: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
-        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
         """
         pulumi.set(__self__, "policy", policy)
         if enable_hybrid is not None:
@@ -28,9 +26,6 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -40,9 +35,6 @@ class ResourcePolicyArgs:
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -57,8 +49,6 @@ class _ResourcePolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
-        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         if enable_hybrid is not None:
             pulumi.set(__self__, "enable_hybrid", enable_hybrid)
@@ -68,9 +58,6 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @enable_hybrid.setter
@@ -80,9 +67,6 @@ class _ResourcePolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -99,40 +83,9 @@ class ResourcePolicy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Glue resource policy. Only one can exist per region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_partition.partition}:glue:{current_region.name}:{current_caller_identity.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
-
-        ## Import
-
-        Glue Resource Policy can be imported using the account ID
-
-        ```sh
-         $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         ...
     @overload
@@ -141,36 +94,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue resource policy. Only one can exist per region.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current_caller_identity = aws.get_caller_identity()
-        current_partition = aws.get_partition()
-        current_region = aws.get_region()
-        glue_example_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["glue:CreateTable"],
-            resources=[f"arn:{current_partition.partition}:glue:{current_region.name}:{current_caller_identity.account_id}:*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                identifiers=["*"],
-                type="AWS",
-            )],
-        )])
-        example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
-        ```
-
-        ## Import
-
-        Glue Resource Policy can be imported using the account ID
-
-        ```sh
-         $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
-        ```
-
+        Create a ResourcePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,8 +144,6 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enable_hybrid: Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -234,16 +156,10 @@ class ResourcePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableHybrid")
     def enable_hybrid(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-        """
         return pulumi.get(self, "enable_hybrid")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        The policy to be applied to the aws glue data catalog.
-        """
         return pulumi.get(self, "policy")
 

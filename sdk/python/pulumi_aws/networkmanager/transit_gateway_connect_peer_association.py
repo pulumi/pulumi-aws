@@ -20,10 +20,6 @@ class TransitGatewayConnectPeerAssociationArgs:
                  link_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TransitGatewayConnectPeerAssociation resource.
-        :param pulumi.Input[str] device_id: The ID of the device.
-        :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
-        :param pulumi.Input[str] link_id: The ID of the link.
         """
         pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -34,9 +30,6 @@ class TransitGatewayConnectPeerAssociationArgs:
     @property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -46,9 +39,6 @@ class TransitGatewayConnectPeerAssociationArgs:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -58,9 +48,6 @@ class TransitGatewayConnectPeerAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayConnectPeerArn")
     def transit_gateway_connect_peer_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the Connect peer.
-        """
         return pulumi.get(self, "transit_gateway_connect_peer_arn")
 
     @transit_gateway_connect_peer_arn.setter
@@ -70,9 +57,6 @@ class TransitGatewayConnectPeerAssociationArgs:
     @property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -89,10 +73,6 @@ class _TransitGatewayConnectPeerAssociationState:
                  transit_gateway_connect_peer_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayConnectPeerAssociation resources.
-        :param pulumi.Input[str] device_id: The ID of the device.
-        :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[str] link_id: The ID of the link.
-        :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
         """
         if device_id is not None:
             pulumi.set(__self__, "device_id", device_id)
@@ -106,9 +86,6 @@ class _TransitGatewayConnectPeerAssociationState:
     @property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
@@ -118,9 +95,6 @@ class _TransitGatewayConnectPeerAssociationState:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -130,9 +104,6 @@ class _TransitGatewayConnectPeerAssociationState:
     @property
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @link_id.setter
@@ -142,9 +113,6 @@ class _TransitGatewayConnectPeerAssociationState:
     @property
     @pulumi.getter(name="transitGatewayConnectPeerArn")
     def transit_gateway_connect_peer_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Connect peer.
-        """
         return pulumi.get(self, "transit_gateway_connect_peer_arn")
 
     @transit_gateway_connect_peer_arn.setter
@@ -163,35 +131,9 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
                  transit_gateway_connect_peer_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Associates a transit gateway Connect peer with a device, and optionally, with a link.
-        If you specify a link, it must be associated with the specified device.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.TransitGatewayConnectPeerAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"],
-            transit_gateway_connect_peer_arn=aws_ec2_transit_gateway_connect_peer["example"]["arn"])
-        ```
-
-        ## Import
-
-        `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
-
-        ```sh
-         $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
-        ```
-
+        Create a TransitGatewayConnectPeerAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] device_id: The ID of the device.
-        :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[str] link_id: The ID of the link.
-        :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
         """
         ...
     @overload
@@ -200,29 +142,7 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
                  args: TransitGatewayConnectPeerAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates a transit gateway Connect peer with a device, and optionally, with a link.
-        If you specify a link, it must be associated with the specified device.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.TransitGatewayConnectPeerAssociation("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            device_id=aws_networkmanager_device["example"]["id"],
-            transit_gateway_connect_peer_arn=aws_ec2_transit_gateway_connect_peer["example"]["arn"])
-        ```
-
-        ## Import
-
-        `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.
-
-        ```sh
-         $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
-        ```
-
+        Create a TransitGatewayConnectPeerAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TransitGatewayConnectPeerAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,10 +202,6 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] device_id: The ID of the device.
-        :param pulumi.Input[str] global_network_id: The ID of the global network.
-        :param pulumi.Input[str] link_id: The ID of the link.
-        :param pulumi.Input[str] transit_gateway_connect_peer_arn: The Amazon Resource Name (ARN) of the Connect peer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,32 +216,20 @@ class TransitGatewayConnectPeerAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the device.
-        """
         return pulumi.get(self, "device_id")
 
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the global network.
-        """
         return pulumi.get(self, "global_network_id")
 
     @property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of the link.
-        """
         return pulumi.get(self, "link_id")
 
     @property
     @pulumi.getter(name="transitGatewayConnectPeerArn")
     def transit_gateway_connect_peer_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Connect peer.
-        """
         return pulumi.get(self, "transit_gateway_connect_peer_arn")
 

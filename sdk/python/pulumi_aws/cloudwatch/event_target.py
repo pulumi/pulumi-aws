@@ -35,23 +35,6 @@ class EventTargetArgs:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventTarget resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
-        :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "rule", rule)
@@ -89,9 +72,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
-        """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -101,9 +81,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter
     def rule(self) -> pulumi.Input[str]:
-        """
-        The name of the rule you want to add targets to.
-        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -113,9 +90,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="batchTarget")
     def batch_target(self) -> Optional[pulumi.Input['EventTargetBatchTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "batch_target")
 
     @batch_target.setter
@@ -125,9 +99,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']]:
-        """
-        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "dead_letter_config")
 
     @dead_letter_config.setter
@@ -137,9 +108,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="ecsTarget")
     def ecs_target(self) -> Optional[pulumi.Input['EventTargetEcsTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "ecs_target")
 
     @ecs_target.setter
@@ -149,9 +117,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -161,9 +126,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="httpTarget")
     def http_target(self) -> Optional[pulumi.Input['EventTargetHttpTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        """
         return pulumi.get(self, "http_target")
 
     @http_target.setter
@@ -173,9 +135,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -185,9 +144,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="inputPath")
     def input_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        """
         return pulumi.get(self, "input_path")
 
     @input_path.setter
@@ -197,9 +153,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> Optional[pulumi.Input['EventTargetInputTransformerArgs']]:
-        """
-        Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        """
         return pulumi.get(self, "input_transformer")
 
     @input_transformer.setter
@@ -209,9 +162,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="kinesisTarget")
     def kinesis_target(self) -> Optional[pulumi.Input['EventTargetKinesisTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "kinesis_target")
 
     @kinesis_target.setter
@@ -221,9 +171,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="redshiftTarget")
     def redshift_target(self) -> Optional[pulumi.Input['EventTargetRedshiftTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "redshift_target")
 
     @redshift_target.setter
@@ -233,9 +180,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['EventTargetRetryPolicyArgs']]:
-        """
-        Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "retry_policy")
 
     @retry_policy.setter
@@ -245,9 +189,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -257,9 +198,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="runCommandTargets")
     def run_command_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]]]:
-        """
-        Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        """
         return pulumi.get(self, "run_command_targets")
 
     @run_command_targets.setter
@@ -269,9 +207,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="sqsTarget")
     def sqs_target(self) -> Optional[pulumi.Input['EventTargetSqsTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "sqs_target")
 
     @sqs_target.setter
@@ -281,9 +216,6 @@ class EventTargetArgs:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique target assignment ID. If missing, will generate a random, unique id.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -313,23 +245,6 @@ class _EventTargetState:
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventTarget resources.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
-        :param pulumi.Input['EventTargetBatchTargetArgs'] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetDeadLetterConfigArgs'] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetEcsTargetArgs'] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        :param pulumi.Input['EventTargetHttpTargetArgs'] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input['EventTargetSqsTargetArgs'] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -369,9 +284,6 @@ class _EventTargetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -381,9 +293,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="batchTarget")
     def batch_target(self) -> Optional[pulumi.Input['EventTargetBatchTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "batch_target")
 
     @batch_target.setter
@@ -393,9 +302,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['EventTargetDeadLetterConfigArgs']]:
-        """
-        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "dead_letter_config")
 
     @dead_letter_config.setter
@@ -405,9 +311,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="ecsTarget")
     def ecs_target(self) -> Optional[pulumi.Input['EventTargetEcsTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "ecs_target")
 
     @ecs_target.setter
@@ -417,9 +320,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @event_bus_name.setter
@@ -429,9 +329,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="httpTarget")
     def http_target(self) -> Optional[pulumi.Input['EventTargetHttpTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        """
         return pulumi.get(self, "http_target")
 
     @http_target.setter
@@ -441,9 +338,6 @@ class _EventTargetState:
     @property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input[str]]:
-        """
-        Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -453,9 +347,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="inputPath")
     def input_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        """
         return pulumi.get(self, "input_path")
 
     @input_path.setter
@@ -465,9 +356,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> Optional[pulumi.Input['EventTargetInputTransformerArgs']]:
-        """
-        Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        """
         return pulumi.get(self, "input_transformer")
 
     @input_transformer.setter
@@ -477,9 +365,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="kinesisTarget")
     def kinesis_target(self) -> Optional[pulumi.Input['EventTargetKinesisTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "kinesis_target")
 
     @kinesis_target.setter
@@ -489,9 +374,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="redshiftTarget")
     def redshift_target(self) -> Optional[pulumi.Input['EventTargetRedshiftTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "redshift_target")
 
     @redshift_target.setter
@@ -501,9 +383,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['EventTargetRetryPolicyArgs']]:
-        """
-        Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "retry_policy")
 
     @retry_policy.setter
@@ -513,9 +392,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -525,9 +401,6 @@ class _EventTargetState:
     @property
     @pulumi.getter
     def rule(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the rule you want to add targets to.
-        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -537,9 +410,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="runCommandTargets")
     def run_command_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]]]:
-        """
-        Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        """
         return pulumi.get(self, "run_command_targets")
 
     @run_command_targets.setter
@@ -549,9 +419,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="sqsTarget")
     def sqs_target(self) -> Optional[pulumi.Input['EventTargetSqsTargetArgs']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "sqs_target")
 
     @sqs_target.setter
@@ -561,9 +428,6 @@ class _EventTargetState:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique target assignment ID. If missing, will generate a random, unique id.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -595,312 +459,9 @@ class EventTarget(pulumi.CustomResource):
                  target_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an EventBridge Target resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-        ### Kinesis Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        console = aws.cloudwatch.EventRule("console",
-            description="Capture all EC2 scaling events",
-            event_pattern=\"\"\"{
-          "source": [
-            "aws.autoscaling"
-          ],
-          "detail-type": [
-            "EC2 Instance Launch Successful",
-            "EC2 Instance Terminate Successful",
-            "EC2 Instance Launch Unsuccessful",
-            "EC2 Instance Terminate Unsuccessful"
-          ]
-        }
-        \"\"\")
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        yada = aws.cloudwatch.EventTarget("yada",
-            rule=console.name,
-            arn=test_stream.arn,
-            run_command_targets=[
-                aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                    key="tag:Name",
-                    values=["FooBar"],
-                ),
-                aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                    key="InstanceIds",
-                    values=["i-162058cd308bffec2"],
-                ),
-            ])
-        ```
-        ### SSM Document Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-        )])
-        stop_instance = aws.ssm.Document("stopInstance",
-            document_type="Command",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Stop an instance",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["halt"]
-                  }
-                ]
-              }
-            }
-          }
-        \"\"\")
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ssm:SendCommand"],
-                resources=["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="ec2:ResourceTag/Terminate",
-                    values=["*"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ssm:SendCommand"],
-                resources=[stop_instance.arn],
-            ),
-        ])
-        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
-        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
-        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
-            policy_arn=ssm_lifecycle_policy.arn,
-            role=ssm_lifecycle_role.name)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=stop_instance.arn,
-            rule=stop_instances_event_rule.name,
-            role_arn=ssm_lifecycle_role.arn,
-            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                key="tag:Terminate",
-                values=["midnight"],
-            )])
-        ```
-        ### RunCommand Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=f"arn:aws:ssm:{var['aws_region']}::document/AWS-RunShellScript",
-            input="{\\"commands\\":[\\"halt\\"]}",
-            rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
-            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                key="tag:Terminate",
-                values=["midnight"],
-            )])
-        ```
-        ### API Gateway target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
-        # ...
-        example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            deployment=example_deployment.id)
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id,
-            http_target=aws.cloudwatch.EventTargetHttpTargetArgs(
-                query_string_parameters={
-                    "Body": "$.detail.body",
-                },
-                header_parameters={
-                    "Env": "Test",
-                },
-            ))
-        ```
-        ### Cross-Account Event Bus target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "events.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
-        )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=event_bus_invoke_remote_event_bus_role.name,
-            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
-            role_arn=event_bus_invoke_remote_event_bus_role.arn)
-        ```
-        ### Input Transformer Usage - JSON Object
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
-            rule=example_event_rule.id,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "instance": "$.detail.instance",
-                    "status": "$.detail.status",
-                },
-                input_template=\"\"\"{
-          "instance_id": <instance>,
-          "instance_status": <status>
-        }
-        \"\"\",
-            ))
-        ```
-        ### Input Transformer Usage - Simple String
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
-            rule=example_event_rule.id,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "instance": "$.detail.instance",
-                    "status": "$.detail.status",
-                },
-                input_template="\\"<instance> is in state <status>\\"",
-            ))
-        ```
-        ### Cloudwatch Log Group Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
-            description="GuardDuty Findings",
-            event_pattern=json.dumps({
-                "source": ["aws.guardduty"],
-            }),
-            tags={
-                "Environment": "example",
-            })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["events.amazonaws.com"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["events.amazonaws.com"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnEquals",
-                    values=[example_event_rule.arn],
-                    variable="aws:SourceArn",
-                )],
-            ),
-        ])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_document=example_log_policy.json,
-            policy_name="guardduty-log-publishing-policy")
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            rule=example_event_rule.name,
-            arn=example_log_group.arn)
-        ```
-
-        ## Import
-
-        EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-        ```
-
+        Create a EventTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
-        :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetRedshiftTargetArgs']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         ...
     @overload
@@ -909,293 +470,7 @@ class EventTarget(pulumi.CustomResource):
                  args: EventTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EventBridge Target resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-        ### Kinesis Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        console = aws.cloudwatch.EventRule("console",
-            description="Capture all EC2 scaling events",
-            event_pattern=\"\"\"{
-          "source": [
-            "aws.autoscaling"
-          ],
-          "detail-type": [
-            "EC2 Instance Launch Successful",
-            "EC2 Instance Terminate Successful",
-            "EC2 Instance Launch Unsuccessful",
-            "EC2 Instance Terminate Unsuccessful"
-          ]
-        }
-        \"\"\")
-        test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        yada = aws.cloudwatch.EventTarget("yada",
-            rule=console.name,
-            arn=test_stream.arn,
-            run_command_targets=[
-                aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                    key="tag:Name",
-                    values=["FooBar"],
-                ),
-                aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                    key="InstanceIds",
-                    values=["i-162058cd308bffec2"],
-                ),
-            ])
-        ```
-        ### SSM Document Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-        )])
-        stop_instance = aws.ssm.Document("stopInstance",
-            document_type="Command",
-            content=\"\"\"  {
-            "schemaVersion": "1.2",
-            "description": "Stop an instance",
-            "parameters": {
-
-            },
-            "runtimeConfig": {
-              "aws:runShellScript": {
-                "properties": [
-                  {
-                    "id": "0.aws:runShellScript",
-                    "runCommand": ["halt"]
-                  }
-                ]
-              }
-            }
-          }
-        \"\"\")
-        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ssm:SendCommand"],
-                resources=["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="StringEquals",
-                    variable="ec2:ResourceTag/Terminate",
-                    values=["*"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["ssm:SendCommand"],
-                resources=[stop_instance.arn],
-            ),
-        ])
-        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
-        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
-        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
-            policy_arn=ssm_lifecycle_policy.arn,
-            role=ssm_lifecycle_role.name)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=stop_instance.arn,
-            rule=stop_instances_event_rule.name,
-            role_arn=ssm_lifecycle_role.arn,
-            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                key="tag:Terminate",
-                values=["midnight"],
-            )])
-        ```
-        ### RunCommand Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn=f"arn:aws:ssm:{var['aws_region']}::document/AWS-RunShellScript",
-            input="{\\"commands\\":[\\"halt\\"]}",
-            rule=stop_instances_event_rule.name,
-            role_arn=aws_iam_role["ssm_lifecycle"]["arn"],
-            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
-                key="tag:Terminate",
-                values=["midnight"],
-            )])
-        ```
-        ### API Gateway target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_deployment = aws.apigateway.Deployment("exampleDeployment", rest_api=aws_api_gateway_rest_api["example"]["id"])
-        # ...
-        example_stage = aws.apigateway.Stage("exampleStage",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            deployment=example_deployment.id)
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=example_stage.execution_arn.apply(lambda execution_arn: f"{execution_arn}/GET"),
-            rule=example_event_rule.id,
-            http_target=aws.cloudwatch.EventTargetHttpTargetArgs(
-                query_string_parameters={
-                    "Body": "$.detail.body",
-                },
-                header_parameters={
-                    "Env": "Test",
-                },
-            ))
-        ```
-        ### Cross-Account Event Bus target
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        event_bus_invoke_remote_event_bus_role = aws.iam.Role("eventBusInvokeRemoteEventBusRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "events.amazonaws.com"
-              },
-              "Effect": "Allow"
-            }
-          ]
-        }
-        \"\"\")
-        event_bus_invoke_remote_event_bus_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            effect="Allow",
-            actions=["events:PutEvents"],
-            resources=["arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus"],
-        )])
-        event_bus_invoke_remote_event_bus_policy = aws.iam.Policy("eventBusInvokeRemoteEventBusPolicy", policy=event_bus_invoke_remote_event_bus_policy_document.json)
-        event_bus_invoke_remote_event_bus_role_policy_attachment = aws.iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment",
-            role=event_bus_invoke_remote_event_bus_role.name,
-            policy_arn=event_bus_invoke_remote_event_bus_policy.arn)
-        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
-            description="Stop instances nightly",
-            schedule_expression="cron(0 0 * * ? *)")
-        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
-            arn="arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus",
-            rule=stop_instances_event_rule.name,
-            role_arn=event_bus_invoke_remote_event_bus_role.arn)
-        ```
-        ### Input Transformer Usage - JSON Object
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
-            rule=example_event_rule.id,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "instance": "$.detail.instance",
-                    "status": "$.detail.status",
-                },
-                input_template=\"\"\"{
-          "instance_id": <instance>,
-          "instance_status": <status>
-        }
-        \"\"\",
-            ))
-        ```
-        ### Input Transformer Usage - Simple String
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule")
-        # ...
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            arn=aws_lambda_function["example"]["arn"],
-            rule=example_event_rule.id,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "instance": "$.detail.instance",
-                    "status": "$.detail.status",
-                },
-                input_template="\\"<instance> is in state <status>\\"",
-            ))
-        ```
-        ### Cloudwatch Log Group Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
-        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
-            description="GuardDuty Findings",
-            event_pattern=json.dumps({
-                "source": ["aws.guardduty"],
-            }),
-            tags={
-                "Environment": "example",
-            })
-        example_log_policy = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["logs:CreateLogStream"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["events.amazonaws.com"],
-                )],
-            ),
-            aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                actions=["logs:PutLogEvents"],
-                resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*:*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    type="Service",
-                    identifiers=["events.amazonaws.com"],
-                )],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
-                    test="ArnEquals",
-                    values=[example_event_rule.arn],
-                    variable="aws:SourceArn",
-                )],
-            ),
-        ])
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
-            policy_document=example_log_policy.json,
-            policy_name="guardduty-log-publishing-policy")
-        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
-            rule=example_event_rule.name,
-            arn=example_log_group.arn)
-        ```
-
-        ## Import
-
-        EventBridge Targets can be imported using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used).
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-        ```
-
+        Create a EventTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1292,23 +567,6 @@ class EventTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
-        :param pulumi.Input[pulumi.InputType['EventTargetBatchTargetArgs']] batch_target: Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetDeadLetterConfigArgs']] dead_letter_config: Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetEcsTargetArgs']] ecs_target: Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] event_bus_name: The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        :param pulumi.Input[pulumi.InputType['EventTargetHttpTargetArgs']] http_target: Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        :param pulumi.Input[str] input: Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        :param pulumi.Input[str] input_path: The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        :param pulumi.Input[pulumi.InputType['EventTargetInputTransformerArgs']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        :param pulumi.Input[pulumi.InputType['EventTargetKinesisTargetArgs']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetRedshiftTargetArgs']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetRetryPolicyArgs']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        :param pulumi.Input[str] rule: The name of the rule you want to add targets to.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTargetRunCommandTargetArgs']]]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        :param pulumi.Input[pulumi.InputType['EventTargetSqsTargetArgs']] sqs_target: Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        :param pulumi.Input[str] target_id: The unique target assignment ID. If missing, will generate a random, unique id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1336,136 +594,85 @@ class EventTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="batchTarget")
     def batch_target(self) -> pulumi.Output[Optional['outputs.EventTargetBatchTarget']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "batch_target")
 
     @property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Output[Optional['outputs.EventTargetDeadLetterConfig']]:
-        """
-        Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "dead_letter_config")
 
     @property
     @pulumi.getter(name="ecsTarget")
     def ecs_target(self) -> pulumi.Output[Optional['outputs.EventTargetEcsTarget']]:
-        """
-        Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "ecs_target")
 
     @property
     @pulumi.getter(name="eventBusName")
     def event_bus_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The event bus to associate with the rule. If you omit this, the `default` event bus is used.
-        """
         return pulumi.get(self, "event_bus_name")
 
     @property
     @pulumi.getter(name="httpTarget")
     def http_target(self) -> pulumi.Output[Optional['outputs.EventTargetHttpTarget']]:
-        """
-        Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
-        """
         return pulumi.get(self, "http_target")
 
     @property
     @pulumi.getter
     def input(self) -> pulumi.Output[Optional[str]]:
-        """
-        Valid JSON text passed to the target. Conflicts with `input_path` and `input_transformer`.
-        """
         return pulumi.get(self, "input")
 
     @property
     @pulumi.getter(name="inputPath")
     def input_path(self) -> pulumi.Output[Optional[str]]:
-        """
-        The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `input_transformer`.
-        """
         return pulumi.get(self, "input_path")
 
     @property
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> pulumi.Output[Optional['outputs.EventTargetInputTransformer']]:
-        """
-        Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
-        """
         return pulumi.get(self, "input_transformer")
 
     @property
     @pulumi.getter(name="kinesisTarget")
     def kinesis_target(self) -> pulumi.Output[Optional['outputs.EventTargetKinesisTarget']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "kinesis_target")
 
     @property
     @pulumi.getter(name="redshiftTarget")
     def redshift_target(self) -> pulumi.Output[Optional['outputs.EventTargetRedshiftTarget']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "redshift_target")
 
     @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> pulumi.Output[Optional['outputs.EventTargetRetryPolicy']]:
-        """
-        Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "retry_policy")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def rule(self) -> pulumi.Output[str]:
-        """
-        The name of the rule you want to add targets to.
-        """
         return pulumi.get(self, "rule")
 
     @property
     @pulumi.getter(name="runCommandTargets")
     def run_command_targets(self) -> pulumi.Output[Optional[Sequence['outputs.EventTargetRunCommandTarget']]]:
-        """
-        Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
-        """
         return pulumi.get(self, "run_command_targets")
 
     @property
     @pulumi.getter(name="sqsTarget")
     def sqs_target(self) -> pulumi.Output[Optional['outputs.EventTargetSqsTarget']]:
-        """
-        Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
-        """
         return pulumi.get(self, "sqs_target")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
-        """
-        The unique target assignment ID. If missing, will generate a random, unique id.
-        """
         return pulumi.get(self, "target_id")
 

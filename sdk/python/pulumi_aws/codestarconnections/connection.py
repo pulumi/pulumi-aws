@@ -20,10 +20,6 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if host_arn is not None:
             pulumi.set(__self__, "host_arn", host_arn)
@@ -37,9 +33,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        """
         return pulumi.get(self, "host_arn")
 
     @host_arn.setter
@@ -49,9 +42,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,9 +51,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -73,9 +60,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,13 +79,6 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
-        :param pulumi.Input[str] arn: The codestar connection ARN.
-        :param pulumi.Input[str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,9 +98,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The codestar connection ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +107,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        """
         return pulumi.get(self, "connection_status")
 
     @connection_status.setter
@@ -145,9 +116,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        """
         return pulumi.get(self, "host_arn")
 
     @host_arn.setter
@@ -157,9 +125,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -169,9 +134,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -181,9 +143,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,9 +152,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -214,62 +170,9 @@ class Connection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a CodeStar Connection.
-
-        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
-            stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
-                        },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-            ])
-        ```
-
-        ## Import
-
-        CodeStar connections can be imported using the ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
-
+        Create a Connection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -278,56 +181,7 @@ class Connection(pulumi.CustomResource):
                  args: Optional[ConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeStar Connection.
-
-        > **NOTE:** The `codestarconnections.Connection` resource is created in the state `PENDING`. Authentication with the connection provider must be completed in the AWS Console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_connection = aws.codestarconnections.Connection("exampleConnection", provider_type="Bitbucket")
-        example_pipeline = aws.codepipeline.Pipeline("examplePipeline",
-            role_arn=aws_iam_role["codepipeline_role"]["arn"],
-            artifact_stores=[aws.codepipeline.PipelineArtifactStoreArgs()],
-            stages=[
-                aws.codepipeline.PipelineStageArgs(
-                    name="Source",
-                    actions=[aws.codepipeline.PipelineStageActionArgs(
-                        name="Source",
-                        category="Source",
-                        owner="AWS",
-                        provider="CodeStarSourceConnection",
-                        version="1",
-                        output_artifacts=["source_output"],
-                        configuration={
-                            "ConnectionArn": example_connection.arn,
-                            "FullRepositoryId": "my-organization/test",
-                            "BranchName": "main",
-                        },
-                    )],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Build",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-                aws.codepipeline.PipelineStageArgs(
-                    name="Deploy",
-                    actions=[aws.codepipeline.PipelineStageActionArgs()],
-                ),
-            ])
-        ```
-
-        ## Import
-
-        CodeStar connections can be imported using the ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
-        ```
-
+        Create a Connection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,13 +241,6 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The codestar connection ARN.
-        :param pulumi.Input[str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        :param pulumi.Input[str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        :param pulumi.Input[str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        :param pulumi.Input[str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -411,56 +258,35 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The codestar connection ARN.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> pulumi.Output[str]:
-        """
-        The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        """
         return pulumi.get(self, "connection_status")
 
     @property
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        """
         return pulumi.get(self, "host_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
-        """
-        The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
-        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -102,20 +102,7 @@ def get_parameter(name: Optional[str] = None,
                   with_decryption: Optional[bool] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParameterResult:
     """
-    Provides an SSM Parameter data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-
-    :param str name: Name of the parameter.
-    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -138,19 +125,6 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
                          with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
     """
-    Provides an SSM Parameter data source.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ssm.get_parameter(name="foo")
-    ```
-
-
-    :param str name: Name of the parameter.
-    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+    Use this data source to access information about an existing resource.
     """
     ...

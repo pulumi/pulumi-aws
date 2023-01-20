@@ -53,9 +53,6 @@ class GetContactFlowResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Contact Flow.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -66,17 +63,11 @@ class GetContactFlowResult:
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        Logic of the Contact Flow.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the Contact Flow.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -100,17 +91,11 @@ class GetContactFlowResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags to assign to the Contact Flow.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Type of Contact Flow.
-        """
         return pulumi.get(self, "type")
 
 
@@ -138,36 +123,7 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
                      type: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactFlowResult:
     """
-    Provides details about a specific Amazon Connect Contact Flow.
-
-    ## Example Usage
-
-    By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By contact_flow_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Contact Flow by name
-    :param Mapping[str, str] tags: Tags to assign to the Contact Flow.
-    :param str type: Type of Contact Flow.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactFlowId'] = contact_flow_id
@@ -198,35 +154,6 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
                             type: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowResult]:
     """
-    Provides details about a specific Amazon Connect Contact Flow.
-
-    ## Example Usage
-
-    By name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Test")
-    ```
-
-    By contact_flow_id
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.connect.get_contact_flow(contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Contact Flow by name
-    :param Mapping[str, str] tags: Tags to assign to the Contact Flow.
-    :param str type: Type of Contact Flow.
+    Use this data source to access information about an existing resource.
     """
     ...

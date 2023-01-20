@@ -19,9 +19,6 @@ class ManagedPrefixListEntryInitArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedPrefixListEntry resource.
-        :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
-        :param pulumi.Input[str] description: Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
@@ -31,9 +28,6 @@ class ManagedPrefixListEntryInitArgs:
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Input[str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -43,9 +37,6 @@ class ManagedPrefixListEntryInitArgs:
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -55,9 +46,6 @@ class ManagedPrefixListEntryInitArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,9 +61,6 @@ class _ManagedPrefixListEntryState:
                  prefix_list_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedPrefixListEntry resources.
-        :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] description: Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -87,9 +72,6 @@ class _ManagedPrefixListEntryState:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -99,9 +81,6 @@ class _ManagedPrefixListEntryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -111,9 +90,6 @@ class _ManagedPrefixListEntryState:
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "prefix_list_id")
 
     @prefix_list_id.setter
@@ -131,53 +107,9 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a managed prefix list entry resource.
-
-        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
-        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
-        and a Managed Prefix List resource with entries defined
-        in-line. At this time you cannot use a Managed Prefix List with in-line rules in
-        conjunction with any Managed Prefix List Entry resources. Doing so will cause a conflict
-        of entries and will overwrite entries.
-
-        > **NOTE on Managed Prefix Lists with many entries:**  To improved execution times on larger
-        updates, if you plan to create a prefix list with more than 100 entries, it is **recommended**
-        that you use the inline `entry` block as part of the Managed Prefix List resource
-        resource instead.
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
-        ## Import
-
-        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-        ```
-
+        Create a ManagedPrefixListEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] description: Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
         """
         ...
     @overload
@@ -186,48 +118,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
                  args: ManagedPrefixListEntryInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a managed prefix list entry resource.
-
-        > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
-        currently provides both a standalone Managed Prefix List Entry resource (a single entry),
-        and a Managed Prefix List resource with entries defined
-        in-line. At this time you cannot use a Managed Prefix List with in-line rules in
-        conjunction with any Managed Prefix List Entry resources. Doing so will cause a conflict
-        of entries and will overwrite entries.
-
-        > **NOTE on Managed Prefix Lists with many entries:**  To improved execution times on larger
-        updates, if you plan to create a prefix list with more than 100 entries, it is **recommended**
-        that you use the inline `entry` block as part of the Managed Prefix List resource
-        resource instead.
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            tags={
-                "Env": "live",
-            })
-        entry1 = aws.ec2.ManagedPrefixListEntry("entry1",
-            cidr=aws_vpc["example"]["cidr_block"],
-            description="Primary",
-            prefix_list_id=example.id)
-        ```
-
-        ## Import
-
-        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
-        ```
-
+        Create a ManagedPrefixListEntry resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ManagedPrefixListEntryInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -282,9 +173,6 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: CIDR block of this entry.
-        :param pulumi.Input[str] description: Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        :param pulumi.Input[str] prefix_list_id: CIDR block of this entry.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,24 +186,15 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[str]:
-        """
-        CIDR block of this entry.
-        """
         return pulumi.get(self, "prefix_list_id")
 

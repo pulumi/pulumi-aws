@@ -19,9 +19,6 @@ class BucketAccelerateConfigurationV2Args:
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] status: The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "status", status)
@@ -31,9 +28,6 @@ class BucketAccelerateConfigurationV2Args:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -43,9 +37,6 @@ class BucketAccelerateConfigurationV2Args:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
-        """
-        The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -55,9 +46,6 @@ class BucketAccelerateConfigurationV2Args:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -73,9 +61,6 @@ class _BucketAccelerateConfigurationV2State:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] status: The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -87,9 +72,6 @@ class _BucketAccelerateConfigurationV2State:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -99,9 +81,6 @@ class _BucketAccelerateConfigurationV2State:
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -111,9 +90,6 @@ class _BucketAccelerateConfigurationV2State:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -131,39 +107,9 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mybucket = aws.s3.BucketV2("mybucket")
-        example = aws.s3.BucketAccelerateConfigurationV2("example",
-            bucket=mybucket.bucket,
-            status="Enabled")
-        ```
-
-        ## Import
-
-        S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-        ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketAccelerateConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] status: The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         ...
     @overload
@@ -172,34 +118,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
                  args: BucketAccelerateConfigurationV2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        mybucket = aws.s3.BucketV2("mybucket")
-        example = aws.s3.BucketAccelerateConfigurationV2("example",
-            bucket=mybucket.bucket,
-            status="Enabled")
-        ```
-
-        ## Import
-
-        S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name
-        ```
-
-         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
-        ```
-
+        Create a BucketAccelerateConfigurationV2 resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketAccelerateConfigurationV2Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,9 +173,6 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: The name of the bucket.
-        :param pulumi.Input[str] expected_bucket_owner: The account ID of the expected bucket owner.
-        :param pulumi.Input[str] status: The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -270,24 +186,15 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
-        """
-        The name of the bucket.
-        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="expectedBucketOwner")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[str]]:
-        """
-        The account ID of the expected bucket owner.
-        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        The transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        """
         return pulumi.get(self, "status")
 

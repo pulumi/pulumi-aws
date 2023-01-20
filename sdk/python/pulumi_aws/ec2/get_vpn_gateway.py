@@ -115,31 +115,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
-    The VPN Gateway data source provides details about
-    a specific VPN gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
-
-
-    :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-    :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
-    :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: ID of the specific VPN Gateway to retrieve.
-    :param str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['amazonSideAsn'] = amazon_side_asn
@@ -173,30 +149,6 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
-    The VPN Gateway data source provides details about
-    a specific VPN gateway.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
-        name="tag:Name",
-        values=["vpn-gw"],
-    )])
-    pulumi.export("vpnGatewayId", selected.id)
-    ```
-
-
-    :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-    :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
-    :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
-    :param str id: ID of the specific VPN Gateway to retrieve.
-    :param str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    Use this data source to access information about an existing resource.
     """
     ...

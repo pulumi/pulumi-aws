@@ -78,15 +78,6 @@ class ClusterBrokerNodeGroupInfo(dict):
                  connectivity_info: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo'] = None,
                  ebs_volume_size: Optional[int] = None,
                  storage_info: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo'] = None):
-        """
-        :param Sequence[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        :param str instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param int ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
-        """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "security_groups", security_groups)
@@ -102,57 +93,36 @@ class ClusterBrokerNodeGroupInfo(dict):
     @property
     @pulumi.getter(name="clientSubnets")
     def client_subnets(self) -> Sequence[str]:
-        """
-        A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        """
         return pulumi.get(self, "client_subnets")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> str:
-        """
-        Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[str]:
-        """
-        A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="azDistribution")
     def az_distribution(self) -> Optional[str]:
-        """
-        The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        """
         return pulumi.get(self, "az_distribution")
 
     @property
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo']:
-        """
-        Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        """
         return pulumi.get(self, "connectivity_info")
 
     @property
     @pulumi.getter(name="ebsVolumeSize")
     def ebs_volume_size(self) -> Optional[int]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node.
-        """
         return pulumi.get(self, "ebs_volume_size")
 
     @property
     @pulumi.getter(name="storageInfo")
     def storage_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfo']:
-        """
-        A block that contains information about storage volumes attached to MSK broker nodes. See below.
-        """
         return pulumi.get(self, "storage_info")
 
 
@@ -177,18 +147,12 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
 
     def __init__(__self__, *,
                  public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None):
-        """
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs' public_access: Access control settings for brokers. See below.
-        """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
 
     @property
     @pulumi.getter(name="publicAccess")
     def public_access(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess']:
-        """
-        Access control settings for brokers. See below.
-        """
         return pulumi.get(self, "public_access")
 
 
@@ -196,18 +160,12 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
-        """
-        :param str type: Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-        """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
-        """
-        Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -232,18 +190,12 @@ class ClusterBrokerNodeGroupInfoStorageInfo(dict):
 
     def __init__(__self__, *,
                  ebs_storage_info: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo'] = None):
-        """
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs' ebs_storage_info: A block that contains EBS volume information. See below.
-        """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
 
     @property
     @pulumi.getter(name="ebsStorageInfo")
     def ebs_storage_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo']:
-        """
-        A block that contains EBS volume information. See below.
-        """
         return pulumi.get(self, "ebs_storage_info")
 
 
@@ -271,10 +223,6 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
     def __init__(__self__, *,
                  provisioned_throughput: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput'] = None,
                  volume_size: Optional[int] = None):
-        """
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs' provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-        :param int volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-        """
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
         if volume_size is not None:
@@ -283,17 +231,11 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
     @property
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput']:
-        """
-        A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-        """
         return pulumi.get(self, "provisioned_throughput")
 
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[int]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-        """
         return pulumi.get(self, "volume_size")
 
 
@@ -319,10 +261,6 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(d
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  volume_throughput: Optional[int] = None):
-        """
-        :param bool enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        :param int volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if volume_throughput is not None:
@@ -331,17 +269,11 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(d
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="volumeThroughput")
     def volume_throughput(self) -> Optional[int]:
-        """
-        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
-        """
         return pulumi.get(self, "volume_throughput")
 
 
@@ -351,11 +283,6 @@ class ClusterClientAuthentication(dict):
                  sasl: Optional['outputs.ClusterClientAuthenticationSasl'] = None,
                  tls: Optional['outputs.ClusterClientAuthenticationTls'] = None,
                  unauthenticated: Optional[bool] = None):
-        """
-        :param 'ClusterClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
-        :param 'ClusterClientAuthenticationTlsArgs' tls: Configuration block for specifying TLS client authentication. See below.
-        :param bool unauthenticated: Enables unauthenticated access.
-        """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
@@ -366,25 +293,16 @@ class ClusterClientAuthentication(dict):
     @property
     @pulumi.getter
     def sasl(self) -> Optional['outputs.ClusterClientAuthenticationSasl']:
-        """
-        Configuration block for specifying SASL client authentication. See below.
-        """
         return pulumi.get(self, "sasl")
 
     @property
     @pulumi.getter
     def tls(self) -> Optional['outputs.ClusterClientAuthenticationTls']:
-        """
-        Configuration block for specifying TLS client authentication. See below.
-        """
         return pulumi.get(self, "tls")
 
     @property
     @pulumi.getter
     def unauthenticated(self) -> Optional[bool]:
-        """
-        Enables unauthenticated access.
-        """
         return pulumi.get(self, "unauthenticated")
 
 
@@ -393,10 +311,6 @@ class ClusterClientAuthenticationSasl(dict):
     def __init__(__self__, *,
                  iam: Optional[bool] = None,
                  scram: Optional[bool] = None):
-        """
-        :param bool iam: Enables IAM client authentication. Defaults to `false`.
-        :param bool scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-        """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if scram is not None:
@@ -405,17 +319,11 @@ class ClusterClientAuthenticationSasl(dict):
     @property
     @pulumi.getter
     def iam(self) -> Optional[bool]:
-        """
-        Enables IAM client authentication. Defaults to `false`.
-        """
         return pulumi.get(self, "iam")
 
     @property
     @pulumi.getter
     def scram(self) -> Optional[bool]:
-        """
-        Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
-        """
         return pulumi.get(self, "scram")
 
 
@@ -440,18 +348,12 @@ class ClusterClientAuthenticationTls(dict):
 
     def __init__(__self__, *,
                  certificate_authority_arns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] certificate_authority_arns: List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        """
         if certificate_authority_arns is not None:
             pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
 
     @property
     @pulumi.getter(name="certificateAuthorityArns")
     def certificate_authority_arns(self) -> Optional[Sequence[str]]:
-        """
-        List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        """
         return pulumi.get(self, "certificate_authority_arns")
 
 
@@ -460,27 +362,17 @@ class ClusterConfigurationInfo(dict):
     def __init__(__self__, *,
                  arn: str,
                  revision: int):
-        """
-        :param str arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        :param int revision: Revision of the MSK Configuration to use in the cluster.
-        """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "revision", revision)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def revision(self) -> int:
-        """
-        Revision of the MSK Configuration to use in the cluster.
-        """
         return pulumi.get(self, "revision")
 
 
@@ -508,10 +400,6 @@ class ClusterEncryptionInfo(dict):
     def __init__(__self__, *,
                  encryption_at_rest_kms_key_arn: Optional[str] = None,
                  encryption_in_transit: Optional['outputs.ClusterEncryptionInfoEncryptionInTransit'] = None):
-        """
-        :param str encryption_at_rest_kms_key_arn: You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        :param 'ClusterEncryptionInfoEncryptionInTransitArgs' encryption_in_transit: Configuration block to specify encryption in transit. See below.
-        """
         if encryption_at_rest_kms_key_arn is not None:
             pulumi.set(__self__, "encryption_at_rest_kms_key_arn", encryption_at_rest_kms_key_arn)
         if encryption_in_transit is not None:
@@ -520,17 +408,11 @@ class ClusterEncryptionInfo(dict):
     @property
     @pulumi.getter(name="encryptionAtRestKmsKeyArn")
     def encryption_at_rest_kms_key_arn(self) -> Optional[str]:
-        """
-        You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        """
         return pulumi.get(self, "encryption_at_rest_kms_key_arn")
 
     @property
     @pulumi.getter(name="encryptionInTransit")
     def encryption_in_transit(self) -> Optional['outputs.ClusterEncryptionInfoEncryptionInTransit']:
-        """
-        Configuration block to specify encryption in transit. See below.
-        """
         return pulumi.get(self, "encryption_in_transit")
 
 
@@ -558,10 +440,6 @@ class ClusterEncryptionInfoEncryptionInTransit(dict):
     def __init__(__self__, *,
                  client_broker: Optional[str] = None,
                  in_cluster: Optional[bool] = None):
-        """
-        :param str client_broker: Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-        :param bool in_cluster: Whether data communication among broker nodes is encrypted. Default value: `true`.
-        """
         if client_broker is not None:
             pulumi.set(__self__, "client_broker", client_broker)
         if in_cluster is not None:
@@ -570,17 +448,11 @@ class ClusterEncryptionInfoEncryptionInTransit(dict):
     @property
     @pulumi.getter(name="clientBroker")
     def client_broker(self) -> Optional[str]:
-        """
-        Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-        """
         return pulumi.get(self, "client_broker")
 
     @property
     @pulumi.getter(name="inCluster")
     def in_cluster(self) -> Optional[bool]:
-        """
-        Whether data communication among broker nodes is encrypted. Default value: `true`.
-        """
         return pulumi.get(self, "in_cluster")
 
 
@@ -605,17 +477,11 @@ class ClusterLoggingInfo(dict):
 
     def __init__(__self__, *,
                  broker_logs: 'outputs.ClusterLoggingInfoBrokerLogs'):
-        """
-        :param 'ClusterLoggingInfoBrokerLogsArgs' broker_logs: Configuration block for Broker Logs settings for logging info. See below.
-        """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
     @property
     @pulumi.getter(name="brokerLogs")
     def broker_logs(self) -> 'outputs.ClusterLoggingInfoBrokerLogs':
-        """
-        Configuration block for Broker Logs settings for logging info. See below.
-        """
         return pulumi.get(self, "broker_logs")
 
 
@@ -687,10 +553,6 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  log_group: Optional[str] = None):
-        """
-        :param bool enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        :param str log_group: Name of the Cloudwatch Log Group to deliver logs to.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
             pulumi.set(__self__, "log_group", log_group)
@@ -698,17 +560,11 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[str]:
-        """
-        Name of the Cloudwatch Log Group to deliver logs to.
-        """
         return pulumi.get(self, "log_group")
 
 
@@ -734,10 +590,6 @@ class ClusterLoggingInfoBrokerLogsFirehose(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  delivery_stream: Optional[str] = None):
-        """
-        :param bool enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        :param str delivery_stream: Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if delivery_stream is not None:
             pulumi.set(__self__, "delivery_stream", delivery_stream)
@@ -745,17 +597,11 @@ class ClusterLoggingInfoBrokerLogsFirehose(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> Optional[str]:
-        """
-        Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        """
         return pulumi.get(self, "delivery_stream")
 
 
@@ -765,11 +611,6 @@ class ClusterLoggingInfoBrokerLogsS3(dict):
                  enabled: bool,
                  bucket: Optional[str] = None,
                  prefix: Optional[str] = None):
-        """
-        :param bool enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        :param str bucket: Name of the S3 bucket to deliver logs to.
-        :param str prefix: Prefix to append to the folder name.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -779,25 +620,16 @@ class ClusterLoggingInfoBrokerLogsS3(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Controls whether provisioned throughput is enabled or not. Default value: `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def bucket(self) -> Optional[str]:
-        """
-        Name of the S3 bucket to deliver logs to.
-        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
-        """
-        Prefix to append to the folder name.
-        """
         return pulumi.get(self, "prefix")
 
 
@@ -805,17 +637,11 @@ class ClusterLoggingInfoBrokerLogsS3(dict):
 class ClusterOpenMonitoring(dict):
     def __init__(__self__, *,
                  prometheus: 'outputs.ClusterOpenMonitoringPrometheus'):
-        """
-        :param 'ClusterOpenMonitoringPrometheusArgs' prometheus: Configuration block for Prometheus settings for open monitoring. See below.
-        """
         pulumi.set(__self__, "prometheus", prometheus)
 
     @property
     @pulumi.getter
     def prometheus(self) -> 'outputs.ClusterOpenMonitoringPrometheus':
-        """
-        Configuration block for Prometheus settings for open monitoring. See below.
-        """
         return pulumi.get(self, "prometheus")
 
 
@@ -843,10 +669,6 @@ class ClusterOpenMonitoringPrometheus(dict):
     def __init__(__self__, *,
                  jmx_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusJmxExporter'] = None,
                  node_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusNodeExporter'] = None):
-        """
-        :param 'ClusterOpenMonitoringPrometheusJmxExporterArgs' jmx_exporter: Configuration block for JMX Exporter. See below.
-        :param 'ClusterOpenMonitoringPrometheusNodeExporterArgs' node_exporter: Configuration block for Node Exporter. See below.
-        """
         if jmx_exporter is not None:
             pulumi.set(__self__, "jmx_exporter", jmx_exporter)
         if node_exporter is not None:
@@ -855,17 +677,11 @@ class ClusterOpenMonitoringPrometheus(dict):
     @property
     @pulumi.getter(name="jmxExporter")
     def jmx_exporter(self) -> Optional['outputs.ClusterOpenMonitoringPrometheusJmxExporter']:
-        """
-        Configuration block for JMX Exporter. See below.
-        """
         return pulumi.get(self, "jmx_exporter")
 
     @property
     @pulumi.getter(name="nodeExporter")
     def node_exporter(self) -> Optional['outputs.ClusterOpenMonitoringPrometheusNodeExporter']:
-        """
-        Configuration block for Node Exporter. See below.
-        """
         return pulumi.get(self, "node_exporter")
 
 
@@ -890,17 +706,11 @@ class ClusterOpenMonitoringPrometheusJmxExporter(dict):
 
     def __init__(__self__, *,
                  enabled_in_broker: bool):
-        """
-        :param bool enabled_in_broker: Indicates whether you want to enable or disable the JMX Exporter.
-        """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> bool:
-        """
-        Indicates whether you want to enable or disable the JMX Exporter.
-        """
         return pulumi.get(self, "enabled_in_broker")
 
 
@@ -925,17 +735,11 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
 
     def __init__(__self__, *,
                  enabled_in_broker: bool):
-        """
-        :param bool enabled_in_broker: Indicates whether you want to enable or disable the JMX Exporter.
-        """
         pulumi.set(__self__, "enabled_in_broker", enabled_in_broker)
 
     @property
     @pulumi.getter(name="enabledInBroker")
     def enabled_in_broker(self) -> bool:
-        """
-        Indicates whether you want to enable or disable the JMX Exporter.
-        """
         return pulumi.get(self, "enabled_in_broker")
 
 
@@ -943,17 +747,11 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
 class ServerlessClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: 'outputs.ServerlessClusterClientAuthenticationSasl'):
-        """
-        :param 'ServerlessClusterClientAuthenticationSaslArgs' sasl: Details for client authentication using SASL. See below.
-        """
         pulumi.set(__self__, "sasl", sasl)
 
     @property
     @pulumi.getter
     def sasl(self) -> 'outputs.ServerlessClusterClientAuthenticationSasl':
-        """
-        Details for client authentication using SASL. See below.
-        """
         return pulumi.get(self, "sasl")
 
 
@@ -961,17 +759,11 @@ class ServerlessClusterClientAuthentication(dict):
 class ServerlessClusterClientAuthenticationSasl(dict):
     def __init__(__self__, *,
                  iam: 'outputs.ServerlessClusterClientAuthenticationSaslIam'):
-        """
-        :param 'ServerlessClusterClientAuthenticationSaslIamArgs' iam: Details for client authentication using IAM. See below.
-        """
         pulumi.set(__self__, "iam", iam)
 
     @property
     @pulumi.getter
     def iam(self) -> 'outputs.ServerlessClusterClientAuthenticationSaslIam':
-        """
-        Details for client authentication using IAM. See below.
-        """
         return pulumi.get(self, "iam")
 
 
@@ -979,17 +771,11 @@ class ServerlessClusterClientAuthenticationSasl(dict):
 class ServerlessClusterClientAuthenticationSaslIam(dict):
     def __init__(__self__, *,
                  enabled: bool):
-        """
-        :param bool enabled: Whether SASL/IAM authentication is enabled or not.
-        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether SASL/IAM authentication is enabled or not.
-        """
         return pulumi.get(self, "enabled")
 
 
@@ -1017,10 +803,6 @@ class ServerlessClusterVpcConfig(dict):
     def __init__(__self__, *,
                  subnet_ids: Sequence[str],
                  security_group_ids: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] subnet_ids: A list of subnets in at least two different Availability Zones that host your client applications.
-        :param Sequence[str] security_group_ids: Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-        """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -1028,17 +810,11 @@ class ServerlessClusterVpcConfig(dict):
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
-        """
-        A list of subnets in at least two different Availability Zones that host your client applications.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
-        """
-        Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-        """
         return pulumi.get(self, "security_group_ids")
 
 
@@ -1051,14 +827,6 @@ class GetBrokerNodesNodeInfoListResult(dict):
                  client_vpc_ip_address: str,
                  endpoints: Sequence[str],
                  node_arn: str):
-        """
-        :param str attached_eni_id: Attached elastic network interface of the broker
-        :param float broker_id: ID of the broker
-        :param str client_subnet: Client subnet to which this broker node belongs
-        :param str client_vpc_ip_address: The client virtual private cloud (VPC) IP address
-        :param Sequence[str] endpoints: Set of endpoints for accessing the broker. This does not include ports
-        :param str node_arn: ARN of the node
-        """
         pulumi.set(__self__, "attached_eni_id", attached_eni_id)
         pulumi.set(__self__, "broker_id", broker_id)
         pulumi.set(__self__, "client_subnet", client_subnet)
@@ -1069,49 +837,31 @@ class GetBrokerNodesNodeInfoListResult(dict):
     @property
     @pulumi.getter(name="attachedEniId")
     def attached_eni_id(self) -> str:
-        """
-        Attached elastic network interface of the broker
-        """
         return pulumi.get(self, "attached_eni_id")
 
     @property
     @pulumi.getter(name="brokerId")
     def broker_id(self) -> float:
-        """
-        ID of the broker
-        """
         return pulumi.get(self, "broker_id")
 
     @property
     @pulumi.getter(name="clientSubnet")
     def client_subnet(self) -> str:
-        """
-        Client subnet to which this broker node belongs
-        """
         return pulumi.get(self, "client_subnet")
 
     @property
     @pulumi.getter(name="clientVpcIpAddress")
     def client_vpc_ip_address(self) -> str:
-        """
-        The client virtual private cloud (VPC) IP address
-        """
         return pulumi.get(self, "client_vpc_ip_address")
 
     @property
     @pulumi.getter
     def endpoints(self) -> Sequence[str]:
-        """
-        Set of endpoints for accessing the broker. This does not include ports
-        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="nodeArn")
     def node_arn(self) -> str:
-        """
-        ARN of the node
-        """
         return pulumi.get(self, "node_arn")
 
 

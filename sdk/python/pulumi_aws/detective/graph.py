@@ -17,7 +17,6 @@ class GraphArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Graph resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -25,9 +24,6 @@ class GraphArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -44,9 +40,6 @@ class _GraphState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Graph resources.
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        :param pulumi.Input[str] graph_arn: ARN of the Detective Graph.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if created_time is not None:
             pulumi.set(__self__, "created_time", created_time)
@@ -60,9 +53,6 @@ class _GraphState:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -72,9 +62,6 @@ class _GraphState:
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Detective Graph.
-        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -84,9 +71,6 @@ class _GraphState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,30 +95,9 @@ class Graph(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.detective.Graph("example", tags={
-            "Name": "example-detective-graph",
-        })
-        ```
-
-        ## Import
-
-        `aws_detective_graph` can be imported using the ARN, e.g.
-
-        ```sh
-         $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-        ```
-
+        Create a Graph resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -143,27 +106,7 @@ class Graph(pulumi.CustomResource):
                  args: Optional[GraphArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.detective.Graph("example", tags={
-            "Name": "example-detective-graph",
-        })
-        ```
-
-        ## Import
-
-        `aws_detective_graph` can be imported using the ARN, e.g.
-
-        ```sh
-         $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
-        ```
-
+        Create a Graph resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GraphArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -214,9 +157,6 @@ class Graph(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        :param pulumi.Input[str] graph_arn: ARN of the Detective Graph.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -231,25 +171,16 @@ class Graph(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Detective Graph.
-        """
         return pulumi.get(self, "graph_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property

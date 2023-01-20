@@ -76,41 +76,26 @@ class GetProductResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the product.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> str:
-        """
-        Time when the product was created.
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the product.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def distributor(self) -> str:
-        """
-        Distributor (i.e., vendor) of the product.
-        """
         return pulumi.get(self, "distributor")
 
     @property
     @pulumi.getter(name="hasDefaultPath")
     def has_default_path(self) -> bool:
-        """
-        Whether the product has a default path.
-        """
         return pulumi.get(self, "has_default_path")
 
     @property
@@ -121,65 +106,41 @@ class GetProductResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the product.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        Owner of the product.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the product.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="supportDescription")
     def support_description(self) -> str:
-        """
-        Support information about the product.
-        """
         return pulumi.get(self, "support_description")
 
     @property
     @pulumi.getter(name="supportEmail")
     def support_email(self) -> str:
-        """
-        Contact email for product support.
-        """
         return pulumi.get(self, "support_email")
 
     @property
     @pulumi.getter(name="supportUrl")
     def support_url(self) -> str:
-        """
-        Contact URL for product support.
-        """
         return pulumi.get(self, "support_url")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags to apply to the product.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Type of product.
-        """
         return pulumi.get(self, "type")
 
 
@@ -211,24 +172,7 @@ def get_product(accept_language: Optional[str] = None,
                 tags: Optional[Mapping[str, str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
-    Provides information on a Service Catalog Product.
-
-    > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str id: Product ID.
-    :param Mapping[str, str] tags: Tags to apply to the product.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -261,23 +205,6 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = 
                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
-    Provides information on a Service Catalog Product.
-
-    > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str id: Product ID.
-    :param Mapping[str, str] tags: Tags to apply to the product.
+    Use this data source to access information about an existing resource.
     """
     ...

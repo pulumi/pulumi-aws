@@ -53,17 +53,11 @@ class GetTrackerResult:
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
-        """
-        Timestamp for when the tracker resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Optional description for the tracker resource.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -77,33 +71,21 @@ class GetTrackerResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
-        """
-        Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="positionFiltering")
     def position_filtering(self) -> str:
-        """
-        Position filtering method of the tracker resource.
-        """
         return pulumi.get(self, "position_filtering")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags for the tracker.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackerArn")
     def tracker_arn(self) -> str:
-        """
-        ARN for the tracker resource. Used when you need to specify a resource across all AWS.
-        """
         return pulumi.get(self, "tracker_arn")
 
     @property
@@ -114,9 +96,6 @@ class GetTrackerResult:
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
-        """
-        Timestamp for when the tracker resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
 
@@ -141,20 +120,7 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
                 tracker_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackerResult:
     """
-    Retrieve information about a Location Service Tracker.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker(tracker_name="example")
-    ```
-
-
-    :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
-    :param str tracker_name: Name of the tracker resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -179,19 +145,6 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
                        tracker_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackerResult]:
     """
-    Retrieve information about a Location Service Tracker.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_tracker(tracker_name="example")
-    ```
-
-
-    :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
-    :param str tracker_name: Name of the tracker resource.
+    Use this data source to access information about an existing resource.
     """
     ...

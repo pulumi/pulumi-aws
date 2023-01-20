@@ -19,9 +19,6 @@ class LoggingOptionsArgs:
                  disable_all_logs: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LoggingOptions resource.
-        :param pulumi.Input[str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
-        :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
         """
         pulumi.set(__self__, "default_log_level", default_log_level)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -31,9 +28,6 @@ class LoggingOptionsArgs:
     @property
     @pulumi.getter(name="defaultLogLevel")
     def default_log_level(self) -> pulumi.Input[str]:
-        """
-        The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        """
         return pulumi.get(self, "default_log_level")
 
     @default_log_level.setter
@@ -43,9 +37,6 @@ class LoggingOptionsArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -55,9 +46,6 @@ class LoggingOptionsArgs:
     @property
     @pulumi.getter(name="disableAllLogs")
     def disable_all_logs(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If `true` all logs are disabled. The default is `false`.
-        """
         return pulumi.get(self, "disable_all_logs")
 
     @disable_all_logs.setter
@@ -73,9 +61,6 @@ class _LoggingOptionsState:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LoggingOptions resources.
-        :param pulumi.Input[str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
-        :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         if default_log_level is not None:
             pulumi.set(__self__, "default_log_level", default_log_level)
@@ -87,9 +72,6 @@ class _LoggingOptionsState:
     @property
     @pulumi.getter(name="defaultLogLevel")
     def default_log_level(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        """
         return pulumi.get(self, "default_log_level")
 
     @default_log_level.setter
@@ -99,9 +81,6 @@ class _LoggingOptionsState:
     @property
     @pulumi.getter(name="disableAllLogs")
     def disable_all_logs(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If `true` all logs are disabled. The default is `false`.
-        """
         return pulumi.get(self, "disable_all_logs")
 
     @disable_all_logs.setter
@@ -111,9 +90,6 @@ class _LoggingOptionsState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -131,24 +107,9 @@ class LoggingOptions(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.LoggingOptions("example",
-            default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
-        ```
-
+        Create a LoggingOptions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
-        :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         ...
     @overload
@@ -157,19 +118,7 @@ class LoggingOptions(pulumi.CustomResource):
                  args: LoggingOptionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.iot.LoggingOptions("example",
-            default_log_level="WARN",
-            role_arn=aws_iam_role["example"]["arn"])
-        ```
-
+        Create a LoggingOptions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoggingOptionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,9 +173,6 @@ class LoggingOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        :param pulumi.Input[bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
-        :param pulumi.Input[str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -240,24 +186,15 @@ class LoggingOptions(pulumi.CustomResource):
     @property
     @pulumi.getter(name="defaultLogLevel")
     def default_log_level(self) -> pulumi.Output[str]:
-        """
-        The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        """
         return pulumi.get(self, "default_log_level")
 
     @property
     @pulumi.getter(name="disableAllLogs")
     def disable_all_logs(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If `true` all logs are disabled. The default is `false`.
-        """
         return pulumi.get(self, "disable_all_logs")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the role that allows IoT to write to Cloudwatch logs.
-        """
         return pulumi.get(self, "role_arn")
 

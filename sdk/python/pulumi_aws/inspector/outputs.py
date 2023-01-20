@@ -35,27 +35,17 @@ class AssessmentTemplateEventSubscription(dict):
     def __init__(__self__, *,
                  event: str,
                  topic_arn: str):
-        """
-        :param str event: The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        :param str topic_arn: The ARN of the SNS topic to which notifications are sent.
-        """
         pulumi.set(__self__, "event", event)
         pulumi.set(__self__, "topic_arn", topic_arn)
 
     @property
     @pulumi.getter
     def event(self) -> str:
-        """
-        The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        """
         return pulumi.get(self, "event")
 
     @property
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> str:
-        """
-        The ARN of the SNS topic to which notifications are sent.
-        """
         return pulumi.get(self, "topic_arn")
 
 

@@ -22,12 +22,6 @@ class IPSetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IPSet resource.
-        :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
-        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
-        :param pulumi.Input[str] name: The friendly name to identify the IPSet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "activate", activate)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -41,9 +35,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def activate(self) -> pulumi.Input[bool]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded IPSet.
-        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -53,9 +44,6 @@ class IPSetArgs:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Input[str]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -65,9 +53,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
-        """
-        The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -77,9 +62,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
-        """
-        The URI of the file that contains the IPSet.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -89,9 +71,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The friendly name to identify the IPSet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -101,9 +80,6 @@ class IPSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -124,14 +100,6 @@ class _IPSetState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IPSet resources.
-        :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
-        :param pulumi.Input[str] name: The friendly name to identify the IPSet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if activate is not None:
             pulumi.set(__self__, "activate", activate)
@@ -153,9 +121,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def activate(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded IPSet.
-        """
         return pulumi.get(self, "activate")
 
     @activate.setter
@@ -165,9 +130,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -177,9 +139,6 @@ class _IPSetState:
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @detector_id.setter
@@ -189,9 +148,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
-        """
-        The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @format.setter
@@ -201,9 +157,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URI of the file that contains the IPSet.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -213,9 +166,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The friendly name to identify the IPSet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -225,9 +175,6 @@ class _IPSetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -237,9 +184,6 @@ class _IPSetState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -260,49 +204,9 @@ class IPSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to manage a GuardDuty IPSet.
-
-        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            content="10.0.0.0/8\\n",
-            bucket=bucket.id,
-            key="MyIPSet")
-        example = aws.guardduty.IPSet("example",
-            activate=True,
-            detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        ```
-
-        ## Import
-
-        GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
-
+        Create a IPSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
-        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
-        :param pulumi.Input[str] name: The friendly name to identify the IPSet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -311,41 +215,7 @@ class IPSet(pulumi.CustomResource):
                  args: IPSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage a GuardDuty IPSet.
-
-        > **Note:** Currently in GuardDuty, users from member accounts cannot upload and further manage IPSets. IPSets that are uploaded by the primary account are imposed on GuardDuty functionality in its member accounts. See the [GuardDuty API Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/create-ip-set.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.guardduty.Detector("primary", enable=True)
-        bucket = aws.s3.BucketV2("bucket")
-        # ... other configuration
-        my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            content="10.0.0.0/8\\n",
-            bucket=bucket.id,
-            key="MyIPSet")
-        example = aws.guardduty.IPSet("example",
-            activate=True,
-            detector_id=primary.id,
-            format="TXT",
-            location=pulumi.Output.all(my_ip_set.bucket, my_ip_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"))
-        bucket_acl = aws.s3.BucketAclV2("bucketAcl",
-            bucket=bucket.id,
-            acl="private")
-        ```
-
-        ## Import
-
-        GuardDuty IPSet can be imported using the primary GuardDuty detector ID and IPSet ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
-        ```
-
+        Create a IPSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IPSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -417,14 +287,6 @@ class IPSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] activate: Specifies whether GuardDuty is to start using the uploaded IPSet.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty.
-        :param pulumi.Input[str] format: The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        :param pulumi.Input[str] location: The URI of the file that contains the IPSet.
-        :param pulumi.Input[str] name: The friendly name to identify the IPSet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,64 +305,40 @@ class IPSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def activate(self) -> pulumi.Output[bool]:
-        """
-        Specifies whether GuardDuty is to start using the uploaded IPSet.
-        """
         return pulumi.get(self, "activate")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the GuardDuty IPSet.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> pulumi.Output[str]:
-        """
-        The detector ID of the GuardDuty.
-        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter
     def format(self) -> pulumi.Output[str]:
-        """
-        The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
-        """
         return pulumi.get(self, "format")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
-        """
-        The URI of the file that contains the IPSet.
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The friendly name to identify the IPSet.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

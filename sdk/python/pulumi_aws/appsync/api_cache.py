@@ -22,12 +22,6 @@ class ApiCacheArgs:
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ApiCache resource.
-        :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: GraphQL API ID.
-        :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-        :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         """
         pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
         pulumi.set(__self__, "api_id", api_id)
@@ -41,9 +35,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter(name="apiCachingBehavior")
     def api_caching_behavior(self) -> pulumi.Input[str]:
-        """
-        Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        """
         return pulumi.get(self, "api_caching_behavior")
 
     @api_caching_behavior.setter
@@ -53,9 +44,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
-        """
-        GraphQL API ID.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -65,9 +53,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
-        """
-        TTL in seconds for cache entries.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -77,9 +62,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -89,9 +71,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        At-rest encryption flag for cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
@@ -101,9 +80,6 @@ class ApiCacheArgs:
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
@@ -122,12 +98,6 @@ class _ApiCacheState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiCache resources.
-        :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: GraphQL API ID.
-        :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         if api_caching_behavior is not None:
             pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
@@ -145,9 +115,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter(name="apiCachingBehavior")
     def api_caching_behavior(self) -> Optional[pulumi.Input[str]]:
-        """
-        Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        """
         return pulumi.get(self, "api_caching_behavior")
 
     @api_caching_behavior.setter
@@ -157,9 +124,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        GraphQL API ID.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -169,9 +133,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        At-rest encryption flag for cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @at_rest_encryption_enabled.setter
@@ -181,9 +142,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @transit_encryption_enabled.setter
@@ -193,9 +151,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
-        """
-        TTL in seconds for cache entries.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -205,9 +160,6 @@ class _ApiCacheState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -228,38 +180,9 @@ class ApiCache(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AppSync API Cache.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
-            api_id=example_graph_ql_api.id,
-            api_caching_behavior="FULL_REQUEST_CACHING",
-            type="LARGE",
-            ttl=900)
-        ```
-
-        ## Import
-
-        `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-        ```
-
+        Create a ApiCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: GraphQL API ID.
-        :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         ...
     @overload
@@ -268,30 +191,7 @@ class ApiCache(pulumi.CustomResource):
                  args: ApiCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppSync API Cache.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
-            api_id=example_graph_ql_api.id,
-            api_caching_behavior="FULL_REQUEST_CACHING",
-            type="LARGE",
-            ttl=900)
-        ```
-
-        ## Import
-
-        `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-        ```
-
+        Create a ApiCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiCacheArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -359,12 +259,6 @@ class ApiCache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        :param pulumi.Input[str] api_id: GraphQL API ID.
-        :param pulumi.Input[bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
-        :param pulumi.Input[bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        :param pulumi.Input[int] ttl: TTL in seconds for cache entries.
-        :param pulumi.Input[str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,48 +275,30 @@ class ApiCache(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiCachingBehavior")
     def api_caching_behavior(self) -> pulumi.Output[str]:
-        """
-        Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-        """
         return pulumi.get(self, "api_caching_behavior")
 
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
-        """
-        GraphQL API ID.
-        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="atRestEncryptionEnabled")
     def at_rest_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        At-rest encryption flag for cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "at_rest_encryption_enabled")
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-        """
         return pulumi.get(self, "transit_encryption_enabled")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
-        """
-        TTL in seconds for cache entries.
-        """
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-        """
         return pulumi.get(self, "type")
 

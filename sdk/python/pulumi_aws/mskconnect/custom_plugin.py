@@ -22,10 +22,6 @@ class CustomPluginArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomPlugin resource.
-        :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
-        :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[str] name: The name of the custom plugin..
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "location", location)
@@ -37,9 +33,6 @@ class CustomPluginArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -49,9 +42,6 @@ class CustomPluginArgs:
     @property
     @pulumi.getter
     def location(self) -> pulumi.Input['CustomPluginLocationArgs']:
-        """
-        Information about the location of a custom plugin. See below.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -61,9 +51,6 @@ class CustomPluginArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,9 +60,6 @@ class CustomPluginArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -95,13 +79,6 @@ class _CustomPluginState:
                  state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomPlugin resources.
-        :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the custom plugin.
-        :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input['CustomPluginLocationArgs'] location: Information about the location of a custom plugin. See below.
-        :param pulumi.Input[str] name: The name of the custom plugin..
-        :param pulumi.Input[str] state: the state of the custom plugin.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,9 +98,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        the Amazon Resource Name (ARN) of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +107,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -145,9 +116,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -157,9 +125,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> Optional[pulumi.Input[int]]:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @latest_revision.setter
@@ -169,9 +134,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['CustomPluginLocationArgs']]:
-        """
-        Information about the location of a custom plugin. See below.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -181,9 +143,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -193,9 +152,6 @@ class _CustomPluginState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -214,44 +170,9 @@ class CustomPlugin(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amazon MSK Connect Custom Plugin Resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
-            content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket_v2.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
-        ```
-
-        ## Import
-
-        MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-        ```
-
+        Create a CustomPlugin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
-        :param pulumi.Input[str] name: The name of the custom plugin..
         """
         ...
     @overload
@@ -260,38 +181,7 @@ class CustomPlugin(pulumi.CustomResource):
                  args: CustomPluginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon MSK Connect Custom Plugin Resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_objectv2 = aws.s3.BucketObjectv2("exampleBucketObjectv2",
-            bucket=example_bucket_v2.id,
-            key="debezium.zip",
-            source=pulumi.FileAsset("debezium.zip"))
-        example_custom_plugin = aws.mskconnect.CustomPlugin("exampleCustomPlugin",
-            content_type="ZIP",
-            location=aws.mskconnect.CustomPluginLocationArgs(
-                s3=aws.mskconnect.CustomPluginLocationS3Args(
-                    bucket_arn=example_bucket_v2.arn,
-                    file_key=example_bucket_objectv2.key,
-                ),
-            ))
-        ```
-
-        ## Import
-
-        MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
-        ```
-
+        Create a CustomPlugin resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomPluginArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,13 +245,6 @@ class CustomPlugin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: the Amazon Resource Name (ARN) of the custom plugin.
-        :param pulumi.Input[str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        :param pulumi.Input[str] description: A summary description of the custom plugin.
-        :param pulumi.Input[int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
-        :param pulumi.Input[pulumi.InputType['CustomPluginLocationArgs']] location: Information about the location of a custom plugin. See below.
-        :param pulumi.Input[str] name: The name of the custom plugin..
-        :param pulumi.Input[str] state: the state of the custom plugin.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -379,56 +262,35 @@ class CustomPlugin(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        the Amazon Resource Name (ARN) of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
-        """
-        The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> pulumi.Output[int]:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output['outputs.CustomPluginLocation']:
-        """
-        Information about the location of a custom plugin. See below.
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the custom plugin..
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 

@@ -146,23 +146,7 @@ class AwaitableGetResolverFirewallRuleGroupResult(GetResolverFirewallRuleGroupRe
 def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupResult:
     """
-    `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group(firewall_rule_group_id="rslvr-frg-example")
-    ```
-
-
-    :param str firewall_rule_group_id: The ID of the rule group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
@@ -188,22 +172,6 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[str] = Non
 def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
     """
-    `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall rule group.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall rule group from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_rule_group(firewall_rule_group_id="rslvr-frg-example")
-    ```
-
-
-    :param str firewall_rule_group_id: The ID of the rule group.
+    Use this data source to access information about an existing resource.
     """
     ...

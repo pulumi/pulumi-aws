@@ -62,33 +62,21 @@ class GetStackResult:
     @property
     @pulumi.getter
     def capabilities(self) -> Sequence[str]:
-        """
-        List of capabilities
-        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the stack
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disableRollback")
     def disable_rollback(self) -> bool:
-        """
-        Whether the rollback of the stack is disabled when stack creation fails
-        """
         return pulumi.get(self, "disable_rollback")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> str:
-        """
-        ARN of the IAM role used to create the stack.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
@@ -107,49 +95,31 @@ class GetStackResult:
     @property
     @pulumi.getter(name="notificationArns")
     def notification_arns(self) -> Sequence[str]:
-        """
-        List of SNS topic ARNs to publish stack related events
-        """
         return pulumi.get(self, "notification_arns")
 
     @property
     @pulumi.getter
     def outputs(self) -> Mapping[str, str]:
-        """
-        Map of outputs from the stack.
-        """
         return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter
     def parameters(self) -> Mapping[str, str]:
-        """
-        Map of parameters that specify input parameters for the stack.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags associated with this stack.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> str:
-        """
-        Structure containing the template body.
-        """
         return pulumi.get(self, "template_body")
 
     @property
     @pulumi.getter(name="timeoutInMinutes")
     def timeout_in_minutes(self) -> int:
-        """
-        Amount of time that can pass before the stack status becomes `CREATE_FAILED`
-        """
         return pulumi.get(self, "timeout_in_minutes")
 
 
@@ -177,12 +147,7 @@ def get_stack(name: Optional[str] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStackResult:
     """
-    The CloudFormation Stack data source allows access to stack
-    outputs and other useful data including the template body.
-
-
-    :param str name: Name of the stack
-    :param Mapping[str, str] tags: Map of tags associated with this stack.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -210,11 +175,6 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
     """
-    The CloudFormation Stack data source allows access to stack
-    outputs and other useful data including the template body.
-
-
-    :param str name: Name of the stack
-    :param Mapping[str, str] tags: Map of tags associated with this stack.
+    Use this data source to access information about an existing resource.
     """
     ...

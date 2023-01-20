@@ -18,8 +18,6 @@ class AssociationArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a Association resource.
-        :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
-        :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
         pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -27,9 +25,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the license configuration.
-        """
         return pulumi.get(self, "license_configuration_arn")
 
     @license_configuration_arn.setter
@@ -39,9 +34,6 @@ class AssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the resource associated with the license configuration.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -56,8 +48,6 @@ class _AssociationState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Association resources.
-        :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
-        :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
         if license_configuration_arn is not None:
             pulumi.set(__self__, "license_configuration_arn", license_configuration_arn)
@@ -67,9 +57,6 @@ class _AssociationState:
     @property
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the license configuration.
-        """
         return pulumi.get(self, "license_configuration_arn")
 
     @license_configuration_arn.setter
@@ -79,9 +66,6 @@ class _AssociationState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the resource associated with the license configuration.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -98,43 +82,9 @@ class Association(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a License Manager association.
-
-        > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
-            license_configuration_arn=example_license_configuration.arn,
-            resource_arn=example_instance.arn)
-        ```
-
-        ## Import
-
-        License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
-
+        Create a Association resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
-        :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
         ...
     @overload
@@ -143,39 +93,7 @@ class Association(pulumi.CustomResource):
                  args: AssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a License Manager association.
-
-        > **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `ec2.LaunchTemplate`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
-                name="name",
-                values=["amzn-ami-vpc-nat*"],
-            )])
-        example_instance = aws.ec2.Instance("exampleInstance",
-            ami=example_ami.id,
-            instance_type="t2.micro")
-        example_license_configuration = aws.licensemanager.LicenseConfiguration("exampleLicenseConfiguration", license_counting_type="Instance")
-        example_association = aws.licensemanager.Association("exampleAssociation",
-            license_configuration_arn=example_license_configuration.arn,
-            resource_arn=example_instance.arn)
-        ```
-
-        ## Import
-
-        License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
-
+        Create a Association resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,8 +145,6 @@ class Association(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] license_configuration_arn: ARN of the license configuration.
-        :param pulumi.Input[str] resource_arn: ARN of the resource associated with the license configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,16 +157,10 @@ class Association(pulumi.CustomResource):
     @property
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the license configuration.
-        """
         return pulumi.get(self, "license_configuration_arn")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the resource associated with the license configuration.
-        """
         return pulumi.get(self, "resource_arn")
 

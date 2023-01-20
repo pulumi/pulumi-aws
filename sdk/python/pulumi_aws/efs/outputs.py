@@ -47,11 +47,6 @@ class AccessPointPosixUser(dict):
                  gid: int,
                  uid: int,
                  secondary_gids: Optional[Sequence[int]] = None):
-        """
-        :param int gid: POSIX group ID used for all file system operations using this access point.
-        :param int uid: POSIX user ID used for all file system operations using this access point.
-        :param Sequence[int] secondary_gids: Secondary POSIX group IDs used for all file system operations using this access point.
-        """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "uid", uid)
         if secondary_gids is not None:
@@ -60,25 +55,16 @@ class AccessPointPosixUser(dict):
     @property
     @pulumi.getter
     def gid(self) -> int:
-        """
-        POSIX group ID used for all file system operations using this access point.
-        """
         return pulumi.get(self, "gid")
 
     @property
     @pulumi.getter
     def uid(self) -> int:
-        """
-        POSIX user ID used for all file system operations using this access point.
-        """
         return pulumi.get(self, "uid")
 
     @property
     @pulumi.getter(name="secondaryGids")
     def secondary_gids(self) -> Optional[Sequence[int]]:
-        """
-        Secondary POSIX group IDs used for all file system operations using this access point.
-        """
         return pulumi.get(self, "secondary_gids")
 
 
@@ -104,10 +90,6 @@ class AccessPointRootDirectory(dict):
     def __init__(__self__, *,
                  creation_info: Optional['outputs.AccessPointRootDirectoryCreationInfo'] = None,
                  path: Optional[str] = None):
-        """
-        :param 'AccessPointRootDirectoryCreationInfoArgs' creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        :param str path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
-        """
         if creation_info is not None:
             pulumi.set(__self__, "creation_info", creation_info)
         if path is not None:
@@ -116,17 +98,11 @@ class AccessPointRootDirectory(dict):
     @property
     @pulumi.getter(name="creationInfo")
     def creation_info(self) -> Optional['outputs.AccessPointRootDirectoryCreationInfo']:
-        """
-        POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
-        """
         return pulumi.get(self, "creation_info")
 
     @property
     @pulumi.getter
     def path(self) -> Optional[str]:
-        """
-        Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
-        """
         return pulumi.get(self, "path")
 
 
@@ -155,11 +131,6 @@ class AccessPointRootDirectoryCreationInfo(dict):
                  owner_gid: int,
                  owner_uid: int,
                  permissions: str):
-        """
-        :param int owner_gid: POSIX group ID to apply to the `root_directory`.
-        :param int owner_uid: POSIX user ID to apply to the `root_directory`.
-        :param str permissions: POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
         pulumi.set(__self__, "permissions", permissions)
@@ -167,25 +138,16 @@ class AccessPointRootDirectoryCreationInfo(dict):
     @property
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> int:
-        """
-        POSIX group ID to apply to the `root_directory`.
-        """
         return pulumi.get(self, "owner_gid")
 
     @property
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> int:
-        """
-        POSIX user ID to apply to the `root_directory`.
-        """
         return pulumi.get(self, "owner_uid")
 
     @property
     @pulumi.getter
     def permissions(self) -> str:
-        """
-        POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-        """
         return pulumi.get(self, "permissions")
 
 
@@ -193,17 +155,11 @@ class AccessPointRootDirectoryCreationInfo(dict):
 class BackupPolicyBackupPolicy(dict):
     def __init__(__self__, *,
                  status: str):
-        """
-        :param str status: A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        """
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-        """
         return pulumi.get(self, "status")
 
 
@@ -231,10 +187,6 @@ class FileSystemLifecyclePolicy(dict):
     def __init__(__self__, *,
                  transition_to_ia: Optional[str] = None,
                  transition_to_primary_storage_class: Optional[str] = None):
-        """
-        :param str transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        :param str transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-        """
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
@@ -243,17 +195,11 @@ class FileSystemLifecyclePolicy(dict):
     @property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> Optional[str]:
-        """
-        Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-        """
         return pulumi.get(self, "transition_to_ia")
 
     @property
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[str]:
-        """
-        Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-        """
         return pulumi.get(self, "transition_to_primary_storage_class")
 
 
@@ -282,11 +228,6 @@ class FileSystemSizeInByte(dict):
                  value: Optional[int] = None,
                  value_in_ia: Optional[int] = None,
                  value_in_standard: Optional[int] = None):
-        """
-        :param int value: The latest known metered size (in bytes) of data stored in the file system.
-        :param int value_in_ia: The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        :param int value_in_standard: The latest known metered size (in bytes) of data stored in the Standard storage class.
-        """
         if value is not None:
             pulumi.set(__self__, "value", value)
         if value_in_ia is not None:
@@ -297,25 +238,16 @@ class FileSystemSizeInByte(dict):
     @property
     @pulumi.getter
     def value(self) -> Optional[int]:
-        """
-        The latest known metered size (in bytes) of data stored in the file system.
-        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter(name="valueInIa")
     def value_in_ia(self) -> Optional[int]:
-        """
-        The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-        """
         return pulumi.get(self, "value_in_ia")
 
     @property
     @pulumi.getter(name="valueInStandard")
     def value_in_standard(self) -> Optional[int]:
-        """
-        The latest known metered size (in bytes) of data stored in the Standard storage class.
-        """
         return pulumi.get(self, "value_in_standard")
 
 
@@ -348,11 +280,6 @@ class ReplicationConfigurationDestination(dict):
                  kms_key_id: Optional[str] = None,
                  region: Optional[str] = None,
                  status: Optional[str] = None):
-        """
-        :param str availability_zone_name: The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-        :param str kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-        :param str region: The region in which the replica should be created.
-        """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
         if file_system_id is not None:
@@ -367,9 +294,6 @@ class ReplicationConfigurationDestination(dict):
     @property
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> Optional[str]:
-        """
-        The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
-        """
         return pulumi.get(self, "availability_zone_name")
 
     @property
@@ -380,17 +304,11 @@ class ReplicationConfigurationDestination(dict):
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
-        """
-        The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def region(self) -> Optional[str]:
-        """
-        The region in which the replica should be created.
-        """
         return pulumi.get(self, "region")
 
     @property
@@ -405,12 +323,6 @@ class GetAccessPointPosixUserResult(dict):
                  gid: int,
                  secondary_gids: Sequence[int],
                  uid: int):
-        """
-        :param int gid: Group ID
-        :param Sequence[int] secondary_gids: Secondary group IDs
-        :param int uid: User Id
-               * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-        """
         pulumi.set(__self__, "gid", gid)
         pulumi.set(__self__, "secondary_gids", secondary_gids)
         pulumi.set(__self__, "uid", uid)
@@ -418,26 +330,16 @@ class GetAccessPointPosixUserResult(dict):
     @property
     @pulumi.getter
     def gid(self) -> int:
-        """
-        Group ID
-        """
         return pulumi.get(self, "gid")
 
     @property
     @pulumi.getter(name="secondaryGids")
     def secondary_gids(self) -> Sequence[int]:
-        """
-        Secondary group IDs
-        """
         return pulumi.get(self, "secondary_gids")
 
     @property
     @pulumi.getter
     def uid(self) -> int:
-        """
-        User Id
-        * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-        """
         return pulumi.get(self, "uid")
 
 
@@ -446,27 +348,17 @@ class GetAccessPointRootDirectoryResult(dict):
     def __init__(__self__, *,
                  creation_infos: Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult'],
                  path: str):
-        """
-        :param Sequence['GetAccessPointRootDirectoryCreationInfoArgs'] creation_infos: Single element list containing information on the creation permissions of the directory
-        :param str path: Path exposed as the root directory
-        """
         pulumi.set(__self__, "creation_infos", creation_infos)
         pulumi.set(__self__, "path", path)
 
     @property
     @pulumi.getter(name="creationInfos")
     def creation_infos(self) -> Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult']:
-        """
-        Single element list containing information on the creation permissions of the directory
-        """
         return pulumi.get(self, "creation_infos")
 
     @property
     @pulumi.getter
     def path(self) -> str:
-        """
-        Path exposed as the root directory
-        """
         return pulumi.get(self, "path")
 
 
@@ -476,11 +368,6 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
                  owner_gid: int,
                  owner_uid: int,
                  permissions: str):
-        """
-        :param int owner_gid: POSIX owner group ID
-        :param int owner_uid: POSIX owner user ID
-        :param str permissions: POSIX permissions mode
-        """
         pulumi.set(__self__, "owner_gid", owner_gid)
         pulumi.set(__self__, "owner_uid", owner_uid)
         pulumi.set(__self__, "permissions", permissions)
@@ -488,25 +375,16 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
     @property
     @pulumi.getter(name="ownerGid")
     def owner_gid(self) -> int:
-        """
-        POSIX owner group ID
-        """
         return pulumi.get(self, "owner_gid")
 
     @property
     @pulumi.getter(name="ownerUid")
     def owner_uid(self) -> int:
-        """
-        POSIX owner user ID
-        """
         return pulumi.get(self, "owner_uid")
 
     @property
     @pulumi.getter
     def permissions(self) -> str:
-        """
-        POSIX permissions mode
-        """
         return pulumi.get(self, "permissions")
 
 

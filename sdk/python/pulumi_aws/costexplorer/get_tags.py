@@ -77,9 +77,6 @@ class GetTagsResult:
     @property
     @pulumi.getter
     def tags(self) -> Sequence[str]:
-        """
-        Tags that match your request.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -110,26 +107,7 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
              time_period: Optional[pulumi.InputType['GetTagsTimePeriodArgs']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
-    Provides details about a specific CE Tags.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
-        start="2021-01-01",
-    ))
-    ```
-
-
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
-    :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
-    :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filter'] = filter
@@ -158,25 +136,6 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
                     time_period: Optional[pulumi.Input[pulumi.InputType['GetTagsTimePeriodArgs']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
     """
-    Provides details about a specific CE Tags.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
-        end="2022-12-01",
-        start="2021-01-01",
-    ))
-    ```
-
-
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
-    :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
-    :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -40,17 +40,11 @@ class GetClustersResult:
     @property
     @pulumi.getter(name="clusterArns")
     def cluster_arns(self) -> Sequence[str]:
-        """
-        Set of cluster ARNs of the matched RDS clusters.
-        """
         return pulumi.get(self, "cluster_arns")
 
     @property
     @pulumi.getter(name="clusterIdentifiers")
     def cluster_identifiers(self) -> Sequence[str]:
-        """
-        Set of ARNs of cluster identifiers of the matched RDS clusters.
-        """
         return pulumi.get(self, "cluster_identifiers")
 
     @property
@@ -82,23 +76,7 @@ class AwaitableGetClustersResult(GetClustersResult):
 def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterArgs']]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
-    Data source for managing an AWS RDS (Relational Database) Clusters.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
-        name="engine",
-        values=["aurora-postgresql"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -116,22 +94,6 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
 def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClustersFilterArgs']]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClustersResult]:
     """
-    Data source for managing an AWS RDS (Relational Database) Clusters.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
-        name="engine",
-        values=["aurora-postgresql"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -19,9 +19,6 @@ class OpenZfsSnapshotArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OpenZfsSnapshot resource.
-        :param pulumi.Input[str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
-        :param pulumi.Input[str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         """
         pulumi.set(__self__, "volume_id", volume_id)
         if name is not None:
@@ -32,9 +29,6 @@ class OpenZfsSnapshotArgs:
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the volume to snapshot. This can be the root volume or a child volume.
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -44,9 +38,6 @@ class OpenZfsSnapshotArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -56,9 +47,6 @@ class OpenZfsSnapshotArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -77,11 +65,6 @@ class _OpenZfsSnapshotState:
                  volume_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OpenZfsSnapshot resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name of the snapshot.
-        :param pulumi.Input[str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,9 +82,6 @@ class _OpenZfsSnapshotState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -120,9 +100,6 @@ class _OpenZfsSnapshotState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,9 +109,6 @@ class _OpenZfsSnapshotState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,9 +118,6 @@ class _OpenZfsSnapshotState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -156,9 +127,6 @@ class _OpenZfsSnapshotState:
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the volume to snapshot. This can be the root volume or a child volume.
-        """
         return pulumi.get(self, "volume_id")
 
     @volume_id.setter
@@ -176,51 +144,9 @@ class OpenZfsSnapshot(pulumi.CustomResource):
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Amazon FSx for OpenZFS volume.
-        See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
-
-        ## Example Usage
-        ### Root volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
-        ```
-        ### Child volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
-        ```
-
-        ## Import
-
-        FSx OpenZFS snapshot can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
-        ```
-
+        Create a OpenZfsSnapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
         """
         ...
     @overload
@@ -229,46 +155,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
                  args: OpenZfsSnapshotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon FSx for OpenZFS volume.
-        See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
-
-        ## Example Usage
-        ### Root volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_file_system.root_volume_id)
-        ```
-        ### Child volume Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_open_zfs_file_system = aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem",
-            storage_capacity=64,
-            subnet_ids=[aws_subnet["example"]["id"]],
-            deployment_type="SINGLE_AZ_1",
-            throughput_capacity=64)
-        example_open_zfs_volume = aws.fsx.OpenZfsVolume("exampleOpenZfsVolume", parent_volume_id=example_open_zfs_file_system.root_volume_id)
-        example_open_zfs_snapshot = aws.fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", volume_id=example_open_zfs_volume.id)
-        ```
-
-        ## Import
-
-        FSx OpenZFS snapshot can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
-        ```
-
+        Create a OpenZfsSnapshot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OpenZfsSnapshotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,11 +214,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name of the snapshot.
-        :param pulumi.Input[str] name: The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] volume_id: The ID of the volume to snapshot. This can be the root volume or a child volume.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -348,9 +230,6 @@ class OpenZfsSnapshot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name of the snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -361,32 +240,20 @@ class OpenZfsSnapshot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the Snapshot. You can use a maximum of 203 alphanumeric characters plus either _ or -  or : or . for the name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the volume to snapshot. This can be the root volume or a child volume.
-        """
         return pulumi.get(self, "volume_id")
 

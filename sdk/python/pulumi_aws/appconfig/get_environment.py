@@ -59,17 +59,11 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the environment.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -88,34 +82,21 @@ class GetEnvironmentResult:
     @property
     @pulumi.getter
     def monitors(self) -> Sequence['outputs.GetEnvironmentMonitorResult']:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process.
-        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the environment.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -141,23 +122,7 @@ def get_environment(application_id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
-    Provides access to an AppConfig Environment.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environment(application_id="b5d5gpj",
-        environment_id="qrbb1c1")
-    ```
-
-
-    :param str application_id: ID of the AppConfig Application to which this Environment belongs.
-    :param str environment_id: ID of the AppConfig Environment.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -184,22 +149,6 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
-    Provides access to an AppConfig Environment.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.appconfig.get_environment(application_id="b5d5gpj",
-        environment_id="qrbb1c1")
-    ```
-
-
-    :param str application_id: ID of the AppConfig Application to which this Environment belongs.
-    :param str environment_id: ID of the AppConfig Environment.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

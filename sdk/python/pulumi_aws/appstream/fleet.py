@@ -35,23 +35,6 @@ class FleetArgs:
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input['FleetComputeCapacityArgs'] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
-        :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
-        :param pulumi.Input[str] description: Description to display.
-        :param pulumi.Input[int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
-        :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input['FleetDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
-        :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
-        :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
-        :param pulumi.Input[str] name: Unique name for the fleet.
-        :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         pulumi.set(__self__, "compute_capacity", compute_capacity)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -89,9 +72,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="computeCapacity")
     def compute_capacity(self) -> pulumi.Input['FleetComputeCapacityArgs']:
-        """
-        Configuration block for the desired capacity of the fleet. See below.
-        """
         return pulumi.get(self, "compute_capacity")
 
     @compute_capacity.setter
@@ -101,9 +81,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        Instance type to use when launching fleet instances.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -113,9 +90,6 @@ class FleetArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,9 +99,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="disconnectTimeoutInSeconds")
     def disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time that a streaming session remains active after users disconnect.
-        """
         return pulumi.get(self, "disconnect_timeout_in_seconds")
 
     @disconnect_timeout_in_seconds.setter
@@ -137,9 +108,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Human-readable friendly name for the AppStream fleet.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -149,9 +117,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> Optional[pulumi.Input['FleetDomainJoinInfoArgs']]:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
@@ -161,9 +126,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables or disables default internet access for the fleet.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -173,9 +135,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -185,9 +144,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the IAM role to apply to the fleet.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -197,9 +153,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 
     @idle_disconnect_timeout_in_seconds.setter
@@ -209,9 +162,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -221,9 +171,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the image used to create the fleet.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -233,9 +180,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum amount of time that a streaming session can remain active, in seconds.
-        """
         return pulumi.get(self, "max_user_duration_in_seconds")
 
     @max_user_duration_in_seconds.setter
@@ -245,9 +189,6 @@ class FleetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique name for the fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -257,9 +198,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[pulumi.Input[str]]:
-        """
-        AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        """
         return pulumi.get(self, "stream_view")
 
     @stream_view.setter
@@ -269,9 +207,6 @@ class FleetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to attach to AppStream instances.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -281,9 +216,6 @@ class FleetArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -317,26 +249,6 @@ class _FleetState:
                  vpc_config: Optional[pulumi.Input['FleetVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Fleet resources.
-        :param pulumi.Input[str] arn: ARN of the appstream fleet.
-        :param pulumi.Input['FleetComputeCapacityArgs'] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-        :param pulumi.Input[str] description: Description to display.
-        :param pulumi.Input[int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
-        :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input['FleetDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
-        :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
-        :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
-        :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
-        :param pulumi.Input[str] name: Unique name for the fleet.
-        :param pulumi.Input[str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-        :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input['FleetVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -384,9 +296,6 @@ class _FleetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the appstream fleet.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -396,9 +305,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="computeCapacity")
     def compute_capacity(self) -> Optional[pulumi.Input['FleetComputeCapacityArgs']]:
-        """
-        Configuration block for the desired capacity of the fleet. See below.
-        """
         return pulumi.get(self, "compute_capacity")
 
     @compute_capacity.setter
@@ -408,9 +314,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -420,9 +323,6 @@ class _FleetState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -432,9 +332,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="disconnectTimeoutInSeconds")
     def disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time that a streaming session remains active after users disconnect.
-        """
         return pulumi.get(self, "disconnect_timeout_in_seconds")
 
     @disconnect_timeout_in_seconds.setter
@@ -444,9 +341,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Human-readable friendly name for the AppStream fleet.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -456,9 +350,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> Optional[pulumi.Input['FleetDomainJoinInfoArgs']]:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
@@ -468,9 +359,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables or disables default internet access for the fleet.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @enable_default_internet_access.setter
@@ -480,9 +368,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        """
         return pulumi.get(self, "fleet_type")
 
     @fleet_type.setter
@@ -492,9 +377,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the IAM role to apply to the fleet.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -504,9 +386,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 
     @idle_disconnect_timeout_in_seconds.setter
@@ -516,9 +395,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @image_arn.setter
@@ -528,9 +404,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the image used to create the fleet.
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -540,9 +413,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Instance type to use when launching fleet instances.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -552,9 +422,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum amount of time that a streaming session can remain active, in seconds.
-        """
         return pulumi.get(self, "max_user_duration_in_seconds")
 
     @max_user_duration_in_seconds.setter
@@ -564,9 +431,6 @@ class _FleetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique name for the fleet.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -576,9 +440,6 @@ class _FleetState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -588,9 +449,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> Optional[pulumi.Input[str]]:
-        """
-        AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        """
         return pulumi.get(self, "stream_view")
 
     @stream_view.setter
@@ -600,9 +458,6 @@ class _FleetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to attach to AppStream instances.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -621,9 +476,6 @@ class _FleetState:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -655,61 +507,9 @@ class Fleet(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Provides an AppStream fleet.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_fleet = aws.appstream.Fleet("testFleet",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ),
-            description="test fleet",
-            display_name="test-fleet",
-            enable_default_internet_access=False,
-            fleet_type="ON_DEMAND",
-            idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
-            instance_type="stream.standard.large",
-            max_user_duration_in_seconds=600,
-            tags={
-                "TagName": "tag-value",
-            },
-            vpc_config=aws.appstream.FleetVpcConfigArgs(
-                subnet_ids=["subnet-06e9b13400c225127"],
-            ))
-        ```
-
-        ## Import
-
-        `aws_appstream_fleet` can be imported using the id, e.g.,
-
-        ```sh
-         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FleetComputeCapacityArgs']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
-        :param pulumi.Input[str] description: Description to display.
-        :param pulumi.Input[int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
-        :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input[pulumi.InputType['FleetDomainJoinInfoArgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
-        :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
-        :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
-        :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
-        :param pulumi.Input[str] name: Unique name for the fleet.
-        :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
     @overload
@@ -718,42 +518,7 @@ class Fleet(pulumi.CustomResource):
                  args: FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppStream fleet.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_fleet = aws.appstream.Fleet("testFleet",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
-                desired_instances=1,
-            ),
-            description="test fleet",
-            display_name="test-fleet",
-            enable_default_internet_access=False,
-            fleet_type="ON_DEMAND",
-            idle_disconnect_timeout_in_seconds=60,
-            image_name="Amazon-AppStream2-Sample-Image-02-04-2019",
-            instance_type="stream.standard.large",
-            max_user_duration_in_seconds=600,
-            tags={
-                "TagName": "tag-value",
-            },
-            vpc_config=aws.appstream.FleetVpcConfigArgs(
-                subnet_ids=["subnet-06e9b13400c225127"],
-            ))
-        ```
-
-        ## Import
-
-        `aws_appstream_fleet` can be imported using the id, e.g.,
-
-        ```sh
-         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-        ```
-
+        Create a Fleet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -858,26 +623,6 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the appstream fleet.
-        :param pulumi.Input[pulumi.InputType['FleetComputeCapacityArgs']] compute_capacity: Configuration block for the desired capacity of the fleet. See below.
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-        :param pulumi.Input[str] description: Description to display.
-        :param pulumi.Input[int] disconnect_timeout_in_seconds: Amount of time that a streaming session remains active after users disconnect.
-        :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream fleet.
-        :param pulumi.Input[pulumi.InputType['FleetDomainJoinInfoArgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the fleet.
-        :param pulumi.Input[str] fleet_type: Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the fleet.
-        :param pulumi.Input[int] idle_disconnect_timeout_in_seconds: Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
-        :param pulumi.Input[str] image_name: Name of the image used to create the fleet.
-        :param pulumi.Input[str] instance_type: Instance type to use when launching fleet instances.
-        :param pulumi.Input[int] max_user_duration_in_seconds: Maximum amount of time that a streaming session can remain active, in seconds.
-        :param pulumi.Input[str] name: Unique name for the fleet.
-        :param pulumi.Input[str] state: State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-        :param pulumi.Input[str] stream_view: AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to attach to AppStream instances.
-        :param pulumi.Input[pulumi.InputType['FleetVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -909,153 +654,96 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the appstream fleet.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computeCapacity")
     def compute_capacity(self) -> pulumi.Output['outputs.FleetComputeCapacity']:
-        """
-        Configuration block for the desired capacity of the fleet. See below.
-        """
         return pulumi.get(self, "compute_capacity")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
-        """
-        Description to display.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="disconnectTimeoutInSeconds")
     def disconnect_timeout_in_seconds(self) -> pulumi.Output[int]:
-        """
-        Amount of time that a streaming session remains active after users disconnect.
-        """
         return pulumi.get(self, "disconnect_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
-        """
-        Human-readable friendly name for the AppStream fleet.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="domainJoinInfo")
     def domain_join_info(self) -> pulumi.Output['outputs.FleetDomainJoinInfo']:
-        """
-        Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-        """
         return pulumi.get(self, "domain_join_info")
 
     @property
     @pulumi.getter(name="enableDefaultInternetAccess")
     def enable_default_internet_access(self) -> pulumi.Output[bool]:
-        """
-        Enables or disables default internet access for the fleet.
-        """
         return pulumi.get(self, "enable_default_internet_access")
 
     @property
     @pulumi.getter(name="fleetType")
     def fleet_type(self) -> pulumi.Output[str]:
-        """
-        Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-        """
         return pulumi.get(self, "fleet_type")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the IAM role to apply to the fleet.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @property
     @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
     def idle_disconnect_timeout_in_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-        """
         return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
 
     @property
     @pulumi.getter(name="imageArn")
     def image_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the public, private, or shared image to use.
-        """
         return pulumi.get(self, "image_arn")
 
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
-        """
-        Name of the image used to create the fleet.
-        """
         return pulumi.get(self, "image_name")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
-        """
-        Instance type to use when launching fleet instances.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="maxUserDurationInSeconds")
     def max_user_duration_in_seconds(self) -> pulumi.Output[int]:
-        """
-        Maximum amount of time that a streaming session can remain active, in seconds.
-        """
         return pulumi.get(self, "max_user_duration_in_seconds")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Unique name for the fleet.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="streamView")
     def stream_view(self) -> pulumi.Output[str]:
-        """
-        AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-        """
         return pulumi.get(self, "stream_view")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to attach to AppStream instances.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -1066,8 +754,5 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output['outputs.FleetVpcConfig']:
-        """
-        Configuration block for the VPC configuration for the image builder. See below.
-        """
         return pulumi.get(self, "vpc_config")
 

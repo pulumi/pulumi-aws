@@ -69,17 +69,11 @@ class GetSecretResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the secret.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the secret.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -93,9 +87,6 @@ class GetSecretResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
-        """
-        Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -106,41 +97,26 @@ class GetSecretResult:
     @property
     @pulumi.getter
     def policy(self) -> str:
-        """
-        Resource-based policy document that's attached to the secret.
-        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="rotationEnabled")
     def rotation_enabled(self) -> bool:
-        """
-        Whether rotation is enabled or not.
-        """
         return pulumi.get(self, "rotation_enabled")
 
     @property
     @pulumi.getter(name="rotationLambdaArn")
     def rotation_lambda_arn(self) -> str:
-        """
-        Rotation Lambda function ARN if rotation is enabled.
-        """
         return pulumi.get(self, "rotation_lambda_arn")
 
     @property
     @pulumi.getter(name="rotationRules")
     def rotation_rules(self) -> Sequence['outputs.GetSecretRotationRuleResult']:
-        """
-        Rotation rules if rotation is enabled.
-        """
         return pulumi.get(self, "rotation_rules")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags of the secret.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -166,29 +142,7 @@ def get_secret(arn: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-    ### ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
-    ```
-    ### Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.secretsmanager.get_secret(name="example")
-    ```
-
-
-    :param str arn: ARN of the secret to retrieve.
-    :param str name: Name of the secret to retrieve.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -214,28 +168,6 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                       name: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
-
-    ## Example Usage
-    ### ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
-    ```
-    ### Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_name = aws.secretsmanager.get_secret(name="example")
-    ```
-
-
-    :param str arn: ARN of the secret to retrieve.
-    :param str name: Name of the secret to retrieve.
+    Use this data source to access information about an existing resource.
     """
     ...

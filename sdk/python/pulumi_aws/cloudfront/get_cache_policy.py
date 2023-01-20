@@ -51,25 +51,16 @@ class GetCachePolicyResult:
     @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        Comment to describe the cache policy.
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> int:
-        """
-        Default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "default_ttl")
 
     @property
     @pulumi.getter
     def etag(self) -> str:
-        """
-        Current version of the cache policy.
-        """
         return pulumi.get(self, "etag")
 
     @property
@@ -80,17 +71,11 @@ class GetCachePolicyResult:
     @property
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> int:
-        """
-        Maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "max_ttl")
 
     @property
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> int:
-        """
-        Minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        """
         return pulumi.get(self, "min_ttl")
 
     @property
@@ -101,9 +86,6 @@ class GetCachePolicyResult:
     @property
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigins")
     def parameters_in_cache_key_and_forwarded_to_origins(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult']:
-        """
-        The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-        """
         return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origins")
 
 
@@ -127,31 +109,7 @@ def get_cache_policy(id: Optional[str] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCachePolicyResult:
     """
-    Use this data source to retrieve information about a CloudFront cache policy.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    ```
-
-
-    :param str id: Identifier for the cache policy.
-    :param str name: Unique name to identify the cache policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -175,30 +133,6 @@ def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                             name: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
-    Use this data source to retrieve information about a CloudFront cache policy.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed cache policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_cache_policy(name="Managed-CachingOptimized")
-    ```
-
-
-    :param str id: Identifier for the cache policy.
-    :param str name: Unique name to identify the cache policy.
+    Use this data source to access information about an existing resource.
     """
     ...

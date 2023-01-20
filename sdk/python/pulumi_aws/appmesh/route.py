@@ -24,12 +24,6 @@ class RouteArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['RouteSpecArgs'] spec: Route specification to apply.
-        :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "mesh_name", mesh_name)
         pulumi.set(__self__, "spec", spec)
@@ -44,9 +38,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> pulumi.Input[str]:
-        """
-        Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @mesh_name.setter
@@ -56,9 +47,6 @@ class RouteArgs:
     @property
     @pulumi.getter
     def spec(self) -> pulumi.Input['RouteSpecArgs']:
-        """
-        Route specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -68,9 +56,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="virtualRouterName")
     def virtual_router_name(self) -> pulumi.Input[str]:
-        """
-        Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "virtual_router_name")
 
     @virtual_router_name.setter
@@ -80,9 +65,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
@@ -92,9 +74,6 @@ class RouteArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name to use for the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -104,9 +83,6 @@ class RouteArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -130,17 +106,6 @@ class _RouteState:
                  virtual_router_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
-        :param pulumi.Input[str] arn: ARN of the route.
-        :param pulumi.Input[str] created_date: Creation date of the route.
-        :param pulumi.Input[str] last_updated_date: Last update date of the route.
-        :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input['RouteSpecArgs'] spec: Route specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -168,9 +133,6 @@ class _RouteState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the route.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -180,9 +142,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creation date of the route.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -192,9 +151,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last update date of the route.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -204,9 +160,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @mesh_name.setter
@@ -216,9 +169,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @mesh_owner.setter
@@ -228,9 +178,6 @@ class _RouteState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name to use for the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -240,9 +187,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @resource_owner.setter
@@ -252,9 +196,6 @@ class _RouteState:
     @property
     @pulumi.getter
     def spec(self) -> Optional[pulumi.Input['RouteSpecArgs']]:
-        """
-        Route specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @spec.setter
@@ -264,9 +205,6 @@ class _RouteState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -276,9 +214,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -288,9 +223,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="virtualRouterName")
     def virtual_router_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "virtual_router_name")
 
     @virtual_router_name.setter
@@ -311,137 +243,9 @@ class Route(pulumi.CustomResource):
                  virtual_router_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AWS App Mesh route resource.
-
-        ## Example Usage
-        ### HTTP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
-                                weight=10,
-                            ),
-                        ],
-                    ),
-                ),
-            ))
-        ```
-        ### HTTP Header Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### Retry Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### TCP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-
-        ## Import
-
-        App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: Route specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
         ...
     @overload
@@ -450,129 +254,7 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS App Mesh route resource.
-
-        ## Example Usage
-        ### HTTP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                                weight=90,
-                            ),
-                            aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                                virtual_node=aws_appmesh_virtual_node["serviceb2"]["name"],
-                                weight=10,
-                            ),
-                        ],
-                    ),
-                ),
-            ))
-        ```
-        ### HTTP Header Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        method="POST",
-                        prefix="/",
-                        scheme="https",
-                        headers=[aws.appmesh.RouteSpecHttpRouteMatchHeaderArgs(
-                            name="clientRequestId",
-                            match=aws.appmesh.RouteSpecHttpRouteMatchHeaderMatchArgs(
-                                prefix="123",
-                            ),
-                        )],
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### Retry Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                http_route=aws.appmesh.RouteSpecHttpRouteArgs(
-                    match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
-                        prefix="/",
-                    ),
-                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
-                        http_retry_events=["server-error"],
-                        max_retries=1,
-                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
-                            unit="s",
-                            value=15,
-                        ),
-                    ),
-                    action=aws.appmesh.RouteSpecHttpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-        ### TCP Routing
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        serviceb = aws.appmesh.Route("serviceb",
-            mesh_name=aws_appmesh_mesh["simple"]["id"],
-            virtual_router_name=aws_appmesh_virtual_router["serviceb"]["name"],
-            spec=aws.appmesh.RouteSpecArgs(
-                tcp_route=aws.appmesh.RouteSpecTcpRouteArgs(
-                    action=aws.appmesh.RouteSpecTcpRouteActionArgs(
-                        weighted_targets=[aws.appmesh.RouteSpecTcpRouteActionWeightedTargetArgs(
-                            virtual_node=aws_appmesh_virtual_node["serviceb1"]["name"],
-                            weight=100,
-                        )],
-                    ),
-                ),
-            ))
-        ```
-
-        ## Import
-
-        App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -648,17 +330,6 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the route.
-        :param pulumi.Input[str] created_date: Creation date of the route.
-        :param pulumi.Input[str] last_updated_date: Last update date of the route.
-        :param pulumi.Input[str] mesh_name: Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        :param pulumi.Input[str] name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param pulumi.Input[str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[pulumi.InputType['RouteSpecArgs']] spec: Route specification to apply.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] virtual_router_name: Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -680,88 +351,55 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the route.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
-        """
-        Creation date of the route.
-        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[str]:
-        """
-        Last update date of the route.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter(name="meshName")
     def mesh_name(self) -> pulumi.Output[str]:
-        """
-        Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "mesh_name")
 
     @property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> pulumi.Output[str]:
-        """
-        AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        """
         return pulumi.get(self, "mesh_owner")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name to use for the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[str]:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter
     def spec(self) -> pulumi.Output['outputs.RouteSpec']:
-        """
-        Route specification to apply.
-        """
         return pulumi.get(self, "spec")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="virtualRouterName")
     def virtual_router_name(self) -> pulumi.Output[str]:
-        """
-        Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
-        """
         return pulumi.get(self, "virtual_router_name")
 

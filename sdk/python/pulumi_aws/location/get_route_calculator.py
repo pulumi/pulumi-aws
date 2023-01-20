@@ -50,9 +50,6 @@ class GetRouteCalculatorResult:
     @property
     @pulumi.getter(name="calculatorArn")
     def calculator_arn(self) -> str:
-        """
-        ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-        """
         return pulumi.get(self, "calculator_arn")
 
     @property
@@ -63,25 +60,16 @@ class GetRouteCalculatorResult:
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
-        """
-        Timestamp for when the route calculator resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
-        """
-        Data provider of traffic and road network data.
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Optional description of the route calculator resource.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -95,17 +83,11 @@ class GetRouteCalculatorResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags for the route calculator.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
-        """
-        Timestamp for when the route calculator resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
 
@@ -129,20 +111,7 @@ def get_route_calculator(calculator_name: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteCalculatorResult:
     """
-    Retrieve information about a Location Service Route Calculator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_route_calculator(calculator_name="example")
-    ```
-
-
-    :param str calculator_name: Name of the route calculator resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['calculatorName'] = calculator_name
@@ -166,19 +135,6 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[str]] = N
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
-    Retrieve information about a Location Service Route Calculator.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_route_calculator(calculator_name="example")
-    ```
-
-
-    :param str calculator_name: Name of the route calculator resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the route calculator.
+    Use this data source to access information about an existing resource.
     """
     ...

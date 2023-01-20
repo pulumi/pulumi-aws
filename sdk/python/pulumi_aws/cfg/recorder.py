@@ -21,9 +21,6 @@ class RecorderArgs:
                  recording_group: Optional[pulumi.Input['RecorderRecordingGroupArgs']] = None):
         """
         The set of arguments for constructing a Recorder resource.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if name is not None:
@@ -34,9 +31,6 @@ class RecorderArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -46,9 +40,6 @@ class RecorderArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -58,9 +49,6 @@ class RecorderArgs:
     @property
     @pulumi.getter(name="recordingGroup")
     def recording_group(self) -> Optional[pulumi.Input['RecorderRecordingGroupArgs']]:
-        """
-        Recording group - see below.
-        """
         return pulumi.get(self, "recording_group")
 
     @recording_group.setter
@@ -76,9 +64,6 @@ class _RecorderState:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Recorder resources.
-        :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input['RecorderRecordingGroupArgs'] recording_group: Recording group - see below.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -90,9 +75,6 @@ class _RecorderState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -102,9 +84,6 @@ class _RecorderState:
     @property
     @pulumi.getter(name="recordingGroup")
     def recording_group(self) -> Optional[pulumi.Input['RecorderRecordingGroupArgs']]:
-        """
-        Recording group - see below.
-        """
         return pulumi.get(self, "recording_group")
 
     @recording_group.setter
@@ -114,9 +93,6 @@ class _RecorderState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -134,46 +110,9 @@ class Recorder(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
-
-        > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        ```
-
-        ## Import
-
-        Configuration Recorder can be imported using the name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cfg/recorder:Recorder foo example
-        ```
-
+        Create a Recorder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         ...
     @overload
@@ -182,41 +121,7 @@ class Recorder(pulumi.CustomResource):
                  args: RecorderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
-
-        > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "config.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        ```
-
-        ## Import
-
-        Configuration Recorder can be imported using the name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cfg/recorder:Recorder foo example
-        ```
-
+        Create a Recorder resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RecorderArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,9 +174,6 @@ class Recorder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        :param pulumi.Input[pulumi.InputType['RecorderRecordingGroupArgs']] recording_group: Recording group - see below.
-        :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,24 +187,15 @@ class Recorder(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="recordingGroup")
     def recording_group(self) -> pulumi.Output['outputs.RecorderRecordingGroup']:
-        """
-        Recording group - see below.
-        """
         return pulumi.get(self, "recording_group")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-        """
         return pulumi.get(self, "role_arn")
 

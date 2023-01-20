@@ -88,9 +88,6 @@ class GetServiceResult:
     @property
     @pulumi.getter
     def supported(self) -> bool:
-        """
-        Whether the service is supported in the region's partition. New services may not be listed immediately as supported.
-        """
         return pulumi.get(self, "supported")
 
 
@@ -117,42 +114,7 @@ def get_service(dns_name: Optional[str] = None,
                 service_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
-    Use this data source to compose and decompose AWS service DNS names.
-
-    ## Example Usage
-    ### Get Service DNS Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    test = aws.get_service(region=current.name,
-        service_id="ec2")
-    ```
-    ### Use Service Reverse DNS Name to Get Components
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
-    ```
-    ### Determine Regional Support for a Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.get_service(reverse_dns_name="com.amazonaws.us-gov-west-1.waf")
-    ```
-
-
-    :param str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
-    :param str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-    :param str service_id: Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['dnsName'] = dns_name
@@ -182,41 +144,6 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
                        service_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
-    Use this data source to compose and decompose AWS service DNS names.
-
-    ## Example Usage
-    ### Get Service DNS Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_region()
-    test = aws.get_service(region=current.name,
-        service_id="ec2")
-    ```
-    ### Use Service Reverse DNS Name to Get Components
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
-    ```
-    ### Determine Regional Support for a Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.get_service(reverse_dns_name="com.amazonaws.us-gov-west-1.waf")
-    ```
-
-
-    :param str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
-    :param str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
-    :param str service_id: Service (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -76,33 +76,21 @@ class GetNetworkInsightsAnalysisResult:
     @property
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> Sequence['outputs.GetNetworkInsightsAnalysisAlternatePathHintResult']:
-        """
-        Potential intermediate components of a feasible path.
-        """
         return pulumi.get(self, "alternate_path_hints")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the selected Network Insights Analysis.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def explanations(self) -> Sequence['outputs.GetNetworkInsightsAnalysisExplanationResult']:
-        """
-        Explanation codes for an unreachable path.
-        """
         return pulumi.get(self, "explanations")
 
     @property
     @pulumi.getter(name="filterInArns")
     def filter_in_arns(self) -> Sequence[str]:
-        """
-        ARNs of the AWS resources that the path must traverse.
-        """
         return pulumi.get(self, "filter_in_arns")
 
     @property
@@ -113,9 +101,6 @@ class GetNetworkInsightsAnalysisResult:
     @property
     @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisForwardPathComponentResult']:
-        """
-        The components in the path from source to destination.
-        """
         return pulumi.get(self, "forward_path_components")
 
     @property
@@ -134,49 +119,31 @@ class GetNetworkInsightsAnalysisResult:
     @property
     @pulumi.getter(name="networkInsightsPathId")
     def network_insights_path_id(self) -> str:
-        """
-        The ID of the path.
-        """
         return pulumi.get(self, "network_insights_path_id")
 
     @property
     @pulumi.getter(name="pathFound")
     def path_found(self) -> bool:
-        """
-        Set to `true` if the destination was reachable.
-        """
         return pulumi.get(self, "path_found")
 
     @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentResult']:
-        """
-        The components in the path from destination to source.
-        """
         return pulumi.get(self, "return_path_components")
 
     @property
     @pulumi.getter(name="startDate")
     def start_date(self) -> str:
-        """
-        Date/time the analysis was started.
-        """
         return pulumi.get(self, "start_date")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> str:
-        """
-        Message to provide more context when the `status` is `failed`.
-        """
         return pulumi.get(self, "status_message")
 
     @property
@@ -187,9 +154,6 @@ class GetNetworkInsightsAnalysisResult:
     @property
     @pulumi.getter(name="warningMessage")
     def warning_message(self) -> str:
-        """
-        Warning message.
-        """
         return pulumi.get(self, "warning_message")
 
 
@@ -222,20 +186,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[pulumi.InputType['G
                                   tags: Optional[Mapping[str, str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAnalysisResult:
     """
-    `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -269,19 +220,6 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
-    `ec2.NetworkInsightsAnalysis` provides details about a specific Network Insights Analysis.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_analysis(network_insights_analysis_id=aws_ec2_network_insights_analysis["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNetworkInsightsAnalysisFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -67,11 +67,6 @@ class ClassificationExportConfigurationS3Destination(dict):
                  bucket_name: str,
                  kms_key_arn: str,
                  key_prefix: Optional[str] = None):
-        """
-        :param str bucket_name: The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        :param str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        :param str key_prefix: The object key for the bucket in which Amazon Macie exports the data classification results.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if key_prefix is not None:
@@ -80,25 +75,16 @@ class ClassificationExportConfigurationS3Destination(dict):
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        """
         return pulumi.get(self, "bucket_name")
 
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-        """
         return pulumi.get(self, "kms_key_arn")
 
     @property
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
-        """
-        The object key for the bucket in which Amazon Macie exports the data classification results.
-        """
         return pulumi.get(self, "key_prefix")
 
 
@@ -127,11 +113,6 @@ class ClassificationJobS3JobDefinition(dict):
                  bucket_criteria: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteria'] = None,
                  bucket_definitions: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketDefinition']] = None,
                  scoping: Optional['outputs.ClassificationJobS3JobDefinitionScoping'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaArgs' bucket_criteria: The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
-        :param Sequence['ClassificationJobS3JobDefinitionBucketDefinitionArgs'] bucket_definitions: An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
-        :param 'ClassificationJobS3JobDefinitionScopingArgs' scoping: The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-        """
         if bucket_criteria is not None:
             pulumi.set(__self__, "bucket_criteria", bucket_criteria)
         if bucket_definitions is not None:
@@ -142,25 +123,16 @@ class ClassificationJobS3JobDefinition(dict):
     @property
     @pulumi.getter(name="bucketCriteria")
     def bucket_criteria(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteria']:
-        """
-        The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
-        """
         return pulumi.get(self, "bucket_criteria")
 
     @property
     @pulumi.getter(name="bucketDefinitions")
     def bucket_definitions(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketDefinition']]:
-        """
-        An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
-        """
         return pulumi.get(self, "bucket_definitions")
 
     @property
     @pulumi.getter
     def scoping(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScoping']:
-        """
-        The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-        """
         return pulumi.get(self, "scoping")
 
 
@@ -169,10 +141,6 @@ class ClassificationJobS3JobDefinitionBucketCriteria(dict):
     def __init__(__self__, *,
                  excludes: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludes'] = None,
                  includes: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludes'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs' excludes: The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs' includes: The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -181,17 +149,11 @@ class ClassificationJobS3JobDefinitionBucketCriteria(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludes']:
-        """
-        The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludes']:
-        """
-        The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-        """
         return pulumi.get(self, "includes")
 
 
@@ -199,18 +161,12 @@ class ClassificationJobS3JobDefinitionBucketCriteria(dict):
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludes(dict):
     def __init__(__self__, *,
                  ands: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd']] = None):
-        """
-        :param Sequence['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs'] ands: An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
 
     @property
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd']]:
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
         return pulumi.get(self, "ands")
 
 
@@ -238,10 +194,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd(dict):
     def __init__(__self__, *,
                  simple_criterion: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion'] = None,
                  tag_criterion: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs' simple_criterion: A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs' tag_criterion: A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
         if simple_criterion is not None:
             pulumi.set(__self__, "simple_criterion", simple_criterion)
         if tag_criterion is not None:
@@ -250,17 +202,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAnd(dict):
     @property
     @pulumi.getter(name="simpleCriterion")
     def simple_criterion(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion']:
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        """
         return pulumi.get(self, "simple_criterion")
 
     @property
     @pulumi.getter(name="tagCriterion")
     def tag_criterion(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion']:
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
         return pulumi.get(self, "tag_criterion")
 
 
@@ -270,11 +216,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion(d
                  comparator: Optional[str] = None,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        :param str comparator: The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        :param str key: The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        :param Sequence[str] values: An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -285,25 +226,16 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterion(d
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
         return pulumi.get(self, "values")
 
 
@@ -329,10 +261,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion(dict
     def __init__(__self__, *,
                  comparator: Optional[str] = None,
                  tag_values: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue']] = None):
-        """
-        :param str comparator: The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        :param Sequence['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs'] tag_values: The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if tag_values is not None:
@@ -341,17 +269,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterion(dict
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValue']]:
-        """
-        The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
         return pulumi.get(self, "tag_values")
 
 
@@ -360,10 +282,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVa
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -372,17 +290,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVa
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The tag value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -390,18 +302,12 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVa
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludes(dict):
     def __init__(__self__, *,
                  ands: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd']] = None):
-        """
-        :param Sequence['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs'] ands: An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
 
     @property
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd']]:
-        """
-        An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
-        """
         return pulumi.get(self, "ands")
 
 
@@ -429,10 +335,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd(dict):
     def __init__(__self__, *,
                  simple_criterion: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion'] = None,
                  tag_criterion: Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs' simple_criterion: A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        :param 'ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs' tag_criterion: A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
         if simple_criterion is not None:
             pulumi.set(__self__, "simple_criterion", simple_criterion)
         if tag_criterion is not None:
@@ -441,17 +343,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAnd(dict):
     @property
     @pulumi.getter(name="simpleCriterion")
     def simple_criterion(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion']:
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        """
         return pulumi.get(self, "simple_criterion")
 
     @property
     @pulumi.getter(name="tagCriterion")
     def tag_criterion(self) -> Optional['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion']:
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
         return pulumi.get(self, "tag_criterion")
 
 
@@ -461,11 +357,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion(d
                  comparator: Optional[str] = None,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        :param str comparator: The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        :param str key: The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        :param Sequence[str] values: An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -476,25 +367,16 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterion(d
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
         return pulumi.get(self, "values")
 
 
@@ -520,10 +402,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion(dict
     def __init__(__self__, *,
                  comparator: Optional[str] = None,
                  tag_values: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue']] = None):
-        """
-        :param str comparator: The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        :param Sequence['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs'] tag_values: The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if tag_values is not None:
@@ -532,17 +410,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterion(dict
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValue']]:
-        """
-        The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
         return pulumi.get(self, "tag_values")
 
 
@@ -551,10 +423,6 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagVa
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -563,17 +431,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagVa
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The tag value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -599,27 +461,17 @@ class ClassificationJobS3JobDefinitionBucketDefinition(dict):
     def __init__(__self__, *,
                  account_id: str,
                  buckets: Sequence[str]):
-        """
-        :param str account_id: The unique identifier for the AWS account that owns the buckets.
-        :param Sequence[str] buckets: An array that lists the names of the buckets.
-        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "buckets", buckets)
 
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
-        """
-        The unique identifier for the AWS account that owns the buckets.
-        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter
     def buckets(self) -> Sequence[str]:
-        """
-        An array that lists the names of the buckets.
-        """
         return pulumi.get(self, "buckets")
 
 
@@ -628,10 +480,6 @@ class ClassificationJobS3JobDefinitionScoping(dict):
     def __init__(__self__, *,
                  excludes: Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludes'] = None,
                  includes: Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludes'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionScopingExcludesArgs' excludes: The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
-        :param 'ClassificationJobS3JobDefinitionScopingIncludesArgs' includes: The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
-        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -640,17 +488,11 @@ class ClassificationJobS3JobDefinitionScoping(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludes']:
-        """
-        The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
-        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludes']:
-        """
-        The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
-        """
         return pulumi.get(self, "includes")
 
 
@@ -658,18 +500,12 @@ class ClassificationJobS3JobDefinitionScoping(dict):
 class ClassificationJobS3JobDefinitionScopingExcludes(dict):
     def __init__(__self__, *,
                  ands: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingExcludesAnd']] = None):
-        """
-        :param Sequence['ClassificationJobS3JobDefinitionScopingExcludesAndArgs'] ands: An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
 
     @property
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingExcludesAnd']]:
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
         return pulumi.get(self, "ands")
 
 
@@ -697,10 +533,6 @@ class ClassificationJobS3JobDefinitionScopingExcludesAnd(dict):
     def __init__(__self__, *,
                  simple_scope_term: Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm'] = None,
                  tag_scope_term: Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs' simple_scope_term: A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        :param 'ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs' tag_scope_term: A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
         if simple_scope_term is not None:
             pulumi.set(__self__, "simple_scope_term", simple_scope_term)
         if tag_scope_term is not None:
@@ -709,17 +541,11 @@ class ClassificationJobS3JobDefinitionScopingExcludesAnd(dict):
     @property
     @pulumi.getter(name="simpleScopeTerm")
     def simple_scope_term(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm']:
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        """
         return pulumi.get(self, "simple_scope_term")
 
     @property
     @pulumi.getter(name="tagScopeTerm")
     def tag_scope_term(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm']:
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
         return pulumi.get(self, "tag_scope_term")
 
 
@@ -729,11 +555,6 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm(dict):
                  comparator: Optional[str] = None,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        :param str comparator: The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        :param str key: The object property to use in the condition.
-        :param Sequence[str] values: An array that lists the values to use in the condition.
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -744,25 +565,16 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm(dict):
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The object property to use in the condition.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        An array that lists the values to use in the condition.
-        """
         return pulumi.get(self, "values")
 
 
@@ -790,12 +602,6 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm(dict):
                  key: Optional[str] = None,
                  tag_values: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue']] = None,
                  target: Optional[str] = None):
-        """
-        :param str comparator: The operator to use in the condition.
-        :param str key: The tag key to use in the condition. The only valid value is `TAG`.
-        :param Sequence['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs'] tag_values: The tag keys or tag key and value pairs to use in the condition.
-        :param str target: The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -808,33 +614,21 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm(dict):
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in the condition.
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key to use in the condition. The only valid value is `TAG`.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue']]:
-        """
-        The tag keys or tag key and value pairs to use in the condition.
-        """
         return pulumi.get(self, "tag_values")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
-        """
-        The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
         return pulumi.get(self, "target")
 
 
@@ -843,10 +637,6 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue(dic
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -855,17 +645,11 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue(dic
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The tag value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -873,18 +657,12 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue(dic
 class ClassificationJobS3JobDefinitionScopingIncludes(dict):
     def __init__(__self__, *,
                  ands: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingIncludesAnd']] = None):
-        """
-        :param Sequence['ClassificationJobS3JobDefinitionScopingIncludesAndArgs'] ands: An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
-        """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
 
     @property
     @pulumi.getter
     def ands(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingIncludesAnd']]:
-        """
-        An array of conditions, one for each condition that determines which S3 buckets to include or exclude from the job. (documented below)
-        """
         return pulumi.get(self, "ands")
 
 
@@ -912,10 +690,6 @@ class ClassificationJobS3JobDefinitionScopingIncludesAnd(dict):
     def __init__(__self__, *,
                  simple_scope_term: Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm'] = None,
                  tag_scope_term: Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm'] = None):
-        """
-        :param 'ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs' simple_scope_term: A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        :param 'ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs' tag_scope_term: A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
         if simple_scope_term is not None:
             pulumi.set(__self__, "simple_scope_term", simple_scope_term)
         if tag_scope_term is not None:
@@ -924,17 +698,11 @@ class ClassificationJobS3JobDefinitionScopingIncludesAnd(dict):
     @property
     @pulumi.getter(name="simpleScopeTerm")
     def simple_scope_term(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm']:
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        """
         return pulumi.get(self, "simple_scope_term")
 
     @property
     @pulumi.getter(name="tagScopeTerm")
     def tag_scope_term(self) -> Optional['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm']:
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
         return pulumi.get(self, "tag_scope_term")
 
 
@@ -944,11 +712,6 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm(dict):
                  comparator: Optional[str] = None,
                  key: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
-        """
-        :param str comparator: The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        :param str key: The object property to use in the condition.
-        :param Sequence[str] values: An array that lists the values to use in the condition.
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -959,25 +722,16 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm(dict):
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The object property to use in the condition.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
-        """
-        An array that lists the values to use in the condition.
-        """
         return pulumi.get(self, "values")
 
 
@@ -1005,12 +759,6 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm(dict):
                  key: Optional[str] = None,
                  tag_values: Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue']] = None,
                  target: Optional[str] = None):
-        """
-        :param str comparator: The operator to use in the condition.
-        :param str key: The tag key to use in the condition. The only valid value is `TAG`.
-        :param Sequence['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs'] tag_values: The tag keys or tag key and value pairs to use in the condition.
-        :param str target: The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
         if comparator is not None:
             pulumi.set(__self__, "comparator", comparator)
         if key is not None:
@@ -1023,33 +771,21 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm(dict):
     @property
     @pulumi.getter
     def comparator(self) -> Optional[str]:
-        """
-        The operator to use in the condition.
-        """
         return pulumi.get(self, "comparator")
 
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key to use in the condition. The only valid value is `TAG`.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="tagValues")
     def tag_values(self) -> Optional[Sequence['outputs.ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue']]:
-        """
-        The tag keys or tag key and value pairs to use in the condition.
-        """
         return pulumi.get(self, "tag_values")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
-        """
-        The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
         return pulumi.get(self, "target")
 
 
@@ -1058,10 +794,6 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue(dic
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        :param str key: The tag key.
-        :param str value: The tag value.
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -1070,17 +802,11 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue(dic
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        The tag key.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        The tag value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -1111,11 +837,6 @@ class ClassificationJobScheduleFrequency(dict):
                  daily_schedule: Optional[bool] = None,
                  monthly_schedule: Optional[int] = None,
                  weekly_schedule: Optional[str] = None):
-        """
-        :param bool daily_schedule: Specifies a daily recurrence pattern for running the job.
-        :param int monthly_schedule: Specifies a monthly recurrence pattern for running the job.
-        :param str weekly_schedule: Specifies a weekly recurrence pattern for running the job.
-        """
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
         if monthly_schedule is not None:
@@ -1126,25 +847,16 @@ class ClassificationJobScheduleFrequency(dict):
     @property
     @pulumi.getter(name="dailySchedule")
     def daily_schedule(self) -> Optional[bool]:
-        """
-        Specifies a daily recurrence pattern for running the job.
-        """
         return pulumi.get(self, "daily_schedule")
 
     @property
     @pulumi.getter(name="monthlySchedule")
     def monthly_schedule(self) -> Optional[int]:
-        """
-        Specifies a monthly recurrence pattern for running the job.
-        """
         return pulumi.get(self, "monthly_schedule")
 
     @property
     @pulumi.getter(name="weeklySchedule")
     def weekly_schedule(self) -> Optional[str]:
-        """
-        Specifies a weekly recurrence pattern for running the job.
-        """
         return pulumi.get(self, "weekly_schedule")
 
 

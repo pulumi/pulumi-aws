@@ -49,27 +49,17 @@ class BudgetActionActionThreshold(dict):
     def __init__(__self__, *,
                  action_threshold_type: str,
                  action_threshold_value: float):
-        """
-        :param str action_threshold_type: The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-        :param float action_threshold_value: The threshold of a notification.
-        """
         pulumi.set(__self__, "action_threshold_type", action_threshold_type)
         pulumi.set(__self__, "action_threshold_value", action_threshold_value)
 
     @property
     @pulumi.getter(name="actionThresholdType")
     def action_threshold_type(self) -> str:
-        """
-        The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-        """
         return pulumi.get(self, "action_threshold_type")
 
     @property
     @pulumi.getter(name="actionThresholdValue")
     def action_threshold_value(self) -> float:
-        """
-        The threshold of a notification.
-        """
         return pulumi.get(self, "action_threshold_value")
 
 
@@ -100,11 +90,6 @@ class BudgetActionDefinition(dict):
                  iam_action_definition: Optional['outputs.BudgetActionDefinitionIamActionDefinition'] = None,
                  scp_action_definition: Optional['outputs.BudgetActionDefinitionScpActionDefinition'] = None,
                  ssm_action_definition: Optional['outputs.BudgetActionDefinitionSsmActionDefinition'] = None):
-        """
-        :param 'BudgetActionDefinitionIamActionDefinitionArgs' iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
-        :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-        """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
@@ -115,25 +100,16 @@ class BudgetActionDefinition(dict):
     @property
     @pulumi.getter(name="iamActionDefinition")
     def iam_action_definition(self) -> Optional['outputs.BudgetActionDefinitionIamActionDefinition']:
-        """
-        The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        """
         return pulumi.get(self, "iam_action_definition")
 
     @property
     @pulumi.getter(name="scpActionDefinition")
     def scp_action_definition(self) -> Optional['outputs.BudgetActionDefinitionScpActionDefinition']:
-        """
-        The service control policies (SCPs) action definition details. See SCP Action Definition.
-        """
         return pulumi.get(self, "scp_action_definition")
 
     @property
     @pulumi.getter(name="ssmActionDefinition")
     def ssm_action_definition(self) -> Optional['outputs.BudgetActionDefinitionSsmActionDefinition']:
-        """
-        The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-        """
         return pulumi.get(self, "ssm_action_definition")
 
 
@@ -161,12 +137,6 @@ class BudgetActionDefinitionIamActionDefinition(dict):
                  groups: Optional[Sequence[str]] = None,
                  roles: Optional[Sequence[str]] = None,
                  users: Optional[Sequence[str]] = None):
-        """
-        :param str policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
-        :param Sequence[str] groups: A list of groups to be attached. There must be at least one group.
-        :param Sequence[str] roles: A list of roles to be attached. There must be at least one role.
-        :param Sequence[str] users: A list of users to be attached. There must be at least one user.
-        """
         pulumi.set(__self__, "policy_arn", policy_arn)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -178,33 +148,21 @@ class BudgetActionDefinitionIamActionDefinition(dict):
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the policy to be attached.
-        """
         return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
-        """
-        A list of groups to be attached. There must be at least one group.
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def roles(self) -> Optional[Sequence[str]]:
-        """
-        A list of roles to be attached. There must be at least one role.
-        """
         return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
-        """
-        A list of users to be attached. There must be at least one user.
-        """
         return pulumi.get(self, "users")
 
 
@@ -232,27 +190,17 @@ class BudgetActionDefinitionScpActionDefinition(dict):
     def __init__(__self__, *,
                  policy_id: str,
                  target_ids: Sequence[str]):
-        """
-        :param str policy_id: The policy ID attached.
-        :param Sequence[str] target_ids: A list of target IDs.
-        """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> str:
-        """
-        The policy ID attached.
-        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="targetIds")
     def target_ids(self) -> Sequence[str]:
-        """
-        A list of target IDs.
-        """
         return pulumi.get(self, "target_ids")
 
 
@@ -281,11 +229,6 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
                  action_sub_type: str,
                  instance_ids: Sequence[str],
                  region: str):
-        """
-        :param str action_sub_type: The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
-        :param Sequence[str] instance_ids: The EC2 and RDS instance IDs.
-        :param str region: The Region to run the SSM document.
-        """
         pulumi.set(__self__, "action_sub_type", action_sub_type)
         pulumi.set(__self__, "instance_ids", instance_ids)
         pulumi.set(__self__, "region", region)
@@ -293,25 +236,16 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
     @property
     @pulumi.getter(name="actionSubType")
     def action_sub_type(self) -> str:
-        """
-        The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
-        """
         return pulumi.get(self, "action_sub_type")
 
     @property
     @pulumi.getter(name="instanceIds")
     def instance_ids(self) -> Sequence[str]:
-        """
-        The EC2 and RDS instance IDs.
-        """
         return pulumi.get(self, "instance_ids")
 
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        The Region to run the SSM document.
-        """
         return pulumi.get(self, "region")
 
 
@@ -337,27 +271,17 @@ class BudgetActionSubscriber(dict):
     def __init__(__self__, *,
                  address: str,
                  subscription_type: str):
-        """
-        :param str address: The address that AWS sends budget notifications to, either an SNS topic or an email.
-        :param str subscription_type: The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "subscription_type", subscription_type)
 
     @property
     @pulumi.getter
     def address(self) -> str:
-        """
-        The address that AWS sends budget notifications to, either an SNS topic or an email.
-        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="subscriptionType")
     def subscription_type(self) -> str:
-        """
-        The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-        """
         return pulumi.get(self, "subscription_type")
 
 
@@ -454,18 +378,12 @@ class BudgetCostFilter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: The name of a budget. Unique within accounts.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of a budget. Unique within accounts.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -525,19 +443,6 @@ class BudgetCostTypes(dict):
                  include_upfront: Optional[bool] = None,
                  use_amortized: Optional[bool] = None,
                  use_blended: Optional[bool] = None):
-        """
-        :param bool include_credit: A boolean value whether to include credits in the cost budget. Defaults to `true`
-        :param bool include_discount: Whether a budget includes discounts. Defaults to `true`
-        :param bool include_other_subscription: A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        :param bool include_recurring: A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        :param bool include_refund: A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        :param bool include_subscription: A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        :param bool include_support: A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        :param bool include_tax: A boolean value whether to include tax in the cost budget. Defaults to `true`
-        :param bool include_upfront: A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        :param bool use_amortized: Whether a budget uses the amortized rate. Defaults to `false`
-        :param bool use_blended: A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        """
         if include_credit is not None:
             pulumi.set(__self__, "include_credit", include_credit)
         if include_discount is not None:
@@ -564,89 +469,56 @@ class BudgetCostTypes(dict):
     @property
     @pulumi.getter(name="includeCredit")
     def include_credit(self) -> Optional[bool]:
-        """
-        A boolean value whether to include credits in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_credit")
 
     @property
     @pulumi.getter(name="includeDiscount")
     def include_discount(self) -> Optional[bool]:
-        """
-        Whether a budget includes discounts. Defaults to `true`
-        """
         return pulumi.get(self, "include_discount")
 
     @property
     @pulumi.getter(name="includeOtherSubscription")
     def include_other_subscription(self) -> Optional[bool]:
-        """
-        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_other_subscription")
 
     @property
     @pulumi.getter(name="includeRecurring")
     def include_recurring(self) -> Optional[bool]:
-        """
-        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_recurring")
 
     @property
     @pulumi.getter(name="includeRefund")
     def include_refund(self) -> Optional[bool]:
-        """
-        A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_refund")
 
     @property
     @pulumi.getter(name="includeSubscription")
     def include_subscription(self) -> Optional[bool]:
-        """
-        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_subscription")
 
     @property
     @pulumi.getter(name="includeSupport")
     def include_support(self) -> Optional[bool]:
-        """
-        A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_support")
 
     @property
     @pulumi.getter(name="includeTax")
     def include_tax(self) -> Optional[bool]:
-        """
-        A boolean value whether to include tax in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_tax")
 
     @property
     @pulumi.getter(name="includeUpfront")
     def include_upfront(self) -> Optional[bool]:
-        """
-        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        """
         return pulumi.get(self, "include_upfront")
 
     @property
     @pulumi.getter(name="useAmortized")
     def use_amortized(self) -> Optional[bool]:
-        """
-        Whether a budget uses the amortized rate. Defaults to `false`
-        """
         return pulumi.get(self, "use_amortized")
 
     @property
     @pulumi.getter(name="useBlended")
     def use_blended(self) -> Optional[bool]:
-        """
-        A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        """
         return pulumi.get(self, "use_blended")
 
 
@@ -684,14 +556,6 @@ class BudgetNotification(dict):
                  threshold_type: str,
                  subscriber_email_addresses: Optional[Sequence[str]] = None,
                  subscriber_sns_topic_arns: Optional[Sequence[str]] = None):
-        """
-        :param str comparison_operator: (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        :param str notification_type: (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        :param float threshold: (Required) Threshold when the notification should be sent.
-        :param str threshold_type: (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        :param Sequence[str] subscriber_email_addresses: (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        :param Sequence[str] subscriber_sns_topic_arns: (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "notification_type", notification_type)
         pulumi.set(__self__, "threshold", threshold)
@@ -704,49 +568,31 @@ class BudgetNotification(dict):
     @property
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> str:
-        """
-        (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        """
         return pulumi.get(self, "comparison_operator")
 
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> str:
-        """
-        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter
     def threshold(self) -> float:
-        """
-        (Required) Threshold when the notification should be sent.
-        """
         return pulumi.get(self, "threshold")
 
     @property
     @pulumi.getter(name="thresholdType")
     def threshold_type(self) -> str:
-        """
-        (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        """
         return pulumi.get(self, "threshold_type")
 
     @property
     @pulumi.getter(name="subscriberEmailAddresses")
     def subscriber_email_addresses(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        """
         return pulumi.get(self, "subscriber_email_addresses")
 
     @property
     @pulumi.getter(name="subscriberSnsTopicArns")
     def subscriber_sns_topic_arns(self) -> Optional[Sequence[str]]:
-        """
-        (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        """
         return pulumi.get(self, "subscriber_sns_topic_arns")
 
 
@@ -773,11 +619,6 @@ class BudgetPlannedLimit(dict):
                  amount: str,
                  start_time: str,
                  unit: str):
-        """
-        :param str amount: (Required) The amount of cost or usage being measured for a budget.
-        :param str start_time: (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        :param str unit: (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
         pulumi.set(__self__, "amount", amount)
         pulumi.set(__self__, "start_time", start_time)
         pulumi.set(__self__, "unit", unit)
@@ -785,25 +626,16 @@ class BudgetPlannedLimit(dict):
     @property
     @pulumi.getter
     def amount(self) -> str:
-        """
-        (Required) The amount of cost or usage being measured for a budget.
-        """
         return pulumi.get(self, "amount")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
-        """
-        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        """
         return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter
     def unit(self) -> str:
-        """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
         return pulumi.get(self, "unit")
 
 

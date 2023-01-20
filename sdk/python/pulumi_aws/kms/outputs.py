@@ -43,10 +43,6 @@ class GrantConstraint(dict):
     def __init__(__self__, *,
                  encryption_context_equals: Optional[Mapping[str, str]] = None,
                  encryption_context_subset: Optional[Mapping[str, str]] = None):
-        """
-        :param Mapping[str, str] encryption_context_equals: A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        :param Mapping[str, str] encryption_context_subset: A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        """
         if encryption_context_equals is not None:
             pulumi.set(__self__, "encryption_context_equals", encryption_context_equals)
         if encryption_context_subset is not None:
@@ -55,17 +51,11 @@ class GrantConstraint(dict):
     @property
     @pulumi.getter(name="encryptionContextEquals")
     def encryption_context_equals(self) -> Optional[Mapping[str, str]]:
-        """
-        A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        """
         return pulumi.get(self, "encryption_context_equals")
 
     @property
     @pulumi.getter(name="encryptionContextSubset")
     def encryption_context_subset(self) -> Optional[Mapping[str, str]]:
-        """
-        A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        """
         return pulumi.get(self, "encryption_context_subset")
 
 
@@ -177,14 +167,6 @@ class GetSecretsSecretResult(dict):
                  encryption_algorithm: Optional[str] = None,
                  grant_tokens: Optional[Sequence[str]] = None,
                  key_id: Optional[str] = None):
-        """
-        :param str name: Name to export this secret under in the attributes.
-        :param str payload: Base64 encoded payload, as returned from a KMS encrypt operation.
-        :param Mapping[str, str] context: An optional mapping that makes up the Encryption Context for the secret.
-        :param str encryption_algorithm: The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
-        :param Sequence[str] grant_tokens: An optional list of Grant Tokens for the secret.
-        :param str key_id: Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "payload", payload)
         if context is not None:
@@ -199,49 +181,31 @@ class GetSecretsSecretResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name to export this secret under in the attributes.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def payload(self) -> str:
-        """
-        Base64 encoded payload, as returned from a KMS encrypt operation.
-        """
         return pulumi.get(self, "payload")
 
     @property
     @pulumi.getter
     def context(self) -> Optional[Mapping[str, str]]:
-        """
-        An optional mapping that makes up the Encryption Context for the secret.
-        """
         return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
     def encryption_algorithm(self) -> Optional[str]:
-        """
-        The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
-        """
         return pulumi.get(self, "encryption_algorithm")
 
     @property
     @pulumi.getter(name="grantTokens")
     def grant_tokens(self) -> Optional[Sequence[str]]:
-        """
-        An optional list of Grant Tokens for the secret.
-        """
         return pulumi.get(self, "grant_tokens")
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[str]:
-        """
-        Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-        """
         return pulumi.get(self, "key_id")
 
 

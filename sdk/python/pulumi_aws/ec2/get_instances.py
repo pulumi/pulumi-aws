@@ -62,9 +62,6 @@ class GetInstancesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        IDs of instances found through the filter
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -80,17 +77,11 @@ class GetInstancesResult:
     @property
     @pulumi.getter(name="privateIps")
     def private_ips(self) -> Sequence[str]:
-        """
-        Private IP addresses of instances found through the filter
-        """
         return pulumi.get(self, "private_ips")
 
     @property
     @pulumi.getter(name="publicIps")
     def public_ips(self) -> Sequence[str]:
-        """
-        Public IP addresses of instances found through the filter
-        """
         return pulumi.get(self, "public_ips")
 
 
@@ -114,21 +105,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
                   instance_tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
-    e.g., to allow easier migration from another management solution
-    or to make it easier for an operator to connect through bastion host(s).
-
-    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
-    and you'd need to re-run `apply` every time an instance comes up or dies.
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
-    :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on desired instances.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -153,20 +130,6 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
-    e.g., to allow easier migration from another management solution
-    or to make it easier for an operator to connect through bastion host(s).
-
-    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
-    instances (e.g., managed via autoscaling group), as the output may change at any time
-    and you'd need to re-run `apply` every time an instance comes up or dies.
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
-           several valid keys, for a full reference, check out
-           [describe-instances in the AWS CLI reference][1].
-    :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
-    :param Mapping[str, str] instance_tags: Map of tags, each pair of which must
-           exactly match a pair on desired instances.
+    Use this data source to access information about an existing resource.
     """
     ...

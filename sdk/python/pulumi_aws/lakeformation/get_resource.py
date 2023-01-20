@@ -51,17 +51,11 @@ class GetResourceResult:
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
-        """
-        Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        Role that the resource was registered with.
-        """
         return pulumi.get(self, "role_arn")
 
 
@@ -80,19 +74,7 @@ class AwaitableGetResourceResult(GetResourceResult):
 def get_resource(arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
-    Provides details about a Lake Formation resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_resource(arn="arn:aws:s3:::tf-acc-test-9151654063908211878")
-    ```
-
-
-    :param str arn: ARN of the resource, an S3 path.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -110,18 +92,6 @@ def get_resource(arn: Optional[str] = None,
 def get_resource_output(arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
     """
-    Provides details about a Lake Formation resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_resource(arn="arn:aws:s3:::tf-acc-test-9151654063908211878")
-    ```
-
-
-    :param str arn: ARN of the resource, an S3 path.
+    Use this data source to access information about an existing resource.
     """
     ...

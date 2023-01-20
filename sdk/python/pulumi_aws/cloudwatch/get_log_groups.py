@@ -38,9 +38,6 @@ class GetLogGroupsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        Set of ARNs of the Cloudwatch log groups
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -59,9 +56,6 @@ class GetLogGroupsResult:
     @property
     @pulumi.getter(name="logGroupNames")
     def log_group_names(self) -> Sequence[str]:
-        """
-        Set of names of the Cloudwatch log groups
-        """
         return pulumi.get(self, "log_group_names")
 
 
@@ -80,19 +74,7 @@ class AwaitableGetLogGroupsResult(GetLogGroupsResult):
 def get_log_groups(log_group_name_prefix: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogGroupsResult:
     """
-    Use this data source to get a list of AWS Cloudwatch Log Groups
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
-    ```
-
-
-    :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix
@@ -110,18 +92,6 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
 def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupsResult]:
     """
-    Use this data source to get a list of AWS Cloudwatch Log Groups
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
-    ```
-
-
-    :param str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    Use this data source to access information about an existing resource.
     """
     ...

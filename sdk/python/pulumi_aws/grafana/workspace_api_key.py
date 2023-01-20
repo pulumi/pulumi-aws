@@ -20,10 +20,6 @@ class WorkspaceApiKeyArgs:
                  workspace_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a WorkspaceApiKey resource.
-        :param pulumi.Input[str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
-        :param pulumi.Input[str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_role", key_role)
@@ -33,9 +29,6 @@ class WorkspaceApiKeyArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Input[str]:
-        """
-        Specifies the name of the API key. Key names must be unique to the workspace.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -45,9 +38,6 @@ class WorkspaceApiKeyArgs:
     @property
     @pulumi.getter(name="keyRole")
     def key_role(self) -> pulumi.Input[str]:
-        """
-        Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        """
         return pulumi.get(self, "key_role")
 
     @key_role.setter
@@ -57,9 +47,6 @@ class WorkspaceApiKeyArgs:
     @property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> pulumi.Input[int]:
-        """
-        Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @seconds_to_live.setter
@@ -69,9 +56,6 @@ class WorkspaceApiKeyArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the workspace that the API key is valid for.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -89,11 +73,6 @@ class _WorkspaceApiKeyState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceApiKey resources.
-        :param pulumi.Input[str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-        :param pulumi.Input[str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
-        :param pulumi.Input[str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -109,9 +88,6 @@ class _WorkspaceApiKeyState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -121,9 +97,6 @@ class _WorkspaceApiKeyState:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the API key. Key names must be unique to the workspace.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -133,9 +106,6 @@ class _WorkspaceApiKeyState:
     @property
     @pulumi.getter(name="keyRole")
     def key_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        """
         return pulumi.get(self, "key_role")
 
     @key_role.setter
@@ -145,9 +115,6 @@ class _WorkspaceApiKeyState:
     @property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @seconds_to_live.setter
@@ -157,9 +124,6 @@ class _WorkspaceApiKeyState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the workspace that the API key is valid for.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -178,28 +142,9 @@ class WorkspaceApiKey(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Managed Grafana workspace API Key resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.grafana.WorkspaceApiKey("key",
-            key_name="test-key",
-            key_role="VIEWER",
-            seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
-        ```
-
+        Create a WorkspaceApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
-        :param pulumi.Input[str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
         ...
     @overload
@@ -208,22 +153,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
                  args: WorkspaceApiKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Managed Grafana workspace API Key resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        key = aws.grafana.WorkspaceApiKey("key",
-            key_name="test-key",
-            key_role="VIEWER",
-            seconds_to_live=3600,
-            workspace_id=aws_grafana_workspace["test"]["id"])
-        ```
-
+        Create a WorkspaceApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkspaceApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -287,11 +217,6 @@ class WorkspaceApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-        :param pulumi.Input[str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
-        :param pulumi.Input[str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        :param pulumi.Input[int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        :param pulumi.Input[str] workspace_id: The ID of the workspace that the API key is valid for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -307,40 +232,25 @@ class WorkspaceApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the name of the API key. Key names must be unique to the workspace.
-        """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="keyRole")
     def key_role(self) -> pulumi.Output[str]:
-        """
-        Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
-        """
         return pulumi.get(self, "key_role")
 
     @property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> pulumi.Output[int]:
-        """
-        Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
-        """
         return pulumi.get(self, "seconds_to_live")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the workspace that the API key is valid for.
-        """
         return pulumi.get(self, "workspace_id")
 

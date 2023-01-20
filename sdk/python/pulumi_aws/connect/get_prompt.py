@@ -41,9 +41,6 @@ class GetPromptResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Prompt.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -67,9 +64,6 @@ class GetPromptResult:
     @property
     @pulumi.getter(name="promptId")
     def prompt_id(self) -> str:
-        """
-        Identifier for the prompt.
-        """
         return pulumi.get(self, "prompt_id")
 
 
@@ -90,23 +84,7 @@ def get_prompt(instance_id: Optional[str] = None,
                name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPromptResult:
     """
-    Provides details about a specific Amazon Connect Prompt.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
-
-
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Prompt by name
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
@@ -127,22 +105,6 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
     """
-    Provides details about a specific Amazon Connect Prompt.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_prompt(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Beep.wav")
-    ```
-
-
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Prompt by name
+    Use this data source to access information about an existing resource.
     """
     ...

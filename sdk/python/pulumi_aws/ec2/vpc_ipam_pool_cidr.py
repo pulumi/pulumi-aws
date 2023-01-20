@@ -21,9 +21,6 @@ class VpcIpamPoolCidrArgs:
                  cidr_authorization_context: Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidr resource.
-        :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs'] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if cidr is not None:
@@ -34,9 +31,6 @@ class VpcIpamPoolCidrArgs:
     @property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the pool to which you want to assign a CIDR.
-        """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
@@ -46,9 +40,6 @@ class VpcIpamPoolCidrArgs:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CIDR you want to assign to the pool.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -58,9 +49,6 @@ class VpcIpamPoolCidrArgs:
     @property
     @pulumi.getter(name="cidrAuthorizationContext")
     def cidr_authorization_context(self) -> Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
-        """
-        A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        """
         return pulumi.get(self, "cidr_authorization_context")
 
     @cidr_authorization_context.setter
@@ -76,9 +64,6 @@ class _VpcIpamPoolCidrState:
                  ipam_pool_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPoolCidr resources.
-        :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs'] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -90,9 +75,6 @@ class _VpcIpamPoolCidrState:
     @property
     @pulumi.getter
     def cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CIDR you want to assign to the pool.
-        """
         return pulumi.get(self, "cidr")
 
     @cidr.setter
@@ -102,9 +84,6 @@ class _VpcIpamPoolCidrState:
     @property
     @pulumi.getter(name="cidrAuthorizationContext")
     def cidr_authorization_context(self) -> Optional[pulumi.Input['VpcIpamPoolCidrCidrAuthorizationContextArgs']]:
-        """
-        A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        """
         return pulumi.get(self, "cidr_authorization_context")
 
     @cidr_authorization_context.setter
@@ -114,9 +93,6 @@ class _VpcIpamPoolCidrState:
     @property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the pool to which you want to assign a CIDR.
-        """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
@@ -134,26 +110,9 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
                  ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provisions a CIDR from an IPAM address pool.
-
-        > **NOTE:** Provisioning Public IPv4 or Public IPv6 require [steps outside the scope of this resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip). The resource accepts `message` and `signature` as part of the `cidr_authorization_context` attribute but those must be generated ahead of time. Public IPv6 CIDRs that are provisioned into a Pool with `publicly_advertisable = true` and all public IPv4 CIDRs also require creating a Route Origin Authorization (ROA) object in your Regional Internet Registry (RIR).
-
-        > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
-        either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-
-        ## Import
-
-        IPAMs can be imported using the `<cidr>_<ipam-pool-id>`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-        ```
-
+        Create a VpcIpamPoolCidr resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         """
         ...
     @overload
@@ -162,21 +121,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
                  args: VpcIpamPoolCidrArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provisions a CIDR from an IPAM address pool.
-
-        > **NOTE:** Provisioning Public IPv4 or Public IPv6 require [steps outside the scope of this resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip). The resource accepts `message` and `signature` as part of the `cidr_authorization_context` attribute but those must be generated ahead of time. Public IPv6 CIDRs that are provisioned into a Pool with `publicly_advertisable = true` and all public IPv4 CIDRs also require creating a Route Origin Authorization (ROA) object in your Regional Internet Registry (RIR).
-
-        > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
-        either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-
-        ## Import
-
-        IPAMs can be imported using the `<cidr>_<ipam-pool-id>`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.2.0.0/24_ipam-pool-0e634f5a1517cccdc
-        ```
-
+        Create a VpcIpamPoolCidr resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpamPoolCidrArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,9 +174,6 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[pulumi.InputType['VpcIpamPoolCidrCidrAuthorizationContextArgs']] cidr_authorization_context: A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        :param pulumi.Input[str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,24 +187,15 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
     @property
     @pulumi.getter
     def cidr(self) -> pulumi.Output[str]:
-        """
-        The CIDR you want to assign to the pool.
-        """
         return pulumi.get(self, "cidr")
 
     @property
     @pulumi.getter(name="cidrAuthorizationContext")
     def cidr_authorization_context(self) -> pulumi.Output[Optional['outputs.VpcIpamPoolCidrCidrAuthorizationContext']]:
-        """
-        A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidr_authorization_context for more information.
-        """
         return pulumi.get(self, "cidr_authorization_context")
 
     @property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the pool to which you want to assign a CIDR.
-        """
         return pulumi.get(self, "ipam_pool_id")
 

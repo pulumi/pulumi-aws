@@ -21,11 +21,6 @@ class ModelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        :param pulumi.Input[str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "content_type", content_type)
@@ -38,9 +33,6 @@ class ModelArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -50,9 +42,6 @@ class ModelArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -62,9 +51,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -74,9 +60,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,9 +69,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -106,11 +86,6 @@ class _ModelState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -126,9 +101,6 @@ class _ModelState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -138,9 +110,6 @@ class _ModelState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -150,9 +119,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -162,9 +128,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -174,9 +137,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -196,44 +156,9 @@ class Model(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
-            schema=\"\"\"{
-          "$schema": "http://json-schema.org/draft-04/schema#",
-          "title": "ExampleModel",
-          "type": "object",
-          "properties": {
-            "id": { "type": "string" }
-          }
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         ...
     @overload
@@ -242,37 +167,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Model("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            content_type="application/json",
-            schema=\"\"\"{
-          "$schema": "http://json-schema.org/draft-04/schema#",
-          "title": "ExampleModel",
-          "type": "object",
-          "properties": {
-            "id": { "type": "string" }
-          }
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,11 +230,6 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] content_type: The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        :param pulumi.Input[str] description: Description of the model. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] name: Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        :param pulumi.Input[str] schema: Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -355,40 +245,25 @@ class Model(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
-        """
-        The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the model. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
-        """
-        Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-        """
         return pulumi.get(self, "schema")
 

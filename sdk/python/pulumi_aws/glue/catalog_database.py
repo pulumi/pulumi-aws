@@ -25,13 +25,6 @@ class CatalogDatabaseArgs:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         The set of arguments for constructing a CatalogDatabase resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -51,9 +44,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the Data Catalog in which the database resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -63,9 +53,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -75,9 +62,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -87,9 +71,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @location_uri.setter
@@ -99,9 +80,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,9 +89,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -123,9 +98,6 @@ class CatalogDatabaseArgs:
     @property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 
     @target_database.setter
@@ -146,14 +118,6 @@ class _CatalogDatabaseState:
                  target_database: Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']] = None):
         """
         Input properties used for looking up and filtering CatalogDatabase resources.
-        :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input['CatalogDatabaseTargetDatabaseArgs'] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -175,9 +139,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Glue Catalog Database.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -187,9 +148,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the Data Catalog in which the database resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -199,9 +157,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionArgs']]]]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
@@ -211,9 +166,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -223,9 +175,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @location_uri.setter
@@ -235,9 +184,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -247,9 +193,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -259,9 +202,6 @@ class _CatalogDatabaseState:
     @property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> Optional[pulumi.Input['CatalogDatabaseTargetDatabaseArgs']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 
     @target_database.setter
@@ -283,49 +223,9 @@ class CatalogDatabase(pulumi.CustomResource):
                  target_database: Optional[pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']]] = None,
                  __props__=None):
         """
-        Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
-        ```
-        ### Create Table Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )],
-            name="MyCatalogDatabase")
-        ```
-
-        ## Import
-
-        Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
-
+        Create a CatalogDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         ...
     @overload
@@ -334,40 +234,7 @@ class CatalogDatabase(pulumi.CustomResource):
                  args: Optional[CatalogDatabaseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase", name="MyCatalogDatabase")
-        ```
-        ### Create Table Default Permissions
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        aws_glue_catalog_database = aws.glue.CatalogDatabase("awsGlueCatalogDatabase",
-            create_table_default_permissions=[aws.glue.CatalogDatabaseCreateTableDefaultPermissionArgs(
-                permissions=["SELECT"],
-                principal=aws.glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(
-                    data_lake_principal_identifier="IAM_ALLOWED_PRINCIPALS",
-                ),
-            )],
-            name="MyCatalogDatabase")
-        ```
-
-        ## Import
-
-        Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-        ```
-
+        Create a CatalogDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CatalogDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -432,14 +299,6 @@ class CatalogDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the Glue Catalog Database.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog in which the database resides.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogDatabaseCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        :param pulumi.Input[str] description: Description of the database.
-        :param pulumi.Input[str] location_uri: Location of the database (for example, an HDFS path).
-        :param pulumi.Input[str] name: Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: List of key-value pairs that define parameters and properties of the database.
-        :param pulumi.Input[pulumi.InputType['CatalogDatabaseTargetDatabaseArgs']] target_database: Configuration block for a target database for resource linking. See `target_database` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,64 +317,40 @@ class CatalogDatabase(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Glue Catalog Database.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
-        """
-        ID of the Data Catalog in which the database resides.
-        """
         return pulumi.get(self, "catalog_id")
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> pulumi.Output[Sequence['outputs.CatalogDatabaseCreateTableDefaultPermission']]:
-        """
-        Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the database.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
-        """
-        Location of the database (for example, an HDFS path).
-        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        List of key-value pairs that define parameters and properties of the database.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="targetDatabase")
     def target_database(self) -> pulumi.Output[Optional['outputs.CatalogDatabaseTargetDatabase']]:
-        """
-        Configuration block for a target database for resource linking. See `target_database` below.
-        """
         return pulumi.get(self, "target_database")
 

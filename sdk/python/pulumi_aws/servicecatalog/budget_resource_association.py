@@ -18,8 +18,6 @@ class BudgetResourceAssociationArgs:
                  resource_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a BudgetResourceAssociation resource.
-        :param pulumi.Input[str] budget_name: Budget name.
-        :param pulumi.Input[str] resource_id: Resource identifier.
         """
         pulumi.set(__self__, "budget_name", budget_name)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -27,9 +25,6 @@ class BudgetResourceAssociationArgs:
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Input[str]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -39,9 +34,6 @@ class BudgetResourceAssociationArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -56,8 +48,6 @@ class _BudgetResourceAssociationState:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BudgetResourceAssociation resources.
-        :param pulumi.Input[str] budget_name: Budget name.
-        :param pulumi.Input[str] resource_id: Resource identifier.
         """
         if budget_name is not None:
             pulumi.set(__self__, "budget_name", budget_name)
@@ -67,9 +57,6 @@ class _BudgetResourceAssociationState:
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
@@ -79,9 +66,6 @@ class _BudgetResourceAssociationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -98,34 +82,9 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Budget Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a BudgetResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] budget_name: Budget name.
-        :param pulumi.Input[str] resource_id: Resource identifier.
         """
         ...
     @overload
@@ -134,30 +93,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  args: BudgetResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Budget Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.BudgetResourceAssociation("example",
-            budget_name="budget-pjtvyakdlyo3m",
-            resource_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a BudgetResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BudgetResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,8 +145,6 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] budget_name: Budget name.
-        :param pulumi.Input[str] resource_id: Resource identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,16 +157,10 @@ class BudgetResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="budgetName")
     def budget_name(self) -> pulumi.Output[str]:
-        """
-        Budget name.
-        """
         return pulumi.get(self, "budget_name")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 

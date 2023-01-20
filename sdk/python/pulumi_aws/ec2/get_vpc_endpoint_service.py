@@ -76,33 +76,21 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> bool:
-        """
-        Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        """
         return pulumi.get(self, "acceptance_required")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the VPC endpoint service.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
-        """
-        Availability Zones in which the service is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @property
     @pulumi.getter(name="baseEndpointDnsNames")
     def base_endpoint_dns_names(self) -> Sequence[str]:
-        """
-        The DNS names for the service.
-        """
         return pulumi.get(self, "base_endpoint_dns_names")
 
     @property
@@ -121,25 +109,16 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="managesVpcEndpoints")
     def manages_vpc_endpoints(self) -> bool:
-        """
-        Whether or not the service manages its VPC endpoints - `true` or `false`.
-        """
         return pulumi.get(self, "manages_vpc_endpoints")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        AWS account ID of the service owner or `amazon`.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="privateDnsName")
     def private_dns_name(self) -> str:
-        """
-        Private DNS name for the service.
-        """
         return pulumi.get(self, "private_dns_name")
 
     @property
@@ -150,9 +129,6 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> str:
-        """
-        ID of the endpoint service.
-        """
         return pulumi.get(self, "service_id")
 
     @property
@@ -168,25 +144,16 @@ class GetVpcEndpointServiceResult:
     @property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Sequence[str]:
-        """
-        The supported IP address types.
-        """
         return pulumi.get(self, "supported_ip_address_types")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcEndpointPolicySupported")
     def vpc_endpoint_policy_supported(self) -> bool:
-        """
-        Whether or not the service supports endpoint policies - `true` or `false`.
-        """
         return pulumi.get(self, "vpc_endpoint_policy_supported")
 
 
@@ -221,51 +188,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcEndpointServiceResult:
     """
-    The VPC Endpoint Service data source details about a specific service that
-    can be specified when creating a VPC endpoint within the region configured in the provider.
-
-    ## Example Usage
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
-        name="service-name",
-        values=["some-service"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: Common name of an AWS service (e.g., `s3`).
-    :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str service_type: Service type, `Gateway` or `Interface`.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -303,50 +226,6 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
-    The VPC Endpoint Service data source details about a specific service that
-    can be specified when creating a VPC endpoint within the region configured in the provider.
-
-    ## Example Usage
-    ### AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    s3 = aws.ec2.get_vpc_endpoint_service(service="s3",
-        service_type="Gateway")
-    # Create a VPC
-    foo = aws.ec2.Vpc("foo", cidr_block="10.0.0.0/16")
-    # Create a VPC endpoint
-    ep = aws.ec2.VpcEndpoint("ep",
-        vpc_id=foo.id,
-        service_name=s3.service_name)
-    ```
-    ### Non-AWS Service
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    custome = aws.ec2.get_vpc_endpoint_service(service_name="com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
-        name="service-name",
-        values=["some-service"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: Common name of an AWS service (e.g., `s3`).
-    :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
-    :param str service_type: Service type, `Gateway` or `Interface`.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
+    Use this data source to access information about an existing resource.
     """
     ...

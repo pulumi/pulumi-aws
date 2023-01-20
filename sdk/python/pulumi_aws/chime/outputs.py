@@ -37,27 +37,17 @@ class VoiceConnectorGroupConnector(dict):
     def __init__(__self__, *,
                  priority: int,
                  voice_connector_id: str):
-        """
-        :param int priority: The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        :param str voice_connector_id: The Amazon Chime Voice Connector ID.
-        """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> str:
-        """
-        The Amazon Chime Voice Connector ID.
-        """
         return pulumi.get(self, "voice_connector_id")
 
 
@@ -69,13 +59,6 @@ class VoiceConnectorOrganizationRoute(dict):
                  protocol: str,
                  weight: int,
                  port: Optional[int] = None):
-        """
-        :param str host: The FQDN or IP address to contact for origination traffic.
-        :param int priority: The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        :param str protocol: The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        :param int weight: The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        :param int port: The designated origination route port. Defaults to `5060`.
-        """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "protocol", protocol)
@@ -86,41 +69,26 @@ class VoiceConnectorOrganizationRoute(dict):
     @property
     @pulumi.getter
     def host(self) -> str:
-        """
-        The FQDN or IP address to contact for origination traffic.
-        """
         return pulumi.get(self, "host")
 
     @property
     @pulumi.getter
     def priority(self) -> int:
-        """
-        The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        """
         return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter
     def protocol(self) -> str:
-        """
-        The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def weight(self) -> int:
-        """
-        The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        """
         return pulumi.get(self, "weight")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
-        """
-        The designated origination route port. Defaults to `5060`.
-        """
         return pulumi.get(self, "port")
 
 
@@ -129,27 +97,17 @@ class VoiceConnectorTerminationCredentialsCredential(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
-        """
-        :param str password: RFC2617 compliant password associated with the SIP credentials.
-        :param str username: RFC2617 compliant username associated with the SIP credentials.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> str:
-        """
-        RFC2617 compliant password associated with the SIP credentials.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter
     def username(self) -> str:
-        """
-        RFC2617 compliant username associated with the SIP credentials.
-        """
         return pulumi.get(self, "username")
 
 

@@ -23,17 +23,6 @@ class ReplicaKeyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicaKey resource.
-        :param pulumi.Input[str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-               The default value is `false`.
-        :param pulumi.Input[int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        :param pulumi.Input[str] description: A description of the KMS key.
-        :param pulumi.Input[bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        :param pulumi.Input[str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "primary_key_arn", primary_key_arn)
         if bypass_policy_lockout_safety_check is not None:
@@ -52,9 +41,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter(name="primaryKeyArn")
     def primary_key_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        """
         return pulumi.get(self, "primary_key_arn")
 
     @primary_key_arn.setter
@@ -64,12 +50,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        The default value is `false`.
-        """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
@@ -79,10 +59,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
@@ -92,9 +68,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the KMS key.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -104,9 +77,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -116,9 +86,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -128,9 +95,6 @@ class ReplicaKeyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -156,23 +120,6 @@ class _ReplicaKeyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ReplicaKey resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-               The default value is `false`.
-        :param pulumi.Input[int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        :param pulumi.Input[str] description: A description of the KMS key.
-        :param pulumi.Input[bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        :param pulumi.Input[str] key_id: The key ID of the replica key. Related multi-Region keys have the same key ID.
-        :param pulumi.Input[bool] key_rotation_enabled: A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] key_spec: The type of key material in the KMS key. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] key_usage: The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        :param pulumi.Input[str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -204,9 +151,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -216,12 +160,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        The default value is `false`.
-        """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @bypass_policy_lockout_safety_check.setter
@@ -231,10 +169,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @deletion_window_in_days.setter
@@ -244,9 +178,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the KMS key.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -256,9 +187,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -268,9 +196,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key ID of the replica key. Related multi-Region keys have the same key ID.
-        """
         return pulumi.get(self, "key_id")
 
     @key_id.setter
@@ -280,9 +205,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="keyRotationEnabled")
     def key_rotation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_rotation_enabled")
 
     @key_rotation_enabled.setter
@@ -292,9 +214,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of key material in the KMS key. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_spec")
 
     @key_spec.setter
@@ -304,9 +223,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input[str]]:
-        """
-        The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -316,9 +232,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -328,9 +241,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="primaryKeyArn")
     def primary_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        """
         return pulumi.get(self, "primary_key_arn")
 
     @primary_key_arn.setter
@@ -340,9 +250,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -352,9 +259,6 @@ class _ReplicaKeyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -376,47 +280,9 @@ class ReplicaKey(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a KMS multi-Region replica key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_key = aws.kms.Key("primaryKey",
-            description="Multi-Region primary key",
-            deletion_window_in_days=30,
-            multi_region=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        replica = aws.kms.ReplicaKey("replica",
-            description="Multi-Region replica key",
-            deletion_window_in_days=7,
-            primary_key_arn=primary_key.arn)
-        ```
-
-        ## Import
-
-        KMS multi-Region replica keys can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
-
+        Create a ReplicaKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-               The default value is `false`.
-        :param pulumi.Input[int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        :param pulumi.Input[str] description: A description of the KMS key.
-        :param pulumi.Input[bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        :param pulumi.Input[str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        :param pulumi.Input[str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -425,34 +291,7 @@ class ReplicaKey(pulumi.CustomResource):
                  args: ReplicaKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a KMS multi-Region replica key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.Provider("primary", region="us-east-1")
-        primary_key = aws.kms.Key("primaryKey",
-            description="Multi-Region primary key",
-            deletion_window_in_days=30,
-            multi_region=True,
-            opts=pulumi.ResourceOptions(provider=aws["primary"]))
-        replica = aws.kms.ReplicaKey("replica",
-            description="Multi-Region replica key",
-            deletion_window_in_days=7,
-            primary_key_arn=primary_key.arn)
-        ```
-
-        ## Import
-
-        KMS multi-Region replica keys can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-        ```
-
+        Create a ReplicaKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ReplicaKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -529,23 +368,6 @@ class ReplicaKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
-               Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-               The default value is `false`.
-        :param pulumi.Input[int] deletion_window_in_days: The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-               If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        :param pulumi.Input[str] description: A description of the KMS key.
-        :param pulumi.Input[bool] enabled: Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        :param pulumi.Input[str] key_id: The key ID of the replica key. Related multi-Region keys have the same key ID.
-        :param pulumi.Input[bool] key_rotation_enabled: A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] key_spec: The type of key material in the KMS key. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] key_usage: The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-        :param pulumi.Input[str] policy: The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        :param pulumi.Input[str] primary_key_arn: The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -569,108 +391,65 @@ class ReplicaKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
     def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A flag to indicate whether to bypass the key policy lockout safety check.
-        Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
-        The default value is `false`.
-        """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @property
     @pulumi.getter(name="deletionWindowInDays")
     def deletion_window_in_days(self) -> pulumi.Output[Optional[int]]:
-        """
-        The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-        If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
-        """
         return pulumi.get(self, "deletion_window_in_days")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the KMS key.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. The default value is `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Output[str]:
-        """
-        The key ID of the replica key. Related multi-Region keys have the same key ID.
-        """
         return pulumi.get(self, "key_id")
 
     @property
     @pulumi.getter(name="keyRotationEnabled")
     def key_rotation_enabled(self) -> pulumi.Output[bool]:
-        """
-        A Boolean value that specifies whether key rotation is enabled. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_rotation_enabled")
 
     @property
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> pulumi.Output[str]:
-        """
-        The type of key material in the KMS key. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_spec")
 
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[str]:
-        """
-        The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
-        """
         return pulumi.get(self, "key_usage")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
-        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="primaryKeyArn")
     def primary_key_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-        """
         return pulumi.get(self, "primary_key_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the replica key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

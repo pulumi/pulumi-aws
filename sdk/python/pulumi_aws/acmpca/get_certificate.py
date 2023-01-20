@@ -46,9 +46,6 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def certificate(self) -> str:
-        """
-        PEM-encoded certificate value.
-        """
         return pulumi.get(self, "certificate")
 
     @property
@@ -59,9 +56,6 @@ class GetCertificateResult:
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
-        """
-        PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @property
@@ -90,21 +84,7 @@ def get_certificate(arn: Optional[str] = None,
                     certificate_authority_arn: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        certificate_authority_arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param str arn: ARN of the certificate issued by the private certificate authority.
-    :param str certificate_authority_arn: ARN of the certificate authority.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -125,20 +105,6 @@ def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
                            certificate_authority_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.acmpca.get_certificate(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
-        certificate_authority_arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
-    ```
-
-
-    :param str arn: ARN of the certificate issued by the private certificate authority.
-    :param str certificate_authority_arn: ARN of the certificate authority.
+    Use this data source to access information about an existing resource.
     """
     ...

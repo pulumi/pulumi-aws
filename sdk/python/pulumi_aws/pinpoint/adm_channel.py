@@ -20,10 +20,6 @@ class AdmChannelArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a AdmChannel resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "client_id", client_id)
@@ -34,9 +30,6 @@ class AdmChannelArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -46,9 +39,6 @@ class AdmChannelArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
-        """
-        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -58,9 +48,6 @@ class AdmChannelArgs:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
-        """
-        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -70,9 +57,6 @@ class AdmChannelArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -89,10 +73,6 @@ class _AdmChannelState:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering AdmChannel resources.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -106,9 +86,6 @@ class _AdmChannelState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -118,9 +95,6 @@ class _AdmChannelState:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -130,9 +104,6 @@ class _AdmChannelState:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
-        """
-        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -142,9 +113,6 @@ class _AdmChannelState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -163,36 +131,9 @@ class AdmChannel(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.AdmChannel("channel",
-            application_id=app.application_id,
-            client_id="",
-            client_secret="",
-            enabled=True)
-        ```
-
-        ## Import
-
-        Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-        ```
-
+        Create a AdmChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
         ...
     @overload
@@ -201,30 +142,7 @@ class AdmChannel(pulumi.CustomResource):
                  args: AdmChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.AdmChannel("channel",
-            application_id=app.application_id,
-            client_id="",
-            client_secret="",
-            enabled=True)
-        ```
-
-        ## Import
-
-        Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-        ```
-
+        Create a AdmChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AdmChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -286,10 +204,6 @@ class AdmChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -304,32 +218,20 @@ class AdmChannel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
-        """
-        Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[str]:
-        """
-        Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        """
         return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 

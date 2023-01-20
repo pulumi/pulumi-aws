@@ -57,9 +57,6 @@ class GetTableItemResult:
     @property
     @pulumi.getter
     def item(self) -> str:
-        """
-        A map of attribute names to [AttributeValue](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_AttributeValue.html) objects, as specified by ProjectionExpression.
-        """
         return pulumi.get(self, "item")
 
     @property
@@ -98,32 +95,7 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, str]] = Non
                    table_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableItemResult:
     """
-    Data source for retrieving a value from an AWS DynamoDB table.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
-        expression_attribute_names={
-            "#P": "Percentile",
-        },
-        projection_expression="#P",
-        key=\"\"\"{
-    	"hashKey": {"S": "example"}
-    }
-    \"\"\")
-    ```
-
-
-    :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-           For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-    :param str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-           If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-    :param str table_name: The name of the table containing the requested item.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['expressionAttributeNames'] = expression_attribute_names
@@ -149,31 +121,6 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
                           table_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableItemResult]:
     """
-    Data source for retrieving a value from an AWS DynamoDB table.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.dynamodb.get_table_item(table_name=aws_dynamodb_table["example"]["name"],
-        expression_attribute_names={
-            "#P": "Percentile",
-        },
-        projection_expression="#P",
-        key=\"\"\"{
-    	"hashKey": {"S": "example"}
-    }
-    \"\"\")
-    ```
-
-
-    :param str key: A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-           For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-    :param str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-           If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
-    :param str table_name: The name of the table containing the requested item.
+    Use this data source to access information about an existing resource.
     """
     ...

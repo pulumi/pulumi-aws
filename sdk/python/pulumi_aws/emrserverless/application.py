@@ -28,16 +28,6 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] release_label: The EMR release version associated with the application.
-        :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
-        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
-        :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
-        :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "release_label", release_label)
         pulumi.set(__self__, "type", type)
@@ -61,9 +51,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> pulumi.Input[str]:
-        """
-        The EMR release version associated with the application.
-        """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
@@ -73,9 +60,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The type of application you want to start, such as `spark` or `hive`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -85,9 +69,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -97,9 +78,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="autoStartConfiguration")
     def auto_start_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]:
-        """
-        The configuration for an application to automatically start on job submission.
-        """
         return pulumi.get(self, "auto_start_configuration")
 
     @auto_start_configuration.setter
@@ -109,9 +87,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="autoStopConfiguration")
     def auto_stop_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]:
-        """
-        The configuration for an application to automatically stop after a certain amount of time being idle.
-        """
         return pulumi.get(self, "auto_stop_configuration")
 
     @auto_stop_configuration.setter
@@ -121,9 +96,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="initialCapacities")
     def initial_capacities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
-        """
-        The capacity to initialize when the application is created.
-        """
         return pulumi.get(self, "initial_capacities")
 
     @initial_capacities.setter
@@ -133,9 +105,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
-        """
-        The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        """
         return pulumi.get(self, "maximum_capacity")
 
     @maximum_capacity.setter
@@ -145,9 +114,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -157,9 +123,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]:
-        """
-        The network configuration for customer VPC connectivity.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -169,9 +132,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -196,18 +156,6 @@ class _ApplicationState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        :param pulumi.Input[str] arn: ARN of the cluster.
-        :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: The configuration for an application to automatically start on job submission.
-        :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]] initial_capacities: The capacity to initialize when the application is created.
-        :param pulumi.Input['ApplicationMaximumCapacityArgs'] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: The network configuration for customer VPC connectivity.
-        :param pulumi.Input[str] release_label: The EMR release version associated with the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
         """
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
@@ -237,9 +185,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -249,9 +194,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -261,9 +203,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="autoStartConfiguration")
     def auto_start_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStartConfigurationArgs']]:
-        """
-        The configuration for an application to automatically start on job submission.
-        """
         return pulumi.get(self, "auto_start_configuration")
 
     @auto_start_configuration.setter
@@ -273,9 +212,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="autoStopConfiguration")
     def auto_stop_configuration(self) -> Optional[pulumi.Input['ApplicationAutoStopConfigurationArgs']]:
-        """
-        The configuration for an application to automatically stop after a certain amount of time being idle.
-        """
         return pulumi.get(self, "auto_stop_configuration")
 
     @auto_stop_configuration.setter
@@ -285,9 +221,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="initialCapacities")
     def initial_capacities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityArgs']]]]:
-        """
-        The capacity to initialize when the application is created.
-        """
         return pulumi.get(self, "initial_capacities")
 
     @initial_capacities.setter
@@ -297,9 +230,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> Optional[pulumi.Input['ApplicationMaximumCapacityArgs']]:
-        """
-        The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        """
         return pulumi.get(self, "maximum_capacity")
 
     @maximum_capacity.setter
@@ -309,9 +239,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -321,9 +248,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]:
-        """
-        The network configuration for customer VPC connectivity.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -333,9 +257,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> Optional[pulumi.Input[str]]:
-        """
-        The EMR release version associated with the application.
-        """
         return pulumi.get(self, "release_label")
 
     @release_label.setter
@@ -345,9 +266,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -357,9 +275,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -369,9 +284,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of application you want to start, such as `spark` or `hive`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -396,74 +308,9 @@ class Application(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an EMR Serverless Application.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Initial Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Maximum Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-
-        ## Import
-
-        EMR Severless applications can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import aws:emrserverless/application:Application example id
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]] initial_capacities: The capacity to initialize when the application is created.
-        :param pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: The network configuration for customer VPC connectivity.
-        :param pulumi.Input[str] release_label: The EMR release version associated with the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
         """
         ...
     @overload
@@ -472,62 +319,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EMR Serverless Application.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Initial Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            initial_capacities=[aws.emrserverless.ApplicationInitialCapacityArgs(
-                initial_capacity_config=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigArgs(
-                    worker_configuration=aws.emrserverless.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs(
-                        cpu="2 vCPU",
-                        memory="10 GB",
-                    ),
-                    worker_count=1,
-                ),
-                initial_capacity_type="HiveDriver",
-            )],
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-        ### Maximum Capacity Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.emrserverless.Application("example",
-            maximum_capacity=aws.emrserverless.ApplicationMaximumCapacityArgs(
-                cpu="2 vCPU",
-                memory="10 GB",
-            ),
-            release_label="emr-6.6.0",
-            type="hive")
-        ```
-
-        ## Import
-
-        EMR Severless applications can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import aws:emrserverless/application:Application example id
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -607,18 +399,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        :param pulumi.Input[str] arn: ARN of the cluster.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: The configuration for an application to automatically start on job submission.
-        :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: The configuration for an application to automatically stop after a certain amount of time being idle.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityArgs']]]] initial_capacities: The capacity to initialize when the application is created.
-        :param pulumi.Input[pulumi.InputType['ApplicationMaximumCapacityArgs']] maximum_capacity: The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: The network configuration for customer VPC connectivity.
-        :param pulumi.Input[str] release_label: The EMR release version associated with the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of application you want to start, such as `spark` or `hive`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -641,96 +421,60 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[Optional[str]]:
-        """
-        The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the cluster.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoStartConfiguration")
     def auto_start_configuration(self) -> pulumi.Output['outputs.ApplicationAutoStartConfiguration']:
-        """
-        The configuration for an application to automatically start on job submission.
-        """
         return pulumi.get(self, "auto_start_configuration")
 
     @property
     @pulumi.getter(name="autoStopConfiguration")
     def auto_stop_configuration(self) -> pulumi.Output['outputs.ApplicationAutoStopConfiguration']:
-        """
-        The configuration for an application to automatically stop after a certain amount of time being idle.
-        """
         return pulumi.get(self, "auto_stop_configuration")
 
     @property
     @pulumi.getter(name="initialCapacities")
     def initial_capacities(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationInitialCapacity']]]:
-        """
-        The capacity to initialize when the application is created.
-        """
         return pulumi.get(self, "initial_capacities")
 
     @property
     @pulumi.getter(name="maximumCapacity")
     def maximum_capacity(self) -> pulumi.Output['outputs.ApplicationMaximumCapacity']:
-        """
-        The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-        """
         return pulumi.get(self, "maximum_capacity")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationNetworkConfiguration']]:
-        """
-        The network configuration for customer VPC connectivity.
-        """
         return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> pulumi.Output[str]:
-        """
-        The EMR release version associated with the application.
-        """
         return pulumi.get(self, "release_label")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of application you want to start, such as `spark` or `hive`.
-        """
         return pulumi.get(self, "type")
 

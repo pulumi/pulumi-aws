@@ -21,11 +21,6 @@ class HostedConfigurationVersionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
-        :param pulumi.Input[str] application_id: Application ID.
-        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[str] description: Description of the configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -37,9 +32,6 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -49,9 +41,6 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Input[str]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -61,9 +50,6 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -73,9 +59,6 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -85,9 +68,6 @@ class HostedConfigurationVersionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -107,13 +87,6 @@ class _HostedConfigurationVersionState:
                  version_number: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering HostedConfigurationVersion resources.
-        :param pulumi.Input[str] application_id: Application ID.
-        :param pulumi.Input[str] arn: ARN of the AppConfig  hosted configuration version.
-        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[str] description: Description of the configuration.
-        :param pulumi.Input[int] version_number: Version number of the hosted configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -133,9 +106,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -145,9 +115,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the AppConfig  hosted configuration version.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -157,9 +124,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @configuration_profile_id.setter
@@ -169,9 +133,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -181,9 +142,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -193,9 +151,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -205,9 +160,6 @@ class _HostedConfigurationVersionState:
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[int]]:
-        """
-        Version number of the hosted configuration.
-        """
         return pulumi.get(self, "version_number")
 
     @version_number.setter
@@ -227,98 +179,9 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Hosted Configuration Version resource.
-
-        ## Example Usage
-        ### Freeform
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
-                ],
-                "isThingEnabled": True,
-            }))
-        ```
-        ### Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
-                        },
-                    },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
-                                },
-                            },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
-                                },
-                            },
-                        },
-                    },
-                },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
-                    },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ## Import
-
-        AppConfig Hosted Configuration Versions can be imported by using the application ID, configuration profile ID, and version number separated by a slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-        ```
-
+        Create a HostedConfigurationVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: Application ID.
-        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[str] description: Description of the configuration.
         """
         ...
     @overload
@@ -327,91 +190,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  args: HostedConfigurationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Hosted Configuration Version resource.
-
-        ## Example Usage
-        ### Freeform
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "foo": "bar",
-                "fruit": [
-                    "apple",
-                    "pear",
-                    "orange",
-                ],
-                "isThingEnabled": True,
-            }))
-        ```
-        ### Feature Flags
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.appconfig.HostedConfigurationVersion("example",
-            application_id=aws_appconfig_application["example"]["id"],
-            configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Feature Flag Configuration Version",
-            content_type="application/json",
-            content=json.dumps({
-                "flags": {
-                    "foo": {
-                        "name": "foo",
-                        "_deprecation": {
-                            "status": "planned",
-                        },
-                    },
-                    "bar": {
-                        "name": "bar",
-                        "attributes": {
-                            "someAttribute": {
-                                "constraints": {
-                                    "type": "string",
-                                    "required": True,
-                                },
-                            },
-                            "someOtherAttribute": {
-                                "constraints": {
-                                    "type": "number",
-                                    "required": True,
-                                },
-                            },
-                        },
-                    },
-                },
-                "values": {
-                    "foo": {
-                        "enabled": "true",
-                    },
-                    "bar": {
-                        "enabled": "true",
-                        "someAttribute": "Hello World",
-                        "someOtherAttribute": 123,
-                    },
-                },
-                "version": "1",
-            }))
-        ```
-
-        ## Import
-
-        AppConfig Hosted Configuration Versions can be imported by using the application ID, configuration profile ID, and version number separated by a slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-        ```
-
+        Create a HostedConfigurationVersion resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostedConfigurationVersionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -482,13 +261,6 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: Application ID.
-        :param pulumi.Input[str] arn: ARN of the AppConfig  hosted configuration version.
-        :param pulumi.Input[str] configuration_profile_id: Configuration profile ID.
-        :param pulumi.Input[str] content: Content of the configuration or the configuration data.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        :param pulumi.Input[str] description: Description of the configuration.
-        :param pulumi.Input[int] version_number: Version number of the hosted configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,56 +278,35 @@ class HostedConfigurationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        Application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the AppConfig  hosted configuration version.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configurationProfileId")
     def configuration_profile_id(self) -> pulumi.Output[str]:
-        """
-        Configuration profile ID.
-        """
         return pulumi.get(self, "configuration_profile_id")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output[str]:
-        """
-        Content of the configuration or the configuration data.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
-        """
-        Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the configuration.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[int]:
-        """
-        Version number of the hosted configuration.
-        """
         return pulumi.get(self, "version_number")
 

@@ -19,9 +19,6 @@ class VoiceConnectorArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VoiceConnector resource.
-        :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
-        :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
         """
         pulumi.set(__self__, "require_encryption", require_encryption)
         if aws_region is not None:
@@ -32,9 +29,6 @@ class VoiceConnectorArgs:
     @property
     @pulumi.getter(name="requireEncryption")
     def require_encryption(self) -> pulumi.Input[bool]:
-        """
-        When enabled, requires encryption for the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "require_encryption")
 
     @require_encryption.setter
@@ -44,9 +38,6 @@ class VoiceConnectorArgs:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -56,9 +47,6 @@ class VoiceConnectorArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -75,10 +63,6 @@ class _VoiceConnectorState:
                  require_encryption: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering VoiceConnector resources.
-        :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
-        :param pulumi.Input[str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
-        :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
         """
         if aws_region is not None:
             pulumi.set(__self__, "aws_region", aws_region)
@@ -92,9 +76,6 @@ class _VoiceConnectorState:
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        """
         return pulumi.get(self, "aws_region")
 
     @aws_region.setter
@@ -104,9 +85,6 @@ class _VoiceConnectorState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -116,9 +94,6 @@ class _VoiceConnectorState:
     @property
     @pulumi.getter(name="outboundHostName")
     def outbound_host_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The outbound host name for the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "outbound_host_name")
 
     @outbound_host_name.setter
@@ -128,9 +103,6 @@ class _VoiceConnectorState:
     @property
     @pulumi.getter(name="requireEncryption")
     def require_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When enabled, requires encryption for the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "require_encryption")
 
     @require_encryption.setter
@@ -148,32 +120,9 @@ class VoiceConnector(pulumi.CustomResource):
                  require_encryption: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
-        ```
-
-        ## Import
-
-        Configuration Recorder can be imported using the name, e.g.,
-
-        ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-        ```
-
+        Create a VoiceConnector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
-        :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
         """
         ...
     @overload
@@ -182,27 +131,7 @@ class VoiceConnector(pulumi.CustomResource):
                  args: VoiceConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.chime.VoiceConnector("test",
-            aws_region="us-east-1",
-            require_encryption=True)
-        ```
-
-        ## Import
-
-        Configuration Recorder can be imported using the name, e.g.,
-
-        ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-        ```
-
+        Create a VoiceConnector resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VoiceConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -257,10 +186,6 @@ class VoiceConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        :param pulumi.Input[str] name: The name of the Amazon Chime Voice Connector.
-        :param pulumi.Input[str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
-        :param pulumi.Input[bool] require_encryption: When enabled, requires encryption for the Amazon Chime Voice Connector.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -275,32 +200,20 @@ class VoiceConnector(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsRegion")
     def aws_region(self) -> pulumi.Output[Optional[str]]:
-        """
-        The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-        """
         return pulumi.get(self, "aws_region")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outboundHostName")
     def outbound_host_name(self) -> pulumi.Output[str]:
-        """
-        The outbound host name for the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "outbound_host_name")
 
     @property
     @pulumi.getter(name="requireEncryption")
     def require_encryption(self) -> pulumi.Output[bool]:
-        """
-        When enabled, requires encryption for the Amazon Chime Voice Connector.
-        """
         return pulumi.get(self, "require_encryption")
 

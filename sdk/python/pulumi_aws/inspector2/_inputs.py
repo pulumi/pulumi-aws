@@ -18,19 +18,12 @@ class OrganizationConfigurationAutoEnableArgs:
     def __init__(__self__, *,
                  ec2: pulumi.Input[bool],
                  ecr: pulumi.Input[bool]):
-        """
-        :param pulumi.Input[bool] ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        :param pulumi.Input[bool] ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
 
     @property
     @pulumi.getter
     def ec2(self) -> pulumi.Input[bool]:
-        """
-        Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "ec2")
 
     @ec2.setter
@@ -40,9 +33,6 @@ class OrganizationConfigurationAutoEnableArgs:
     @property
     @pulumi.getter
     def ecr(self) -> pulumi.Input[bool]:
-        """
-        Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-        """
         return pulumi.get(self, "ecr")
 
     @ecr.setter

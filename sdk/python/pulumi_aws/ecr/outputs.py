@@ -47,27 +47,17 @@ class RegistryScanningConfigurationRule(dict):
     def __init__(__self__, *,
                  repository_filters: Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter'],
                  scan_frequency: str):
-        """
-        :param Sequence['RegistryScanningConfigurationRuleRepositoryFilterArgs'] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
-        :param str scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        """
         pulumi.set(__self__, "repository_filters", repository_filters)
         pulumi.set(__self__, "scan_frequency", scan_frequency)
 
     @property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter']:
-        """
-        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
-        """
         return pulumi.get(self, "repository_filters")
 
     @property
     @pulumi.getter(name="scanFrequency")
     def scan_frequency(self) -> str:
-        """
-        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
-        """
         return pulumi.get(self, "scan_frequency")
 
 
@@ -111,17 +101,11 @@ class RegistryScanningConfigurationRuleRepositoryFilter(dict):
 class ReplicationConfigurationReplicationConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']):
-        """
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleArgs'] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        """
         pulumi.set(__self__, "rules", rules)
 
     @property
     @pulumi.getter
     def rules(self) -> Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']:
-        """
-        The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-        """
         return pulumi.get(self, "rules")
 
 
@@ -147,10 +131,6 @@ class ReplicationConfigurationReplicationConfigurationRule(dict):
     def __init__(__self__, *,
                  destinations: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination'],
                  repository_filters: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']] = None):
-        """
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs'] repository_filters: filters for a replication rule. See Repository Filter.
-        """
         pulumi.set(__self__, "destinations", destinations)
         if repository_filters is not None:
             pulumi.set(__self__, "repository_filters", repository_filters)
@@ -158,17 +138,11 @@ class ReplicationConfigurationReplicationConfigurationRule(dict):
     @property
     @pulumi.getter
     def destinations(self) -> Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination']:
-        """
-        the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        """
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter(name="repositoryFilters")
     def repository_filters(self) -> Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']]:
-        """
-        filters for a replication rule. See Repository Filter.
-        """
         return pulumi.get(self, "repository_filters")
 
 
@@ -194,27 +168,17 @@ class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
     def __init__(__self__, *,
                  region: str,
                  registry_id: str):
-        """
-        :param str region: A Region to replicate to.
-        :param str registry_id: The account ID of the destination registry to replicate to.
-        """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "registry_id", registry_id)
 
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        A Region to replicate to.
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> str:
-        """
-        The account ID of the destination registry to replicate to.
-        """
         return pulumi.get(self, "registry_id")
 
 
@@ -240,27 +204,17 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict)
     def __init__(__self__, *,
                  filter: str,
                  filter_type: str):
-        """
-        :param str filter: The repository filter details.
-        :param str filter_type: The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "filter_type", filter_type)
 
     @property
     @pulumi.getter
     def filter(self) -> str:
-        """
-        The repository filter details.
-        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter(name="filterType")
     def filter_type(self) -> str:
-        """
-        The repository filter type. The only supported value is `PREFIX_MATCH`, which is a repository name prefix specified with the filter parameter.
-        """
         return pulumi.get(self, "filter_type")
 
 
@@ -288,10 +242,6 @@ class RepositoryEncryptionConfiguration(dict):
     def __init__(__self__, *,
                  encryption_type: Optional[str] = None,
                  kms_key: Optional[str] = None):
-        """
-        :param str encryption_type: The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        :param str kms_key: The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -300,17 +250,11 @@ class RepositoryEncryptionConfiguration(dict):
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> Optional[str]:
-        """
-        The encryption type to use for the repository. Valid values are `AES256` or `KMS`. Defaults to `AES256`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[str]:
-        """
-        The ARN of the KMS key to use when `encryption_type` is `KMS`. If not specified, uses the default AWS managed key for ECR.
-        """
         return pulumi.get(self, "kms_key")
 
 
@@ -335,17 +279,11 @@ class RepositoryImageScanningConfiguration(dict):
 
     def __init__(__self__, *,
                  scan_on_push: bool):
-        """
-        :param bool scan_on_push: Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        """
         pulumi.set(__self__, "scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> bool:
-        """
-        Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).
-        """
         return pulumi.get(self, "scan_on_push")
 
 
@@ -354,27 +292,17 @@ class GetRepositoryEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  encryption_type: str,
                  kms_key: str):
-        """
-        :param str encryption_type: Encryption type to use for the repository, either `AES256` or `KMS`.
-        :param str kms_key: If `encryption_type` is `KMS`, the ARN of the KMS key used.
-        """
         pulumi.set(__self__, "encryption_type", encryption_type)
         pulumi.set(__self__, "kms_key", kms_key)
 
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> str:
-        """
-        Encryption type to use for the repository, either `AES256` or `KMS`.
-        """
         return pulumi.get(self, "encryption_type")
 
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> str:
-        """
-        If `encryption_type` is `KMS`, the ARN of the KMS key used.
-        """
         return pulumi.get(self, "kms_key")
 
 
@@ -382,17 +310,11 @@ class GetRepositoryEncryptionConfigurationResult(dict):
 class GetRepositoryImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
                  scan_on_push: bool):
-        """
-        :param bool scan_on_push: Whether images are scanned after being pushed to the repository.
-        """
         pulumi.set(__self__, "scan_on_push", scan_on_push)
 
     @property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> bool:
-        """
-        Whether images are scanned after being pushed to the repository.
-        """
         return pulumi.get(self, "scan_on_push")
 
 

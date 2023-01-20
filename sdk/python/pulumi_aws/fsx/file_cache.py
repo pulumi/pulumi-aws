@@ -28,17 +28,6 @@ class FileCacheArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FileCache resource.
-        :param pulumi.Input[str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
-        :param pulumi.Input[str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
-        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        :param pulumi.Input[bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]] data_repository_associations: See the `data_repository_association` configuration block. Max of 8.
-               A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        :param pulumi.Input[str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "file_cache_type", file_cache_type)
         pulumi.set(__self__, "file_cache_type_version", file_cache_type_version)
@@ -60,9 +49,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="fileCacheType")
     def file_cache_type(self) -> pulumi.Input[str]:
-        """
-        The type of cache that you're creating. The only supported value is `LUSTRE`.
-        """
         return pulumi.get(self, "file_cache_type")
 
     @file_cache_type.setter
@@ -72,9 +58,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="fileCacheTypeVersion")
     def file_cache_type_version(self) -> pulumi.Input[str]:
-        """
-        The version for the type of cache that you're creating. The only supported value is `2.12`.
-        """
         return pulumi.get(self, "file_cache_type_version")
 
     @file_cache_type_version.setter
@@ -84,9 +67,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Input[int]:
-        """
-        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
@@ -96,9 +76,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -108,9 +85,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="copyTagsToDataRepositoryAssociations")
     def copy_tags_to_data_repository_associations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        """
         return pulumi.get(self, "copy_tags_to_data_repository_associations")
 
     @copy_tags_to_data_repository_associations.setter
@@ -120,10 +94,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="dataRepositoryAssociations")
     def data_repository_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
-        """
-        See the `data_repository_association` configuration block. Max of 8.
-        A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        """
         return pulumi.get(self, "data_repository_associations")
 
     @data_repository_associations.setter
@@ -133,9 +103,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -145,9 +112,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="lustreConfigurations")
     def lustre_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
-        """
-        See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        """
         return pulumi.get(self, "lustre_configurations")
 
     @lustre_configurations.setter
@@ -157,9 +121,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -169,9 +130,6 @@ class FileCacheArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -202,23 +160,6 @@ class _FileCacheState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FileCache resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the resource.
-        :param pulumi.Input[bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_repository_association_ids: A list of IDs of data repository associations that are associated with this cache.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]] data_repository_associations: See the `data_repository_association` configuration block. Max of 8.
-               A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        :param pulumi.Input[str] dns_name: The Domain Name System (DNS) name for the cache.
-        :param pulumi.Input[str] file_cache_id: The system-generated, unique ID of the cache.
-        :param pulumi.Input[str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
-        :param pulumi.Input[str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
-        :param pulumi.Input[str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of network interface IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -260,9 +201,6 @@ class _FileCacheState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) for the resource.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -272,9 +210,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="copyTagsToDataRepositoryAssociations")
     def copy_tags_to_data_repository_associations(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        """
         return pulumi.get(self, "copy_tags_to_data_repository_associations")
 
     @copy_tags_to_data_repository_associations.setter
@@ -284,9 +219,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="dataRepositoryAssociationIds")
     def data_repository_association_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IDs of data repository associations that are associated with this cache.
-        """
         return pulumi.get(self, "data_repository_association_ids")
 
     @data_repository_association_ids.setter
@@ -296,10 +228,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="dataRepositoryAssociations")
     def data_repository_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationArgs']]]]:
-        """
-        See the `data_repository_association` configuration block. Max of 8.
-        A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        """
         return pulumi.get(self, "data_repository_associations")
 
     @data_repository_associations.setter
@@ -309,9 +237,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Domain Name System (DNS) name for the cache.
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -321,9 +246,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="fileCacheId")
     def file_cache_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The system-generated, unique ID of the cache.
-        """
         return pulumi.get(self, "file_cache_id")
 
     @file_cache_id.setter
@@ -333,9 +255,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="fileCacheType")
     def file_cache_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of cache that you're creating. The only supported value is `LUSTRE`.
-        """
         return pulumi.get(self, "file_cache_type")
 
     @file_cache_type.setter
@@ -345,9 +264,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="fileCacheTypeVersion")
     def file_cache_type_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version for the type of cache that you're creating. The only supported value is `2.12`.
-        """
         return pulumi.get(self, "file_cache_type_version")
 
     @file_cache_type_version.setter
@@ -357,9 +273,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -369,9 +282,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="lustreConfigurations")
     def lustre_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationArgs']]]]:
-        """
-        See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        """
         return pulumi.get(self, "lustre_configurations")
 
     @lustre_configurations.setter
@@ -381,9 +291,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of network interface IDs.
-        """
         return pulumi.get(self, "network_interface_ids")
 
     @network_interface_ids.setter
@@ -402,9 +309,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -414,9 +318,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        """
         return pulumi.get(self, "storage_capacity")
 
     @storage_capacity.setter
@@ -426,9 +327,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -438,9 +336,6 @@ class _FileCacheState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -459,9 +354,6 @@ class _FileCacheState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of your virtual private cloud (VPC).
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -486,65 +378,9 @@ class FileCache(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an Amazon File Cache cache.
-        See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fsx.FileCache("example",
-            data_repository_associations=[aws.fsx.FileCacheDataRepositoryAssociationArgs(
-                data_repository_path="nfs://filer.domain.com",
-                data_repository_subdirectories=[
-                    "test",
-                    "test2",
-                ],
-                file_cache_path="/ns1",
-                nfs=[aws.fsx.FileCacheDataRepositoryAssociationNfArgs(
-                    dns_ips=[
-                        "192.168.0.1",
-                        "192.168.0.2",
-                    ],
-                    version="NFS3",
-                )],
-            )],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
-            lustre_configurations=[aws.fsx.FileCacheLustreConfigurationArgs(
-                deployment_type="CACHE_1",
-                metadata_configurations=[aws.fsx.FileCacheLustreConfigurationMetadataConfigurationArgs(
-                    storage_capacity=2400,
-                )],
-                per_unit_storage_throughput=1000,
-                weekly_maintenance_start_time="2:05:00",
-            )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
-            storage_capacity=1200)
-        ```
-
-        ## Import
-
-        Amazon File Cache cache can be imported using the resource `id`.
-
-        ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-        ```
-
+        Create a FileCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileCacheDataRepositoryAssociationArgs']]]] data_repository_associations: See the `data_repository_association` configuration block. Max of 8.
-               A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        :param pulumi.Input[str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
-        :param pulumi.Input[str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
-        :param pulumi.Input[str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileCacheLustreConfigurationArgs']]]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -553,52 +389,7 @@ class FileCache(pulumi.CustomResource):
                  args: FileCacheArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an Amazon File Cache cache.
-        See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.fsx.FileCache("example",
-            data_repository_associations=[aws.fsx.FileCacheDataRepositoryAssociationArgs(
-                data_repository_path="nfs://filer.domain.com",
-                data_repository_subdirectories=[
-                    "test",
-                    "test2",
-                ],
-                file_cache_path="/ns1",
-                nfs=[aws.fsx.FileCacheDataRepositoryAssociationNfArgs(
-                    dns_ips=[
-                        "192.168.0.1",
-                        "192.168.0.2",
-                    ],
-                    version="NFS3",
-                )],
-            )],
-            file_cache_type="LUSTRE",
-            file_cache_type_version="2.12",
-            lustre_configurations=[aws.fsx.FileCacheLustreConfigurationArgs(
-                deployment_type="CACHE_1",
-                metadata_configurations=[aws.fsx.FileCacheLustreConfigurationMetadataConfigurationArgs(
-                    storage_capacity=2400,
-                )],
-                per_unit_storage_throughput=1000,
-                weekly_maintenance_start_time="2:05:00",
-            )],
-            subnet_ids=[aws_subnet["test1"]["id"]],
-            storage_capacity=1200)
-        ```
-
-        ## Import
-
-        Amazon File Cache cache can be imported using the resource `id`.
-
-        ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-        ```
-
+        Create a FileCache resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FileCacheArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -694,23 +485,6 @@ class FileCache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) for the resource.
-        :param pulumi.Input[bool] copy_tags_to_data_repository_associations: A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_repository_association_ids: A list of IDs of data repository associations that are associated with this cache.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileCacheDataRepositoryAssociationArgs']]]] data_repository_associations: See the `data_repository_association` configuration block. Max of 8.
-               A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        :param pulumi.Input[str] dns_name: The Domain Name System (DNS) name for the cache.
-        :param pulumi.Input[str] file_cache_id: The system-generated, unique ID of the cache.
-        :param pulumi.Input[str] file_cache_type: The type of cache that you're creating. The only supported value is `LUSTRE`.
-        :param pulumi.Input[str] file_cache_type_version: The version for the type of cache that you're creating. The only supported value is `2.12`.
-        :param pulumi.Input[str] kms_key_id: Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileCacheLustreConfigurationArgs']]]] lustre_configurations: See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of network interface IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        :param pulumi.Input[int] storage_capacity: The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] vpc_id: The ID of your virtual private cloud (VPC).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -739,90 +513,56 @@ class FileCache(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) for the resource.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="copyTagsToDataRepositoryAssociations")
     def copy_tags_to_data_repository_associations(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
-        """
         return pulumi.get(self, "copy_tags_to_data_repository_associations")
 
     @property
     @pulumi.getter(name="dataRepositoryAssociationIds")
     def data_repository_association_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of IDs of data repository associations that are associated with this cache.
-        """
         return pulumi.get(self, "data_repository_association_ids")
 
     @property
     @pulumi.getter(name="dataRepositoryAssociations")
     def data_repository_associations(self) -> pulumi.Output[Optional[Sequence['outputs.FileCacheDataRepositoryAssociation']]]:
-        """
-        See the `data_repository_association` configuration block. Max of 8.
-        A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
-        """
         return pulumi.get(self, "data_repository_associations")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
-        """
-        The Domain Name System (DNS) name for the cache.
-        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="fileCacheId")
     def file_cache_id(self) -> pulumi.Output[str]:
-        """
-        The system-generated, unique ID of the cache.
-        """
         return pulumi.get(self, "file_cache_id")
 
     @property
     @pulumi.getter(name="fileCacheType")
     def file_cache_type(self) -> pulumi.Output[str]:
-        """
-        The type of cache that you're creating. The only supported value is `LUSTRE`.
-        """
         return pulumi.get(self, "file_cache_type")
 
     @property
     @pulumi.getter(name="fileCacheTypeVersion")
     def file_cache_type_version(self) -> pulumi.Output[str]:
-        """
-        The version for the type of cache that you're creating. The only supported value is `2.12`.
-        """
         return pulumi.get(self, "file_cache_type_version")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[str]:
-        """
-        Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="lustreConfigurations")
     def lustre_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.FileCacheLustreConfiguration']]]:
-        """
-        See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
-        """
         return pulumi.get(self, "lustre_configurations")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of network interface IDs.
-        """
         return pulumi.get(self, "network_interface_ids")
 
     @property
@@ -833,33 +573,21 @@ class FileCache(pulumi.CustomResource):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[int]:
-        """
-        The storage capacity of the Lustre MDT (Metadata Target) storage volume in gibibytes (GiB). The only supported value is `2400` GiB.
-        """
         return pulumi.get(self, "storage_capacity")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -870,8 +598,5 @@ class FileCache(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
-        """
-        The ID of your virtual private cloud (VPC).
-        """
         return pulumi.get(self, "vpc_id")
 

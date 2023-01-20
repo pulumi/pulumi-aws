@@ -41,9 +41,6 @@ class GetRolesResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        Set of ARNs of the matched IAM roles.
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -62,9 +59,6 @@ class GetRolesResult:
     @property
     @pulumi.getter
     def names(self) -> Sequence[str]:
-        """
-        Set of Names of the matched IAM roles.
-        """
         return pulumi.get(self, "names")
 
     @property
@@ -90,59 +84,7 @@ def get_roles(name_regex: Optional[str] = None,
               path_prefix: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRolesResult:
     """
-    Use this data source to get the ARNs and Names of IAM Roles.
-
-    ## Example Usage
-    ### All roles in an account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles()
-    ```
-    ### Roles filtered by name regex
-
-    Roles whose role-name contains `project`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(name_regex=".*project.*")
-    ```
-    ### Roles filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(path_prefix="/custom-path")
-    ```
-    ### Roles provisioned by AWS SSO
-
-    Roles in the account filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
-    ```
-
-    Specific role in the account filtered by name regex and path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
-        path_prefix="/aws-reserved/sso.amazonaws.com/")
-    ```
-
-
-    :param str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex
@@ -163,58 +105,6 @@ def get_roles_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                      path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolesResult]:
     """
-    Use this data source to get the ARNs and Names of IAM Roles.
-
-    ## Example Usage
-    ### All roles in an account
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles()
-    ```
-    ### Roles filtered by name regex
-
-    Roles whose role-name contains `project`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(name_regex=".*project.*")
-    ```
-    ### Roles filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(path_prefix="/custom-path")
-    ```
-    ### Roles provisioned by AWS SSO
-
-    Roles in the account filtered by path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(path_prefix="/aws-reserved/sso.amazonaws.com/")
-    ```
-
-    Specific role in the account filtered by name regex and path prefix
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    roles = aws.iam.get_roles(name_regex="AWSReservedSSO_permission_set_name_.*",
-        path_prefix="/aws-reserved/sso.amazonaws.com/")
-    ```
-
-
-    :param str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+    Use this data source to access information about an existing resource.
     """
     ...

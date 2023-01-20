@@ -61,25 +61,16 @@ class GetGroupResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the specified group.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
-        """
-        Group's display name value.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetGroupExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @property
@@ -128,13 +119,7 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
               identity_store_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
-    Use this data source to get an Identity Store Group.
-
-
-    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
-    :param str group_id: The identifier for a group in the Identity Store.
-    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -162,12 +147,6 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi
                      identity_store_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
-    Use this data source to get an Identity Store Group.
-
-
-    :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
-    :param str group_id: The identifier for a group in the Identity Store.
-    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    Use this data source to access information about an existing resource.
     """
     ...

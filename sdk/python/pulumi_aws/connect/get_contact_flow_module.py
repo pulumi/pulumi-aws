@@ -56,9 +56,6 @@ class GetContactFlowModuleResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Contact Flow Module.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -69,17 +66,11 @@ class GetContactFlowModuleResult:
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        Logic of the Contact Flow Module.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the Contact Flow Module.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -103,25 +94,16 @@ class GetContactFlowModuleResult:
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags to assign to the Contact Flow Module.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -149,35 +131,7 @@ def get_contact_flow_module(contact_flow_module_id: Optional[str] = None,
                             tags: Optional[Mapping[str, str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactFlowModuleResult:
     """
-    Provides details about a specific Amazon Connect Contact Flow Module.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="example")
-    ```
-
-    By `contact_flow_module_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(contact_flow_module_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Contact Flow Module by name
-    :param Mapping[str, str] tags: Map of tags to assign to the Contact Flow Module.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['contactFlowModuleId'] = contact_flow_module_id
@@ -207,34 +161,6 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
-    Provides details about a specific Amazon Connect Contact Flow Module.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="example")
-    ```
-
-    By `contact_flow_module_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_contact_flow_module(contact_flow_module_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str contact_flow_module_id: Returns information on a specific Contact Flow Module by contact flow module id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific Contact Flow Module by name
-    :param Mapping[str, str] tags: Map of tags to assign to the Contact Flow Module.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -23,11 +23,6 @@ class RiskConfigurationArgs:
                  risk_exception_configuration: Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RiskConfiguration resource.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
-        :param pulumi.Input[str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
-        :param pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs'] risk_exception_configuration: The configuration to override the risk decision. See details below.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if account_takeover_risk_configuration is not None:
@@ -42,9 +37,6 @@ class RiskConfigurationArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -54,9 +46,6 @@ class RiskConfigurationArgs:
     @property
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs']]:
-        """
-        The account takeover risk configuration. See details below.
-        """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
     @account_takeover_risk_configuration.setter
@@ -66,9 +55,6 @@ class RiskConfigurationArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -78,9 +64,6 @@ class RiskConfigurationArgs:
     @property
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional[pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']]:
-        """
-        The compromised credentials risk configuration. See details below.
-        """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
     @compromised_credentials_risk_configuration.setter
@@ -90,9 +73,6 @@ class RiskConfigurationArgs:
     @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']]:
-        """
-        The configuration to override the risk decision. See details below.
-        """
         return pulumi.get(self, "risk_exception_configuration")
 
     @risk_exception_configuration.setter
@@ -110,11 +90,6 @@ class _RiskConfigurationState:
                  user_pool_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RiskConfiguration resources.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
-        :param pulumi.Input[str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
-        :param pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs'] risk_exception_configuration: The configuration to override the risk decision. See details below.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         if account_takeover_risk_configuration is not None:
             pulumi.set(__self__, "account_takeover_risk_configuration", account_takeover_risk_configuration)
@@ -130,9 +105,6 @@ class _RiskConfigurationState:
     @property
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs']]:
-        """
-        The account takeover risk configuration. See details below.
-        """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
     @account_takeover_risk_configuration.setter
@@ -142,9 +114,6 @@ class _RiskConfigurationState:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -154,9 +123,6 @@ class _RiskConfigurationState:
     @property
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional[pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']]:
-        """
-        The compromised credentials risk configuration. See details below.
-        """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
     @compromised_credentials_risk_configuration.setter
@@ -166,9 +132,6 @@ class _RiskConfigurationState:
     @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']]:
-        """
-        The configuration to override the risk decision. See details below.
-        """
         return pulumi.get(self, "risk_exception_configuration")
 
     @risk_exception_configuration.setter
@@ -178,9 +141,6 @@ class _RiskConfigurationState:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -200,40 +160,9 @@ class RiskConfiguration(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Cognito Risk Configuration resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=aws_cognito_user_pool["example"]["id"],
-            risk_exception_configuration=aws.cognito.RiskConfigurationRiskExceptionConfigurationArgs(
-                blocked_ip_range_lists=["10.10.10.10/32"],
-            ))
-        ```
-
-        ## Import
-
-        Cognito Risk Configurations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-        ```
-
-        ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-        ```
-
+        Create a RiskConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationAccountTakeoverRiskConfigurationArgs']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
-        :param pulumi.Input[str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationRiskExceptionConfigurationArgs']] risk_exception_configuration: The configuration to override the risk decision. See details below.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
     @overload
@@ -242,33 +171,7 @@ class RiskConfiguration(pulumi.CustomResource):
                  args: RiskConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito Risk Configuration resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=aws_cognito_user_pool["example"]["id"],
-            risk_exception_configuration=aws.cognito.RiskConfigurationRiskExceptionConfigurationArgs(
-                blocked_ip_range_lists=["10.10.10.10/32"],
-            ))
-        ```
-
-        ## Import
-
-        Cognito Risk Configurations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-        ```
-
-        ```sh
-         $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-        ```
-
+        Create a RiskConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RiskConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,11 +230,6 @@ class RiskConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationAccountTakeoverRiskConfigurationArgs']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
-        :param pulumi.Input[str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
-        :param pulumi.Input[pulumi.InputType['RiskConfigurationRiskExceptionConfigurationArgs']] risk_exception_configuration: The configuration to override the risk decision. See details below.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -347,40 +245,25 @@ class RiskConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> pulumi.Output[Optional['outputs.RiskConfigurationAccountTakeoverRiskConfiguration']]:
-        """
-        The account takeover risk configuration. See details below.
-        """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
-        """
         return pulumi.get(self, "client_id")
 
     @property
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> pulumi.Output[Optional['outputs.RiskConfigurationCompromisedCredentialsRiskConfiguration']]:
-        """
-        The compromised credentials risk configuration. See details below.
-        """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
     @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> pulumi.Output[Optional['outputs.RiskConfigurationRiskExceptionConfiguration']]:
-        """
-        The configuration to override the risk decision. See details below.
-        """
         return pulumi.get(self, "risk_exception_configuration")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 

@@ -19,9 +19,6 @@ class VpcIpamScopeArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamScope resource.
-        :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[str] description: A description for the scope you're creating.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "ipam_id", ipam_id)
         if description is not None:
@@ -32,9 +29,6 @@ class VpcIpamScopeArgs:
     @property
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the IPAM for which you're creating this scope.
-        """
         return pulumi.get(self, "ipam_id")
 
     @ipam_id.setter
@@ -44,9 +38,6 @@ class VpcIpamScopeArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the scope you're creating.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,9 +47,6 @@ class VpcIpamScopeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -80,12 +68,6 @@ class _VpcIpamScopeState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamScope resources.
-        :param pulumi.Input[str] description: A description for the scope you're creating.
-        :param pulumi.Input[str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
-        :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[int] pool_count: Count of pools under this scope
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -118,9 +100,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the scope you're creating.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -130,9 +109,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the IPAM for which you're creating this scope.
-        """
         return pulumi.get(self, "ipam_arn")
 
     @ipam_arn.setter
@@ -142,9 +118,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the IPAM for which you're creating this scope.
-        """
         return pulumi.get(self, "ipam_id")
 
     @ipam_id.setter
@@ -163,9 +136,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Defines if the scope is the default scope or not.
-        """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
@@ -175,9 +145,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Count of pools under this scope
-        """
         return pulumi.get(self, "pool_count")
 
     @pool_count.setter
@@ -187,9 +154,6 @@ class _VpcIpamScopeState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -216,38 +180,9 @@ class VpcIpamScope(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a scope for AWS IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
-            description="Another Scope")
-        ```
-
-        ## Import
-
-        IPAMs can be imported using the `scope_id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-        ```
-
+        Create a VpcIpamScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description for the scope you're creating.
-        :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -256,33 +191,7 @@ class VpcIpamScope(pulumi.CustomResource):
                  args: VpcIpamScopeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a scope for AWS IPAM.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        example_vpc_ipam_scope = aws.ec2.VpcIpamScope("exampleVpcIpamScope",
-            ipam_id=example_vpc_ipam.id,
-            description="Another Scope")
-        ```
-
-        ## Import
-
-        IPAMs can be imported using the `scope_id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
-        ```
-
+        Create a VpcIpamScope resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcIpamScopeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,12 +256,6 @@ class VpcIpamScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description for the scope you're creating.
-        :param pulumi.Input[str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
-        :param pulumi.Input[str] ipam_id: The ID of the IPAM for which you're creating this scope.
-        :param pulumi.Input[bool] is_default: Defines if the scope is the default scope or not.
-        :param pulumi.Input[int] pool_count: Count of pools under this scope
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -377,25 +280,16 @@ class VpcIpamScope(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for the scope you're creating.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the IPAM for which you're creating this scope.
-        """
         return pulumi.get(self, "ipam_arn")
 
     @property
     @pulumi.getter(name="ipamId")
     def ipam_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the IPAM for which you're creating this scope.
-        """
         return pulumi.get(self, "ipam_id")
 
     @property
@@ -406,25 +300,16 @@ class VpcIpamScope(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
-        """
-        Defines if the scope is the default scope or not.
-        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter(name="poolCount")
     def pool_count(self) -> pulumi.Output[int]:
-        """
-        Count of pools under this scope
-        """
         return pulumi.get(self, "pool_count")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property

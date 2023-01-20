@@ -17,17 +17,11 @@ __all__ = [
 class WorkspaceLoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
-        """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
     @property
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist.
-        """
         return pulumi.get(self, "log_group_arn")
 
     @log_group_arn.setter

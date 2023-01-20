@@ -46,11 +46,6 @@ class EndpointAccessVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
-        """
-        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
-        :param str vpc_endpoint_id: The DNS address of the VPC endpoint.
-        :param str vpc_id: The port that Amazon Redshift Serverless listens on.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -61,25 +56,16 @@ class EndpointAccessVpcEndpoint(dict):
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']]:
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -113,12 +99,6 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
                  network_interface_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  subnet_id: Optional[str] = None):
-        """
-        :param str availability_zone: The availability Zone.
-        :param str network_interface_id: The unique identifier of the network interface.
-        :param str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param str subnet_id: The unique identifier of the subnet.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -131,33 +111,21 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
-        """
-        The availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[str]:
-        """
-        The unique identifier of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
-        """
-        The unique identifier of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 
@@ -185,27 +153,17 @@ class WorkgroupConfigParameter(dict):
     def __init__(__self__, *,
                  parameter_key: str,
                  parameter_value: str):
-        """
-        :param str parameter_key: The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
-        :param str parameter_value: The value of the parameter to set.
-        """
         pulumi.set(__self__, "parameter_key", parameter_key)
         pulumi.set(__self__, "parameter_value", parameter_value)
 
     @property
     @pulumi.getter(name="parameterKey")
     def parameter_key(self) -> str:
-        """
-        The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
-        """
         return pulumi.get(self, "parameter_key")
 
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> str:
-        """
-        The value of the parameter to set.
-        """
         return pulumi.get(self, "parameter_value")
 
 
@@ -232,11 +190,6 @@ class WorkgroupEndpoint(dict):
                  address: Optional[str] = None,
                  port: Optional[int] = None,
                  vpc_endpoints: Optional[Sequence['outputs.WorkgroupEndpointVpcEndpoint']] = None):
-        """
-        :param str address: The DNS address of the VPC endpoint.
-        :param int port: The port that Amazon Redshift Serverless listens on.
-        :param Sequence['WorkgroupEndpointVpcEndpointArgs'] vpc_endpoints: The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if port is not None:
@@ -247,25 +200,16 @@ class WorkgroupEndpoint(dict):
     @property
     @pulumi.getter
     def address(self) -> Optional[str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Optional[Sequence['outputs.WorkgroupEndpointVpcEndpoint']]:
-        """
-        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
         return pulumi.get(self, "vpc_endpoints")
 
 
@@ -296,11 +240,6 @@ class WorkgroupEndpointVpcEndpoint(dict):
                  network_interfaces: Optional[Sequence['outputs.WorkgroupEndpointVpcEndpointNetworkInterface']] = None,
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
-        """
-        :param Sequence['WorkgroupEndpointVpcEndpointNetworkInterfaceArgs'] network_interfaces: The network interfaces of the endpoint.. See `Network Interface` below.
-        :param str vpc_endpoint_id: The DNS address of the VPC endpoint.
-        :param str vpc_id: The port that Amazon Redshift Serverless listens on.
-        """
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if vpc_endpoint_id is not None:
@@ -311,25 +250,16 @@ class WorkgroupEndpointVpcEndpoint(dict):
     @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.WorkgroupEndpointVpcEndpointNetworkInterface']]:
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[str]:
-        """
-        The DNS address of the VPC endpoint.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[str]:
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -363,12 +293,6 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
                  network_interface_id: Optional[str] = None,
                  private_ip_address: Optional[str] = None,
                  subnet_id: Optional[str] = None):
-        """
-        :param str availability_zone: The availability Zone.
-        :param str network_interface_id: The unique identifier of the network interface.
-        :param str private_ip_address: The IPv4 address of the network interface within the subnet.
-        :param str subnet_id: The unique identifier of the subnet.
-        """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if network_interface_id is not None:
@@ -381,33 +305,21 @@ class WorkgroupEndpointVpcEndpointNetworkInterface(dict):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
-        """
-        The availability Zone.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[str]:
-        """
-        The unique identifier of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
-        """
-        The unique identifier of the subnet.
-        """
         return pulumi.get(self, "subnet_id")
 
 

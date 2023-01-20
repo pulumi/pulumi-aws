@@ -27,17 +27,6 @@ class NetworkAclRuleArgs:
                  to_port: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a NetworkAclRule resource.
-        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
-        :param pulumi.Input[int] to_port: The to port to match.
         """
         pulumi.set(__self__, "network_acl_id", network_acl_id)
         pulumi.set(__self__, "protocol", protocol)
@@ -61,9 +50,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -73,9 +59,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
-        """
-        The protocol. A value of -1 means all protocols.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -85,9 +68,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> pulumi.Input[str]:
-        """
-        Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        """
         return pulumi.get(self, "rule_action")
 
     @rule_action.setter
@@ -97,9 +77,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> pulumi.Input[int]:
-        """
-        The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        """
         return pulumi.get(self, "rule_number")
 
     @rule_number.setter
@@ -109,9 +86,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -121,9 +95,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -133,9 +104,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The from port to match.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -145,9 +113,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
-        """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
@@ -157,9 +122,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[int]]:
-        """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
@@ -169,9 +131,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv6 CIDR block to allow or deny.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -181,9 +140,6 @@ class NetworkAclRuleArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The to port to match.
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -207,17 +163,6 @@ class _NetworkAclRuleState:
                  to_port: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NetworkAclRule resources.
-        :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
-        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input[int] to_port: The to port to match.
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
@@ -245,9 +190,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -257,9 +199,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter
     def egress(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        """
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -269,9 +208,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The from port to match.
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -281,9 +217,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[int]]:
-        """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_code")
 
     @icmp_code.setter
@@ -293,9 +226,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[int]]:
-        """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_type")
 
     @icmp_type.setter
@@ -305,9 +235,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv6 CIDR block to allow or deny.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -317,9 +244,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @network_acl_id.setter
@@ -329,9 +253,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
-        """
-        The protocol. A value of -1 means all protocols.
-        """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
@@ -341,9 +262,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        """
         return pulumi.get(self, "rule_action")
 
     @rule_action.setter
@@ -353,9 +271,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> Optional[pulumi.Input[int]]:
-        """
-        The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        """
         return pulumi.get(self, "rule_number")
 
     @rule_number.setter
@@ -365,9 +280,6 @@ class _NetworkAclRuleState:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The to port to match.
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -393,61 +305,9 @@ class NetworkAclRule(pulumi.CustomResource):
                  to_port: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Creates an entry (a rule) in a network ACL with the specified rule number.
-
-        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-        defined in-line. At this time you cannot use a Network ACL with in-line rules
-        in conjunction with any Network ACL Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar_network_acl = aws.ec2.NetworkAcl("barNetworkAcl", vpc_id=aws_vpc["foo"]["id"])
-        bar_network_acl_rule = aws.ec2.NetworkAclRule("barNetworkAclRule",
-            network_acl_id=bar_network_acl.id,
-            rule_number=200,
-            egress=False,
-            protocol="tcp",
-            rule_action="allow",
-            cidr_block=aws_vpc["foo"]["cidr_block"],
-            from_port=22,
-            to_port=22)
-        ```
-
-        > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
-
-        ## Import
-
-        Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
-
-        ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
-        ```
-
-         Or by the procotol's decimal valueconsole
-
-        ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-        ```
-
+        Create a NetworkAclRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
-        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input[int] to_port: The to port to match.
         """
         ...
     @overload
@@ -456,48 +316,7 @@ class NetworkAclRule(pulumi.CustomResource):
                  args: NetworkAclRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an entry (a rule) in a network ACL with the specified rule number.
-
-        > **NOTE on Network ACLs and Network ACL Rules:** This provider currently
-        provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
-        defined in-line. At this time you cannot use a Network ACL with in-line rules
-        in conjunction with any Network ACL Rule resources. Doing so will cause
-        a conflict of rule settings and will overwrite rules.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar_network_acl = aws.ec2.NetworkAcl("barNetworkAcl", vpc_id=aws_vpc["foo"]["id"])
-        bar_network_acl_rule = aws.ec2.NetworkAclRule("barNetworkAclRule",
-            network_acl_id=bar_network_acl.id,
-            rule_number=200,
-            egress=False,
-            protocol="tcp",
-            rule_action="allow",
-            cidr_block=aws_vpc["foo"]["cidr_block"],
-            from_port=22,
-            to_port=22)
-        ```
-
-        > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
-
-        ## Import
-
-        Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
-
-        ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
-        ```
-
-         Or by the procotol's decimal valueconsole
-
-        ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-        ```
-
+        Create a NetworkAclRule resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param NetworkAclRuleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -580,17 +399,6 @@ class NetworkAclRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[int] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[int] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
-        :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
-        :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
-        :param pulumi.Input[str] rule_action: Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        :param pulumi.Input[int] rule_number: The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input[int] to_port: The to port to match.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -612,88 +420,55 @@ class NetworkAclRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[Optional[str]]:
-        """
-        The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter
     def egress(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-        """
         return pulumi.get(self, "egress")
 
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Output[Optional[int]]:
-        """
-        The from port to match.
-        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> pulumi.Output[Optional[int]]:
-        """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_code")
 
     @property
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> pulumi.Output[Optional[int]]:
-        """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-        """
         return pulumi.get(self, "icmp_type")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[Optional[str]]:
-        """
-        The IPv6 CIDR block to allow or deny.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="networkAclId")
     def network_acl_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the network ACL.
-        """
         return pulumi.get(self, "network_acl_id")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
-        """
-        The protocol. A value of -1 means all protocols.
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="ruleAction")
     def rule_action(self) -> pulumi.Output[str]:
-        """
-        Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-        """
         return pulumi.get(self, "rule_action")
 
     @property
     @pulumi.getter(name="ruleNumber")
     def rule_number(self) -> pulumi.Output[int]:
-        """
-        The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-        """
         return pulumi.get(self, "rule_number")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Output[Optional[int]]:
-        """
-        The to port to match.
-        """
         return pulumi.get(self, "to_port")
 

@@ -47,27 +47,17 @@ class DirectoryConfigServiceAccountCredentials(dict):
     def __init__(__self__, *,
                  account_name: str,
                  account_password: str):
-        """
-        :param str account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        :param str account_password: Password for the account.
-        """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "account_password", account_password)
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
-        """
-        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="accountPassword")
     def account_password(self) -> str:
-        """
-        Password for the account.
-        """
         return pulumi.get(self, "account_password")
 
 
@@ -97,12 +87,6 @@ class FleetComputeCapacity(dict):
                  available: Optional[int] = None,
                  in_use: Optional[int] = None,
                  running: Optional[int] = None):
-        """
-        :param int desired_instances: Desired number of streaming instances.
-        :param int available: Number of currently available instances that can be used to stream sessions.
-        :param int in_use: Number of instances in use for streaming.
-        :param int running: Total number of simultaneous streaming instances that are running.
-        """
         pulumi.set(__self__, "desired_instances", desired_instances)
         if available is not None:
             pulumi.set(__self__, "available", available)
@@ -114,33 +98,21 @@ class FleetComputeCapacity(dict):
     @property
     @pulumi.getter(name="desiredInstances")
     def desired_instances(self) -> int:
-        """
-        Desired number of streaming instances.
-        """
         return pulumi.get(self, "desired_instances")
 
     @property
     @pulumi.getter
     def available(self) -> Optional[int]:
-        """
-        Number of currently available instances that can be used to stream sessions.
-        """
         return pulumi.get(self, "available")
 
     @property
     @pulumi.getter(name="inUse")
     def in_use(self) -> Optional[int]:
-        """
-        Number of instances in use for streaming.
-        """
         return pulumi.get(self, "in_use")
 
     @property
     @pulumi.getter
     def running(self) -> Optional[int]:
-        """
-        Total number of simultaneous streaming instances that are running.
-        """
         return pulumi.get(self, "running")
 
 
@@ -168,10 +140,6 @@ class FleetDomainJoinInfo(dict):
     def __init__(__self__, *,
                  directory_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
-        """
-        :param str directory_name: Fully qualified name of the directory (for example, corp.example.com).
-        :param str organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
-        """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -180,17 +148,11 @@ class FleetDomainJoinInfo(dict):
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[str]:
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         return pulumi.get(self, "directory_name")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -218,10 +180,6 @@ class FleetVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] security_group_ids: Identifiers of the security groups for the fleet or image builder.
-        :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -230,17 +188,11 @@ class FleetVpcConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
-        """
-        Identifiers of the security groups for the fleet or image builder.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
-        """
-        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
-        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -268,10 +220,6 @@ class ImageBuilderAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: Optional[str] = None):
-        """
-        :param str endpoint_type: Type of interface endpoint.
-        :param str vpce_id: Identifier (ID) of the VPC in which the interface endpoint is used.
-        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
             pulumi.set(__self__, "vpce_id", vpce_id)
@@ -279,17 +227,11 @@ class ImageBuilderAccessEndpoint(dict):
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
-        """
-        Type of interface endpoint.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[str]:
-        """
-        Identifier (ID) of the VPC in which the interface endpoint is used.
-        """
         return pulumi.get(self, "vpce_id")
 
 
@@ -317,10 +259,6 @@ class ImageBuilderDomainJoinInfo(dict):
     def __init__(__self__, *,
                  directory_name: Optional[str] = None,
                  organizational_unit_distinguished_name: Optional[str] = None):
-        """
-        :param str directory_name: Fully qualified name of the directory (for example, corp.example.com).
-        :param str organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
-        """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_name is not None:
@@ -329,17 +267,11 @@ class ImageBuilderDomainJoinInfo(dict):
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[str]:
-        """
-        Fully qualified name of the directory (for example, corp.example.com).
-        """
         return pulumi.get(self, "directory_name")
 
     @property
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[str]:
-        """
-        Distinguished name of the organizational unit for computer accounts.
-        """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
@@ -367,10 +299,6 @@ class ImageBuilderVpcConfig(dict):
     def __init__(__self__, *,
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] security_group_ids: Identifiers of the security groups for the image builder or image builder.
-        :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -379,17 +307,11 @@ class ImageBuilderVpcConfig(dict):
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
-        """
-        Identifiers of the security groups for the image builder or image builder.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
-        """
-        Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
-        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -417,11 +339,6 @@ class StackAccessEndpoint(dict):
     def __init__(__self__, *,
                  endpoint_type: str,
                  vpce_id: Optional[str] = None):
-        """
-        :param str endpoint_type: Type of the interface endpoint.
-               See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        :param str vpce_id: ID of the VPC in which the interface endpoint is used.
-        """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
             pulumi.set(__self__, "vpce_id", vpce_id)
@@ -429,18 +346,11 @@ class StackAccessEndpoint(dict):
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
-        """
-        Type of the interface endpoint.
-        See the [`AccessEndpoint` AWS API documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html) for valid values.
-        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[str]:
-        """
-        ID of the VPC in which the interface endpoint is used.
-        """
         return pulumi.get(self, "vpce_id")
 
 
@@ -466,12 +376,6 @@ class StackApplicationSettings(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  settings_group: Optional[str] = None):
-        """
-        :param bool enabled: Whether application settings should be persisted.
-        :param str settings_group: Name of the settings group.
-               Required when `enabled` is `true`.
-               Can be up to 100 characters.
-        """
         pulumi.set(__self__, "enabled", enabled)
         if settings_group is not None:
             pulumi.set(__self__, "settings_group", settings_group)
@@ -479,19 +383,11 @@ class StackApplicationSettings(dict):
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether application settings should be persisted.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="settingsGroup")
     def settings_group(self) -> Optional[str]:
-        """
-        Name of the settings group.
-        Required when `enabled` is `true`.
-        Can be up to 100 characters.
-        """
         return pulumi.get(self, "settings_group")
 
 
@@ -520,12 +416,6 @@ class StackStorageConnector(dict):
                  connector_type: str,
                  domains: Optional[Sequence[str]] = None,
                  resource_identifier: Optional[str] = None):
-        """
-        :param str connector_type: Type of storage connector.
-               Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-        :param Sequence[str] domains: Names of the domains for the account.
-        :param str resource_identifier: ARN of the storage connector.
-        """
         pulumi.set(__self__, "connector_type", connector_type)
         if domains is not None:
             pulumi.set(__self__, "domains", domains)
@@ -535,26 +425,16 @@ class StackStorageConnector(dict):
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> str:
-        """
-        Type of storage connector.
-        Valid values are `HOMEFOLDERS`, `GOOGLE_DRIVE`, or `ONE_DRIVE`.
-        """
         return pulumi.get(self, "connector_type")
 
     @property
     @pulumi.getter
     def domains(self) -> Optional[Sequence[str]]:
-        """
-        Names of the domains for the account.
-        """
         return pulumi.get(self, "domains")
 
     @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[str]:
-        """
-        ARN of the storage connector.
-        """
         return pulumi.get(self, "resource_identifier")
 
 
@@ -563,31 +443,17 @@ class StackUserSetting(dict):
     def __init__(__self__, *,
                  action: str,
                  permission: str):
-        """
-        :param str action: Action that is enabled or disabled.
-               Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
-        :param str permission: Whether the action is enabled or disabled.
-               Valid values are `ENABLED` or `DISABLED`.
-        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
 
     @property
     @pulumi.getter
     def action(self) -> str:
-        """
-        Action that is enabled or disabled.
-        Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def permission(self) -> str:
-        """
-        Whether the action is enabled or disabled.
-        Valid values are `ENABLED` or `DISABLED`.
-        """
         return pulumi.get(self, "permission")
 
 

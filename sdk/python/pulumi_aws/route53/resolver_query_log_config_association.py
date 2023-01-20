@@ -18,8 +18,6 @@ class ResolverQueryLogConfigAssociationArgs:
                  resource_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
-        :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
         pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -27,9 +25,6 @@ class ResolverQueryLogConfigAssociationArgs:
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        """
         return pulumi.get(self, "resolver_query_log_config_id")
 
     @resolver_query_log_config_id.setter
@@ -39,9 +34,6 @@ class ResolverQueryLogConfigAssociationArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
-        """
-        The ID of a VPC that you want this query logging configuration to log queries for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -56,8 +48,6 @@ class _ResolverQueryLogConfigAssociationState:
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
-        :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
         if resolver_query_log_config_id is not None:
             pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
@@ -67,9 +57,6 @@ class _ResolverQueryLogConfigAssociationState:
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        """
         return pulumi.get(self, "resolver_query_log_config_id")
 
     @resolver_query_log_config_id.setter
@@ -79,9 +66,6 @@ class _ResolverQueryLogConfigAssociationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of a VPC that you want this query logging configuration to log queries for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -98,31 +82,9 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Route 53 Resolver query logging configuration association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverQueryLogConfigAssociation("example",
-            resolver_query_log_config_id=aws_route53_resolver_query_log_config["example"]["id"],
-            resource_id=aws_vpc["example"]["id"])
-        ```
-
-        ## Import
-
-         Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
-        ```
-
+        Create a ResolverQueryLogConfigAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
         ...
     @overload
@@ -131,27 +93,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
                  args: ResolverQueryLogConfigAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route 53 Resolver query logging configuration association resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53.ResolverQueryLogConfigAssociation("example",
-            resolver_query_log_config_id=aws_route53_resolver_query_log_config["example"]["id"],
-            resource_id=aws_vpc["example"]["id"])
-        ```
-
-        ## Import
-
-         Route 53 Resolver query logging configuration associations can be imported using the Route 53 Resolver query logging configuration association ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
-        ```
-
+        Create a ResolverQueryLogConfigAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResolverQueryLogConfigAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,8 +145,6 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        :param pulumi.Input[str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -217,16 +157,10 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        """
         return pulumi.get(self, "resolver_query_log_config_id")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        The ID of a VPC that you want this query logging configuration to log queries for.
-        """
         return pulumi.get(self, "resource_id")
 

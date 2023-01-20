@@ -4799,18 +4799,12 @@ class GetAmiFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the AMI that was provided during image creation.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the AMI that was provided during image creation.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4859,19 +4853,12 @@ class GetAutoscalingGroupsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
-        :param Sequence[str] values: Value of the filter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4881,9 +4868,6 @@ class GetAutoscalingGroupsFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Value of the filter.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4896,19 +4880,12 @@ class GetAvailabilityZoneFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4918,9 +4895,6 @@ class GetAvailabilityZoneFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4933,19 +4907,12 @@ class GetAvailabilityZonesFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -4955,9 +4922,6 @@ class GetAvailabilityZonesFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -4997,19 +4961,12 @@ class GetPrefixListFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5019,9 +4976,6 @@ class GetPrefixListFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -5034,19 +4988,12 @@ class GetRegionsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5056,9 +5003,6 @@ class GetRegionsFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
     @values.setter

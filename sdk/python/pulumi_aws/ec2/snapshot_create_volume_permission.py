@@ -18,8 +18,6 @@ class SnapshotCreateVolumePermissionArgs:
                  snapshot_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SnapshotCreateVolumePermission resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "snapshot_id", snapshot_id)
@@ -27,9 +25,6 @@ class SnapshotCreateVolumePermissionArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
-        """
-        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -39,9 +34,6 @@ class SnapshotCreateVolumePermissionArgs:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Input[str]:
-        """
-        A snapshot ID
-        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -56,8 +48,6 @@ class _SnapshotCreateVolumePermissionState:
                  snapshot_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -67,9 +57,6 @@ class _SnapshotCreateVolumePermissionState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -79,9 +66,6 @@ class _SnapshotCreateVolumePermissionState:
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A snapshot ID
-        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -98,27 +82,9 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Adds permission to create volumes off of a given EBS Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40)
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot", volume_id=example.id)
-        example_perm = aws.ec2.SnapshotCreateVolumePermission("examplePerm",
-            snapshot_id=example_snapshot.id,
-            account_id="12345678")
-        ```
-
+        Create a SnapshotCreateVolumePermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         ...
     @overload
@@ -127,23 +93,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
                  args: SnapshotCreateVolumePermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds permission to create volumes off of a given EBS Snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40)
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot", volume_id=example.id)
-        example_perm = aws.ec2.SnapshotCreateVolumePermission("examplePerm",
-            snapshot_id=example_snapshot.id,
-            account_id="12345678")
-        ```
-
+        Create a SnapshotCreateVolumePermission resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SnapshotCreateVolumePermissionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,8 +145,6 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -209,16 +157,10 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
-        """
-        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
-        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[str]:
-        """
-        A snapshot ID
-        """
         return pulumi.get(self, "snapshot_id")
 

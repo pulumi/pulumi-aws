@@ -54,17 +54,11 @@ class GetMeshResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the service mesh.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
-        """
-        Creation date of the service mesh.
-        """
         return pulumi.get(self, "created_date")
 
     @property
@@ -78,9 +72,6 @@ class GetMeshResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
-        """
-        Last update date of the service mesh.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
@@ -96,25 +87,16 @@ class GetMeshResult:
     @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> str:
-        """
-        Resource owner's AWS account ID.
-        """
         return pulumi.get(self, "resource_owner")
 
     @property
     @pulumi.getter
     def specs(self) -> Sequence['outputs.GetMeshSpecResult']:
-        """
-        Service mesh specification.
-        """
         return pulumi.get(self, "specs")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -140,30 +122,7 @@ def get_mesh(mesh_owner: Optional[str] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMeshResult:
     """
-    The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param str mesh_owner: AWS account ID of the service mesh's owner.
-    :param str name: Name of the service mesh.
-    :param Mapping[str, str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner
@@ -190,29 +149,6 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMeshResult]:
     """
-    The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    simple = aws.appmesh.get_mesh(name="simpleapp")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.get_caller_identity()
-    simple = aws.appmesh.get_mesh(name="simpleapp",
-        mesh_owner=current.account_id)
-    ```
-
-
-    :param str mesh_owner: AWS account ID of the service mesh's owner.
-    :param str name: Name of the service mesh.
-    :param Mapping[str, str] tags: Map of tags.
+    Use this data source to access information about an existing resource.
     """
     ...

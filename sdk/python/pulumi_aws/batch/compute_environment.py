@@ -26,14 +26,6 @@ class ComputeEnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ComputeEnvironment resource.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         pulumi.set(__self__, "type", type)
         if compute_environment_name is not None:
@@ -54,9 +46,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -66,9 +55,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "compute_environment_name")
 
     @compute_environment_name.setter
@@ -78,9 +64,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
     def compute_environment_name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        """
         return pulumi.get(self, "compute_environment_name_prefix")
 
     @compute_environment_name_prefix.setter
@@ -90,9 +73,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']]:
-        """
-        Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        """
         return pulumi.get(self, "compute_resources")
 
     @compute_resources.setter
@@ -102,9 +82,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter(name="eksConfiguration")
     def eks_configuration(self) -> Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']]:
-        """
-        Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        """
         return pulumi.get(self, "eks_configuration")
 
     @eks_configuration.setter
@@ -114,9 +91,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -126,9 +100,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -138,9 +109,6 @@ class ComputeEnvironmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -166,19 +134,6 @@ class _ComputeEnvironmentState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ComputeEnvironment resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input['ComputeEnvironmentComputeResourcesArgs'] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        :param pulumi.Input['ComputeEnvironmentEksConfigurationArgs'] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
-        :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -210,9 +165,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the compute environment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -222,9 +174,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "compute_environment_name")
 
     @compute_environment_name.setter
@@ -234,9 +183,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
     def compute_environment_name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        """
         return pulumi.get(self, "compute_environment_name_prefix")
 
     @compute_environment_name_prefix.setter
@@ -246,9 +192,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> Optional[pulumi.Input['ComputeEnvironmentComputeResourcesArgs']]:
-        """
-        Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        """
         return pulumi.get(self, "compute_resources")
 
     @compute_resources.setter
@@ -258,9 +201,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="ecsClusterArn")
     def ecs_cluster_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        """
         return pulumi.get(self, "ecs_cluster_arn")
 
     @ecs_cluster_arn.setter
@@ -270,9 +210,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="eksConfiguration")
     def eks_configuration(self) -> Optional[pulumi.Input['ComputeEnvironmentEksConfigurationArgs']]:
-        """
-        Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        """
         return pulumi.get(self, "eks_configuration")
 
     @eks_configuration.setter
@@ -282,9 +219,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -294,9 +228,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -306,9 +237,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current status of the compute environment (for example, CREATING or VALID).
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -318,9 +246,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        A short, human-readable string to provide additional details about the current status of the compute environment.
-        """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
@@ -330,9 +255,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -342,9 +264,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,9 +273,6 @@ class _ComputeEnvironmentState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -379,118 +295,9 @@ class ComputeEnvironment(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
-
-        For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
-        For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
-
-        > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `iam.RolePolicyAttachment`;
-        otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
-
-        ## Example Usage
-        ### EC2 Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        	        "Service": "ec2.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        		"Service": "batch.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
-            vpc_id=sample_vpc.id,
-            cidr_block="10.1.1.0/24")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                security_group_ids=[sample_security_group.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
-        ```
-        ### Fargate Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sample = aws.batch.ComputeEnvironment("sample",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
-                type="FARGATE",
-            ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
-        ```
-
-        ## Import
-
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-        ```
-
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
-
+        Create a ComputeEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         ...
     @overload
@@ -499,108 +306,7 @@ class ComputeEnvironment(pulumi.CustomResource):
                  args: ComputeEnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a AWS Batch compute environment. Compute environments contain the Amazon ECS container instances that are used to run containerized batch jobs.
-
-        For information about AWS Batch, see [What is AWS Batch?](http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html) .
-        For information about compute environment, see [Compute Environments](http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) .
-
-        > **Note:** To prevent a race condition during environment deletion, make sure to set `depends_on` to the related `iam.RolePolicyAttachment`;
-        otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
-
-        ## Example Usage
-        ### EC2 Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        ecs_instance_role_role = aws.iam.Role("ecsInstanceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        	        "Service": "ec2.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
-        ecs_instance_role_role_policy_attachment = aws.iam.RolePolicyAttachment("ecsInstanceRoleRolePolicyAttachment",
-            role=ecs_instance_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role")
-        ecs_instance_role_instance_profile = aws.iam.InstanceProfile("ecsInstanceRoleInstanceProfile", role=ecs_instance_role_role.name)
-        aws_batch_service_role_role = aws.iam.Role("awsBatchServiceRoleRole", assume_role_policy=\"\"\"{
-            "Version": "2012-10-17",
-            "Statement": [
-        	{
-        	    "Action": "sts:AssumeRole",
-        	    "Effect": "Allow",
-        	    "Principal": {
-        		"Service": "batch.amazonaws.com"
-        	    }
-        	}
-            ]
-        }
-        \"\"\")
-        aws_batch_service_role_role_policy_attachment = aws.iam.RolePolicyAttachment("awsBatchServiceRoleRolePolicyAttachment",
-            role=aws_batch_service_role_role.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole")
-        sample_security_group = aws.ec2.SecurityGroup("sampleSecurityGroup", egress=[aws.ec2.SecurityGroupEgressArgs(
-            from_port=0,
-            to_port=0,
-            protocol="-1",
-            cidr_blocks=["0.0.0.0/0"],
-        )])
-        sample_vpc = aws.ec2.Vpc("sampleVpc", cidr_block="10.1.0.0/16")
-        sample_subnet = aws.ec2.Subnet("sampleSubnet",
-            vpc_id=sample_vpc.id,
-            cidr_block="10.1.1.0/24")
-        sample_compute_environment = aws.batch.ComputeEnvironment("sampleComputeEnvironment",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                instance_role=ecs_instance_role_instance_profile.arn,
-                instance_types=["c4.large"],
-                max_vcpus=16,
-                min_vcpus=0,
-                security_group_ids=[sample_security_group.id],
-                subnets=[sample_subnet.id],
-                type="EC2",
-            ),
-            service_role=aws_batch_service_role_role.arn,
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_batch_service_role_role_policy_attachment]))
-        ```
-        ### Fargate Type
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sample = aws.batch.ComputeEnvironment("sample",
-            compute_environment_name="sample",
-            compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
-                max_vcpus=16,
-                security_group_ids=[aws_security_group["sample"]["id"]],
-                subnets=[aws_subnet["sample"]["id"]],
-                type="FARGATE",
-            ),
-            service_role=aws_iam_role["aws_batch_service_role"]["arn"],
-            type="MANAGED",
-            opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["aws_batch_service_role"]]))
-        ```
-
-        ## Import
-
-        AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-        ```
-
-         [1]http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html [2]http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html [3]http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html [4]https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
-
+        Create a ComputeEnvironment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ComputeEnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -678,19 +384,6 @@ class ComputeEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the compute environment.
-        :param pulumi.Input[str] compute_environment_name: The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[str] compute_environment_name_prefix: Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentComputeResourcesArgs']] compute_resources: Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        :param pulumi.Input[str] ecs_cluster_arn: The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        :param pulumi.Input[pulumi.InputType['ComputeEnvironmentEksConfigurationArgs']] eks_configuration: Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        :param pulumi.Input[str] service_role: The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        :param pulumi.Input[str] state: The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[str] status: The current status of the compute environment (for example, CREATING or VALID).
-        :param pulumi.Input[str] status_reason: A short, human-readable string to provide additional details about the current status of the compute environment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -714,104 +407,65 @@ class ComputeEnvironment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the compute environment.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computeEnvironmentName")
     def compute_environment_name(self) -> pulumi.Output[str]:
-        """
-        The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "compute_environment_name")
 
     @property
     @pulumi.getter(name="computeEnvironmentNamePrefix")
     def compute_environment_name_prefix(self) -> pulumi.Output[str]:
-        """
-        Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        """
         return pulumi.get(self, "compute_environment_name_prefix")
 
     @property
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentComputeResources']]:
-        """
-        Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        """
         return pulumi.get(self, "compute_resources")
 
     @property
     @pulumi.getter(name="ecsClusterArn")
     def ecs_cluster_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        """
         return pulumi.get(self, "ecs_cluster_arn")
 
     @property
     @pulumi.getter(name="eksConfiguration")
     def eks_configuration(self) -> pulumi.Output[Optional['outputs.ComputeEnvironmentEksConfiguration']]:
-        """
-        Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        """
         return pulumi.get(self, "eks_configuration")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
-        """
-        The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional[str]]:
-        """
-        The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        The current status of the compute environment (for example, CREATING or VALID).
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[str]:
-        """
-        A short, human-readable string to provide additional details about the current status of the compute environment.
-        """
         return pulumi.get(self, "status_reason")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "type")
 

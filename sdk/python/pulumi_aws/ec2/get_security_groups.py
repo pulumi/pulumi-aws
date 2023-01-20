@@ -46,9 +46,6 @@ class GetSecurityGroupsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        ARNs of the matched security groups.
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -67,9 +64,6 @@ class GetSecurityGroupsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        IDs of the matches security groups.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -80,9 +74,6 @@ class GetSecurityGroupsResult:
     @property
     @pulumi.getter(name="vpcIds")
     def vpc_ids(self) -> Sequence[str]:
-        """
-        VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
-        """
         return pulumi.get(self, "vpc_ids")
 
 
@@ -104,39 +95,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(tags={
-        "Application": "k8s",
-        "Environment": "dev",
-    })
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="group-name",
-            values=["*nodes*"],
-        ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="vpc-id",
-            values=[var["vpc_id"]],
-        ),
-    ])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -158,38 +117,6 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
-    Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(tags={
-        "Application": "k8s",
-        "Environment": "dev",
-    })
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="group-name",
-            values=["*nodes*"],
-        ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
-            name="vpc-id",
-            values=[var["vpc_id"]],
-        ),
-    ])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
+    Use this data source to access information about an existing resource.
     """
     ...

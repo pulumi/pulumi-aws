@@ -20,17 +20,11 @@ __all__ = [
 class RecordingConfigurationDestinationConfiguration(dict):
     def __init__(__self__, *,
                  s3: 'outputs.RecordingConfigurationDestinationConfigurationS3'):
-        """
-        :param 'RecordingConfigurationDestinationConfigurationS3Args' s3: S3 destination configuration where recorded videos will be stored.
-        """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
     def s3(self) -> 'outputs.RecordingConfigurationDestinationConfigurationS3':
-        """
-        S3 destination configuration where recorded videos will be stored.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -55,17 +49,11 @@ class RecordingConfigurationDestinationConfigurationS3(dict):
 
     def __init__(__self__, *,
                  bucket_name: str):
-        """
-        :param str bucket_name: S3 bucket name where recorded videos will be stored.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        S3 bucket name where recorded videos will be stored.
-        """
         return pulumi.get(self, "bucket_name")
 
 
@@ -93,10 +81,6 @@ class RecordingConfigurationThumbnailConfiguration(dict):
     def __init__(__self__, *,
                  recording_mode: Optional[str] = None,
                  target_interval_seconds: Optional[int] = None):
-        """
-        :param str recording_mode: Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        :param int target_interval_seconds: - The targeted thumbnail-generation interval in seconds.
-        """
         if recording_mode is not None:
             pulumi.set(__self__, "recording_mode", recording_mode)
         if target_interval_seconds is not None:
@@ -105,17 +89,11 @@ class RecordingConfigurationThumbnailConfiguration(dict):
     @property
     @pulumi.getter(name="recordingMode")
     def recording_mode(self) -> Optional[str]:
-        """
-        Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        """
         return pulumi.get(self, "recording_mode")
 
     @property
     @pulumi.getter(name="targetIntervalSeconds")
     def target_interval_seconds(self) -> Optional[int]:
-        """
-        - The targeted thumbnail-generation interval in seconds.
-        """
         return pulumi.get(self, "target_interval_seconds")
 
 

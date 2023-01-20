@@ -33,23 +33,6 @@ class BranchArgs:
                  ttl: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Branch resource.
-        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[str] branch_name: Name for the branch.
-        :param pulumi.Input[str] backend_environment_arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: Basic authorization credentials for the branch.
-        :param pulumi.Input[str] description: Description for the branch.
-        :param pulumi.Input[str] display_name: Display name for a branch. This is used as the default domain prefix.
-        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
-        :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
-        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
-        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables for the branch.
-        :param pulumi.Input[str] framework: Framework for the branch.
-        :param pulumi.Input[str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
@@ -87,9 +70,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -99,9 +79,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
-        """
-        Name for the branch.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -111,9 +88,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="backendEnvironmentArn")
     def backend_environment_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN for a backend environment that is part of an Amplify app.
-        """
         return pulumi.get(self, "backend_environment_arn")
 
     @backend_environment_arn.setter
@@ -123,9 +97,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[str]]:
-        """
-        Basic authorization credentials for the branch.
-        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
@@ -135,9 +106,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the branch.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -147,9 +115,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name for a branch. This is used as the default domain prefix.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -159,9 +124,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables auto building for the branch.
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -171,9 +133,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables basic authorization for the branch.
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -183,9 +142,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables notifications for the branch.
-        """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
@@ -195,9 +151,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables performance mode for the branch.
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -207,9 +160,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables pull request previews for this branch.
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -219,9 +169,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Environment variables for the branch.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -231,9 +178,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def framework(self) -> Optional[pulumi.Input[str]]:
-        """
-        Framework for the branch.
-        """
         return pulumi.get(self, "framework")
 
     @framework.setter
@@ -243,9 +187,6 @@ class BranchArgs:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amplify environment name for the pull request.
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -255,9 +196,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -267,9 +205,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -279,9 +214,6 @@ class BranchArgs:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[str]]:
-        """
-        Content Time To Live (TTL) for the website in seconds.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -317,29 +249,6 @@ class _BranchState:
                  ttl: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Branch resources.
-        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: ARN for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_resources: A list of custom resources that are linked to this branch.
-        :param pulumi.Input[str] backend_environment_arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: Basic authorization credentials for the branch.
-        :param pulumi.Input[str] branch_name: Name for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_domains: Custom domains for the branch.
-        :param pulumi.Input[str] description: Description for the branch.
-        :param pulumi.Input[str] destination_branch: Destination branch if the branch is a pull request branch.
-        :param pulumi.Input[str] display_name: Display name for a branch. This is used as the default domain prefix.
-        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
-        :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
-        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
-        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables for the branch.
-        :param pulumi.Input[str] framework: Framework for the branch.
-        :param pulumi.Input[str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[str] source_branch: Source branch if the branch is a pull request branch.
-        :param pulumi.Input[str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -391,9 +300,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -403,9 +309,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN for the branch.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -415,9 +318,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="associatedResources")
     def associated_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of custom resources that are linked to this branch.
-        """
         return pulumi.get(self, "associated_resources")
 
     @associated_resources.setter
@@ -427,9 +327,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="backendEnvironmentArn")
     def backend_environment_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN for a backend environment that is part of an Amplify app.
-        """
         return pulumi.get(self, "backend_environment_arn")
 
     @backend_environment_arn.setter
@@ -439,9 +336,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[str]]:
-        """
-        Basic authorization credentials for the branch.
-        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
@@ -451,9 +345,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the branch.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -463,9 +354,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Custom domains for the branch.
-        """
         return pulumi.get(self, "custom_domains")
 
     @custom_domains.setter
@@ -475,9 +363,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the branch.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -487,9 +372,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="destinationBranch")
     def destination_branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        Destination branch if the branch is a pull request branch.
-        """
         return pulumi.get(self, "destination_branch")
 
     @destination_branch.setter
@@ -499,9 +381,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Display name for a branch. This is used as the default domain prefix.
-        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -511,9 +390,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables auto building for the branch.
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -523,9 +399,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables basic authorization for the branch.
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -535,9 +408,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables notifications for the branch.
-        """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
@@ -547,9 +417,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables performance mode for the branch.
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -559,9 +426,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables pull request previews for this branch.
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -571,9 +435,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Environment variables for the branch.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -583,9 +444,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def framework(self) -> Optional[pulumi.Input[str]]:
-        """
-        Framework for the branch.
-        """
         return pulumi.get(self, "framework")
 
     @framework.setter
@@ -595,9 +453,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amplify environment name for the pull request.
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -607,9 +462,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source branch if the branch is a pull request branch.
-        """
         return pulumi.get(self, "source_branch")
 
     @source_branch.setter
@@ -619,9 +471,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -631,9 +480,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -643,9 +489,6 @@ class _BranchState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -655,9 +498,6 @@ class _BranchState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[str]]:
-        """
-        Content Time To Live (TTL) for the website in seconds.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -689,111 +529,9 @@ class Branch(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amplify Branch resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            framework="React",
-            stage="PRODUCTION",
-            environment_variables={
-                "REACT_APP_API_SERVER": "https://api.example.com",
-            })
-        ```
-        ### Notifications
-
-        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_notification=True)
-        # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
-                "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
-                    "jobStatus": [
-                        "SUCCEED",
-                        "FAILED",
-                        "STARTED",
-                    ],
-                },
-                "detail-type": ["Amplify Deployment Status Change"],
-                "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
-            rule=amplify_app_master_event_rule.name,
-            arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
-                    "region": "$.region",
-                    "branch": "$.detail.branchName",
-                    "status": "$.detail.jobStatus",
-                },
-                input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
-            ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid=f"Allow_Publish_Events {master_arn}",
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[amplify_app_master_topic_arn],
-        )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
-            arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
-        ```
-
-        ## Import
-
-        Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-        ```
-
+        Create a Branch resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[str] backend_environment_arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: Basic authorization credentials for the branch.
-        :param pulumi.Input[str] branch_name: Name for the branch.
-        :param pulumi.Input[str] description: Description for the branch.
-        :param pulumi.Input[str] display_name: Display name for a branch. This is used as the default domain prefix.
-        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
-        :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
-        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
-        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables for the branch.
-        :param pulumi.Input[str] framework: Framework for the branch.
-        :param pulumi.Input[str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         ...
     @overload
@@ -802,92 +540,7 @@ class Branch(pulumi.CustomResource):
                  args: BranchArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amplify Branch resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            framework="React",
-            stage="PRODUCTION",
-            environment_variables={
-                "REACT_APP_API_SERVER": "https://api.example.com",
-            })
-        ```
-        ### Notifications
-
-        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example = aws.amplify.App("example")
-        master = aws.amplify.Branch("master",
-            app_id=example.id,
-            branch_name="master",
-            enable_notification=True)
-        # EventBridge Rule for Amplify notifications
-        amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
-            description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
-            event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
-                "detail": {
-                    "appId": [id],
-                    "branchName": [branch_name],
-                    "jobStatus": [
-                        "SUCCEED",
-                        "FAILED",
-                        "STARTED",
-                    ],
-                },
-                "detail-type": ["Amplify Deployment Status Change"],
-                "source": ["aws.amplify"],
-            })))
-        amplify_app_master_topic = aws.sns.Topic("amplifyAppMasterTopic")
-        amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
-            rule=amplify_app_master_event_rule.name,
-            arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
-                input_paths={
-                    "jobId": "$.detail.jobId",
-                    "appId": "$.detail.appId",
-                    "region": "$.region",
-                    "branch": "$.detail.branchName",
-                    "status": "$.detail.jobStatus",
-                },
-                input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
-            ))
-        # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid=f"Allow_Publish_Events {master_arn}",
-            effect="Allow",
-            actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["events.amazonaws.com"],
-            )],
-            resources=[amplify_app_master_topic_arn],
-        )]))
-        amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy",
-            arn=amplify_app_master_topic.arn,
-            policy=amplify_app_master_policy_document.json)
-        ```
-
-        ## Import
-
-        Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
-        ```
-
+        Create a Branch resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BranchArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -998,29 +651,6 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
-        :param pulumi.Input[str] arn: ARN for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_resources: A list of custom resources that are linked to this branch.
-        :param pulumi.Input[str] backend_environment_arn: ARN for a backend environment that is part of an Amplify app.
-        :param pulumi.Input[str] basic_auth_credentials: Basic authorization credentials for the branch.
-        :param pulumi.Input[str] branch_name: Name for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_domains: Custom domains for the branch.
-        :param pulumi.Input[str] description: Description for the branch.
-        :param pulumi.Input[str] destination_branch: Destination branch if the branch is a pull request branch.
-        :param pulumi.Input[str] display_name: Display name for a branch. This is used as the default domain prefix.
-        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
-        :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
-        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
-        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables for the branch.
-        :param pulumi.Input[str] framework: Framework for the branch.
-        :param pulumi.Input[str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[str] source_branch: Source branch if the branch is a pull request branch.
-        :param pulumi.Input[str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] ttl: Content Time To Live (TTL) for the website in seconds.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1054,184 +684,115 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
-        """
-        Unique ID for an Amplify app.
-        """
         return pulumi.get(self, "app_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN for the branch.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="associatedResources")
     def associated_resources(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of custom resources that are linked to this branch.
-        """
         return pulumi.get(self, "associated_resources")
 
     @property
     @pulumi.getter(name="backendEnvironmentArn")
     def backend_environment_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        ARN for a backend environment that is part of an Amplify app.
-        """
         return pulumi.get(self, "backend_environment_arn")
 
     @property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> pulumi.Output[Optional[str]]:
-        """
-        Basic authorization credentials for the branch.
-        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[str]:
-        """
-        Name for the branch.
-        """
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Custom domains for the branch.
-        """
         return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for the branch.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationBranch")
     def destination_branch(self) -> pulumi.Output[str]:
-        """
-        Destination branch if the branch is a pull request branch.
-        """
         return pulumi.get(self, "destination_branch")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
-        """
-        Display name for a branch. This is used as the default domain prefix.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables auto building for the branch.
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables basic authorization for the branch.
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables notifications for the branch.
-        """
         return pulumi.get(self, "enable_notification")
 
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables performance mode for the branch.
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Enables pull request previews for this branch.
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Environment variables for the branch.
-        """
         return pulumi.get(self, "environment_variables")
 
     @property
     @pulumi.getter
     def framework(self) -> pulumi.Output[Optional[str]]:
-        """
-        Framework for the branch.
-        """
         return pulumi.get(self, "framework")
 
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Amplify environment name for the pull request.
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @property
     @pulumi.getter(name="sourceBranch")
     def source_branch(self) -> pulumi.Output[str]:
-        """
-        Source branch if the branch is a pull request branch.
-        """
         return pulumi.get(self, "source_branch")
 
     @property
     @pulumi.getter
     def stage(self) -> pulumi.Output[Optional[str]]:
-        """
-        Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         return pulumi.get(self, "stage")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[Optional[str]]:
-        """
-        Content Time To Live (TTL) for the website in seconds.
-        """
         return pulumi.get(self, "ttl")
 

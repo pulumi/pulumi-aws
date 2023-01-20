@@ -31,9 +31,6 @@ class GetEncryptionByDefaultResult:
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether or not default EBS encryption is enabled. Returns as `true` or `false`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -57,16 +54,7 @@ class AwaitableGetEncryptionByDefaultResult(GetEncryptionByDefaultResult):
 
 def get_encryption_by_default(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEncryptionByDefaultResult:
     """
-    Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    current = aws.ebs.get_encryption_by_default()
-    ```
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

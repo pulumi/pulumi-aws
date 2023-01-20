@@ -62,17 +62,11 @@ class GetConnectResult:
     @property
     @pulumi.getter
     def protocol(self) -> str:
-        """
-        Tunnel protocol
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value tags for the EC2 Transit Gateway Connect
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -83,17 +77,11 @@ class GetConnectResult:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
-        """
-        EC2 Transit Gateway identifier
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> str:
-        """
-        The underlaying VPC attachment
-        """
         return pulumi.get(self, "transport_attachment_id")
 
 
@@ -117,33 +105,7 @@ def get_connect(filters: Optional[Sequence[pulumi.InputType['GetConnectFilterArg
                 transit_gateway_connect_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectResult:
     """
-    Get information on an EC2 Transit Gateway Connect.
-
-    ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArgs(
-        name="transport-transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect(transit_gateway_connect_id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect
-    :param str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -168,32 +130,6 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
                        transit_gateway_connect_id: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectResult]:
     """
-    Get information on an EC2 Transit Gateway Connect.
-
-    ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect(filters=[aws.ec2transitgateway.GetConnectFilterArgs(
-        name="transport-transit-gateway-attachment-id",
-        values=["tgw-attach-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_connect(transit_gateway_connect_id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetConnectFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Connect
-    :param str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -18,8 +18,6 @@ class VpcEndpointPolicyArgs:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a VpcEndpointPolicy resource.
-        :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         if policy is not None:
@@ -28,9 +26,6 @@ class VpcEndpointPolicyArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[str]:
-        """
-        The VPC Endpoint ID.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -40,9 +35,6 @@ class VpcEndpointPolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -57,8 +49,6 @@ class _VpcEndpointPolicyState:
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointPolicy resources.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -68,9 +58,6 @@ class _VpcEndpointPolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -80,9 +67,6 @@ class _VpcEndpointPolicyState:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The VPC Endpoint ID.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -99,48 +83,9 @@ class VpcEndpointPolicy(pulumi.CustomResource):
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a VPC Endpoint Policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
-        ## Import
-
-        VPC Endpoint Policies can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-        ```
-
+        Create a VpcEndpointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         ...
     @overload
@@ -149,44 +94,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
                  args: VpcEndpointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a VPC Endpoint Policy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_vpc_endpoint_service = aws.ec2.get_vpc_endpoint_service(service="dynamodb")
-        example_vpc = aws.ec2.Vpc("exampleVpc", cidr_block="10.0.0.0/16")
-        example_vpc_endpoint = aws.ec2.VpcEndpoint("exampleVpcEndpoint",
-            service_name=example_vpc_endpoint_service.service_name,
-            vpc_id=example_vpc.id)
-        example_vpc_endpoint_policy = aws.ec2.VpcEndpointPolicy("exampleVpcEndpointPolicy",
-            vpc_endpoint_id=example_vpc_endpoint.id,
-            policy=json.dumps({
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "AllowAll",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "AWS": "*",
-                    },
-                    "Action": ["dynamodb:*"],
-                    "Resource": "*",
-                }],
-            }))
-        ```
-
-        ## Import
-
-        VPC Endpoint Policies can be imported using the `id`, e.g.
-
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointPolicy:VpcEndpointPolicy example vpce-3ecf2a57
-        ```
-
+        Create a VpcEndpointPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEndpointPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,8 +144,6 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[str] vpc_endpoint_id: The VPC Endpoint ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -250,16 +156,10 @@ class VpcEndpointPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[str]:
-        """
-        The VPC Endpoint ID.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 

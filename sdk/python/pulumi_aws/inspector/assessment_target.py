@@ -18,8 +18,6 @@ class AssessmentTargetArgs:
                  resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AssessmentTarget resource.
-        :param pulumi.Input[str] name: The name of the assessment target.
-        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -29,9 +27,6 @@ class AssessmentTargetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -41,9 +36,6 @@ class AssessmentTargetArgs:
     @property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 
     @resource_group_arn.setter
@@ -59,9 +51,6 @@ class _AssessmentTargetState:
                  resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AssessmentTarget resources.
-        :param pulumi.Input[str] arn: The target assessment ARN.
-        :param pulumi.Input[str] name: The name of the assessment target.
-        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -73,9 +62,6 @@ class _AssessmentTargetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The target assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -85,9 +71,6 @@ class _AssessmentTargetState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,9 +80,6 @@ class _AssessmentTargetState:
     @property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 
     @resource_group_arn.setter
@@ -116,33 +96,9 @@ class AssessmentTarget(pulumi.CustomResource):
                  resource_group_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Inspector assessment target
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
-        ```
-
-        ## Import
-
-        Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
-
-        ```sh
-         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-        ```
-
+        Create a AssessmentTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the assessment target.
-        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         ...
     @overload
@@ -151,29 +107,7 @@ class AssessmentTarget(pulumi.CustomResource):
                  args: Optional[AssessmentTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Inspector assessment target
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        bar = aws.inspector.ResourceGroup("bar", tags={
-            "Name": "foo",
-            "Env": "bar",
-        })
-        foo = aws.inspector.AssessmentTarget("foo", resource_group_arn=bar.arn)
-        ```
-
-        ## Import
-
-        Inspector Assessment Targets can be imported via their Amazon Resource Name (ARN), e.g.,
-
-        ```sh
-         $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-        ```
-
+        Create a AssessmentTarget resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AssessmentTargetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -223,9 +157,6 @@ class AssessmentTarget(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The target assessment ARN.
-        :param pulumi.Input[str] name: The name of the assessment target.
-        :param pulumi.Input[str] resource_group_arn: Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -239,24 +170,15 @@ class AssessmentTarget(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The target assessment ARN.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the assessment target.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceGroupArn")
     def resource_group_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
-        """
         return pulumi.get(self, "resource_group_arn")
 

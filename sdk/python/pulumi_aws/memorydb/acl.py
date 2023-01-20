@@ -20,10 +20,6 @@ class AclArgs:
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Acl resource.
-        :param pulumi.Input[str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -37,9 +33,6 @@ class AclArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,9 +42,6 @@ class AclArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -61,9 +51,6 @@ class AclArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -73,9 +60,6 @@ class AclArgs:
     @property
     @pulumi.getter(name="userNames")
     def user_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of MemoryDB user names to be included in this ACL.
-        """
         return pulumi.get(self, "user_names")
 
     @user_names.setter
@@ -95,13 +79,6 @@ class _AclState:
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Acl resources.
-        :param pulumi.Input[str] arn: The ARN of the ACL.
-        :param pulumi.Input[str] minimum_engine_version: The minimum engine version supported by the ACL.
-        :param pulumi.Input[str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,9 +98,6 @@ class _AclState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the ACL.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +107,6 @@ class _AclState:
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The minimum engine version supported by the ACL.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @minimum_engine_version.setter
@@ -145,9 +116,6 @@ class _AclState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -157,9 +125,6 @@ class _AclState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -169,9 +134,6 @@ class _AclState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -181,9 +143,6 @@ class _AclState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -193,9 +152,6 @@ class _AclState:
     @property
     @pulumi.getter(name="userNames")
     def user_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of MemoryDB user names to be included in this ACL.
-        """
         return pulumi.get(self, "user_names")
 
     @user_names.setter
@@ -214,36 +170,9 @@ class Acl(pulumi.CustomResource):
                  user_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a MemoryDB ACL.
-
-        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
-        ```
-
-        ## Import
-
-        Use the `name` to import an ACL. For example
-
-        ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
-        ```
-
+        Create a Acl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         ...
     @overload
@@ -252,30 +181,7 @@ class Acl(pulumi.CustomResource):
                  args: Optional[AclArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a MemoryDB ACL.
-
-        More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.memorydb.Acl("example", user_names=[
-            "my-user-1",
-            "my-user-2",
-        ])
-        ```
-
-        ## Import
-
-        Use the `name` to import an ACL. For example
-
-        ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
-        ```
-
+        Create a Acl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AclArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,13 +241,6 @@ class Acl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the ACL.
-        :param pulumi.Input[str] minimum_engine_version: The minimum engine version supported by the ACL.
-        :param pulumi.Input[str] name: Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_names: Set of MemoryDB user names to be included in this ACL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,56 +258,35 @@ class Acl(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the ACL.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="minimumEngineVersion")
     def minimum_engine_version(self) -> pulumi.Output[str]:
-        """
-        The minimum engine version supported by the ACL.
-        """
         return pulumi.get(self, "minimum_engine_version")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the ACL. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[str]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userNames")
     def user_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Set of MemoryDB user names to be included in this ACL.
-        """
         return pulumi.get(self, "user_names")
 

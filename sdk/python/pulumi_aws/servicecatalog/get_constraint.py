@@ -58,9 +58,6 @@ class GetConstraintResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the constraint.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -71,49 +68,31 @@ class GetConstraintResult:
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        Owner of the constraint.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def parameters(self) -> str:
-        """
-        Constraint parameters in JSON format.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> str:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> str:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Constraint status.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-        """
         return pulumi.get(self, "type")
 
 
@@ -139,23 +118,7 @@ def get_constraint(accept_language: Optional[str] = None,
                    id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConstraintResult:
     """
-    Provides information on a Service Catalog Constraint.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_constraint(accept_language="en",
-        id="cons-hrvy0335")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str description: Description of the constraint.
-    :param str id: Constraint identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
@@ -182,22 +145,6 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]]
                           id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConstraintResult]:
     """
-    Provides information on a Service Catalog Constraint.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicecatalog.get_constraint(accept_language="en",
-        id="cons-hrvy0335")
-    ```
-
-
-    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-    :param str description: Description of the constraint.
-    :param str id: Constraint identifier.
+    Use this data source to access information about an existing resource.
     """
     ...

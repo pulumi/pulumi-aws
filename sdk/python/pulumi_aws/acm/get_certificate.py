@@ -59,25 +59,16 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the found certificate, suitable for referencing in other resources that support ACM certificates.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def certificate(self) -> str:
-        """
-        ACM-issued certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> str:
-        """
-        Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
-        """
         return pulumi.get(self, "certificate_chain")
 
     @property
@@ -106,9 +97,6 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the found certificate.
-        """
         return pulumi.get(self, "status")
 
     @property
@@ -119,9 +107,6 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Mapping of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -157,34 +142,7 @@ def get_certificate(domain: Optional[str] = None,
                     types: Optional[Sequence[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate
-    Manager (ACM), you can reference
-    it by domain without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    issued = aws.acm.get_certificate(domain="tf.example.com",
-        statuses=["ISSUED"])
-    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        most_recent=True,
-        types=["AMAZON_ISSUED"])
-    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
-        key_types=["RSA_4096"])
-    ```
-
-
-    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-    :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-           are returned.
-    :param Mapping[str, str] tags: Mapping of tags for the resource.
-    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domain'] = domain
@@ -219,33 +177,6 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
                            types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
-    Use this data source to get the ARN of a certificate in AWS Certificate
-    Manager (ACM), you can reference
-    it by domain without having to hard code the ARNs as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    issued = aws.acm.get_certificate(domain="tf.example.com",
-        statuses=["ISSUED"])
-    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
-        most_recent=True,
-        types=["AMAZON_ISSUED"])
-    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
-        key_types=["RSA_4096"])
-    ```
-
-
-    :param str domain: Domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
-    :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
-    :param Sequence[str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-           are returned.
-    :param Mapping[str, str] tags: Mapping of tags for the resource.
-    :param Sequence[str] types: List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
+    Use this data source to access information about an existing resource.
     """
     ...

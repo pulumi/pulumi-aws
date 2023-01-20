@@ -24,12 +24,6 @@ class UserProfileArgs:
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
-        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "user_profile_name", user_profile_name)
@@ -45,9 +39,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -57,9 +48,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Input[str]:
-        """
-        The name for the User Profile.
-        """
         return pulumi.get(self, "user_profile_name")
 
     @user_profile_name.setter
@@ -69,9 +57,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
     def single_sign_on_user_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
     @single_sign_on_user_identifier.setter
@@ -81,9 +66,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="singleSignOnUserValue")
     def single_sign_on_user_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @single_sign_on_user_value.setter
@@ -93,9 +75,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,9 +84,6 @@ class UserProfileArgs:
     @property
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
-        """
-        The user settings. See User Settings below.
-        """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
@@ -129,15 +105,6 @@ class _UserProfileState:
                  user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering UserProfile resources.
-        :param pulumi.Input[str] arn: The user profile Amazon Resource Name (ARN).
-        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[str] home_efs_file_system_uid: The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -161,9 +128,6 @@ class _UserProfileState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user profile Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -173,9 +137,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @domain_id.setter
@@ -185,9 +146,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @home_efs_file_system_uid.setter
@@ -197,9 +155,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
     def single_sign_on_user_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
     @single_sign_on_user_identifier.setter
@@ -209,9 +164,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="singleSignOnUserValue")
     def single_sign_on_user_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @single_sign_on_user_value.setter
@@ -221,9 +173,6 @@ class _UserProfileState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -233,9 +182,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -245,9 +191,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name for the User Profile.
-        """
         return pulumi.get(self, "user_profile_name")
 
     @user_profile_name.setter
@@ -257,9 +200,6 @@ class _UserProfileState:
     @property
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
-        """
-        The user settings. See User Settings below.
-        """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
@@ -280,36 +220,9 @@ class UserProfile(pulumi.CustomResource):
                  user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
                  __props__=None):
         """
-        Provides a SageMaker User Profile resource.
-
-        ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
-            user_profile_name="example")
-        ```
-
-        ## Import
-
-        SageMaker User Profiles can be imported using the `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-        ```
-
+        Create a UserProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
         """
         ...
     @overload
@@ -318,28 +231,7 @@ class UserProfile(pulumi.CustomResource):
                  args: UserProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker User Profile resource.
-
-        ## Example Usage
-        ### Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sagemaker.UserProfile("example",
-            domain_id=aws_sagemaker_domain["test"]["id"],
-            user_profile_name="example")
-        ```
-
-        ## Import
-
-        SageMaker User Profiles can be imported using the `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-        ```
-
+        Create a UserProfile resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserProfileArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -409,15 +301,6 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The user profile Amazon Resource Name (ARN).
-        :param pulumi.Input[str] domain_id: The ID of the associated Domain.
-        :param pulumi.Input[str] home_efs_file_system_uid: The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-        :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,72 +320,45 @@ class UserProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The user profile Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the associated Domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @property
     @pulumi.getter(name="homeEfsFileSystemUid")
     def home_efs_file_system_uid(self) -> pulumi.Output[str]:
-        """
-        The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
-        """
         return pulumi.get(self, "home_efs_file_system_uid")
 
     @property
     @pulumi.getter(name="singleSignOnUserIdentifier")
     def single_sign_on_user_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_identifier")
 
     @property
     @pulumi.getter(name="singleSignOnUserValue")
     def single_sign_on_user_value(self) -> pulumi.Output[Optional[str]]:
-        """
-        The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
-        """
         return pulumi.get(self, "single_sign_on_user_value")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userProfileName")
     def user_profile_name(self) -> pulumi.Output[str]:
-        """
-        The name for the User Profile.
-        """
         return pulumi.get(self, "user_profile_name")
 
     @property
     @pulumi.getter(name="userSettings")
     def user_settings(self) -> pulumi.Output[Optional['outputs.UserProfileUserSettings']]:
-        """
-        The user settings. See User Settings below.
-        """
         return pulumi.get(self, "user_settings")
 

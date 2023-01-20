@@ -29,18 +29,6 @@ class AppAutoBranchCreationConfigArgs:
                  framework: Optional[pulumi.Input[str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] basic_auth_credentials: Basic authorization credentials for the autocreated branch.
-        :param pulumi.Input[str] build_spec: Build specification (build spec) for the autocreated branch.
-        :param pulumi.Input[bool] enable_auto_build: Enables auto building for the autocreated branch.
-        :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the autocreated branch.
-        :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
-        :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for the autocreated branch.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Environment variables for the autocreated branch.
-        :param pulumi.Input[str] framework: Framework for the autocreated branch.
-        :param pulumi.Input[str] pull_request_environment_name: Amplify environment name for the pull request.
-        :param pulumi.Input[str] stage: Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         if basic_auth_credentials is not None:
             pulumi.set(__self__, "basic_auth_credentials", basic_auth_credentials)
         if build_spec is not None:
@@ -65,9 +53,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="basicAuthCredentials")
     def basic_auth_credentials(self) -> Optional[pulumi.Input[str]]:
-        """
-        Basic authorization credentials for the autocreated branch.
-        """
         return pulumi.get(self, "basic_auth_credentials")
 
     @basic_auth_credentials.setter
@@ -77,9 +62,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[str]]:
-        """
-        Build specification (build spec) for the autocreated branch.
-        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -89,9 +71,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables auto building for the autocreated branch.
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -101,9 +80,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables basic authorization for the autocreated branch.
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -113,9 +89,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables performance mode for the branch.
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -125,9 +98,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables pull request previews for the autocreated branch.
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -137,9 +107,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Environment variables for the autocreated branch.
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -149,9 +116,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter
     def framework(self) -> Optional[pulumi.Input[str]]:
-        """
-        Framework for the autocreated branch.
-        """
         return pulumi.get(self, "framework")
 
     @framework.setter
@@ -161,9 +125,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amplify environment name for the pull request.
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -173,9 +134,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
-        """
-        Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -190,12 +148,6 @@ class AppCustomRuleArgs:
                  target: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] source: Source pattern for a URL rewrite or redirect rule.
-        :param pulumi.Input[str] target: Target pattern for a URL rewrite or redirect rule.
-        :param pulumi.Input[str] condition: Condition for a URL rewrite or redirect rule, such as a country code.
-        :param pulumi.Input[str] status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if condition is not None:
@@ -206,9 +158,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
-        """
-        Source pattern for a URL rewrite or redirect rule.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -218,9 +167,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
-        """
-        Target pattern for a URL rewrite or redirect rule.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -230,9 +176,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
-        """
-        Condition for a URL rewrite or redirect rule, such as a country code.
-        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -242,9 +185,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -259,12 +199,6 @@ class AppProductionBranchArgs:
                  last_deploy_time: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  thumbnail_url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] branch_name: Branch name for the production branch.
-        :param pulumi.Input[str] last_deploy_time: Last deploy time of the production branch.
-        :param pulumi.Input[str] status: Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        :param pulumi.Input[str] thumbnail_url: Thumbnail URL for the production branch.
-        """
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
         if last_deploy_time is not None:
@@ -277,9 +211,6 @@ class AppProductionBranchArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Branch name for the production branch.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -289,9 +220,6 @@ class AppProductionBranchArgs:
     @property
     @pulumi.getter(name="lastDeployTime")
     def last_deploy_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last deploy time of the production branch.
-        """
         return pulumi.get(self, "last_deploy_time")
 
     @last_deploy_time.setter
@@ -301,9 +229,6 @@ class AppProductionBranchArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -313,9 +238,6 @@ class AppProductionBranchArgs:
     @property
     @pulumi.getter(name="thumbnailUrl")
     def thumbnail_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Thumbnail URL for the production branch.
-        """
         return pulumi.get(self, "thumbnail_url")
 
     @thumbnail_url.setter
@@ -330,12 +252,6 @@ class DomainAssociationSubDomainArgs:
                  prefix: pulumi.Input[str],
                  dns_record: Optional[pulumi.Input[str]] = None,
                  verified: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] branch_name: Branch name setting for the subdomain.
-        :param pulumi.Input[str] prefix: Prefix setting for the subdomain.
-        :param pulumi.Input[str] dns_record: DNS record for the subdomain.
-        :param pulumi.Input[bool] verified: Verified status of the subdomain.
-        """
         pulumi.set(__self__, "branch_name", branch_name)
         pulumi.set(__self__, "prefix", prefix)
         if dns_record is not None:
@@ -346,9 +262,6 @@ class DomainAssociationSubDomainArgs:
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
-        """
-        Branch name setting for the subdomain.
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -358,9 +271,6 @@ class DomainAssociationSubDomainArgs:
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
-        """
-        Prefix setting for the subdomain.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter
@@ -370,9 +280,6 @@ class DomainAssociationSubDomainArgs:
     @property
     @pulumi.getter(name="dnsRecord")
     def dns_record(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS record for the subdomain.
-        """
         return pulumi.get(self, "dns_record")
 
     @dns_record.setter
@@ -382,9 +289,6 @@ class DomainAssociationSubDomainArgs:
     @property
     @pulumi.getter
     def verified(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Verified status of the subdomain.
-        """
         return pulumi.get(self, "verified")
 
     @verified.setter

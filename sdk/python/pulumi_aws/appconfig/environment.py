@@ -23,11 +23,6 @@ class EnvironmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_id", application_id)
         if description is not None:
@@ -42,9 +37,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -54,9 +46,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -66,9 +55,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -78,9 +64,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -90,9 +73,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -114,16 +94,6 @@ class _EnvironmentState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Environment resources.
-        :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: ARN of the AppConfig Environment.
-        :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -147,9 +117,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -159,9 +126,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the AppConfig Environment.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -171,9 +135,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -183,9 +144,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AppConfig environment ID.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -195,9 +153,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
@@ -207,9 +162,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -219,10 +171,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -232,9 +180,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -244,9 +189,6 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -266,46 +208,9 @@ class Environment(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Environment resource for an `appconfig.Application` resource. One or more environments can be defined for an application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_application = aws.appconfig.Application("exampleApplication",
-            description="Example AppConfig Application",
-            tags={
-                "Type": "AppConfig Application",
-            })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
-            )],
-            tags={
-                "Type": "AppConfig Environment",
-            })
-        ```
-
-        ## Import
-
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -314,39 +219,7 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Environment resource for an `appconfig.Application` resource. One or more environments can be defined for an application.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_application = aws.appconfig.Application("exampleApplication",
-            description="Example AppConfig Application",
-            tags={
-                "Type": "AppConfig Application",
-            })
-        example_environment = aws.appconfig.Environment("exampleEnvironment",
-            description="Example AppConfig Environment",
-            application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
-                alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
-                alarm_role_arn=aws_iam_role["example"]["arn"],
-            )],
-            tags={
-                "Type": "AppConfig Environment",
-            })
-        ```
-
-        ## Import
-
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
-        ```
-
+        Create a Environment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -413,16 +286,6 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
-        :param pulumi.Input[str] arn: ARN of the AppConfig Environment.
-        :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-               or `ROLLED_BACK`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -442,73 +305,45 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        AppConfig application ID. Must be between 4 and 7 characters in length.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the AppConfig Environment.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the environment. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[str]:
-        """
-        AppConfig environment ID.
-        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter
     def monitors(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentMonitor']]]:
-        """
-        Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
-        """
         return pulumi.get(self, "monitors")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name for the environment. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

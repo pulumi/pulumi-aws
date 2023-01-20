@@ -44,17 +44,11 @@ class GetCustomPluginResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        the ARN of the custom plugin.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        a summary description of the custom plugin.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -68,9 +62,6 @@ class GetCustomPluginResult:
     @property
     @pulumi.getter(name="latestRevision")
     def latest_revision(self) -> int:
-        """
-        an ID of the latest successfully created revision of the custom plugin.
-        """
         return pulumi.get(self, "latest_revision")
 
     @property
@@ -81,9 +72,6 @@ class GetCustomPluginResult:
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        the state of the custom plugin.
-        """
         return pulumi.get(self, "state")
 
 
@@ -104,19 +92,7 @@ class AwaitableGetCustomPluginResult(GetCustomPluginResult):
 def get_custom_plugin(name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomPluginResult:
     """
-    Get information on an Amazon MSK Connect custom plugin.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
-
-
-    :param str name: Name of the custom plugin.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -136,18 +112,6 @@ def get_custom_plugin(name: Optional[str] = None,
 def get_custom_plugin_output(name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
-    Get information on an Amazon MSK Connect custom plugin.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.mskconnect.get_custom_plugin(name="example-debezium-1")
-    ```
-
-
-    :param str name: Name of the custom plugin.
+    Use this data source to access information about an existing resource.
     """
     ...

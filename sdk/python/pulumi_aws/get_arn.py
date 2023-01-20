@@ -47,9 +47,6 @@ class GetArnResult:
     @property
     @pulumi.getter
     def account(self) -> str:
-        """
-        The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
-        """
         return pulumi.get(self, "account")
 
     @property
@@ -68,35 +65,21 @@ class GetArnResult:
     @property
     @pulumi.getter
     def partition(self) -> str:
-        """
-        Partition that the resource is in.
-        """
         return pulumi.get(self, "partition")
 
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        Region the resource resides in.
-        Note that the ARNs for some resources do not require a region, so this component might be omitted.
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def resource(self) -> str:
-        """
-        Content of this part of the ARN varies by service.
-        It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
-        """
         return pulumi.get(self, "resource")
 
     @property
     @pulumi.getter
     def service(self) -> str:
-        """
-        The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
-        """
         return pulumi.get(self, "service")
 
 
@@ -118,19 +101,7 @@ class AwaitableGetArnResult(GetArnResult):
 def get_arn(arn: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArnResult:
     """
-    Parses an ARN into its constituent parts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    db_instance = aws.get_arn(arn="arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
-    ```
-
-
-    :param str arn: ARN to parse.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -151,18 +122,6 @@ def get_arn(arn: Optional[str] = None,
 def get_arn_output(arn: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArnResult]:
     """
-    Parses an ARN into its constituent parts.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    db_instance = aws.get_arn(arn="arn:aws:rds:eu-west-1:123456789012:db:mysql-db")
-    ```
-
-
-    :param str arn: ARN to parse.
+    Use this data source to access information about an existing resource.
     """
     ...

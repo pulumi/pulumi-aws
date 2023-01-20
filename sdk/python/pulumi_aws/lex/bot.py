@@ -32,20 +32,6 @@ class BotArgs:
                  voice_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Bot resource.
-        :param pulumi.Input['BotAbortStatementArgs'] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        :param pulumi.Input[bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        :param pulumi.Input['BotClarificationPromptArgs'] clarification_prompt: The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        :param pulumi.Input[bool] create_version: Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[bool] detect_sentiment: When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        :param pulumi.Input[float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        :param pulumi.Input[str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         pulumi.set(__self__, "abort_statement", abort_statement)
         pulumi.set(__self__, "child_directed", child_directed)
@@ -76,9 +62,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="abortStatement")
     def abort_statement(self) -> pulumi.Input['BotAbortStatementArgs']:
-        """
-        The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        """
         return pulumi.get(self, "abort_statement")
 
     @abort_statement.setter
@@ -88,9 +71,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> pulumi.Input[bool]:
-        """
-        By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        """
         return pulumi.get(self, "child_directed")
 
     @child_directed.setter
@@ -100,9 +80,6 @@ class BotArgs:
     @property
     @pulumi.getter
     def intents(self) -> pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]:
-        """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        """
         return pulumi.get(self, "intents")
 
     @intents.setter
@@ -112,9 +89,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="clarificationPrompt")
     def clarification_prompt(self) -> Optional[pulumi.Input['BotClarificationPromptArgs']]:
-        """
-        The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "clarification_prompt")
 
     @clarification_prompt.setter
@@ -124,9 +98,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -136,9 +107,6 @@ class BotArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the bot. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -148,9 +116,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="detectSentiment")
     def detect_sentiment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        """
         return pulumi.get(self, "detect_sentiment")
 
     @detect_sentiment.setter
@@ -160,9 +125,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="enableModelImprovements")
     def enable_model_improvements(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        """
         return pulumi.get(self, "enable_model_improvements")
 
     @enable_model_improvements.setter
@@ -172,9 +134,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -184,9 +143,6 @@ class BotArgs:
     @property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -196,9 +152,6 @@ class BotArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -208,9 +161,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
     def nlu_intent_confidence_threshold(self) -> Optional[pulumi.Input[float]]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @nlu_intent_confidence_threshold.setter
@@ -220,9 +170,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="processBehavior")
     def process_behavior(self) -> Optional[pulumi.Input[str]]:
-        """
-        If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        """
         return pulumi.get(self, "process_behavior")
 
     @process_behavior.setter
@@ -232,9 +179,6 @@ class BotArgs:
     @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
-        """
         return pulumi.get(self, "voice_id")
 
     @voice_id.setter
@@ -268,30 +212,6 @@ class _BotState:
                  voice_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Bot resources.
-        :param pulumi.Input['BotAbortStatementArgs'] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        :param pulumi.Input[str] checksum: Checksum identifying the version of the bot that was created. The checksum is not
-               included as an argument because the resource will add it automatically when updating the bot.
-        :param pulumi.Input[bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        :param pulumi.Input['BotClarificationPromptArgs'] clarification_prompt: The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        :param pulumi.Input[bool] create_version: Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[str] created_date: The date when the bot version was created.
-        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[bool] detect_sentiment: When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        :param pulumi.Input[str] failure_reason: If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        :param pulumi.Input[str] last_updated_date: The date when the $LATEST version of this bot was updated.
-        :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        :param pulumi.Input[float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        :param pulumi.Input[str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        :param pulumi.Input[str] status: When you send a request to create or update a bot, Amazon Lex sets the status response
-               element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
-               build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-               failure_reason response element.
-        :param pulumi.Input[str] version: The version of the bot.
-        :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         if abort_statement is not None:
             pulumi.set(__self__, "abort_statement", abort_statement)
@@ -339,9 +259,6 @@ class _BotState:
     @property
     @pulumi.getter(name="abortStatement")
     def abort_statement(self) -> Optional[pulumi.Input['BotAbortStatementArgs']]:
-        """
-        The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        """
         return pulumi.get(self, "abort_statement")
 
     @abort_statement.setter
@@ -360,10 +277,6 @@ class _BotState:
     @property
     @pulumi.getter
     def checksum(self) -> Optional[pulumi.Input[str]]:
-        """
-        Checksum identifying the version of the bot that was created. The checksum is not
-        included as an argument because the resource will add it automatically when updating the bot.
-        """
         return pulumi.get(self, "checksum")
 
     @checksum.setter
@@ -373,9 +286,6 @@ class _BotState:
     @property
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        """
         return pulumi.get(self, "child_directed")
 
     @child_directed.setter
@@ -385,9 +295,6 @@ class _BotState:
     @property
     @pulumi.getter(name="clarificationPrompt")
     def clarification_prompt(self) -> Optional[pulumi.Input['BotClarificationPromptArgs']]:
-        """
-        The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "clarification_prompt")
 
     @clarification_prompt.setter
@@ -397,9 +304,6 @@ class _BotState:
     @property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @create_version.setter
@@ -409,9 +313,6 @@ class _BotState:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date when the bot version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @created_date.setter
@@ -421,9 +322,6 @@ class _BotState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the bot. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -433,9 +331,6 @@ class _BotState:
     @property
     @pulumi.getter(name="detectSentiment")
     def detect_sentiment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        """
         return pulumi.get(self, "detect_sentiment")
 
     @detect_sentiment.setter
@@ -445,9 +340,6 @@ class _BotState:
     @property
     @pulumi.getter(name="enableModelImprovements")
     def enable_model_improvements(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        """
         return pulumi.get(self, "enable_model_improvements")
 
     @enable_model_improvements.setter
@@ -457,9 +349,6 @@ class _BotState:
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[pulumi.Input[str]]:
-        """
-        If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-        """
         return pulumi.get(self, "failure_reason")
 
     @failure_reason.setter
@@ -469,9 +358,6 @@ class _BotState:
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @idle_session_ttl_in_seconds.setter
@@ -481,9 +367,6 @@ class _BotState:
     @property
     @pulumi.getter
     def intents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]]:
-        """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        """
         return pulumi.get(self, "intents")
 
     @intents.setter
@@ -493,9 +376,6 @@ class _BotState:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date when the $LATEST version of this bot was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @last_updated_date.setter
@@ -505,9 +385,6 @@ class _BotState:
     @property
     @pulumi.getter
     def locale(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        """
         return pulumi.get(self, "locale")
 
     @locale.setter
@@ -517,9 +394,6 @@ class _BotState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -529,9 +403,6 @@ class _BotState:
     @property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
     def nlu_intent_confidence_threshold(self) -> Optional[pulumi.Input[float]]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @nlu_intent_confidence_threshold.setter
@@ -541,9 +412,6 @@ class _BotState:
     @property
     @pulumi.getter(name="processBehavior")
     def process_behavior(self) -> Optional[pulumi.Input[str]]:
-        """
-        If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        """
         return pulumi.get(self, "process_behavior")
 
     @process_behavior.setter
@@ -553,12 +421,6 @@ class _BotState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        When you send a request to create or update a bot, Amazon Lex sets the status response
-        element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
-        build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-        failure_reason response element.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -568,9 +430,6 @@ class _BotState:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The version of the bot.
-        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -580,9 +439,6 @@ class _BotState:
     @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
-        """
         return pulumi.get(self, "voice_id")
 
     @voice_id.setter
@@ -611,67 +467,9 @@ class Bot(pulumi.CustomResource):
                  voice_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Lex Bot resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time",
-                    content_type="PlainText",
-                )],
-            ),
-            child_directed=False,
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
-            create_version=False,
-            description="Bot to order flowers on the behalf of a user",
-            idle_session_ttl_in_seconds=600,
-            intents=[aws.lex.BotIntentArgs(
-                intent_name="OrderFlowers",
-                intent_version="1",
-            )],
-            locale="en-US",
-            name="OrderFlowers",
-            process_behavior="BUILD",
-            voice_id="Salli")
-        ```
-
-        ## Import
-
-        Bots can be imported using their name.
-
-        ```sh
-         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-        ```
-
+        Create a Bot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BotAbortStatementArgs']] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        :param pulumi.Input[bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        :param pulumi.Input[pulumi.InputType['BotClarificationPromptArgs']] clarification_prompt: The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        :param pulumi.Input[bool] create_version: Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[bool] detect_sentiment: When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        :param pulumi.Input[float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        :param pulumi.Input[str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         ...
     @overload
@@ -680,51 +478,7 @@ class Bot(pulumi.CustomResource):
                  args: BotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Lex Bot resource. For more information see
-        [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        order_flowers_bot = aws.lex.Bot("orderFlowersBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
-                    content="Sorry, I am not able to assist at this time",
-                    content_type="PlainText",
-                )],
-            ),
-            child_directed=False,
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
-                max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
-                    content="I didn't understand you, what would you like to do?",
-                    content_type="PlainText",
-                )],
-            ),
-            create_version=False,
-            description="Bot to order flowers on the behalf of a user",
-            idle_session_ttl_in_seconds=600,
-            intents=[aws.lex.BotIntentArgs(
-                intent_name="OrderFlowers",
-                intent_version="1",
-            )],
-            locale="en-US",
-            name="OrderFlowers",
-            process_behavior="BUILD",
-            voice_id="Salli")
-        ```
-
-        ## Import
-
-        Bots can be imported using their name.
-
-        ```sh
-         $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-        ```
-
+        Create a Bot resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -828,30 +582,6 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BotAbortStatementArgs']] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        :param pulumi.Input[str] checksum: Checksum identifying the version of the bot that was created. The checksum is not
-               included as an argument because the resource will add it automatically when updating the bot.
-        :param pulumi.Input[bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        :param pulumi.Input[pulumi.InputType['BotClarificationPromptArgs']] clarification_prompt: The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        :param pulumi.Input[bool] create_version: Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        :param pulumi.Input[str] created_date: The date when the bot version was created.
-        :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[bool] detect_sentiment: When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        :param pulumi.Input[str] failure_reason: If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-        :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        :param pulumi.Input[str] last_updated_date: The date when the $LATEST version of this bot was updated.
-        :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        :param pulumi.Input[float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        :param pulumi.Input[str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        :param pulumi.Input[str] status: When you send a request to create or update a bot, Amazon Lex sets the status response
-               element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
-               build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-               failure_reason response element.
-        :param pulumi.Input[str] version: The version of the bot.
-        :param pulumi.Input[str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -883,9 +613,6 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="abortStatement")
     def abort_statement(self) -> pulumi.Output['outputs.BotAbortStatement']:
-        """
-        The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
-        """
         return pulumi.get(self, "abort_statement")
 
     @property
@@ -896,156 +623,95 @@ class Bot(pulumi.CustomResource):
     @property
     @pulumi.getter
     def checksum(self) -> pulumi.Output[str]:
-        """
-        Checksum identifying the version of the bot that was created. The checksum is not
-        included as an argument because the resource will add it automatically when updating the bot.
-        """
         return pulumi.get(self, "checksum")
 
     @property
     @pulumi.getter(name="childDirected")
     def child_directed(self) -> pulumi.Output[bool]:
-        """
-        By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        """
         return pulumi.get(self, "child_directed")
 
     @property
     @pulumi.getter(name="clarificationPrompt")
     def clarification_prompt(self) -> pulumi.Output[Optional['outputs.BotClarificationPrompt']]:
-        """
-        The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
-        """
         return pulumi.get(self, "clarification_prompt")
 
     @property
     @pulumi.getter(name="createVersion")
     def create_version(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
-        """
         return pulumi.get(self, "create_version")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> pulumi.Output[str]:
-        """
-        The date when the bot version was created.
-        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the bot. Must be less than or equal to 200 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="detectSentiment")
     def detect_sentiment(self) -> pulumi.Output[Optional[bool]]:
-        """
-        When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
-        """
         return pulumi.get(self, "detect_sentiment")
 
     @property
     @pulumi.getter(name="enableModelImprovements")
     def enable_model_improvements(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
-        """
         return pulumi.get(self, "enable_model_improvements")
 
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[str]:
-        """
-        If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
-        """
         return pulumi.get(self, "failure_reason")
 
     @property
     @pulumi.getter(name="idleSessionTtlInSeconds")
     def idle_session_ttl_in_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        """
         return pulumi.get(self, "idle_session_ttl_in_seconds")
 
     @property
     @pulumi.getter
     def intents(self) -> pulumi.Output[Sequence['outputs.BotIntent']]:
-        """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
-        """
         return pulumi.get(self, "intents")
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> pulumi.Output[str]:
-        """
-        The date when the $LATEST version of this bot was updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter
     def locale(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
-        """
         return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="nluIntentConfidenceThreshold")
     def nlu_intent_confidence_threshold(self) -> pulumi.Output[Optional[float]]:
-        """
-        Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
-        """
         return pulumi.get(self, "nlu_intent_confidence_threshold")
 
     @property
     @pulumi.getter(name="processBehavior")
     def process_behavior(self) -> pulumi.Output[Optional[str]]:
-        """
-        If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
-        """
         return pulumi.get(self, "process_behavior")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        When you send a request to create or update a bot, Amazon Lex sets the status response
-        element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
-        build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
-        failure_reason response element.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
-        """
-        The version of the bot.
-        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> pulumi.Output[str]:
-        """
-        The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
-        """
         return pulumi.get(self, "voice_id")
 

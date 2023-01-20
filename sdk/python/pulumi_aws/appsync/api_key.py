@@ -19,9 +19,6 @@ class ApiKeyArgs:
                  expires: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input[str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is None:
@@ -34,9 +31,6 @@ class ApiKeyArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -46,9 +40,6 @@ class ApiKeyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -58,9 +49,6 @@ class ApiKeyArgs:
     @property
     @pulumi.getter
     def expires(self) -> Optional[pulumi.Input[str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @expires.setter
@@ -77,10 +65,6 @@ class _ApiKeyState:
                  key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
-        :param pulumi.Input[str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[str] key: API key
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -96,9 +80,6 @@ class _ApiKeyState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -108,9 +89,6 @@ class _ApiKeyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -120,9 +98,6 @@ class _ApiKeyState:
     @property
     @pulumi.getter
     def expires(self) -> Optional[pulumi.Input[str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @expires.setter
@@ -132,9 +107,6 @@ class _ApiKeyState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        API key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -152,33 +124,9 @@ class ApiKey(pulumi.CustomResource):
                  expires: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AppSync API Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
-        ## Import
-
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         """
         ...
     @overload
@@ -187,28 +135,7 @@ class ApiKey(pulumi.CustomResource):
                  args: ApiKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppSync API Key.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
-        example_api_key = aws.appsync.ApiKey("exampleApiKey",
-            api_id=example_graph_ql_api.id,
-            expires="2018-05-03T04:00:00Z")
-        ```
-
-        ## Import
-
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
-
-        ```sh
-         $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-        ```
-
+        Create a ApiKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApiKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,10 +194,6 @@ class ApiKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: ID of the associated AppSync API
-        :param pulumi.Input[str] description: API key description. Defaults to "Managed by Pulumi".
-        :param pulumi.Input[str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        :param pulumi.Input[str] key: API key
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -285,32 +208,20 @@ class ApiKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
-        """
-        ID of the associated AppSync API
-        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
-        """
-        API key description. Defaults to "Managed by Pulumi".
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def expires(self) -> pulumi.Output[Optional[str]]:
-        """
-        RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        """
         return pulumi.get(self, "expires")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        API key
-        """
         return pulumi.get(self, "key")
 

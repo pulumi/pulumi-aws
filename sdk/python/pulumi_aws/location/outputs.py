@@ -20,17 +20,11 @@ __all__ = [
 class MapConfiguration(dict):
     def __init__(__self__, *,
                  style: str):
-        """
-        :param str style: Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
     def style(self) -> str:
-        """
-        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
         return pulumi.get(self, "style")
 
 
@@ -55,18 +49,12 @@ class PlaceIndexDataSourceConfiguration(dict):
 
     def __init__(__self__, *,
                  intended_use: Optional[str] = None):
-        """
-        :param str intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[str]:
-        """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
         return pulumi.get(self, "intended_use")
 
 
@@ -74,17 +62,11 @@ class PlaceIndexDataSourceConfiguration(dict):
 class GetMapConfigurationResult(dict):
     def __init__(__self__, *,
                  style: str):
-        """
-        :param str style: The map style selected from an available data provider.
-        """
         pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
     def style(self) -> str:
-        """
-        The map style selected from an available data provider.
-        """
         return pulumi.get(self, "style")
 
 

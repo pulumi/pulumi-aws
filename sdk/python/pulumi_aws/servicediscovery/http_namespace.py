@@ -19,9 +19,6 @@ class HttpNamespaceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a HttpNamespace resource.
-        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
-        :param pulumi.Input[str] name: The name of the http namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -33,9 +30,6 @@ class HttpNamespaceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description that you specify for the namespace when you create it.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -45,9 +39,6 @@ class HttpNamespaceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the http namespace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -57,9 +48,6 @@ class HttpNamespaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -78,12 +66,6 @@ class _HttpNamespaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering HttpNamespace resources.
-        :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
-        :param pulumi.Input[str] http_name: The name of an HTTP namespace.
-        :param pulumi.Input[str] name: The name of the http namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -101,9 +83,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -113,9 +92,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description that you specify for the namespace when you create it.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -125,9 +101,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter(name="httpName")
     def http_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of an HTTP namespace.
-        """
         return pulumi.get(self, "http_name")
 
     @http_name.setter
@@ -137,9 +110,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the http namespace.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -149,9 +119,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -161,9 +128,6 @@ class _HttpNamespaceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -181,28 +145,9 @@ class HttpNamespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
-        ```
-
-        ## Import
-
-        Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-        ```
-
+        Create a HttpNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
-        :param pulumi.Input[str] name: The name of the http namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -211,23 +156,7 @@ class HttpNamespace(pulumi.CustomResource):
                  args: Optional[HttpNamespaceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicediscovery.HttpNamespace("example", description="example")
-        ```
-
-        ## Import
-
-        Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-        ```
-
+        Create a HttpNamespace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HttpNamespaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,12 +213,6 @@ class HttpNamespace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
-        :param pulumi.Input[str] http_name: The name of an HTTP namespace.
-        :param pulumi.Input[str] name: The name of the http namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,48 +229,30 @@ class HttpNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN that Amazon Route 53 assigns to the namespace when you create it.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description that you specify for the namespace when you create it.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="httpName")
     def http_name(self) -> pulumi.Output[str]:
-        """
-        The name of an HTTP namespace.
-        """
         return pulumi.get(self, "http_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the http namespace.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -19,9 +19,6 @@ class TagArgs:
                  value: pulumi.Input[str]):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[str] key: The tag name.
-        :param pulumi.Input[str] resource_id: The ID of the EC2 resource to manage the tag for.
-        :param pulumi.Input[str] value: The value of the tag.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "resource_id", resource_id)
@@ -30,9 +27,6 @@ class TagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -42,9 +36,6 @@ class TagArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the EC2 resource to manage the tag for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -54,9 +45,6 @@ class TagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        The value of the tag.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -72,9 +60,6 @@ class _TagState:
                  value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[str] key: The tag name.
-        :param pulumi.Input[str] resource_id: The ID of the EC2 resource to manage the tag for.
-        :param pulumi.Input[str] value: The value of the tag.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -86,9 +71,6 @@ class _TagState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tag name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -98,9 +80,6 @@ class _TagState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the EC2 resource to manage the tag for.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -110,9 +89,6 @@ class _TagState:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value of the tag.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -130,44 +106,9 @@ class Tag(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
-
-        > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `ec2.Vpc` and `ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `ec2.Vpc` resource will try to remove the tag being added by the `ec2.Tag` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
-            customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
-            type=example_customer_gateway.type)
-        example_tag = aws.ec2.Tag("exampleTag",
-            resource_id=example_vpn_connection.transit_gateway_attachment_id,
-            key="Name",
-            value="Hello World")
-        ```
-
-        ## Import
-
-        `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: The tag name.
-        :param pulumi.Input[str] resource_id: The ID of the EC2 resource to manage the tag for.
-        :param pulumi.Input[str] value: The value of the tag.
         """
         ...
     @overload
@@ -176,39 +117,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an individual EC2 resource tag. This resource should only be used in cases where EC2 resources are created outside the provider (e.g. AMIs), being shared via Resource Access Manager (RAM), or implicitly created by other means (e.g. Transit Gateway VPN Attachments).
-
-        > **NOTE:** This tagging resource should not be combined with the providers resource for managing the parent resource. For example, using `ec2.Vpc` and `ec2.Tag` to manage tags of the same VPC will cause a perpetual difference where the `ec2.Vpc` resource will try to remove the tag being added by the `ec2.Tag` resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway")
-        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
-            bgp_asn="65000",
-            ip_address="172.0.0.1",
-            type="ipsec.1")
-        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
-            customer_gateway_id=example_customer_gateway.id,
-            transit_gateway_id=example_transit_gateway.id,
-            type=example_customer_gateway.type)
-        example_tag = aws.ec2.Tag("exampleTag",
-            resource_id=example_vpn_connection.transit_gateway_attachment_id,
-            key="Name",
-            value="Hello World")
-        ```
-
-        ## Import
-
-        `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,9 +174,6 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key: The tag name.
-        :param pulumi.Input[str] resource_id: The ID of the EC2 resource to manage the tag for.
-        :param pulumi.Input[str] value: The value of the tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -281,24 +187,15 @@ class Tag(pulumi.CustomResource):
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        The tag name.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the EC2 resource to manage the tag for.
-        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
-        """
-        The value of the tag.
-        """
         return pulumi.get(self, "value")
 

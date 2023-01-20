@@ -47,17 +47,11 @@ class GetSubnetGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the subnet group.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the subnet group.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -76,25 +70,16 @@ class GetSubnetGroupResult:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
-        """
-        Set of VPC Subnet ID-s of the subnet group.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the subnet group.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
-        """
-        VPC in which the subnet group exists.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -117,20 +102,7 @@ def get_subnet_group(name: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
-    Provides information about a MemoryDB Subnet Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_subnet_group(name="my-subnet-group")
-    ```
-
-
-    :param str name: Name of the subnet group.
-    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -153,19 +125,6 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
-    Provides information about a MemoryDB Subnet Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.memorydb.get_subnet_group(name="my-subnet-group")
-    ```
-
-
-    :param str name: Name of the subnet group.
-    :param Mapping[str, str] tags: Map of tags assigned to the subnet group.
+    Use this data source to access information about an existing resource.
     """
     ...

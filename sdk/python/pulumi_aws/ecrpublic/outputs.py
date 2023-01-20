@@ -45,14 +45,6 @@ class RepositoryCatalogData(dict):
                  logo_image_blob: Optional[str] = None,
                  operating_systems: Optional[Sequence[str]] = None,
                  usage_text: Optional[str] = None):
-        """
-        :param str about_text: A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        :param Sequence[str] architectures: The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-        :param str description: A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-        :param str logo_image_blob: The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        :param Sequence[str] operating_systems: The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
-        :param str usage_text: Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-        """
         if about_text is not None:
             pulumi.set(__self__, "about_text", about_text)
         if architectures is not None:
@@ -69,49 +61,31 @@ class RepositoryCatalogData(dict):
     @property
     @pulumi.getter(name="aboutText")
     def about_text(self) -> Optional[str]:
-        """
-        A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        """
         return pulumi.get(self, "about_text")
 
     @property
     @pulumi.getter
     def architectures(self) -> Optional[Sequence[str]]:
-        """
-        The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-        """
         return pulumi.get(self, "architectures")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
-        """
-        A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="logoImageBlob")
     def logo_image_blob(self) -> Optional[str]:
-        """
-        The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        """
         return pulumi.get(self, "logo_image_blob")
 
     @property
     @pulumi.getter(name="operatingSystems")
     def operating_systems(self) -> Optional[Sequence[str]]:
-        """
-        The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
-        """
         return pulumi.get(self, "operating_systems")
 
     @property
     @pulumi.getter(name="usageText")
     def usage_text(self) -> Optional[str]:
-        """
-        Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-        """
         return pulumi.get(self, "usage_text")
 
 

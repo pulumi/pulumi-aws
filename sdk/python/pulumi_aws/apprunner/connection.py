@@ -19,9 +19,6 @@ class ConnectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "provider_type", provider_type)
@@ -31,9 +28,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Input[str]:
-        """
-        Name of the connection.
-        """
         return pulumi.get(self, "connection_name")
 
     @connection_name.setter
@@ -43,9 +37,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Input[str]:
-        """
-        Source repository provider. Valid values: `GITHUB`.
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -55,9 +46,6 @@ class ConnectionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -76,12 +64,6 @@ class _ConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
-        :param pulumi.Input[str] arn: ARN of the connection.
-        :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[str] status: Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -99,9 +81,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -111,9 +90,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the connection.
-        """
         return pulumi.get(self, "connection_name")
 
     @connection_name.setter
@@ -123,9 +99,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source repository provider. Valid values: `GITHUB`.
-        """
         return pulumi.get(self, "provider_type")
 
     @provider_type.setter
@@ -135,9 +108,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -147,9 +117,6 @@ class _ConnectionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -159,9 +126,6 @@ class _ConnectionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -179,37 +143,9 @@ class Connection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an App Runner Connection.
-
-        > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.Connection("example",
-            connection_name="example",
-            provider_type="GITHUB",
-            tags={
-                "Name": "example-apprunner-connection",
-            })
-        ```
-
-        ## Import
-
-        App Runner Connections can be imported by using the `connection_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apprunner/connection:Connection example example
-        ```
-
+        Create a Connection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -218,32 +154,7 @@ class Connection(pulumi.CustomResource):
                  args: ConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an App Runner Connection.
-
-        > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apprunner.Connection("example",
-            connection_name="example",
-            provider_type="GITHUB",
-            tags={
-                "Name": "example-apprunner-connection",
-            })
-        ```
-
-        ## Import
-
-        App Runner Connections can be imported by using the `connection_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apprunner/connection:Connection example example
-        ```
-
+        Create a Connection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -304,12 +215,6 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the connection.
-        :param pulumi.Input[str] connection_name: Name of the connection.
-        :param pulumi.Input[str] provider_type: Source repository provider. Valid values: `GITHUB`.
-        :param pulumi.Input[str] status: Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -326,48 +231,30 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionName")
     def connection_name(self) -> pulumi.Output[str]:
-        """
-        Name of the connection.
-        """
         return pulumi.get(self, "connection_name")
 
     @property
     @pulumi.getter(name="providerType")
     def provider_type(self) -> pulumi.Output[str]:
-        """
-        Source repository provider. Valid values: `GITHUB`.
-        """
         return pulumi.get(self, "provider_type")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `apprunner.Service` resource.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

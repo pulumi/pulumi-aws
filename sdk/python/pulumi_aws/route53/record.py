@@ -33,21 +33,6 @@ class RecordArgs:
                  weighted_routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a Record resource.
-        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        :param pulumi.Input[Union[str, 'RecordType']] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Documented below.
-        :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        :param pulumi.Input[int] ttl: The TTL of the record.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -78,9 +63,6 @@ class RecordArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -90,9 +72,6 @@ class RecordArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[str, 'RecordType']]:
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -102,9 +81,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Input[str]:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -114,10 +90,6 @@ class RecordArgs:
     @property
     @pulumi.getter
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
-        """
-        An alias block. Conflicts with `ttl` & `records`.
-        Documented below.
-        """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
@@ -127,9 +99,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="allowOverwrite")
     def allow_overwrite(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        """
         return pulumi.get(self, "allow_overwrite")
 
     @allow_overwrite.setter
@@ -139,9 +108,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="failoverRoutingPolicies")
     def failover_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
-        """
-        A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "failover_routing_policies")
 
     @failover_routing_policies.setter
@@ -151,9 +117,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="geolocationRoutingPolicies")
     def geolocation_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
-        """
-        A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "geolocation_routing_policies")
 
     @geolocation_routing_policies.setter
@@ -163,9 +126,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The health check the record should be associated with.
-        """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
@@ -175,9 +135,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="latencyRoutingPolicies")
     def latency_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
-        """
-        A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "latency_routing_policies")
 
     @latency_routing_policies.setter
@@ -187,9 +144,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="multivalueAnswerRoutingPolicy")
     def multivalue_answer_routing_policy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        """
         return pulumi.get(self, "multivalue_answer_routing_policy")
 
     @multivalue_answer_routing_policy.setter
@@ -199,9 +153,6 @@ class RecordArgs:
     @property
     @pulumi.getter
     def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        """
         return pulumi.get(self, "records")
 
     @records.setter
@@ -211,9 +162,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        """
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
@@ -223,9 +171,6 @@ class RecordArgs:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
-        """
-        The TTL of the record.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -235,9 +180,6 @@ class RecordArgs:
     @property
     @pulumi.getter(name="weightedRoutingPolicies")
     def weighted_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
-        """
-        A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "weighted_routing_policies")
 
     @weighted_routing_policies.setter
@@ -265,22 +207,6 @@ class _RecordState:
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Record resources.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Documented below.
-        :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        :param pulumi.Input[int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[str, 'RecordType']] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        :param pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
@@ -316,10 +242,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordAliasArgs']]]]:
-        """
-        An alias block. Conflicts with `ttl` & `records`.
-        Documented below.
-        """
         return pulumi.get(self, "aliases")
 
     @aliases.setter
@@ -329,9 +251,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="allowOverwrite")
     def allow_overwrite(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        """
         return pulumi.get(self, "allow_overwrite")
 
     @allow_overwrite.setter
@@ -341,9 +260,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="failoverRoutingPolicies")
     def failover_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]]]:
-        """
-        A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "failover_routing_policies")
 
     @failover_routing_policies.setter
@@ -353,9 +269,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-        """
         return pulumi.get(self, "fqdn")
 
     @fqdn.setter
@@ -365,9 +278,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="geolocationRoutingPolicies")
     def geolocation_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]]]:
-        """
-        A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "geolocation_routing_policies")
 
     @geolocation_routing_policies.setter
@@ -377,9 +287,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The health check the record should be associated with.
-        """
         return pulumi.get(self, "health_check_id")
 
     @health_check_id.setter
@@ -389,9 +296,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="latencyRoutingPolicies")
     def latency_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordLatencyRoutingPolicyArgs']]]]:
-        """
-        A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "latency_routing_policies")
 
     @latency_routing_policies.setter
@@ -401,9 +305,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="multivalueAnswerRoutingPolicy")
     def multivalue_answer_routing_policy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        """
         return pulumi.get(self, "multivalue_answer_routing_policy")
 
     @multivalue_answer_routing_policy.setter
@@ -413,9 +314,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -425,9 +323,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        """
         return pulumi.get(self, "records")
 
     @records.setter
@@ -437,9 +332,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        """
         return pulumi.get(self, "set_identifier")
 
     @set_identifier.setter
@@ -449,9 +341,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
-        """
-        The TTL of the record.
-        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -461,9 +350,6 @@ class _RecordState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'RecordType']]]:
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -473,9 +359,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="weightedRoutingPolicies")
     def weighted_routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecordWeightedRoutingPolicyArgs']]]]:
-        """
-        A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "weighted_routing_policies")
 
     @weighted_routing_policies.setter
@@ -485,9 +368,6 @@ class _RecordState:
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -516,135 +396,9 @@ class Record(pulumi.CustomResource):
                  zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Route53 record resource.
-
-        ## Example Usage
-        ### Simple routing policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="A",
-            ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
-        ```
-        ### Weighted routing policy
-
-        Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
-            ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
-            set_identifier="dev",
-            records=["dev.example.com"])
-        www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
-            ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
-            set_identifier="live",
-            records=["live.example.com"])
-        ```
-        ### Alias record
-
-        See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
-        to understand differences between alias and non-alias records.
-
-        TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
-        you cannot change this, therefore `ttl` has to be omitted in alias records.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.elb.LoadBalancer("main",
-            availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="example.com",
-            type="A",
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
-        ```
-        ### NS and SOA Record Management
-
-        When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
-            allow_overwrite=True,
-            name="test.example.com",
-            ttl=172800,
-            type="NS",
-            zone_id=example_zone.zone_id,
-            records=[
-                example_zone.name_servers[0],
-                example_zone.name_servers[1],
-                example_zone.name_servers[2],
-                example_zone.name_servers[3],
-            ])
-        ```
-
-        ## Import
-
-        Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
-
-        ```sh
-         $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
-        ```
-
-         If the record also contains a set identifier, it should be appended
-
-        ```sh
-         $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
-        ```
-
+        Create a Record resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Documented below.
-        :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        :param pulumi.Input[int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[str, 'RecordType']] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         ...
     @overload
@@ -653,118 +407,7 @@ class Record(pulumi.CustomResource):
                  args: RecordArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Route53 record resource.
-
-        ## Example Usage
-        ### Simple routing policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www.example.com",
-            type="A",
-            ttl=300,
-            records=[aws_eip["lb"]["public_ip"]])
-        ```
-        ### Weighted routing policy
-
-        Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        www_dev = aws.route53.Record("www-dev",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
-            ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=10,
-            )],
-            set_identifier="dev",
-            records=["dev.example.com"])
-        www_live = aws.route53.Record("www-live",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="www",
-            type="CNAME",
-            ttl=5,
-            weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
-                weight=90,
-            )],
-            set_identifier="live",
-            records=["live.example.com"])
-        ```
-        ### Alias record
-
-        See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
-        to understand differences between alias and non-alias records.
-
-        TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
-        you cannot change this, therefore `ttl` has to be omitted in alias records.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.elb.LoadBalancer("main",
-            availability_zones=["us-east-1c"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
-                instance_port=80,
-                instance_protocol="http",
-                lb_port=80,
-                lb_protocol="http",
-            )])
-        www = aws.route53.Record("www",
-            zone_id=aws_route53_zone["primary"]["zone_id"],
-            name="example.com",
-            type="A",
-            aliases=[aws.route53.RecordAliasArgs(
-                name=main.dns_name,
-                zone_id=main.zone_id,
-                evaluate_target_health=True,
-            )])
-        ```
-        ### NS and SOA Record Management
-
-        When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_zone = aws.route53.Zone("exampleZone")
-        example_record = aws.route53.Record("exampleRecord",
-            allow_overwrite=True,
-            name="test.example.com",
-            ttl=172800,
-            type="NS",
-            zone_id=example_zone.zone_id,
-            records=[
-                example_zone.name_servers[0],
-                example_zone.name_servers[1],
-                example_zone.name_servers[2],
-                example_zone.name_servers[3],
-            ])
-        ```
-
-        ## Import
-
-        Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
-
-        ```sh
-         $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
-        ```
-
-         If the record also contains a set identifier, it should be appended
-
-        ```sh
-         $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
-        ```
-
+        Create a Record resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RecordArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -856,22 +499,6 @@ class Record(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordAliasArgs']]]] aliases: An alias block. Conflicts with `ttl` & `records`.
-               Documented below.
-        :param pulumi.Input[bool] allow_overwrite: Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordFailoverRoutingPolicyArgs']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordGeolocationRoutingPolicyArgs']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] health_check_id: The health check the record should be associated with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordLatencyRoutingPolicyArgs']]]] latency_routing_policies: A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[bool] multivalue_answer_routing_policy: Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        :param pulumi.Input[str] name: DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] records: A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        :param pulumi.Input[str] set_identifier: Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        :param pulumi.Input[int] ttl: The TTL of the record.
-        :param pulumi.Input[Union[str, 'RecordType']] type: `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecordWeightedRoutingPolicyArgs']]]] weighted_routing_policies: A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[str] zone_id: Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -897,121 +524,75 @@ class Record(pulumi.CustomResource):
     @property
     @pulumi.getter
     def aliases(self) -> pulumi.Output[Optional[Sequence['outputs.RecordAlias']]]:
-        """
-        An alias block. Conflicts with `ttl` & `records`.
-        Documented below.
-        """
         return pulumi.get(self, "aliases")
 
     @property
     @pulumi.getter(name="allowOverwrite")
     def allow_overwrite(self) -> pulumi.Output[bool]:
-        """
-        Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-        """
         return pulumi.get(self, "allow_overwrite")
 
     @property
     @pulumi.getter(name="failoverRoutingPolicies")
     def failover_routing_policies(self) -> pulumi.Output[Optional[Sequence['outputs.RecordFailoverRoutingPolicy']]]:
-        """
-        A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "failover_routing_policies")
 
     @property
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[str]:
-        """
-        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-        """
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="geolocationRoutingPolicies")
     def geolocation_routing_policies(self) -> pulumi.Output[Optional[Sequence['outputs.RecordGeolocationRoutingPolicy']]]:
-        """
-        A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "geolocation_routing_policies")
 
     @property
     @pulumi.getter(name="healthCheckId")
     def health_check_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The health check the record should be associated with.
-        """
         return pulumi.get(self, "health_check_id")
 
     @property
     @pulumi.getter(name="latencyRoutingPolicies")
     def latency_routing_policies(self) -> pulumi.Output[Optional[Sequence['outputs.RecordLatencyRoutingPolicy']]]:
-        """
-        A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "latency_routing_policies")
 
     @property
     @pulumi.getter(name="multivalueAnswerRoutingPolicy")
     def multivalue_answer_routing_policy(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-        """
         return pulumi.get(self, "multivalue_answer_routing_policy")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def records(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\\"\\"` inside the provider configuration string (e.g., `"first255characters\\"\\"morecharacters"`).
-        """
         return pulumi.get(self, "records")
 
     @property
     @pulumi.getter(name="setIdentifier")
     def set_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-        """
         return pulumi.get(self, "set_identifier")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[Optional[int]]:
-        """
-        The TTL of the record.
-        """
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="weightedRoutingPolicies")
     def weighted_routing_policies(self) -> pulumi.Output[Optional[Sequence['outputs.RecordWeightedRoutingPolicy']]]:
-        """
-        A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-        """
         return pulumi.get(self, "weighted_routing_policies")
 
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Output[str]:
-        """
-        Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-        """
         return pulumi.get(self, "zone_id")
 

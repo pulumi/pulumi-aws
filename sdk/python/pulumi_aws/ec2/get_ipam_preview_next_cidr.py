@@ -41,9 +41,6 @@ class GetIpamPreviewNextCidrResult:
     @property
     @pulumi.getter
     def cidr(self) -> str:
-        """
-        Previewed CIDR from the pool.
-        """
         return pulumi.get(self, "cidr")
 
     @property
@@ -88,29 +85,7 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[str]] = None,
                                netmask_length: Optional[int] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPreviewNextCidrResult:
     """
-    Previews a CIDR from an IPAM address pool. Only works for private IPv4.
-
-    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-        netmask_length=28)
-    test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
-        ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-        cidr=test_ipam_preview_next_cidr.cidr)
-    ```
-
-
-    :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-    :param str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
-    :param int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs
@@ -133,28 +108,6 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
                                       netmask_length: Optional[pulumi.Input[Optional[int]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPreviewNextCidrResult]:
     """
-    Previews a CIDR from an IPAM address pool. Only works for private IPv4.
-
-    > **NOTE:** This functionality is also encapsulated in a resource sharing the same name. The data source can be used when you need to use the cidr in a calculation of the same Root module, `count` for example. However, once a cidr range has been allocated that was previewed, the next refresh will find a **new** cidr and may force new resources downstream. Make sure to use `ignore_changes` if this is undesirable.
-
-    ## Example Usage
-
-    Basic usage:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_ipam_preview_next_cidr = aws.ec2.get_ipam_preview_next_cidr(ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-        netmask_length=28)
-    test_vpc_ipam_pool_cidr_allocation = aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation",
-        ipam_pool_id=aws_vpc_ipam_pool["test"]["id"],
-        cidr=test_ipam_preview_next_cidr.cidr)
-    ```
-
-
-    :param Sequence[str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-    :param str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
-    :param int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    Use this data source to access information about an existing resource.
     """
     ...

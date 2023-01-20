@@ -48,33 +48,21 @@ class GetOriginRequestPolicyResult:
     @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        Comment to describe the origin request policy.
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="cookiesConfigs")
     def cookies_configs(self) -> Sequence['outputs.GetOriginRequestPolicyCookiesConfigResult']:
-        """
-        Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        """
         return pulumi.get(self, "cookies_configs")
 
     @property
     @pulumi.getter
     def etag(self) -> str:
-        """
-        Current version of the origin request policy.
-        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="headersConfigs")
     def headers_configs(self) -> Sequence['outputs.GetOriginRequestPolicyHeadersConfigResult']:
-        """
-        Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        """
         return pulumi.get(self, "headers_configs")
 
     @property
@@ -90,9 +78,6 @@ class GetOriginRequestPolicyResult:
     @property
     @pulumi.getter(name="queryStringsConfigs")
     def query_strings_configs(self) -> Sequence['outputs.GetOriginRequestPolicyQueryStringsConfigResult']:
-        """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-        """
         return pulumi.get(self, "query_strings_configs")
 
 
@@ -115,29 +100,7 @@ def get_origin_request_policy(id: Optional[str] = None,
                               name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginRequestPolicyResult:
     """
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_request_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed origin request policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ua_referer = aws.cloudfront.get_origin_request_policy(name="Managed-UserAgentRefererHeaders")
-    ```
-
-
-    :param str id: Identifier for the origin request policy.
-    :param str name: Unique name to identify the origin request policy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -160,28 +123,6 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] =
                                      name: Optional[pulumi.Input[Optional[str]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_origin_request_policy(name="example-policy")
-    ```
-    ### AWS-Managed Policies
-
-    AWS managed origin request policy names are prefixed with `Managed-`:
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ua_referer = aws.cloudfront.get_origin_request_policy(name="Managed-UserAgentRefererHeaders")
-    ```
-
-
-    :param str id: Identifier for the origin request policy.
-    :param str name: Unique name to identify the origin request policy.
+    Use this data source to access information about an existing resource.
     """
     ...

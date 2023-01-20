@@ -46,9 +46,6 @@ class GetAssetsResult:
     @property
     @pulumi.getter(name="assetIds")
     def asset_ids(self) -> Sequence[str]:
-        """
-        List of all the asset ids found. This data source will fail if none are found.
-        """
         return pulumi.get(self, "asset_ids")
 
     @property
@@ -88,40 +85,7 @@ def get_assets(arn: Optional[str] = None,
                status_id_filters: Optional[Sequence[str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetsResult:
     """
-    Information about hardware assets in an Outpost.
-
-    ## Example Usage
-    ### Basic
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
-    ```
-    ### With Host ID Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
-        host_id_filters=["h-x38g5n0yd2a0ueb61"])
-    ```
-    ### With Status ID Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
-        status_id_filters=["ACTIVE"])
-    ```
-
-
-    :param str arn: Outpost ARN.
-    :param Sequence[str] host_id_filters: Filters by list of Host IDs of a Dedicated Host.
-    :param Sequence[str] status_id_filters: Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -144,39 +108,6 @@ def get_assets_output(arn: Optional[pulumi.Input[str]] = None,
                       status_id_filters: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetsResult]:
     """
-    Information about hardware assets in an Outpost.
-
-    ## Example Usage
-    ### Basic
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"])
-    ```
-    ### With Host ID Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
-        host_id_filters=["h-x38g5n0yd2a0ueb61"])
-    ```
-    ### With Status ID Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.outposts.get_assets(arn=data["aws_outposts_outpost"]["example"]["arn"],
-        status_id_filters=["ACTIVE"])
-    ```
-
-
-    :param str arn: Outpost ARN.
-    :param Sequence[str] host_id_filters: Filters by list of Host IDs of a Dedicated Host.
-    :param Sequence[str] status_id_filters: Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
+    Use this data source to access information about an existing resource.
     """
     ...

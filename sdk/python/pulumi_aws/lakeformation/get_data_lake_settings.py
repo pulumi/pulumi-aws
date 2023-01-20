@@ -45,9 +45,6 @@ class GetDataLakeSettingsResult:
     @property
     @pulumi.getter
     def admins(self) -> Sequence[str]:
-        """
-        List of ARNs of AWS Lake Formation principals (IAM users or roles).
-        """
         return pulumi.get(self, "admins")
 
     @property
@@ -58,17 +55,11 @@ class GetDataLakeSettingsResult:
     @property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
     def create_database_default_permissions(self) -> Sequence['outputs.GetDataLakeSettingsCreateDatabaseDefaultPermissionResult']:
-        """
-        Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        """
         return pulumi.get(self, "create_database_default_permissions")
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
     def create_table_default_permissions(self) -> Sequence['outputs.GetDataLakeSettingsCreateTableDefaultPermissionResult']:
-        """
-        Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        """
         return pulumi.get(self, "create_table_default_permissions")
 
     @property
@@ -82,9 +73,6 @@ class GetDataLakeSettingsResult:
     @property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Sequence[str]:
-        """
-        List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-        """
         return pulumi.get(self, "trusted_resource_owners")
 
 
@@ -105,19 +93,7 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
 def get_data_lake_settings(catalog_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataLakeSettingsResult:
     """
-    Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
-    ```
-
-
-    :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -137,18 +113,6 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
 def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
-    Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
-    ```
-
-
-    :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    Use this data source to access information about an existing resource.
     """
     ...

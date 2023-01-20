@@ -20,10 +20,6 @@ class PolicyExcludeMapArgs:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] orgunits: A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
         if orgunits is not None:
@@ -32,9 +28,6 @@ class PolicyExcludeMapArgs:
     @property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -44,9 +37,6 @@ class PolicyExcludeMapArgs:
     @property
     @pulumi.getter
     def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        """
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter
@@ -59,10 +49,6 @@ class PolicyIncludeMapArgs:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] orgunits: A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
         if orgunits is not None:
@@ -71,9 +57,6 @@ class PolicyIncludeMapArgs:
     @property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -83,9 +66,6 @@ class PolicyIncludeMapArgs:
     @property
     @pulumi.getter
     def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-        """
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter
@@ -98,10 +78,6 @@ class PolicySecurityServicePolicyDataArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  managed_service_data: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
-        :param pulumi.Input[str] managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        """
         pulumi.set(__self__, "type", type)
         if managed_service_data is not None:
             pulumi.set(__self__, "managed_service_data", managed_service_data)
@@ -109,9 +85,6 @@ class PolicySecurityServicePolicyDataArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -121,9 +94,6 @@ class PolicySecurityServicePolicyDataArgs:
     @property
     @pulumi.getter(name="managedServiceData")
     def managed_service_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        """
         return pulumi.get(self, "managed_service_data")
 
     @managed_service_data.setter

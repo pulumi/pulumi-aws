@@ -98,41 +98,26 @@ class GetReplicationGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the created ElastiCache Replication Group.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authTokenEnabled")
     def auth_token_enabled(self) -> bool:
-        """
-        Whether an AuthToken (password) is enabled.
-        """
         return pulumi.get(self, "auth_token_enabled")
 
     @property
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> bool:
-        """
-        A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
-        """
         return pulumi.get(self, "automatic_failover_enabled")
 
     @property
     @pulumi.getter(name="configurationEndpointAddress")
     def configuration_endpoint_address(self) -> str:
-        """
-        The configuration endpoint address to allow host discovery.
-        """
         return pulumi.get(self, "configuration_endpoint_address")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the replication group.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -146,97 +131,61 @@ class GetReplicationGroupResult:
     @property
     @pulumi.getter(name="logDeliveryConfigurations")
     def log_delivery_configurations(self) -> Sequence['outputs.GetReplicationGroupLogDeliveryConfigurationResult']:
-        """
-        Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-        """
         return pulumi.get(self, "log_delivery_configurations")
 
     @property
     @pulumi.getter(name="memberClusters")
     def member_clusters(self) -> Sequence[str]:
-        """
-        Identifiers of all the nodes that are part of this replication group.
-        """
         return pulumi.get(self, "member_clusters")
 
     @property
     @pulumi.getter(name="multiAzEnabled")
     def multi_az_enabled(self) -> bool:
-        """
-        Whether Multi-AZ Support is enabled for the replication group.
-        """
         return pulumi.get(self, "multi_az_enabled")
 
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> str:
-        """
-        The cluster node type.
-        """
         return pulumi.get(self, "node_type")
 
     @property
     @pulumi.getter(name="numCacheClusters")
     def num_cache_clusters(self) -> int:
-        """
-        The number of cache clusters that the replication group has.
-        """
         return pulumi.get(self, "num_cache_clusters")
 
     @property
     @pulumi.getter(name="numNodeGroups")
     def num_node_groups(self) -> int:
-        """
-        Number of node groups (shards) for the replication group.
-        """
         return pulumi.get(self, "num_node_groups")
 
     @property
     @pulumi.getter(name="numberCacheClusters")
     def number_cache_clusters(self) -> int:
-        """
-        (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-        """
         return pulumi.get(self, "number_cache_clusters")
 
     @property
     @pulumi.getter
     def port(self) -> int:
-        """
-        The port number on which the configuration endpoint will accept connections.
-        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="primaryEndpointAddress")
     def primary_endpoint_address(self) -> str:
-        """
-        The endpoint of the primary node in this node group (shard).
-        """
         return pulumi.get(self, "primary_endpoint_address")
 
     @property
     @pulumi.getter(name="readerEndpointAddress")
     def reader_endpoint_address(self) -> str:
-        """
-        The endpoint of the reader node in this node group (shard).
-        """
         return pulumi.get(self, "reader_endpoint_address")
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> int:
-        """
-        Number of replica nodes in each node group.
-        """
         return pulumi.get(self, "replicas_per_node_group")
 
     @property
     @pulumi.getter(name="replicationGroupDescription")
     def replication_group_description(self) -> str:
-        """
-        (**Deprecated** use `description` instead) Description of the replication group.
-        """
         return pulumi.get(self, "replication_group_description")
 
     @property
@@ -247,17 +196,11 @@ class GetReplicationGroupResult:
     @property
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> int:
-        """
-        The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
-        """
         return pulumi.get(self, "snapshot_retention_limit")
 
     @property
     @pulumi.getter(name="snapshotWindow")
     def snapshot_window(self) -> str:
-        """
-        Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-        """
         return pulumi.get(self, "snapshot_window")
 
 
@@ -293,19 +236,7 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
 def get_replication_group(replication_group_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationGroupResult:
     """
-    Use this data source to get information about an ElastiCache Replication Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_replication_group(replication_group_id="example")
-    ```
-
-
-    :param str replication_group_id: Identifier for the replication group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['replicationGroupId'] = replication_group_id
@@ -340,18 +271,6 @@ def get_replication_group(replication_group_id: Optional[str] = None,
 def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
-    Use this data source to get information about an ElastiCache Replication Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    bar = aws.elasticache.get_replication_group(replication_group_id="example")
-    ```
-
-
-    :param str replication_group_id: Identifier for the replication group.
+    Use this data source to access information about an existing resource.
     """
     ...

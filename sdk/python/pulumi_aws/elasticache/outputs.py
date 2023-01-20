@@ -48,10 +48,6 @@ class ClusterCacheNode(dict):
                  id: Optional[str] = None,
                  outpost_arn: Optional[str] = None,
                  port: Optional[int] = None):
-        """
-        :param str availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-        :param int port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if availability_zone is not None:
@@ -71,9 +67,6 @@ class ClusterCacheNode(dict):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
-        """
-        Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
@@ -89,9 +82,6 @@ class ClusterCacheNode(dict):
     @property
     @pulumi.getter
     def port(self) -> Optional[int]:
-        """
-        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
-        """
         return pulumi.get(self, "port")
 
 
@@ -123,12 +113,6 @@ class ClusterLogDeliveryConfiguration(dict):
                  destination_type: str,
                  log_format: str,
                  log_type: str):
-        """
-        :param str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        :param str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        :param str log_format: Valid values are `json` or `text`
-        :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -137,33 +121,21 @@ class ClusterLogDeliveryConfiguration(dict):
     @property
     @pulumi.getter
     def destination(self) -> str:
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> str:
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
         return pulumi.get(self, "destination_type")
 
     @property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> str:
-        """
-        Valid values are `json` or `text`
-        """
         return pulumi.get(self, "log_format")
 
     @property
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         return pulumi.get(self, "log_type")
 
 
@@ -189,10 +161,6 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
     def __init__(__self__, *,
                  global_node_group_id: Optional[str] = None,
                  slots: Optional[str] = None):
-        """
-        :param str global_node_group_id: The ID of the global node group.
-        :param str slots: The keyspace for this node group.
-        """
         if global_node_group_id is not None:
             pulumi.set(__self__, "global_node_group_id", global_node_group_id)
         if slots is not None:
@@ -201,17 +169,11 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
     @property
     @pulumi.getter(name="globalNodeGroupId")
     def global_node_group_id(self) -> Optional[str]:
-        """
-        The ID of the global node group.
-        """
         return pulumi.get(self, "global_node_group_id")
 
     @property
     @pulumi.getter
     def slots(self) -> Optional[str]:
-        """
-        The keyspace for this node group.
-        """
         return pulumi.get(self, "slots")
 
 
@@ -220,27 +182,17 @@ class ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
-        """
-        :param str name: The name of the ElastiCache parameter.
-        :param str value: The value of the ElastiCache parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        The name of the ElastiCache parameter.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        The value of the ElastiCache parameter.
-        """
         return pulumi.get(self, "value")
 
 
@@ -268,10 +220,6 @@ class ReplicationGroupClusterMode(dict):
     def __init__(__self__, *,
                  num_node_groups: Optional[int] = None,
                  replicas_per_node_group: Optional[int] = None):
-        """
-        :param int num_node_groups: Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-        :param int replicas_per_node_group: Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        """
         if num_node_groups is not None:
             pulumi.set(__self__, "num_node_groups", num_node_groups)
         if replicas_per_node_group is not None:
@@ -280,17 +228,11 @@ class ReplicationGroupClusterMode(dict):
     @property
     @pulumi.getter(name="numNodeGroups")
     def num_node_groups(self) -> Optional[int]:
-        """
-        Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-        """
         return pulumi.get(self, "num_node_groups")
 
     @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> Optional[int]:
-        """
-        Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-        """
         return pulumi.get(self, "replicas_per_node_group")
 
 
@@ -322,12 +264,6 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
                  destination_type: str,
                  log_format: str,
                  log_type: str):
-        """
-        :param str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        :param str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        :param str log_format: Valid values are `json` or `text`
-        :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "destination_type", destination_type)
         pulumi.set(__self__, "log_format", log_format)
@@ -336,33 +272,21 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
     @property
     @pulumi.getter
     def destination(self) -> str:
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationType")
     def destination_type(self) -> str:
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
         return pulumi.get(self, "destination_type")
 
     @property
     @pulumi.getter(name="logFormat")
     def log_format(self) -> str:
-        """
-        Valid values are `json` or `text`
-        """
         return pulumi.get(self, "log_format")
 
     @property
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
         return pulumi.get(self, "log_type")
 
 
@@ -374,11 +298,6 @@ class GetClusterCacheNodeResult(dict):
                  id: str,
                  outpost_arn: str,
                  port: int):
-        """
-        :param str availability_zone: Availability Zone for the cache cluster.
-        :param int port: The port number on which each of the cache nodes will
-               accept connections.
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "id", id)
@@ -393,9 +312,6 @@ class GetClusterCacheNodeResult(dict):
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> str:
-        """
-        Availability Zone for the cache cluster.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
@@ -411,10 +327,6 @@ class GetClusterCacheNodeResult(dict):
     @property
     @pulumi.getter
     def port(self) -> int:
-        """
-        The port number on which each of the cache nodes will
-        accept connections.
-        """
         return pulumi.get(self, "port")
 
 

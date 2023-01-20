@@ -19,9 +19,6 @@ class CellArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cell resource.
-        :param pulumi.Input[str] cell_name: Unique name describing the cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "cell_name", cell_name)
         if cells is not None:
@@ -32,9 +29,6 @@ class CellArgs:
     @property
     @pulumi.getter(name="cellName")
     def cell_name(self) -> pulumi.Input[str]:
-        """
-        Unique name describing the cell.
-        """
         return pulumi.get(self, "cell_name")
 
     @cell_name.setter
@@ -44,9 +38,6 @@ class CellArgs:
     @property
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of cell arns to add as nested fault domains within this cell.
-        """
         return pulumi.get(self, "cells")
 
     @cells.setter
@@ -56,9 +47,6 @@ class CellArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -77,12 +65,6 @@ class _CellState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cell resources.
-        :param pulumi.Input[str] arn: ARN of the cell
-        :param pulumi.Input[str] cell_name: Unique name describing the cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_readiness_scopes: List of readiness scopes (recovery groups or cells) that contain this cell.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -100,9 +82,6 @@ class _CellState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the cell
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -112,9 +91,6 @@ class _CellState:
     @property
     @pulumi.getter(name="cellName")
     def cell_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique name describing the cell.
-        """
         return pulumi.get(self, "cell_name")
 
     @cell_name.setter
@@ -124,9 +100,6 @@ class _CellState:
     @property
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of cell arns to add as nested fault domains within this cell.
-        """
         return pulumi.get(self, "cells")
 
     @cells.setter
@@ -136,9 +109,6 @@ class _CellState:
     @property
     @pulumi.getter(name="parentReadinessScopes")
     def parent_readiness_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of readiness scopes (recovery groups or cells) that contain this cell.
-        """
         return pulumi.get(self, "parent_readiness_scopes")
 
     @parent_readiness_scopes.setter
@@ -148,9 +118,6 @@ class _CellState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -160,9 +127,6 @@ class _CellState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -180,30 +144,9 @@ class Cell(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS Route 53 Recovery Readiness Cell.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
-        ```
-
-        ## Import
-
-        Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
-        ```
-
+        Create a Cell resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cell_name: Unique name describing the cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -212,25 +155,7 @@ class Cell(pulumi.CustomResource):
                  args: CellArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Route 53 Recovery Readiness Cell.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoveryreadiness.Cell("example", cell_name="us-west-2-failover-cell")
-        ```
-
-        ## Import
-
-        Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
-        ```
-
+        Create a Cell resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CellArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,12 +214,6 @@ class Cell(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the cell
-        :param pulumi.Input[str] cell_name: Unique name describing the cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: List of cell arns to add as nested fault domains within this cell.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] parent_readiness_scopes: List of readiness scopes (recovery groups or cells) that contain this cell.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -311,48 +230,30 @@ class Cell(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the cell
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cellName")
     def cell_name(self) -> pulumi.Output[str]:
-        """
-        Unique name describing the cell.
-        """
         return pulumi.get(self, "cell_name")
 
     @property
     @pulumi.getter
     def cells(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of cell arns to add as nested fault domains within this cell.
-        """
         return pulumi.get(self, "cells")
 
     @property
     @pulumi.getter(name="parentReadinessScopes")
     def parent_readiness_scopes(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of readiness scopes (recovery groups or cells) that contain this cell.
-        """
         return pulumi.get(self, "parent_readiness_scopes")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

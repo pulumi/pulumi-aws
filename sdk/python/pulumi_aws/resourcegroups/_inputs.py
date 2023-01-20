@@ -20,10 +20,6 @@ class GroupConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
-        """
-        :param pulumi.Input[str] type: Specifies the type of group configuration item.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
-        """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
@@ -31,9 +27,6 @@ class GroupConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Specifies the type of group configuration item.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -43,9 +36,6 @@ class GroupConfigurationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -58,19 +48,12 @@ class GroupConfigurationParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] name: The name of the group configuration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value or values to be used for the specified parameter.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The name of the group configuration parameter.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -80,9 +63,6 @@ class GroupConfigurationParameterArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The value or values to be used for the specified parameter.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -95,10 +75,6 @@ class GroupResourceQueryArgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] query: The resource query as a JSON string.
-        :param pulumi.Input[str] type: The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         pulumi.set(__self__, "query", query)
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -106,9 +82,6 @@ class GroupResourceQueryArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        The resource query as a JSON string.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -118,9 +91,6 @@ class GroupResourceQueryArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter

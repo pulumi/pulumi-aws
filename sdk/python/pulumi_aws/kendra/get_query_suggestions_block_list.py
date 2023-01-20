@@ -72,41 +72,26 @@ class GetQuerySuggestionsBlockListResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the block list.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
-        """
-        Date-time a block list was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description for the block list.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> str:
-        """
-        Error message containing details if there are issues processing the block list.
-        """
         return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter(name="fileSizeBytes")
     def file_size_bytes(self) -> int:
-        """
-        Current size of the block list text file in S3.
-        """
         return pulumi.get(self, "file_size_bytes")
 
     @property
@@ -125,17 +110,11 @@ class GetQuerySuggestionsBlockListResult:
     @property
     @pulumi.getter(name="itemCount")
     def item_count(self) -> int:
-        """
-        Current number of valid, non-empty words or phrases in the block list text file.
-        """
         return pulumi.get(self, "item_count")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the block list.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -146,41 +125,26 @@ class GetQuerySuggestionsBlockListResult:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="sourceS3Paths")
     def source_s3_paths(self) -> Sequence['outputs.GetQuerySuggestionsBlockListSourceS3PathResult']:
-        """
-        S3 location of the block list input data. Detailed below.
-        """
         return pulumi.get(self, "source_s3_paths")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current status of the block list. When the value is `ACTIVE`, the block list is ready for use.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Metadata that helps organize the block list you create.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
-        """
-        Date and time that the block list was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -212,22 +176,7 @@ def get_query_suggestions_block_list(index_id: Optional[str] = None,
                                      tags: Optional[Mapping[str, str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuerySuggestionsBlockListResult:
     """
-    Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_query_suggestions_block_list(index_id="12345678-1234-1234-1234-123456789123",
-        query_suggestions_block_list_id="87654321-1234-4321-4321-321987654321")
-    ```
-
-
-    :param str index_id: Identifier of the index that contains the block list.
-    :param str query_suggestions_block_list_id: Identifier of the block list.
-    :param Mapping[str, str] tags: Metadata that helps organize the block list you create.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
@@ -260,21 +209,6 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[str]
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
     """
-    Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_query_suggestions_block_list(index_id="12345678-1234-1234-1234-123456789123",
-        query_suggestions_block_list_id="87654321-1234-4321-4321-321987654321")
-    ```
-
-
-    :param str index_id: Identifier of the index that contains the block list.
-    :param str query_suggestions_block_list_id: Identifier of the block list.
-    :param Mapping[str, str] tags: Metadata that helps organize the block list you create.
+    Use this data source to access information about an existing resource.
     """
     ...

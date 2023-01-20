@@ -22,10 +22,6 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the customer managed IAM Policy to be attached.
-        :param pulumi.Input[str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -33,9 +29,6 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -45,9 +38,6 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -60,19 +50,12 @@ class InstanceAccessControlAttributesAttributeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]):
-        """
-        :param pulumi.Input[str] key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -82,9 +65,6 @@ class InstanceAccessControlAttributesAttributeArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]:
-        """
-        The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -96,17 +76,11 @@ class InstanceAccessControlAttributesAttributeArgs:
 class InstanceAccessControlAttributesAttributeValueArgs:
     def __init__(__self__, *,
                  sources: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] sources: The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         pulumi.set(__self__, "sources", sources)
 
     @property
     @pulumi.getter
     def sources(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The identity source to use when mapping a specified attribute to AWS SSO.
-        """
         return pulumi.get(self, "sources")
 
     @sources.setter
@@ -119,10 +93,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
     def __init__(__self__, *,
                  customer_managed_policy_reference: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']] = None,
                  managed_policy_arn: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param pulumi.Input[str] managed_policy_arn: AWS-managed IAM policy ARN to use as the permissions boundary.
-        """
         if customer_managed_policy_reference is not None:
             pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
         if managed_policy_arn is not None:
@@ -131,9 +101,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]:
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
@@ -143,9 +110,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
     @property
     @pulumi.getter(name="managedPolicyArn")
     def managed_policy_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS-managed IAM policy ARN to use as the permissions boundary.
-        """
         return pulumi.get(self, "managed_policy_arn")
 
     @managed_policy_arn.setter
@@ -158,10 +122,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the customer managed IAM Policy to be attached.
-        :param pulumi.Input[str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -169,9 +129,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -181,9 +138,6 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
         return pulumi.get(self, "path")
 
     @path.setter

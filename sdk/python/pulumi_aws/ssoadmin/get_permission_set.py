@@ -63,9 +63,6 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the Permission Set.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -89,25 +86,16 @@ class GetPermissionSetResult:
     @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> str:
-        """
-        Relay state URL used to redirect users within the application during the federation authentication process.
-        """
         return pulumi.get(self, "relay_state")
 
     @property
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> str:
-        """
-        Length of time that the application user sessions are valid in the ISO-8601 standard.
-        """
         return pulumi.get(self, "session_duration")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -134,13 +122,7 @@ def get_permission_set(arn: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionSetResult:
     """
-    Use this data source to get a Single Sign-On (SSO) Permission Set.
-
-
-    :param str arn: ARN of the permission set.
-    :param str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param str name: Name of the SSO Permission Set.
-    :param Mapping[str, str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -169,12 +151,6 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
-    Use this data source to get a Single Sign-On (SSO) Permission Set.
-
-
-    :param str arn: ARN of the permission set.
-    :param str instance_arn: ARN of the SSO Instance associated with the permission set.
-    :param str name: Name of the SSO Permission Set.
-    :param Mapping[str, str] tags: Key-value map of resource tags.
+    Use this data source to access information about an existing resource.
     """
     ...

@@ -16,27 +16,22 @@ __all__ = ['StatementArgs', 'Statement']
 @pulumi.input_type
 class StatementArgs:
     def __init__(__self__, *,
-                 cluster_identifier: pulumi.Input[str],
                  database: pulumi.Input[str],
                  sql: pulumi.Input[str],
+                 cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
-                 with_event: Optional[pulumi.Input[bool]] = None):
+                 with_event: Optional[pulumi.Input[bool]] = None,
+                 workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Statement resource.
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[str] database: The name of the database.
-        :param pulumi.Input[str] sql: The SQL statement text to run.
-        :param pulumi.Input[str] db_user: The database user name.
-        :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
-        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "sql", sql)
+        if cluster_identifier is not None:
+            pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if db_user is not None:
             pulumi.set(__self__, "db_user", db_user)
         if parameters is not None:
@@ -47,25 +42,12 @@ class StatementArgs:
             pulumi.set(__self__, "statement_name", statement_name)
         if with_event is not None:
             pulumi.set(__self__, "with_event", with_event)
-
-    @property
-    @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> pulumi.Input[str]:
-        """
-        The cluster identifier.
-        """
-        return pulumi.get(self, "cluster_identifier")
-
-    @cluster_identifier.setter
-    def cluster_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_identifier", value)
+        if workgroup_name is not None:
+            pulumi.set(__self__, "workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -75,9 +57,6 @@ class StatementArgs:
     @property
     @pulumi.getter
     def sql(self) -> pulumi.Input[str]:
-        """
-        The SQL statement text to run.
-        """
         return pulumi.get(self, "sql")
 
     @sql.setter
@@ -85,11 +64,17 @@ class StatementArgs:
         pulumi.set(self, "sql", value)
 
     @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
@@ -108,9 +93,6 @@ class StatementArgs:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -120,9 +102,6 @@ class StatementArgs:
     @property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
@@ -132,14 +111,20 @@ class StatementArgs:
     @property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
     def with_event(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "with_event", value)
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "workgroup_name")
+
+    @workgroup_name.setter
+    def workgroup_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workgroup_name", value)
 
 
 @pulumi.input_type
@@ -152,16 +137,10 @@ class _StatementState:
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
-                 with_event: Optional[pulumi.Input[bool]] = None):
+                 with_event: Optional[pulumi.Input[bool]] = None,
+                 workgroup_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Statement resources.
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[str] database: The name of the database.
-        :param pulumi.Input[str] db_user: The database user name.
-        :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[str] sql: The SQL statement text to run.
-        :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -179,13 +158,12 @@ class _StatementState:
             pulumi.set(__self__, "statement_name", statement_name)
         if with_event is not None:
             pulumi.set(__self__, "with_event", with_event)
+        if workgroup_name is not None:
+            pulumi.set(__self__, "workgroup_name", workgroup_name)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The cluster identifier.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -195,9 +173,6 @@ class _StatementState:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -207,9 +182,6 @@ class _StatementState:
     @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
@@ -228,9 +200,6 @@ class _StatementState:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -240,9 +209,6 @@ class _StatementState:
     @property
     @pulumi.getter
     def sql(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SQL statement text to run.
-        """
         return pulumi.get(self, "sql")
 
     @sql.setter
@@ -252,9 +218,6 @@ class _StatementState:
     @property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
@@ -264,14 +227,20 @@ class _StatementState:
     @property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
     def with_event(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "with_event", value)
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "workgroup_name")
+
+    @workgroup_name.setter
+    def workgroup_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workgroup_name", value)
 
 
 class Statement(pulumi.CustomResource):
@@ -287,40 +256,12 @@ class Statement(pulumi.CustomResource):
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None,
+                 workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Executes a Redshift Data Statement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ## Import
-
-        Redshift Data Statements can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshiftdata/statement:Statement example example
-        ```
-
+        Create a Statement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[str] database: The name of the database.
-        :param pulumi.Input[str] db_user: The database user name.
-        :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[str] sql: The SQL statement text to run.
-        :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
         ...
     @overload
@@ -329,29 +270,7 @@ class Statement(pulumi.CustomResource):
                  args: StatementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Executes a Redshift Data Statement.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshiftdata.Statement("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            database=aws_redshift_cluster["example"]["database_name"],
-            db_user=aws_redshift_cluster["example"]["master_username"],
-            sql="CREATE GROUP group_name;")
-        ```
-
-        ## Import
-
-        Redshift Data Statements can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshiftdata/statement:Statement example example
-        ```
-
+        Create a Statement resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param StatementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,6 +294,7 @@ class Statement(pulumi.CustomResource):
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None,
+                 workgroup_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,8 +304,6 @@ class Statement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StatementArgs.__new__(StatementArgs)
 
-            if cluster_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
@@ -398,6 +316,7 @@ class Statement(pulumi.CustomResource):
             __props__.__dict__["sql"] = sql
             __props__.__dict__["statement_name"] = statement_name
             __props__.__dict__["with_event"] = with_event
+            __props__.__dict__["workgroup_name"] = workgroup_name
         super(Statement, __self__).__init__(
             'aws:redshiftdata/statement:Statement',
             resource_name,
@@ -415,7 +334,8 @@ class Statement(pulumi.CustomResource):
             secret_arn: Optional[pulumi.Input[str]] = None,
             sql: Optional[pulumi.Input[str]] = None,
             statement_name: Optional[pulumi.Input[str]] = None,
-            with_event: Optional[pulumi.Input[bool]] = None) -> 'Statement':
+            with_event: Optional[pulumi.Input[bool]] = None,
+            workgroup_name: Optional[pulumi.Input[str]] = None) -> 'Statement':
         """
         Get an existing Statement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -423,13 +343,6 @@ class Statement(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_identifier: The cluster identifier.
-        :param pulumi.Input[str] database: The name of the database.
-        :param pulumi.Input[str] db_user: The database user name.
-        :param pulumi.Input[str] secret_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[str] sql: The SQL statement text to run.
-        :param pulumi.Input[str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[bool] with_event: A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,30 +356,22 @@ class Statement(pulumi.CustomResource):
         __props__.__dict__["sql"] = sql
         __props__.__dict__["statement_name"] = statement_name
         __props__.__dict__["with_event"] = with_event
+        __props__.__dict__["workgroup_name"] = workgroup_name
         return Statement(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="clusterIdentifier")
-    def cluster_identifier(self) -> pulumi.Output[str]:
-        """
-        The cluster identifier.
-        """
+    def cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> pulumi.Output[Optional[str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @property
@@ -477,32 +382,25 @@ class Statement(pulumi.CustomResource):
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secret_arn")
 
     @property
     @pulumi.getter
     def sql(self) -> pulumi.Output[str]:
-        """
-        The SQL statement text to run.
-        """
         return pulumi.get(self, "sql")
 
     @property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        """
         return pulumi.get(self, "statement_name")
 
     @property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
+
+    @property
+    @pulumi.getter(name="workgroupName")
+    def workgroup_name(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "workgroup_name")
 

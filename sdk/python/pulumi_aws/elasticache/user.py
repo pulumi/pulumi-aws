@@ -24,14 +24,6 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[str] user_id: The ID of the user.
-        :param pulumi.Input[str] user_name: The username of the user.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "access_string", access_string)
         pulumi.set(__self__, "engine", engine)
@@ -49,9 +41,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Input[str]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -61,9 +50,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -73,9 +59,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -85,9 +68,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        The username of the user.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -97,9 +77,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the created ElastiCache User.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -109,9 +86,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @no_password_required.setter
@@ -121,9 +95,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
@@ -133,9 +104,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -157,14 +125,6 @@ class _UserState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[str] user_id: The ID of the user.
-        :param pulumi.Input[str] user_name: The username of the user.
         """
         if access_string is not None:
             pulumi.set(__self__, "access_string", access_string)
@@ -188,9 +148,6 @@ class _UserState:
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @access_string.setter
@@ -200,9 +157,6 @@ class _UserState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the created ElastiCache User.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -212,9 +166,6 @@ class _UserState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -224,9 +175,6 @@ class _UserState:
     @property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @no_password_required.setter
@@ -236,9 +184,6 @@ class _UserState:
     @property
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @passwords.setter
@@ -248,9 +193,6 @@ class _UserState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -269,9 +211,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -281,9 +220,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username of the user.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -306,40 +242,9 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache user resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
-        ```
-
-        ## Import
-
-        ElastiCache users can be imported using the `user_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[str] user_id: The ID of the user.
-        :param pulumi.Input[str] user_name: The username of the user.
         """
         ...
     @overload
@@ -348,30 +253,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache user resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
-        ```
-
-        ## Import
-
-        ElastiCache users can be imported using the `user_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -449,14 +331,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
-        :param pulumi.Input[str] user_id: The ID of the user.
-        :param pulumi.Input[str] user_name: The username of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -476,49 +350,31 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[str]:
-        """
-        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        """
         return pulumi.get(self, "access_string")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the created ElastiCache User.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates a password is not required for this user.
-        """
         return pulumi.get(self, "no_password_required")
 
     @property
     @pulumi.getter
     def passwords(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Passwords used for this user. You can create up to two passwords for each user.
-        """
         return pulumi.get(self, "passwords")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A list of tags to be added to this resource. A tag is a key-value pair.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -529,16 +385,10 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the user.
-        """
         return pulumi.get(self, "user_id")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        The username of the user.
-        """
         return pulumi.get(self, "user_name")
 

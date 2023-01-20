@@ -20,10 +20,6 @@ class GroupMembershipArgs:
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GroupMembership resource.
-        :param pulumi.Input[str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] namespace: The namespace. Defaults to `default`. Currently only `default` is supported.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "member_name", member_name)
@@ -35,9 +31,6 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -47,9 +40,6 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Input[str]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -59,9 +49,6 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -71,9 +58,6 @@ class GroupMembershipArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace. Defaults to `default`. Currently only `default` is supported.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -91,10 +75,6 @@ class _GroupMembershipState:
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[str] namespace: The namespace. Defaults to `default`. Currently only `default` is supported.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -119,9 +99,6 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -131,9 +108,6 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -143,9 +117,6 @@ class _GroupMembershipState:
     @property
     @pulumi.getter(name="memberName")
     def member_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @member_name.setter
@@ -155,9 +126,6 @@ class _GroupMembershipState:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace. Defaults to `default`. Currently only `default` is supported.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -176,33 +144,9 @@ class GroupMembership(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing QuickSight Group Membership
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
-        ```
-
-        ## Import
-
-        QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
-
-        ```sh
-         $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[str] namespace: The namespace. Defaults to `default`. Currently only `default` is supported.
         """
         ...
     @overload
@@ -211,27 +155,7 @@ class GroupMembership(pulumi.CustomResource):
                  args: GroupMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing QuickSight Group Membership
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.GroupMembership("example",
-            group_name="all-access-users",
-            member_name="john_smith")
-        ```
-
-        ## Import
-
-        QuickSight Group membership can be imported using the AWS account ID, namespace, group name and member name separated by `/`.
-
-        ```sh
-         $ pulumi import aws:quicksight/groupMembership:GroupMembership example 123456789123/default/all-access-users/john_smith
-        ```
-
+        Create a GroupMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,10 +215,6 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] group_name: The name of the group in which the member will be added.
-        :param pulumi.Input[str] member_name: The name of the member to add to the group.
-        :param pulumi.Input[str] namespace: The namespace. Defaults to `default`. Currently only `default` is supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,32 +235,20 @@ class GroupMembership(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the group in which the member will be added.
-        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="memberName")
     def member_name(self) -> pulumi.Output[str]:
-        """
-        The name of the member to add to the group.
-        """
         return pulumi.get(self, "member_name")
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[str]]:
-        """
-        The namespace. Defaults to `default`. Currently only `default` is supported.
-        """
         return pulumi.get(self, "namespace")
 

@@ -22,12 +22,6 @@ class UserArgs:
                  send_email_notification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[str] user_name: Email address of the user.
-        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[bool] send_email_notification: Send an email notification.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "user_name", user_name)
@@ -43,9 +37,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[str]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -55,9 +46,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        Email address of the user.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -67,9 +55,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -79,9 +64,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -91,9 +73,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -103,9 +82,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -126,14 +102,6 @@ class _UserState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[str] arn: ARN of the appstream user.
-        :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[str] user_name: Email address of the user.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -155,9 +123,6 @@ class _UserState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the appstream user.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -167,9 +132,6 @@ class _UserState:
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
@@ -179,9 +141,6 @@ class _UserState:
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        """
         return pulumi.get(self, "created_time")
 
     @created_time.setter
@@ -191,9 +150,6 @@ class _UserState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -203,9 +159,6 @@ class _UserState:
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
@@ -215,9 +168,6 @@ class _UserState:
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
@@ -227,9 +177,6 @@ class _UserState:
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @send_email_notification.setter
@@ -239,9 +186,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email address of the user.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -262,37 +206,9 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AppStream user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
-        ```
-
-        ## Import
-
-        `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[str] user_name: Email address of the user.
         """
         ...
     @overload
@@ -301,29 +217,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppStream user.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appstream.User("example",
-            authentication_type="USERPOOL",
-            first_name="FIRST NAME",
-            last_name="LAST NAME",
-            user_name="EMAIL")
-        ```
-
-        ## Import
-
-        `aws_appstream_user` can be imported using the `user_name` and `authentication_type` separated by a slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -391,14 +285,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the appstream user.
-        :param pulumi.Input[str] authentication_type: Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        :param pulumi.Input[bool] enabled: Whether the user in the user pool is enabled.
-        :param pulumi.Input[str] first_name: First name, or given name, of the user.
-        :param pulumi.Input[str] last_name: Last name, or surname, of the user.
-        :param pulumi.Input[bool] send_email_notification: Send an email notification.
-        :param pulumi.Input[str] user_name: Email address of the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -417,64 +303,40 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the appstream user.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
-        """
-        Authentication type for the user. You must specify USERPOOL. Valid values: `API`, `SAML`, `USERPOOL`
-        """
         return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when the user was created.
-        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether the user in the user pool is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        First name, or given name, of the user.
-        """
         return pulumi.get(self, "first_name")
 
     @property
     @pulumi.getter(name="lastName")
     def last_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Last name, or surname, of the user.
-        """
         return pulumi.get(self, "last_name")
 
     @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Send an email notification.
-        """
         return pulumi.get(self, "send_email_notification")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        Email address of the user.
-        """
         return pulumi.get(self, "user_name")
 

@@ -18,8 +18,6 @@ class DashboardArgs:
                  dashboard_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Dashboard resource.
-        :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
         pulumi.set(__self__, "dashboard_body", dashboard_body)
         pulumi.set(__self__, "dashboard_name", dashboard_name)
@@ -27,9 +25,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="dashboardBody")
     def dashboard_body(self) -> pulumi.Input[str]:
-        """
-        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        """
         return pulumi.get(self, "dashboard_body")
 
     @dashboard_body.setter
@@ -39,9 +34,6 @@ class DashboardArgs:
     @property
     @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> pulumi.Input[str]:
-        """
-        The name of the dashboard.
-        """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
@@ -57,9 +49,6 @@ class _DashboardState:
                  dashboard_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Dashboard resources.
-        :param pulumi.Input[str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
-        :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
         if dashboard_arn is not None:
             pulumi.set(__self__, "dashboard_arn", dashboard_arn)
@@ -71,9 +60,6 @@ class _DashboardState:
     @property
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the dashboard.
-        """
         return pulumi.get(self, "dashboard_arn")
 
     @dashboard_arn.setter
@@ -83,9 +69,6 @@ class _DashboardState:
     @property
     @pulumi.getter(name="dashboardBody")
     def dashboard_body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        """
         return pulumi.get(self, "dashboard_body")
 
     @dashboard_body.setter
@@ -95,9 +78,6 @@ class _DashboardState:
     @property
     @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the dashboard.
-        """
         return pulumi.get(self, "dashboard_name")
 
     @dashboard_name.setter
@@ -114,67 +94,9 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch Dashboard resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_body=\"\"\"{
-          "widgets": [
-            {
-              "type": "metric",
-              "x": 0,
-              "y": 0,
-              "width": 12,
-              "height": 6,
-              "properties": {
-                "metrics": [
-                  [
-                    "AWS/EC2",
-                    "CPUUtilization",
-                    "InstanceId",
-                    "i-012345"
-                  ]
-                ],
-                "period": 300,
-                "stat": "Average",
-                "region": "us-east-1",
-                "title": "EC2 Instance CPU"
-              }
-            },
-            {
-              "type": "text",
-              "x": 0,
-              "y": 7,
-              "width": 3,
-              "height": 3,
-              "properties": {
-                "markdown": "Hello world"
-              }
-            }
-          ]
-        }
-
-        \"\"\",
-            dashboard_name="my-dashboard")
-        ```
-
-        ## Import
-
-        CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
-        ```
-
+        Create a Dashboard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
         ...
     @overload
@@ -183,63 +105,7 @@ class Dashboard(pulumi.CustomResource):
                  args: DashboardArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch Dashboard resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.cloudwatch.Dashboard("main",
-            dashboard_body=\"\"\"{
-          "widgets": [
-            {
-              "type": "metric",
-              "x": 0,
-              "y": 0,
-              "width": 12,
-              "height": 6,
-              "properties": {
-                "metrics": [
-                  [
-                    "AWS/EC2",
-                    "CPUUtilization",
-                    "InstanceId",
-                    "i-012345"
-                  ]
-                ],
-                "period": 300,
-                "stat": "Average",
-                "region": "us-east-1",
-                "title": "EC2 Instance CPU"
-              }
-            },
-            {
-              "type": "text",
-              "x": 0,
-              "y": 7,
-              "width": 3,
-              "height": 3,
-              "properties": {
-                "markdown": "Hello world"
-              }
-            }
-          ]
-        }
-
-        \"\"\",
-            dashboard_name="my-dashboard")
-        ```
-
-        ## Import
-
-        CloudWatch dashboards can be imported using the `dashboard_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
-        ```
-
+        Create a Dashboard resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -293,9 +159,6 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dashboard_arn: The Amazon Resource Name (ARN) of the dashboard.
-        :param pulumi.Input[str] dashboard_body: The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        :param pulumi.Input[str] dashboard_name: The name of the dashboard.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -309,24 +172,15 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dashboardArn")
     def dashboard_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the dashboard.
-        """
         return pulumi.get(self, "dashboard_arn")
 
     @property
     @pulumi.getter(name="dashboardBody")
     def dashboard_body(self) -> pulumi.Output[str]:
-        """
-        The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
-        """
         return pulumi.get(self, "dashboard_body")
 
     @property
     @pulumi.getter(name="dashboardName")
     def dashboard_name(self) -> pulumi.Output[str]:
-        """
-        The name of the dashboard.
-        """
         return pulumi.get(self, "dashboard_name")
 

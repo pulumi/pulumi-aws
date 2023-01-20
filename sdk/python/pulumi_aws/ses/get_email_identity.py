@@ -35,17 +35,11 @@ class GetEmailIdentityResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        The ARN of the email identity.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def email(self) -> str:
-        """
-        Email identity.
-        """
         return pulumi.get(self, "email")
 
     @property
@@ -71,19 +65,7 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
 def get_email_identity(email: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityResult:
     """
-    Retrieve the active SES email identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
-
-
-    :param str email: Email identity.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['email'] = email
@@ -100,18 +82,6 @@ def get_email_identity(email: Optional[str] = None,
 def get_email_identity_output(email: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
-    Retrieve the active SES email identity
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ses.get_email_identity(email="awesome@example.com")
-    ```
-
-
-    :param str email: Email identity.
+    Use this data source to access information about an existing resource.
     """
     ...

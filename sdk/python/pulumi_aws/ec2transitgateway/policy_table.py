@@ -18,8 +18,6 @@ class PolicyTableArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PolicyTable resource.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if tags is not None:
@@ -28,9 +26,6 @@ class PolicyTableArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
-        """
-        EC2 Transit Gateway identifier.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -40,9 +35,6 @@ class PolicyTableArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -60,11 +52,6 @@ class _PolicyTableState:
                  transit_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyTable resources.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-        :param pulumi.Input[str] state: The state of the EC2 Transit Gateway Policy Table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -80,9 +67,6 @@ class _PolicyTableState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -92,9 +76,6 @@ class _PolicyTableState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of the EC2 Transit Gateway Policy Table.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -104,9 +85,6 @@ class _PolicyTableState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -116,9 +94,6 @@ class _PolicyTableState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -128,9 +103,6 @@ class _PolicyTableState:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        EC2 Transit Gateway identifier.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -147,33 +119,9 @@ class PolicyTable(pulumi.CustomResource):
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Policy Table.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.PolicyTable("example",
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            tags={
-                "Name": "Example Policy Table",
-            })
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
-        ```
-
+        Create a PolicyTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier.
         """
         ...
     @overload
@@ -182,29 +130,7 @@ class PolicyTable(pulumi.CustomResource):
                  args: PolicyTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Policy Table.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.PolicyTable("example",
-            transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
-            tags={
-                "Name": "Example Policy Table",
-            })
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
-        ```
-
+        Create a PolicyTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,11 +186,6 @@ class PolicyTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-        :param pulumi.Input[str] state: The state of the EC2 Transit Gateway Policy Table.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,40 +201,25 @@ class PolicyTable(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        The state of the EC2 Transit Gateway Policy Table.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
-        """
-        EC2 Transit Gateway identifier.
-        """
         return pulumi.get(self, "transit_gateway_id")
 

@@ -89,9 +89,6 @@ class GetUserResult:
     @property
     @pulumi.getter
     def addresses(self) -> Sequence['outputs.GetUserAddressResult']:
-        """
-        List of details about the user's address.
-        """
         return pulumi.get(self, "addresses")
 
     @property
@@ -102,25 +99,16 @@ class GetUserResult:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> str:
-        """
-        The name that is typically displayed when the user is referenced.
-        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def emails(self) -> Sequence['outputs.GetUserEmailResult']:
-        """
-        List of details about the user's email.
-        """
         return pulumi.get(self, "emails")
 
     @property
     @pulumi.getter(name="externalIds")
     def external_ids(self) -> Sequence['outputs.GetUserExternalIdResult']:
-        """
-        List of identifiers issued to this resource by an external identity provider.
-        """
         return pulumi.get(self, "external_ids")
 
     @property
@@ -144,65 +132,41 @@ class GetUserResult:
     @property
     @pulumi.getter
     def locale(self) -> str:
-        """
-        The user's geographical region or location.
-        """
         return pulumi.get(self, "locale")
 
     @property
     @pulumi.getter
     def names(self) -> Sequence['outputs.GetUserNameResult']:
-        """
-        Details about the user's full name.
-        """
         return pulumi.get(self, "names")
 
     @property
     @pulumi.getter
     def nickname(self) -> str:
-        """
-        An alternate name for the user.
-        """
         return pulumi.get(self, "nickname")
 
     @property
     @pulumi.getter(name="phoneNumbers")
     def phone_numbers(self) -> Sequence['outputs.GetUserPhoneNumberResult']:
-        """
-        List of details about the user's phone number.
-        """
         return pulumi.get(self, "phone_numbers")
 
     @property
     @pulumi.getter(name="preferredLanguage")
     def preferred_language(self) -> str:
-        """
-        The preferred language of the user.
-        """
         return pulumi.get(self, "preferred_language")
 
     @property
     @pulumi.getter(name="profileUrl")
     def profile_url(self) -> str:
-        """
-        An URL that may be associated with the user.
-        """
         return pulumi.get(self, "profile_url")
 
     @property
     @pulumi.getter
     def timezone(self) -> str:
-        """
-        The user's time zone.
-        """
         return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter
     def title(self) -> str:
-        """
-        The user's title.
-        """
         return pulumi.get(self, "title")
 
     @property
@@ -213,17 +177,11 @@ class GetUserResult:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
-        """
-        User's user name value.
-        """
         return pulumi.get(self, "user_name")
 
     @property
     @pulumi.getter(name="userType")
     def user_type(self) -> str:
-        """
-        The user type.
-        """
         return pulumi.get(self, "user_type")
 
 
@@ -260,13 +218,7 @@ def get_user(alternate_identifier: Optional[pulumi.InputType['GetUserAlternateId
              user_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
-    Use this data source to get an Identity Store User.
-
-
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
-    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param str user_id: The identifier for a user in the Identity Store.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
@@ -305,12 +257,6 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi.
                     user_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
-    Use this data source to get an Identity Store User.
-
-
-    :param pulumi.InputType['GetUserAlternateIdentifierArgs'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param pulumi.InputType['GetUserFilterArgs'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
-    :param str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
-    :param str user_id: The identifier for a user in the Identity Store.
+    Use this data source to access information about an existing resource.
     """
     ...

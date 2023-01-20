@@ -53,10 +53,6 @@ class GetEbsVolumesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        Set of all the EBS Volume IDs found. This data source will fail if
-        no volumes match the provided criteria.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -81,14 +77,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEbsVolumesResult:
     """
-    `ebs.get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
-
-    This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-
-
-    :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired volumes.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -108,13 +97,6 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
     """
-    `ebs.get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
-
-    This data source can be useful for getting a list of volume IDs with (for example) matching tags.
-
-
-    :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired volumes.
+    Use this data source to access information about an existing resource.
     """
     ...

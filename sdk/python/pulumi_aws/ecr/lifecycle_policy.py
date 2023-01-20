@@ -18,8 +18,6 @@ class LifecyclePolicyArgs:
                  repository: pulumi.Input[str]):
         """
         The set of arguments for constructing a LifecyclePolicy resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "repository", repository)
@@ -27,9 +25,6 @@ class LifecyclePolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
-        """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -39,9 +34,6 @@ class LifecyclePolicyArgs:
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Input[str]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -57,9 +49,6 @@ class _LifecyclePolicyState:
                  repository: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -71,9 +60,6 @@ class _LifecyclePolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -83,9 +69,6 @@ class _LifecyclePolicyState:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -95,9 +78,6 @@ class _LifecyclePolicyState:
     @property
     @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 
     @repository.setter
@@ -114,82 +94,9 @@ class LifecyclePolicy(pulumi.CustomResource):
                  repository: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an ECR repository lifecycle policy.
-
-        > **NOTE:** Only one `ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
-
-        > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
-
-        ## Example Usage
-        ### Policy on untagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Expire images older than 14 days",
-                    "selection": {
-                        "tagStatus": "untagged",
-                        "countType": "sinceImagePushed",
-                        "countUnit": "days",
-                        "countNumber": 14
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-        ### Policy on tagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Keep last 30 images",
-                    "selection": {
-                        "tagStatus": "tagged",
-                        "tagPrefixList": ["v"],
-                        "countType": "imageCountMoreThan",
-                        "countNumber": 30
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
-
-        ```sh
-         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-        ```
-
+        Create a LifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         ...
     @overload
@@ -198,78 +105,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  args: LifecyclePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an ECR repository lifecycle policy.
-
-        > **NOTE:** Only one `ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
-
-        > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
-
-        ## Example Usage
-        ### Policy on untagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Expire images older than 14 days",
-                    "selection": {
-                        "tagStatus": "untagged",
-                        "countType": "sinceImagePushed",
-                        "countUnit": "days",
-                        "countNumber": 14
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-        ### Policy on tagged image
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ecr.Repository("foo")
-        foopolicy = aws.ecr.LifecyclePolicy("foopolicy",
-            repository=foo.name,
-            policy=\"\"\"{
-            "rules": [
-                {
-                    "rulePriority": 1,
-                    "description": "Keep last 30 images",
-                    "selection": {
-                        "tagStatus": "tagged",
-                        "tagPrefixList": ["v"],
-                        "countType": "imageCountMoreThan",
-                        "countNumber": 30
-                    },
-                    "action": {
-                        "type": "expire"
-                    }
-                }
-            ]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
-
-        ```sh
-         $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
-        ```
-
+        Create a LifecyclePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -323,9 +159,6 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
-        :param pulumi.Input[str] repository: Name of the repository to apply the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -339,24 +172,15 @@ class LifecyclePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
-        """
-        The registry ID where the repository was created.
-        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter
     def repository(self) -> pulumi.Output[str]:
-        """
-        Name of the repository to apply the policy.
-        """
         return pulumi.get(self, "repository")
 

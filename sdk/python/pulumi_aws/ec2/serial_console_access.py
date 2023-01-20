@@ -17,7 +17,6 @@ class SerialConsoleAccessArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SerialConsoleAccess resource.
-        :param pulumi.Input[bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -25,9 +24,6 @@ class SerialConsoleAccessArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -41,7 +37,6 @@ class _SerialConsoleAccessState:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SerialConsoleAccess resources.
-        :param pulumi.Input[bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -49,9 +44,6 @@ class _SerialConsoleAccessState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -67,30 +59,9 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
-
-        > **NOTE:** Removing this resource disables serial console access.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SerialConsoleAccess("example", enabled=True)
-        ```
-
-        ## Import
-
-        Serial console access state can be imported, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-        ```
-
+        Create a SerialConsoleAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         ...
     @overload
@@ -99,27 +70,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
                  args: Optional[SerialConsoleAccessArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
-
-        > **NOTE:** Removing this resource disables serial console access.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.SerialConsoleAccess("example", enabled=True)
-        ```
-
-        ## Import
-
-        Serial console access state can be imported, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-        ```
-
+        Create a SerialConsoleAccess resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SerialConsoleAccessArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +115,6 @@ class SerialConsoleAccess(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enabled: Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -176,8 +126,5 @@ class SerialConsoleAccess(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 

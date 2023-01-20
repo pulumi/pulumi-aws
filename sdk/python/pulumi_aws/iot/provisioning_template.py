@@ -25,13 +25,6 @@ class ProvisioningTemplateArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ProvisioningTemplate resource.
-        :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
-        :param pulumi.Input[str] description: The description of the fleet provisioning template.
-        :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[str] name: The name of the fleet provisioning template.
-        :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
         pulumi.set(__self__, "template_body", template_body)
@@ -49,9 +42,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> pulumi.Input[str]:
-        """
-        The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @provisioning_role_arn.setter
@@ -61,9 +51,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Input[str]:
-        """
-        The JSON formatted contents of the fleet provisioning template.
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -73,9 +60,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the fleet provisioning template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -85,9 +69,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True to enable the fleet provisioning template, otherwise false.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -97,9 +78,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the fleet provisioning template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -109,9 +87,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']]:
-        """
-        Creates a pre-provisioning hook template. Details below.
-        """
         return pulumi.get(self, "pre_provisioning_hook")
 
     @pre_provisioning_hook.setter
@@ -121,9 +96,6 @@ class ProvisioningTemplateArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,16 +118,6 @@ class _ProvisioningTemplateState:
                  template_body: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProvisioningTemplate resources.
-        :param pulumi.Input[str] arn: The ARN that identifies the provisioning template.
-        :param pulumi.Input[int] default_version_id: The default version of the fleet provisioning template.
-        :param pulumi.Input[str] description: The description of the fleet provisioning template.
-        :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[str] name: The name of the fleet provisioning template.
-        :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
-        :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -181,9 +143,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN that identifies the provisioning template.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -193,9 +152,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> Optional[pulumi.Input[int]]:
-        """
-        The default version of the fleet provisioning template.
-        """
         return pulumi.get(self, "default_version_id")
 
     @default_version_id.setter
@@ -205,9 +161,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the fleet provisioning template.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -217,9 +170,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True to enable the fleet provisioning template, otherwise false.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -229,9 +179,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the fleet provisioning template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -241,9 +188,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs']]:
-        """
-        Creates a pre-provisioning hook template. Details below.
-        """
         return pulumi.get(self, "pre_provisioning_hook")
 
     @pre_provisioning_hook.setter
@@ -253,9 +197,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @provisioning_role_arn.setter
@@ -265,9 +206,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -277,9 +215,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -289,9 +224,6 @@ class _ProvisioningTemplateState:
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The JSON formatted contents of the fleet provisioning template.
-        """
         return pulumi.get(self, "template_body")
 
     @template_body.setter
@@ -313,79 +245,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  template_body: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        iot_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["iot.amazonaws.com"],
-            )],
-        )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
-            path="/service-role/",
-            assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
-            role=iot_fleet_provisioning.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["iot:Subscribe"],
-            resources=["*"],
-        )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
-        fleet = aws.iot.ProvisioningTemplate("fleet",
-            description="My provisioning template",
-            provisioning_role_arn=iot_fleet_provisioning.arn,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
-                    },
-                },
-                "Resources": {
-                    "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
-                            },
-                            "Status": "Active",
-                        },
-                        "Type": "AWS::IoT::Certificate",
-                    },
-                    "policy": {
-                        "Properties": {
-                            "PolicyName": name,
-                        },
-                        "Type": "AWS::IoT::Policy",
-                    },
-                },
-            })))
-        ```
-
-        ## Import
-
-        IoT fleet provisioning templates can be imported using the `name`, e.g.
-
-        ```sh
-         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-        ```
-
+        Create a ProvisioningTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the fleet provisioning template.
-        :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[str] name: The name of the fleet provisioning template.
-        :param pulumi.Input[pulumi.InputType['ProvisioningTemplatePreProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
-        :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         ...
     @overload
@@ -394,70 +256,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
                  args: ProvisioningTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        iot_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                type="Service",
-                identifiers=["iot.amazonaws.com"],
-            )],
-        )])
-        iot_fleet_provisioning = aws.iam.Role("iotFleetProvisioning",
-            path="/service-role/",
-            assume_role_policy=iot_assume_role_policy.json)
-        iot_fleet_provisioning_registration = aws.iam.RolePolicyAttachment("iotFleetProvisioningRegistration",
-            role=iot_fleet_provisioning.name,
-            policy_arn="arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
-        device_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            actions=["iot:Subscribe"],
-            resources=["*"],
-        )])
-        device_policy_policy = aws.iot.Policy("devicePolicyPolicy", policy=device_policy_policy_document.json)
-        fleet = aws.iot.ProvisioningTemplate("fleet",
-            description="My provisioning template",
-            provisioning_role_arn=iot_fleet_provisioning.arn,
-            template_body=device_policy_policy.name.apply(lambda name: json.dumps({
-                "Parameters": {
-                    "SerialNumber": {
-                        "Type": "String",
-                    },
-                },
-                "Resources": {
-                    "certificate": {
-                        "Properties": {
-                            "CertificateId": {
-                                "Ref": "AWS::IoT::Certificate::Id",
-                            },
-                            "Status": "Active",
-                        },
-                        "Type": "AWS::IoT::Certificate",
-                    },
-                    "policy": {
-                        "Properties": {
-                            "PolicyName": name,
-                        },
-                        "Type": "AWS::IoT::Policy",
-                    },
-                },
-            })))
-        ```
-
-        ## Import
-
-        IoT fleet provisioning templates can be imported using the `name`, e.g.
-
-        ```sh
-         $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
-        ```
-
+        Create a ProvisioningTemplate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProvisioningTemplateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -530,16 +329,6 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN that identifies the provisioning template.
-        :param pulumi.Input[int] default_version_id: The default version of the fleet provisioning template.
-        :param pulumi.Input[str] description: The description of the fleet provisioning template.
-        :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[str] name: The name of the fleet provisioning template.
-        :param pulumi.Input[pulumi.InputType['ProvisioningTemplatePreProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
-        :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -560,80 +349,50 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN that identifies the provisioning template.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> pulumi.Output[int]:
-        """
-        The default version of the fleet provisioning template.
-        """
         return pulumi.get(self, "default_version_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the fleet provisioning template.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        True to enable the fleet provisioning template, otherwise false.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the fleet provisioning template.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> pulumi.Output[Optional['outputs.ProvisioningTemplatePreProvisioningHook']]:
-        """
-        Creates a pre-provisioning hook template. Details below.
-        """
         return pulumi.get(self, "pre_provisioning_hook")
 
     @property
     @pulumi.getter(name="provisioningRoleArn")
     def provisioning_role_arn(self) -> pulumi.Output[str]:
-        """
-        The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        """
         return pulumi.get(self, "provisioning_role_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[str]:
-        """
-        The JSON formatted contents of the fleet provisioning template.
-        """
         return pulumi.get(self, "template_body")
 

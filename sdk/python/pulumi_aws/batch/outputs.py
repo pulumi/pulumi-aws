@@ -85,24 +85,6 @@ class ComputeEnvironmentComputeResources(dict):
                  security_group_ids: Optional[Sequence[str]] = None,
                  spot_iam_fleet_role: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
-        """
-        :param int max_vcpus: The maximum number of EC2 vCPUs that an environment can reach.
-        :param Sequence[str] subnets: A list of VPC subnets into which the compute resources are launched.
-        :param str type: The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs' ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-        :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
-        :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-        :param str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Mapping[str, str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         pulumi.set(__self__, "max_vcpus", max_vcpus)
         pulumi.set(__self__, "subnets", subnets)
         pulumi.set(__self__, "type", type)
@@ -136,129 +118,81 @@ class ComputeEnvironmentComputeResources(dict):
     @property
     @pulumi.getter(name="maxVcpus")
     def max_vcpus(self) -> int:
-        """
-        The maximum number of EC2 vCPUs that an environment can reach.
-        """
         return pulumi.get(self, "max_vcpus")
 
     @property
     @pulumi.getter
     def subnets(self) -> Sequence[str]:
-        """
-        A list of VPC subnets into which the compute resources are launched.
-        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> Optional[str]:
-        """
-        The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @property
     @pulumi.getter(name="bidPercentage")
     def bid_percentage(self) -> Optional[int]:
-        """
-        Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "bid_percentage")
 
     @property
     @pulumi.getter(name="desiredVcpus")
     def desired_vcpus(self) -> Optional[int]:
-        """
-        The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "desired_vcpus")
 
     @property
     @pulumi.getter(name="ec2Configuration")
     def ec2_configuration(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']:
-        """
-        Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "ec2_configuration")
 
     @property
     @pulumi.getter(name="ec2KeyPair")
     def ec2_key_pair(self) -> Optional[str]:
-        """
-        The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "ec2_key_pair")
 
     @property
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[str]:
-        """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
-        """
         return pulumi.get(self, "image_id")
 
     @property
     @pulumi.getter(name="instanceRole")
     def instance_role(self) -> Optional[str]:
-        """
-        The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "instance_role")
 
     @property
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Optional[Sequence[str]]:
-        """
-        A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "instance_types")
 
     @property
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesLaunchTemplate']:
-        """
-        The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "launch_template")
 
     @property
     @pulumi.getter(name="minVcpus")
     def min_vcpus(self) -> Optional[int]:
-        """
-        The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "min_vcpus")
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
-        """
-        A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="spotIamFleetRole")
     def spot_iam_fleet_role(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "spot_iam_fleet_role")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -286,10 +220,6 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
     def __init__(__self__, *,
                  image_id_override: Optional[str] = None,
                  image_type: Optional[str] = None):
-        """
-        :param str image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-        :param str image_type: The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-        """
         if image_id_override is not None:
             pulumi.set(__self__, "image_id_override", image_id_override)
         if image_type is not None:
@@ -298,17 +228,11 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
     @property
     @pulumi.getter(name="imageIdOverride")
     def image_id_override(self) -> Optional[str]:
-        """
-        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-        """
         return pulumi.get(self, "image_id_override")
 
     @property
     @pulumi.getter(name="imageType")
     def image_type(self) -> Optional[str]:
-        """
-        The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-        """
         return pulumi.get(self, "image_type")
 
 
@@ -337,11 +261,6 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
                  version: Optional[str] = None):
-        """
-        :param str launch_template_id: ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        :param str launch_template_name: Name of the launch template.
-        :param str version: The version number of the launch template. Default: The default version of the launch template.
-        """
         if launch_template_id is not None:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
@@ -352,25 +271,16 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
     @property
     @pulumi.getter(name="launchTemplateId")
     def launch_template_id(self) -> Optional[str]:
-        """
-        ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-        """
         return pulumi.get(self, "launch_template_id")
 
     @property
     @pulumi.getter(name="launchTemplateName")
     def launch_template_name(self) -> Optional[str]:
-        """
-        Name of the launch template.
-        """
         return pulumi.get(self, "launch_template_name")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
-        """
-        The version number of the launch template. Default: The default version of the launch template.
-        """
         return pulumi.get(self, "version")
 
 
@@ -398,27 +308,17 @@ class ComputeEnvironmentEksConfiguration(dict):
     def __init__(__self__, *,
                  eks_cluster_arn: str,
                  kubernetes_namespace: str):
-        """
-        :param str eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-        :param str kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-        """
         pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
         pulumi.set(__self__, "kubernetes_namespace", kubernetes_namespace)
 
     @property
     @pulumi.getter(name="eksClusterArn")
     def eks_cluster_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
-        """
         return pulumi.get(self, "eks_cluster_arn")
 
     @property
     @pulumi.getter(name="kubernetesNamespace")
     def kubernetes_namespace(self) -> str:
-        """
-        The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
-        """
         return pulumi.get(self, "kubernetes_namespace")
 
 
@@ -444,10 +344,6 @@ class JobDefinitionRetryStrategy(dict):
     def __init__(__self__, *,
                  attempts: Optional[int] = None,
                  evaluate_on_exits: Optional[Sequence['outputs.JobDefinitionRetryStrategyEvaluateOnExit']] = None):
-        """
-        :param int attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-        :param Sequence['JobDefinitionRetryStrategyEvaluateOnExitArgs'] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-        """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
         if evaluate_on_exits is not None:
@@ -456,17 +352,11 @@ class JobDefinitionRetryStrategy(dict):
     @property
     @pulumi.getter
     def attempts(self) -> Optional[int]:
-        """
-        The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-        """
         return pulumi.get(self, "attempts")
 
     @property
     @pulumi.getter(name="evaluateOnExits")
     def evaluate_on_exits(self) -> Optional[Sequence['outputs.JobDefinitionRetryStrategyEvaluateOnExit']]:
-        """
-        The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
-        """
         return pulumi.get(self, "evaluate_on_exits")
 
 
@@ -498,12 +388,6 @@ class JobDefinitionRetryStrategyEvaluateOnExit(dict):
                  on_exit_code: Optional[str] = None,
                  on_reason: Optional[str] = None,
                  on_status_reason: Optional[str] = None):
-        """
-        :param str action: Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
-        :param str on_exit_code: A glob pattern to match against the decimal representation of the exit code returned for a job.
-        :param str on_reason: A glob pattern to match against the reason returned for a job.
-        :param str on_status_reason: A glob pattern to match against the status reason returned for a job.
-        """
         pulumi.set(__self__, "action", action)
         if on_exit_code is not None:
             pulumi.set(__self__, "on_exit_code", on_exit_code)
@@ -515,33 +399,21 @@ class JobDefinitionRetryStrategyEvaluateOnExit(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
-        """
-        Specifies the action to take if all of the specified conditions are met. The values are not case sensitive. Valid values: `RETRY`, `EXIT`.
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="onExitCode")
     def on_exit_code(self) -> Optional[str]:
-        """
-        A glob pattern to match against the decimal representation of the exit code returned for a job.
-        """
         return pulumi.get(self, "on_exit_code")
 
     @property
     @pulumi.getter(name="onReason")
     def on_reason(self) -> Optional[str]:
-        """
-        A glob pattern to match against the reason returned for a job.
-        """
         return pulumi.get(self, "on_reason")
 
     @property
     @pulumi.getter(name="onStatusReason")
     def on_status_reason(self) -> Optional[str]:
-        """
-        A glob pattern to match against the status reason returned for a job.
-        """
         return pulumi.get(self, "on_status_reason")
 
 
@@ -566,18 +438,12 @@ class JobDefinitionTimeout(dict):
 
     def __init__(__self__, *,
                  attempt_duration_seconds: Optional[int] = None):
-        """
-        :param int attempt_duration_seconds: The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
-        """
         if attempt_duration_seconds is not None:
             pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
 
     @property
     @pulumi.getter(name="attemptDurationSeconds")
     def attempt_duration_seconds(self) -> Optional[int]:
-        """
-        The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
-        """
         return pulumi.get(self, "attempt_duration_seconds")
 
 
@@ -608,10 +474,6 @@ class SchedulingPolicyFairSharePolicy(dict):
                  compute_reservation: Optional[int] = None,
                  share_decay_seconds: Optional[int] = None,
                  share_distributions: Optional[Sequence['outputs.SchedulingPolicyFairSharePolicyShareDistribution']] = None):
-        """
-        :param int compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        :param Sequence['SchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
-        """
         if compute_reservation is not None:
             pulumi.set(__self__, "compute_reservation", compute_reservation)
         if share_decay_seconds is not None:
@@ -622,9 +484,6 @@ class SchedulingPolicyFairSharePolicy(dict):
     @property
     @pulumi.getter(name="computeReservation")
     def compute_reservation(self) -> Optional[int]:
-        """
-        A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        """
         return pulumi.get(self, "compute_reservation")
 
     @property
@@ -635,9 +494,6 @@ class SchedulingPolicyFairSharePolicy(dict):
     @property
     @pulumi.getter(name="shareDistributions")
     def share_distributions(self) -> Optional[Sequence['outputs.SchedulingPolicyFairSharePolicyShareDistribution']]:
-        """
-        One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
-        """
         return pulumi.get(self, "share_distributions")
 
 
@@ -665,10 +521,6 @@ class SchedulingPolicyFairSharePolicyShareDistribution(dict):
     def __init__(__self__, *,
                  share_identifier: str,
                  weight_factor: Optional[float] = None):
-        """
-        :param str share_identifier: A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        :param float weight_factor: The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         pulumi.set(__self__, "share_identifier", share_identifier)
         if weight_factor is not None:
             pulumi.set(__self__, "weight_factor", weight_factor)
@@ -676,17 +528,11 @@ class SchedulingPolicyFairSharePolicyShareDistribution(dict):
     @property
     @pulumi.getter(name="shareIdentifier")
     def share_identifier(self) -> str:
-        """
-        A fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         return pulumi.get(self, "share_identifier")
 
     @property
     @pulumi.getter(name="weightFactor")
     def weight_factor(self) -> Optional[float]:
-        """
-        The weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         return pulumi.get(self, "weight_factor")
 
 
@@ -715,10 +561,6 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
                  compute_reservation: int,
                  share_decay_seconds: int,
                  share_distributions: Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']):
-        """
-        :param int compute_reservation: Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        :param Sequence['GetSchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
-        """
         pulumi.set(__self__, "compute_reservation", compute_reservation)
         pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
         pulumi.set(__self__, "share_distributions", share_distributions)
@@ -726,9 +568,6 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
     @property
     @pulumi.getter(name="computeReservation")
     def compute_reservation(self) -> int:
-        """
-        Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        """
         return pulumi.get(self, "compute_reservation")
 
     @property
@@ -739,9 +578,6 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
     @property
     @pulumi.getter(name="shareDistributions")
     def share_distributions(self) -> Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']:
-        """
-        One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
-        """
         return pulumi.get(self, "share_distributions")
 
 
@@ -750,27 +586,17 @@ class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
     def __init__(__self__, *,
                  share_identifier: str,
                  weight_factor: float):
-        """
-        :param str share_identifier: Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        :param float weight_factor: Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         pulumi.set(__self__, "share_identifier", share_identifier)
         pulumi.set(__self__, "weight_factor", weight_factor)
 
     @property
     @pulumi.getter(name="shareIdentifier")
     def share_identifier(self) -> str:
-        """
-        Fair share identifier or fair share identifier prefix. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         return pulumi.get(self, "share_identifier")
 
     @property
     @pulumi.getter(name="weightFactor")
     def weight_factor(self) -> float:
-        """
-        Weight factor for the fair share identifier. For more information, see [ShareAttributes](https://docs.aws.amazon.com/batch/latest/APIReference/API_ShareAttributes.html).
-        """
         return pulumi.get(self, "weight_factor")
 
 

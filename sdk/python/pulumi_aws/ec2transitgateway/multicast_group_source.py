@@ -19,9 +19,6 @@ class MulticastGroupSourceArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a MulticastGroupSource resource.
-        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         pulumi.set(__self__, "group_ip_address", group_ip_address)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
@@ -30,9 +27,6 @@ class MulticastGroupSourceArgs:
     @property
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> pulumi.Input[str]:
-        """
-        The IP address assigned to the transit gateway multicast group.
-        """
         return pulumi.get(self, "group_ip_address")
 
     @group_ip_address.setter
@@ -42,9 +36,6 @@ class MulticastGroupSourceArgs:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Input[str]:
-        """
-        The group members' network interface ID to register with the transit gateway multicast group.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -54,9 +45,6 @@ class MulticastGroupSourceArgs:
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
     @transit_gateway_multicast_domain_id.setter
@@ -72,9 +60,6 @@ class _MulticastGroupSourceState:
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MulticastGroupSource resources.
-        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         if group_ip_address is not None:
             pulumi.set(__self__, "group_ip_address", group_ip_address)
@@ -86,9 +71,6 @@ class _MulticastGroupSourceState:
     @property
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP address assigned to the transit gateway multicast group.
-        """
         return pulumi.get(self, "group_ip_address")
 
     @group_ip_address.setter
@@ -98,9 +80,6 @@ class _MulticastGroupSourceState:
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The group members' network interface ID to register with the transit gateway multicast group.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @network_interface_id.setter
@@ -110,9 +89,6 @@ class _MulticastGroupSourceState:
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
     @transit_gateway_multicast_domain_id.setter
@@ -130,26 +106,9 @@ class MulticastGroupSource(pulumi.CustomResource):
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Registers sources (network interfaces) with the transit gateway multicast group.
-        A multicast source is a network interface attached to a supported instance that sends multicast traffic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.MulticastGroupSource("example",
-            group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
-        ```
-
+        Create a MulticastGroupSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
     @overload
@@ -158,21 +117,7 @@ class MulticastGroupSource(pulumi.CustomResource):
                  args: MulticastGroupSourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registers sources (network interfaces) with the transit gateway multicast group.
-        A multicast source is a network interface attached to a supported instance that sends multicast traffic.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.MulticastGroupSource("example",
-            group_ip_address="224.0.0.1",
-            network_interface_id=aws_network_interface["example"]["id"],
-            transit_gateway_multicast_domain_id=aws_ec2_transit_gateway_multicast_domain["example"]["id"])
-        ```
-
+        Create a MulticastGroupSource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,9 +174,6 @@ class MulticastGroupSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_ip_address: The IP address assigned to the transit gateway multicast group.
-        :param pulumi.Input[str] network_interface_id: The group members' network interface ID to register with the transit gateway multicast group.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -245,24 +187,15 @@ class MulticastGroupSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupIpAddress")
     def group_ip_address(self) -> pulumi.Output[str]:
-        """
-        The IP address assigned to the transit gateway multicast group.
-        """
         return pulumi.get(self, "group_ip_address")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> pulumi.Output[str]:
-        """
-        The group members' network interface ID to register with the transit gateway multicast group.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 

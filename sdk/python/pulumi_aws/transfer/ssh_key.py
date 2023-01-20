@@ -19,9 +19,6 @@ class SshKeyArgs:
                  user_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a SshKey resource.
-        :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "server_id", server_id)
@@ -30,9 +27,6 @@ class SshKeyArgs:
     @property
     @pulumi.getter
     def body(self) -> pulumi.Input[str]:
-        """
-        The public key portion of an SSH key pair.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -42,9 +36,6 @@ class SshKeyArgs:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[str]:
-        """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
-        """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
@@ -54,9 +45,6 @@ class SshKeyArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        The name of the user account that is assigned to one or more servers.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -72,9 +60,6 @@ class _SshKeyState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
-        :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -86,9 +71,6 @@ class _SshKeyState:
     @property
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The public key portion of an SSH key pair.
-        """
         return pulumi.get(self, "body")
 
     @body.setter
@@ -98,9 +80,6 @@ class _SshKeyState:
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
-        """
         return pulumi.get(self, "server_id")
 
     @server_id.setter
@@ -110,9 +89,6 @@ class _SshKeyState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the user account that is assigned to one or more servers.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -130,74 +106,9 @@ class SshKey(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a AWS Transfer User SSH Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        example_user = aws.transfer.User("exampleUser",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body="... SSH key ...")
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
-
-        ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
-        ```
-
+        Create a SshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         ...
     @overload
@@ -206,69 +117,7 @@ class SshKey(pulumi.CustomResource):
                  args: SshKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a AWS Transfer User SSH Key resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_server = aws.transfer.Server("exampleServer",
-            identity_provider_type="SERVICE_MANAGED",
-            tags={
-                "NAME": "tf-acc-test-transfer-server",
-            })
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        		"Effect": "Allow",
-        		"Principal": {
-        			"Service": "transfer.amazonaws.com"
-        		},
-        		"Action": "sts:AssumeRole"
-        		}
-        	]
-        }
-        \"\"\")
-        example_user = aws.transfer.User("exampleUser",
-            server_id=example_server.id,
-            user_name="tftestuser",
-            role=example_role.arn,
-            tags={
-                "NAME": "tftestuser",
-            })
-        example_ssh_key = aws.transfer.SshKey("exampleSshKey",
-            server_id=example_server.id,
-            user_name=example_user.user_name,
-            body="... SSH key ...")
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.id,
-            policy=\"\"\"{
-        	"Version": "2012-10-17",
-        	"Statement": [
-        		{
-        			"Sid": "AllowFullAccesstoS3",
-        			"Effect": "Allow",
-        			"Action": [
-        				"s3:*"
-        			],
-        			"Resource": "*"
-        		}
-        	]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
-
-        ```sh
-         $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
-        ```
-
+        Create a SshKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SshKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,9 +174,6 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
-        :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,24 +187,15 @@ class SshKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def body(self) -> pulumi.Output[str]:
-        """
-        The public key portion of an SSH key pair.
-        """
         return pulumi.get(self, "body")
 
     @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
-        """
-        The Server ID of the Transfer Server (e.g., `s-12345678`)
-        """
         return pulumi.get(self, "server_id")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        The name of the user account that is assigned to one or more servers.
-        """
         return pulumi.get(self, "user_name")
 

@@ -19,9 +19,6 @@ class SecurityGroupAssociationArgs:
                  replace_default_association: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SecurityGroupAssociation resource.
-        :param pulumi.Input[str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
-        :param pulumi.Input[bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -31,9 +28,6 @@ class SecurityGroupAssociationArgs:
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -43,9 +37,6 @@ class SecurityGroupAssociationArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -55,9 +46,6 @@ class SecurityGroupAssociationArgs:
     @property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @replace_default_association.setter
@@ -73,9 +61,6 @@ class _SecurityGroupAssociationState:
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SecurityGroupAssociation resources.
-        :param pulumi.Input[bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        :param pulumi.Input[str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         if replace_default_association is not None:
             pulumi.set(__self__, "replace_default_association", replace_default_association)
@@ -87,9 +72,6 @@ class _SecurityGroupAssociationState:
     @property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @replace_default_association.setter
@@ -99,9 +81,6 @@ class _SecurityGroupAssociationState:
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @security_group_id.setter
@@ -111,9 +90,6 @@ class _SecurityGroupAssociationState:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -131,32 +107,9 @@ class SecurityGroupAssociation(pulumi.CustomResource):
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an association between a VPC endpoint and a security group.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
-        both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
-        and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
-        attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
-        Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sgEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            security_group_id=aws_security_group["sg"]["id"])
-        ```
-
+        Create a SecurityGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        :param pulumi.Input[str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         ...
     @overload
@@ -165,27 +118,7 @@ class SecurityGroupAssociation(pulumi.CustomResource):
                  args: SecurityGroupAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an association between a VPC endpoint and a security group.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
-        both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
-        and a single `security_group_id`) and a VPC Endpoint resource with a `security_group_ids`
-        attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
-        Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sg_ec2 = aws.ec2.SecurityGroupAssociation("sgEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            security_group_id=aws_security_group["sg"]["id"])
-        ```
-
+        Create a SecurityGroupAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecurityGroupAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,9 +173,6 @@ class SecurityGroupAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] replace_default_association: Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        :param pulumi.Input[str] security_group_id: The ID of the security group to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the security group will be associated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -256,24 +186,15 @@ class SecurityGroupAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="replaceDefaultAssociation")
     def replace_default_association(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replace_default_association = true`.
-        """
         return pulumi.get(self, "replace_default_association")
 
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the security group to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "security_group_id")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the VPC endpoint with which the security group will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 

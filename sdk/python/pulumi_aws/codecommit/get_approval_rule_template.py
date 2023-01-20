@@ -53,33 +53,21 @@ class GetApprovalRuleTemplateResult:
     @property
     @pulumi.getter(name="approvalRuleTemplateId")
     def approval_rule_template_id(self) -> str:
-        """
-        The ID of the approval rule template.
-        """
         return pulumi.get(self, "approval_rule_template_id")
 
     @property
     @pulumi.getter
     def content(self) -> str:
-        """
-        Content of the approval rule template.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
-        """
-        Date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the approval rule template.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -93,17 +81,11 @@ class GetApprovalRuleTemplateResult:
     @property
     @pulumi.getter(name="lastModifiedDate")
     def last_modified_date(self) -> str:
-        """
-        Date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
         return pulumi.get(self, "last_modified_date")
 
     @property
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> str:
-        """
-        ARN of the user who made the most recent changes to the approval rule template.
-        """
         return pulumi.get(self, "last_modified_user")
 
     @property
@@ -114,9 +96,6 @@ class GetApprovalRuleTemplateResult:
     @property
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> str:
-        """
-        SHA-256 hash signature for the content of the approval rule template.
-        """
         return pulumi.get(self, "rule_content_sha256")
 
 
@@ -140,19 +119,7 @@ class AwaitableGetApprovalRuleTemplateResult(GetApprovalRuleTemplateResult):
 def get_approval_rule_template(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApprovalRuleTemplateResult:
     """
-    Provides details about a specific CodeCommit Approval Rule Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
-
-
-    :param str name: Name for the approval rule template. This needs to be less than 100 characters.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -175,18 +142,6 @@ def get_approval_rule_template(name: Optional[str] = None,
 def get_approval_rule_template_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
-    Provides details about a specific CodeCommit Approval Rule Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.codecommit.get_approval_rule_template(name="MyExampleApprovalRuleTemplate")
-    ```
-
-
-    :param str name: Name for the approval rule template. This needs to be less than 100 characters.
+    Use this data source to access information about an existing resource.
     """
     ...

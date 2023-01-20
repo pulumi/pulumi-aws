@@ -19,9 +19,6 @@ class ServiceQuotaArgs:
                  value: pulumi.Input[float]):
         """
         The set of arguments for constructing a ServiceQuota resource.
-        :param pulumi.Input[str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         pulumi.set(__self__, "quota_code", quota_code)
         pulumi.set(__self__, "service_code", service_code)
@@ -30,9 +27,6 @@ class ServiceQuotaArgs:
     @property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> pulumi.Input[str]:
-        """
-        Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
@@ -42,9 +36,6 @@ class ServiceQuotaArgs:
     @property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> pulumi.Input[str]:
-        """
-        Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
@@ -54,9 +45,6 @@ class ServiceQuotaArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[float]:
-        """
-        Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -79,14 +67,6 @@ class _ServiceQuotaState:
                  value: Optional[pulumi.Input[float]] = None):
         """
         Input properties used for looking up and filtering ServiceQuota resources.
-        :param pulumi.Input[bool] adjustable: Whether the service quota can be increased.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the service quota.
-        :param pulumi.Input[float] default_value: Default value of the service quota.
-        :param pulumi.Input[str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        :param pulumi.Input[str] quota_name: Name of the quota.
-        :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         if adjustable is not None:
             pulumi.set(__self__, "adjustable", adjustable)
@@ -112,9 +92,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter
     def adjustable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the service quota can be increased.
-        """
         return pulumi.get(self, "adjustable")
 
     @adjustable.setter
@@ -124,9 +101,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the service quota.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,9 +110,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[float]]:
-        """
-        Default value of the service quota.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -148,9 +119,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        """
         return pulumi.get(self, "quota_code")
 
     @quota_code.setter
@@ -160,9 +128,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter(name="quotaName")
     def quota_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the quota.
-        """
         return pulumi.get(self, "quota_name")
 
     @quota_name.setter
@@ -190,9 +155,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        """
         return pulumi.get(self, "service_code")
 
     @service_code.setter
@@ -202,9 +164,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the service.
-        """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
@@ -214,9 +173,6 @@ class _ServiceQuotaState:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[float]]:
-        """
-        Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -234,35 +190,9 @@ class ServiceQuota(pulumi.CustomResource):
                  value: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        Manages an individual Service Quota.
-
-        > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.ServiceQuota("example",
-            quota_code="L-F678F1CE",
-            service_code="vpc",
-            value=75)
-        ```
-
-        ## Import
-
-        ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-        ```
-
+        Create a ServiceQuota resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         ...
     @overload
@@ -271,30 +201,7 @@ class ServiceQuota(pulumi.CustomResource):
                  args: ServiceQuotaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an individual Service Quota.
-
-        > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicequotas.ServiceQuota("example",
-            quota_code="L-F678F1CE",
-            service_code="vpc",
-            value=75)
-        ```
-
-        ## Import
-
-        ~> *NOTE* This resource does not require explicit import and will assume management of an existing service quota on resource creation. `aws_servicequotas_service_quota` can be imported by using the service code and quota code, separated by a front slash (`/`), e.g.,
-
-        ```sh
-         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-        ```
-
+        Create a ServiceQuota resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceQuotaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -365,14 +272,6 @@ class ServiceQuota(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] adjustable: Whether the service quota can be increased.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the service quota.
-        :param pulumi.Input[float] default_value: Default value of the service quota.
-        :param pulumi.Input[str] quota_code: Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        :param pulumi.Input[str] quota_name: Name of the quota.
-        :param pulumi.Input[str] service_code: Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[float] value: Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,41 +292,26 @@ class ServiceQuota(pulumi.CustomResource):
     @property
     @pulumi.getter
     def adjustable(self) -> pulumi.Output[bool]:
-        """
-        Whether the service quota can be increased.
-        """
         return pulumi.get(self, "adjustable")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the service quota.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> pulumi.Output[float]:
-        """
-        Default value of the service quota.
-        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter(name="quotaCode")
     def quota_code(self) -> pulumi.Output[str]:
-        """
-        Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        """
         return pulumi.get(self, "quota_code")
 
     @property
     @pulumi.getter(name="quotaName")
     def quota_name(self) -> pulumi.Output[str]:
-        """
-        Name of the quota.
-        """
         return pulumi.get(self, "quota_name")
 
     @property
@@ -443,24 +327,15 @@ class ServiceQuota(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> pulumi.Output[str]:
-        """
-        Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        """
         return pulumi.get(self, "service_code")
 
     @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[str]:
-        """
-        Name of the service.
-        """
         return pulumi.get(self, "service_name")
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[float]:
-        """
-        Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        """
         return pulumi.get(self, "value")
 

@@ -80,9 +80,6 @@ class GetAvailabilityZoneResult:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> str:
-        """
-        For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
-        """
         return pulumi.get(self, "group_name")
 
     @property
@@ -101,51 +98,31 @@ class GetAvailabilityZoneResult:
     @property
     @pulumi.getter(name="nameSuffix")
     def name_suffix(self) -> str:
-        """
-        Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-        For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-        For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
-        """
         return pulumi.get(self, "name_suffix")
 
     @property
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> str:
-        """
-        The name of the location from which the address is advertised.
-        """
         return pulumi.get(self, "network_border_group")
 
     @property
     @pulumi.getter(name="optInStatus")
     def opt_in_status(self) -> str:
-        """
-        For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
-        """
         return pulumi.get(self, "opt_in_status")
 
     @property
     @pulumi.getter(name="parentZoneId")
     def parent_zone_id(self) -> str:
-        """
-        ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-        """
         return pulumi.get(self, "parent_zone_id")
 
     @property
     @pulumi.getter(name="parentZoneName")
     def parent_zone_name(self) -> str:
-        """
-        Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
-        """
         return pulumi.get(self, "parent_zone_name")
 
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-        """
         return pulumi.get(self, "region")
 
     @property
@@ -161,9 +138,6 @@ class GetAvailabilityZoneResult:
     @property
     @pulumi.getter(name="zoneType")
     def zone_type(self) -> str:
-        """
-        Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
-        """
         return pulumi.get(self, "zone_type")
 
 
@@ -196,24 +170,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
                           zone_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
     """
-    `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current region.
-
-    This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS region and an
-    AZ identifier letter. The latter may be useful e.g., for implementing a
-    consistent subnet numbering scheme across several regions by mapping both
-    the region and the subnet letter to network numbers.
-
-    This is different from the `get_availability_zones` (plural) data source,
-    which provides a list of the available zones.
-
-
-    :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-    :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param str zone_id: Zone ID of the availability zone to select.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -249,23 +206,6 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
                                  zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
     """
-    `get_availability_zone` provides details about a specific availability zone (AZ)
-    in the current region.
-
-    This can be used both to validate an availability zone given in a variable
-    and to split the AZ name into its component parts of an AWS region and an
-    AZ identifier letter. The latter may be useful e.g., for implementing a
-    consistent subnet numbering scheme across several regions by mapping both
-    the region and the subnet letter to network numbers.
-
-    This is different from the `get_availability_zones` (plural) data source,
-    which provides a list of the available zones.
-
-
-    :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-    :param str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
-    :param str zone_id: Zone ID of the availability zone to select.
+    Use this data source to access information about an existing resource.
     """
     ...

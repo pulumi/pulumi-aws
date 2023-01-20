@@ -21,11 +21,6 @@ class ModelArgs:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[str] content_type: Content type of the model
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] description: Description of the model
-        :param pulumi.Input[str] name: Name of the model
-        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -39,9 +34,6 @@ class ModelArgs:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Input[str]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -51,9 +43,6 @@ class ModelArgs:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -63,9 +52,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -75,9 +61,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,9 +70,6 @@ class ModelArgs:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -107,11 +87,6 @@ class _ModelState:
                  schema: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Model resources.
-        :param pulumi.Input[str] content_type: Content type of the model
-        :param pulumi.Input[str] description: Description of the model
-        :param pulumi.Input[str] name: Name of the model
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -127,9 +102,6 @@ class _ModelState:
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
@@ -139,9 +111,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -151,9 +120,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -163,9 +129,6 @@ class _ModelState:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -175,9 +138,6 @@ class _ModelState:
     @property
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -197,40 +157,9 @@ class Model(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Model for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
-            rest_api=my_demo_api.id,
-            description="a JSON schema",
-            content_type="application/json",
-            schema=\"\"\"{
-          "type": "object"
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: Content type of the model
-        :param pulumi.Input[str] description: Description of the model
-        :param pulumi.Input[str] name: Name of the model
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         ...
     @overload
@@ -239,33 +168,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Model for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        my_demo_api = aws.apigateway.RestApi("myDemoAPI", description="This is my API for demonstration purposes")
-        my_demo_model = aws.apigateway.Model("myDemoModel",
-            rest_api=my_demo_api.id,
-            description="a JSON schema",
-            content_type="application/json",
-            schema=\"\"\"{
-          "type": "object"
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
-        ```
-
+        Create a Model resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,11 +229,6 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: Content type of the model
-        :param pulumi.Input[str] description: Description of the model
-        :param pulumi.Input[str] name: Name of the model
-        :param pulumi.Input[str] rest_api: ID of the associated REST API
-        :param pulumi.Input[str] schema: Schema of the model in a JSON form
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -346,40 +244,25 @@ class Model(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
-        """
-        Content type of the model
-        """
         return pulumi.get(self, "content_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the model
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the model
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
-        """
-        ID of the associated REST API
-        """
         return pulumi.get(self, "rest_api")
 
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional[str]]:
-        """
-        Schema of the model in a JSON form
-        """
         return pulumi.get(self, "schema")
 

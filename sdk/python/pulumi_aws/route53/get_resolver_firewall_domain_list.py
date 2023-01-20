@@ -137,23 +137,7 @@ class AwaitableGetResolverFirewallDomainListResult(GetResolverFirewallDomainList
 def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallDomainListResult:
     """
-    `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
-
-
-    :param str firewall_domain_list_id: The ID of the domain list.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
@@ -178,22 +162,6 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[str] = N
 def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
-    `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
-
-    This data source allows to retrieve details about a specific a Route 53 Resolver DNS Firewall domain list.
-
-    ## Example Usage
-
-    The following example shows how to get a firewall domain list from its ID.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.route53.get_resolver_firewall_domain_list(firewall_domain_list_id="rslvr-fdl-example")
-    ```
-
-
-    :param str firewall_domain_list_id: The ID of the domain list.
+    Use this data source to access information about an existing resource.
     """
     ...

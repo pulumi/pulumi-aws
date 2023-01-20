@@ -28,16 +28,6 @@ class RemediationConfigurationArgs:
                  target_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RemediationConfiguration resource.
-        :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input[str] target_id: Target ID is the name of the public document.
-        :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
-        :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
-        :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
-        :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[str] resource_type: Type of resource.
-        :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         pulumi.set(__self__, "config_rule_name", config_rule_name)
         pulumi.set(__self__, "target_id", target_id)
@@ -60,9 +50,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="configRuleName")
     def config_rule_name(self) -> pulumi.Input[str]:
-        """
-        Name of the AWS Config rule.
-        """
         return pulumi.get(self, "config_rule_name")
 
     @config_rule_name.setter
@@ -72,9 +59,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Input[str]:
-        """
-        Target ID is the name of the public document.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -84,9 +68,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Input[str]:
-        """
-        Type of the target. Target executes remediation. For example, SSM document.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -96,9 +77,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter
     def automatic(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Remediation is triggered automatically if `true`.
-        """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
@@ -108,9 +86,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="executionControls")
     def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
-        """
-        Configuration block for execution controls. See below.
-        """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
@@ -120,9 +95,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="maximumAutomaticAttempts")
     def maximum_automatic_attempts(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        """
         return pulumi.get(self, "maximum_automatic_attempts")
 
     @maximum_automatic_attempts.setter
@@ -132,9 +104,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
-        """
-        Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -144,9 +113,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of resource.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -156,9 +122,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="retryAttemptSeconds")
     def retry_attempt_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        """
         return pulumi.get(self, "retry_attempt_seconds")
 
     @retry_attempt_seconds.setter
@@ -168,9 +131,6 @@ class RemediationConfigurationArgs:
     @property
     @pulumi.getter(name="targetVersion")
     def target_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the target. For example, version of the SSM document
-        """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
@@ -194,17 +154,6 @@ class _RemediationConfigurationState:
                  target_version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RemediationConfiguration resources.
-        :param pulumi.Input[str] arn: ARN of the Config Remediation Configuration.
-        :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
-        :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input['RemediationConfigurationExecutionControlsArgs'] execution_controls: Configuration block for execution controls. See below.
-        :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[str] resource_type: Type of resource.
-        :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        :param pulumi.Input[str] target_id: Target ID is the name of the public document.
-        :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
-        :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -232,9 +181,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Config Remediation Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -244,9 +190,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter
     def automatic(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Remediation is triggered automatically if `true`.
-        """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
@@ -256,9 +199,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="configRuleName")
     def config_rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the AWS Config rule.
-        """
         return pulumi.get(self, "config_rule_name")
 
     @config_rule_name.setter
@@ -268,9 +208,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="executionControls")
     def execution_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsArgs']]:
-        """
-        Configuration block for execution controls. See below.
-        """
         return pulumi.get(self, "execution_controls")
 
     @execution_controls.setter
@@ -280,9 +217,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="maximumAutomaticAttempts")
     def maximum_automatic_attempts(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        """
         return pulumi.get(self, "maximum_automatic_attempts")
 
     @maximum_automatic_attempts.setter
@@ -292,9 +226,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RemediationConfigurationParameterArgs']]]]:
-        """
-        Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -304,9 +235,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of resource.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -316,9 +244,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="retryAttemptSeconds")
     def retry_attempt_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        """
         return pulumi.get(self, "retry_attempt_seconds")
 
     @retry_attempt_seconds.setter
@@ -328,9 +253,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Target ID is the name of the public document.
-        """
         return pulumi.get(self, "target_id")
 
     @target_id.setter
@@ -340,9 +262,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of the target. Target executes remediation. For example, SSM document.
-        """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
@@ -352,9 +271,6 @@ class _RemediationConfigurationState:
     @property
     @pulumi.getter(name="targetVersion")
     def target_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Version of the target. For example, version of the SSM document
-        """
         return pulumi.get(self, "target_version")
 
     @target_version.setter
@@ -379,73 +295,9 @@ class RemediationConfiguration(pulumi.CustomResource):
                  target_version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AWS Config Remediation Configuration.
-
-        > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
-
-        ## Example Usage
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
-            parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
-            ],
-            automatic=True,
-            maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
-        ```
-
-        ## Import
-
-        Remediation Configurations can be imported using the name config_rule_name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
-        ```
-
+        Create a RemediationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
-        :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']] execution_controls: Configuration block for execution controls. See below.
-        :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[str] resource_type: Type of resource.
-        :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        :param pulumi.Input[str] target_id: Target ID is the name of the public document.
-        :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
-        :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         ...
     @overload
@@ -454,61 +306,7 @@ class RemediationConfiguration(pulumi.CustomResource):
                  args: RemediationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Config Remediation Configuration.
-
-        > **Note:** Config Remediation Configuration requires an existing Config Rule to be present.
-
-        ## Example Usage
-
-        AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        this_rule = aws.cfg.Rule("thisRule", source=aws.cfg.RuleSourceArgs(
-            owner="AWS",
-            source_identifier="S3_BUCKET_VERSIONING_ENABLED",
-        ))
-        this_remediation_configuration = aws.cfg.RemediationConfiguration("thisRemediationConfiguration",
-            config_rule_name=this_rule.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
-            parameters=[
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="AutomationAssumeRole",
-                    static_value="arn:aws:iam::875924563244:role/security_config",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="BucketName",
-                    resource_value="RESOURCE_ID",
-                ),
-                aws.cfg.RemediationConfigurationParameterArgs(
-                    name="SSEAlgorithm",
-                    static_value="AES256",
-                ),
-            ],
-            automatic=True,
-            maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls=aws.cfg.RemediationConfigurationExecutionControlsArgs(
-                ssm_controls=aws.cfg.RemediationConfigurationExecutionControlsSsmControlsArgs(
-                    concurrent_execution_rate_percentage=25,
-                    error_percentage=20,
-                ),
-            ))
-        ```
-
-        ## Import
-
-        Remediation Configurations can be imported using the name config_rule_name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
-        ```
-
+        Create a RemediationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RemediationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -588,17 +386,6 @@ class RemediationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the Config Remediation Configuration.
-        :param pulumi.Input[bool] automatic: Remediation is triggered automatically if `true`.
-        :param pulumi.Input[str] config_rule_name: Name of the AWS Config rule.
-        :param pulumi.Input[pulumi.InputType['RemediationConfigurationExecutionControlsArgs']] execution_controls: Configuration block for execution controls. See below.
-        :param pulumi.Input[int] maximum_automatic_attempts: Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RemediationConfigurationParameterArgs']]]] parameters: Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        :param pulumi.Input[str] resource_type: Type of resource.
-        :param pulumi.Input[int] retry_attempt_seconds: Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        :param pulumi.Input[str] target_id: Target ID is the name of the public document.
-        :param pulumi.Input[str] target_type: Type of the target. Target executes remediation. For example, SSM document.
-        :param pulumi.Input[str] target_version: Version of the target. For example, version of the SSM document
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -620,88 +407,55 @@ class RemediationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Config Remediation Configuration.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def automatic(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Remediation is triggered automatically if `true`.
-        """
         return pulumi.get(self, "automatic")
 
     @property
     @pulumi.getter(name="configRuleName")
     def config_rule_name(self) -> pulumi.Output[str]:
-        """
-        Name of the AWS Config rule.
-        """
         return pulumi.get(self, "config_rule_name")
 
     @property
     @pulumi.getter(name="executionControls")
     def execution_controls(self) -> pulumi.Output[Optional['outputs.RemediationConfigurationExecutionControls']]:
-        """
-        Configuration block for execution controls. See below.
-        """
         return pulumi.get(self, "execution_controls")
 
     @property
     @pulumi.getter(name="maximumAutomaticAttempts")
     def maximum_automatic_attempts(self) -> pulumi.Output[Optional[int]]:
-        """
-        Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
-        """
         return pulumi.get(self, "maximum_automatic_attempts")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.RemediationConfigurationParameter']]]:
-        """
-        Can be specified multiple times for each parameter. Each parameter block supports arguments below.
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Type of resource.
-        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="retryAttemptSeconds")
     def retry_attempt_seconds(self) -> pulumi.Output[Optional[int]]:
-        """
-        Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
-        """
         return pulumi.get(self, "retry_attempt_seconds")
 
     @property
     @pulumi.getter(name="targetId")
     def target_id(self) -> pulumi.Output[str]:
-        """
-        Target ID is the name of the public document.
-        """
         return pulumi.get(self, "target_id")
 
     @property
     @pulumi.getter(name="targetType")
     def target_type(self) -> pulumi.Output[str]:
-        """
-        Type of the target. Target executes remediation. For example, SSM document.
-        """
         return pulumi.get(self, "target_type")
 
     @property
     @pulumi.getter(name="targetVersion")
     def target_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        Version of the target. For example, version of the SSM document
-        """
         return pulumi.get(self, "target_version")
 

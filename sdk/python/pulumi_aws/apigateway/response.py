@@ -21,11 +21,6 @@ class ResponseArgs:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Response resource.
-        :param pulumi.Input[str] response_type: Response type of the associated GatewayResponse.
-        :param pulumi.Input[str] rest_api_id: String identifier of the associated REST API.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
         pulumi.set(__self__, "response_type", response_type)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -39,9 +34,6 @@ class ResponseArgs:
     @property
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Input[str]:
-        """
-        Response type of the associated GatewayResponse.
-        """
         return pulumi.get(self, "response_type")
 
     @response_type.setter
@@ -51,9 +43,6 @@ class ResponseArgs:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
-        """
-        String identifier of the associated REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -63,9 +52,6 @@ class ResponseArgs:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of parameters (paths, query strings and headers) of the Gateway Response.
-        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -75,9 +61,6 @@ class ResponseArgs:
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of templates used to transform the response body.
-        """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
@@ -87,9 +70,6 @@ class ResponseArgs:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        HTTP status code of the Gateway Response.
-        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -107,11 +87,6 @@ class _ResponseState:
                  status_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Response resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[str] response_type: Response type of the associated GatewayResponse.
-        :param pulumi.Input[str] rest_api_id: String identifier of the associated REST API.
-        :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
         if response_parameters is not None:
             pulumi.set(__self__, "response_parameters", response_parameters)
@@ -127,9 +102,6 @@ class _ResponseState:
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of parameters (paths, query strings and headers) of the Gateway Response.
-        """
         return pulumi.get(self, "response_parameters")
 
     @response_parameters.setter
@@ -139,9 +111,6 @@ class _ResponseState:
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of templates used to transform the response body.
-        """
         return pulumi.get(self, "response_templates")
 
     @response_templates.setter
@@ -151,9 +120,6 @@ class _ResponseState:
     @property
     @pulumi.getter(name="responseType")
     def response_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Response type of the associated GatewayResponse.
-        """
         return pulumi.get(self, "response_type")
 
     @response_type.setter
@@ -163,9 +129,6 @@ class _ResponseState:
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        String identifier of the associated REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 
     @rest_api_id.setter
@@ -175,9 +138,6 @@ class _ResponseState:
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        HTTP status code of the Gateway Response.
-        """
         return pulumi.get(self, "status_code")
 
     @status_code.setter
@@ -197,42 +157,9 @@ class Response(pulumi.CustomResource):
                  status_code: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an API Gateway Gateway Response for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
-            rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
-            response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
-            },
-            response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
-            })
-        ```
-
-        ## Import
-
-        `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-        ```
-
+        Create a Response resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[str] response_type: Response type of the associated GatewayResponse.
-        :param pulumi.Input[str] rest_api_id: String identifier of the associated REST API.
-        :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
         ...
     @overload
@@ -241,35 +168,7 @@ class Response(pulumi.CustomResource):
                  args: ResponseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an API Gateway Gateway Response for a REST API Gateway.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.apigateway.RestApi("main")
-        test = aws.apigateway.Response("test",
-            rest_api_id=main.id,
-            status_code="401",
-            response_type="UNAUTHORIZED",
-            response_templates={
-                "application/json": "{\\"message\\":$context.error.messageString}",
-            },
-            response_parameters={
-                "gatewayresponse.header.Authorization": "'Basic'",
-            })
-        ```
-
-        ## Import
-
-        `aws_api_gateway_gateway_response` can be imported using `REST-API-ID/RESPONSE-TYPE`, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-        ```
-
+        Create a Response resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResponseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -330,11 +229,6 @@ class Response(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_parameters: Map of parameters (paths, query strings and headers) of the Gateway Response.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] response_templates: Map of templates used to transform the response body.
-        :param pulumi.Input[str] response_type: Response type of the associated GatewayResponse.
-        :param pulumi.Input[str] rest_api_id: String identifier of the associated REST API.
-        :param pulumi.Input[str] status_code: HTTP status code of the Gateway Response.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,40 +244,25 @@ class Response(pulumi.CustomResource):
     @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of parameters (paths, query strings and headers) of the Gateway Response.
-        """
         return pulumi.get(self, "response_parameters")
 
     @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of templates used to transform the response body.
-        """
         return pulumi.get(self, "response_templates")
 
     @property
     @pulumi.getter(name="responseType")
     def response_type(self) -> pulumi.Output[str]:
-        """
-        Response type of the associated GatewayResponse.
-        """
         return pulumi.get(self, "response_type")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
-        """
-        String identifier of the associated REST API.
-        """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter(name="statusCode")
     def status_code(self) -> pulumi.Output[Optional[str]]:
-        """
-        HTTP status code of the Gateway Response.
-        """
         return pulumi.get(self, "status_code")
 

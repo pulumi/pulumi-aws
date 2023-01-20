@@ -41,11 +41,6 @@ class LoggingConfigurationDestinationConfiguration(dict):
                  cloudwatch_logs: Optional['outputs.LoggingConfigurationDestinationConfigurationCloudwatchLogs'] = None,
                  firehose: Optional['outputs.LoggingConfigurationDestinationConfigurationFirehose'] = None,
                  s3: Optional['outputs.LoggingConfigurationDestinationConfigurationS3'] = None):
-        """
-        :param 'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs' cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-        :param 'LoggingConfigurationDestinationConfigurationFirehoseArgs' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-        :param 'LoggingConfigurationDestinationConfigurationS3Args' s3: An Amazon S3 destination configuration where chat activity will be logged.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
@@ -56,25 +51,16 @@ class LoggingConfigurationDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.LoggingConfigurationDestinationConfigurationCloudwatchLogs']:
-        """
-        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @property
     @pulumi.getter
     def firehose(self) -> Optional['outputs.LoggingConfigurationDestinationConfigurationFirehose']:
-        """
-        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-        """
         return pulumi.get(self, "firehose")
 
     @property
     @pulumi.getter
     def s3(self) -> Optional['outputs.LoggingConfigurationDestinationConfigurationS3']:
-        """
-        An Amazon S3 destination configuration where chat activity will be logged.
-        """
         return pulumi.get(self, "s3")
 
 
@@ -99,17 +85,11 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
 
     def __init__(__self__, *,
                  log_group_name: str):
-        """
-        :param str log_group_name: Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
-        """
-        Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.
-        """
         return pulumi.get(self, "log_group_name")
 
 
@@ -134,17 +114,11 @@ class LoggingConfigurationDestinationConfigurationFirehose(dict):
 
     def __init__(__self__, *,
                  delivery_stream_name: str):
-        """
-        :param str delivery_stream_name: Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-        """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
 
     @property
     @pulumi.getter(name="deliveryStreamName")
     def delivery_stream_name(self) -> str:
-        """
-        Name of the Amazon Kinesis Firehose delivery stream where chat activity will be logged.
-        """
         return pulumi.get(self, "delivery_stream_name")
 
 
@@ -169,17 +143,11 @@ class LoggingConfigurationDestinationConfigurationS3(dict):
 
     def __init__(__self__, *,
                  bucket_name: str):
-        """
-        :param str bucket_name: Name of the Amazon S3 bucket where chat activity will be logged.
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
 
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> str:
-        """
-        Name of the Amazon S3 bucket where chat activity will be logged.
-        """
         return pulumi.get(self, "bucket_name")
 
 
@@ -205,12 +173,6 @@ class RoomMessageReviewHandler(dict):
     def __init__(__self__, *,
                  fallback_result: Optional[str] = None,
                  uri: Optional[str] = None):
-        """
-        :param str fallback_result: The fallback behavior (whether the message
-               is allowed or denied) if the handler does not return a valid response,
-               encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-        :param str uri: ARN of the lambda message review handler function.
-        """
         if fallback_result is not None:
             pulumi.set(__self__, "fallback_result", fallback_result)
         if uri is not None:
@@ -219,19 +181,11 @@ class RoomMessageReviewHandler(dict):
     @property
     @pulumi.getter(name="fallbackResult")
     def fallback_result(self) -> Optional[str]:
-        """
-        The fallback behavior (whether the message
-        is allowed or denied) if the handler does not return a valid response,
-        encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-        """
         return pulumi.get(self, "fallback_result")
 
     @property
     @pulumi.getter
     def uri(self) -> Optional[str]:
-        """
-        ARN of the lambda message review handler function.
-        """
         return pulumi.get(self, "uri")
 
 

@@ -21,11 +21,6 @@ class HostedConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostedConnection resource.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
-        :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
-        :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
-        :param pulumi.Input[str] name: The name of the connection.
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
         pulumi.set(__self__, "connection_id", connection_id)
@@ -37,9 +32,6 @@ class HostedConnectionArgs:
     @property
     @pulumi.getter
     def bandwidth(self) -> pulumi.Input[str]:
-        """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
@@ -49,9 +41,6 @@ class HostedConnectionArgs:
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the interconnect or LAG.
-        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -61,9 +50,6 @@ class HostedConnectionArgs:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the AWS account of the customer for the connection.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -73,9 +59,6 @@ class HostedConnectionArgs:
     @property
     @pulumi.getter
     def vlan(self) -> pulumi.Input[int]:
-        """
-        The dedicated VLAN provisioned to the hosted connection.
-        """
         return pulumi.get(self, "vlan")
 
     @vlan.setter
@@ -85,9 +68,6 @@ class HostedConnectionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the connection.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -115,21 +95,6 @@ class _HostedConnectionState:
                  vlan: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering HostedConnection resources.
-        :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
-        :param pulumi.Input[str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-        :param pulumi.Input[bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
-        :param pulumi.Input[str] lag_id: The ID of the LAG.
-        :param pulumi.Input[str] loa_issue_time: The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-        :param pulumi.Input[str] location: The location of the connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
-        :param pulumi.Input[str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
-        :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
-        :param pulumi.Input[str] region: The AWS Region where the connection is located.
-        :param pulumi.Input[str] state: The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-        :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
         if aws_device is not None:
             pulumi.set(__self__, "aws_device", aws_device)
@@ -165,9 +130,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Direct Connect endpoint on which the physical connection terminates.
-        """
         return pulumi.get(self, "aws_device")
 
     @aws_device.setter
@@ -177,9 +139,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def bandwidth(self) -> Optional[pulumi.Input[str]]:
-        """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
@@ -189,9 +148,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the interconnect or LAG.
-        """
         return pulumi.get(self, "connection_id")
 
     @connection_id.setter
@@ -201,9 +157,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
     def has_logical_redundancy(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-        """
         return pulumi.get(self, "has_logical_redundancy")
 
     @has_logical_redundancy.setter
@@ -213,9 +166,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="jumboFrameCapable")
     def jumbo_frame_capable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean value representing if jumbo frames have been enabled for this connection.
-        """
         return pulumi.get(self, "jumbo_frame_capable")
 
     @jumbo_frame_capable.setter
@@ -225,9 +175,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="lagId")
     def lag_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the LAG.
-        """
         return pulumi.get(self, "lag_id")
 
     @lag_id.setter
@@ -237,9 +184,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="loaIssueTime")
     def loa_issue_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-        """
         return pulumi.get(self, "loa_issue_time")
 
     @loa_issue_time.setter
@@ -249,9 +193,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the connection.
-        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -261,9 +202,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the connection.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -273,9 +211,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the AWS account of the customer for the connection.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @owner_account_id.setter
@@ -285,9 +220,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the AWS Direct Connect service provider associated with the connection.
-        """
         return pulumi.get(self, "partner_name")
 
     @partner_name.setter
@@ -297,9 +229,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the service provider associated with the connection.
-        """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
@@ -309,9 +238,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS Region where the connection is located.
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -321,9 +247,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -333,9 +256,6 @@ class _HostedConnectionState:
     @property
     @pulumi.getter
     def vlan(self) -> Optional[pulumi.Input[int]]:
-        """
-        The dedicated VLAN provisioned to the hosted connection.
-        """
         return pulumi.get(self, "vlan")
 
     @vlan.setter
@@ -355,28 +275,9 @@ class HostedConnection(pulumi.CustomResource):
                  vlan: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hosted = aws.directconnect.HostedConnection("hosted",
-            bandwidth="100Mbps",
-            connection_id="dxcon-ffabc123",
-            owner_account_id="123456789012",
-            vlan=1)
-        ```
-
+        Create a HostedConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
-        :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
         ...
     @overload
@@ -385,21 +286,7 @@ class HostedConnection(pulumi.CustomResource):
                  args: HostedConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        hosted = aws.directconnect.HostedConnection("hosted",
-            bandwidth="100Mbps",
-            connection_id="dxcon-ffabc123",
-            owner_account_id="123456789012",
-            vlan=1)
-        ```
-
+        Create a HostedConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param HostedConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -484,21 +371,6 @@ class HostedConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
-        :param pulumi.Input[str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        :param pulumi.Input[str] connection_id: The ID of the interconnect or LAG.
-        :param pulumi.Input[str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-        :param pulumi.Input[bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
-        :param pulumi.Input[str] lag_id: The ID of the LAG.
-        :param pulumi.Input[str] loa_issue_time: The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-        :param pulumi.Input[str] location: The location of the connection.
-        :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[str] owner_account_id: The ID of the AWS account of the customer for the connection.
-        :param pulumi.Input[str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
-        :param pulumi.Input[str] provider_name: The name of the service provider associated with the connection.
-        :param pulumi.Input[str] region: The AWS Region where the connection is located.
-        :param pulumi.Input[str] state: The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-        :param pulumi.Input[int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -524,120 +396,75 @@ class HostedConnection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> pulumi.Output[str]:
-        """
-        The Direct Connect endpoint on which the physical connection terminates.
-        """
         return pulumi.get(self, "aws_device")
 
     @property
     @pulumi.getter
     def bandwidth(self) -> pulumi.Output[str]:
-        """
-        The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
-        """
         return pulumi.get(self, "bandwidth")
 
     @property
     @pulumi.getter(name="connectionId")
     def connection_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the interconnect or LAG.
-        """
         return pulumi.get(self, "connection_id")
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
     def has_logical_redundancy(self) -> pulumi.Output[str]:
-        """
-        Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
-        """
         return pulumi.get(self, "has_logical_redundancy")
 
     @property
     @pulumi.getter(name="jumboFrameCapable")
     def jumbo_frame_capable(self) -> pulumi.Output[bool]:
-        """
-        Boolean value representing if jumbo frames have been enabled for this connection.
-        """
         return pulumi.get(self, "jumbo_frame_capable")
 
     @property
     @pulumi.getter(name="lagId")
     def lag_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the LAG.
-        """
         return pulumi.get(self, "lag_id")
 
     @property
     @pulumi.getter(name="loaIssueTime")
     def loa_issue_time(self) -> pulumi.Output[str]:
-        """
-        The time of the most recent call to [DescribeLoa](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html) for this connection.
-        """
         return pulumi.get(self, "loa_issue_time")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
-        """
-        The location of the connection.
-        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the connection.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the AWS account of the customer for the connection.
-        """
         return pulumi.get(self, "owner_account_id")
 
     @property
     @pulumi.getter(name="partnerName")
     def partner_name(self) -> pulumi.Output[str]:
-        """
-        The name of the AWS Direct Connect service provider associated with the connection.
-        """
         return pulumi.get(self, "partner_name")
 
     @property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[str]:
-        """
-        The name of the service provider associated with the connection.
-        """
         return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter
     def region(self) -> pulumi.Output[str]:
-        """
-        The AWS Region where the connection is located.
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def vlan(self) -> pulumi.Output[int]:
-        """
-        The dedicated VLAN provisioned to the hosted connection.
-        """
         return pulumi.get(self, "vlan")
 

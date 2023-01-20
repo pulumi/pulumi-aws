@@ -18,8 +18,6 @@ class LicenseAssociationArgs:
                  workspace_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a LicenseAssociation resource.
-        :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -27,9 +25,6 @@ class LicenseAssociationArgs:
     @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> pulumi.Input[str]:
-        """
-        The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
@@ -39,9 +34,6 @@ class LicenseAssociationArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[str]:
-        """
-        The workspace id.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -58,10 +50,6 @@ class _LicenseAssociationState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LicenseAssociation resources.
-        :param pulumi.Input[str] free_trial_expiration: If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-        :param pulumi.Input[str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-        :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         if free_trial_expiration is not None:
             pulumi.set(__self__, "free_trial_expiration", free_trial_expiration)
@@ -75,9 +63,6 @@ class _LicenseAssociationState:
     @property
     @pulumi.getter(name="freeTrialExpiration")
     def free_trial_expiration(self) -> Optional[pulumi.Input[str]]:
-        """
-        If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-        """
         return pulumi.get(self, "free_trial_expiration")
 
     @free_trial_expiration.setter
@@ -87,9 +72,6 @@ class _LicenseAssociationState:
     @property
     @pulumi.getter(name="licenseExpiration")
     def license_expiration(self) -> Optional[pulumi.Input[str]]:
-        """
-        If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-        """
         return pulumi.get(self, "license_expiration")
 
     @license_expiration.setter
@@ -99,9 +81,6 @@ class _LicenseAssociationState:
     @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
@@ -111,9 +90,6 @@ class _LicenseAssociationState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The workspace id.
-        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -130,49 +106,9 @@ class LicenseAssociation(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Managed Grafana workspace license association resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
-            license_type="ENTERPRISE_FREE_TRIAL",
-            workspace_id=example_workspace.id)
-        ```
-
-        ## Import
-
-        Grafana workspace license association can be imported using the workspace's `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-        ```
-
+        Create a LicenseAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         ...
     @overload
@@ -181,45 +117,7 @@ class LicenseAssociation(pulumi.CustomResource):
                  args: LicenseAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Managed Grafana workspace license association resource.
-
-        ## Example Usage
-        ### Basic configuration
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        assume = aws.iam.Role("assume", assume_role_policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": "sts:AssumeRole",
-                "Effect": "Allow",
-                "Sid": "",
-                "Principal": {
-                    "Service": "grafana.amazonaws.com",
-                },
-            }],
-        }))
-        example_workspace = aws.grafana.Workspace("exampleWorkspace",
-            account_access_type="CURRENT_ACCOUNT",
-            authentication_providers=["SAML"],
-            permission_type="SERVICE_MANAGED",
-            role_arn=assume.arn)
-        example_license_association = aws.grafana.LicenseAssociation("exampleLicenseAssociation",
-            license_type="ENTERPRISE_FREE_TRIAL",
-            workspace_id=example_workspace.id)
-        ```
-
-        ## Import
-
-        Grafana workspace license association can be imported using the workspace's `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-        ```
-
+        Create a LicenseAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LicenseAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,10 +173,6 @@ class LicenseAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] free_trial_expiration: If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-        :param pulumi.Input[str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-        :param pulumi.Input[str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        :param pulumi.Input[str] workspace_id: The workspace id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,32 +187,20 @@ class LicenseAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="freeTrialExpiration")
     def free_trial_expiration(self) -> pulumi.Output[str]:
-        """
-        If `license_type` is set to `ENTERPRISE_FREE_TRIAL`, this is the expiration date of the free trial.
-        """
         return pulumi.get(self, "free_trial_expiration")
 
     @property
     @pulumi.getter(name="licenseExpiration")
     def license_expiration(self) -> pulumi.Output[str]:
-        """
-        If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
-        """
         return pulumi.get(self, "license_expiration")
 
     @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> pulumi.Output[str]:
-        """
-        The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
-        """
         return pulumi.get(self, "license_type")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
-        """
-        The workspace id.
-        """
         return pulumi.get(self, "workspace_id")
 

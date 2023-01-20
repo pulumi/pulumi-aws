@@ -17,16 +17,12 @@ class DefaultKmsKeyArgs:
                  key_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a DefaultKmsKey resource.
-        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         pulumi.set(__self__, "key_arn", key_arn)
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -40,7 +36,6 @@ class _DefaultKmsKeyState:
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DefaultKmsKey resources.
-        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
@@ -48,9 +43,6 @@ class _DefaultKmsKeyState:
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        """
         return pulumi.get(self, "key_arn")
 
     @key_arn.setter
@@ -66,35 +58,9 @@ class DefaultKmsKey(pulumi.CustomResource):
                  key_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
-
-        Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
-        By using the `ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
-
-        > **NOTE:** Creating an `ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `ebs.EncryptionByDefault` to enable default EBS encryption.
-
-        > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
-        ```
-
-        ## Import
-
-        The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
-
-        ```sh
-         $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
-        ```
-
+        Create a DefaultKmsKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         ...
     @overload
@@ -103,32 +69,7 @@ class DefaultKmsKey(pulumi.CustomResource):
                  args: DefaultKmsKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
-
-        Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
-        By using the `ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
-
-        > **NOTE:** Creating an `ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `ebs.EncryptionByDefault` to enable default EBS encryption.
-
-        > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.DefaultKmsKey("example", key_arn=aws_kms_key["example"]["arn"])
-        ```
-
-        ## Import
-
-        The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
-
-        ```sh
-         $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
-        ```
-
+        Create a DefaultKmsKey resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DefaultKmsKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +116,6 @@ class DefaultKmsKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,8 +127,5 @@ class DefaultKmsKey(pulumi.CustomResource):
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-        """
         return pulumi.get(self, "key_arn")
 

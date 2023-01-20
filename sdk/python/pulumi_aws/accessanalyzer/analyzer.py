@@ -19,9 +19,6 @@ class AnalyzerArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         pulumi.set(__self__, "analyzer_name", analyzer_name)
         if tags is not None:
@@ -32,9 +29,6 @@ class AnalyzerArgs:
     @property
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Input[str]:
-        """
-        Name of the Analyzer.
-        """
         return pulumi.get(self, "analyzer_name")
 
     @analyzer_name.setter
@@ -44,9 +38,6 @@ class AnalyzerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -56,9 +47,6 @@ class AnalyzerArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -76,11 +64,6 @@ class _AnalyzerState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Analyzer resources.
-        :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[str] arn: ARN of the Analyzer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         if analyzer_name is not None:
             pulumi.set(__self__, "analyzer_name", analyzer_name)
@@ -96,9 +79,6 @@ class _AnalyzerState:
     @property
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Analyzer.
-        """
         return pulumi.get(self, "analyzer_name")
 
     @analyzer_name.setter
@@ -108,9 +88,6 @@ class _AnalyzerState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Analyzer.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -120,9 +97,6 @@ class _AnalyzerState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -132,9 +106,6 @@ class _AnalyzerState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -144,9 +115,6 @@ class _AnalyzerState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -164,43 +132,9 @@ class Analyzer(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
-
-        ## Example Usage
-        ### Account Analyzer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
-        ```
-        ### Organization Analyzer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization", aws_service_access_principals=["access-analyzer.amazonaws.com"])
-        example_analyzer = aws.accessanalyzer.Analyzer("exampleAnalyzer",
-            analyzer_name="example",
-            type="ORGANIZATION",
-            opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        ```
-
-        ## Import
-
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-        ```
-
+        Create a Analyzer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         ...
     @overload
@@ -209,38 +143,7 @@ class Analyzer(pulumi.CustomResource):
                  args: AnalyzerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
-
-        ## Example Usage
-        ### Account Analyzer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
-        ```
-        ### Organization Analyzer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization", aws_service_access_principals=["access-analyzer.amazonaws.com"])
-        example_analyzer = aws.accessanalyzer.Analyzer("exampleAnalyzer",
-            analyzer_name="example",
-            type="ORGANIZATION",
-            opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        ```
-
-        ## Import
-
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-        ```
-
+        Create a Analyzer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AnalyzerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,11 +200,6 @@ class Analyzer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] analyzer_name: Name of the Analyzer.
-        :param pulumi.Input[str] arn: ARN of the Analyzer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,40 +215,25 @@ class Analyzer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analyzerName")
     def analyzer_name(self) -> pulumi.Output[str]:
-        """
-        Name of the Analyzer.
-        """
         return pulumi.get(self, "analyzer_name")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Analyzer.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
-        """
         return pulumi.get(self, "type")
 

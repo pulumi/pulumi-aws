@@ -18,8 +18,6 @@ class EnablerArgs:
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The set of arguments for constructing a Enabler resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         pulumi.set(__self__, "account_ids", account_ids)
         pulumi.set(__self__, "resource_types", resource_types)
@@ -27,9 +25,6 @@ class EnablerArgs:
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Set of account IDs.
-        """
         return pulumi.get(self, "account_ids")
 
     @account_ids.setter
@@ -39,9 +34,6 @@ class EnablerArgs:
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
-        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -56,8 +48,6 @@ class _EnablerState:
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Enabler resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         if account_ids is not None:
             pulumi.set(__self__, "account_ids", account_ids)
@@ -67,9 +57,6 @@ class _EnablerState:
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of account IDs.
-        """
         return pulumi.get(self, "account_ids")
 
     @account_ids.setter
@@ -79,9 +66,6 @@ class _EnablerState:
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
-        """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
@@ -98,40 +82,9 @@ class Enabler(pulumi.CustomResource):
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Resource for enabling AWS Inspector V2 resource scans.
-
-        > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.Enabler("example",
-            account_ids=["012345678901"],
-            resource_types=["EC2"])
-        ```
-        ### For the Calling Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        test = aws.inspector2.Enabler("test",
-            account_ids=[current.account_id],
-            resource_types=[
-                "ECR",
-                "EC2",
-            ])
-        ```
-
+        Create a Enabler resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         ...
     @overload
@@ -140,36 +93,7 @@ class Enabler(pulumi.CustomResource):
                  args: EnablerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for enabling AWS Inspector V2 resource scans.
-
-        > **NOTE:** Due to testing limitations, we provide this resource as best effort. If you use it or have the ability to test it, and notice problems, please consider reaching out to us on GitHub.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.inspector2.Enabler("example",
-            account_ids=["012345678901"],
-            resource_types=["EC2"])
-        ```
-        ### For the Calling Account
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        test = aws.inspector2.Enabler("test",
-            account_ids=[current.account_id],
-            resource_types=[
-                "ECR",
-                "EC2",
-            ])
-        ```
-
+        Create a Enabler resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnablerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,8 +145,6 @@ class Enabler(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: Set of account IDs.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,16 +157,10 @@ class Enabler(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Set of account IDs.
-        """
         return pulumi.get(self, "account_ids")
 
     @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Type of resources to scan. Valid values are `EC2`, `ECR`, and `LAMBDA`. If you only use one type, the provider will ignore the status of the other type.
-        """
         return pulumi.get(self, "resource_types")
 

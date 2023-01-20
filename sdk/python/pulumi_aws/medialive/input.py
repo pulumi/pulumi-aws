@@ -28,16 +28,6 @@ class InputArgs:
                  vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
         """
         The set of arguments for constructing a Input resource.
-        :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
-        :param pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]] input_devices: Settings for the devices. See Input Devices for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_security_groups: List of input security groups.
-        :param pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        :param pulumi.Input[str] name: Name of the input.
-        :param pulumi.Input[str] role_arn: The ARN of the role this input assumes during and after creation.
-        :param pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]] sources: The source URLs for a PULL-type input. See Sources for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['InputVpcArgs'] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         pulumi.set(__self__, "type", type)
         if destinations is not None:
@@ -62,9 +52,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The different types of inputs that AWS Elemental MediaLive supports.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -74,9 +61,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]:
-        """
-        Destination settings for PUSH type inputs. See Destinations for more details.
-        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -86,9 +70,6 @@ class InputArgs:
     @property
     @pulumi.getter(name="inputDevices")
     def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
-        """
-        Settings for the devices. See Input Devices for more details.
-        """
         return pulumi.get(self, "input_devices")
 
     @input_devices.setter
@@ -98,9 +79,6 @@ class InputArgs:
     @property
     @pulumi.getter(name="inputSecurityGroups")
     def input_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of input security groups.
-        """
         return pulumi.get(self, "input_security_groups")
 
     @input_security_groups.setter
@@ -110,9 +88,6 @@ class InputArgs:
     @property
     @pulumi.getter(name="mediaConnectFlows")
     def media_connect_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
-        """
-        A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        """
         return pulumi.get(self, "media_connect_flows")
 
     @media_connect_flows.setter
@@ -122,9 +97,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the input.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -134,9 +106,6 @@ class InputArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the role this input assumes during and after creation.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -146,9 +115,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]:
-        """
-        The source URLs for a PULL-type input. See Sources for more details.
-        """
         return pulumi.get(self, "sources")
 
     @sources.setter
@@ -158,9 +124,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,9 +133,6 @@ class InputArgs:
     @property
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['InputVpcArgs']]:
-        """
-        Settings for a private VPC Input. See VPC for more details.
-        """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -201,21 +161,6 @@ class _InputState:
                  vpc: Optional[pulumi.Input['InputVpcArgs']] = None):
         """
         Input properties used for looking up and filtering Input resources.
-        :param pulumi.Input[str] arn: ARN of the Input.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_channels: Channels attached to Input.
-        :param pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
-        :param pulumi.Input[str] input_class: The input class.
-        :param pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]] input_devices: Settings for the devices. See Input Devices for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_partner_ids: A list of IDs for all Inputs which are partners of this one.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_security_groups: List of input security groups.
-        :param pulumi.Input[str] input_source_type: Source type of the input.
-        :param pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        :param pulumi.Input[str] name: Name of the input.
-        :param pulumi.Input[str] role_arn: The ARN of the role this input assumes during and after creation.
-        :param pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]] sources: The source URLs for a PULL-type input. See Sources for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
-        :param pulumi.Input['InputVpcArgs'] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -253,9 +198,6 @@ class _InputState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Input.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -265,9 +207,6 @@ class _InputState:
     @property
     @pulumi.getter(name="attachedChannels")
     def attached_channels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Channels attached to Input.
-        """
         return pulumi.get(self, "attached_channels")
 
     @attached_channels.setter
@@ -277,9 +216,6 @@ class _InputState:
     @property
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputDestinationArgs']]]]:
-        """
-        Destination settings for PUSH type inputs. See Destinations for more details.
-        """
         return pulumi.get(self, "destinations")
 
     @destinations.setter
@@ -289,9 +225,6 @@ class _InputState:
     @property
     @pulumi.getter(name="inputClass")
     def input_class(self) -> Optional[pulumi.Input[str]]:
-        """
-        The input class.
-        """
         return pulumi.get(self, "input_class")
 
     @input_class.setter
@@ -301,9 +234,6 @@ class _InputState:
     @property
     @pulumi.getter(name="inputDevices")
     def input_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputInputDeviceArgs']]]]:
-        """
-        Settings for the devices. See Input Devices for more details.
-        """
         return pulumi.get(self, "input_devices")
 
     @input_devices.setter
@@ -313,9 +243,6 @@ class _InputState:
     @property
     @pulumi.getter(name="inputPartnerIds")
     def input_partner_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IDs for all Inputs which are partners of this one.
-        """
         return pulumi.get(self, "input_partner_ids")
 
     @input_partner_ids.setter
@@ -325,9 +252,6 @@ class _InputState:
     @property
     @pulumi.getter(name="inputSecurityGroups")
     def input_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of input security groups.
-        """
         return pulumi.get(self, "input_security_groups")
 
     @input_security_groups.setter
@@ -337,9 +261,6 @@ class _InputState:
     @property
     @pulumi.getter(name="inputSourceType")
     def input_source_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source type of the input.
-        """
         return pulumi.get(self, "input_source_type")
 
     @input_source_type.setter
@@ -349,9 +270,6 @@ class _InputState:
     @property
     @pulumi.getter(name="mediaConnectFlows")
     def media_connect_flows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputMediaConnectFlowArgs']]]]:
-        """
-        A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        """
         return pulumi.get(self, "media_connect_flows")
 
     @media_connect_flows.setter
@@ -361,9 +279,6 @@ class _InputState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the input.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -373,9 +288,6 @@ class _InputState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the role this input assumes during and after creation.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -385,9 +297,6 @@ class _InputState:
     @property
     @pulumi.getter
     def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InputSourceArgs']]]]:
-        """
-        The source URLs for a PULL-type input. See Sources for more details.
-        """
         return pulumi.get(self, "sources")
 
     @sources.setter
@@ -397,9 +306,6 @@ class _InputState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -418,9 +324,6 @@ class _InputState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The different types of inputs that AWS Elemental MediaLive supports.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -430,9 +333,6 @@ class _InputState:
     @property
     @pulumi.getter
     def vpc(self) -> Optional[pulumi.Input['InputVpcArgs']]:
-        """
-        Settings for a private VPC Input. See VPC for more details.
-        """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
@@ -457,50 +357,9 @@ class Input(pulumi.CustomResource):
                  vpc: Optional[pulumi.Input[pulumi.InputType['InputVpcArgs']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS MediaLive Input.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
-            type="UDP_PUSH",
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        ```
-
-        ## Import
-
-        MediaLive Input can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
-        ```
-
+        Create a Input resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDestinationArgs']]]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDeviceArgs']]]] input_devices: Settings for the devices. See Input Devices for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_security_groups: List of input security groups.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputMediaConnectFlowArgs']]]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        :param pulumi.Input[str] name: Name of the input.
-        :param pulumi.Input[str] role_arn: The ARN of the role this input assumes during and after creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceArgs']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
-        :param pulumi.Input[pulumi.InputType['InputVpcArgs']] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         ...
     @overload
@@ -509,38 +368,7 @@ class Input(pulumi.CustomResource):
                  args: InputArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS MediaLive Input.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_input_security_group = aws.medialive.InputSecurityGroup("exampleInputSecurityGroup",
-            whitelist_rules=[aws.medialive.InputSecurityGroupWhitelistRuleArgs(
-                cidr="10.0.0.8/32",
-            )],
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        example_input = aws.medialive.Input("exampleInput",
-            input_security_groups=[example_input_security_group.id],
-            type="UDP_PUSH",
-            tags={
-                "ENVIRONMENT": "prod",
-            })
-        ```
-
-        ## Import
-
-        MediaLive Input can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
-        ```
-
+        Create a Input resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InputArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -626,21 +454,6 @@ class Input(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the Input.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_channels: Channels attached to Input.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputDestinationArgs']]]] destinations: Destination settings for PUSH type inputs. See Destinations for more details.
-        :param pulumi.Input[str] input_class: The input class.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputInputDeviceArgs']]]] input_devices: Settings for the devices. See Input Devices for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_partner_ids: A list of IDs for all Inputs which are partners of this one.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] input_security_groups: List of input security groups.
-        :param pulumi.Input[str] input_source_type: Source type of the input.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputMediaConnectFlowArgs']]]] media_connect_flows: A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        :param pulumi.Input[str] name: Name of the input.
-        :param pulumi.Input[str] role_arn: The ARN of the role this input assumes during and after creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InputSourceArgs']]]] sources: The source URLs for a PULL-type input. See Sources for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The different types of inputs that AWS Elemental MediaLive supports.
-        :param pulumi.Input[pulumi.InputType['InputVpcArgs']] vpc: Settings for a private VPC Input. See VPC for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -667,105 +480,66 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Input.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="attachedChannels")
     def attached_channels(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Channels attached to Input.
-        """
         return pulumi.get(self, "attached_channels")
 
     @property
     @pulumi.getter
     def destinations(self) -> pulumi.Output[Optional[Sequence['outputs.InputDestination']]]:
-        """
-        Destination settings for PUSH type inputs. See Destinations for more details.
-        """
         return pulumi.get(self, "destinations")
 
     @property
     @pulumi.getter(name="inputClass")
     def input_class(self) -> pulumi.Output[str]:
-        """
-        The input class.
-        """
         return pulumi.get(self, "input_class")
 
     @property
     @pulumi.getter(name="inputDevices")
     def input_devices(self) -> pulumi.Output[Sequence['outputs.InputInputDevice']]:
-        """
-        Settings for the devices. See Input Devices for more details.
-        """
         return pulumi.get(self, "input_devices")
 
     @property
     @pulumi.getter(name="inputPartnerIds")
     def input_partner_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of IDs for all Inputs which are partners of this one.
-        """
         return pulumi.get(self, "input_partner_ids")
 
     @property
     @pulumi.getter(name="inputSecurityGroups")
     def input_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of input security groups.
-        """
         return pulumi.get(self, "input_security_groups")
 
     @property
     @pulumi.getter(name="inputSourceType")
     def input_source_type(self) -> pulumi.Output[str]:
-        """
-        Source type of the input.
-        """
         return pulumi.get(self, "input_source_type")
 
     @property
     @pulumi.getter(name="mediaConnectFlows")
     def media_connect_flows(self) -> pulumi.Output[Sequence['outputs.InputMediaConnectFlow']]:
-        """
-        A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        """
         return pulumi.get(self, "media_connect_flows")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the input.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the role this input assumes during and after creation.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def sources(self) -> pulumi.Output[Sequence['outputs.InputSource']]:
-        """
-        The source URLs for a PULL-type input. See Sources for more details.
-        """
         return pulumi.get(self, "sources")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -776,16 +550,10 @@ class Input(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
-        """
-        The different types of inputs that AWS Elemental MediaLive supports.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def vpc(self) -> pulumi.Output[Optional['outputs.InputVpc']]:
-        """
-        Settings for a private VPC Input. See VPC for more details.
-        """
         return pulumi.get(self, "vpc")
 

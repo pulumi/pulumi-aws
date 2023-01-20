@@ -20,10 +20,6 @@ class MetricsDestinationArgs:
                  iam_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MetricsDestination resource.
-        :param pulumi.Input[str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
         pulumi.set(__self__, "app_monitor_name", app_monitor_name)
         pulumi.set(__self__, "destination", destination)
@@ -35,9 +31,6 @@ class MetricsDestinationArgs:
     @property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> pulumi.Input[str]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @app_monitor_name.setter
@@ -47,9 +40,6 @@ class MetricsDestinationArgs:
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -59,9 +49,6 @@ class MetricsDestinationArgs:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -71,9 +58,6 @@ class MetricsDestinationArgs:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -90,10 +74,6 @@ class _MetricsDestinationState:
                  iam_role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MetricsDestination resources.
-        :param pulumi.Input[str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
         if app_monitor_name is not None:
             pulumi.set(__self__, "app_monitor_name", app_monitor_name)
@@ -107,9 +87,6 @@ class _MetricsDestinationState:
     @property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @app_monitor_name.setter
@@ -119,9 +96,6 @@ class _MetricsDestinationState:
     @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -131,9 +105,6 @@ class _MetricsDestinationState:
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @destination_arn.setter
@@ -143,9 +114,6 @@ class _MetricsDestinationState:
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 
     @iam_role_arn.setter
@@ -164,33 +132,9 @@ class MetricsDestination(pulumi.CustomResource):
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a CloudWatch RUM Metrics Destination resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
-            destination="CloudWatch")
-        ```
-
-        ## Import
-
-        Cloudwatch RUM Metrics Destination can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-        ```
-
+        Create a MetricsDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
         ...
     @overload
@@ -199,27 +143,7 @@ class MetricsDestination(pulumi.CustomResource):
                  args: MetricsDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudWatch RUM Metrics Destination resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.rum.MetricsDestination("example",
-            app_monitor_name=aws_rum_app_monitor["example"]["name"],
-            destination="CloudWatch")
-        ```
-
-        ## Import
-
-        Cloudwatch RUM Metrics Destination can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-        ```
-
+        Create a MetricsDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MetricsDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,10 +201,6 @@ class MetricsDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_monitor_name: The name of the CloudWatch RUM app monitor that will send the metrics.
-        :param pulumi.Input[str] destination: Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        :param pulumi.Input[str] destination_arn: Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        :param pulumi.Input[str] iam_role_arn: This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -295,32 +215,20 @@ class MetricsDestination(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appMonitorName")
     def app_monitor_name(self) -> pulumi.Output[str]:
-        """
-        The name of the CloudWatch RUM app monitor that will send the metrics.
-        """
         return pulumi.get(self, "app_monitor_name")
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Output[str]:
-        """
-        Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
-        """
         return pulumi.get(self, "destination_arn")
 
     @property
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
-        """
         return pulumi.get(self, "iam_role_arn")
 

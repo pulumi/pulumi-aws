@@ -17,16 +17,12 @@ class AccountAliasArgs:
                  account_alias: pulumi.Input[str]):
         """
         The set of arguments for constructing a AccountAlias resource.
-        :param pulumi.Input[str] account_alias: The account alias
         """
         pulumi.set(__self__, "account_alias", account_alias)
 
     @property
     @pulumi.getter(name="accountAlias")
     def account_alias(self) -> pulumi.Input[str]:
-        """
-        The account alias
-        """
         return pulumi.get(self, "account_alias")
 
     @account_alias.setter
@@ -40,7 +36,6 @@ class _AccountAliasState:
                  account_alias: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AccountAlias resources.
-        :param pulumi.Input[str] account_alias: The account alias
         """
         if account_alias is not None:
             pulumi.set(__self__, "account_alias", account_alias)
@@ -48,9 +43,6 @@ class _AccountAliasState:
     @property
     @pulumi.getter(name="accountAlias")
     def account_alias(self) -> Optional[pulumi.Input[str]]:
-        """
-        The account alias
-        """
         return pulumi.get(self, "account_alias")
 
     @account_alias.setter
@@ -66,30 +58,9 @@ class AccountAlias(pulumi.CustomResource):
                  account_alias: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        > **Note:** There is only a single account alias per AWS account.
-
-        Manages the account alias for the AWS Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
-        ```
-
-        ## Import
-
-        The current Account Alias can be imported using the `account_alias`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-        ```
-
+        Create a AccountAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_alias: The account alias
         """
         ...
     @overload
@@ -98,27 +69,7 @@ class AccountAlias(pulumi.CustomResource):
                  args: AccountAliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Note:** There is only a single account alias per AWS account.
-
-        Manages the account alias for the AWS Account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
-        ```
-
-        ## Import
-
-        The current Account Alias can be imported using the `account_alias`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-        ```
-
+        Create a AccountAlias resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountAliasArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +116,6 @@ class AccountAlias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_alias: The account alias
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -177,8 +127,5 @@ class AccountAlias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountAlias")
     def account_alias(self) -> pulumi.Output[str]:
-        """
-        The account alias
-        """
         return pulumi.get(self, "account_alias")
 

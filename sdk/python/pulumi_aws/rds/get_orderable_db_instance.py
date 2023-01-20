@@ -121,9 +121,6 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
-        """
-        Availability zones where the instance is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -157,65 +154,41 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="maxIopsPerDbInstance")
     def max_iops_per_db_instance(self) -> int:
-        """
-        Maximum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_db_instance")
 
     @property
     @pulumi.getter(name="maxIopsPerGib")
     def max_iops_per_gib(self) -> float:
-        """
-        Maximum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "max_iops_per_gib")
 
     @property
     @pulumi.getter(name="maxStorageSize")
     def max_storage_size(self) -> int:
-        """
-        Maximum storage size for a DB instance.
-        """
         return pulumi.get(self, "max_storage_size")
 
     @property
     @pulumi.getter(name="minIopsPerDbInstance")
     def min_iops_per_db_instance(self) -> int:
-        """
-        Minimum total provisioned IOPS for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_db_instance")
 
     @property
     @pulumi.getter(name="minIopsPerGib")
     def min_iops_per_gib(self) -> float:
-        """
-        Minimum provisioned IOPS per GiB for a DB instance.
-        """
         return pulumi.get(self, "min_iops_per_gib")
 
     @property
     @pulumi.getter(name="minStorageSize")
     def min_storage_size(self) -> int:
-        """
-        Minimum storage size for a DB instance.
-        """
         return pulumi.get(self, "min_storage_size")
 
     @property
     @pulumi.getter(name="multiAzCapable")
     def multi_az_capable(self) -> bool:
-        """
-        Whether a DB instance is Multi-AZ capable.
-        """
         return pulumi.get(self, "multi_az_capable")
 
     @property
     @pulumi.getter(name="outpostCapable")
     def outpost_capable(self) -> bool:
-        """
-        Whether a DB instance supports RDS on Outposts.
-        """
         return pulumi.get(self, "outpost_capable")
 
     @property
@@ -231,9 +204,6 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="readReplicaCapable")
     def read_replica_capable(self) -> bool:
-        """
-        Whether a DB instance can have a read replica.
-        """
         return pulumi.get(self, "read_replica_capable")
 
     @property
@@ -244,17 +214,11 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="supportedEngineModes")
     def supported_engine_modes(self) -> Sequence[str]:
-        """
-        A list of the supported DB engine modes.
-        """
         return pulumi.get(self, "supported_engine_modes")
 
     @property
     @pulumi.getter(name="supportedNetworkTypes")
     def supported_network_types(self) -> Sequence[str]:
-        """
-        The network types supported by the DB instance (`IPV4` or `DUAL`).
-        """
         return pulumi.get(self, "supported_network_types")
 
     @property
@@ -360,63 +324,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
                               vpc: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about RDS orderable DB instances and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ],
-        storage_type="standard")
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
-
-
-    :param str availability_zone_group: Availability zone group.
-    :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
-    :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
-    :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
-    :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-    :param bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
-    :param bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
-    :param bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
-    :param bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
-    :param bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
-    :param bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
-    :param bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
-    :param bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['availabilityZoneGroup'] = availability_zone_group
@@ -492,62 +400,6 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
                                      vpc: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
-    Information about RDS orderable DB instances and valid parameter combinations.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        engine_version="5.7.22",
-        license_model="general-public-license",
-        preferred_instance_classes=[
-            "db.r6.xlarge",
-            "db.m4.large",
-            "db.t3.small",
-        ],
-        storage_type="standard")
-    ```
-
-    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.rds.get_orderable_db_instance(engine="mysql",
-        license_model="general-public-license",
-        preferred_engine_versions=[
-            "5.6.35",
-            "5.6.41",
-            "5.6.44",
-        ],
-        preferred_instance_classes=[
-            "db.t2.small",
-            "db.t3.medium",
-            "db.t3.large",
-        ])
-    ```
-
-
-    :param str availability_zone_group: Availability zone group.
-    :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
-    :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
-    :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
-    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-    :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
-    :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
-    :param bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
-    :param bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
-    :param bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
-    :param bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
-    :param bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
-    :param bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
-    :param bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
-    :param bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    Use this data source to access information about an existing resource.
     """
     ...

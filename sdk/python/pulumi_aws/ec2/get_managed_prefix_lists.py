@@ -53,9 +53,6 @@ class GetManagedPrefixListsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        List of all the managed prefix list ids found.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -80,12 +77,7 @@ def get_managed_prefix_lists(filters: Optional[Sequence[pulumi.InputType['GetMan
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListsResult:
     """
-    This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-
-
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired .
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -105,11 +97,6 @@ def get_managed_prefix_lists_output(filters: Optional[pulumi.Input[Optional[Sequ
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrefixListsResult]:
     """
-    This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
-
-
-    :param Sequence[pulumi.InputType['GetManagedPrefixListsFilterArgs']] filters: Custom filter block as described below.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired .
+    Use this data source to access information about an existing resource.
     """
     ...

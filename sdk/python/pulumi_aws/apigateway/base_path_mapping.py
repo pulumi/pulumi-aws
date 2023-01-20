@@ -20,10 +20,6 @@ class BasePathMappingArgs:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
-        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: ID of the API to connect.
-        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "rest_api", rest_api)
@@ -35,9 +31,6 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
-        """
-        Already-registered domain name to connect the API to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -47,9 +40,6 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Input[str]:
-        """
-        ID of the API to connect.
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -59,9 +49,6 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="basePath")
     def base_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        """
         return pulumi.get(self, "base_path")
 
     @base_path.setter
@@ -71,9 +58,6 @@ class BasePathMappingArgs:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -90,10 +74,6 @@ class _BasePathMappingState:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BasePathMapping resources.
-        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: ID of the API to connect.
-        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         if base_path is not None:
             pulumi.set(__self__, "base_path", base_path)
@@ -107,9 +87,6 @@ class _BasePathMappingState:
     @property
     @pulumi.getter(name="basePath")
     def base_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        """
         return pulumi.get(self, "base_path")
 
     @base_path.setter
@@ -119,9 +96,6 @@ class _BasePathMappingState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Already-registered domain name to connect the API to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -131,9 +105,6 @@ class _BasePathMappingState:
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the API to connect.
-        """
         return pulumi.get(self, "rest_api")
 
     @rest_api.setter
@@ -143,9 +114,6 @@ class _BasePathMappingState:
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-        """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
@@ -164,52 +132,9 @@ class BasePathMapping(pulumi.CustomResource):
                  stage_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Connects a custom domain name registered via `apigateway.DomainName`
-        with a deployed API so that its methods can be called via the
-        custom domain name.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
-        ## Import
-
-        `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
-
-        ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
-        ```
-
-         Otherwise
-
-        ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
-        ```
-
+        Create a BasePathMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: ID of the API to connect.
-        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         ...
     @overload
@@ -218,46 +143,7 @@ class BasePathMapping(pulumi.CustomResource):
                  args: BasePathMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Connects a custom domain name registered via `apigateway.DomainName`
-        with a deployed API so that its methods can be called via the
-        custom domain name.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_stage = aws.apigateway.Stage("exampleStage",
-            deployment=aws_api_gateway_deployment["example"]["id"],
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("exampleDomainName",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=(lambda path: open(path).read())(f"{path['module']}/example.com/example.crt"),
-            certificate_chain=(lambda path: open(path).read())(f"{path['module']}/example.com/ca.crt"),
-            certificate_private_key=(lambda path: open(path).read())(f"{path['module']}/example.com/example.key"))
-        example_base_path_mapping = aws.apigateway.BasePathMapping("exampleBasePathMapping",
-            rest_api=aws_api_gateway_rest_api["example"]["id"],
-            stage_name=example_stage.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
-        ## Import
-
-        `aws_api_gateway_base_path_mapping` can be imported by using the domain name and base path, e.g., For empty `base_path` (e.g., root path (`/`))
-
-        ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
-        ```
-
-         Otherwise
-
-        ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
-        ```
-
+        Create a BasePathMapping resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BasePathMappingArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -315,10 +201,6 @@ class BasePathMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        :param pulumi.Input[str] domain_name: Already-registered domain name to connect the API to.
-        :param pulumi.Input[str] rest_api: ID of the API to connect.
-        :param pulumi.Input[str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -333,32 +215,20 @@ class BasePathMapping(pulumi.CustomResource):
     @property
     @pulumi.getter(name="basePath")
     def base_path(self) -> pulumi.Output[Optional[str]]:
-        """
-        Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        """
         return pulumi.get(self, "base_path")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
-        """
-        Already-registered domain name to connect the API to.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> pulumi.Output[str]:
-        """
-        ID of the API to connect.
-        """
         return pulumi.get(self, "rest_api")
 
     @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-        """
         return pulumi.get(self, "stage_name")
 

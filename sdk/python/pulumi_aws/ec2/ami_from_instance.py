@@ -26,19 +26,6 @@ class AmiFromInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiFromInstance resource.
-        :param pulumi.Input[str] source_instance_id: ID of the instance to use as the basis of the AMI.
-        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
-               attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
-               should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
-               the instance before snapshotting. This is risky since it may cause a snapshot of an
-               inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-               guarantees that no filesystem writes will be underway at the time of snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_instance_id", source_instance_id)
         if deprecation_time is not None:
@@ -59,9 +46,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter(name="sourceInstanceId")
     def source_instance_id(self) -> pulumi.Input[str]:
-        """
-        ID of the instance to use as the basis of the AMI.
-        """
         return pulumi.get(self, "source_instance_id")
 
     @source_instance_id.setter
@@ -71,9 +55,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
@@ -83,9 +64,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Longer, human-readable description for the AMI.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -95,10 +73,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]]:
-        """
-        Nested block describing an EBS block device that should be
-        attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -108,10 +82,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]]:
-        """
-        Nested block describing an ephemeral block device that
-        should be attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -121,9 +91,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Region-unique name for the AMI.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -133,12 +100,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter(name="snapshotWithoutReboot")
     def snapshot_without_reboot(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean that overrides the behavior of stopping
-        the instance before snapshotting. This is risky since it may cause a snapshot of an
-        inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-        guarantees that no filesystem writes will be underway at the time of snapshot.
-        """
         return pulumi.get(self, "snapshot_without_reboot")
 
     @snapshot_without_reboot.setter
@@ -148,9 +109,6 @@ class AmiFromInstanceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -194,37 +152,6 @@ class _AmiFromInstanceState:
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AmiFromInstance resources.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
-        :param pulumi.Input[str] arn: ARN of the AMI.
-        :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
-               attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
-               should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
-        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
-        :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
-        :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
-               the instance before snapshotting. This is risky since it may cause a snapshot of an
-               inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-               guarantees that no filesystem writes will be underway at the time of snapshot.
-        :param pulumi.Input[str] source_instance_id: ID of the instance to use as the basis of the AMI.
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
-               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-               changes the set of further arguments that are required, as described below.
         """
         if architecture is not None:
             pulumi.set(__self__, "architecture", architecture)
@@ -292,9 +219,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter
     def architecture(self) -> Optional[pulumi.Input[str]]:
-        """
-        Machine architecture for created instances. Defaults to "x86_64".
-        """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
@@ -304,9 +228,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the AMI.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -316,9 +237,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-        """
         return pulumi.get(self, "boot_mode")
 
     @boot_mode.setter
@@ -328,9 +246,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "deprecation_time")
 
     @deprecation_time.setter
@@ -340,9 +255,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Longer, human-readable description for the AMI.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -352,10 +264,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]]:
-        """
-        Nested block describing an EBS block device that should be
-        attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
@@ -365,9 +273,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "ena_support")
 
     @ena_support.setter
@@ -377,10 +282,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]]:
-        """
-        Nested block describing an ephemeral block device that
-        should be attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
@@ -399,10 +300,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Path to an S3 object containing an image manifest, e.g., created
-        by the `ec2-upload-bundle` command in the EC2 command line tools.
-        """
         return pulumi.get(self, "image_location")
 
     @image_location.setter
@@ -430,9 +327,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="imdsSupport")
     def imds_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        """
         return pulumi.get(self, "imds_support")
 
     @imds_support.setter
@@ -442,10 +336,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the kernel image (AKI) that will be used as the paravirtual
-        kernel in created instances.
-        """
         return pulumi.get(self, "kernel_id")
 
     @kernel_id.setter
@@ -464,9 +354,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Region-unique name for the AMI.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -512,10 +399,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of an initrd image (ARI) that will be used when booting the
-        created instances.
-        """
         return pulumi.get(self, "ramdisk_id")
 
     @ramdisk_id.setter
@@ -525,9 +408,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        """
         return pulumi.get(self, "root_device_name")
 
     @root_device_name.setter
@@ -546,12 +426,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="snapshotWithoutReboot")
     def snapshot_without_reboot(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean that overrides the behavior of stopping
-        the instance before snapshotting. This is risky since it may cause a snapshot of an
-        inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-        guarantees that no filesystem writes will be underway at the time of snapshot.
-        """
         return pulumi.get(self, "snapshot_without_reboot")
 
     @snapshot_without_reboot.setter
@@ -561,9 +435,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="sourceInstanceId")
     def source_instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the instance to use as the basis of the AMI.
-        """
         return pulumi.get(self, "source_instance_id")
 
     @source_instance_id.setter
@@ -573,10 +444,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        When set to "simple" (the default), enables enhanced networking
-        for created instances. No other value is supported at this time.
-        """
         return pulumi.get(self, "sriov_net_support")
 
     @sriov_net_support.setter
@@ -586,9 +453,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -607,9 +471,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-        """
         return pulumi.get(self, "tpm_support")
 
     @tpm_support.setter
@@ -628,11 +489,6 @@ class _AmiFromInstanceState:
     @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Keyword to choose what virtualization mode created instances
-        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-        changes the set of further arguments that are required, as described below.
-        """
         return pulumi.get(self, "virtualization_type")
 
     @virtualization_type.setter
@@ -655,48 +511,9 @@ class AmiFromInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The "AMI from instance" resource allows the creation of an Amazon Machine
-        Image (AMI) modelled after an existing EBS-backed EC2 instance.
-
-        The created AMI will refer to implicitly-created snapshots of the instance's
-        EBS volumes and mimick its assigned block device configuration at the time
-        the resource is created.
-
-        This resource is best applied to an instance that is stopped when this instance
-        is created, so that the contents of the created image are predictable. When
-        applied to an instance that is running, *the instance will be stopped before taking
-        the snapshots and then started back up again*, resulting in a period of
-        downtime.
-
-        Note that the source instance is inspected only at the initial creation of this
-        resource. Ongoing updates to the referenced instance will not be propagated into
-        the generated AMI. Users may taint or otherwise recreate the resource in order
-        to produce a fresh snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
-        ```
-
+        Create a AmiFromInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
-               attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
-               should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
-               the instance before snapshotting. This is risky since it may cause a snapshot of an
-               inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-               guarantees that no filesystem writes will be underway at the time of snapshot.
-        :param pulumi.Input[str] source_instance_id: ID of the instance to use as the basis of the AMI.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -705,33 +522,7 @@ class AmiFromInstance(pulumi.CustomResource):
                  args: AmiFromInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The "AMI from instance" resource allows the creation of an Amazon Machine
-        Image (AMI) modelled after an existing EBS-backed EC2 instance.
-
-        The created AMI will refer to implicitly-created snapshots of the instance's
-        EBS volumes and mimick its assigned block device configuration at the time
-        the resource is created.
-
-        This resource is best applied to an instance that is stopped when this instance
-        is created, so that the contents of the created image are predictable. When
-        applied to an instance that is running, *the instance will be stopped before taking
-        the snapshots and then started back up again*, resulting in a period of
-        downtime.
-
-        Note that the source instance is inspected only at the initial creation of this
-        resource. Ongoing updates to the referenced instance will not be propagated into
-        the generated AMI. Users may taint or otherwise recreate the resource in order
-        to produce a fresh snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.AmiFromInstance("example", source_instance_id="i-xxxxxxxx")
-        ```
-
+        Create a AmiFromInstance resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AmiFromInstanceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -845,37 +636,6 @@ class AmiFromInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
-        :param pulumi.Input[str] arn: ARN of the AMI.
-        :param pulumi.Input[str] boot_mode: Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-        :param pulumi.Input[str] deprecation_time: Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] description: Longer, human-readable description for the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
-               attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[bool] ena_support: Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
-               should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
-               by the `ec2-upload-bundle` command in the EC2 command line tools.
-        :param pulumi.Input[str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        :param pulumi.Input[str] kernel_id: ID of the kernel image (AKI) that will be used as the paravirtual
-               kernel in created instances.
-        :param pulumi.Input[str] name: Region-unique name for the AMI.
-        :param pulumi.Input[str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
-               created instances.
-        :param pulumi.Input[str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        :param pulumi.Input[bool] snapshot_without_reboot: Boolean that overrides the behavior of stopping
-               the instance before snapshotting. This is risky since it may cause a snapshot of an
-               inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-               guarantees that no filesystem writes will be underway at the time of snapshot.
-        :param pulumi.Input[str] source_instance_id: ID of the instance to use as the basis of the AMI.
-        :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
-               for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-        :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
-               will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-               changes the set of further arguments that are required, as described below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -917,67 +677,41 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def architecture(self) -> pulumi.Output[str]:
-        """
-        Machine architecture for created instances. Defaults to "x86_64".
-        """
         return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the AMI.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="bootMode")
     def boot_mode(self) -> pulumi.Output[str]:
-        """
-        Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-        """
         return pulumi.get(self, "boot_mode")
 
     @property
     @pulumi.getter(name="deprecationTime")
     def deprecation_time(self) -> pulumi.Output[Optional[str]]:
-        """
-        Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Longer, human-readable description for the AMI.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
     def ebs_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiFromInstanceEbsBlockDevice']]:
-        """
-        Nested block describing an EBS block device that should be
-        attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ebs_block_devices")
 
     @property
     @pulumi.getter(name="enaSupport")
     def ena_support(self) -> pulumi.Output[bool]:
-        """
-        Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        """
         return pulumi.get(self, "ena_support")
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
     def ephemeral_block_devices(self) -> pulumi.Output[Sequence['outputs.AmiFromInstanceEphemeralBlockDevice']]:
-        """
-        Nested block describing an ephemeral block device that
-        should be attached to created instances. The structure of this block is described below.
-        """
         return pulumi.get(self, "ephemeral_block_devices")
 
     @property
@@ -988,10 +722,6 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
-        """
-        Path to an S3 object containing an image manifest, e.g., created
-        by the `ec2-upload-bundle` command in the EC2 command line tools.
-        """
         return pulumi.get(self, "image_location")
 
     @property
@@ -1007,18 +737,11 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imdsSupport")
     def imds_support(self) -> pulumi.Output[str]:
-        """
-        If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        """
         return pulumi.get(self, "imds_support")
 
     @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> pulumi.Output[str]:
-        """
-        ID of the kernel image (AKI) that will be used as the paravirtual
-        kernel in created instances.
-        """
         return pulumi.get(self, "kernel_id")
 
     @property
@@ -1029,9 +752,6 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Region-unique name for the AMI.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -1057,18 +777,11 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ramdiskId")
     def ramdisk_id(self) -> pulumi.Output[str]:
-        """
-        ID of an initrd image (ARI) that will be used when booting the
-        created instances.
-        """
         return pulumi.get(self, "ramdisk_id")
 
     @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> pulumi.Output[str]:
-        """
-        Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        """
         return pulumi.get(self, "root_device_name")
 
     @property
@@ -1079,37 +792,21 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="snapshotWithoutReboot")
     def snapshot_without_reboot(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean that overrides the behavior of stopping
-        the instance before snapshotting. This is risky since it may cause a snapshot of an
-        inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
-        guarantees that no filesystem writes will be underway at the time of snapshot.
-        """
         return pulumi.get(self, "snapshot_without_reboot")
 
     @property
     @pulumi.getter(name="sourceInstanceId")
     def source_instance_id(self) -> pulumi.Output[str]:
-        """
-        ID of the instance to use as the basis of the AMI.
-        """
         return pulumi.get(self, "source_instance_id")
 
     @property
     @pulumi.getter(name="sriovNetSupport")
     def sriov_net_support(self) -> pulumi.Output[str]:
-        """
-        When set to "simple" (the default), enables enhanced networking
-        for created instances. No other value is supported at this time.
-        """
         return pulumi.get(self, "sriov_net_support")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -1120,9 +817,6 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tpmSupport")
     def tpm_support(self) -> pulumi.Output[str]:
-        """
-        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-        """
         return pulumi.get(self, "tpm_support")
 
     @property
@@ -1133,10 +827,5 @@ class AmiFromInstance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualizationType")
     def virtualization_type(self) -> pulumi.Output[str]:
-        """
-        Keyword to choose what virtualization mode created instances
-        will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
-        changes the set of further arguments that are required, as described below.
-        """
         return pulumi.get(self, "virtualization_type")
 

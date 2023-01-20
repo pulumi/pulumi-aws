@@ -59,9 +59,6 @@ class GetConnectionsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        IDs of the connections.
-        """
         return pulumi.get(self, "ids")
 
     @property
@@ -88,24 +85,7 @@ def get_connections(device_id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionsResult:
     """
-    Retrieve information about connections.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param str device_id: ID of the device of the connections to retrieve.
-    :param str global_network_id: ID of the Global Network of the connections to retrieve.
-    :param Mapping[str, str] tags: Restricts the list to the connections with these tags.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['deviceId'] = device_id
@@ -128,23 +108,6 @@ def get_connections_output(device_id: Optional[pulumi.Input[Optional[str]]] = No
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionsResult]:
     """
-    Retrieve information about connections.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_connections(global_network_id=var["global_network_id"],
-        tags={
-            "Env": "test",
-        })
-    ```
-
-
-    :param str device_id: ID of the device of the connections to retrieve.
-    :param str global_network_id: ID of the Global Network of the connections to retrieve.
-    :param Mapping[str, str] tags: Restricts the list to the connections with these tags.
+    Use this data source to access information about an existing resource.
     """
     ...

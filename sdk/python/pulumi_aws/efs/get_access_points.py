@@ -38,9 +38,6 @@ class GetAccessPointsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
-        """
-        Set of Amazon Resource Names (ARNs).
-        """
         return pulumi.get(self, "arns")
 
     @property
@@ -59,9 +56,6 @@ class GetAccessPointsResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        Set of identifiers.
-        """
         return pulumi.get(self, "ids")
 
 
@@ -80,19 +74,7 @@ class AwaitableGetAccessPointsResult(GetAccessPointsResult):
 def get_access_points(file_system_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointsResult:
     """
-    Provides information about multiple Elastic File System (EFS) Access Points.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_points(file_system_id="fs-12345678")
-    ```
-
-
-    :param str file_system_id: EFS File System identifier.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
@@ -110,18 +92,6 @@ def get_access_points(file_system_id: Optional[str] = None,
 def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointsResult]:
     """
-    Provides information about multiple Elastic File System (EFS) Access Points.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.efs.get_access_points(file_system_id="fs-12345678")
-    ```
-
-
-    :param str file_system_id: EFS File System identifier.
+    Use this data source to access information about an existing resource.
     """
     ...

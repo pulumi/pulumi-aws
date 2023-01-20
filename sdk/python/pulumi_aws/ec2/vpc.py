@@ -31,24 +31,6 @@ class VpcArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Vpc resource.
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
-        :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -90,9 +72,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
     @assign_generated_ipv6_cidr_block.setter
@@ -102,9 +81,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -114,11 +90,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -128,10 +99,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -141,9 +108,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @enable_dns_hostnames.setter
@@ -153,9 +117,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
@@ -165,9 +126,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @enable_network_address_usage_metrics.setter
@@ -177,9 +135,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> Optional[pulumi.Input[str]]:
-        """
-        A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        """
         return pulumi.get(self, "instance_tenancy")
 
     @instance_tenancy.setter
@@ -189,9 +144,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
@@ -201,9 +153,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
@@ -213,9 +162,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -225,9 +171,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
     def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        """
         return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @ipv6_cidr_block_network_border_group.setter
@@ -237,9 +180,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
@@ -249,9 +189,6 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
-        """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
@@ -261,9 +198,6 @@ class VpcArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -300,34 +234,6 @@ class _VpcState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Vpc resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of VPC
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
-        :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
-        :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
-        :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
-               this VPC. Note that you can change a VPC's main route table by using an
-               `ec2.MainRouteTableAssociation`.
-        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -387,9 +293,6 @@ class _VpcState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of VPC
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -399,9 +302,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
     @assign_generated_ipv6_cidr_block.setter
@@ -411,9 +311,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @cidr_block.setter
@@ -423,9 +320,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="defaultNetworkAclId")
     def default_network_acl_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the network ACL created by default on VPC creation
-        """
         return pulumi.get(self, "default_network_acl_id")
 
     @default_network_acl_id.setter
@@ -435,9 +329,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="defaultRouteTableId")
     def default_route_table_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the route table created by default on VPC creation
-        """
         return pulumi.get(self, "default_route_table_id")
 
     @default_route_table_id.setter
@@ -447,9 +338,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="defaultSecurityGroupId")
     def default_security_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the security group created by default on VPC creation
-        """
         return pulumi.get(self, "default_security_group_id")
 
     @default_security_group_id.setter
@@ -468,11 +356,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
         return pulumi.get(self, "enable_classiclink")
 
     @enable_classiclink.setter
@@ -482,10 +365,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @enable_classiclink_dns_support.setter
@@ -495,9 +374,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @enable_dns_hostnames.setter
@@ -507,9 +383,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        """
         return pulumi.get(self, "enable_dns_support")
 
     @enable_dns_support.setter
@@ -519,9 +392,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @enable_network_address_usage_metrics.setter
@@ -531,9 +401,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> Optional[pulumi.Input[str]]:
-        """
-        A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        """
         return pulumi.get(self, "instance_tenancy")
 
     @instance_tenancy.setter
@@ -543,9 +410,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @ipv4_ipam_pool_id.setter
@@ -555,9 +419,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @ipv4_netmask_length.setter
@@ -567,9 +428,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The association ID for the IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_association_id")
 
     @ipv6_association_id.setter
@@ -579,9 +437,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -591,9 +446,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
     def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        """
         return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @ipv6_cidr_block_network_border_group.setter
@@ -603,9 +455,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
@@ -615,9 +464,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
-        """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
@@ -627,11 +473,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="mainRouteTableId")
     def main_route_table_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the main route table associated with
-        this VPC. Note that you can change a VPC's main route table by using an
-        `ec2.MainRouteTableAssociation`.
-        """
         return pulumi.get(self, "main_route_table_id")
 
     @main_route_table_id.setter
@@ -641,9 +482,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the AWS account that owns the VPC.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -653,9 +491,6 @@ class _VpcState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -665,9 +500,6 @@ class _VpcState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -697,84 +529,9 @@ class Vpc(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a VPC resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ```
-
-        Basic usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            instance_tenancy="default",
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        VPC with CIDR from AWS IPAM:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
-            ipam_pool_id=test_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
-            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
-        ```
-
-        ## Import
-
-        VPCs can be imported using the `vpc id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-        ```
-
+        Create a Vpc resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
-        :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -783,64 +540,7 @@ class Vpc(pulumi.CustomResource):
                  args: Optional[VpcArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a VPC resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main", cidr_block="10.0.0.0/16")
-        ```
-
-        Basic usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main = aws.ec2.Vpc("main",
-            cidr_block="10.0.0.0/16",
-            instance_tenancy="default",
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        VPC with CIDR from AWS IPAM:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
-            region_name=current.name,
-        )])
-        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
-            address_family="ipv4",
-            ipam_scope_id=test_vpc_ipam.private_default_scope_id,
-            locale=current.name)
-        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr",
-            ipam_pool_id=test_vpc_ipam_pool.id,
-            cidr="172.2.0.0/16")
-        test_vpc = aws.ec2.Vpc("testVpc",
-            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
-            ipv4_netmask_length=28,
-            opts=pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
-        ```
-
-        ## Import
-
-        VPCs can be imported using the `vpc id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-        ```
-
+        Create a Vpc resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -951,34 +651,6 @@ class Vpc(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of VPC
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
-        :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
-        :param pulumi.Input[str] default_security_group_id: The ID of the security group created by default on VPC creation
-        :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
-               for the VPC. Only valid in regions and accounts that support EC2 Classic.
-               See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        :param pulumi.Input[bool] enable_classiclink_dns_support: A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-               Only valid in regions and accounts that support EC2 Classic.
-        :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        :param pulumi.Input[bool] enable_network_address_usage_metrics: Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
-               this VPC. Note that you can change a VPC's main route table by using an
-               `ec2.MainRouteTableAssociation`.
-        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1013,49 +685,31 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of VPC
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
-        """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
-        """
-        The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="defaultNetworkAclId")
     def default_network_acl_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the network ACL created by default on VPC creation
-        """
         return pulumi.get(self, "default_network_acl_id")
 
     @property
     @pulumi.getter(name="defaultRouteTableId")
     def default_route_table_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the route table created by default on VPC creation
-        """
         return pulumi.get(self, "default_route_table_id")
 
     @property
     @pulumi.getter(name="defaultSecurityGroupId")
     def default_security_group_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the security group created by default on VPC creation
-        """
         return pulumi.get(self, "default_security_group_id")
 
     @property
@@ -1066,141 +720,85 @@ class Vpc(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableClassiclink")
     def enable_classiclink(self) -> pulumi.Output[bool]:
-        """
-        A boolean flag to enable/disable ClassicLink
-        for the VPC. Only valid in regions and accounts that support EC2 Classic.
-        See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
-        """
         return pulumi.get(self, "enable_classiclink")
 
     @property
     @pulumi.getter(name="enableClassiclinkDnsSupport")
     def enable_classiclink_dns_support(self) -> pulumi.Output[bool]:
-        """
-        A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
-        Only valid in regions and accounts that support EC2 Classic.
-        """
         return pulumi.get(self, "enable_classiclink_dns_support")
 
     @property
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> pulumi.Output[bool]:
-        """
-        A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
-        """
         return pulumi.get(self, "enable_dns_hostnames")
 
     @property
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
-        """
         return pulumi.get(self, "enable_dns_support")
 
     @property
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> pulumi.Output[bool]:
-        """
-        Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
-        """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
     @property
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> pulumi.Output[Optional[str]]:
-        """
-        A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
-        """
         return pulumi.get(self, "instance_tenancy")
 
     @property
     @pulumi.getter(name="ipv4IpamPoolId")
     def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-        """
         return pulumi.get(self, "ipv4_ipam_pool_id")
 
     @property
     @pulumi.getter(name="ipv4NetmaskLength")
     def ipv4_netmask_length(self) -> pulumi.Output[Optional[int]]:
-        """
-        The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        """
         return pulumi.get(self, "ipv4_netmask_length")
 
     @property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> pulumi.Output[str]:
-        """
-        The association ID for the IPv6 CIDR block.
-        """
         return pulumi.get(self, "ipv6_association_id")
 
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
-        """
-        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
-        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
     def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[str]:
-        """
-        By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
-        """
         return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
-        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
-        """
-        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
-        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="mainRouteTableId")
     def main_route_table_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the main route table associated with
-        this VPC. Note that you can change a VPC's main route table by using an
-        `ec2.MainRouteTableAssociation`.
-        """
         return pulumi.get(self, "main_route_table_id")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the AWS account that owns the VPC.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -52,17 +52,11 @@ class GetCustomKeyStoreResult:
     @property
     @pulumi.getter(name="connectionState")
     def connection_state(self) -> str:
-        """
-        Indicates whether the custom key store is connected to its CloudHSM cluster.
-        """
         return pulumi.get(self, "connection_state")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> str:
-        """
-        The date and time when the custom key store was created.
-        """
         return pulumi.get(self, "creation_date")
 
     @property
@@ -86,9 +80,6 @@ class GetCustomKeyStoreResult:
     @property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> str:
-        """
-        The trust anchor certificate of the associated CloudHSM cluster.
-        """
         return pulumi.get(self, "trust_anchor_certificate")
 
 
@@ -111,22 +102,7 @@ def get_custom_key_store(custom_key_store_id: Optional[str] = None,
                          custom_key_store_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomKeyStoreResult:
     """
-    Use this data source to get the metadata KMS custom key store.
-    By using this data source, you can reference KMS custom key store
-    without having to hard code the ID as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    keystore = aws.kms.get_custom_key_store(custom_key_store_name="my_cloudhsm")
-    ```
-
-
-    :param str custom_key_store_id: The ID for the custom key store.
-    :param str custom_key_store_name: The user-specified friendly name for the custom key store.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id
@@ -149,21 +125,6 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
                                 custom_key_store_name: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomKeyStoreResult]:
     """
-    Use this data source to get the metadata KMS custom key store.
-    By using this data source, you can reference KMS custom key store
-    without having to hard code the ID as input.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    keystore = aws.kms.get_custom_key_store(custom_key_store_name="my_cloudhsm")
-    ```
-
-
-    :param str custom_key_store_id: The ID for the custom key store.
-    :param str custom_key_store_name: The user-specified friendly name for the custom key store.
+    Use this data source to access information about an existing resource.
     """
     ...

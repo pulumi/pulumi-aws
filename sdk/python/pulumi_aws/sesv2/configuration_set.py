@@ -25,13 +25,6 @@ class ConfigurationSetArgs:
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         if delivery_options is not None:
@@ -50,9 +43,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Input[str]:
-        """
-        The name of the configuration set.
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -62,9 +52,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
-        """
-        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        """
         return pulumi.get(self, "delivery_options")
 
     @delivery_options.setter
@@ -74,9 +61,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
-        """
-        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        """
         return pulumi.get(self, "reputation_options")
 
     @reputation_options.setter
@@ -86,9 +70,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]:
-        """
-        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        """
         return pulumi.get(self, "sending_options")
 
     @sending_options.setter
@@ -98,9 +79,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]:
-        """
-        An object that contains information about the suppression list preferences for your account.
-        """
         return pulumi.get(self, "suppression_options")
 
     @suppression_options.setter
@@ -110,9 +88,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -122,9 +97,6 @@ class ConfigurationSetArgs:
     @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
-        """
-        An object that defines the open and click tracking options for emails that you send using the configuration set.
-        """
         return pulumi.get(self, "tracking_options")
 
     @tracking_options.setter
@@ -146,14 +118,6 @@ class _ConfigurationSetState:
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
         """
         Input properties used for looking up and filtering ConfigurationSet resources.
-        :param pulumi.Input[str] arn: ARN of the Configuration Set.
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input['ConfigurationSetDeliveryOptionsArgs'] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input['ConfigurationSetReputationOptionsArgs'] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input['ConfigurationSetSendingOptionsArgs'] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input['ConfigurationSetSuppressionOptionsArgs'] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -177,9 +141,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the Configuration Set.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -189,9 +150,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the configuration set.
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -201,9 +159,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']]:
-        """
-        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        """
         return pulumi.get(self, "delivery_options")
 
     @delivery_options.setter
@@ -213,9 +168,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> Optional[pulumi.Input['ConfigurationSetReputationOptionsArgs']]:
-        """
-        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        """
         return pulumi.get(self, "reputation_options")
 
     @reputation_options.setter
@@ -225,9 +177,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> Optional[pulumi.Input['ConfigurationSetSendingOptionsArgs']]:
-        """
-        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        """
         return pulumi.get(self, "sending_options")
 
     @sending_options.setter
@@ -237,9 +186,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> Optional[pulumi.Input['ConfigurationSetSuppressionOptionsArgs']]:
-        """
-        An object that contains information about the suppression list preferences for your account.
-        """
         return pulumi.get(self, "suppression_options")
 
     @suppression_options.setter
@@ -249,9 +195,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -270,9 +213,6 @@ class _ConfigurationSetState:
     @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']]:
-        """
-        An object that defines the open and click tracking options for emails that you send using the configuration set.
-        """
         return pulumi.get(self, "tracking_options")
 
     @tracking_options.setter
@@ -294,54 +234,9 @@ class ConfigurationSet(pulumi.CustomResource):
                  tracking_options: Optional[pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.ConfigurationSet("example",
-            configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
-                    "BOUNCE",
-                    "COMPLAINT",
-                ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-        ```
-
+        Create a ConfigurationSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         ...
     @overload
@@ -350,45 +245,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  args: ConfigurationSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.ConfigurationSet("example",
-            configuration_set_name="example",
-            delivery_options=aws.sesv2.ConfigurationSetDeliveryOptionsArgs(
-                tls_policy="REQUIRE",
-            ),
-            reputation_options=aws.sesv2.ConfigurationSetReputationOptionsArgs(
-                reputation_metrics_enabled=False,
-            ),
-            sending_options=aws.sesv2.ConfigurationSetSendingOptionsArgs(
-                sending_enabled=True,
-            ),
-            suppression_options=aws.sesv2.ConfigurationSetSuppressionOptionsArgs(
-                suppressed_reasons=[
-                    "BOUNCE",
-                    "COMPLAINT",
-                ],
-            ),
-            tracking_options=aws.sesv2.ConfigurationSetTrackingOptionsArgs(
-                custom_redirect_domain="example.com",
-            ))
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Configuration Set can be imported using the `configuration_set_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-        ```
-
+        Create a ConfigurationSet resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -457,14 +314,6 @@ class ConfigurationSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the Configuration Set.
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetDeliveryOptionsArgs']] delivery_options: An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetReputationOptionsArgs']] reputation_options: An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSendingOptionsArgs']] sending_options: An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetSuppressionOptionsArgs']] suppression_options: An object that contains information about the suppression list preferences for your account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ConfigurationSetTrackingOptionsArgs']] tracking_options: An object that defines the open and click tracking options for emails that you send using the configuration set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -484,57 +333,36 @@ class ConfigurationSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the Configuration Set.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Output[str]:
-        """
-        The name of the configuration set.
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter(name="deliveryOptions")
     def delivery_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetDeliveryOptions']]:
-        """
-        An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-        """
         return pulumi.get(self, "delivery_options")
 
     @property
     @pulumi.getter(name="reputationOptions")
     def reputation_options(self) -> pulumi.Output['outputs.ConfigurationSetReputationOptions']:
-        """
-        An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-        """
         return pulumi.get(self, "reputation_options")
 
     @property
     @pulumi.getter(name="sendingOptions")
     def sending_options(self) -> pulumi.Output['outputs.ConfigurationSetSendingOptions']:
-        """
-        An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-        """
         return pulumi.get(self, "sending_options")
 
     @property
     @pulumi.getter(name="suppressionOptions")
     def suppression_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetSuppressionOptions']]:
-        """
-        An object that contains information about the suppression list preferences for your account.
-        """
         return pulumi.get(self, "suppression_options")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -545,8 +373,5 @@ class ConfigurationSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="trackingOptions")
     def tracking_options(self) -> pulumi.Output[Optional['outputs.ConfigurationSetTrackingOptions']]:
-        """
-        An object that defines the open and click tracking options for emails that you send using the configuration set.
-        """
         return pulumi.get(self, "tracking_options")
 

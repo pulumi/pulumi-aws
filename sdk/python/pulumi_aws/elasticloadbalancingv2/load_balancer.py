@@ -37,28 +37,6 @@ class LoadBalancerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
-        :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
-        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
-        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-               must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-               this provider will autogenerate a name beginning with `tf-lb`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] preserve_host_header: Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]] subnet_mappings: A subnet mapping block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
-               cannot be updated for Load Balancers of type `network`. Changing this value
-               for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
@@ -102,9 +80,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
-        """
-        An Access Logs block. Access Logs documented below.
-        """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
@@ -114,9 +89,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the customer owned ipv4 pool to use for this load balancer.
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
@@ -126,9 +98,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="desyncMitigationMode")
     def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
@@ -138,9 +107,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
     def drop_invalid_header_fields(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @drop_invalid_header_fields.setter
@@ -150,9 +116,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
     def enable_cross_zone_load_balancing(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @enable_cross_zone_load_balancing.setter
@@ -162,9 +125,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="enableDeletionProtection")
     def enable_deletion_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_deletion_protection")
 
     @enable_deletion_protection.setter
@@ -174,9 +134,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="enableHttp2")
     def enable_http2(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_http2")
 
     @enable_http2.setter
@@ -186,9 +143,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_waf_fail_open")
 
     @enable_waf_fail_open.setter
@@ -198,9 +152,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
@@ -210,9 +161,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the LB will be internal.
-        """
         return pulumi.get(self, "internal")
 
     @internal.setter
@@ -222,9 +170,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -234,9 +179,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
@@ -246,11 +188,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        this provider will autogenerate a name beginning with `tf-lb`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -260,9 +197,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -272,9 +206,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="preserveHostHeader")
     def preserve_host_header(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        """
         return pulumi.get(self, "preserve_host_header")
 
     @preserve_host_header.setter
@@ -293,9 +224,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
-        """
-        A subnet mapping block as documented below.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -305,11 +233,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of subnet IDs to attach to the LB. Subnets
-        cannot be updated for Load Balancers of type `network`. Changing this value
-        for load balancers of type `network` will force a recreation of the resource.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -319,9 +242,6 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -359,33 +279,6 @@ class _LoadBalancerState:
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancer resources.
-        :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
-        :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
-        :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
-        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
-        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-               must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-               this provider will autogenerate a name beginning with `tf-lb`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] preserve_host_header: Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]] subnet_mappings: A subnet mapping block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
-               cannot be updated for Load Balancers of type `network`. Changing this value
-               for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
@@ -441,9 +334,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> Optional[pulumi.Input['LoadBalancerAccessLogsArgs']]:
-        """
-        An Access Logs block. Access Logs documented below.
-        """
         return pulumi.get(self, "access_logs")
 
     @access_logs.setter
@@ -453,9 +343,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the load balancer (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -465,9 +352,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @arn_suffix.setter
@@ -477,9 +361,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the customer owned ipv4 pool to use for this load balancer.
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @customer_owned_ipv4_pool.setter
@@ -489,9 +370,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="desyncMitigationMode")
     def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @desync_mitigation_mode.setter
@@ -501,9 +379,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The DNS name of the load balancer.
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -513,9 +388,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
     def drop_invalid_header_fields(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @drop_invalid_header_fields.setter
@@ -525,9 +397,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
     def enable_cross_zone_load_balancing(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @enable_cross_zone_load_balancing.setter
@@ -537,9 +406,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="enableDeletionProtection")
     def enable_deletion_protection(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_deletion_protection")
 
     @enable_deletion_protection.setter
@@ -549,9 +415,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="enableHttp2")
     def enable_http2(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_http2")
 
     @enable_http2.setter
@@ -561,9 +424,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_waf_fail_open")
 
     @enable_waf_fail_open.setter
@@ -573,9 +433,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
@@ -585,9 +442,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the LB will be internal.
-        """
         return pulumi.get(self, "internal")
 
     @internal.setter
@@ -597,9 +451,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -609,9 +460,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        """
         return pulumi.get(self, "load_balancer_type")
 
     @load_balancer_type.setter
@@ -621,11 +469,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        this provider will autogenerate a name beginning with `tf-lb`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -635,9 +478,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @name_prefix.setter
@@ -647,9 +487,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="preserveHostHeader")
     def preserve_host_header(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        """
         return pulumi.get(self, "preserve_host_header")
 
     @preserve_host_header.setter
@@ -668,9 +505,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerSubnetMappingArgs']]]]:
-        """
-        A subnet mapping block as documented below.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @subnet_mappings.setter
@@ -680,11 +514,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of subnet IDs to attach to the LB. Subnets
-        cannot be updated for Load Balancers of type `network`. Changing this value
-        for load balancers of type `network` will force a recreation of the resource.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -694,9 +523,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -706,9 +532,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -727,9 +550,6 @@ class _LoadBalancerState:
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        """
         return pulumi.get(self, "zone_id")
 
     @zone_id.setter
@@ -768,118 +588,9 @@ class LoadBalancer(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Load Balancer resource.
-
-        > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-
-        ## Example Usage
-        ### Application Load Balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.LoadBalancer("test",
-            internal=False,
-            load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
-            enable_deletion_protection=True,
-            access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["bucket"],
-                prefix="test-lb",
-                enabled=True,
-            ),
-            tags={
-                "Environment": "production",
-            })
-        ```
-        ### Network Load Balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.LoadBalancer("test",
-            internal=False,
-            load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
-            enable_deletion_protection=True,
-            tags={
-                "Environment": "production",
-            })
-        ```
-        ### Specifying Elastic IPs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
-            subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
-                ),
-            ])
-        ```
-        ### Specifying private IP addresses for an internal-facing load balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
-            subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    private_ipv4_address="10.0.1.15",
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    private_ipv4_address="10.0.2.15",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        LBs can be imported using their ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticloadbalancingv2/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
-        ```
-
+        Create a LoadBalancer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
-        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
-        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-               must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-               this provider will autogenerate a name beginning with `tf-lb`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] preserve_host_header: Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]] subnet_mappings: A subnet mapping block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
-               cannot be updated for Load Balancers of type `network`. Changing this value
-               for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -888,94 +599,7 @@ class LoadBalancer(pulumi.CustomResource):
                  args: Optional[LoadBalancerArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Load Balancer resource.
-
-        > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
-
-        ## Example Usage
-        ### Application Load Balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.LoadBalancer("test",
-            internal=False,
-            load_balancer_type="application",
-            security_groups=[aws_security_group["lb_sg"]["id"]],
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
-            enable_deletion_protection=True,
-            access_logs=aws.lb.LoadBalancerAccessLogsArgs(
-                bucket=aws_s3_bucket["lb_logs"]["bucket"],
-                prefix="test-lb",
-                enabled=True,
-            ),
-            tags={
-                "Environment": "production",
-            })
-        ```
-        ### Network Load Balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lb.LoadBalancer("test",
-            internal=False,
-            load_balancer_type="network",
-            subnets=[subnet["id"] for subnet in aws_subnet["public"]],
-            enable_deletion_protection=True,
-            tags={
-                "Environment": "production",
-            })
-        ```
-        ### Specifying Elastic IPs
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
-            subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    allocation_id=aws_eip["example1"]["id"],
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    allocation_id=aws_eip["example2"]["id"],
-                ),
-            ])
-        ```
-        ### Specifying private IP addresses for an internal-facing load balancer
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lb.LoadBalancer("example",
-            load_balancer_type="network",
-            subnet_mappings=[
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example1"]["id"],
-                    private_ipv4_address="10.0.1.15",
-                ),
-                aws.lb.LoadBalancerSubnetMappingArgs(
-                    subnet_id=aws_subnet["example2"]["id"],
-                    private_ipv4_address="10.0.2.15",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        LBs can be imported using their ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticloadbalancingv2/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
-        ```
-
+        Create a LoadBalancer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1087,33 +711,6 @@ class LoadBalancer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
-        :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
-        :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
-        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
-        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
-        :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        :param pulumi.Input[bool] internal: If true, the LB will be internal.
-        :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        :param pulumi.Input[str] load_balancer_type: The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        :param pulumi.Input[str] name: The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-               must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-               this provider will autogenerate a name beginning with `tf-lb`.
-        :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        :param pulumi.Input[bool] preserve_host_header: Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerSubnetMappingArgs']]]] subnet_mappings: A subnet mapping block as documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
-               cannot be updated for Load Balancers of type `network`. Changing this value
-               for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1149,147 +746,91 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output[Optional['outputs.LoadBalancerAccessLogs']]:
-        """
-        An Access Logs block. Access Logs documented below.
-        """
         return pulumi.get(self, "access_logs")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the load balancer (matches `id`).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> pulumi.Output[str]:
-        """
-        The ARN suffix for use with CloudWatch Metrics.
-        """
         return pulumi.get(self, "arn_suffix")
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ID of the customer owned ipv4 pool to use for this load balancer.
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter(name="desyncMitigationMode")
     def desync_mitigation_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
-        """
         return pulumi.get(self, "desync_mitigation_mode")
 
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
-        """
-        The DNS name of the load balancer.
-        """
         return pulumi.get(self, "dns_name")
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
     def drop_invalid_header_fields(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "drop_invalid_header_fields")
 
     @property
     @pulumi.getter(name="enableCrossZoneLoadBalancing")
     def enable_cross_zone_load_balancing(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, cross-zone load balancing of the load balancer will be enabled. This is a `network` load balancer feature. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_cross_zone_load_balancing")
 
     @property
     @pulumi.getter(name="enableDeletionProtection")
     def enable_deletion_protection(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_deletion_protection")
 
     @property
     @pulumi.getter(name="enableHttp2")
     def enable_http2(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
-        """
         return pulumi.get(self, "enable_http2")
 
     @property
     @pulumi.getter(name="enableWafFailOpen")
     def enable_waf_fail_open(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
-        """
         return pulumi.get(self, "enable_waf_fail_open")
 
     @property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> pulumi.Output[Optional[int]]:
-        """
-        The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
-        """
         return pulumi.get(self, "idle_timeout")
 
     @property
     @pulumi.getter
     def internal(self) -> pulumi.Output[bool]:
-        """
-        If true, the LB will be internal.
-        """
         return pulumi.get(self, "internal")
 
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[str]:
-        """
-        The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`.
-        """
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="loadBalancerType")
     def load_balancer_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-        """
         return pulumi.get(self, "load_balancer_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
-        must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
-        this provider will autogenerate a name beginning with `tf-lb`.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
     def name_prefix(self) -> pulumi.Output[Optional[str]]:
-        """
-        Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
-        """
         return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter(name="preserveHostHeader")
     def preserve_host_header(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
-        """
         return pulumi.get(self, "preserve_host_header")
 
     @property
@@ -1300,35 +841,21 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> pulumi.Output[Sequence['outputs.LoadBalancerSubnetMapping']]:
-        """
-        A subnet mapping block as documented below.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of subnet IDs to attach to the LB. Subnets
-        cannot be updated for Load Balancers of type `network`. Changing this value
-        for load balancers of type `network` will force a recreation of the resource.
-        """
         return pulumi.get(self, "subnets")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
@@ -1339,8 +866,5 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="zoneId")
     def zone_id(self) -> pulumi.Output[str]:
-        """
-        The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
-        """
         return pulumi.get(self, "zone_id")
 

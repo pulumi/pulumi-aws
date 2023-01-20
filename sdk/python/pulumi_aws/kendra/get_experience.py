@@ -66,49 +66,31 @@ class GetExperienceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Experience.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.GetExperienceConfigurationResult']:
-        """
-        Block that specifies the configuration information for your Amazon Kendra Experience. This includes `content_source_configuration`, which specifies the data source IDs and/or FAQ IDs, and `user_identity_configuration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
-        """
         return pulumi.get(self, "configurations")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> str:
-        """
-        Unix datetime that the Experience was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the Experience.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetExperienceEndpointResult']:
-        """
-        Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
-        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> str:
-        """
-        Reason your Amazon Kendra Experience could not properly process.
-        """
         return pulumi.get(self, "error_message")
 
     @property
@@ -132,33 +114,21 @@ class GetExperienceResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the Experience.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that this failed.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> str:
-        """
-        Date and time that the Experience was last updated.
-        """
         return pulumi.get(self, "updated_at")
 
 
@@ -187,21 +157,7 @@ def get_experience(experience_id: Optional[str] = None,
                    index_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperienceResult:
     """
-    Provides details about a specific Amazon Kendra Experience.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param str experience_id: Identifier of the Experience.
-    :param str index_id: Identifier of the index that contains the Experience.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id
@@ -230,20 +186,6 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
                           index_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperienceResult]:
     """
-    Provides details about a specific Amazon Kendra Experience.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
-        index_id="12345678-1234-1234-1234-123456789123")
-    ```
-
-
-    :param str experience_id: Identifier of the Experience.
-    :param str index_id: Identifier of the index that contains the Experience.
+    Use this data source to access information about an existing resource.
     """
     ...

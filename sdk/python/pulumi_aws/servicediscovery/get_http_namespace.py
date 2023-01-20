@@ -44,25 +44,16 @@ class GetHttpNamespaceResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN that Amazon Route 53 assigns to the namespace when you create it.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description that you specify for the namespace when you create it.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="httpName")
     def http_name(self) -> str:
-        """
-        Name of an HTTP namespace.
-        """
         return pulumi.get(self, "http_name")
 
     @property
@@ -81,9 +72,6 @@ class GetHttpNamespaceResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -105,18 +93,7 @@ def get_http_namespace(name: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHttpNamespaceResult:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicediscovery.get_http_namespace(name="development")
-    ```
-
-
-    :param str name: Name of the http namespace.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -138,17 +115,6 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHttpNamespaceResult]:
     """
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.servicediscovery.get_http_namespace(name="development")
-    ```
-
-
-    :param str name: Name of the http namespace.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

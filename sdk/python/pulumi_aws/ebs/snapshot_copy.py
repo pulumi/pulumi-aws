@@ -25,15 +25,6 @@ class SnapshotCopyArgs:
                  temporary_restore_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SnapshotCopy resource.
-        :param pulumi.Input[str] source_region: The region of the source snapshot.
-        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
-        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
@@ -55,9 +46,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Input[str]:
-        """
-        The region of the source snapshot.
-        """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
@@ -67,9 +55,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="sourceSnapshotId")
     def source_snapshot_id(self) -> pulumi.Input[str]:
-        """
-        The ARN for the snapshot to be copied.
-        """
         return pulumi.get(self, "source_snapshot_id")
 
     @source_snapshot_id.setter
@@ -79,9 +64,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of what the snapshot is.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,9 +73,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the snapshot is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -103,9 +82,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN for the KMS encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -115,9 +91,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
@@ -127,9 +100,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
@@ -139,9 +109,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags for the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -151,9 +118,6 @@ class SnapshotCopyArgs:
     @property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
@@ -183,21 +147,6 @@ class _SnapshotCopyState:
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
-        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[str] source_region: The region of the source snapshot.
-        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -237,9 +186,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -249,9 +195,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
     def data_encryption_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The data encryption key identifier for the snapshot.
-        """
         return pulumi.get(self, "data_encryption_key_id")
 
     @data_encryption_key_id.setter
@@ -261,9 +204,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of what the snapshot is.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -273,9 +213,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the snapshot is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -285,9 +222,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN for the KMS encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -306,9 +240,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> Optional[pulumi.Input[str]]:
-        """
-        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        """
         return pulumi.get(self, "owner_alias")
 
     @owner_alias.setter
@@ -318,9 +249,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS account ID of the snapshot owner.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -330,9 +258,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @permanent_restore.setter
@@ -342,9 +267,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        The region of the source snapshot.
-        """
         return pulumi.get(self, "source_region")
 
     @source_region.setter
@@ -354,9 +276,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="sourceSnapshotId")
     def source_snapshot_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN for the snapshot to be copied.
-        """
         return pulumi.get(self, "source_snapshot_id")
 
     @source_snapshot_id.setter
@@ -366,9 +285,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @storage_tier.setter
@@ -378,9 +294,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags for the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -390,9 +303,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -402,9 +312,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @temporary_restore_days.setter
@@ -423,9 +330,6 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The size of the drive in GiBs.
-        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -449,44 +353,9 @@ class SnapshotCopy(pulumi.CustomResource):
                  temporary_restore_days: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Creates a Snapshot of a snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
-            volume_id=example.id,
-            tags={
-                "Name": "HelloWorld_snap",
-            })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
-            source_snapshot_id=example_snapshot.id,
-            source_region="us-west-2",
-            tags={
-                "Name": "HelloWorld_copy_snap",
-            })
-        ```
-
+        Create a SnapshotCopy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[str] source_region: The region of the source snapshot.
-        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
-        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         """
         ...
     @overload
@@ -495,33 +364,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  args: SnapshotCopyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Snapshot of a snapshot.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ebs.Volume("example",
-            availability_zone="us-west-2a",
-            size=40,
-            tags={
-                "Name": "HelloWorld",
-            })
-        example_snapshot = aws.ebs.Snapshot("exampleSnapshot",
-            volume_id=example.id,
-            tags={
-                "Name": "HelloWorld_snap",
-            })
-        example_copy = aws.ebs.SnapshotCopy("exampleCopy",
-            source_snapshot_id=example_snapshot.id,
-            source_region="us-west-2",
-            tags={
-                "Name": "HelloWorld_copy_snap",
-            })
-        ```
-
+        Create a SnapshotCopy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -610,21 +453,6 @@ class SnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
-        :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
-        :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
-        :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
-        :param pulumi.Input[str] source_region: The region of the source snapshot.
-        :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -652,41 +480,26 @@ class SnapshotCopy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="dataEncryptionKeyId")
     def data_encryption_key_id(self) -> pulumi.Output[str]:
-        """
-        The data encryption key identifier for the snapshot.
-        """
         return pulumi.get(self, "data_encryption_key_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of what the snapshot is.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether the snapshot is encrypted.
-        """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN for the KMS encryption key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
@@ -697,73 +510,46 @@ class SnapshotCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ownerAlias")
     def owner_alias(self) -> pulumi.Output[str]:
-        """
-        Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        """
         return pulumi.get(self, "owner_alias")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
-        """
-        The AWS account ID of the snapshot owner.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="permanentRestore")
     def permanent_restore(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether to permanently restore an archived snapshot.
-        """
         return pulumi.get(self, "permanent_restore")
 
     @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[str]:
-        """
-        The region of the source snapshot.
-        """
         return pulumi.get(self, "source_region")
 
     @property
     @pulumi.getter(name="sourceSnapshotId")
     def source_snapshot_id(self) -> pulumi.Output[str]:
-        """
-        The ARN for the snapshot to be copied.
-        """
         return pulumi.get(self, "source_snapshot_id")
 
     @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> pulumi.Output[str]:
-        """
-        The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        """
         return pulumi.get(self, "storage_tier")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags for the snapshot.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="temporaryRestoreDays")
     def temporary_restore_days(self) -> pulumi.Output[Optional[int]]:
-        """
-        Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        """
         return pulumi.get(self, "temporary_restore_days")
 
     @property
@@ -774,8 +560,5 @@ class SnapshotCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> pulumi.Output[int]:
-        """
-        The size of the drive in GiBs.
-        """
         return pulumi.get(self, "volume_size")
 

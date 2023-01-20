@@ -21,9 +21,6 @@ class CustomerManagedPolicyAttachmentArgs:
                  permission_set_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a CustomerManagedPolicyAttachment resource.
-        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -32,9 +29,6 @@ class CustomerManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']:
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
@@ -44,9 +38,6 @@ class CustomerManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -56,9 +47,6 @@ class CustomerManagedPolicyAttachmentArgs:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -74,9 +62,6 @@ class _CustomerManagedPolicyAttachmentState:
                  permission_set_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedPolicyAttachment resources.
-        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         if customer_managed_policy_reference is not None:
             pulumi.set(__self__, "customer_managed_policy_reference", customer_managed_policy_reference)
@@ -88,9 +73,6 @@ class _CustomerManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]:
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
@@ -100,9 +82,6 @@ class _CustomerManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -112,9 +91,6 @@ class _CustomerManagedPolicyAttachmentState:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -132,23 +108,9 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-
-        ## Import
-
-        SSO Managed Policy Attachments can be imported using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
-
+        Create a CustomerManagedPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         ...
     @overload
@@ -157,18 +119,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
                  args: CustomerManagedPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-
-        ## Import
-
-        SSO Managed Policy Attachments can be imported using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
-
+        Create a CustomerManagedPolicyAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CustomerManagedPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +176,6 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,24 +189,15 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
     def customer_managed_policy_reference(self) -> pulumi.Output['outputs.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference']:
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 

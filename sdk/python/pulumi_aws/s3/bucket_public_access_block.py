@@ -21,16 +21,6 @@ class BucketPublicAccessBlockArgs:
                  restrict_public_buckets: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BucketPublicAccessBlock resource.
-        :param pulumi.Input[str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
-        :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-               * PUT Object calls will fail if the request includes an object ACL.
-        :param pulumi.Input[bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param pulumi.Input[bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore public ACLs on this bucket and any objects that it contains.
-        :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
         pulumi.set(__self__, "bucket", bucket)
         if block_public_acls is not None:
@@ -45,9 +35,6 @@ class BucketPublicAccessBlockArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        S3 Bucket to which this Public Access Block configuration should be applied.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -57,11 +44,6 @@ class BucketPublicAccessBlockArgs:
     @property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        * PUT Object calls will fail if the request includes an object ACL.
-        """
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
@@ -71,10 +53,6 @@ class BucketPublicAccessBlockArgs:
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
@@ -84,10 +62,6 @@ class BucketPublicAccessBlockArgs:
     @property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-        * Ignore public ACLs on this bucket and any objects that it contains.
-        """
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
@@ -97,10 +71,6 @@ class BucketPublicAccessBlockArgs:
     @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-        * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
-        """
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
@@ -118,16 +88,6 @@ class _BucketPublicAccessBlockState:
                  restrict_public_buckets: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering BucketPublicAccessBlock resources.
-        :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-               * PUT Object calls will fail if the request includes an object ACL.
-        :param pulumi.Input[bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param pulumi.Input[str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
-        :param pulumi.Input[bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore public ACLs on this bucket and any objects that it contains.
-        :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
@@ -143,11 +103,6 @@ class _BucketPublicAccessBlockState:
     @property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        * PUT Object calls will fail if the request includes an object ACL.
-        """
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
@@ -157,10 +112,6 @@ class _BucketPublicAccessBlockState:
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
@@ -170,9 +121,6 @@ class _BucketPublicAccessBlockState:
     @property
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
-        """
-        S3 Bucket to which this Public Access Block configuration should be applied.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -182,10 +130,6 @@ class _BucketPublicAccessBlockState:
     @property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-        * Ignore public ACLs on this bucket and any objects that it contains.
-        """
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
@@ -195,10 +139,6 @@ class _BucketPublicAccessBlockState:
     @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-        * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
-        """
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
@@ -218,43 +158,9 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  restrict_public_buckets: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
-            block_public_acls=True,
-            block_public_policy=True,
-            ignore_public_acls=True,
-            restrict_public_buckets=True)
-        ```
-
-        ## Import
-
-        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
-        ```
-
+        Create a BucketPublicAccessBlock resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-               * PUT Object calls will fail if the request includes an object ACL.
-        :param pulumi.Input[bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param pulumi.Input[str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
-        :param pulumi.Input[bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore public ACLs on this bucket and any objects that it contains.
-        :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
         ...
     @overload
@@ -263,31 +169,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  args: BucketPublicAccessBlockArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("exampleBucketPublicAccessBlock",
-            bucket=example_bucket_v2.id,
-            block_public_acls=True,
-            block_public_policy=True,
-            ignore_public_acls=True,
-            restrict_public_buckets=True)
-        ```
-
-        ## Import
-
-        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
-
-        ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
-        ```
-
+        Create a BucketPublicAccessBlock resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BucketPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,16 +228,6 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-               * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-               * PUT Object calls will fail if the request includes an object ACL.
-        :param pulumi.Input[bool] block_public_policy: Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        :param pulumi.Input[str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
-        :param pulumi.Input[bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-               * Ignore public ACLs on this bucket and any objects that it contains.
-        :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-               * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -371,45 +243,25 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
     @property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether Amazon S3 should block public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-        * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        * PUT Object calls will fail if the request includes an object ACL.
-        """
         return pulumi.get(self, "block_public_acls")
 
     @property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether Amazon S3 should block public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the existing bucket policy. When set to `true` causes Amazon S3 to:
-        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-        """
         return pulumi.get(self, "block_public_policy")
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
-        """
-        S3 Bucket to which this Public Access Block configuration should be applied.
-        """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-        * Ignore public ACLs on this bucket and any objects that it contains.
-        """
         return pulumi.get(self, "ignore_public_acls")
 
     @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-        * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
-        """
         return pulumi.get(self, "restrict_public_buckets")
 

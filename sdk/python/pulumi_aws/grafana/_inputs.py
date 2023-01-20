@@ -18,19 +18,12 @@ class WorkspaceVpcConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-        """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
 
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        - The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -40,9 +33,6 @@ class WorkspaceVpcConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        - The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter

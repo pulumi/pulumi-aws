@@ -22,12 +22,6 @@ class ActivationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Activation resource.
-        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
-        :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "iam_role", iam_role)
         if description is not None:
@@ -44,9 +38,6 @@ class ActivationArgs:
     @property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> pulumi.Input[str]:
-        """
-        The IAM Role to attach to the managed instance.
-        """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
@@ -56,9 +47,6 @@ class ActivationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the resource that you want to register.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -68,9 +56,6 @@ class ActivationArgs:
     @property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
@@ -80,9 +65,6 @@ class ActivationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default name of the registered managed instance.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -92,9 +74,6 @@ class ActivationArgs:
     @property
     @pulumi.getter(name="registrationLimit")
     def registration_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of managed instances you want to register. The default value is 1 instance.
-        """
         return pulumi.get(self, "registration_limit")
 
     @registration_limit.setter
@@ -104,9 +83,6 @@ class ActivationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,16 +105,6 @@ class _ActivationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Activation resources.
-        :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
-        :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[bool] expired: If the current activation has expired.
-        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
-        :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
-        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if activation_code is not None:
             pulumi.set(__self__, "activation_code", activation_code)
@@ -164,9 +130,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="activationCode")
     def activation_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        The code the system generates when it processes the activation.
-        """
         return pulumi.get(self, "activation_code")
 
     @activation_code.setter
@@ -176,9 +139,6 @@ class _ActivationState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the resource that you want to register.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -188,9 +148,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "expiration_date")
 
     @expiration_date.setter
@@ -200,9 +157,6 @@ class _ActivationState:
     @property
     @pulumi.getter
     def expired(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If the current activation has expired.
-        """
         return pulumi.get(self, "expired")
 
     @expired.setter
@@ -212,9 +166,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IAM Role to attach to the managed instance.
-        """
         return pulumi.get(self, "iam_role")
 
     @iam_role.setter
@@ -224,9 +175,6 @@ class _ActivationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default name of the registered managed instance.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -236,9 +184,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="registrationCount")
     def registration_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of managed instances that are currently registered using this activation.
-        """
         return pulumi.get(self, "registration_count")
 
     @registration_count.setter
@@ -248,9 +193,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="registrationLimit")
     def registration_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of managed instances you want to register. The default value is 1 instance.
-        """
         return pulumi.get(self, "registration_limit")
 
     @registration_limit.setter
@@ -260,9 +202,6 @@ class _ActivationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -272,9 +211,6 @@ class _ActivationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -295,49 +231,9 @@ class Activation(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
-            "Version": "2012-10-17",
-            "Statement": {
-              "Effect": "Allow",
-              "Principal": {"Service": "ssm.amazonaws.com"},
-              "Action": "sts:AssumeRole"
-            }
-          }
-        \"\"\")
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
-            role=test_role.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-        foo = aws.ssm.Activation("foo",
-            description="Test",
-            iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        ## Import
-
-        AWS SSM Activation can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-        ```
-
+        Create a Activation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
-        :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -346,41 +242,7 @@ class Activation(pulumi.CustomResource):
                  args: ActivationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_role = aws.iam.Role("testRole", assume_role_policy=\"\"\"  {
-            "Version": "2012-10-17",
-            "Statement": {
-              "Effect": "Allow",
-              "Principal": {"Service": "ssm.amazonaws.com"},
-              "Action": "sts:AssumeRole"
-            }
-          }
-        \"\"\")
-        test_attach = aws.iam.RolePolicyAttachment("testAttach",
-            role=test_role.name,
-            policy_arn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-        foo = aws.ssm.Activation("foo",
-            description="Test",
-            iam_role=test_role.id,
-            registration_limit=5,
-            opts=pulumi.ResourceOptions(depends_on=[test_attach]))
-        ```
-
-        ## Import
-
-        AWS SSM Activation can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
-        ```
-
+        Create a Activation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -450,16 +312,6 @@ class Activation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] activation_code: The code the system generates when it processes the activation.
-        :param pulumi.Input[str] description: The description of the resource that you want to register.
-        :param pulumi.Input[str] expiration_date: UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        :param pulumi.Input[bool] expired: If the current activation has expired.
-        :param pulumi.Input[str] iam_role: The IAM Role to attach to the managed instance.
-        :param pulumi.Input[str] name: The default name of the registered managed instance.
-        :param pulumi.Input[int] registration_count: The number of managed instances that are currently registered using this activation.
-        :param pulumi.Input[int] registration_limit: The maximum number of managed instances you want to register. The default value is 1 instance.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -480,80 +332,50 @@ class Activation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="activationCode")
     def activation_code(self) -> pulumi.Output[str]:
-        """
-        The code the system generates when it processes the activation.
-        """
         return pulumi.get(self, "activation_code")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the resource that you want to register.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> pulumi.Output[str]:
-        """
-        UTC timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) by which this activation request should expire. The default value is 24 hours from resource creation time. This provider will only perform drift detection of its value when present in a configuration.
-        """
         return pulumi.get(self, "expiration_date")
 
     @property
     @pulumi.getter
     def expired(self) -> pulumi.Output[bool]:
-        """
-        If the current activation has expired.
-        """
         return pulumi.get(self, "expired")
 
     @property
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> pulumi.Output[str]:
-        """
-        The IAM Role to attach to the managed instance.
-        """
         return pulumi.get(self, "iam_role")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The default name of the registered managed instance.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="registrationCount")
     def registration_count(self) -> pulumi.Output[int]:
-        """
-        The number of managed instances that are currently registered using this activation.
-        """
         return pulumi.get(self, "registration_count")
 
     @property
     @pulumi.getter(name="registrationLimit")
     def registration_limit(self) -> pulumi.Output[Optional[int]]:
-        """
-        The maximum number of managed instances you want to register. The default value is 1 instance.
-        """
         return pulumi.get(self, "registration_limit")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

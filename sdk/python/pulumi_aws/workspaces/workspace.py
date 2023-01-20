@@ -26,14 +26,6 @@ class WorkspaceArgs:
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Workspace resource.
-        :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
-        :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
-        :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
         pulumi.set(__self__, "directory_id", directory_id)
@@ -52,9 +44,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the bundle for the WorkSpace.
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -64,9 +53,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the directory for the WorkSpace.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -76,9 +62,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -88,9 +71,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
     def root_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the data stored on the root volume is encrypted.
-        """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @root_volume_encryption_enabled.setter
@@ -100,9 +80,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -112,9 +89,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
     def user_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the data stored on the user volume is encrypted.
-        """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @user_volume_encryption_enabled.setter
@@ -124,9 +98,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        """
         return pulumi.get(self, "volume_encryption_key")
 
     @volume_encryption_key.setter
@@ -136,9 +107,6 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="workspaceProperties")
     def workspace_properties(self) -> Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]:
-        """
-        The WorkSpace properties.
-        """
         return pulumi.get(self, "workspace_properties")
 
     @workspace_properties.setter
@@ -163,18 +131,6 @@ class _WorkspaceState:
                  workspace_properties: Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
-        :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
-        :param pulumi.Input[str] computer_name: The name of the WorkSpace, as seen by the operating system.
-        :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
-        :param pulumi.Input[str] ip_address: The IP address of the WorkSpace.
-        :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[str] state: The operational state of the WorkSpace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        :param pulumi.Input['WorkspaceWorkspacePropertiesArgs'] workspace_properties: The WorkSpace properties.
         """
         if bundle_id is not None:
             pulumi.set(__self__, "bundle_id", bundle_id)
@@ -204,9 +160,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the bundle for the WorkSpace.
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter
@@ -216,9 +169,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="computerName")
     def computer_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the WorkSpace, as seen by the operating system.
-        """
         return pulumi.get(self, "computer_name")
 
     @computer_name.setter
@@ -228,9 +178,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the directory for the WorkSpace.
-        """
         return pulumi.get(self, "directory_id")
 
     @directory_id.setter
@@ -240,9 +187,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP address of the WorkSpace.
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -252,9 +196,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
     def root_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the data stored on the root volume is encrypted.
-        """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @root_volume_encryption_enabled.setter
@@ -264,9 +205,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The operational state of the WorkSpace.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -276,9 +214,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -288,9 +223,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -300,9 +232,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -312,9 +241,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
     def user_volume_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the data stored on the user volume is encrypted.
-        """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @user_volume_encryption_enabled.setter
@@ -324,9 +250,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        """
         return pulumi.get(self, "volume_encryption_key")
 
     @volume_encryption_key.setter
@@ -336,9 +259,6 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="workspaceProperties")
     def workspace_properties(self) -> Optional[pulumi.Input['WorkspaceWorkspacePropertiesArgs']]:
-        """
-        The WorkSpace properties.
-        """
         return pulumi.get(self, "workspace_properties")
 
     @workspace_properties.setter
@@ -361,54 +281,9 @@ class Workspace(pulumi.CustomResource):
                  workspace_properties: Optional[pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']]] = None,
                  __props__=None):
         """
-        Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
-
-        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
-        example = aws.workspaces.Workspace("example",
-            directory_id=aws_workspaces_directory["example"]["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
-            workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
-                compute_type_name="VALUE",
-                user_volume_size_gib=10,
-                root_volume_size_gib=80,
-                running_mode="AUTO_STOP",
-                running_mode_auto_stop_timeout_in_minutes=60,
-            ),
-            tags={
-                "Department": "IT",
-            })
-        ```
-
-        ## Import
-
-        Workspaces can be imported using their ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-        ```
-
+        Create a Workspace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
-        :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
-        :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        :param pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']] workspace_properties: The WorkSpace properties.
         """
         ...
     @overload
@@ -417,44 +292,7 @@ class Workspace(pulumi.CustomResource):
                  args: WorkspaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service
-
-        > **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
-        example = aws.workspaces.Workspace("example",
-            directory_id=aws_workspaces_directory["example"]["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key="alias/aws/workspaces",
-            workspace_properties=aws.workspaces.WorkspaceWorkspacePropertiesArgs(
-                compute_type_name="VALUE",
-                user_volume_size_gib=10,
-                root_volume_size_gib=80,
-                running_mode="AUTO_STOP",
-                running_mode_auto_stop_timeout_in_minutes=60,
-            ),
-            tags={
-                "Department": "IT",
-            })
-        ```
-
-        ## Import
-
-        Workspaces can be imported using their ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-        ```
-
+        Create a Workspace resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -534,18 +372,6 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bundle_id: The ID of the bundle for the WorkSpace.
-        :param pulumi.Input[str] computer_name: The name of the WorkSpace, as seen by the operating system.
-        :param pulumi.Input[str] directory_id: The ID of the directory for the WorkSpace.
-        :param pulumi.Input[str] ip_address: The IP address of the WorkSpace.
-        :param pulumi.Input[bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[str] state: The operational state of the WorkSpace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        :param pulumi.Input[bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
-        :param pulumi.Input[str] volume_encryption_key: The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        :param pulumi.Input[pulumi.InputType['WorkspaceWorkspacePropertiesArgs']] workspace_properties: The WorkSpace properties.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -568,96 +394,60 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the bundle for the WorkSpace.
-        """
         return pulumi.get(self, "bundle_id")
 
     @property
     @pulumi.getter(name="computerName")
     def computer_name(self) -> pulumi.Output[str]:
-        """
-        The name of the WorkSpace, as seen by the operating system.
-        """
         return pulumi.get(self, "computer_name")
 
     @property
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the directory for the WorkSpace.
-        """
         return pulumi.get(self, "directory_id")
 
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
-        """
-        The IP address of the WorkSpace.
-        """
         return pulumi.get(self, "ip_address")
 
     @property
     @pulumi.getter(name="rootVolumeEncryptionEnabled")
     def root_volume_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the data stored on the root volume is encrypted.
-        """
         return pulumi.get(self, "root_volume_encryption_enabled")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        The operational state of the WorkSpace.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
-        """
         return pulumi.get(self, "user_name")
 
     @property
     @pulumi.getter(name="userVolumeEncryptionEnabled")
     def user_volume_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the data stored on the user volume is encrypted.
-        """
         return pulumi.get(self, "user_volume_encryption_enabled")
 
     @property
     @pulumi.getter(name="volumeEncryptionKey")
     def volume_encryption_key(self) -> pulumi.Output[Optional[str]]:
-        """
-        The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
-        """
         return pulumi.get(self, "volume_encryption_key")
 
     @property
     @pulumi.getter(name="workspaceProperties")
     def workspace_properties(self) -> pulumi.Output['outputs.WorkspaceWorkspaceProperties']:
-        """
-        The WorkSpace properties.
-        """
         return pulumi.get(self, "workspace_properties")
 

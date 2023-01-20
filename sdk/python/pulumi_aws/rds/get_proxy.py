@@ -66,41 +66,26 @@ class GetProxyResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the DB Proxy.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def auths(self) -> Sequence['outputs.GetProxyAuthResult']:
-        """
-        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
-        """
         return pulumi.get(self, "auths")
 
     @property
     @pulumi.getter(name="debugLogging")
     def debug_logging(self) -> bool:
-        """
-        Whether the proxy includes detailed information about SQL statements in its logs.
-        """
         return pulumi.get(self, "debug_logging")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
-        """
-        Endpoint that you can use to connect to the DB proxy.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="engineFamily")
     def engine_family(self) -> str:
-        """
-        Kinds of databases that the proxy can connect to.
-        """
         return pulumi.get(self, "engine_family")
 
     @property
@@ -114,9 +99,6 @@ class GetProxyResult:
     @property
     @pulumi.getter(name="idleClientTimeout")
     def idle_client_timeout(self) -> int:
-        """
-        Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
-        """
         return pulumi.get(self, "idle_client_timeout")
 
     @property
@@ -127,41 +109,26 @@ class GetProxyResult:
     @property
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> bool:
-        """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
-        """
         return pulumi.get(self, "require_tls")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
-        """
-        Provides the VPC ID of the DB proxy.
-        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[str]:
-        """
-        Provides a list of VPC security groups that the proxy belongs to.
-        """
         return pulumi.get(self, "vpc_security_group_ids")
 
     @property
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> Sequence[str]:
-        """
-        EC2 subnet IDs for the proxy.
-        """
         return pulumi.get(self, "vpc_subnet_ids")
 
 
@@ -189,19 +156,7 @@ class AwaitableGetProxyResult(GetProxyResult):
 def get_proxy(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProxyResult:
     """
-    Use this data source to get information about a DB Proxy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
-
-
-    :param str name: Name of the DB proxy.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -228,18 +183,6 @@ def get_proxy(name: Optional[str] = None,
 def get_proxy_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProxyResult]:
     """
-    Use this data source to get information about a DB Proxy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    proxy = aws.rds.get_proxy(name="my-test-db-proxy")
-    ```
-
-
-    :param str name: Name of the DB proxy.
+    Use this data source to access information about an existing resource.
     """
     ...

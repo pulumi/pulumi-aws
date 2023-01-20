@@ -20,11 +20,6 @@ class StateMachineLoggingConfigurationArgs:
                  include_execution_data: Optional[pulumi.Input[bool]] = None,
                  level: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
-        :param pulumi.Input[str] level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-        :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-        """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
         if level is not None:
@@ -35,9 +30,6 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="includeExecutionData")
     def include_execution_data(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Determines whether execution data is included in your log. When set to `false`, data is excluded.
-        """
         return pulumi.get(self, "include_execution_data")
 
     @include_execution_data.setter
@@ -47,9 +39,6 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
-        """
-        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -59,9 +48,6 @@ class StateMachineLoggingConfigurationArgs:
     @property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-        """
         return pulumi.get(self, "log_destination")
 
     @log_destination.setter
@@ -73,18 +59,12 @@ class StateMachineLoggingConfigurationArgs:
 class StateMachineTracingConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] enabled: When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

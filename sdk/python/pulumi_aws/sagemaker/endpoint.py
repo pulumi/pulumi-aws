@@ -22,10 +22,6 @@ class EndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "endpoint_config_name", endpoint_config_name)
         if deployment_config is not None:
@@ -38,9 +34,6 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="endpointConfigName")
     def endpoint_config_name(self) -> pulumi.Input[str]:
-        """
-        The name of the endpoint configuration to use.
-        """
         return pulumi.get(self, "endpoint_config_name")
 
     @endpoint_config_name.setter
@@ -50,9 +43,6 @@ class EndpointArgs:
     @property
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional[pulumi.Input['EndpointDeploymentConfigArgs']]:
-        """
-        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        """
         return pulumi.get(self, "deployment_config")
 
     @deployment_config.setter
@@ -62,9 +52,6 @@ class EndpointArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +61,6 @@ class EndpointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,12 +79,6 @@ class _EndpointState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Endpoint resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -118,9 +96,6 @@ class _EndpointState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -130,9 +105,6 @@ class _EndpointState:
     @property
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> Optional[pulumi.Input['EndpointDeploymentConfigArgs']]:
-        """
-        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        """
         return pulumi.get(self, "deployment_config")
 
     @deployment_config.setter
@@ -142,9 +114,6 @@ class _EndpointState:
     @property
     @pulumi.getter(name="endpointConfigName")
     def endpoint_config_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the endpoint configuration to use.
-        """
         return pulumi.get(self, "endpoint_config_name")
 
     @endpoint_config_name.setter
@@ -154,9 +123,6 @@ class _EndpointState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -166,9 +132,6 @@ class _EndpointState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -178,9 +141,6 @@ class _EndpointState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -199,37 +159,9 @@ class Endpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a SageMaker Endpoint resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
-            tags={
-                "Name": "foo",
-            })
-        ```
-
-        ## Import
-
-        Endpoints can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
-        ```
-
+        Create a Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -238,31 +170,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a SageMaker Endpoint resource.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        endpoint = aws.sagemaker.Endpoint("endpoint",
-            endpoint_config_name=aws_sagemaker_endpoint_configuration["ec"]["name"],
-            tags={
-                "Name": "foo",
-            })
-        ```
-
-        ## Import
-
-        Endpoints can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
-        ```
-
+        Create a Endpoint resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -322,12 +230,6 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
-        :param pulumi.Input[str] name: The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -344,48 +246,30 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deploymentConfig")
     def deployment_config(self) -> pulumi.Output[Optional['outputs.EndpointDeploymentConfig']]:
-        """
-        The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        """
         return pulumi.get(self, "deployment_config")
 
     @property
     @pulumi.getter(name="endpointConfigName")
     def endpoint_config_name(self) -> pulumi.Output[str]:
-        """
-        The name of the endpoint configuration to use.
-        """
         return pulumi.get(self, "endpoint_config_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

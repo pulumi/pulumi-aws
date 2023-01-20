@@ -18,8 +18,6 @@ class VpcEndpointSubnetAssociationArgs:
                  vpc_endpoint_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VpcEndpointSubnetAssociation resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
@@ -27,9 +25,6 @@ class VpcEndpointSubnetAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the subnet to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -39,9 +34,6 @@ class VpcEndpointSubnetAssociationArgs:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the VPC endpoint with which the subnet will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -56,8 +48,6 @@ class _VpcEndpointSubnetAssociationState:
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointSubnetAssociation resources.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -67,9 +57,6 @@ class _VpcEndpointSubnetAssociationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the subnet to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -79,9 +66,6 @@ class _VpcEndpointSubnetAssociationState:
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the VPC endpoint with which the subnet will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 
     @vpc_endpoint_id.setter
@@ -98,39 +82,9 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an association between a VPC endpoint and a subnet.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
-        both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
-        and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
-        attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
-        Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            subnet_id=aws_subnet["sn"]["id"])
-        ```
-
-        ## Import
-
-        VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-        ```
-
+        Create a VpcEndpointSubnetAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
         ...
     @overload
@@ -139,35 +93,7 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
                  args: VpcEndpointSubnetAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an association between a VPC endpoint and a subnet.
-
-        > **NOTE on VPC Endpoints and VPC Endpoint Subnet Associations:** This provider provides
-        both a standalone VPC Endpoint Subnet Association (an association between a VPC endpoint
-        and a single `subnet_id`) and a VPC Endpoint resource with a `subnet_ids`
-        attribute. Do not use the same subnet ID in both a VPC Endpoint resource and a VPC Endpoint Subnet
-        Association resource. Doing so will cause a conflict of associations and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sn_ec2 = aws.ec2.VpcEndpointSubnetAssociation("snEc2",
-            vpc_endpoint_id=aws_vpc_endpoint["ec2"]["id"],
-            subnet_id=aws_subnet["sn"]["id"])
-        ```
-
-        ## Import
-
-        VPC Endpoint Subnet Associations can be imported using `vpc_endpoint_id` together with `subnet_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb
-        ```
-
+        Create a VpcEndpointSubnetAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEndpointSubnetAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,8 +145,6 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to be associated with the VPC endpoint.
-        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint with which the subnet will be associated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -233,16 +157,10 @@ class VpcEndpointSubnetAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the subnet to be associated with the VPC endpoint.
-        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the VPC endpoint with which the subnet will be associated.
-        """
         return pulumi.get(self, "vpc_endpoint_id")
 

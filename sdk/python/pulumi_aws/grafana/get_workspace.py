@@ -89,65 +89,41 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="accountAccessType")
     def account_access_type(self) -> str:
-        """
-        (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        """
         return pulumi.get(self, "account_access_type")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Grafana workspace.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationProviders")
     def authentication_providers(self) -> Sequence[str]:
-        """
-        (Required) Authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        """
         return pulumi.get(self, "authentication_providers")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
-        """
-        Creation date of the Grafana workspace.
-        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Sequence[str]:
-        """
-        Data sources for the workspace.
-        """
         return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Workspace description.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
-        """
-        Endpoint of the Grafana workspace.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="grafanaVersion")
     def grafana_version(self) -> str:
-        """
-        Version of Grafana running on the workspace.
-        """
         return pulumi.get(self, "grafana_version")
 
     @property
@@ -161,57 +137,36 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
-        """
-        Last updated date of the Grafana workspace.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Grafana workspace name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationDestinations")
     def notification_destinations(self) -> Sequence[str]:
-        """
-        The notification destinations.
-        """
         return pulumi.get(self, "notification_destinations")
 
     @property
     @pulumi.getter(name="organizationRoleName")
     def organization_role_name(self) -> str:
-        """
-        The role name that the workspace uses to access resources through Amazon Organizations.
-        """
         return pulumi.get(self, "organization_role_name")
 
     @property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Sequence[str]:
-        """
-        The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        """
         return pulumi.get(self, "organizational_units")
 
     @property
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> str:
-        """
-        Permission type of the workspace.
-        """
         return pulumi.get(self, "permission_type")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
-        """
-        IAM role ARN that the workspace assumes.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
@@ -222,25 +177,16 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> str:
-        """
-        AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        """
         return pulumi.get(self, "stack_set_name")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the Grafana workspace.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags assigned to the resource
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -282,21 +228,7 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
                   workspace_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Provides an Amazon Managed Grafana workspace data source.
-
-    ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
-
-
-    :param Mapping[str, str] tags: Tags assigned to the resource
-    :param str workspace_id: Grafana workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -333,20 +265,6 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
                          workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Provides an Amazon Managed Grafana workspace data source.
-
-    ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
-    ```
-
-
-    :param Mapping[str, str] tags: Tags assigned to the resource
-    :param str workspace_id: Grafana workspace ID.
+    Use this data source to access information about an existing resource.
     """
     ...

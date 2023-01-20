@@ -20,10 +20,6 @@ class ServiceLinkedRoleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServiceLinkedRole resource.
-        :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
-        :param pulumi.Input[str] description: The description of the role.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "aws_service_name", aws_service_name)
         if custom_suffix is not None:
@@ -36,9 +32,6 @@ class ServiceLinkedRoleArgs:
     @property
     @pulumi.getter(name="awsServiceName")
     def aws_service_name(self) -> pulumi.Input[str]:
-        """
-        The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        """
         return pulumi.get(self, "aws_service_name")
 
     @aws_service_name.setter
@@ -48,9 +41,6 @@ class ServiceLinkedRoleArgs:
     @property
     @pulumi.getter(name="customSuffix")
     def custom_suffix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Additional string appended to the role name. Not all AWS services support custom suffixes.
-        """
         return pulumi.get(self, "custom_suffix")
 
     @custom_suffix.setter
@@ -60,9 +50,6 @@ class ServiceLinkedRoleArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the role.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +59,6 @@ class ServiceLinkedRoleArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -97,16 +81,6 @@ class _ServiceLinkedRoleState:
                  unique_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceLinkedRole resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the role.
-        :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        :param pulumi.Input[str] create_date: The creation date of the IAM role.
-        :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
-        :param pulumi.Input[str] description: The description of the role.
-        :param pulumi.Input[str] name: The name of the role.
-        :param pulumi.Input[str] path: The path of the role.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -132,9 +106,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) specifying the role.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -144,9 +115,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter(name="awsServiceName")
     def aws_service_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        """
         return pulumi.get(self, "aws_service_name")
 
     @aws_service_name.setter
@@ -156,9 +124,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter(name="createDate")
     def create_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The creation date of the IAM role.
-        """
         return pulumi.get(self, "create_date")
 
     @create_date.setter
@@ -168,9 +133,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter(name="customSuffix")
     def custom_suffix(self) -> Optional[pulumi.Input[str]]:
-        """
-        Additional string appended to the role name. Not all AWS services support custom suffixes.
-        """
         return pulumi.get(self, "custom_suffix")
 
     @custom_suffix.setter
@@ -180,9 +142,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the role.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -192,9 +151,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the role.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -204,9 +160,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path of the role.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -216,9 +169,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -228,9 +178,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -240,9 +187,6 @@ class _ServiceLinkedRoleState:
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The stable and unique string identifying the role.
-        """
         return pulumi.get(self, "unique_id")
 
     @unique_id.setter
@@ -261,31 +205,9 @@ class ServiceLinkedRole(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticbeanstalk = aws.iam.ServiceLinkedRole("elasticbeanstalk", aws_service_name="elasticbeanstalk.amazonaws.com")
-        ```
-
-        ## Import
-
-        IAM service-linked roles can be imported using role ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
-        ```
-
+        Create a ServiceLinkedRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
-        :param pulumi.Input[str] description: The description of the role.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -294,25 +216,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
                  args: ServiceLinkedRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        elasticbeanstalk = aws.iam.ServiceLinkedRole("elasticbeanstalk", aws_service_name="elasticbeanstalk.amazonaws.com")
-        ```
-
-        ## Import
-
-        IAM service-linked roles can be imported using role ARN, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
-        ```
-
+        Create a ServiceLinkedRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ServiceLinkedRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,16 +284,6 @@ class ServiceLinkedRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) specifying the role.
-        :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        :param pulumi.Input[str] create_date: The creation date of the IAM role.
-        :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
-        :param pulumi.Input[str] description: The description of the role.
-        :param pulumi.Input[str] name: The name of the role.
-        :param pulumi.Input[str] path: The path of the role.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,80 +304,50 @@ class ServiceLinkedRole(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) specifying the role.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsServiceName")
     def aws_service_name(self) -> pulumi.Output[str]:
-        """
-        The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
-        """
         return pulumi.get(self, "aws_service_name")
 
     @property
     @pulumi.getter(name="createDate")
     def create_date(self) -> pulumi.Output[str]:
-        """
-        The creation date of the IAM role.
-        """
         return pulumi.get(self, "create_date")
 
     @property
     @pulumi.getter(name="customSuffix")
     def custom_suffix(self) -> pulumi.Output[Optional[str]]:
-        """
-        Additional string appended to the role name. Not all AWS services support custom suffixes.
-        """
         return pulumi.get(self, "custom_suffix")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the role.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the role.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[str]:
-        """
-        The path of the role.
-        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[str]:
-        """
-        The stable and unique string identifying the role.
-        """
         return pulumi.get(self, "unique_id")
 

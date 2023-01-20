@@ -18,8 +18,6 @@ class FindingAggregatorArgs:
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FindingAggregator resource.
-        :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
         pulumi.set(__self__, "linking_mode", linking_mode)
         if specified_regions is not None:
@@ -28,9 +26,6 @@ class FindingAggregatorArgs:
     @property
     @pulumi.getter(name="linkingMode")
     def linking_mode(self) -> pulumi.Input[str]:
-        """
-        Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        """
         return pulumi.get(self, "linking_mode")
 
     @linking_mode.setter
@@ -40,9 +35,6 @@ class FindingAggregatorArgs:
     @property
     @pulumi.getter(name="specifiedRegions")
     def specified_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        """
         return pulumi.get(self, "specified_regions")
 
     @specified_regions.setter
@@ -57,8 +49,6 @@ class _FindingAggregatorState:
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FindingAggregator resources.
-        :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
         if linking_mode is not None:
             pulumi.set(__self__, "linking_mode", linking_mode)
@@ -68,9 +58,6 @@ class _FindingAggregatorState:
     @property
     @pulumi.getter(name="linkingMode")
     def linking_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        """
         return pulumi.get(self, "linking_mode")
 
     @linking_mode.setter
@@ -80,9 +67,6 @@ class _FindingAggregatorState:
     @property
     @pulumi.getter(name="specifiedRegions")
     def specified_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        """
         return pulumi.get(self, "specified_regions")
 
     @specified_regions.setter
@@ -99,68 +83,9 @@ class FindingAggregator(pulumi.CustomResource):
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
-
-        ## Example Usage
-        ### All Regions Usage
-
-        The following example will enable the aggregator for every region.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-        ### All Regions Except Specified Regions Usage
-
-        The following example will enable the aggregator for every region except those specified in `specified_regions`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
-            specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-        ### Specified Regions Usage
-
-        The following example will enable the aggregator for every region specified in `specified_regions`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="SPECIFIED_REGIONS",
-            specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
-        ## Import
-
-        An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-        ```
-
+        Create a FindingAggregator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
         ...
     @overload
@@ -169,64 +94,7 @@ class FindingAggregator(pulumi.CustomResource):
                  args: FindingAggregatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
-
-        ## Example Usage
-        ### All Regions Usage
-
-        The following example will enable the aggregator for every region.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator", linking_mode="ALL_REGIONS",
-        opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-        ### All Regions Except Specified Regions Usage
-
-        The following example will enable the aggregator for every region except those specified in `specified_regions`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="ALL_REGIONS_EXCEPT_SPECIFIED",
-            specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-        ### Specified Regions Usage
-
-        The following example will enable the aggregator for every region specified in `specified_regions`.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_account = aws.securityhub.Account("exampleAccount")
-        example_finding_aggregator = aws.securityhub.FindingAggregator("exampleFindingAggregator",
-            linking_mode="SPECIFIED_REGIONS",
-            specified_regions=[
-                "eu-west-1",
-                "eu-west-2",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_account]))
-        ```
-
-        ## Import
-
-        An existing Security Hub finding aggregator can be imported using the `arn`, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-        ```
-
+        Create a FindingAggregator resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FindingAggregatorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,8 +144,6 @@ class FindingAggregator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linking_mode: Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] specified_regions: List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -290,16 +156,10 @@ class FindingAggregator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="linkingMode")
     def linking_mode(self) -> pulumi.Output[str]:
-        """
-        Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-        """
         return pulumi.get(self, "linking_mode")
 
     @property
     @pulumi.getter(name="specifiedRegions")
     def specified_regions(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-        """
         return pulumi.get(self, "specified_regions")
 

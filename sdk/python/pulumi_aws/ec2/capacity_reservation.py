@@ -30,19 +30,6 @@ class CapacityReservationArgs:
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "instance_count", instance_count)
@@ -70,9 +57,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[str]:
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -82,9 +66,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> pulumi.Input[int]:
-        """
-        The number of instances for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -94,9 +75,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> pulumi.Input[Union[str, 'InstancePlatform']]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @instance_platform.setter
@@ -106,9 +84,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[Union[str, 'InstanceType']]:
-        """
-        The instance type for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -118,9 +93,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -130,9 +102,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -142,9 +111,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        """
         return pulumi.get(self, "end_date_type")
 
     @end_date_type.setter
@@ -154,9 +120,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        """
         return pulumi.get(self, "ephemeral_storage")
 
     @ephemeral_storage.setter
@@ -166,9 +129,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="instanceMatchCriteria")
     def instance_match_criteria(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        """
         return pulumi.get(self, "instance_match_criteria")
 
     @instance_match_criteria.setter
@@ -178,9 +138,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -190,9 +147,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "placement_group_arn")
 
     @placement_group_arn.setter
@@ -202,9 +156,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -214,9 +165,6 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[Union[str, 'Tenancy']]]:
-        """
-        Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -245,22 +193,6 @@ class _CapacityReservationState:
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None):
         """
         Input properties used for looking up and filtering CapacityReservation resources.
-        :param pulumi.Input[str] arn: The ARN of the Capacity Reservation.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -298,9 +230,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the Capacity Reservation.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -310,9 +239,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -322,9 +248,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @ebs_optimized.setter
@@ -334,9 +257,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> Optional[pulumi.Input[str]]:
-        """
-        The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "end_date")
 
     @end_date.setter
@@ -346,9 +266,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        """
         return pulumi.get(self, "end_date_type")
 
     @end_date_type.setter
@@ -358,9 +275,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        """
         return pulumi.get(self, "ephemeral_storage")
 
     @ephemeral_storage.setter
@@ -370,9 +284,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of instances for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -382,9 +293,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="instanceMatchCriteria")
     def instance_match_criteria(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        """
         return pulumi.get(self, "instance_match_criteria")
 
     @instance_match_criteria.setter
@@ -394,9 +302,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> Optional[pulumi.Input[Union[str, 'InstancePlatform']]]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @instance_platform.setter
@@ -406,9 +311,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[Union[str, 'InstanceType']]]:
-        """
-        The instance type for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -418,9 +320,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @outpost_arn.setter
@@ -430,9 +329,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the AWS account that owns the Capacity Reservation.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -442,9 +338,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "placement_group_arn")
 
     @placement_group_arn.setter
@@ -454,9 +347,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -466,9 +356,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -478,9 +365,6 @@ class _CapacityReservationState:
     @property
     @pulumi.getter
     def tenancy(self) -> Optional[pulumi.Input[Union[str, 'Tenancy']]]:
-        """
-        Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
@@ -508,44 +392,9 @@ class CapacityReservation(pulumi.CustomResource):
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  __props__=None):
         """
-        Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.ec2.CapacityReservation("default",
-            availability_zone="eu-west-1a",
-            instance_count=1,
-            instance_platform="Linux/UNIX",
-            instance_type="t2.micro")
-        ```
-
-        ## Import
-
-        Capacity Reservations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-        ```
-
+        Create a CapacityReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         ...
     @overload
@@ -554,29 +403,7 @@ class CapacityReservation(pulumi.CustomResource):
                  args: CapacityReservationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        default = aws.ec2.CapacityReservation("default",
-            availability_zone="eu-west-1a",
-            instance_count=1,
-            instance_platform="Linux/UNIX",
-            instance_type="t2.micro")
-        ```
-
-        ## Import
-
-        Capacity Reservations can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
-        ```
-
+        Create a CapacityReservation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -671,22 +498,6 @@ class CapacityReservation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the Capacity Reservation.
-        :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
-        :param pulumi.Input[bool] ebs_optimized: Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        :param pulumi.Input[str] end_date: The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        :param pulumi.Input[str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        :param pulumi.Input[bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        :param pulumi.Input[int] instance_count: The number of instances for which to reserve capacity.
-        :param pulumi.Input[str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[Union[str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -713,128 +524,80 @@ class CapacityReservation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the Capacity Reservation.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[str]:
-        """
-        The Availability Zone in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "availability_zone")
 
     @property
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports EBS-optimized instances.
-        """
         return pulumi.get(self, "ebs_optimized")
 
     @property
     @pulumi.getter(name="endDate")
     def end_date(self) -> pulumi.Output[Optional[str]]:
-        """
-        The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        """
         return pulumi.get(self, "end_date")
 
     @property
     @pulumi.getter(name="endDateType")
     def end_date_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
-        """
         return pulumi.get(self, "end_date_type")
 
     @property
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-        """
         return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> pulumi.Output[int]:
-        """
-        The number of instances for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_count")
 
     @property
     @pulumi.getter(name="instanceMatchCriteria")
     def instance_match_criteria(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        """
         return pulumi.get(self, "instance_match_criteria")
 
     @property
     @pulumi.getter(name="instancePlatform")
     def instance_platform(self) -> pulumi.Output[str]:
-        """
-        The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
-        """
         return pulumi.get(self, "instance_platform")
 
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
-        """
-        The instance type for which to reserve capacity.
-        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "outpost_arn")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the AWS account that owns the Capacity Reservation.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
-        """
         return pulumi.get(self, "placement_group_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def tenancy(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
-        """
         return pulumi.get(self, "tenancy")
 

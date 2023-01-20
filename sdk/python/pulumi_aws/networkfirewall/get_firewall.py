@@ -69,57 +69,36 @@ class GetFirewallResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the firewall.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deleteProtection")
     def delete_protection(self) -> bool:
-        """
-        Boolean flag indicating whether it is possible to delete the firewall.
-        """
         return pulumi.get(self, "delete_protection")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the firewall.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetFirewallEncryptionConfigurationResult']:
-        """
-        AWS Key Management Service (AWS KMS) encryption settings for the firewall.
-        """
         return pulumi.get(self, "encryption_configurations")
 
     @property
     @pulumi.getter(name="firewallPolicyArn")
     def firewall_policy_arn(self) -> str:
-        """
-        ARN of the VPC Firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_arn")
 
     @property
     @pulumi.getter(name="firewallPolicyChangeProtection")
     def firewall_policy_change_protection(self) -> bool:
-        """
-        A boolean flag indicating whether it is possible to change the associated firewall policy.
-        """
         return pulumi.get(self, "firewall_policy_change_protection")
 
     @property
     @pulumi.getter(name="firewallStatuses")
     def firewall_statuses(self) -> Sequence['outputs.GetFirewallFirewallStatusResult']:
-        """
-        Nested list of information about the current status of the firewall.
-        """
         return pulumi.get(self, "firewall_statuses")
 
     @property
@@ -133,49 +112,31 @@ class GetFirewallResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Descriptive name of the firewall.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> bool:
-        """
-        A boolean flag indicating whether it is possible to change the associated subnet(s).
-        """
         return pulumi.get(self, "subnet_change_protection")
 
     @property
     @pulumi.getter(name="subnetMappings")
     def subnet_mappings(self) -> Sequence['outputs.GetFirewallSubnetMappingResult']:
-        """
-        Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet.
-        """
         return pulumi.get(self, "subnet_mappings")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateToken")
     def update_token(self) -> str:
-        """
-        String token used when updating a firewall.
-        """
         return pulumi.get(self, "update_token")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
-        """
-        Unique identifier of the VPC where AWS Network Firewall should create the firewall.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -206,39 +167,7 @@ def get_firewall(arn: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
-    Retrieve information about a firewall.
-
-    ## Example Usage
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
-    ```
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
-        name="Test")
-    ```
-
-
-    :param str arn: ARN of the firewall.
-    :param str name: Descriptive name of the firewall.
-    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -270,38 +199,6 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
     """
-    Retrieve information about a firewall.
-
-    ## Example Usage
-    ### Find firewall policy by ARN
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"])
-    ```
-    ### Find firewall policy by Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(name="Test")
-    ```
-    ### Find firewall policy by ARN and Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkfirewall.get_firewall(arn=aws_networkfirewall_firewall["arn"],
-        name="Test")
-    ```
-
-
-    :param str arn: ARN of the firewall.
-    :param str name: Descriptive name of the firewall.
-    :param Mapping[str, str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Use this data source to access information about an existing resource.
     """
     ...

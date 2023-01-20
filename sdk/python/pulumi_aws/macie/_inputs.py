@@ -19,18 +19,12 @@ __all__ = [
 class FindingsFilterFindingCriteriaArgs:
     def __init__(__self__, *,
                  criterions: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
     def criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]:
-        """
-        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         return pulumi.get(self, "criterions")
 
     @criterions.setter
@@ -49,16 +43,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
                  lt: Optional[pulumi.Input[str]] = None,
                  lte: Optional[pulumi.Input[str]] = None,
                  neqs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] field: The name of the field to be evaluated.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] eq_exact_matches: The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] eqs: The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        :param pulumi.Input[str] gt: The value for the property is greater than the specified value.
-        :param pulumi.Input[str] gte: The value for the property is greater than or equal to the specified value.
-        :param pulumi.Input[str] lt: The value for the property is less than the specified value.
-        :param pulumi.Input[str] lte: The value for the property is less than or equal to the specified value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] neqs: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         pulumi.set(__self__, "field", field)
         if eq_exact_matches is not None:
             pulumi.set(__self__, "eq_exact_matches", eq_exact_matches)
@@ -78,9 +62,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def field(self) -> pulumi.Input[str]:
-        """
-        The name of the field to be evaluated.
-        """
         return pulumi.get(self, "field")
 
     @field.setter
@@ -90,9 +71,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter(name="eqExactMatches")
     def eq_exact_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        """
         return pulumi.get(self, "eq_exact_matches")
 
     @eq_exact_matches.setter
@@ -102,9 +80,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def eqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "eqs")
 
     @eqs.setter
@@ -114,9 +89,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def gt(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the property is greater than the specified value.
-        """
         return pulumi.get(self, "gt")
 
     @gt.setter
@@ -126,9 +98,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def gte(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the property is greater than or equal to the specified value.
-        """
         return pulumi.get(self, "gte")
 
     @gte.setter
@@ -138,9 +107,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def lt(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the property is less than the specified value.
-        """
         return pulumi.get(self, "lt")
 
     @lt.setter
@@ -150,9 +116,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def lte(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value for the property is less than or equal to the specified value.
-        """
         return pulumi.get(self, "lte")
 
     @lte.setter
@@ -162,9 +125,6 @@ class FindingsFilterFindingCriteriaCriterionArgs:
     @property
     @pulumi.getter
     def neqs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "neqs")
 
     @neqs.setter
@@ -177,12 +137,6 @@ class S3BucketAssociationClassificationTypeArgs:
     def __init__(__self__, *,
                  continuous: Optional[pulumi.Input[str]] = None,
                  one_time: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] continuous: A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-               The only valid value is the default value, `FULL`.
-        :param pulumi.Input[str] one_time: A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-               Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
         if continuous is not None:
             pulumi.set(__self__, "continuous", continuous)
         if one_time is not None:
@@ -191,10 +145,6 @@ class S3BucketAssociationClassificationTypeArgs:
     @property
     @pulumi.getter
     def continuous(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        The only valid value is the default value, `FULL`.
-        """
         return pulumi.get(self, "continuous")
 
     @continuous.setter
@@ -204,10 +154,6 @@ class S3BucketAssociationClassificationTypeArgs:
     @property
     @pulumi.getter(name="oneTime")
     def one_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
         return pulumi.get(self, "one_time")
 
     @one_time.setter

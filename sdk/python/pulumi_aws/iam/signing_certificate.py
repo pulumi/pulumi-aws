@@ -19,9 +19,6 @@ class SigningCertificateArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SigningCertificate resource.
-        :param pulumi.Input[str] certificate_body: The contents of the signing certificate in PEM-encoded format.
-        :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
-        :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         """
         pulumi.set(__self__, "certificate_body", certificate_body)
         pulumi.set(__self__, "user_name", user_name)
@@ -31,9 +28,6 @@ class SigningCertificateArgs:
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Input[str]:
-        """
-        The contents of the signing certificate in PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -43,9 +37,6 @@ class SigningCertificateArgs:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
-        """
-        The name of the user the signing certificate is for.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -55,9 +46,6 @@ class SigningCertificateArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -74,10 +62,6 @@ class _SigningCertificateState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SigningCertificate resources.
-        :param pulumi.Input[str] certificate_body: The contents of the signing certificate in PEM-encoded format.
-        :param pulumi.Input[str] certificate_id: The ID for the signing certificate.
-        :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
         """
         if certificate_body is not None:
             pulumi.set(__self__, "certificate_body", certificate_body)
@@ -91,9 +75,6 @@ class _SigningCertificateState:
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[str]]:
-        """
-        The contents of the signing certificate in PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -103,9 +84,6 @@ class _SigningCertificateState:
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID for the signing certificate.
-        """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
@@ -115,9 +93,6 @@ class _SigningCertificateState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -127,9 +102,6 @@ class _SigningCertificateState:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the user the signing certificate is for.
-        """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
@@ -147,49 +119,9 @@ class SigningCertificate(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an IAM Signing Certificate resource to upload Signing Certificates.
-
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert = aws.iam.SigningCertificate("testCert",
-            username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
-        ```
-
-        ## Import
-
-        IAM Signing Certificates can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-        ```
-
+        Create a SigningCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_body: The contents of the signing certificate in PEM-encoded format.
-        :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
         """
         ...
     @overload
@@ -198,44 +130,7 @@ class SigningCertificate(pulumi.CustomResource):
                  args: SigningCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM Signing Certificate resource to upload Signing Certificates.
-
-        ## Example Usage
-
-        **Using certs on file:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert = aws.iam.SigningCertificate("testCert",
-            username="some_test_cert",
-            certificate_body=(lambda path: open(path).read())("self-ca-cert.pem"))
-        ```
-
-        **Example with cert in-line:**
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_cert_alt = aws.iam.SigningCertificate("testCertAlt",
-            certificate_body=\"\"\"-----BEGIN CERTIFICATE-----
-        [......] # cert contents
-        -----END CERTIFICATE-----
-
-        \"\"\",
-            username="some_test_cert")
-        ```
-
-        ## Import
-
-        IAM Signing Certificates can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
-        ```
-
+        Create a SigningCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SigningCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,10 +187,6 @@ class SigningCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_body: The contents of the signing certificate in PEM-encoded format.
-        :param pulumi.Input[str] certificate_id: The ID for the signing certificate.
-        :param pulumi.Input[str] status: The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        :param pulumi.Input[str] user_name: The name of the user the signing certificate is for.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,32 +201,20 @@ class SigningCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[str]:
-        """
-        The contents of the signing certificate in PEM-encoded format.
-        """
         return pulumi.get(self, "certificate_body")
 
     @property
     @pulumi.getter(name="certificateId")
     def certificate_id(self) -> pulumi.Output[str]:
-        """
-        The ID for the signing certificate.
-        """
         return pulumi.get(self, "certificate_id")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
-        """
-        The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
-        """
-        The name of the user the signing certificate is for.
-        """
         return pulumi.get(self, "user_name")
 

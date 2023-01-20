@@ -25,13 +25,6 @@ class EventDestinationArgs:
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         The set of arguments for constructing a EventDestination resource.
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        :param pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]] cloudwatch_destinations: CloudWatch destination for the events
-        :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
-        :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
-        :param pulumi.Input[str] name: The name of the event destination
-        :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
         """
         pulumi.set(__self__, "configuration_set_name", configuration_set_name)
         pulumi.set(__self__, "matching_types", matching_types)
@@ -49,9 +42,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Input[str]:
-        """
-        The name of the configuration set
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -61,9 +51,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter(name="matchingTypes")
     def matching_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        """
         return pulumi.get(self, "matching_types")
 
     @matching_types.setter
@@ -73,9 +60,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter(name="cloudwatchDestinations")
     def cloudwatch_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
-        """
-        CloudWatch destination for the events
-        """
         return pulumi.get(self, "cloudwatch_destinations")
 
     @cloudwatch_destinations.setter
@@ -85,9 +69,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the event destination will be enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -97,9 +78,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter(name="kinesisDestination")
     def kinesis_destination(self) -> Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]:
-        """
-        Send the events to a kinesis firehose destination
-        """
         return pulumi.get(self, "kinesis_destination")
 
     @kinesis_destination.setter
@@ -109,9 +87,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the event destination
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,9 +96,6 @@ class EventDestinationArgs:
     @property
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
-        """
-        Send the events to an SNS Topic destination
-        """
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
@@ -144,14 +116,6 @@ class _EventDestinationState:
                  sns_destination: Optional[pulumi.Input['EventDestinationSnsDestinationArgs']] = None):
         """
         Input properties used for looking up and filtering EventDestination resources.
-        :param pulumi.Input[str] arn: The SES event destination ARN.
-        :param pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]] cloudwatch_destinations: CloudWatch destination for the events
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set
-        :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
-        :param pulumi.Input['EventDestinationKinesisDestinationArgs'] kinesis_destination: Send the events to a kinesis firehose destination
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        :param pulumi.Input[str] name: The name of the event destination
-        :param pulumi.Input['EventDestinationSnsDestinationArgs'] sns_destination: Send the events to an SNS Topic destination
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -173,9 +137,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SES event destination ARN.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -185,9 +146,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter(name="cloudwatchDestinations")
     def cloudwatch_destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDestinationCloudwatchDestinationArgs']]]]:
-        """
-        CloudWatch destination for the events
-        """
         return pulumi.get(self, "cloudwatch_destinations")
 
     @cloudwatch_destinations.setter
@@ -197,9 +155,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the configuration set
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @configuration_set_name.setter
@@ -209,9 +164,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the event destination will be enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -221,9 +173,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter(name="kinesisDestination")
     def kinesis_destination(self) -> Optional[pulumi.Input['EventDestinationKinesisDestinationArgs']]:
-        """
-        Send the events to a kinesis firehose destination
-        """
         return pulumi.get(self, "kinesis_destination")
 
     @kinesis_destination.setter
@@ -233,9 +182,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter(name="matchingTypes")
     def matching_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        """
         return pulumi.get(self, "matching_types")
 
     @matching_types.setter
@@ -245,9 +191,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the event destination
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -257,9 +200,6 @@ class _EventDestinationState:
     @property
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional[pulumi.Input['EventDestinationSnsDestinationArgs']]:
-        """
-        Send the events to an SNS Topic destination
-        """
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
@@ -281,81 +221,9 @@ class EventDestination(pulumi.CustomResource):
                  sns_destination: Optional[pulumi.Input[pulumi.InputType['EventDestinationSnsDestinationArgs']]] = None,
                  __props__=None):
         """
-        Provides an SES event destination
-
-        ## Example Usage
-        ### CloudWatch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cloudwatch = aws.ses.EventDestination("cloudwatch",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            cloudwatch_destinations=[aws.ses.EventDestinationCloudwatchDestinationArgs(
-                default_value="default",
-                dimension_name="dimension",
-                value_source="emailHeader",
-            )])
-        ```
-        ### Kinesis Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        kinesis = aws.ses.EventDestination("kinesis",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
-        ```
-        ### SNS Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sns = aws.ses.EventDestination("sns",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
-            ))
-        ```
-
-        ## Import
-
-        SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
-        ```
-
+        Create a EventDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]] cloudwatch_destinations: CloudWatch destination for the events
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set
-        :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
-        :param pulumi.Input[pulumi.InputType['EventDestinationKinesisDestinationArgs']] kinesis_destination: Send the events to a kinesis firehose destination
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        :param pulumi.Input[str] name: The name of the event destination
-        :param pulumi.Input[pulumi.InputType['EventDestinationSnsDestinationArgs']] sns_destination: Send the events to an SNS Topic destination
         """
         ...
     @overload
@@ -364,72 +232,7 @@ class EventDestination(pulumi.CustomResource):
                  args: EventDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an SES event destination
-
-        ## Example Usage
-        ### CloudWatch Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        cloudwatch = aws.ses.EventDestination("cloudwatch",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            cloudwatch_destinations=[aws.ses.EventDestinationCloudwatchDestinationArgs(
-                default_value="default",
-                dimension_name="dimension",
-                value_source="emailHeader",
-            )])
-        ```
-        ### Kinesis Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        kinesis = aws.ses.EventDestination("kinesis",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            kinesis_destination=aws.ses.EventDestinationKinesisDestinationArgs(
-                stream_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-                role_arn=aws_iam_role["example"]["arn"],
-            ))
-        ```
-        ### SNS Destination
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        sns = aws.ses.EventDestination("sns",
-            configuration_set_name=aws_ses_configuration_set["example"]["name"],
-            enabled=True,
-            matching_types=[
-                "bounce",
-                "send",
-            ],
-            sns_destination=aws.ses.EventDestinationSnsDestinationArgs(
-                topic_arn=aws_sns_topic["example"]["arn"],
-            ))
-        ```
-
-        ## Import
-
-        SES event destinations can be imported using `configuration_set_name` together with the event destination's `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
-        ```
-
+        Create a EventDestination resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventDestinationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -498,14 +301,6 @@ class EventDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The SES event destination ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDestinationCloudwatchDestinationArgs']]]] cloudwatch_destinations: CloudWatch destination for the events
-        :param pulumi.Input[str] configuration_set_name: The name of the configuration set
-        :param pulumi.Input[bool] enabled: If true, the event destination will be enabled
-        :param pulumi.Input[pulumi.InputType['EventDestinationKinesisDestinationArgs']] kinesis_destination: Send the events to a kinesis firehose destination
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_types: A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        :param pulumi.Input[str] name: The name of the event destination
-        :param pulumi.Input[pulumi.InputType['EventDestinationSnsDestinationArgs']] sns_destination: Send the events to an SNS Topic destination
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -524,64 +319,40 @@ class EventDestination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The SES event destination ARN.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cloudwatchDestinations")
     def cloudwatch_destinations(self) -> pulumi.Output[Optional[Sequence['outputs.EventDestinationCloudwatchDestination']]]:
-        """
-        CloudWatch destination for the events
-        """
         return pulumi.get(self, "cloudwatch_destinations")
 
     @property
     @pulumi.getter(name="configurationSetName")
     def configuration_set_name(self) -> pulumi.Output[str]:
-        """
-        The name of the configuration set
-        """
         return pulumi.get(self, "configuration_set_name")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, the event destination will be enabled
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="kinesisDestination")
     def kinesis_destination(self) -> pulumi.Output[Optional['outputs.EventDestinationKinesisDestination']]:
-        """
-        Send the events to a kinesis firehose destination
-        """
         return pulumi.get(self, "kinesis_destination")
 
     @property
     @pulumi.getter(name="matchingTypes")
     def matching_types(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
-        """
         return pulumi.get(self, "matching_types")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the event destination
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> pulumi.Output[Optional['outputs.EventDestinationSnsDestination']]:
-        """
-        Send the events to an SNS Topic destination
-        """
         return pulumi.get(self, "sns_destination")
 

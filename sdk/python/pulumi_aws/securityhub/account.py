@@ -27,27 +27,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
-        Enables Security Hub for this AWS account.
-
-        > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        ```
-
-        ## Import
-
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -58,27 +38,7 @@ class Account(pulumi.CustomResource):
                  args: Optional[AccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Enables Security Hub for this AWS account.
-
-        > **NOTE:** Destroying this resource will disable Security Hub for this AWS account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.securityhub.Account("example")
-        ```
-
-        ## Import
-
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
-        ```
-
+        Create a Account resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

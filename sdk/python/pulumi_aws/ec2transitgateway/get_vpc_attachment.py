@@ -58,17 +58,11 @@ class GetVpcAttachmentResult:
     @property
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> str:
-        """
-        Whether Appliance Mode support is enabled.
-        """
         return pulumi.get(self, "appliance_mode_support")
 
     @property
     @pulumi.getter(name="dnsSupport")
     def dns_support(self) -> str:
-        """
-        Whether DNS support is enabled.
-        """
         return pulumi.get(self, "dns_support")
 
     @property
@@ -79,57 +73,36 @@ class GetVpcAttachmentResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        EC2 Transit Gateway VPC Attachment identifier
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> str:
-        """
-        Whether IPv6 support is enabled.
-        """
         return pulumi.get(self, "ipv6_support")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
-        """
-        Identifiers of EC2 Subnets.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value tags for the EC2 Transit Gateway VPC Attachment
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> str:
-        """
-        EC2 Transit Gateway identifier
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
-        """
-        Identifier of EC2 VPC.
-        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcOwnerId")
     def vpc_owner_id(self) -> str:
-        """
-        Identifier of the AWS account that owns the EC2 VPC.
-        """
         return pulumi.get(self, "vpc_owner_id")
 
 
@@ -156,33 +129,7 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentResult:
     """
-    Get information on an EC2 Transit Gateway VPC Attachment.
-
-    ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
-    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -210,32 +157,6 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcAttachmentResult]:
     """
-    Get information on an EC2 Transit Gateway VPC Attachment.
-
-    ## Example Usage
-    ### By Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(filters=[aws.ec2transitgateway.GetVpcAttachmentFilterArgs(
-        name="vpc-id",
-        values=["vpc-12345678"],
-    )])
-    ```
-    ### By Identifier
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
-    :param str id: Identifier of the EC2 Transit Gateway VPC Attachment.
-    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
+    Use this data source to access information about an existing resource.
     """
     ...

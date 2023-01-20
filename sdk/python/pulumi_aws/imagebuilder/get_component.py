@@ -76,41 +76,26 @@ class GetComponentResult:
     @property
     @pulumi.getter(name="changeDescription")
     def change_description(self) -> str:
-        """
-        Change description of the component.
-        """
         return pulumi.get(self, "change_description")
 
     @property
     @pulumi.getter
     def data(self) -> str:
-        """
-        Data of the component.
-        """
         return pulumi.get(self, "data")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
-        """
-        Date the component was created.
-        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the component.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def encrypted(self) -> bool:
-        """
-        Encryption status of the component.
-        """
         return pulumi.get(self, "encrypted")
 
     @property
@@ -124,65 +109,41 @@ class GetComponentResult:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> str:
-        """
-        ARN of the Key Management Service (KMS) Key used to encrypt the component.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the component.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        Owner of the component.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter
     def platform(self) -> str:
-        """
-        Platform of the component.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Sequence[str]:
-        """
-        Operating Systems (OSes) supported by the component.
-        """
         return pulumi.get(self, "supported_os_versions")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags for the component.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Type of the component.
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        Version of the component.
-        """
         return pulumi.get(self, "version")
 
 
@@ -213,20 +174,7 @@ def get_component(arn: Optional[str] = None,
                   tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
-    Provides details about an Image Builder Component.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
-
-
-    :param str arn: ARN of the component.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the component.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -257,19 +205,6 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
     """
-    Provides details about an Image Builder Component.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
-    ```
-
-
-    :param str arn: ARN of the component.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the component.
+    Use this data source to access information about an existing resource.
     """
     ...

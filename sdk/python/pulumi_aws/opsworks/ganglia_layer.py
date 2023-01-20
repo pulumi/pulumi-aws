@@ -44,25 +44,6 @@ class GangliaLayerArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GangliaLayer resource.
-        :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
-        :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
-        :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
-        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
-        :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
-        :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
-        :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "stack_id", stack_id)
@@ -118,9 +99,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
-        """
-        The password to use for Ganglia.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -130,9 +108,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Input[str]:
-        """
-        ID of the stack the layer will belong to.
-        """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
@@ -142,9 +117,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="autoAssignElasticIps")
     def auto_assign_elastic_ips(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to automatically assign an elastic IP address to the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_elastic_ips")
 
     @auto_assign_elastic_ips.setter
@@ -154,9 +126,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="autoAssignPublicIps")
     def auto_assign_public_ips(self) -> Optional[pulumi.Input[bool]]:
-        """
-        For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_public_ips")
 
     @auto_assign_public_ips.setter
@@ -166,9 +135,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="autoHealing")
     def auto_healing(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable auto-healing for the layer.
-        """
         return pulumi.get(self, "auto_healing")
 
     @auto_healing.setter
@@ -205,9 +171,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="customInstanceProfileArn")
     def custom_instance_profile_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of an IAM profile that will be used for the layer's instances.
-        """
         return pulumi.get(self, "custom_instance_profile_arn")
 
     @custom_instance_profile_arn.setter
@@ -217,9 +180,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[pulumi.Input[str]]:
-        """
-        Custom JSON attributes to apply to the layer.
-        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -229,9 +189,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="customSecurityGroupIds")
     def custom_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Ids for a set of security groups to apply to the layer's instances.
-        """
         return pulumi.get(self, "custom_security_group_ids")
 
     @custom_security_group_ids.setter
@@ -268,9 +225,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="drainElbOnShutdown")
     def drain_elb_on_shutdown(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable Elastic Load Balancing connection draining.
-        """
         return pulumi.get(self, "drain_elb_on_shutdown")
 
     @drain_elb_on_shutdown.setter
@@ -280,9 +234,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
-        """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
@@ -292,9 +243,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="elasticLoadBalancer")
     def elastic_load_balancer(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of an Elastic Load Balancer to attach to this layer
-        """
         return pulumi.get(self, "elastic_load_balancer")
 
     @elastic_load_balancer.setter
@@ -304,9 +252,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="installUpdatesOnBoot")
     def install_updates_on_boot(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to install OS and package updates on each instance when it boots.
-        """
         return pulumi.get(self, "install_updates_on_boot")
 
     @install_updates_on_boot.setter
@@ -316,9 +261,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="instanceShutdownTimeout")
     def instance_shutdown_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        """
         return pulumi.get(self, "instance_shutdown_timeout")
 
     @instance_shutdown_timeout.setter
@@ -337,9 +279,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A human-readable name for the layer.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -349,9 +288,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="systemPackages")
     def system_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Names of a set of system packages to install on the layer's instances.
-        """
         return pulumi.get(self, "system_packages")
 
     @system_packages.setter
@@ -361,9 +297,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -373,9 +306,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL path to use for Ganglia. Defaults to "/ganglia".
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -385,9 +315,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter(name="useEbsOptimizedInstances")
     def use_ebs_optimized_instances(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use EBS-optimized instances.
-        """
         return pulumi.get(self, "use_ebs_optimized_instances")
 
     @use_ebs_optimized_instances.setter
@@ -397,9 +324,6 @@ class GangliaLayerArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username to use for Ganglia. Defaults to "opsworks".
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -440,27 +364,6 @@ class _GangliaLayerState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GangliaLayer resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
-        :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
-        :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
-        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
-        :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
-        :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
-        :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -522,9 +425,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name(ARN) of the layer.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -534,9 +434,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="autoAssignElasticIps")
     def auto_assign_elastic_ips(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to automatically assign an elastic IP address to the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_elastic_ips")
 
     @auto_assign_elastic_ips.setter
@@ -546,9 +443,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="autoAssignPublicIps")
     def auto_assign_public_ips(self) -> Optional[pulumi.Input[bool]]:
-        """
-        For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_public_ips")
 
     @auto_assign_public_ips.setter
@@ -558,9 +452,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="autoHealing")
     def auto_healing(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable auto-healing for the layer.
-        """
         return pulumi.get(self, "auto_healing")
 
     @auto_healing.setter
@@ -597,9 +488,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="customInstanceProfileArn")
     def custom_instance_profile_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of an IAM profile that will be used for the layer's instances.
-        """
         return pulumi.get(self, "custom_instance_profile_arn")
 
     @custom_instance_profile_arn.setter
@@ -609,9 +497,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> Optional[pulumi.Input[str]]:
-        """
-        Custom JSON attributes to apply to the layer.
-        """
         return pulumi.get(self, "custom_json")
 
     @custom_json.setter
@@ -621,9 +506,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="customSecurityGroupIds")
     def custom_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Ids for a set of security groups to apply to the layer's instances.
-        """
         return pulumi.get(self, "custom_security_group_ids")
 
     @custom_security_group_ids.setter
@@ -660,9 +542,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="drainElbOnShutdown")
     def drain_elb_on_shutdown(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to enable Elastic Load Balancing connection draining.
-        """
         return pulumi.get(self, "drain_elb_on_shutdown")
 
     @drain_elb_on_shutdown.setter
@@ -672,9 +551,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
-        """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
@@ -684,9 +560,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="elasticLoadBalancer")
     def elastic_load_balancer(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of an Elastic Load Balancer to attach to this layer
-        """
         return pulumi.get(self, "elastic_load_balancer")
 
     @elastic_load_balancer.setter
@@ -696,9 +569,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="installUpdatesOnBoot")
     def install_updates_on_boot(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to install OS and package updates on each instance when it boots.
-        """
         return pulumi.get(self, "install_updates_on_boot")
 
     @install_updates_on_boot.setter
@@ -708,9 +578,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="instanceShutdownTimeout")
     def instance_shutdown_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        """
         return pulumi.get(self, "instance_shutdown_timeout")
 
     @instance_shutdown_timeout.setter
@@ -729,9 +596,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A human-readable name for the layer.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -741,9 +605,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password to use for Ganglia.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -753,9 +614,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="stackId")
     def stack_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the stack the layer will belong to.
-        """
         return pulumi.get(self, "stack_id")
 
     @stack_id.setter
@@ -765,9 +623,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="systemPackages")
     def system_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Names of a set of system packages to install on the layer's instances.
-        """
         return pulumi.get(self, "system_packages")
 
     @system_packages.setter
@@ -777,9 +632,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -789,9 +641,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -801,9 +650,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL path to use for Ganglia. Defaults to "/ganglia".
-        """
         return pulumi.get(self, "url")
 
     @url.setter
@@ -813,9 +659,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter(name="useEbsOptimizedInstances")
     def use_ebs_optimized_instances(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to use EBS-optimized instances.
-        """
         return pulumi.get(self, "use_ebs_optimized_instances")
 
     @use_ebs_optimized_instances.setter
@@ -825,9 +668,6 @@ class _GangliaLayerState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username to use for Ganglia. Defaults to "opsworks".
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -868,40 +708,9 @@ class GangliaLayer(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an OpsWorks Ganglia layer resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            password="foobarbaz")
-        ```
-
+        Create a GangliaLayer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
-        :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
-        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
-        :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
-        :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
-        :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
         """
         ...
     @overload
@@ -910,19 +719,7 @@ class GangliaLayer(pulumi.CustomResource):
                  args: GangliaLayerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an OpsWorks Ganglia layer resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        monitor = aws.opsworks.GangliaLayer("monitor",
-            stack_id=aws_opsworks_stack["main"]["id"],
-            password="foobarbaz")
-        ```
-
+        Create a GangliaLayer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GangliaLayerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1050,27 +847,6 @@ class GangliaLayer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name(ARN) of the layer.
-        :param pulumi.Input[bool] auto_assign_elastic_ips: Whether to automatically assign an elastic IP address to the layer's instances.
-        :param pulumi.Input[bool] auto_assign_public_ips: For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        :param pulumi.Input[bool] auto_healing: Whether to enable auto-healing for the layer.
-        :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
-        :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
-        :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
-        :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
-        :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        :param pulumi.Input[str] name: A human-readable name for the layer.
-        :param pulumi.Input[str] password: The password to use for Ganglia.
-        :param pulumi.Input[str] stack_id: ID of the stack the layer will belong to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_packages: Names of a set of system packages to install on the layer's instances.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] url: The URL path to use for Ganglia. Defaults to "/ganglia".
-        :param pulumi.Input[bool] use_ebs_optimized_instances: Whether to use EBS-optimized instances.
-        :param pulumi.Input[str] username: The username to use for Ganglia. Defaults to "opsworks".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1109,33 +885,21 @@ class GangliaLayer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name(ARN) of the layer.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoAssignElasticIps")
     def auto_assign_elastic_ips(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to automatically assign an elastic IP address to the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_elastic_ips")
 
     @property
     @pulumi.getter(name="autoAssignPublicIps")
     def auto_assign_public_ips(self) -> pulumi.Output[Optional[bool]]:
-        """
-        For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-        """
         return pulumi.get(self, "auto_assign_public_ips")
 
     @property
     @pulumi.getter(name="autoHealing")
     def auto_healing(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to enable auto-healing for the layer.
-        """
         return pulumi.get(self, "auto_healing")
 
     @property
@@ -1156,25 +920,16 @@ class GangliaLayer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customInstanceProfileArn")
     def custom_instance_profile_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN of an IAM profile that will be used for the layer's instances.
-        """
         return pulumi.get(self, "custom_instance_profile_arn")
 
     @property
     @pulumi.getter(name="customJson")
     def custom_json(self) -> pulumi.Output[Optional[str]]:
-        """
-        Custom JSON attributes to apply to the layer.
-        """
         return pulumi.get(self, "custom_json")
 
     @property
     @pulumi.getter(name="customSecurityGroupIds")
     def custom_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Ids for a set of security groups to apply to the layer's instances.
-        """
         return pulumi.get(self, "custom_security_group_ids")
 
     @property
@@ -1195,41 +950,26 @@ class GangliaLayer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="drainElbOnShutdown")
     def drain_elb_on_shutdown(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to enable Elastic Load Balancing connection draining.
-        """
         return pulumi.get(self, "drain_elb_on_shutdown")
 
     @property
     @pulumi.getter(name="ebsVolumes")
     def ebs_volumes(self) -> pulumi.Output[Sequence['outputs.GangliaLayerEbsVolume']]:
-        """
-        `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-        """
         return pulumi.get(self, "ebs_volumes")
 
     @property
     @pulumi.getter(name="elasticLoadBalancer")
     def elastic_load_balancer(self) -> pulumi.Output[Optional[str]]:
-        """
-        Name of an Elastic Load Balancer to attach to this layer
-        """
         return pulumi.get(self, "elastic_load_balancer")
 
     @property
     @pulumi.getter(name="installUpdatesOnBoot")
     def install_updates_on_boot(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to install OS and package updates on each instance when it boots.
-        """
         return pulumi.get(self, "install_updates_on_boot")
 
     @property
     @pulumi.getter(name="instanceShutdownTimeout")
     def instance_shutdown_timeout(self) -> pulumi.Output[Optional[int]]:
-        """
-        The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-        """
         return pulumi.get(self, "instance_shutdown_timeout")
 
     @property
@@ -1240,72 +980,45 @@ class GangliaLayer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        A human-readable name for the layer.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
-        """
-        The password to use for Ganglia.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="stackId")
     def stack_id(self) -> pulumi.Output[str]:
-        """
-        ID of the stack the layer will belong to.
-        """
         return pulumi.get(self, "stack_id")
 
     @property
     @pulumi.getter(name="systemPackages")
     def system_packages(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        Names of a set of system packages to install on the layer's instances.
-        """
         return pulumi.get(self, "system_packages")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def url(self) -> pulumi.Output[Optional[str]]:
-        """
-        The URL path to use for Ganglia. Defaults to "/ganglia".
-        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="useEbsOptimizedInstances")
     def use_ebs_optimized_instances(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to use EBS-optimized instances.
-        """
         return pulumi.get(self, "use_ebs_optimized_instances")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
-        """
-        The username to use for Ganglia. Defaults to "opsworks".
-        """
         return pulumi.get(self, "username")
 

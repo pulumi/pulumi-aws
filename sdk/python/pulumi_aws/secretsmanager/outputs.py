@@ -47,13 +47,6 @@ class SecretReplica(dict):
                  last_accessed_date: Optional[str] = None,
                  status: Optional[str] = None,
                  status_message: Optional[str] = None):
-        """
-        :param str region: Region for replicating the secret.
-        :param str kms_key_id: ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-        :param str last_accessed_date: Date that you last accessed the secret in the Region.
-        :param str status: Status can be `InProgress`, `Failed`, or `InSync`.
-        :param str status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-        """
         pulumi.set(__self__, "region", region)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -67,41 +60,26 @@ class SecretReplica(dict):
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        Region for replicating the secret.
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
-        """
-        ARN, Key ID, or Alias of the AWS KMS key within the region secret is replicated to. If one is not specified, then Secrets Manager defaults to using the AWS account's default KMS key (`aws/secretsmanager`) in the region or creates one for use if non-existent.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="lastAccessedDate")
     def last_accessed_date(self) -> Optional[str]:
-        """
-        Date that you last accessed the secret in the Region.
-        """
         return pulumi.get(self, "last_accessed_date")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
-        """
-        Status can be `InProgress`, `Failed`, or `InSync`.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[str]:
-        """
-        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
-        """
         return pulumi.get(self, "status_message")
 
 
@@ -126,17 +104,11 @@ class SecretRotationRotationRules(dict):
 
     def __init__(__self__, *,
                  automatically_after_days: int):
-        """
-        :param int automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
-        """
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> int:
-        """
-        Specifies the number of days between automatic scheduled rotations of the secret.
-        """
         return pulumi.get(self, "automatically_after_days")
 
 
@@ -161,17 +133,11 @@ class SecretRotationRules(dict):
 
     def __init__(__self__, *,
                  automatically_after_days: int):
-        """
-        :param int automatically_after_days: Specifies the number of days between automatic scheduled rotations of the secret.
-        """
         pulumi.set(__self__, "automatically_after_days", automatically_after_days)
 
     @property
     @pulumi.getter(name="automaticallyAfterDays")
     def automatically_after_days(self) -> int:
-        """
-        Specifies the number of days between automatic scheduled rotations of the secret.
-        """
         return pulumi.get(self, "automatically_after_days")
 
 
@@ -204,27 +170,17 @@ class GetSecretsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
-        """
-        :param str name: Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
         return pulumi.get(self, "values")
 
 

@@ -19,9 +19,6 @@ class ClusterIamRolesArgs:
                  iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterIamRoles resource.
-        :param pulumi.Input[str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if default_iam_role_arn is not None:
@@ -32,9 +29,6 @@ class ClusterIamRolesArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
-        """
-        The name of the Redshift Cluster IAM Roles.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -44,9 +38,6 @@ class ClusterIamRolesArgs:
     @property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -56,9 +47,6 @@ class ClusterIamRolesArgs:
     @property
     @pulumi.getter(name="iamRoleArns")
     def iam_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_role_arns")
 
     @iam_role_arns.setter
@@ -74,9 +62,6 @@ class _ClusterIamRolesState:
                  iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ClusterIamRoles resources.
-        :param pulumi.Input[str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -88,9 +73,6 @@ class _ClusterIamRolesState:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Redshift Cluster IAM Roles.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -100,9 +82,6 @@ class _ClusterIamRolesState:
     @property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @default_iam_role_arn.setter
@@ -112,9 +91,6 @@ class _ClusterIamRolesState:
     @property
     @pulumi.getter(name="iamRoleArns")
     def iam_role_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_role_arns")
 
     @iam_role_arns.setter
@@ -132,34 +108,9 @@ class ClusterIamRoles(pulumi.CustomResource):
                  iam_role_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Redshift Cluster IAM Roles resource.
-
-        > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.Cluster` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
-        ```
-
-        ## Import
-
-        Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-        ```
-
+        Create a ClusterIamRoles resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         ...
     @overload
@@ -168,29 +119,7 @@ class ClusterIamRoles(pulumi.CustomResource):
                  args: ClusterIamRolesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Redshift Cluster IAM Roles resource.
-
-        > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.Cluster` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.redshift.ClusterIamRoles("example",
-            cluster_identifier=aws_redshift_cluster["example"]["cluster_identifier"],
-            iam_role_arns=[aws_iam_role["example"]["arn"]])
-        ```
-
-        ## Import
-
-        Redshift Cluster IAM Roless can be imported using the `cluster_identifier`, e.g.,
-
-        ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-        ```
-
+        Create a ClusterIamRoles resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ClusterIamRolesArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -243,9 +172,6 @@ class ClusterIamRoles(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_identifier: The name of the Redshift Cluster IAM Roles.
-        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_role_arns: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -259,24 +185,15 @@ class ClusterIamRoles(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[str]:
-        """
-        The name of the Redshift Cluster IAM Roles.
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
     def default_iam_role_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-        """
         return pulumi.get(self, "default_iam_role_arn")
 
     @property
     @pulumi.getter(name="iamRoleArns")
     def iam_role_arns(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
-        """
         return pulumi.get(self, "iam_role_arns")
 

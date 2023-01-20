@@ -19,9 +19,6 @@ class EnvironmentMembershipArgs:
                  user_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a EnvironmentMembership resource.
-        :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
-        :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         """
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "permissions", permissions)
@@ -30,9 +27,6 @@ class EnvironmentMembershipArgs:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the environment that contains the environment member you want to add.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -42,9 +36,6 @@ class EnvironmentMembershipArgs:
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Input[str]:
-        """
-        The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -54,9 +45,6 @@ class EnvironmentMembershipArgs:
     @property
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
-        """
         return pulumi.get(self, "user_arn")
 
     @user_arn.setter
@@ -73,10 +61,6 @@ class _EnvironmentMembershipState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EnvironmentMembership resources.
-        :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
-        :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
-        :param pulumi.Input[str] user_id: he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
@@ -90,9 +74,6 @@ class _EnvironmentMembershipState:
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the environment that contains the environment member you want to add.
-        """
         return pulumi.get(self, "environment_id")
 
     @environment_id.setter
@@ -102,9 +83,6 @@ class _EnvironmentMembershipState:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -114,9 +92,6 @@ class _EnvironmentMembershipState:
     @property
     @pulumi.getter(name="userArn")
     def user_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
-        """
         return pulumi.get(self, "user_arn")
 
     @user_arn.setter
@@ -126,9 +101,6 @@ class _EnvironmentMembershipState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -146,35 +118,9 @@ class EnvironmentMembership(pulumi.CustomResource):
                  user_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an environment member to an AWS Cloud9 development environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
-            environment_id=test_environment_ec2.id,
-            permissions="read-only",
-            user_arn=test_user.arn)
-        ```
-
-        ## Import
-
-        Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
-
-        ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-        ```
-
+        Create a EnvironmentMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
-        :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
         """
         ...
     @overload
@@ -183,30 +129,7 @@ class EnvironmentMembership(pulumi.CustomResource):
                  args: EnvironmentMembershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an environment member to an AWS Cloud9 development environment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_environment_ec2 = aws.cloud9.EnvironmentEC2("testEnvironmentEC2", instance_type="t2.micro")
-        test_user = aws.iam.User("testUser")
-        test_environment_membership = aws.cloud9.EnvironmentMembership("testEnvironmentMembership",
-            environment_id=test_environment_ec2.id,
-            permissions="read-only",
-            user_arn=test_user.arn)
-        ```
-
-        ## Import
-
-        Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
-
-        ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-        ```
-
+        Create a EnvironmentMembership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EnvironmentMembershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,10 +188,6 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] environment_id: The ID of the environment that contains the environment member you want to add.
-        :param pulumi.Input[str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        :param pulumi.Input[str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
-        :param pulumi.Input[str] user_id: he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,32 +202,20 @@ class EnvironmentMembership(pulumi.CustomResource):
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the environment that contains the environment member you want to add.
-        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[str]:
-        """
-        The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
-        """
         return pulumi.get(self, "user_arn")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
-        """
-        he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-        """
         return pulumi.get(self, "user_id")
 

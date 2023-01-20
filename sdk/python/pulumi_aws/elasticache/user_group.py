@@ -21,11 +21,6 @@ class UserGroupArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[str] user_group_id: The ID of the user group.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_group_id", user_group_id)
@@ -39,9 +34,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -51,9 +43,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -63,9 +52,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN that identifies the user group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -75,9 +61,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -87,9 +70,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of user IDs that belong to the user group.
-        """
         return pulumi.get(self, "user_ids")
 
     @user_ids.setter
@@ -108,12 +88,6 @@ class _UserGroupState:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering UserGroup resources.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_group_id: The ID of the user group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -131,9 +105,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN that identifies the user group.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -143,9 +114,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def engine(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @engine.setter
@@ -155,9 +123,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -167,9 +132,6 @@ class _UserGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -179,9 +141,6 @@ class _UserGroupState:
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @user_group_id.setter
@@ -191,9 +150,6 @@ class _UserGroupState:
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of user IDs that belong to the user group.
-        """
         return pulumi.get(self, "user_ids")
 
     @user_ids.setter
@@ -213,41 +169,9 @@ class UserGroup(pulumi.CustomResource):
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache user group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.elasticache.User("testUser",
-            user_id="testUserId",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
-        ```
-
-        ## Import
-
-        ElastiCache user groups can be imported using the `user_group_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
-        ```
-
+        Create a UserGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] user_group_id: The ID of the user group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         ...
     @overload
@@ -256,34 +180,7 @@ class UserGroup(pulumi.CustomResource):
                  args: UserGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache user group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_user = aws.elasticache.User("testUser",
-            user_id="testUserId",
-            user_name="default",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"])
-        test_user_group = aws.elasticache.UserGroup("testUserGroup",
-            engine="REDIS",
-            user_group_id="userGroupId",
-            user_ids=[test_user.user_id])
-        ```
-
-        ## Import
-
-        ElastiCache user groups can be imported using the `user_group_id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
-        ```
-
+        Create a UserGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -346,12 +243,6 @@ class UserGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN that identifies the user group.
-        :param pulumi.Input[str] engine: The current supported value is `REDIS`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_group_id: The ID of the user group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: The list of user IDs that belong to the user group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -368,48 +259,30 @@ class UserGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN that identifies the user group.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
-        """
-        The current supported value is `REDIS`.
-        """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the user group.
-        """
         return pulumi.get(self, "user_group_id")
 
     @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        The list of user IDs that belong to the user group.
-        """
         return pulumi.get(self, "user_ids")
 

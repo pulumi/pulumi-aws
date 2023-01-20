@@ -41,9 +41,6 @@ class GetPipelineResult:
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of Pipeline.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -57,9 +54,6 @@ class GetPipelineResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of Pipeline.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -70,9 +64,6 @@ class GetPipelineResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -93,20 +84,7 @@ def get_pipeline(pipeline_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
-    Provides details about a specific DataPipeline Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
-
-
-    :param str pipeline_id: ID of the pipeline.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
@@ -127,19 +105,6 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
     """
-    Provides details about a specific DataPipeline Pipeline.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.datapipeline.get_pipeline(pipeline_id="pipelineID")
-    ```
-
-
-    :param str pipeline_id: ID of the pipeline.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

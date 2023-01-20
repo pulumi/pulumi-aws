@@ -22,10 +22,6 @@ class CoreNetworkArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CoreNetwork resource.
-        :param pulumi.Input[str] global_network_id: The ID of the global network that a core network will be a part of.
-        :param pulumi.Input[str] description: Description of the Core Network.
-        :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -38,9 +34,6 @@ class CoreNetworkArgs:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the global network that a core network will be a part of.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -50,9 +43,6 @@ class CoreNetworkArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the Core Network.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -62,9 +52,6 @@ class CoreNetworkArgs:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -74,9 +61,6 @@ class CoreNetworkArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -99,16 +83,6 @@ class _CoreNetworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CoreNetwork resources.
-        :param pulumi.Input[str] arn: Core Network Amazon Resource Name (ARN).
-        :param pulumi.Input[str] created_at: Timestamp when a core network was created.
-        :param pulumi.Input[str] description: Description of the Core Network.
-        :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkEdgeArgs']]] edges: One or more blocks detailing the edges within a core network. Detailed below.
-        :param pulumi.Input[str] global_network_id: The ID of the global network that a core network will be a part of.
-        :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['CoreNetworkSegmentArgs']]] segments: One or more blocks detailing the segments within a core network. Detailed below.
-        :param pulumi.Input[str] state: Current state of a core network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -134,9 +108,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Core Network Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -146,9 +117,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timestamp when a core network was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -158,9 +126,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the Core Network.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -170,9 +135,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def edges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkEdgeArgs']]]]:
-        """
-        One or more blocks detailing the edges within a core network. Detailed below.
-        """
         return pulumi.get(self, "edges")
 
     @edges.setter
@@ -182,9 +144,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the global network that a core network will be a part of.
-        """
         return pulumi.get(self, "global_network_id")
 
     @global_network_id.setter
@@ -194,9 +153,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[pulumi.Input[str]]:
-        """
-        Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
@@ -206,9 +162,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CoreNetworkSegmentArgs']]]]:
-        """
-        One or more blocks detailing the segments within a core network. Detailed below.
-        """
         return pulumi.get(self, "segments")
 
     @segments.setter
@@ -218,9 +171,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Current state of a core network.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -230,9 +180,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -242,9 +189,6 @@ class _CoreNetworkState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -263,64 +207,9 @@ class CoreNetwork(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a core network resource.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example", global_network_id=aws_networkmanager_global_network["example"]["id"])
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            description="example")
-        ```
-        ### With policy document
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            policy_document=data["aws_networkmanager_core_network_policy_document"]["example"]["json"])
-        ```
-        ### With tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            tags={
-                "hello": "world",
-            })
-        ```
-
-        ## Import
-
-        `aws_networkmanager_core_network` can be imported using the core network ID, e.g.
-
-        ```sh
-         $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
-        ```
-
+        Create a CoreNetwork resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Description of the Core Network.
-        :param pulumi.Input[str] global_network_id: The ID of the global network that a core network will be a part of.
-        :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -329,58 +218,7 @@ class CoreNetwork(pulumi.CustomResource):
                  args: CoreNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a core network resource.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example", global_network_id=aws_networkmanager_global_network["example"]["id"])
-        ```
-        ### With description
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            description="example")
-        ```
-        ### With policy document
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            policy_document=data["aws_networkmanager_core_network_policy_document"]["example"]["json"])
-        ```
-        ### With tags
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.networkmanager.CoreNetwork("example",
-            global_network_id=aws_networkmanager_global_network["example"]["id"],
-            tags={
-                "hello": "world",
-            })
-        ```
-
-        ## Import
-
-        `aws_networkmanager_core_network` can be imported using the core network ID, e.g.
-
-        ```sh
-         $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
-        ```
-
+        Create a CoreNetwork resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CoreNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -448,16 +286,6 @@ class CoreNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Core Network Amazon Resource Name (ARN).
-        :param pulumi.Input[str] created_at: Timestamp when a core network was created.
-        :param pulumi.Input[str] description: Description of the Core Network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkEdgeArgs']]]] edges: One or more blocks detailing the edges within a core network. Detailed below.
-        :param pulumi.Input[str] global_network_id: The ID of the global network that a core network will be a part of.
-        :param pulumi.Input[str] policy_document: Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CoreNetworkSegmentArgs']]]] segments: One or more blocks detailing the segments within a core network. Detailed below.
-        :param pulumi.Input[str] state: Current state of a core network.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -478,80 +306,50 @@ class CoreNetwork(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Core Network Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
-        """
-        Timestamp when a core network was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the Core Network.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def edges(self) -> pulumi.Output[Sequence['outputs.CoreNetworkEdge']]:
-        """
-        One or more blocks detailing the edges within a core network. Detailed below.
-        """
         return pulumi.get(self, "edges")
 
     @property
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the global network that a core network will be a part of.
-        """
         return pulumi.get(self, "global_network_id")
 
     @property
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Optional[str]]:
-        """
-        Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        """
         return pulumi.get(self, "policy_document")
 
     @property
     @pulumi.getter
     def segments(self) -> pulumi.Output[Sequence['outputs.CoreNetworkSegment']]:
-        """
-        One or more blocks detailing the segments within a core network. Detailed below.
-        """
         return pulumi.get(self, "segments")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
-        """
-        Current state of a core network.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value tags for the Core Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

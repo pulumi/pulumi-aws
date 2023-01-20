@@ -18,8 +18,6 @@ class LbCertificateAttachmentArgs:
                  lb_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a LbCertificateAttachment resource.
-        :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
         pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "lb_name", lb_name)
@@ -27,9 +25,6 @@ class LbCertificateAttachmentArgs:
     @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Input[str]:
-        """
-        The name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
@@ -39,9 +34,6 @@ class LbCertificateAttachmentArgs:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[str]:
-        """
-        The name of the load balancer to which you want to associate the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -56,8 +48,6 @@ class _LbCertificateAttachmentState:
                  lb_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LbCertificateAttachment resources.
-        :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
         if certificate_name is not None:
             pulumi.set(__self__, "certificate_name", certificate_name)
@@ -67,9 +57,6 @@ class _LbCertificateAttachmentState:
     @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
@@ -79,9 +66,6 @@ class _LbCertificateAttachmentState:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the load balancer to which you want to associate the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -98,40 +82,9 @@ class LbCertificateAttachment(pulumi.CustomResource):
                  lb_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
-            lb_name=test_lb.name,
-            certificate_name=test_lb_certificate.name)
-        ```
-
-        ## Import
-
-        `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
-        ```
-
+        Create a LbCertificateAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
         ...
     @overload
@@ -140,36 +93,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
                  args: LbCertificateAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        test_lb_certificate_attachment = aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment",
-            lb_name=test_lb.name,
-            certificate_name=test_lb_certificate.name)
-        ```
-
-        ## Import
-
-        `aws_lightsail_lb_certificate_attachment` can be imported by using the name attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
-        ```
-
+        Create a LbCertificateAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LbCertificateAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -221,8 +145,6 @@ class LbCertificateAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_name: The name of your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The name of the load balancer to which you want to associate the SSL/TLS certificate.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,16 +157,10 @@ class LbCertificateAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateName")
     def certificate_name(self) -> pulumi.Output[str]:
-        """
-        The name of your SSL/TLS certificate.
-        """
         return pulumi.get(self, "certificate_name")
 
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[str]:
-        """
-        The name of the load balancer to which you want to associate the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 

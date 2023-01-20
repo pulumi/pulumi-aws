@@ -45,9 +45,6 @@ class GetSecretsResult:
     @property
     @pulumi.getter
     def plaintext(self) -> Mapping[str, str]:
-        """
-        Map containing each `secret` `name` as the key with its decrypted plaintext value
-        """
         return pulumi.get(self, "plaintext")
 
     @property
@@ -70,10 +67,7 @@ class AwaitableGetSecretsResult(GetSecretsResult):
 def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArgs']]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
-    Decrypt multiple secrets from data encrypted with the AWS KMS service.
-
-
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['secrets'] = secrets
@@ -90,9 +84,6 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
 def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretsSecretArgs']]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
     """
-    Decrypt multiple secrets from data encrypted with the AWS KMS service.
-
-
-    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    Use this data source to access information about an existing resource.
     """
     ...

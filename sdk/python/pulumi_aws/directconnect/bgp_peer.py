@@ -22,14 +22,6 @@ class BgpPeerArgs:
                  customer_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
-        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
-        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
-               Required for IPv4 BGP peers on public virtual interfaces.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -44,9 +36,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Input[str]:
-        """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -56,9 +45,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Input[int]:
-        """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
@@ -68,9 +54,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        """
         return pulumi.get(self, "virtual_interface_id")
 
     @virtual_interface_id.setter
@@ -80,10 +63,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="amazonAddress")
     def amazon_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR address to use to send traffic to Amazon.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
@@ -93,9 +72,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="bgpAuthKey")
     def bgp_auth_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The authentication key for BGP configuration.
-        """
         return pulumi.get(self, "bgp_auth_key")
 
     @bgp_auth_key.setter
@@ -105,10 +81,6 @@ class BgpPeerArgs:
     @property
     @pulumi.getter(name="customerAddress")
     def customer_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR destination address to which Amazon should send traffic.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
@@ -130,17 +102,6 @@ class _BgpPeerState:
                  virtual_interface_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BgpPeer resources.
-        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the BGP peer terminates.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
-        :param pulumi.Input[str] bgp_peer_id: The ID of the BGP peer.
-        :param pulumi.Input[str] bgp_status: The Up/Down state of the BGP peer.
-        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         if address_family is not None:
             pulumi.set(__self__, "address_family", address_family)
@@ -164,9 +125,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> Optional[pulumi.Input[str]]:
-        """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        """
         return pulumi.get(self, "address_family")
 
     @address_family.setter
@@ -176,10 +134,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="amazonAddress")
     def amazon_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR address to use to send traffic to Amazon.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "amazon_address")
 
     @amazon_address.setter
@@ -189,9 +143,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Direct Connect endpoint on which the BGP peer terminates.
-        """
         return pulumi.get(self, "aws_device")
 
     @aws_device.setter
@@ -201,9 +152,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> Optional[pulumi.Input[int]]:
-        """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        """
         return pulumi.get(self, "bgp_asn")
 
     @bgp_asn.setter
@@ -213,9 +161,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="bgpAuthKey")
     def bgp_auth_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The authentication key for BGP configuration.
-        """
         return pulumi.get(self, "bgp_auth_key")
 
     @bgp_auth_key.setter
@@ -225,9 +170,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="bgpPeerId")
     def bgp_peer_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the BGP peer.
-        """
         return pulumi.get(self, "bgp_peer_id")
 
     @bgp_peer_id.setter
@@ -237,9 +179,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="bgpStatus")
     def bgp_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Up/Down state of the BGP peer.
-        """
         return pulumi.get(self, "bgp_status")
 
     @bgp_status.setter
@@ -249,10 +188,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="customerAddress")
     def customer_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IPv4 CIDR destination address to which Amazon should send traffic.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "customer_address")
 
     @customer_address.setter
@@ -262,9 +197,6 @@ class _BgpPeerState:
     @property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        """
         return pulumi.get(self, "virtual_interface_id")
 
     @virtual_interface_id.setter
@@ -285,30 +217,9 @@ class BgpPeer(pulumi.CustomResource):
                  virtual_interface_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Direct Connect BGP peer resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        peer = aws.directconnect.BgpPeer("peer",
-            virtual_interface_id=aws_dx_private_virtual_interface["foo"]["id"],
-            address_family="ipv6",
-            bgp_asn=65351)
-        ```
-
+        Create a BgpPeer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
-        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         ...
     @overload
@@ -317,20 +228,7 @@ class BgpPeer(pulumi.CustomResource):
                  args: BgpPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Direct Connect BGP peer resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        peer = aws.directconnect.BgpPeer("peer",
-            virtual_interface_id=aws_dx_private_virtual_interface["foo"]["id"],
-            address_family="ipv6",
-            bgp_asn=65351)
-        ```
-
+        Create a BgpPeer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BgpPeerArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,17 +300,6 @@ class BgpPeer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        :param pulumi.Input[str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] aws_device: The Direct Connect endpoint on which the BGP peer terminates.
-        :param pulumi.Input[int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        :param pulumi.Input[str] bgp_auth_key: The authentication key for BGP configuration.
-        :param pulumi.Input[str] bgp_peer_id: The ID of the BGP peer.
-        :param pulumi.Input[str] bgp_status: The Up/Down state of the BGP peer.
-        :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
-               Required for IPv4 BGP peers on public virtual interfaces.
-        :param pulumi.Input[str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,74 +319,45 @@ class BgpPeer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[str]:
-        """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        """
         return pulumi.get(self, "address_family")
 
     @property
     @pulumi.getter(name="amazonAddress")
     def amazon_address(self) -> pulumi.Output[str]:
-        """
-        The IPv4 CIDR address to use to send traffic to Amazon.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "amazon_address")
 
     @property
     @pulumi.getter(name="awsDevice")
     def aws_device(self) -> pulumi.Output[str]:
-        """
-        The Direct Connect endpoint on which the BGP peer terminates.
-        """
         return pulumi.get(self, "aws_device")
 
     @property
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Output[int]:
-        """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        """
         return pulumi.get(self, "bgp_asn")
 
     @property
     @pulumi.getter(name="bgpAuthKey")
     def bgp_auth_key(self) -> pulumi.Output[str]:
-        """
-        The authentication key for BGP configuration.
-        """
         return pulumi.get(self, "bgp_auth_key")
 
     @property
     @pulumi.getter(name="bgpPeerId")
     def bgp_peer_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the BGP peer.
-        """
         return pulumi.get(self, "bgp_peer_id")
 
     @property
     @pulumi.getter(name="bgpStatus")
     def bgp_status(self) -> pulumi.Output[str]:
-        """
-        The Up/Down state of the BGP peer.
-        """
         return pulumi.get(self, "bgp_status")
 
     @property
     @pulumi.getter(name="customerAddress")
     def customer_address(self) -> pulumi.Output[str]:
-        """
-        The IPv4 CIDR destination address to which Amazon should send traffic.
-        Required for IPv4 BGP peers on public virtual interfaces.
-        """
         return pulumi.get(self, "customer_address")
 
     @property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        """
         return pulumi.get(self, "virtual_interface_id")
 

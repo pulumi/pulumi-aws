@@ -21,11 +21,6 @@ class WorkflowArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workflow resource.
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[str] name: The name you assign to this workflow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if default_run_properties is not None:
             pulumi.set(__self__, "default_run_properties", default_run_properties)
@@ -41,9 +36,6 @@ class WorkflowArgs:
     @property
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        """
         return pulumi.get(self, "default_run_properties")
 
     @default_run_properties.setter
@@ -53,9 +45,6 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -65,9 +54,6 @@ class WorkflowArgs:
     @property
     @pulumi.getter(name="maxConcurrentRuns")
     def max_concurrent_runs(self) -> Optional[pulumi.Input[int]]:
-        """
-        Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        """
         return pulumi.get(self, "max_concurrent_runs")
 
     @max_concurrent_runs.setter
@@ -77,9 +63,6 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you assign to this workflow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -89,9 +72,6 @@ class WorkflowArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,13 +91,6 @@ class _WorkflowState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workflow resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Workflow
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[str] name: The name you assign to this workflow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -137,9 +110,6 @@ class _WorkflowState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of Glue Workflow
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -149,9 +119,6 @@ class _WorkflowState:
     @property
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        """
         return pulumi.get(self, "default_run_properties")
 
     @default_run_properties.setter
@@ -161,9 +128,6 @@ class _WorkflowState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -173,9 +137,6 @@ class _WorkflowState:
     @property
     @pulumi.getter(name="maxConcurrentRuns")
     def max_concurrent_runs(self) -> Optional[pulumi.Input[int]]:
-        """
-        Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        """
         return pulumi.get(self, "max_concurrent_runs")
 
     @max_concurrent_runs.setter
@@ -185,9 +146,6 @@ class _WorkflowState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you assign to this workflow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -197,9 +155,6 @@ class _WorkflowState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -209,9 +164,6 @@ class _WorkflowState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -231,52 +183,9 @@ class Workflow(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Glue Workflow resource.
-        The workflow graph (DAG) can be build using the `glue.Trigger` resource.
-        See the example below for creating a graph with four nodes (two triggers and two jobs).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Workflow("example")
-        example_start = aws.glue.Trigger("example-start",
-            type="ON_DEMAND",
-            workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="example-job",
-            )])
-        example_inner = aws.glue.Trigger("example-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name="example-job",
-                    state="SUCCEEDED",
-                )],
-            ),
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="another-example-job",
-            )])
-        ```
-
-        ## Import
-
-        Glue Workflows can be imported using `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-        ```
-
+        Create a Workflow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[str] name: The name you assign to this workflow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -285,45 +194,7 @@ class Workflow(pulumi.CustomResource):
                  args: Optional[WorkflowArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Glue Workflow resource.
-        The workflow graph (DAG) can be build using the `glue.Trigger` resource.
-        See the example below for creating a graph with four nodes (two triggers and two jobs).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.glue.Workflow("example")
-        example_start = aws.glue.Trigger("example-start",
-            type="ON_DEMAND",
-            workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="example-job",
-            )])
-        example_inner = aws.glue.Trigger("example-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
-                    job_name="example-job",
-                    state="SUCCEEDED",
-                )],
-            ),
-            actions=[aws.glue.TriggerActionArgs(
-                job_name="another-example-job",
-            )])
-        ```
-
-        ## Import
-
-        Glue Workflows can be imported using `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-        ```
-
+        Create a Workflow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -384,13 +255,6 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue Workflow
-        :param pulumi.Input[Mapping[str, Any]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        :param pulumi.Input[str] description: Description of the workflow.
-        :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        :param pulumi.Input[str] name: The name you assign to this workflow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -408,56 +272,35 @@ class Workflow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of Glue Workflow
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultRunProperties")
     def default_run_properties(self) -> pulumi.Output[Optional[Mapping[str, Any]]]:
-        """
-        A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
-        """
         return pulumi.get(self, "default_run_properties")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the workflow.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="maxConcurrentRuns")
     def max_concurrent_runs(self) -> pulumi.Output[Optional[int]]:
-        """
-        Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
-        """
         return pulumi.get(self, "max_concurrent_runs")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name you assign to this workflow.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

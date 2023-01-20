@@ -47,17 +47,11 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter(name="authorizationToken")
     def authorization_token(self) -> str:
-        """
-        Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-        """
         return pulumi.get(self, "authorization_token")
 
     @property
     @pulumi.getter(name="expiresAt")
     def expires_at(self) -> str:
-        """
-        Time in UTC RFC3339 format when the authorization token expires.
-        """
         return pulumi.get(self, "expires_at")
 
     @property
@@ -71,17 +65,11 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter
     def password(self) -> str:
-        """
-        Password decoded from the authorization token.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="proxyEndpoint")
     def proxy_endpoint(self) -> str:
-        """
-        Registry URL to use in the docker login command.
-        """
         return pulumi.get(self, "proxy_endpoint")
 
     @property
@@ -92,9 +80,6 @@ class GetAuthorizationTokenResult:
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
-        """
-        User name decoded from the authorization token.
-        """
         return pulumi.get(self, "user_name")
 
 
@@ -116,19 +101,7 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
 def get_authorization_token(registry_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
-    The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    token = aws.ecr.get_authorization_token()
-    ```
-
-
-    :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['registryId'] = registry_id
@@ -149,18 +122,6 @@ def get_authorization_token(registry_id: Optional[str] = None,
 def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
-    The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    token = aws.ecr.get_authorization_token()
-    ```
-
-
-    :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
+    Use this data source to access information about an existing resource.
     """
     ...

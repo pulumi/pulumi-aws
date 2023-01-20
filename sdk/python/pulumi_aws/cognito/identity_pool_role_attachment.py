@@ -21,9 +21,6 @@ class IdentityPoolRoleAttachmentArgs:
                  role_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]] = None):
         """
         The set of arguments for constructing a IdentityPoolRoleAttachment resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "roles", roles)
@@ -33,9 +30,6 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Input[str]:
-        """
-        An identity pool ID in the format `REGION_GUID`.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -45,9 +39,6 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        """
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -57,9 +48,6 @@ class IdentityPoolRoleAttachmentArgs:
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]:
-        """
-        A List of Role Mapping.
-        """
         return pulumi.get(self, "role_mappings")
 
     @role_mappings.setter
@@ -75,9 +63,6 @@ class _IdentityPoolRoleAttachmentState:
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IdentityPoolRoleAttachment resources.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]] role_mappings: A List of Role Mapping.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         if identity_pool_id is not None:
             pulumi.set(__self__, "identity_pool_id", identity_pool_id)
@@ -89,9 +74,6 @@ class _IdentityPoolRoleAttachmentState:
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        An identity pool ID in the format `REGION_GUID`.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @identity_pool_id.setter
@@ -101,9 +83,6 @@ class _IdentityPoolRoleAttachmentState:
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingArgs']]]]:
-        """
-        A List of Role Mapping.
-        """
         return pulumi.get(self, "role_mappings")
 
     @role_mappings.setter
@@ -113,9 +92,6 @@ class _IdentityPoolRoleAttachmentState:
     @property
     @pulumi.getter
     def roles(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        """
         return pulumi.get(self, "roles")
 
     @roles.setter
@@ -133,91 +109,9 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  roles: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an AWS Cognito Identity Pool Roles Attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main_identity_pool = aws.cognito.IdentityPool("mainIdentityPool",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            supported_login_providers={
-                "graph.facebook.com": "7346241598935555",
-            })
-        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=main_identity_pool.id.apply(lambda id: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Federated": "cognito-identity.amazonaws.com"
-              }},
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {{
-                "StringEquals": {{
-                  "cognito-identity.amazonaws.com:aud": "{id}"
-                }},
-                "ForAnyValue:StringLike": {{
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
-        authenticated_role_policy = aws.iam.RolePolicy("authenticatedRolePolicy",
-            role=authenticated_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "mobileanalytics:PutEvents",
-                "cognito-sync:*",
-                "cognito-identity:*"
-              ],
-              "Resource": [
-                "*"
-              ]
-            }
-          ]
-        }
-        \"\"\")
-        main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
-            identity_pool_id=main_identity_pool.id,
-            role_mappings=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingArgs(
-                identity_provider="graph.facebook.com",
-                ambiguous_role_resolution="AuthenticatedRole",
-                type="Rules",
-                mapping_rules=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs(
-                    claim="isAdmin",
-                    match_type="Equals",
-                    role_arn=authenticated_role.arn,
-                    value="paid",
-                )],
-            )],
-            roles={
-                "authenticated": authenticated_role.arn,
-            })
-        ```
-
-        ## Import
-
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-        ```
-
+        Create a IdentityPoolRoleAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: A List of Role Mapping.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         ...
     @overload
@@ -226,86 +120,7 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
                  args: IdentityPoolRoleAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Cognito Identity Pool Roles Attachment.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main_identity_pool = aws.cognito.IdentityPool("mainIdentityPool",
-            identity_pool_name="identity pool",
-            allow_unauthenticated_identities=False,
-            supported_login_providers={
-                "graph.facebook.com": "7346241598935555",
-            })
-        authenticated_role = aws.iam.Role("authenticatedRole", assume_role_policy=main_identity_pool.id.apply(lambda id: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Principal": {{
-                "Federated": "cognito-identity.amazonaws.com"
-              }},
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {{
-                "StringEquals": {{
-                  "cognito-identity.amazonaws.com:aud": "{id}"
-                }},
-                "ForAnyValue:StringLike": {{
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }}
-              }}
-            }}
-          ]
-        }}
-        \"\"\"))
-        authenticated_role_policy = aws.iam.RolePolicy("authenticatedRolePolicy",
-            role=authenticated_role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "mobileanalytics:PutEvents",
-                "cognito-sync:*",
-                "cognito-identity:*"
-              ],
-              "Resource": [
-                "*"
-              ]
-            }
-          ]
-        }
-        \"\"\")
-        main_identity_pool_role_attachment = aws.cognito.IdentityPoolRoleAttachment("mainIdentityPoolRoleAttachment",
-            identity_pool_id=main_identity_pool.id,
-            role_mappings=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingArgs(
-                identity_provider="graph.facebook.com",
-                ambiguous_role_resolution="AuthenticatedRole",
-                type="Rules",
-                mapping_rules=[aws.cognito.IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs(
-                    claim="isAdmin",
-                    match_type="Equals",
-                    role_arn=authenticated_role.arn,
-                    value="paid",
-                )],
-            )],
-            roles={
-                "authenticated": authenticated_role.arn,
-            })
-        ```
-
-        ## Import
-
-        Cognito Identity Pool Roles Attachment can be imported using the Identity Pool ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-        ```
-
+        Create a IdentityPoolRoleAttachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IdentityPoolRoleAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,9 +175,6 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identity_pool_id: An identity pool ID in the format `REGION_GUID`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolRoleAttachmentRoleMappingArgs']]]] role_mappings: A List of Role Mapping.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] roles: The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,24 +188,15 @@ class IdentityPoolRoleAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="identityPoolId")
     def identity_pool_id(self) -> pulumi.Output[str]:
-        """
-        An identity pool ID in the format `REGION_GUID`.
-        """
         return pulumi.get(self, "identity_pool_id")
 
     @property
     @pulumi.getter(name="roleMappings")
     def role_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.IdentityPoolRoleAttachmentRoleMapping']]]:
-        """
-        A List of Role Mapping.
-        """
         return pulumi.get(self, "role_mappings")
 
     @property
     @pulumi.getter
     def roles(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
-        """
         return pulumi.get(self, "roles")
 

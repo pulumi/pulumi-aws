@@ -18,8 +18,6 @@ class PolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        :param pulumi.Input[str] name: The name of the policy.
         """
         pulumi.set(__self__, "policy", policy)
         if name is not None:
@@ -28,9 +26,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
-        """
-        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -40,9 +35,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -59,10 +51,6 @@ class _PolicyState:
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
-        :param pulumi.Input[str] default_version_id: The default version of this policy.
-        :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -76,9 +64,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN assigned by AWS to this policy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -88,9 +73,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default version of this policy.
-        """
         return pulumi.get(self, "default_version_id")
 
     @default_version_id.setter
@@ -100,9 +82,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -112,9 +91,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -131,37 +107,9 @@ class Policy(pulumi.CustomResource):
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an IoT policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        pubsub = aws.iot.Policy("pubsub", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["iot:*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        ```
-
-        ## Import
-
-        IoT policies can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """
         ...
     @overload
@@ -170,33 +118,7 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IoT policy.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        pubsub = aws.iot.Policy("pubsub", policy=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["iot:*"],
-                "Effect": "Allow",
-                "Resource": "*",
-            }],
-        }))
-        ```
-
-        ## Import
-
-        IoT policies can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,10 +172,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN assigned by AWS to this policy.
-        :param pulumi.Input[str] default_version_id: The default version of this policy.
-        :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[str] policy: The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,32 +186,20 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN assigned by AWS to this policy.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="defaultVersionId")
     def default_version_id(self) -> pulumi.Output[str]:
-        """
-        The default version of this policy.
-        """
         return pulumi.get(self, "default_version_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the policy.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
-        """
         return pulumi.get(self, "policy")
 

@@ -109,34 +109,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
                 sort_ascending: Optional[bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
-    Use this data source to get a list of AMI IDs matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
-            name="name",
-            values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
-        )],
-        owners=["099720109477"])
-    ```
-
-
-    :param Sequence[str] executable_users: Limit search to users with *explicit* launch
-           permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
-           are several valid keys, for a full reference, check out
-           [describe-images in the AWS CLI reference][1].
-    :param str name_regex: Regex string to apply to the AMI list returned
-           by AWS. This allows more advanced filtering not supported from the AWS API.
-           This filtering is done locally on what AWS returns, and could have a performance
-           impact if the result is large. Combine this with other
-           options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
-    :param bool sort_ascending: Used to sort AMIs by creation time.
+    Use this data source to access information about an existing resource.
     """
     pulumi.log.warn("""get_ami_ids is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds""")
     __args__ = dict()
@@ -166,34 +139,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
                        sort_ascending: Optional[pulumi.Input[Optional[bool]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
-    Use this data source to get a list of AMI IDs matching the specified criteria.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
-            name="name",
-            values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
-        )],
-        owners=["099720109477"])
-    ```
-
-
-    :param Sequence[str] executable_users: Limit search to users with *explicit* launch
-           permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
-           are several valid keys, for a full reference, check out
-           [describe-images in the AWS CLI reference][1].
-    :param str name_regex: Regex string to apply to the AMI list returned
-           by AWS. This allows more advanced filtering not supported from the AWS API.
-           This filtering is done locally on what AWS returns, and could have a performance
-           impact if the result is large. Combine this with other
-           options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
-    :param bool sort_ascending: Used to sort AMIs by creation time.
+    Use this data source to access information about an existing resource.
     """
     pulumi.log.warn("""get_ami_ids is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds""")
     ...

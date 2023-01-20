@@ -20,10 +20,6 @@ class ProductPortfolioAssociationArgs:
                  source_portfolio_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProductPortfolioAssociation resource.
-        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[str] product_id: Product identifier.
-        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         pulumi.set(__self__, "portfolio_id", portfolio_id)
         pulumi.set(__self__, "product_id", product_id)
@@ -35,9 +31,6 @@ class ProductPortfolioAssociationArgs:
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Input[str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -47,9 +40,6 @@ class ProductPortfolioAssociationArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[str]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -59,9 +49,6 @@ class ProductPortfolioAssociationArgs:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -71,9 +58,6 @@ class ProductPortfolioAssociationArgs:
     @property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
@@ -90,10 +74,6 @@ class _ProductPortfolioAssociationState:
                  source_portfolio_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProductPortfolioAssociation resources.
-        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[str] product_id: Product identifier.
-        :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -107,9 +87,6 @@ class _ProductPortfolioAssociationState:
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> Optional[pulumi.Input[str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
@@ -119,9 +96,6 @@ class _ProductPortfolioAssociationState:
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @portfolio_id.setter
@@ -131,9 +105,6 @@ class _ProductPortfolioAssociationState:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -143,9 +114,6 @@ class _ProductPortfolioAssociationState:
     @property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 
     @source_portfolio_id.setter
@@ -164,34 +132,9 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
                  source_portfolio_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Product Portfolio Association.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-        ```
-
+        Create a ProductPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[str] product_id: Product identifier.
-        :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         ...
     @overload
@@ -200,28 +143,7 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
                  args: ProductPortfolioAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Product Portfolio Association.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.ProductPortfolioAssociation("example",
-            portfolio_id="port-68656c6c6f",
-            product_id="prod-dnigbtea24ste")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
-        ```
-
+        Create a ProductPortfolioAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProductPortfolioAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,10 +201,6 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] portfolio_id: Portfolio identifier.
-        :param pulumi.Input[str] product_id: Product identifier.
-        :param pulumi.Input[str] source_portfolio_id: Identifier of the source portfolio.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -297,32 +215,20 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptLanguage")
     def accept_language(self) -> pulumi.Output[Optional[str]]:
-        """
-        Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        """
         return pulumi.get(self, "accept_language")
 
     @property
     @pulumi.getter(name="portfolioId")
     def portfolio_id(self) -> pulumi.Output[str]:
-        """
-        Portfolio identifier.
-        """
         return pulumi.get(self, "portfolio_id")
 
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[str]:
-        """
-        Product identifier.
-        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="sourcePortfolioId")
     def source_portfolio_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Identifier of the source portfolio.
-        """
         return pulumi.get(self, "source_portfolio_id")
 

@@ -54,33 +54,21 @@ class GetPlaceIndexResult:
     @property
     @pulumi.getter(name="createTime")
     def create_time(self) -> str:
-        """
-        Timestamp for when the place index resource was created in ISO 8601 format.
-        """
         return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> str:
-        """
-        Data provider of geospatial data.
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataSourceConfigurations")
     def data_source_configurations(self) -> Sequence['outputs.GetPlaceIndexDataSourceConfigurationResult']:
-        """
-        List of configurations that specify data storage option for requesting Places.
-        """
         return pulumi.get(self, "data_source_configurations")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Optional description for the place index resource.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -94,9 +82,6 @@ class GetPlaceIndexResult:
     @property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> str:
-        """
-        ARN for the place index resource.
-        """
         return pulumi.get(self, "index_arn")
 
     @property
@@ -107,17 +92,11 @@ class GetPlaceIndexResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of resource tags for the place index.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
-        """
-        Timestamp for when the place index resource was last updated in ISO 8601 format.
-        """
         return pulumi.get(self, "update_time")
 
 
@@ -142,20 +121,7 @@ def get_place_index(index_name: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlaceIndexResult:
     """
-    Retrieve information about a Location Service Place Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
-
-
-    :param str index_name: Name of the place index resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['indexName'] = index_name
@@ -180,19 +146,6 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
-    Retrieve information about a Location Service Place Index.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.location.get_place_index(index_name="example")
-    ```
-
-
-    :param str index_name: Name of the place index resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
+    Use this data source to access information about an existing resource.
     """
     ...

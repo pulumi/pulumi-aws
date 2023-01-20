@@ -140,30 +140,7 @@ def get_server_certificate(latest: Optional[bool] = None,
                            path_prefix: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerCertificateResult:
     """
-    Use this data source to lookup information about IAM Server Certificates.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
-        latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
-        instance_port=8000,
-        instance_protocol="https",
-        lb_port=443,
-        lb_protocol="https",
-        ssl_certificate_id=my_domain.arn,
-    )])
-    ```
-
-
-    :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.
-    :param str name: exact name of the cert to lookup
-    :param str name_prefix: prefix of cert to filter by
-    :param str path_prefix: prefix of path to filter by
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['latest'] = latest
@@ -194,29 +171,6 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
                                   path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
-    Use this data source to lookup information about IAM Server Certificates.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
-        latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
-        instance_port=8000,
-        instance_protocol="https",
-        lb_port=443,
-        lb_protocol="https",
-        ssl_certificate_id=my_domain.arn,
-    )])
-    ```
-
-
-    :param bool latest: sort results by expiration date. returns the certificate with expiration date in furthest in the future.
-    :param str name: exact name of the cert to lookup
-    :param str name_prefix: prefix of cert to filter by
-    :param str path_prefix: prefix of path to filter by
+    Use this data source to access information about an existing resource.
     """
     ...

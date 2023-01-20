@@ -19,9 +19,6 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
@@ -33,9 +30,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -45,9 +39,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -57,9 +48,6 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -80,14 +68,6 @@ class _ApplicationState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] arn: The ARN of the CodeDeploy application.
-        :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        :param pulumi.Input[str] github_account_name: The name for a connection to a GitHub account.
-        :param pulumi.Input[bool] linked_to_github: Whether the user has authenticated with GitHub for the specified application.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -109,9 +89,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -121,9 +98,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the CodeDeploy application.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -133,9 +107,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> Optional[pulumi.Input[str]]:
-        """
-        The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @compute_platform.setter
@@ -145,9 +116,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="githubAccountName")
     def github_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name for a connection to a GitHub account.
-        """
         return pulumi.get(self, "github_account_name")
 
     @github_account_name.setter
@@ -157,9 +125,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="linkedToGithub")
     def linked_to_github(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the user has authenticated with GitHub for the specified application.
-        """
         return pulumi.get(self, "linked_to_github")
 
     @linked_to_github.setter
@@ -169,9 +134,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -181,9 +143,6 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,9 +152,6 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -213,47 +169,9 @@ class Application(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a CodeDeploy application to be used as a basis for deployments
-
-        ## Example Usage
-        ### ECS Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="ECS")
-        ```
-        ### Lambda Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="Lambda")
-        ```
-        ### Server Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="Server")
-        ```
-
-        ## Import
-
-        CodeDeploy Applications can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -262,42 +180,7 @@ class Application(pulumi.CustomResource):
                  args: Optional[ApplicationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeDeploy application to be used as a basis for deployments
-
-        ## Example Usage
-        ### ECS Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="ECS")
-        ```
-        ### Lambda Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="Lambda")
-        ```
-        ### Server Application
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.codedeploy.Application("example", compute_platform="Server")
-        ```
-
-        ## Import
-
-        CodeDeploy Applications can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
-        ```
-
+        Create a Application resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -358,14 +241,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] arn: The ARN of the CodeDeploy application.
-        :param pulumi.Input[str] compute_platform: The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        :param pulumi.Input[str] github_account_name: The name for a connection to a GitHub account.
-        :param pulumi.Input[bool] linked_to_github: Whether the user has authenticated with GitHub for the specified application.
-        :param pulumi.Input[str] name: The name of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -384,64 +259,40 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the CodeDeploy application.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="computePlatform")
     def compute_platform(self) -> pulumi.Output[Optional[str]]:
-        """
-        The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
-        """
         return pulumi.get(self, "compute_platform")
 
     @property
     @pulumi.getter(name="githubAccountName")
     def github_account_name(self) -> pulumi.Output[str]:
-        """
-        The name for a connection to a GitHub account.
-        """
         return pulumi.get(self, "github_account_name")
 
     @property
     @pulumi.getter(name="linkedToGithub")
     def linked_to_github(self) -> pulumi.Output[bool]:
-        """
-        Whether the user has authenticated with GitHub for the specified application.
-        """
         return pulumi.get(self, "linked_to_github")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the application.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

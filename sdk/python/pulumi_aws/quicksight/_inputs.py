@@ -44,11 +44,6 @@ class DataSourceCredentialsArgs:
     def __init__(__self__, *,
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
                  credential_pair: Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']] = None):
-        """
-        :param pulumi.Input[str] copy_source_arn: - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-               When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: - Credential pair. See Credential Pair below for more details.
-        """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
         if credential_pair is not None:
@@ -57,10 +52,6 @@ class DataSourceCredentialsArgs:
     @property
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
-        When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        """
         return pulumi.get(self, "copy_source_arn")
 
     @copy_source_arn.setter
@@ -70,9 +61,6 @@ class DataSourceCredentialsArgs:
     @property
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional[pulumi.Input['DataSourceCredentialsCredentialPairArgs']]:
-        """
-        - Credential pair. See Credential Pair below for more details.
-        """
         return pulumi.get(self, "credential_pair")
 
     @credential_pair.setter
@@ -85,19 +73,12 @@ class DataSourceCredentialsCredentialPairArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] password: Password, maximum length of 1024 characters.
-        :param pulumi.Input[str] username: User name, maximum length of 64 characters.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
-        """
-        Password, maximum length of 1024 characters.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -107,9 +88,6 @@ class DataSourceCredentialsCredentialPairArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
-        """
-        User name, maximum length of 64 characters.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -140,28 +118,6 @@ class DataSourceParametersArgs:
                  sql_server: Optional[pulumi.Input['DataSourceParametersSqlServerArgs']] = None,
                  teradata: Optional[pulumi.Input['DataSourceParametersTeradataArgs']] = None,
                  twitter: Optional[pulumi.Input['DataSourceParametersTwitterArgs']] = None):
-        """
-        :param pulumi.Input['DataSourceParametersAmazonElasticsearchArgs'] amazon_elasticsearch: Parameters for connecting to Amazon Elasticsearch.
-        :param pulumi.Input['DataSourceParametersAthenaArgs'] athena: Parameters for connecting to Athena.
-        :param pulumi.Input['DataSourceParametersAuroraArgs'] aurora: Parameters for connecting to Aurora MySQL.
-        :param pulumi.Input['DataSourceParametersAuroraPostgresqlArgs'] aurora_postgresql: Parameters for connecting to Aurora Postgresql.
-        :param pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs'] aws_iot_analytics: Parameters for connecting to AWS IOT Analytics.
-        :param pulumi.Input['DataSourceParametersJiraArgs'] jira: Parameters for connecting to Jira.
-        :param pulumi.Input['DataSourceParametersMariaDbArgs'] maria_db: Parameters for connecting to MariaDB.
-        :param pulumi.Input['DataSourceParametersMysqlArgs'] mysql: Parameters for connecting to MySQL.
-        :param pulumi.Input['DataSourceParametersOracleArgs'] oracle: Parameters for connecting to Oracle.
-        :param pulumi.Input['DataSourceParametersPostgresqlArgs'] postgresql: Parameters for connecting to Postgresql.
-        :param pulumi.Input['DataSourceParametersPrestoArgs'] presto: Parameters for connecting to Presto.
-        :param pulumi.Input['DataSourceParametersRdsArgs'] rds: Parameters for connecting to RDS.
-        :param pulumi.Input['DataSourceParametersRedshiftArgs'] redshift: Parameters for connecting to Redshift.
-        :param pulumi.Input['DataSourceParametersS3Args'] s3: Parameters for connecting to S3.
-        :param pulumi.Input['DataSourceParametersServiceNowArgs'] service_now: Parameters for connecting to ServiceNow.
-        :param pulumi.Input['DataSourceParametersSnowflakeArgs'] snowflake: Parameters for connecting to Snowflake.
-        :param pulumi.Input['DataSourceParametersSparkArgs'] spark: Parameters for connecting to Spark.
-        :param pulumi.Input['DataSourceParametersSqlServerArgs'] sql_server: Parameters for connecting to SQL Server.
-        :param pulumi.Input['DataSourceParametersTeradataArgs'] teradata: Parameters for connecting to Teradata.
-        :param pulumi.Input['DataSourceParametersTwitterArgs'] twitter: Parameters for connecting to Twitter.
-        """
         if amazon_elasticsearch is not None:
             pulumi.set(__self__, "amazon_elasticsearch", amazon_elasticsearch)
         if athena is not None:
@@ -206,9 +162,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="amazonElasticsearch")
     def amazon_elasticsearch(self) -> Optional[pulumi.Input['DataSourceParametersAmazonElasticsearchArgs']]:
-        """
-        Parameters for connecting to Amazon Elasticsearch.
-        """
         return pulumi.get(self, "amazon_elasticsearch")
 
     @amazon_elasticsearch.setter
@@ -218,9 +171,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def athena(self) -> Optional[pulumi.Input['DataSourceParametersAthenaArgs']]:
-        """
-        Parameters for connecting to Athena.
-        """
         return pulumi.get(self, "athena")
 
     @athena.setter
@@ -230,9 +180,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def aurora(self) -> Optional[pulumi.Input['DataSourceParametersAuroraArgs']]:
-        """
-        Parameters for connecting to Aurora MySQL.
-        """
         return pulumi.get(self, "aurora")
 
     @aurora.setter
@@ -242,9 +189,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="auroraPostgresql")
     def aurora_postgresql(self) -> Optional[pulumi.Input['DataSourceParametersAuroraPostgresqlArgs']]:
-        """
-        Parameters for connecting to Aurora Postgresql.
-        """
         return pulumi.get(self, "aurora_postgresql")
 
     @aurora_postgresql.setter
@@ -254,9 +198,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="awsIotAnalytics")
     def aws_iot_analytics(self) -> Optional[pulumi.Input['DataSourceParametersAwsIotAnalyticsArgs']]:
-        """
-        Parameters for connecting to AWS IOT Analytics.
-        """
         return pulumi.get(self, "aws_iot_analytics")
 
     @aws_iot_analytics.setter
@@ -266,9 +207,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def jira(self) -> Optional[pulumi.Input['DataSourceParametersJiraArgs']]:
-        """
-        Parameters for connecting to Jira.
-        """
         return pulumi.get(self, "jira")
 
     @jira.setter
@@ -278,9 +216,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="mariaDb")
     def maria_db(self) -> Optional[pulumi.Input['DataSourceParametersMariaDbArgs']]:
-        """
-        Parameters for connecting to MariaDB.
-        """
         return pulumi.get(self, "maria_db")
 
     @maria_db.setter
@@ -290,9 +225,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def mysql(self) -> Optional[pulumi.Input['DataSourceParametersMysqlArgs']]:
-        """
-        Parameters for connecting to MySQL.
-        """
         return pulumi.get(self, "mysql")
 
     @mysql.setter
@@ -302,9 +234,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def oracle(self) -> Optional[pulumi.Input['DataSourceParametersOracleArgs']]:
-        """
-        Parameters for connecting to Oracle.
-        """
         return pulumi.get(self, "oracle")
 
     @oracle.setter
@@ -314,9 +243,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def postgresql(self) -> Optional[pulumi.Input['DataSourceParametersPostgresqlArgs']]:
-        """
-        Parameters for connecting to Postgresql.
-        """
         return pulumi.get(self, "postgresql")
 
     @postgresql.setter
@@ -326,9 +252,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def presto(self) -> Optional[pulumi.Input['DataSourceParametersPrestoArgs']]:
-        """
-        Parameters for connecting to Presto.
-        """
         return pulumi.get(self, "presto")
 
     @presto.setter
@@ -338,9 +261,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def rds(self) -> Optional[pulumi.Input['DataSourceParametersRdsArgs']]:
-        """
-        Parameters for connecting to RDS.
-        """
         return pulumi.get(self, "rds")
 
     @rds.setter
@@ -350,9 +270,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def redshift(self) -> Optional[pulumi.Input['DataSourceParametersRedshiftArgs']]:
-        """
-        Parameters for connecting to Redshift.
-        """
         return pulumi.get(self, "redshift")
 
     @redshift.setter
@@ -362,9 +279,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['DataSourceParametersS3Args']]:
-        """
-        Parameters for connecting to S3.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -374,9 +288,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['DataSourceParametersServiceNowArgs']]:
-        """
-        Parameters for connecting to ServiceNow.
-        """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
@@ -386,9 +297,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def snowflake(self) -> Optional[pulumi.Input['DataSourceParametersSnowflakeArgs']]:
-        """
-        Parameters for connecting to Snowflake.
-        """
         return pulumi.get(self, "snowflake")
 
     @snowflake.setter
@@ -398,9 +306,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def spark(self) -> Optional[pulumi.Input['DataSourceParametersSparkArgs']]:
-        """
-        Parameters for connecting to Spark.
-        """
         return pulumi.get(self, "spark")
 
     @spark.setter
@@ -410,9 +315,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter(name="sqlServer")
     def sql_server(self) -> Optional[pulumi.Input['DataSourceParametersSqlServerArgs']]:
-        """
-        Parameters for connecting to SQL Server.
-        """
         return pulumi.get(self, "sql_server")
 
     @sql_server.setter
@@ -422,9 +324,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def teradata(self) -> Optional[pulumi.Input['DataSourceParametersTeradataArgs']]:
-        """
-        Parameters for connecting to Teradata.
-        """
         return pulumi.get(self, "teradata")
 
     @teradata.setter
@@ -434,9 +333,6 @@ class DataSourceParametersArgs:
     @property
     @pulumi.getter
     def twitter(self) -> Optional[pulumi.Input['DataSourceParametersTwitterArgs']]:
-        """
-        Parameters for connecting to Twitter.
-        """
         return pulumi.get(self, "twitter")
 
     @twitter.setter
@@ -448,17 +344,11 @@ class DataSourceParametersArgs:
 class DataSourceParametersAmazonElasticsearchArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] domain: The OpenSearch domain.
-        """
         pulumi.set(__self__, "domain", domain)
 
     @property
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
-        """
-        The OpenSearch domain.
-        """
         return pulumi.get(self, "domain")
 
     @domain.setter
@@ -470,18 +360,12 @@ class DataSourceParametersAmazonElasticsearchArgs:
 class DataSourceParametersAthenaArgs:
     def __init__(__self__, *,
                  work_group: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] work_group: The work-group to which to connect.
-        """
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
 
     @property
     @pulumi.getter(name="workGroup")
     def work_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        The work-group to which to connect.
-        """
         return pulumi.get(self, "work_group")
 
     @work_group.setter
@@ -495,11 +379,6 @@ class DataSourceParametersAuroraArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -507,9 +386,6 @@ class DataSourceParametersAuroraArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -519,9 +395,6 @@ class DataSourceParametersAuroraArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -531,9 +404,6 @@ class DataSourceParametersAuroraArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -547,11 +417,6 @@ class DataSourceParametersAuroraPostgresqlArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -559,9 +424,6 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -571,9 +433,6 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -583,9 +442,6 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -597,17 +453,11 @@ class DataSourceParametersAuroraPostgresqlArgs:
 class DataSourceParametersAwsIotAnalyticsArgs:
     def __init__(__self__, *,
                  data_set_name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] data_set_name: The name of the data set to which to connect.
-        """
         pulumi.set(__self__, "data_set_name", data_set_name)
 
     @property
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> pulumi.Input[str]:
-        """
-        The name of the data set to which to connect.
-        """
         return pulumi.get(self, "data_set_name")
 
     @data_set_name.setter
@@ -619,17 +469,11 @@ class DataSourceParametersAwsIotAnalyticsArgs:
 class DataSourceParametersJiraArgs:
     def __init__(__self__, *,
                  site_base_url: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] site_base_url: The base URL of the Jira instance's site to which to connect.
-        """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> pulumi.Input[str]:
-        """
-        The base URL of the Jira instance's site to which to connect.
-        """
         return pulumi.get(self, "site_base_url")
 
     @site_base_url.setter
@@ -643,11 +487,6 @@ class DataSourceParametersMariaDbArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -655,9 +494,6 @@ class DataSourceParametersMariaDbArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -667,9 +503,6 @@ class DataSourceParametersMariaDbArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -679,9 +512,6 @@ class DataSourceParametersMariaDbArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -695,11 +525,6 @@ class DataSourceParametersMysqlArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -707,9 +532,6 @@ class DataSourceParametersMysqlArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -719,9 +541,6 @@ class DataSourceParametersMysqlArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -731,9 +550,6 @@ class DataSourceParametersMysqlArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -747,11 +563,6 @@ class DataSourceParametersOracleArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -759,9 +570,6 @@ class DataSourceParametersOracleArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -771,9 +579,6 @@ class DataSourceParametersOracleArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -783,9 +588,6 @@ class DataSourceParametersOracleArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -799,11 +601,6 @@ class DataSourceParametersPostgresqlArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -811,9 +608,6 @@ class DataSourceParametersPostgresqlArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -823,9 +617,6 @@ class DataSourceParametersPostgresqlArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -835,9 +626,6 @@ class DataSourceParametersPostgresqlArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -851,11 +639,6 @@ class DataSourceParametersPrestoArgs:
                  catalog: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] catalog: The catalog to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -863,9 +646,6 @@ class DataSourceParametersPrestoArgs:
     @property
     @pulumi.getter
     def catalog(self) -> pulumi.Input[str]:
-        """
-        The catalog to which to connect.
-        """
         return pulumi.get(self, "catalog")
 
     @catalog.setter
@@ -875,9 +655,6 @@ class DataSourceParametersPrestoArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -887,9 +664,6 @@ class DataSourceParametersPrestoArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -902,19 +676,12 @@ class DataSourceParametersRdsArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  instance_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] instance_id: The instance ID to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "instance_id", instance_id)
 
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -924,9 +691,6 @@ class DataSourceParametersRdsArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
-        """
-        The instance ID to which to connect.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -941,12 +705,6 @@ class DataSourceParametersRedshiftArgs:
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] cluster_id: The ID of the cluster to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The port to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
@@ -958,9 +716,6 @@ class DataSourceParametersRedshiftArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -970,9 +725,6 @@ class DataSourceParametersRedshiftArgs:
     @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the cluster to which to connect.
-        """
         return pulumi.get(self, "cluster_id")
 
     @cluster_id.setter
@@ -982,9 +734,6 @@ class DataSourceParametersRedshiftArgs:
     @property
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -994,9 +743,6 @@ class DataSourceParametersRedshiftArgs:
     @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
-        """
-        The port to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1008,17 +754,11 @@ class DataSourceParametersRedshiftArgs:
 class DataSourceParametersS3Args:
     def __init__(__self__, *,
                  manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']):
-        """
-        :param pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'] manifest_file_location: An object containing the S3 location of the S3 manifest file.
-        """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
     def manifest_file_location(self) -> pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']:
-        """
-        An object containing the S3 location of the S3 manifest file.
-        """
         return pulumi.get(self, "manifest_file_location")
 
     @manifest_file_location.setter
@@ -1031,19 +771,12 @@ class DataSourceParametersS3ManifestFileLocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] bucket: The name of the bucket that contains the manifest file.
-        :param pulumi.Input[str] key: The key of the manifest file within the bucket.
-        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
-        """
-        The name of the bucket that contains the manifest file.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -1053,9 +786,6 @@ class DataSourceParametersS3ManifestFileLocationArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        The key of the manifest file within the bucket.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1067,17 +797,11 @@ class DataSourceParametersS3ManifestFileLocationArgs:
 class DataSourceParametersServiceNowArgs:
     def __init__(__self__, *,
                  site_base_url: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] site_base_url: The base URL of the Jira instance's site to which to connect.
-        """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
     @property
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> pulumi.Input[str]:
-        """
-        The base URL of the Jira instance's site to which to connect.
-        """
         return pulumi.get(self, "site_base_url")
 
     @site_base_url.setter
@@ -1091,11 +815,6 @@ class DataSourceParametersSnowflakeArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  warehouse: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[str] warehouse: The warehouse to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "warehouse", warehouse)
@@ -1103,9 +822,6 @@ class DataSourceParametersSnowflakeArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1115,9 +831,6 @@ class DataSourceParametersSnowflakeArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1127,9 +840,6 @@ class DataSourceParametersSnowflakeArgs:
     @property
     @pulumi.getter
     def warehouse(self) -> pulumi.Input[str]:
-        """
-        The warehouse to which to connect.
-        """
         return pulumi.get(self, "warehouse")
 
     @warehouse.setter
@@ -1142,19 +852,12 @@ class DataSourceParametersSparkArgs:
     def __init__(__self__, *,
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The warehouse to which to connect.
-        """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1164,9 +867,6 @@ class DataSourceParametersSparkArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The warehouse to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1180,11 +880,6 @@ class DataSourceParametersSqlServerArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The warehouse to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -1192,9 +887,6 @@ class DataSourceParametersSqlServerArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1204,9 +896,6 @@ class DataSourceParametersSqlServerArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1216,9 +905,6 @@ class DataSourceParametersSqlServerArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The warehouse to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1232,11 +918,6 @@ class DataSourceParametersTeradataArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[int]):
-        """
-        :param pulumi.Input[str] database: The database to which to connect.
-        :param pulumi.Input[str] host: The host to which to connect.
-        :param pulumi.Input[int] port: The warehouse to which to connect.
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -1244,9 +925,6 @@ class DataSourceParametersTeradataArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The database to which to connect.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1256,9 +934,6 @@ class DataSourceParametersTeradataArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        The host to which to connect.
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -1268,9 +943,6 @@ class DataSourceParametersTeradataArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
-        """
-        The warehouse to which to connect.
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -1283,19 +955,12 @@ class DataSourceParametersTwitterArgs:
     def __init__(__self__, *,
                  max_rows: pulumi.Input[int],
                  query: pulumi.Input[str]):
-        """
-        :param pulumi.Input[int] max_rows: The maximum number of rows to query.
-        :param pulumi.Input[str] query: The Twitter query to retrieve the data.
-        """
         pulumi.set(__self__, "max_rows", max_rows)
         pulumi.set(__self__, "query", query)
 
     @property
     @pulumi.getter(name="maxRows")
     def max_rows(self) -> pulumi.Input[int]:
-        """
-        The maximum number of rows to query.
-        """
         return pulumi.get(self, "max_rows")
 
     @max_rows.setter
@@ -1305,9 +970,6 @@ class DataSourceParametersTwitterArgs:
     @property
     @pulumi.getter
     def query(self) -> pulumi.Input[str]:
-        """
-        The Twitter query to retrieve the data.
-        """
         return pulumi.get(self, "query")
 
     @query.setter
@@ -1320,19 +982,12 @@ class DataSourcePermissionArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-        :param pulumi.Input[str] principal: The Amazon Resource Name (ARN) of the principal.
-        """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
 
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Set of IAM actions to grant or revoke permissions on. Max of 16 items.
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -1342,9 +997,6 @@ class DataSourcePermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the principal.
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -1356,17 +1008,11 @@ class DataSourcePermissionArgs:
 class DataSourceSslPropertiesArgs:
     def __init__(__self__, *,
                  disable_ssl: pulumi.Input[bool]):
-        """
-        :param pulumi.Input[bool] disable_ssl: A Boolean option to control whether SSL should be disabled.
-        """
         pulumi.set(__self__, "disable_ssl", disable_ssl)
 
     @property
     @pulumi.getter(name="disableSsl")
     def disable_ssl(self) -> pulumi.Input[bool]:
-        """
-        A Boolean option to control whether SSL should be disabled.
-        """
         return pulumi.get(self, "disable_ssl")
 
     @disable_ssl.setter
@@ -1378,17 +1024,11 @@ class DataSourceSslPropertiesArgs:
 class DataSourceVpcConnectionPropertiesArgs:
     def __init__(__self__, *,
                  vpc_connection_arn: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] vpc_connection_arn: The Amazon Resource Name (ARN) for the VPC connection.
-        """
         pulumi.set(__self__, "vpc_connection_arn", vpc_connection_arn)
 
     @property
     @pulumi.getter(name="vpcConnectionArn")
     def vpc_connection_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) for the VPC connection.
-        """
         return pulumi.get(self, "vpc_connection_arn")
 
     @vpc_connection_arn.setter

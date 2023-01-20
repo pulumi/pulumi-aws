@@ -20,10 +20,6 @@ class InvocationArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Invocation resource.
-        :param pulumi.Input[str] function_name: Name of the lambda function.
-        :param pulumi.Input[str] input: JSON payload to the lambda function.
-        :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "input", input)
@@ -35,9 +31,6 @@ class InvocationArgs:
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
-        """
-        Name of the lambda function.
-        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -47,9 +40,6 @@ class InvocationArgs:
     @property
     @pulumi.getter
     def input(self) -> pulumi.Input[str]:
-        """
-        JSON payload to the lambda function.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -59,9 +49,6 @@ class InvocationArgs:
     @property
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -71,9 +58,6 @@ class InvocationArgs:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -91,11 +75,6 @@ class _InvocationState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Invocation resources.
-        :param pulumi.Input[str] function_name: Name of the lambda function.
-        :param pulumi.Input[str] input: JSON payload to the lambda function.
-        :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[str] result: String result of the lambda function invocation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
@@ -111,9 +90,6 @@ class _InvocationState:
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the lambda function.
-        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -123,9 +99,6 @@ class _InvocationState:
     @property
     @pulumi.getter
     def input(self) -> Optional[pulumi.Input[str]]:
-        """
-        JSON payload to the lambda function.
-        """
         return pulumi.get(self, "input")
 
     @input.setter
@@ -135,9 +108,6 @@ class _InvocationState:
     @property
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -147,9 +117,6 @@ class _InvocationState:
     @property
     @pulumi.getter
     def result(self) -> Optional[pulumi.Input[str]]:
-        """
-        String result of the lambda function invocation.
-        """
         return pulumi.get(self, "result")
 
     @result.setter
@@ -159,9 +126,6 @@ class _InvocationState:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -180,36 +144,9 @@ class Invocation(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
-
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
-
-        ## Example Usage
-        ### Dynamic Invocation Example Using Triggers
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
-            },
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }))
-        ```
-
+        Create a Invocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] function_name: Name of the lambda function.
-        :param pulumi.Input[str] input: JSON payload to the lambda function.
-        :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         ...
     @overload
@@ -218,30 +155,7 @@ class Invocation(pulumi.CustomResource):
                  args: InvocationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
-
-        > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `lambda.Invocation` data source.
-
-        ## Example Usage
-        ### Dynamic Invocation Example Using Triggers
-
-        ```python
-        import pulumi
-        import hashlib
-        import json
-        import pulumi_aws as aws
-
-        example = aws.lambda_.Invocation("example",
-            function_name=aws_lambda_function["lambda_function_test"]["function_name"],
-            triggers={
-                "redeployment": hashlib.sha1(json.dumps([aws_lambda_function["example"]["environment"]]).encode()).hexdigest(),
-            },
-            input=json.dumps({
-                "key1": "value1",
-                "key2": "value2",
-            }))
-        ```
-
+        Create a Invocation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param InvocationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -301,11 +215,6 @@ class Invocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] function_name: Name of the lambda function.
-        :param pulumi.Input[str] input: JSON payload to the lambda function.
-        :param pulumi.Input[str] qualifier: Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        :param pulumi.Input[str] result: String result of the lambda function invocation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,40 +230,25 @@ class Invocation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
-        """
-        Name of the lambda function.
-        """
         return pulumi.get(self, "function_name")
 
     @property
     @pulumi.getter
     def input(self) -> pulumi.Output[str]:
-        """
-        JSON payload to the lambda function.
-        """
         return pulumi.get(self, "input")
 
     @property
     @pulumi.getter
     def qualifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-        """
         return pulumi.get(self, "qualifier")
 
     @property
     @pulumi.getter
     def result(self) -> pulumi.Output[str]:
-        """
-        String result of the lambda function invocation.
-        """
         return pulumi.get(self, "result")
 
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-        """
         return pulumi.get(self, "triggers")
 

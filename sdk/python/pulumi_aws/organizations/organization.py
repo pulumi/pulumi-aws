@@ -21,9 +21,6 @@ class OrganizationArgs:
                  feature_set: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Organization resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         """
         if aws_service_access_principals is not None:
             pulumi.set(__self__, "aws_service_access_principals", aws_service_access_principals)
@@ -35,9 +32,6 @@ class OrganizationArgs:
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
     def aws_service_access_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        """
         return pulumi.get(self, "aws_service_access_principals")
 
     @aws_service_access_principals.setter
@@ -47,9 +41,6 @@ class OrganizationArgs:
     @property
     @pulumi.getter(name="enabledPolicyTypes")
     def enabled_policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        """
         return pulumi.get(self, "enabled_policy_types")
 
     @enabled_policy_types.setter
@@ -59,9 +50,6 @@ class OrganizationArgs:
     @property
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        """
         return pulumi.get(self, "feature_set")
 
     @feature_set.setter
@@ -84,16 +72,6 @@ class _OrganizationState:
                  roots: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]] = None):
         """
         Input properties used for looking up and filtering Organization resources.
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationAccountArgs']]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[str] arn: ARN of the root
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        :param pulumi.Input[str] master_account_arn: ARN of the master account
-        :param pulumi.Input[str] master_account_email: Email address of the master account
-        :param pulumi.Input[str] master_account_id: Identifier of the master account
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]] roots: List of organization roots. All elements have these attributes:
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -119,9 +97,6 @@ class _OrganizationState:
     @property
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationAccountArgs']]]]:
-        """
-        List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "accounts")
 
     @accounts.setter
@@ -131,9 +106,6 @@ class _OrganizationState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the root
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -143,9 +115,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
     def aws_service_access_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        """
         return pulumi.get(self, "aws_service_access_principals")
 
     @aws_service_access_principals.setter
@@ -155,9 +124,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="enabledPolicyTypes")
     def enabled_policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        """
         return pulumi.get(self, "enabled_policy_types")
 
     @enabled_policy_types.setter
@@ -167,9 +133,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        """
         return pulumi.get(self, "feature_set")
 
     @feature_set.setter
@@ -179,9 +142,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the master account
-        """
         return pulumi.get(self, "master_account_arn")
 
     @master_account_arn.setter
@@ -191,9 +151,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="masterAccountEmail")
     def master_account_email(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email address of the master account
-        """
         return pulumi.get(self, "master_account_email")
 
     @master_account_email.setter
@@ -203,9 +160,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the master account
-        """
         return pulumi.get(self, "master_account_id")
 
     @master_account_id.setter
@@ -215,9 +169,6 @@ class _OrganizationState:
     @property
     @pulumi.getter(name="nonMasterAccounts")
     def non_master_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]]]:
-        """
-        List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "non_master_accounts")
 
     @non_master_accounts.setter
@@ -227,9 +178,6 @@ class _OrganizationState:
     @property
     @pulumi.getter
     def roots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]]:
-        """
-        List of organization roots. All elements have these attributes:
-        """
         return pulumi.get(self, "roots")
 
     @roots.setter
@@ -247,39 +195,9 @@ class Organization(pulumi.CustomResource):
                  feature_set: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to create an organization.
-
-        !> **WARNING:** When migrating from a `feature_set` of `CONSOLIDATED_BILLING` to `ALL`, the Organization account owner will received an email stating the following: "You started the process to enable all features for your AWS organization. As part of that process, all member accounts that joined your organization by invitation must approve the change. You don’t need approval from member accounts that you directly created from within your AWS organization." After all member accounts have accepted the invitation, the Organization account owner must then finalize the changes via the [AWS Console](https://console.aws.amazon.com/organizations/home#/organization/settings/migration-progress). Until these steps are performed, the provider will perpetually show a difference, and the `DescribeOrganization` API will continue to show the `FeatureSet` as `CONSOLIDATED_BILLING`. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) for more information.
-
-        !> **WARNING:** [Warning from the AWS Docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html): "We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization's accounts depends on that service. For more information, see the documentation for the other AWS service."
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        org = aws.organizations.Organization("org",
-            aws_service_access_principals=[
-                "cloudtrail.amazonaws.com",
-                "config.amazonaws.com",
-            ],
-            feature_set="ALL")
-        ```
-
-        ## Import
-
-        The AWS organization can be imported by using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
-        ```
-
+        Create a Organization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         """
         ...
     @overload
@@ -288,34 +206,7 @@ class Organization(pulumi.CustomResource):
                  args: Optional[OrganizationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an organization.
-
-        !> **WARNING:** When migrating from a `feature_set` of `CONSOLIDATED_BILLING` to `ALL`, the Organization account owner will received an email stating the following: "You started the process to enable all features for your AWS organization. As part of that process, all member accounts that joined your organization by invitation must approve the change. You don’t need approval from member accounts that you directly created from within your AWS organization." After all member accounts have accepted the invitation, the Organization account owner must then finalize the changes via the [AWS Console](https://console.aws.amazon.com/organizations/home#/organization/settings/migration-progress). Until these steps are performed, the provider will perpetually show a difference, and the `DescribeOrganization` API will continue to show the `FeatureSet` as `CONSOLIDATED_BILLING`. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) for more information.
-
-        !> **WARNING:** [Warning from the AWS Docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html): "We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization's accounts depends on that service. For more information, see the documentation for the other AWS service."
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        org = aws.organizations.Organization("org",
-            aws_service_access_principals=[
-                "cloudtrail.amazonaws.com",
-                "config.amazonaws.com",
-            ],
-            feature_set="ALL")
-        ```
-
-        ## Import
-
-        The AWS organization can be imported by using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
-        ```
-
+        Create a Organization resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -380,16 +271,6 @@ class Organization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationAccountArgs']]]] accounts: List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[str] arn: ARN of the root
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        :param pulumi.Input[str] feature_set: Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        :param pulumi.Input[str] master_account_arn: ARN of the master account
-        :param pulumi.Input[str] master_account_email: Email address of the master account
-        :param pulumi.Input[str] master_account_id: Identifier of the master account
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationNonMasterAccountArgs']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationRootArgs']]]] roots: List of organization roots. All elements have these attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,80 +291,50 @@ class Organization(pulumi.CustomResource):
     @property
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationAccount']]:
-        """
-        List of organization accounts including the master account. For a list excluding the master account, see the `non_master_accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "accounts")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the root
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsServiceAccessPrincipals")
     def aws_service_access_principals(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
-        """
         return pulumi.get(self, "aws_service_access_principals")
 
     @property
     @pulumi.getter(name="enabledPolicyTypes")
     def enabled_policy_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
-        """
         return pulumi.get(self, "enabled_policy_types")
 
     @property
     @pulumi.getter(name="featureSet")
     def feature_set(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specify "ALL" (default) or "CONSOLIDATED_BILLING".
-        """
         return pulumi.get(self, "feature_set")
 
     @property
     @pulumi.getter(name="masterAccountArn")
     def master_account_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the master account
-        """
         return pulumi.get(self, "master_account_arn")
 
     @property
     @pulumi.getter(name="masterAccountEmail")
     def master_account_email(self) -> pulumi.Output[str]:
-        """
-        Email address of the master account
-        """
         return pulumi.get(self, "master_account_email")
 
     @property
     @pulumi.getter(name="masterAccountId")
     def master_account_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the master account
-        """
         return pulumi.get(self, "master_account_id")
 
     @property
     @pulumi.getter(name="nonMasterAccounts")
     def non_master_accounts(self) -> pulumi.Output[Sequence['outputs.OrganizationNonMasterAccount']]:
-        """
-        List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-        """
         return pulumi.get(self, "non_master_accounts")
 
     @property
     @pulumi.getter
     def roots(self) -> pulumi.Output[Sequence['outputs.OrganizationRoot']]:
-        """
-        List of organization roots. All elements have these attributes:
-        """
         return pulumi.get(self, "roots")
 

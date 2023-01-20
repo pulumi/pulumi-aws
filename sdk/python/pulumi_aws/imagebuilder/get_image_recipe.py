@@ -74,33 +74,21 @@ class GetImageRecipeResult:
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Sequence['outputs.GetImageRecipeBlockDeviceMappingResult']:
-        """
-        Set of objects with block device mappings for the image recipe.
-        """
         return pulumi.get(self, "block_device_mappings")
 
     @property
     @pulumi.getter
     def components(self) -> Sequence['outputs.GetImageRecipeComponentResult']:
-        """
-        List of objects with components for the image recipe.
-        """
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="dateCreated")
     def date_created(self) -> str:
-        """
-        Date the image recipe was created.
-        """
         return pulumi.get(self, "date_created")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the image recipe.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -114,65 +102,41 @@ class GetImageRecipeResult:
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the image recipe.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> str:
-        """
-        Owner of the image recipe.
-        """
         return pulumi.get(self, "owner")
 
     @property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> str:
-        """
-        Base image of the image recipe.
-        """
         return pulumi.get(self, "parent_image")
 
     @property
     @pulumi.getter
     def platform(self) -> str:
-        """
-        Platform of the image recipe.
-        """
         return pulumi.get(self, "platform")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Key-value map of resource tags for the image recipe.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> str:
-        """
-        Base64 encoded contents of user data. Commands or a command script to run when build instance is launched.
-        """
         return pulumi.get(self, "user_data_base64")
 
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        Version of the image recipe.
-        """
         return pulumi.get(self, "version")
 
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> str:
-        """
-        Working directory used during build and test workflows.
-        """
         return pulumi.get(self, "working_directory")
 
 
@@ -202,20 +166,7 @@ def get_image_recipe(arn: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipeResult:
     """
-    Provides details about an Image Builder Image Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
-
-
-    :param str arn: ARN of the image recipe.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -245,19 +196,6 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
-    Provides details about an Image Builder Image Recipe.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
-    ```
-
-
-    :param str arn: ARN of the image recipe.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
+    Use this data source to access information about an existing resource.
     """
     ...

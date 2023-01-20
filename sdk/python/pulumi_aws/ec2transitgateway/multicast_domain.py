@@ -21,11 +21,6 @@ class MulticastDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MulticastDomain resource.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-        :param pulumi.Input[str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if auto_accept_shared_associations is not None:
@@ -40,9 +35,6 @@ class MulticastDomainArgs:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
-        """
-        EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -52,9 +44,6 @@ class MulticastDomainArgs:
     @property
     @pulumi.getter(name="autoAcceptSharedAssociations")
     def auto_accept_shared_associations(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "auto_accept_shared_associations")
 
     @auto_accept_shared_associations.setter
@@ -64,9 +53,6 @@ class MulticastDomainArgs:
     @property
     @pulumi.getter(name="igmpv2Support")
     def igmpv2_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "igmpv2_support")
 
     @igmpv2_support.setter
@@ -76,9 +62,6 @@ class MulticastDomainArgs:
     @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "static_sources_support")
 
     @static_sources_support.setter
@@ -88,9 +71,6 @@ class MulticastDomainArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -111,14 +91,6 @@ class _MulticastDomainState:
                  transit_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MulticastDomain resources.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-        :param pulumi.Input[str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-        :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -140,9 +112,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -152,9 +121,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="autoAcceptSharedAssociations")
     def auto_accept_shared_associations(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "auto_accept_shared_associations")
 
     @auto_accept_shared_associations.setter
@@ -164,9 +130,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="igmpv2Support")
     def igmpv2_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "igmpv2_support")
 
     @igmpv2_support.setter
@@ -176,9 +139,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "owner_id")
 
     @owner_id.setter
@@ -188,9 +148,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "static_sources_support")
 
     @static_sources_support.setter
@@ -200,9 +157,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -212,9 +166,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -224,9 +175,6 @@ class _MulticastDomainState:
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-        """
         return pulumi.get(self, "transit_gateway_id")
 
     @transit_gateway_id.setter
@@ -246,112 +194,9 @@ class MulticastDomain(pulumi.CustomResource):
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Multicast Domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
-            ])
-        vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
-        vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
-        subnet1 = aws.ec2.Subnet("subnet1",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.1.0/24",
-            availability_zone=available.names[0])
-        subnet2 = aws.ec2.Subnet("subnet2",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.2.0/24",
-            availability_zone=available.names[1])
-        subnet3 = aws.ec2.Subnet("subnet3",
-            vpc_id=vpc2.id,
-            cidr_block="10.1.1.0/24",
-            availability_zone=available.names[0])
-        instance1 = aws.ec2.Instance("instance1",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet1.id)
-        instance2 = aws.ec2.Instance("instance2",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet2.id)
-        instance3 = aws.ec2.Instance("instance3",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet3.id)
-        tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
-        attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
-            subnet_ids=[
-                subnet1.id,
-                subnet2.id,
-            ],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc1.id)
-        attachment2 = aws.ec2transitgateway.VpcAttachment("attachment2",
-            subnet_ids=[subnet3.id],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc2.id)
-        domain = aws.ec2transitgateway.MulticastDomain("domain",
-            transit_gateway_id=tgw.id,
-            static_sources_support="enable",
-            tags={
-                "Name": "Transit_Gateway_Multicast_Domain_Example",
-            })
-        association3 = aws.ec2transitgateway.MulticastDomainAssociation("association3",
-            subnet_id=subnet3.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        source = aws.ec2transitgateway.MulticastGroupSource("source",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance3.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association3.transit_gateway_multicast_domain_id)
-        association1 = aws.ec2transitgateway.MulticastDomainAssociation("association1",
-            subnet_id=subnet1.id,
-            transit_gateway_attachment_id=attachment1.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        association2 = aws.ec2transitgateway.MulticastDomainAssociation("association2",
-            subnet_id=subnet2.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        member1 = aws.ec2transitgateway.MulticastGroupMember("member1",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance1.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        member2 = aws.ec2transitgateway.MulticastGroupMember("member2",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance2.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_multicast_domain` can be imported by using the EC2 Transit Gateway Multicast Domain identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
-        ```
-
+        Create a MulticastDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
         ...
     @overload
@@ -360,105 +205,7 @@ class MulticastDomain(pulumi.CustomResource):
                  args: MulticastDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Multicast Domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
-                aws.ec2.GetAmiFilterArgs(
-                    name="name",
-                    values=["amzn-ami-hvm-*-x86_64-gp2"],
-                ),
-                aws.ec2.GetAmiFilterArgs(
-                    name="owner-alias",
-                    values=["amazon"],
-                ),
-            ])
-        vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
-        vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
-        subnet1 = aws.ec2.Subnet("subnet1",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.1.0/24",
-            availability_zone=available.names[0])
-        subnet2 = aws.ec2.Subnet("subnet2",
-            vpc_id=vpc1.id,
-            cidr_block="10.0.2.0/24",
-            availability_zone=available.names[1])
-        subnet3 = aws.ec2.Subnet("subnet3",
-            vpc_id=vpc2.id,
-            cidr_block="10.1.1.0/24",
-            availability_zone=available.names[0])
-        instance1 = aws.ec2.Instance("instance1",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet1.id)
-        instance2 = aws.ec2.Instance("instance2",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet2.id)
-        instance3 = aws.ec2.Instance("instance3",
-            ami=amazon_linux.id,
-            instance_type="t2.micro",
-            subnet_id=subnet3.id)
-        tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
-        attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
-            subnet_ids=[
-                subnet1.id,
-                subnet2.id,
-            ],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc1.id)
-        attachment2 = aws.ec2transitgateway.VpcAttachment("attachment2",
-            subnet_ids=[subnet3.id],
-            transit_gateway_id=tgw.id,
-            vpc_id=vpc2.id)
-        domain = aws.ec2transitgateway.MulticastDomain("domain",
-            transit_gateway_id=tgw.id,
-            static_sources_support="enable",
-            tags={
-                "Name": "Transit_Gateway_Multicast_Domain_Example",
-            })
-        association3 = aws.ec2transitgateway.MulticastDomainAssociation("association3",
-            subnet_id=subnet3.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        source = aws.ec2transitgateway.MulticastGroupSource("source",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance3.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association3.transit_gateway_multicast_domain_id)
-        association1 = aws.ec2transitgateway.MulticastDomainAssociation("association1",
-            subnet_id=subnet1.id,
-            transit_gateway_attachment_id=attachment1.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        association2 = aws.ec2transitgateway.MulticastDomainAssociation("association2",
-            subnet_id=subnet2.id,
-            transit_gateway_attachment_id=attachment2.id,
-            transit_gateway_multicast_domain_id=domain.id)
-        member1 = aws.ec2transitgateway.MulticastGroupMember("member1",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance1.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        member2 = aws.ec2transitgateway.MulticastGroupMember("member2",
-            group_ip_address="224.0.0.1",
-            network_interface_id=instance2.primary_network_interface_id,
-            transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_multicast_domain` can be imported by using the EC2 Transit Gateway Multicast Domain identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
-        ```
-
+        Create a MulticastDomain resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MulticastDomainArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -523,14 +270,6 @@ class MulticastDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-        :param pulumi.Input[str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-        :param pulumi.Input[str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -549,64 +288,40 @@ class MulticastDomain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoAcceptSharedAssociations")
     def auto_accept_shared_associations(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "auto_accept_shared_associations")
 
     @property
     @pulumi.getter(name="igmpv2Support")
     def igmpv2_support(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "igmpv2_support")
 
     @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
-        """
         return pulumi.get(self, "owner_id")
 
     @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> pulumi.Output[Optional[str]]:
-        """
-        Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-        """
         return pulumi.get(self, "static_sources_support")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
-        """
-        EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-        """
         return pulumi.get(self, "transit_gateway_id")
 

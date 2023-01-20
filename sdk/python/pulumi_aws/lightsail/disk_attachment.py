@@ -19,9 +19,6 @@ class Disk_attachmentArgs:
                  instance_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a Disk_attachment resource.
-        :param pulumi.Input[str] disk_name: The name of the Lightsail Disk.
-        :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
-        :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
         pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "disk_path", disk_path)
@@ -30,9 +27,6 @@ class Disk_attachmentArgs:
     @property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Lightsail Disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
@@ -42,9 +36,6 @@ class Disk_attachmentArgs:
     @property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> pulumi.Input[str]:
-        """
-        The disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @disk_path.setter
@@ -54,9 +45,6 @@ class Disk_attachmentArgs:
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Input[str]:
-        """
-        The name of the Lightsail Instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -72,9 +60,6 @@ class _Disk_attachmentState:
                  instance_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Disk_attachment resources.
-        :param pulumi.Input[str] disk_name: The name of the Lightsail Disk.
-        :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
-        :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
@@ -86,9 +71,6 @@ class _Disk_attachmentState:
     @property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Lightsail Disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @disk_name.setter
@@ -98,9 +80,6 @@ class _Disk_attachmentState:
     @property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @disk_path.setter
@@ -110,9 +89,6 @@ class _Disk_attachmentState:
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the Lightsail Instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 
     @instance_name.setter
@@ -130,45 +106,9 @@ class Disk_attachment(pulumi.CustomResource):
                  instance_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Attaches a Lightsail disk to a Lightsail Instance
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
-        ## Import
-
-        `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
-        ```
-
+        Create a Disk_attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] disk_name: The name of the Lightsail Disk.
-        :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
-        :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
         ...
     @overload
@@ -177,40 +117,7 @@ class Disk_attachment(pulumi.CustomResource):
                  args: Disk_attachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a Lightsail disk to a Lightsail Instance
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
-                name="opt-in-status",
-                values=["opt-in-not-required"],
-            )])
-        test_disk = aws.lightsail.Disk("testDisk",
-            size_in_gb=8,
-            availability_zone=available.names[0])
-        test_instance = aws.lightsail.Instance("testInstance",
-            availability_zone=available.names[0],
-            blueprint_id="amazon_linux",
-            bundle_id="nano_1_0")
-        test_disk_attachment = aws.lightsail.Disk_attachment("testDisk_attachment",
-            disk_name=test_disk.name,
-            instance_name=test_instance.name,
-            disk_path="/dev/xvdf")
-        ```
-
-        ## Import
-
-        `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
-        ```
-
+        Create a Disk_attachment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param Disk_attachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -267,9 +174,6 @@ class Disk_attachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] disk_name: The name of the Lightsail Disk.
-        :param pulumi.Input[str] disk_path: The disk path to expose to the instance.
-        :param pulumi.Input[str] instance_name: The name of the Lightsail Instance to attach to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,24 +187,15 @@ class Disk_attachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="diskName")
     def disk_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Lightsail Disk.
-        """
         return pulumi.get(self, "disk_name")
 
     @property
     @pulumi.getter(name="diskPath")
     def disk_path(self) -> pulumi.Output[str]:
-        """
-        The disk path to expose to the instance.
-        """
         return pulumi.get(self, "disk_path")
 
     @property
     @pulumi.getter(name="instanceName")
     def instance_name(self) -> pulumi.Output[str]:
-        """
-        The name of the Lightsail Instance to attach to.
-        """
         return pulumi.get(self, "instance_name")
 

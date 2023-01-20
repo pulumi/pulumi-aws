@@ -23,12 +23,6 @@ class ApplicationAppversionLifecycleArgs:
                  delete_source_from_s3: Optional[pulumi.Input[bool]] = None,
                  max_age_in_days: Optional[pulumi.Input[int]] = None,
                  max_count: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] service_role: The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        :param pulumi.Input[bool] delete_source_from_s3: Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        :param pulumi.Input[int] max_age_in_days: The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        :param pulumi.Input[int] max_count: The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         pulumi.set(__self__, "service_role", service_role)
         if delete_source_from_s3 is not None:
             pulumi.set(__self__, "delete_source_from_s3", delete_source_from_s3)
@@ -40,9 +34,6 @@ class ApplicationAppversionLifecycleArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[str]:
-        """
-        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -52,9 +43,6 @@ class ApplicationAppversionLifecycleArgs:
     @property
     @pulumi.getter(name="deleteSourceFromS3")
     def delete_source_from_s3(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        """
         return pulumi.get(self, "delete_source_from_s3")
 
     @delete_source_from_s3.setter
@@ -64,9 +52,6 @@ class ApplicationAppversionLifecycleArgs:
     @property
     @pulumi.getter(name="maxAgeInDays")
     def max_age_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_age_in_days")
 
     @max_age_in_days.setter
@@ -76,9 +61,6 @@ class ApplicationAppversionLifecycleArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -93,9 +75,6 @@ class ConfigurationTemplateSettingArgs:
                  namespace: pulumi.Input[str],
                  value: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: A unique name for this Template.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -105,9 +84,6 @@ class ConfigurationTemplateSettingArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        A unique name for this Template.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -149,10 +125,6 @@ class EnvironmentAllSettingArgs:
                  namespace: pulumi.Input[str],
                  value: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -162,10 +134,6 @@ class EnvironmentAllSettingArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -207,10 +175,6 @@ class EnvironmentSettingArgs:
                  namespace: pulumi.Input[str],
                  value: pulumi.Input[str],
                  resource: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: A unique name for this Environment. This name is used
-               in the application URL
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -220,10 +184,6 @@ class EnvironmentSettingArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
         return pulumi.get(self, "name")
 
     @name.setter

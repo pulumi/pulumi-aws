@@ -18,8 +18,6 @@ class DedicatedIpAssignmentArgs:
                  ip: pulumi.Input[str]):
         """
         The set of arguments for constructing a DedicatedIpAssignment resource.
-        :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
-        :param pulumi.Input[str] ip: Dedicated IP address.
         """
         pulumi.set(__self__, "destination_pool_name", destination_pool_name)
         pulumi.set(__self__, "ip", ip)
@@ -27,9 +25,6 @@ class DedicatedIpAssignmentArgs:
     @property
     @pulumi.getter(name="destinationPoolName")
     def destination_pool_name(self) -> pulumi.Input[str]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "destination_pool_name")
 
     @destination_pool_name.setter
@@ -39,9 +34,6 @@ class DedicatedIpAssignmentArgs:
     @property
     @pulumi.getter
     def ip(self) -> pulumi.Input[str]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -56,8 +48,6 @@ class _DedicatedIpAssignmentState:
                  ip: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DedicatedIpAssignment resources.
-        :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
-        :param pulumi.Input[str] ip: Dedicated IP address.
         """
         if destination_pool_name is not None:
             pulumi.set(__self__, "destination_pool_name", destination_pool_name)
@@ -67,9 +57,6 @@ class _DedicatedIpAssignmentState:
     @property
     @pulumi.getter(name="destinationPoolName")
     def destination_pool_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "destination_pool_name")
 
     @destination_pool_name.setter
@@ -79,9 +66,6 @@ class _DedicatedIpAssignmentState:
     @property
     @pulumi.getter
     def ip(self) -> Optional[pulumi.Input[str]]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "ip")
 
     @ip.setter
@@ -98,34 +82,9 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  ip: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
-
-        This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.DedicatedIpAssignment("example",
-            destination_pool_name="my-pool",
-            ip="0.0.0.0")
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Dedicated IP Assignment can be imported using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
-        ```
-
+        Create a DedicatedIpAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
-        :param pulumi.Input[str] ip: Dedicated IP address.
         """
         ...
     @overload
@@ -134,30 +93,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
                  args: DedicatedIpAssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
-
-        This resource is used with "Standard" dedicated IP addresses. This includes addresses [requested and relinquished manually](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-case.html) via an AWS support case, or [Bring Your Own IP](https://docs.aws.amazon.com/ses/latest/dg/dedicated-ip-byo.html) addresses. Once no longer assigned, this resource returns the IP to the [`ses-default-dedicated-pool`](https://docs.aws.amazon.com/ses/latest/dg/managing-ip-pools.html), managed by AWS.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.sesv2.DedicatedIpAssignment("example",
-            destination_pool_name="my-pool",
-            ip="0.0.0.0")
-        ```
-
-        ## Import
-
-        SESv2 (Simple Email V2) Dedicated IP Assignment can be imported using the `id`, which is a comma-separated string made up of `ip` and `destination_pool_name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment example "0.0.0.0,my-pool"
-        ```
-
+        Create a DedicatedIpAssignment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DedicatedIpAssignmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,8 +145,6 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] destination_pool_name: Dedicated IP address.
-        :param pulumi.Input[str] ip: Dedicated IP address.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,16 +157,10 @@ class DedicatedIpAssignment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationPoolName")
     def destination_pool_name(self) -> pulumi.Output[str]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "destination_pool_name")
 
     @property
     @pulumi.getter
     def ip(self) -> pulumi.Output[str]:
-        """
-        Dedicated IP address.
-        """
         return pulumi.get(self, "ip")
 

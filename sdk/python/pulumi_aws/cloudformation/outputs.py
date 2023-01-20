@@ -42,27 +42,17 @@ class CloudFormationTypeLoggingConfig(dict):
     def __init__(__self__, *,
                  log_group_name: str,
                  log_role_arn: str):
-        """
-        :param str log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        :param str log_role_arn: Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
-        """
-        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         return pulumi.get(self, "log_role_arn")
 
 
@@ -88,10 +78,6 @@ class StackSetAutoDeployment(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  retain_stacks_on_account_removal: Optional[bool] = None):
-        """
-        :param bool enabled: Whether or not auto-deployment is enabled.
-        :param bool retain_stacks_on_account_removal: Whether or not to retain stacks when the account is removed.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retain_stacks_on_account_removal is not None:
@@ -100,17 +86,11 @@ class StackSetAutoDeployment(dict):
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        Whether or not auto-deployment is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="retainStacksOnAccountRemoval")
     def retain_stacks_on_account_removal(self) -> Optional[bool]:
-        """
-        Whether or not to retain stacks when the account is removed.
-        """
         return pulumi.get(self, "retain_stacks_on_account_removal")
 
 
@@ -135,18 +115,12 @@ class StackSetInstanceDeploymentTargets(dict):
 
     def __init__(__self__, *,
                  organizational_unit_ids: Optional[Sequence[str]] = None):
-        """
-        :param Sequence[str] organizational_unit_ids: The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
         if organizational_unit_ids is not None:
             pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
 
     @property
     @pulumi.getter(name="organizationalUnitIds")
     def organizational_unit_ids(self) -> Optional[Sequence[str]]:
-        """
-        The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
         return pulumi.get(self, "organizational_unit_ids")
 
 
@@ -186,14 +160,6 @@ class StackSetInstanceOperationPreferences(dict):
                  max_concurrent_percentage: Optional[int] = None,
                  region_concurrency_type: Optional[str] = None,
                  region_orders: Optional[Sequence[str]] = None):
-        """
-        :param int failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param int failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param int max_concurrent_count: The maximum number of accounts in which to perform this operation at one time.
-        :param int max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
-        :param str region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        :param Sequence[str] region_orders: The order of the Regions in where you want to perform the stack operation.
-        """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -210,49 +176,31 @@ class StackSetInstanceOperationPreferences(dict):
     @property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[int]:
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[int]:
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[int]:
-        """
-        The maximum number of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[int]:
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[str]:
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[Sequence[str]]:
-        """
-        The order of the Regions in where you want to perform the stack operation.
-        """
         return pulumi.get(self, "region_orders")
 
 
@@ -292,14 +240,6 @@ class StackSetOperationPreferences(dict):
                  max_concurrent_percentage: Optional[int] = None,
                  region_concurrency_type: Optional[str] = None,
                  region_orders: Optional[Sequence[str]] = None):
-        """
-        :param int failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param int failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        :param int max_concurrent_count: The maximum number of accounts in which to perform this operation at one time.
-        :param int max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
-        :param str region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        :param Sequence[str] region_orders: The order of the Regions in where you want to perform the stack operation.
-        """
         if failure_tolerance_count is not None:
             pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
         if failure_tolerance_percentage is not None:
@@ -316,49 +256,31 @@ class StackSetOperationPreferences(dict):
     @property
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[int]:
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_count")
 
     @property
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[int]:
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
         return pulumi.get(self, "failure_tolerance_percentage")
 
     @property
     @pulumi.getter(name="maxConcurrentCount")
     def max_concurrent_count(self) -> Optional[int]:
-        """
-        The maximum number of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_count")
 
     @property
     @pulumi.getter(name="maxConcurrentPercentage")
     def max_concurrent_percentage(self) -> Optional[int]:
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
-        """
         return pulumi.get(self, "max_concurrent_percentage")
 
     @property
     @pulumi.getter(name="regionConcurrencyType")
     def region_concurrency_type(self) -> Optional[str]:
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        """
         return pulumi.get(self, "region_concurrency_type")
 
     @property
     @pulumi.getter(name="regionOrders")
     def region_orders(self) -> Optional[Sequence[str]]:
-        """
-        The order of the Regions in where you want to perform the stack operation.
-        """
         return pulumi.get(self, "region_orders")
 
 
@@ -367,27 +289,17 @@ class GetCloudFormationTypeLoggingConfigResult(dict):
     def __init__(__self__, *,
                  log_group_name: str,
                  log_role_arn: str):
-        """
-        :param str log_group_name: Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        :param str log_role_arn: ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "log_role_arn", log_role_arn)
 
     @property
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
-        """
-        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        """
         return pulumi.get(self, "log_group_name")
 
     @property
     @pulumi.getter(name="logRoleArn")
     def log_role_arn(self) -> str:
-        """
-        ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
         return pulumi.get(self, "log_role_arn")
 
 

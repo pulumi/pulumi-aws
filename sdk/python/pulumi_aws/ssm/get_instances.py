@@ -50,9 +50,6 @@ class GetInstancesResult:
     @property
     @pulumi.getter
     def ids(self) -> Sequence[str]:
-        """
-        Set of instance IDs of the matched SSM managed instances.
-        """
         return pulumi.get(self, "ids")
 
 
@@ -70,22 +67,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
 def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Use this data source to get the instance IDs of SSM managed instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_instances(filters=[aws.ssm.GetInstancesFilterArgs(
-        name="PlatformTypes",
-        values=["Linux"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -102,21 +84,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Use this data source to get the instance IDs of SSM managed instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ssm.get_instances(filters=[aws.ssm.GetInstancesFilterArgs(
-        name="PlatformTypes",
-        values=["Linux"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     ...

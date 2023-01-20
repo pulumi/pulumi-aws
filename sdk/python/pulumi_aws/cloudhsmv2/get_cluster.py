@@ -48,15 +48,6 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="clusterCertificates")
     def cluster_certificates(self) -> Sequence['outputs.GetClusterClusterCertificateResult']:
-        """
-        The list of cluster certificates.
-        * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-        * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.
-        * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
-        * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
-        * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
-        The number of available cluster certificates may vary depending on state of the cluster.
-        """
         return pulumi.get(self, "cluster_certificates")
 
     @property
@@ -80,25 +71,16 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> str:
-        """
-        ID of the security group associated with the CloudHSM cluster.
-        """
         return pulumi.get(self, "security_group_id")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[str]:
-        """
-        IDs of subnets in which cluster operates.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> str:
-        """
-        ID of the VPC that the CloudHSM cluster resides in.
-        """
         return pulumi.get(self, "vpc_id")
 
 
@@ -121,20 +103,7 @@ def get_cluster(cluster_id: Optional[str] = None,
                 cluster_state: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
-    Use this data source to get information about a CloudHSM v2 cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
-
-
-    :param str cluster_id: ID of Cloud HSM v2 cluster.
-    :param str cluster_state: State of the cluster to be found.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
@@ -157,19 +126,6 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
                        cluster_state: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
-    Use this data source to get information about a CloudHSM v2 cluster
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
-    ```
-
-
-    :param str cluster_id: ID of Cloud HSM v2 cluster.
-    :param str cluster_state: State of the cluster to be found.
+    Use this data source to access information about an existing resource.
     """
     ...

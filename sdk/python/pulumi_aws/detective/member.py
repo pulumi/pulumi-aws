@@ -21,11 +21,6 @@ class MemberArgs:
                  message: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Member resource.
-        :param pulumi.Input[str] account_id: AWS account ID for the account.
-        :param pulumi.Input[str] email_address: Email address for the account.
-        :param pulumi.Input[str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
-        :param pulumi.Input[bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        :param pulumi.Input[str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "email_address", email_address)
@@ -38,9 +33,6 @@ class MemberArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
-        """
-        AWS account ID for the account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -50,9 +42,6 @@ class MemberArgs:
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Input[str]:
-        """
-        Email address for the account.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -62,9 +51,6 @@ class MemberArgs:
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the behavior graph to invite the member accounts to contribute their data to.
-        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -74,9 +60,6 @@ class MemberArgs:
     @property
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
@@ -86,9 +69,6 @@ class MemberArgs:
     @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
-        """
-        A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -112,16 +92,6 @@ class _MemberState:
                  volume_usage_in_bytes: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
-        :param pulumi.Input[str] account_id: AWS account ID for the account.
-        :param pulumi.Input[str] administrator_id: AWS account ID for the administrator account.
-        :param pulumi.Input[bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        :param pulumi.Input[str] email_address: Email address for the account.
-        :param pulumi.Input[str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
-        :param pulumi.Input[str] invited_time: Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-        :param pulumi.Input[str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[str] status: Current membership status of the member account.
-        :param pulumi.Input[str] updated_time: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-        :param pulumi.Input[str] volume_usage_in_bytes: Data volume in bytes per day for the member account.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -149,9 +119,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS account ID for the account.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -161,9 +128,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="administratorId")
     def administrator_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS account ID for the administrator account.
-        """
         return pulumi.get(self, "administrator_id")
 
     @administrator_id.setter
@@ -173,9 +137,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        """
         return pulumi.get(self, "disable_email_notification")
 
     @disable_email_notification.setter
@@ -194,9 +155,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Email address for the account.
-        """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
@@ -206,9 +164,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the behavior graph to invite the member accounts to contribute their data to.
-        """
         return pulumi.get(self, "graph_arn")
 
     @graph_arn.setter
@@ -218,9 +173,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="invitedTime")
     def invited_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-        """
         return pulumi.get(self, "invited_time")
 
     @invited_time.setter
@@ -230,9 +182,6 @@ class _MemberState:
     @property
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
-        """
-        A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        """
         return pulumi.get(self, "message")
 
     @message.setter
@@ -242,9 +191,6 @@ class _MemberState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Current membership status of the member account.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -254,9 +200,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-        """
         return pulumi.get(self, "updated_time")
 
     @updated_time.setter
@@ -266,9 +209,6 @@ class _MemberState:
     @property
     @pulumi.getter(name="volumeUsageInBytes")
     def volume_usage_in_bytes(self) -> Optional[pulumi.Input[str]]:
-        """
-        Data volume in bytes per day for the member account.
-        """
         return pulumi.get(self, "volume_usage_in_bytes")
 
     @volume_usage_in_bytes.setter
@@ -288,38 +228,9 @@ class Member(pulumi.CustomResource):
                  message: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph = aws.detective.Graph("exampleGraph")
-        example_member = aws.detective.Member("exampleMember",
-            account_id="AWS ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=example_graph.id,
-            message="Message of the invitation",
-            disable_email_notification=True)
-        ```
-
-        ## Import
-
-        `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
-
-        ```sh
-         $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
-        ```
-
+        Create a Member resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: AWS account ID for the account.
-        :param pulumi.Input[bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        :param pulumi.Input[str] email_address: Email address for the account.
-        :param pulumi.Input[str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
-        :param pulumi.Input[str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
         ...
     @overload
@@ -328,31 +239,7 @@ class Member(pulumi.CustomResource):
                  args: MemberArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_graph = aws.detective.Graph("exampleGraph")
-        example_member = aws.detective.Member("exampleMember",
-            account_id="AWS ACCOUNT ID",
-            email_address="EMAIL",
-            graph_arn=example_graph.id,
-            message="Message of the invitation",
-            disable_email_notification=True)
-        ```
-
-        ## Import
-
-        `aws_detective_member` can be imported using the ARN of the graph followed by the account ID of the member account, e.g.
-
-        ```sh
-         $ pulumi import aws:detective/member:Member example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d/123456789012
-        ```
-
+        Create a Member resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MemberArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -427,16 +314,6 @@ class Member(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: AWS account ID for the account.
-        :param pulumi.Input[str] administrator_id: AWS account ID for the administrator account.
-        :param pulumi.Input[bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        :param pulumi.Input[str] email_address: Email address for the account.
-        :param pulumi.Input[str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
-        :param pulumi.Input[str] invited_time: Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-        :param pulumi.Input[str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        :param pulumi.Input[str] status: Current membership status of the member account.
-        :param pulumi.Input[str] updated_time: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-        :param pulumi.Input[str] volume_usage_in_bytes: Data volume in bytes per day for the member account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,25 +335,16 @@ class Member(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
-        """
-        AWS account ID for the account.
-        """
         return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="administratorId")
     def administrator_id(self) -> pulumi.Output[str]:
-        """
-        AWS account ID for the administrator account.
-        """
         return pulumi.get(self, "administrator_id")
 
     @property
     @pulumi.getter(name="disableEmailNotification")
     def disable_email_notification(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
-        """
         return pulumi.get(self, "disable_email_notification")
 
     @property
@@ -487,56 +355,35 @@ class Member(pulumi.CustomResource):
     @property
     @pulumi.getter(name="emailAddress")
     def email_address(self) -> pulumi.Output[str]:
-        """
-        Email address for the account.
-        """
         return pulumi.get(self, "email_address")
 
     @property
     @pulumi.getter(name="graphArn")
     def graph_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the behavior graph to invite the member accounts to contribute their data to.
-        """
         return pulumi.get(self, "graph_arn")
 
     @property
     @pulumi.getter(name="invitedTime")
     def invited_time(self) -> pulumi.Output[str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
-        """
         return pulumi.get(self, "invited_time")
 
     @property
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[str]]:
-        """
-        A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
-        """
         return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        Current membership status of the member account.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="updatedTime")
     def updated_time(self) -> pulumi.Output[str]:
-        """
-        Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
-        """
         return pulumi.get(self, "updated_time")
 
     @property
     @pulumi.getter(name="volumeUsageInBytes")
     def volume_usage_in_bytes(self) -> pulumi.Output[str]:
-        """
-        Data volume in bytes per day for the member account.
-        """
         return pulumi.get(self, "volume_usage_in_bytes")
 

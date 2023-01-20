@@ -53,17 +53,11 @@ class GetInstancesResult:
     @property
     @pulumi.getter(name="instanceArns")
     def instance_arns(self) -> Sequence[str]:
-        """
-        ARNs of the matched RDS instances.
-        """
         return pulumi.get(self, "instance_arns")
 
     @property
     @pulumi.getter(name="instanceIdentifiers")
     def instance_identifiers(self) -> Sequence[str]:
-        """
-        Identifiers of the matched RDS instances.
-        """
         return pulumi.get(self, "instance_identifiers")
 
 
@@ -82,23 +76,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
 def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
-    Data source for listing RDS Database Instances.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
-        name="db-instance-id",
-        values=["my-database-id"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -116,22 +94,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
-    Data source for listing RDS Database Instances.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
-        name="db-instance-id",
-        values=["my-database-id"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     ...

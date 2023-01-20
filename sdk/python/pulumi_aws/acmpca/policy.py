@@ -18,8 +18,6 @@ class PolicyArgs:
                  resource_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -27,9 +25,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Input[str]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -39,9 +34,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -56,8 +48,6 @@ class _PolicyState:
                  resource_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -67,9 +57,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -79,9 +66,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -98,68 +82,9 @@ class Policy(pulumi.CustomResource):
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Attaches a resource based policy to a private CA.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.Policy("example",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=f\"\"\"{{                        
-           "Version":"2012-10-17",
-           "Statement":[
-              {{    
-                 "Sid":"1",
-                 "Effect":"Allow",         
-                 "Principal":{{                                                                                                                                               
-                    "AWS":"{data["aws_caller_identity"]["current"]["account_id"]}"                                                                                
-                 }},
-                 "Action":[
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags"                                                                                   
-                 ],                                                                                              
-                 "Resource":"{aws_acmpca_certificate_authority["example"]["arn"]}"
-              }},
-              {{
-                 "Sid":"1",  
-                 "Effect":"Allow",
-                 "Principal":{{
-                    "AWS":"{data["aws_caller_identity"]["current"]["account_id"]}"
-                 }},
-                 "Action":[
-                    "acm-pca:IssueCertificate"
-                 ],
-                 "Resource":"{aws_acmpca_certificate_authority["example"]["arn"]}",
-                 "Condition":{{
-                    "StringEquals":{{
-                       "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
-                    }}
-                 }}
-              }}
-           ]
-        }}
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_acmpca_policy` can be imported using the `resource_arn` value.
-
-        ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         ...
     @overload
@@ -168,64 +93,7 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Attaches a resource based policy to a private CA.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.acmpca.Policy("example",
-            resource_arn=aws_acmpca_certificate_authority["example"]["arn"],
-            policy=f\"\"\"{{                        
-           "Version":"2012-10-17",
-           "Statement":[
-              {{    
-                 "Sid":"1",
-                 "Effect":"Allow",         
-                 "Principal":{{                                                                                                                                               
-                    "AWS":"{data["aws_caller_identity"]["current"]["account_id"]}"                                                                                
-                 }},
-                 "Action":[
-                    "acm-pca:DescribeCertificateAuthority",
-                    "acm-pca:GetCertificate",
-                    "acm-pca:GetCertificateAuthorityCertificate",
-                    "acm-pca:ListPermissions",
-                    "acm-pca:ListTags"                                                                                   
-                 ],                                                                                              
-                 "Resource":"{aws_acmpca_certificate_authority["example"]["arn"]}"
-              }},
-              {{
-                 "Sid":"1",  
-                 "Effect":"Allow",
-                 "Principal":{{
-                    "AWS":"{data["aws_caller_identity"]["current"]["account_id"]}"
-                 }},
-                 "Action":[
-                    "acm-pca:IssueCertificate"
-                 ],
-                 "Resource":"{aws_acmpca_certificate_authority["example"]["arn"]}",
-                 "Condition":{{
-                    "StringEquals":{{
-                       "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
-                    }}
-                 }}
-              }}
-           ]
-        }}
-        \"\"\")
-        ```
-
-        ## Import
-
-        `aws_acmpca_policy` can be imported using the `resource_arn` value.
-
-        ```sh
-         $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,8 +145,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy: JSON-formatted IAM policy to attach to the specified private CA resource.
-        :param pulumi.Input[str] resource_arn: ARN of the private CA to associate with the policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -291,16 +157,10 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
-        """
-        JSON-formatted IAM policy to attach to the specified private CA resource.
-        """
         return pulumi.get(self, "policy")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the private CA to associate with the policy.
-        """
         return pulumi.get(self, "resource_arn")
 

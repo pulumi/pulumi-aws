@@ -19,9 +19,6 @@ class LfTagArgs:
                  catalog_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LfTag resource.
-        :param pulumi.Input[str] key: Key-name for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of possible values an attribute can take.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -31,9 +28,6 @@ class LfTagArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -43,9 +37,6 @@ class LfTagArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -55,9 +46,6 @@ class LfTagArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -73,9 +61,6 @@ class _LfTagState:
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LfTag resources.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[str] key: Key-name for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of possible values an attribute can take.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -87,9 +72,6 @@ class _LfTagState:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -99,9 +81,6 @@ class _LfTagState:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -111,9 +90,6 @@ class _LfTagState:
     @property
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -131,36 +107,9 @@ class LfTag(pulumi.CustomResource):
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.LfTag("example",
-            key="module",
-            values=[
-                "Orders",
-                "Sales",
-                "Customers",
-            ])
-        ```
-
-        ## Import
-
-        Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
-
-        ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
-
+        Create a LfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[str] key: Key-name for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of possible values an attribute can take.
         """
         ...
     @overload
@@ -169,31 +118,7 @@ class LfTag(pulumi.CustomResource):
                  args: LfTagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.lakeformation.LfTag("example",
-            key="module",
-            values=[
-                "Orders",
-                "Sales",
-                "Customers",
-            ])
-        ```
-
-        ## Import
-
-        Lake Formation LF-Tags can be imported using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.
-
-        ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-        ```
-
+        Create a LfTag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LfTagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,9 +173,6 @@ class LfTag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        :param pulumi.Input[str] key: Key-name for the tag.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of possible values an attribute can take.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -264,24 +186,15 @@ class LfTag(pulumi.CustomResource):
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
-        """
-        ID of the Data Catalog to create the tag in. If omitted, this defaults to the AWS Account ID.
-        """
         return pulumi.get(self, "catalog_id")
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Output[str]:
-        """
-        Key-name for the tag.
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def values(self) -> pulumi.Output[Sequence[str]]:
-        """
-        List of possible values an attribute can take.
-        """
         return pulumi.get(self, "values")
 

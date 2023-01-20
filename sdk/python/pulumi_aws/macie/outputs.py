@@ -20,18 +20,12 @@ __all__ = [
 class FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterions: Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']] = None):
-        """
-        :param Sequence['FindingsFilterFindingCriteriaCriterionArgs'] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
     def criterions(self) -> Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']]:
-        """
-        A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-        """
         return pulumi.get(self, "criterions")
 
 
@@ -63,16 +57,6 @@ class FindingsFilterFindingCriteriaCriterion(dict):
                  lt: Optional[str] = None,
                  lte: Optional[str] = None,
                  neqs: Optional[Sequence[str]] = None):
-        """
-        :param str field: The name of the field to be evaluated.
-        :param Sequence[str] eq_exact_matches: The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        :param Sequence[str] eqs: The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        :param str gt: The value for the property is greater than the specified value.
-        :param str gte: The value for the property is greater than or equal to the specified value.
-        :param str lt: The value for the property is less than the specified value.
-        :param str lte: The value for the property is less than or equal to the specified value.
-        :param Sequence[str] neqs: The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         pulumi.set(__self__, "field", field)
         if eq_exact_matches is not None:
             pulumi.set(__self__, "eq_exact_matches", eq_exact_matches)
@@ -92,65 +76,41 @@ class FindingsFilterFindingCriteriaCriterion(dict):
     @property
     @pulumi.getter
     def field(self) -> str:
-        """
-        The name of the field to be evaluated.
-        """
         return pulumi.get(self, "field")
 
     @property
     @pulumi.getter(name="eqExactMatches")
     def eq_exact_matches(self) -> Optional[Sequence[str]]:
-        """
-        The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
-        """
         return pulumi.get(self, "eq_exact_matches")
 
     @property
     @pulumi.getter
     def eqs(self) -> Optional[Sequence[str]]:
-        """
-        The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "eqs")
 
     @property
     @pulumi.getter
     def gt(self) -> Optional[str]:
-        """
-        The value for the property is greater than the specified value.
-        """
         return pulumi.get(self, "gt")
 
     @property
     @pulumi.getter
     def gte(self) -> Optional[str]:
-        """
-        The value for the property is greater than or equal to the specified value.
-        """
         return pulumi.get(self, "gte")
 
     @property
     @pulumi.getter
     def lt(self) -> Optional[str]:
-        """
-        The value for the property is less than the specified value.
-        """
         return pulumi.get(self, "lt")
 
     @property
     @pulumi.getter
     def lte(self) -> Optional[str]:
-        """
-        The value for the property is less than or equal to the specified value.
-        """
         return pulumi.get(self, "lte")
 
     @property
     @pulumi.getter
     def neqs(self) -> Optional[Sequence[str]]:
-        """
-        The value for the property doesn't match (doesn't equal) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.
-        """
         return pulumi.get(self, "neqs")
 
 
@@ -176,12 +136,6 @@ class S3BucketAssociationClassificationType(dict):
     def __init__(__self__, *,
                  continuous: Optional[str] = None,
                  one_time: Optional[str] = None):
-        """
-        :param str continuous: A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-               The only valid value is the default value, `FULL`.
-        :param str one_time: A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-               Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
         if continuous is not None:
             pulumi.set(__self__, "continuous", continuous)
         if one_time is not None:
@@ -190,19 +144,11 @@ class S3BucketAssociationClassificationType(dict):
     @property
     @pulumi.getter
     def continuous(self) -> Optional[str]:
-        """
-        A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-        The only valid value is the default value, `FULL`.
-        """
         return pulumi.get(self, "continuous")
 
     @property
     @pulumi.getter(name="oneTime")
     def one_time(self) -> Optional[str]:
-        """
-        A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-        Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-        """
         return pulumi.get(self, "one_time")
 
 

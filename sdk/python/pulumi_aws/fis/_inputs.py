@@ -28,14 +28,6 @@ class ExperimentTemplateActionArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]] = None,
                  start_afters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  target: Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']] = None):
-        """
-        :param pulumi.Input[str] action_id: ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        :param pulumi.Input[str] name: Friendly name given to the target.
-        :param pulumi.Input[str] description: Description of the action.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]] parameters: Parameter(s) for the action, if applicable. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] start_afters: Set of action names that must complete before this action can be executed.
-        :param pulumi.Input['ExperimentTemplateActionTargetArgs'] target: Action's target, if applicable. See below.
-        """
         pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -50,9 +42,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter(name="actionId")
     def action_id(self) -> pulumi.Input[str]:
-        """
-        ID of the action. To find out what actions are supported see [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
-        """
         return pulumi.get(self, "action_id")
 
     @action_id.setter
@@ -62,9 +51,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Friendly name given to the target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +60,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the action.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -86,9 +69,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]]:
-        """
-        Parameter(s) for the action, if applicable. See below.
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -98,9 +78,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter(name="startAfters")
     def start_afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of action names that must complete before this action can be executed.
-        """
         return pulumi.get(self, "start_afters")
 
     @start_afters.setter
@@ -110,9 +87,6 @@ class ExperimentTemplateActionArgs:
     @property
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['ExperimentTemplateActionTargetArgs']]:
-        """
-        Action's target, if applicable. See below.
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -125,19 +99,12 @@ class ExperimentTemplateActionParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Tag key.
-        :param pulumi.Input[str] value: Tag value.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Tag key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -147,9 +114,6 @@ class ExperimentTemplateActionParameterArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -162,19 +126,12 @@ class ExperimentTemplateActionTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Tag key.
-        :param pulumi.Input[str] value: Tag value.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Tag key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -184,9 +141,6 @@ class ExperimentTemplateActionTargetArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -199,10 +153,6 @@ class ExperimentTemplateStopConditionArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] source: Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        :param pulumi.Input[str] value: Tag value.
-        """
         pulumi.set(__self__, "source", source)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -210,9 +160,6 @@ class ExperimentTemplateStopConditionArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
-        """
-        Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -222,9 +169,6 @@ class ExperimentTemplateStopConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -241,14 +185,6 @@ class ExperimentTemplateTargetArgs:
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]] = None,
                  resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]] = None):
-        """
-        :param pulumi.Input[str] name: Friendly name given to the target.
-        :param pulumi.Input[str] resource_type: AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-        :param pulumi.Input[str] selection_mode: Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]] filters: Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_arns: Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]] resource_tags: Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "selection_mode", selection_mode)
@@ -262,9 +198,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Friendly name given to the target.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -274,9 +207,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
-        """
-        AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -286,9 +216,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter(name="selectionMode")
     def selection_mode(self) -> pulumi.Input[str]:
-        """
-        Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-        """
         return pulumi.get(self, "selection_mode")
 
     @selection_mode.setter
@@ -298,9 +225,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter
     def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]:
-        """
-        Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-        """
         return pulumi.get(self, "filters")
 
     @filters.setter
@@ -310,9 +234,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-        """
         return pulumi.get(self, "resource_arns")
 
     @resource_arns.setter
@@ -322,9 +243,6 @@ class ExperimentTemplateTargetArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]]:
-        """
-        Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -337,19 +255,12 @@ class ExperimentTemplateTargetFilterArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] path: Attribute path for the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Set of attribute values for the filter.
-        """
         pulumi.set(__self__, "path", path)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
-        """
-        Attribute path for the filter.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -359,9 +270,6 @@ class ExperimentTemplateTargetFilterArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        Set of attribute values for the filter.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -374,19 +282,12 @@ class ExperimentTemplateTargetResourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Tag key.
-        :param pulumi.Input[str] value: Tag value.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Tag key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -396,9 +297,6 @@ class ExperimentTemplateTargetResourceTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Tag value.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

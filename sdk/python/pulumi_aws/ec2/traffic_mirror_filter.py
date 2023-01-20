@@ -19,9 +19,6 @@ class TrafficMirrorFilterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilter resource.
-        :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -33,9 +30,6 @@ class TrafficMirrorFilterArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -45,9 +39,6 @@ class TrafficMirrorFilterArgs:
     @property
     @pulumi.getter(name="networkServices")
     def network_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        """
         return pulumi.get(self, "network_services")
 
     @network_services.setter
@@ -57,9 +48,6 @@ class TrafficMirrorFilterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -77,11 +65,6 @@ class _TrafficMirrorFilterState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering TrafficMirrorFilter resources.
-        :param pulumi.Input[str] arn: The ARN of the traffic mirror filter.
-        :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -97,9 +80,6 @@ class _TrafficMirrorFilterState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the traffic mirror filter.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -109,9 +89,6 @@ class _TrafficMirrorFilterState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -121,9 +98,6 @@ class _TrafficMirrorFilterState:
     @property
     @pulumi.getter(name="networkServices")
     def network_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        """
         return pulumi.get(self, "network_services")
 
     @network_services.setter
@@ -133,9 +107,6 @@ class _TrafficMirrorFilterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -145,9 +116,6 @@ class _TrafficMirrorFilterState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -165,35 +133,9 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an Traffic mirror filter.\\
-        Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-
-        ## Example Usage
-
-        To create a basic traffic mirror filter
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.TrafficMirrorFilter("foo",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
-        ```
-
-        ## Import
-
-        Traffic mirror filter can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-        ```
-
+        Create a TrafficMirrorFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -202,30 +144,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
                  args: Optional[TrafficMirrorFilterArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Traffic mirror filter.\\
-        Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-
-        ## Example Usage
-
-        To create a basic traffic mirror filter
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        foo = aws.ec2.TrafficMirrorFilter("foo",
-            description="traffic mirror filter - example",
-            network_services=["amazon-dns"])
-        ```
-
-        ## Import
-
-        Traffic mirror filter can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-        ```
-
+        Create a TrafficMirrorFilter resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -280,11 +199,6 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the traffic mirror filter.
-        :param pulumi.Input[str] description: A description of the filter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] network_services: List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,40 +214,25 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the traffic mirror filter.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description of the filter.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="networkServices")
     def network_services(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-        """
         return pulumi.get(self, "network_services")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

@@ -20,10 +20,6 @@ class BaiduChannelArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a BaiduChannel resource.
-        :param pulumi.Input[str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "application_id", application_id)
@@ -34,9 +30,6 @@ class BaiduChannelArgs:
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Input[str]:
-        """
-        Platform credential API key from Baidu.
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -46,9 +39,6 @@ class BaiduChannelArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -58,9 +48,6 @@ class BaiduChannelArgs:
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Input[str]:
-        """
-        Platform credential Secret key from Baidu.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -70,9 +57,6 @@ class BaiduChannelArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -89,10 +73,6 @@ class _BaiduChannelState:
                  secret_key: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BaiduChannel resources.
-        :param pulumi.Input[str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -106,9 +86,6 @@ class _BaiduChannelState:
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Platform credential API key from Baidu.
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -118,9 +95,6 @@ class _BaiduChannelState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -130,9 +104,6 @@ class _BaiduChannelState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -142,9 +113,6 @@ class _BaiduChannelState:
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Platform credential Secret key from Baidu.
-        """
         return pulumi.get(self, "secret_key")
 
     @secret_key.setter
@@ -163,35 +131,9 @@ class BaiduChannel(pulumi.CustomResource):
                  secret_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint Baidu Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.BaiduChannel("channel",
-            application_id=app.application_id,
-            api_key="",
-            secret_key="")
-        ```
-
-        ## Import
-
-        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-        ```
-
+        Create a BaiduChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
         """
         ...
     @overload
@@ -200,29 +142,7 @@ class BaiduChannel(pulumi.CustomResource):
                  args: BaiduChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint Baidu Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        channel = aws.pinpoint.BaiduChannel("channel",
-            application_id=app.application_id,
-            api_key="",
-            secret_key="")
-        ```
-
-        ## Import
-
-        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-        ```
-
+        Create a BaiduChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param BaiduChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -284,10 +204,6 @@ class BaiduChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
-        :param pulumi.Input[str] secret_key: Platform credential Secret key from Baidu.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -302,32 +218,20 @@ class BaiduChannel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> pulumi.Output[str]:
-        """
-        Platform credential API key from Baidu.
-        """
         return pulumi.get(self, "api_key")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Specifies whether to enable the channel. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[str]:
-        """
-        Platform credential Secret key from Baidu.
-        """
         return pulumi.get(self, "secret_key")
 

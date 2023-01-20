@@ -41,9 +41,6 @@ class GetStreamKeyResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Stream Key.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -62,17 +59,11 @@ class GetStreamKeyResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Stream Key value.
-        """
         return pulumi.get(self, "value")
 
 
@@ -93,21 +84,7 @@ def get_stream_key(channel_arn: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamKeyResult:
     """
-    Data source for managing an AWS IVS (Interactive Video) Stream Key.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
-    ```
-
-
-    :param str channel_arn: ARN of the Channel.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['channelArn'] = channel_arn
@@ -128,20 +105,6 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[str]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamKeyResult]:
     """
-    Data source for managing an AWS IVS (Interactive Video) Stream Key.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ivs.get_stream_key(channel_arn="arn:aws:ivs:us-west-2:326937407773:channel/0Y1lcs4U7jk5")
-    ```
-
-
-    :param str channel_arn: ARN of the Channel.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

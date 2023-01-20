@@ -18,8 +18,6 @@ class DomainServiceAccessPolicyArgs:
                  domain_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a DomainServiceAccessPolicy resource.
-        :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
         pulumi.set(__self__, "access_policy", access_policy)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -27,9 +25,6 @@ class DomainServiceAccessPolicyArgs:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Input[str]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -39,9 +34,6 @@ class DomainServiceAccessPolicyArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -56,8 +48,6 @@ class _DomainServiceAccessPolicyState:
                  domain_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DomainServiceAccessPolicy resources.
-        :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -67,9 +57,6 @@ class _DomainServiceAccessPolicyState:
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @access_policy.setter
@@ -79,9 +66,6 @@ class _DomainServiceAccessPolicyState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -98,47 +82,9 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an CloudSearch domain service access policy resource.
-
-        The provider waits for the domain service access policy to become `Active` when applying a configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
-            domain_name=example_domain.id,
-            access_policy=\"\"\"{
-          "Version":"2012-10-17",
-          "Statement":[{
-            "Sid":"search_only",
-            "Effect":"Allow",
-            "Principal":"*",
-            "Action":[
-              "cloudsearch:search",
-              "cloudsearch:document"
-            ],
-            "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
-          }]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        CloudSearch domain service access policies can be imported using the domain name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
-
+        Create a DomainServiceAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
         ...
     @overload
@@ -147,43 +93,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                  args: DomainServiceAccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an CloudSearch domain service access policy resource.
-
-        The provider waits for the domain service access policy to become `Active` when applying a configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_domain_service_access_policy = aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy",
-            domain_name=example_domain.id,
-            access_policy=\"\"\"{
-          "Version":"2012-10-17",
-          "Statement":[{
-            "Sid":"search_only",
-            "Effect":"Allow",
-            "Principal":"*",
-            "Action":[
-              "cloudsearch:search",
-              "cloudsearch:document"
-            ],
-            "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
-          }]
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        CloudSearch domain service access policies can be imported using the domain name, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
-        ```
-
+        Create a DomainServiceAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DomainServiceAccessPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -235,8 +145,6 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_policy: The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        :param pulumi.Input[str] domain_name: The CloudSearch domain name the policy applies to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -249,16 +157,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[str]:
-        """
-        The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-        """
         return pulumi.get(self, "access_policy")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
-        """
-        The CloudSearch domain name the policy applies to.
-        """
         return pulumi.get(self, "domain_name")
 

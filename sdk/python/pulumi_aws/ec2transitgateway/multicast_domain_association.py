@@ -19,9 +19,6 @@ class MulticastDomainAssociationArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a MulticastDomainAssociation resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
@@ -30,9 +27,6 @@ class MulticastDomainAssociationArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the subnet to associate with the transit gateway multicast domain.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -42,9 +36,6 @@ class MulticastDomainAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -54,9 +45,6 @@ class MulticastDomainAssociationArgs:
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
     @transit_gateway_multicast_domain_id.setter
@@ -72,9 +60,6 @@ class _MulticastDomainAssociationState:
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MulticastDomainAssociation resources.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
@@ -86,9 +71,6 @@ class _MulticastDomainAssociationState:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the subnet to associate with the transit gateway multicast domain.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -98,9 +80,6 @@ class _MulticastDomainAssociationState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -110,9 +89,6 @@ class _MulticastDomainAssociationState:
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
     @transit_gateway_multicast_domain_id.setter
@@ -130,31 +106,9 @@ class MulticastDomainAssociation(pulumi.CustomResource):
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", multicast_support="enable")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=example_transit_gateway.id,
-            vpc_id=aws_vpc["example"]["id"])
-        example_multicast_domain = aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
-        example_multicast_domain_association = aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation",
-            subnet_id=aws_subnet["example"]["id"],
-            transit_gateway_attachment_id=example_vpc_attachment.id,
-            transit_gateway_multicast_domain_id=example_multicast_domain.id)
-        ```
-
+        Create a MulticastDomainAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
     @overload
@@ -163,26 +117,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
                  args: MulticastDomainAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway", multicast_support="enable")
-        example_vpc_attachment = aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment",
-            subnet_ids=[aws_subnet["example"]["id"]],
-            transit_gateway_id=example_transit_gateway.id,
-            vpc_id=aws_vpc["example"]["id"])
-        example_multicast_domain = aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", transit_gateway_id=example_transit_gateway.id)
-        example_multicast_domain_association = aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation",
-            subnet_id=aws_subnet["example"]["id"],
-            transit_gateway_attachment_id=example_vpc_attachment.id,
-            transit_gateway_multicast_domain_id=example_multicast_domain.id)
-        ```
-
+        Create a MulticastDomainAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MulticastDomainAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -239,9 +174,6 @@ class MulticastDomainAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] subnet_id: The ID of the subnet to associate with the transit gateway multicast domain.
-        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -255,24 +187,15 @@ class MulticastDomainAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the subnet to associate with the transit gateway multicast domain.
-        """
         return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the transit gateway attachment.
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the transit gateway multicast domain.
-        """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 

@@ -17,16 +17,12 @@ class OrganizationConfigurationArgs:
                  auto_enable: pulumi.Input[bool]):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
-        :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
 
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Input[bool]:
-        """
-        Whether to automatically enable Security Hub for new accounts in the organization.
-        """
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -40,7 +36,6 @@ class _OrganizationConfigurationState:
                  auto_enable: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
-        :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
@@ -48,9 +43,6 @@ class _OrganizationConfigurationState:
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to automatically enable Security Hub for new accounts in the organization.
-        """
         return pulumi.get(self, "auto_enable")
 
     @auto_enable.setter
@@ -66,37 +58,9 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages the Security Hub Organization Configuration.
-
-        > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
-
-        > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
-        ```
-
-        ## Import
-
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         """
         ...
     @overload
@@ -105,34 +69,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the Security Hub Organization Configuration.
-
-        > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
-
-        > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_organization = aws.organizations.Organization("exampleOrganization",
-            aws_service_access_principals=["securityhub.amazonaws.com"],
-            feature_set="ALL")
-        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
-        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
-        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
-        ```
-
-        ## Import
-
-        An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-        ```
-
+        Create a OrganizationConfiguration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param OrganizationConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +116,6 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_enable: Whether to automatically enable Security Hub for new accounts in the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -191,8 +127,5 @@ class OrganizationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoEnable")
     def auto_enable(self) -> pulumi.Output[bool]:
-        """
-        Whether to automatically enable Security Hub for new accounts in the organization.
-        """
         return pulumi.get(self, "auto_enable")
 

@@ -48,17 +48,11 @@ class GetSiteResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the site.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the site.
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -77,9 +71,6 @@ class GetSiteResult:
     @property
     @pulumi.getter
     def locations(self) -> Sequence['outputs.GetSiteLocationResult']:
-        """
-        Site location as documented below.
-        """
         return pulumi.get(self, "locations")
 
     @property
@@ -90,9 +81,6 @@ class GetSiteResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value tags for the Site.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -116,22 +104,7 @@ def get_site(global_network_id: Optional[str] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSiteResult:
     """
-    Retrieve information about a site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_site(global_network_id=var["global_network_id"],
-        site_id=var["site_id"])
-    ```
-
-
-    :param str global_network_id: ID of the Global Network of the site to retrieve.
-    :param str site_id: ID of the specific site to retrieve.
-    :param Mapping[str, str] tags: Key-value tags for the Site.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['globalNetworkId'] = global_network_id
@@ -156,21 +129,6 @@ def get_site_output(global_network_id: Optional[pulumi.Input[str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
     """
-    Retrieve information about a site.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.networkmanager.get_site(global_network_id=var["global_network_id"],
-        site_id=var["site_id"])
-    ```
-
-
-    :param str global_network_id: ID of the Global Network of the site to retrieve.
-    :param str site_id: ID of the specific site to retrieve.
-    :param Mapping[str, str] tags: Key-value tags for the Site.
+    Use this data source to access information about an existing resource.
     """
     ...

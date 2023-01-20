@@ -50,9 +50,6 @@ class GetOrderableDbInstanceResult:
     @property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[str]:
-        """
-        Availability zones where the instance is available.
-        """
         return pulumi.get(self, "availability_zones")
 
     @property
@@ -118,31 +115,7 @@ def get_orderable_db_instance(engine: Optional[str] = None,
                               vpc: Optional[bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
-    Information about DocumentDB orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param str engine: DB engine. Default: `docdb`
-    :param str engine_version: Version of the DB engine.
-    :param str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
-    :param str license_model: License model. Default: `na`
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
-    :param bool vpc: Enable to show only VPC.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -174,30 +147,6 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
                                      vpc: Optional[pulumi.Input[Optional[bool]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
-    Information about DocumentDB orderable DB instances.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.docdb.get_orderable_db_instance(engine="docdb",
-        engine_version="3.6.0",
-        license_model="na",
-        preferred_instance_classes=[
-            "db.r5.large",
-            "db.r4.large",
-            "db.t3.medium",
-        ])
-    ```
-
-
-    :param str engine: DB engine. Default: `docdb`
-    :param str engine_version: Version of the DB engine.
-    :param str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
-    :param str license_model: License model. Default: `na`
-    :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
-    :param bool vpc: Enable to show only VPC.
+    Use this data source to access information about an existing resource.
     """
     ...

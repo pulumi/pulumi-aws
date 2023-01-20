@@ -18,8 +18,6 @@ class ControlPanelArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
-        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this control panel will reside.
-        :param pulumi.Input[str] name: Name describing the control panel.
         """
         pulumi.set(__self__, "cluster_arn", cluster_arn)
         if name is not None:
@@ -28,9 +26,6 @@ class ControlPanelArgs:
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[str]:
-        """
-        ARN of the cluster in which this control panel will reside.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -40,9 +35,6 @@ class ControlPanelArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name describing the control panel.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,12 +53,6 @@ class _ControlPanelState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ControlPanel resources.
-        :param pulumi.Input[str] arn: ARN of the control panel.
-        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this control panel will reside.
-        :param pulumi.Input[bool] default_control_panel: Whether a control panel is default.
-        :param pulumi.Input[str] name: Name describing the control panel.
-        :param pulumi.Input[int] routing_control_count: Number routing controls in a control panel.
-        :param pulumi.Input[str] status: Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -84,9 +70,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the control panel.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -96,9 +79,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the cluster in which this control panel will reside.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @cluster_arn.setter
@@ -108,9 +88,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter(name="defaultControlPanel")
     def default_control_panel(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether a control panel is default.
-        """
         return pulumi.get(self, "default_control_panel")
 
     @default_control_panel.setter
@@ -120,9 +97,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name describing the control panel.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -132,9 +106,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter(name="routingControlCount")
     def routing_control_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number routing controls in a control panel.
-        """
         return pulumi.get(self, "routing_control_count")
 
     @routing_control_count.setter
@@ -144,9 +115,6 @@ class _ControlPanelState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -163,29 +131,9 @@ class ControlPanel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an AWS Route 53 Recovery Control Config Control Panel.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.ControlPanel("example", cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
-        ## Import
-
-        Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-        ```
-
+        Create a ControlPanel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this control panel will reside.
-        :param pulumi.Input[str] name: Name describing the control panel.
         """
         ...
     @overload
@@ -194,25 +142,7 @@ class ControlPanel(pulumi.CustomResource):
                  args: ControlPanelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AWS Route 53 Recovery Control Config Control Panel.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.route53recoverycontrol.ControlPanel("example", cluster_arn="arn:aws:route53-recovery-control::123456789012:cluster/8d47920e-d789-437d-803a-2dcc4b204393")
-        ```
-
-        ## Import
-
-        Route53 Recovery Control Config Control Panel can be imported via the control panel arn, e.g.,
-
-        ```sh
-         $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
-        ```
-
+        Create a ControlPanel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ControlPanelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,12 +200,6 @@ class ControlPanel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the control panel.
-        :param pulumi.Input[str] cluster_arn: ARN of the cluster in which this control panel will reside.
-        :param pulumi.Input[bool] default_control_panel: Whether a control panel is default.
-        :param pulumi.Input[str] name: Name describing the control panel.
-        :param pulumi.Input[int] routing_control_count: Number routing controls in a control panel.
-        :param pulumi.Input[str] status: Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -292,48 +216,30 @@ class ControlPanel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the control panel.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the cluster in which this control panel will reside.
-        """
         return pulumi.get(self, "cluster_arn")
 
     @property
     @pulumi.getter(name="defaultControlPanel")
     def default_control_panel(self) -> pulumi.Output[bool]:
-        """
-        Whether a control panel is default.
-        """
         return pulumi.get(self, "default_control_panel")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name describing the control panel.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="routingControlCount")
     def routing_control_count(self) -> pulumi.Output[int]:
-        """
-        Number routing controls in a control panel.
-        """
         return pulumi.get(self, "routing_control_count")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        Status of control panel: `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        """
         return pulumi.get(self, "status")
 

@@ -61,33 +61,21 @@ class GetNetworkInsightsPathResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the selected Network Insights Path.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def destination(self) -> str:
-        """
-        AWS resource that is the destination of the path.
-        """
         return pulumi.get(self, "destination")
 
     @property
     @pulumi.getter(name="destinationIp")
     def destination_ip(self) -> str:
-        """
-        IP address of the AWS resource that is the destination of the path.
-        """
         return pulumi.get(self, "destination_ip")
 
     @property
     @pulumi.getter(name="destinationPort")
     def destination_port(self) -> int:
-        """
-        Destination port.
-        """
         return pulumi.get(self, "destination_port")
 
     @property
@@ -111,33 +99,21 @@ class GetNetworkInsightsPathResult:
     @property
     @pulumi.getter
     def protocol(self) -> str:
-        """
-        Protocol.
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter
     def source(self) -> str:
-        """
-        AWS resource that is the source of the path.
-        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> str:
-        """
-        IP address of the AWS resource that is the source of the path.
-        """
         return pulumi.get(self, "source_ip")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -165,21 +141,7 @@ def get_network_insights_path(filters: Optional[Sequence[pulumi.InputType['GetNe
                               tags: Optional[Mapping[str, str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsPathResult:
     """
-    `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_path_id: ID of the Network Insights Path to select.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -208,20 +170,6 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
-    `ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.ec2.get_network_insights_path(network_insights_path_id=aws_ec2_network_insights_path["example"]["id"])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetNetworkInsightsPathFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str network_insights_path_id: ID of the Network Insights Path to select.
-    :param Mapping[str, str] tags: Map of tags assigned to the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

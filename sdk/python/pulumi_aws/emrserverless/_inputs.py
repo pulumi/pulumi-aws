@@ -23,18 +23,12 @@ __all__ = [
 class ApplicationAutoStartConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[bool] enabled: Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -47,10 +41,6 @@ class ApplicationAutoStopConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  idle_timeout_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[bool] enabled: Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        :param pulumi.Input[int] idle_timeout_minutes: The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-        """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if idle_timeout_minutes is not None:
@@ -59,9 +49,6 @@ class ApplicationAutoStopConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -71,9 +58,6 @@ class ApplicationAutoStopConfigurationArgs:
     @property
     @pulumi.getter(name="idleTimeoutMinutes")
     def idle_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-        """
         return pulumi.get(self, "idle_timeout_minutes")
 
     @idle_timeout_minutes.setter
@@ -86,10 +70,6 @@ class ApplicationInitialCapacityArgs:
     def __init__(__self__, *,
                  initial_capacity_type: pulumi.Input[str],
                  initial_capacity_config: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']] = None):
-        """
-        :param pulumi.Input[str] initial_capacity_type: The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs'] initial_capacity_config: The initial capacity configuration per worker.
-        """
         pulumi.set(__self__, "initial_capacity_type", initial_capacity_type)
         if initial_capacity_config is not None:
             pulumi.set(__self__, "initial_capacity_config", initial_capacity_config)
@@ -97,9 +77,6 @@ class ApplicationInitialCapacityArgs:
     @property
     @pulumi.getter(name="initialCapacityType")
     def initial_capacity_type(self) -> pulumi.Input[str]:
-        """
-        The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        """
         return pulumi.get(self, "initial_capacity_type")
 
     @initial_capacity_type.setter
@@ -109,9 +86,6 @@ class ApplicationInitialCapacityArgs:
     @property
     @pulumi.getter(name="initialCapacityConfig")
     def initial_capacity_config(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']]:
-        """
-        The initial capacity configuration per worker.
-        """
         return pulumi.get(self, "initial_capacity_config")
 
     @initial_capacity_config.setter
@@ -124,10 +98,6 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
     def __init__(__self__, *,
                  worker_count: pulumi.Input[int],
                  worker_configuration: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']] = None):
-        """
-        :param pulumi.Input[int] worker_count: The number of workers in the initial capacity configuration.
-        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs'] worker_configuration: The resource configuration of the initial capacity configuration.
-        """
         pulumi.set(__self__, "worker_count", worker_count)
         if worker_configuration is not None:
             pulumi.set(__self__, "worker_configuration", worker_configuration)
@@ -135,9 +105,6 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
     @property
     @pulumi.getter(name="workerCount")
     def worker_count(self) -> pulumi.Input[int]:
-        """
-        The number of workers in the initial capacity configuration.
-        """
         return pulumi.get(self, "worker_count")
 
     @worker_count.setter
@@ -147,9 +114,6 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
     @property
     @pulumi.getter(name="workerConfiguration")
     def worker_configuration(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]:
-        """
-        The resource configuration of the initial capacity configuration.
-        """
         return pulumi.get(self, "worker_configuration")
 
     @worker_configuration.setter
@@ -163,11 +127,6 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
                  cpu: pulumi.Input[str],
                  memory: pulumi.Input[str],
                  disk: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] cpu: The CPU requirements for every worker instance of the worker type.
-        :param pulumi.Input[str] memory: The memory requirements for every worker instance of the worker type.
-        :param pulumi.Input[str] disk: The disk requirements for every worker instance of the worker type.
-        """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
@@ -176,9 +135,6 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
     @property
     @pulumi.getter
     def cpu(self) -> pulumi.Input[str]:
-        """
-        The CPU requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -188,9 +144,6 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
     @property
     @pulumi.getter
     def memory(self) -> pulumi.Input[str]:
-        """
-        The memory requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -200,9 +153,6 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
     @property
     @pulumi.getter
     def disk(self) -> Optional[pulumi.Input[str]]:
-        """
-        The disk requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "disk")
 
     @disk.setter
@@ -216,11 +166,6 @@ class ApplicationMaximumCapacityArgs:
                  cpu: pulumi.Input[str],
                  memory: pulumi.Input[str],
                  disk: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] cpu: The CPU requirements for every worker instance of the worker type.
-        :param pulumi.Input[str] memory: The memory requirements for every worker instance of the worker type.
-        :param pulumi.Input[str] disk: The disk requirements for every worker instance of the worker type.
-        """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "memory", memory)
         if disk is not None:
@@ -229,9 +174,6 @@ class ApplicationMaximumCapacityArgs:
     @property
     @pulumi.getter
     def cpu(self) -> pulumi.Input[str]:
-        """
-        The CPU requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -241,9 +183,6 @@ class ApplicationMaximumCapacityArgs:
     @property
     @pulumi.getter
     def memory(self) -> pulumi.Input[str]:
-        """
-        The memory requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "memory")
 
     @memory.setter
@@ -253,9 +192,6 @@ class ApplicationMaximumCapacityArgs:
     @property
     @pulumi.getter
     def disk(self) -> Optional[pulumi.Input[str]]:
-        """
-        The disk requirements for every worker instance of the worker type.
-        """
         return pulumi.get(self, "disk")
 
     @disk.setter
@@ -268,10 +204,6 @@ class ApplicationNetworkConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The array of security group Ids for customer VPC connectivity.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The array of subnet Ids for customer VPC connectivity.
-        """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
@@ -280,9 +212,6 @@ class ApplicationNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The array of security group Ids for customer VPC connectivity.
-        """
         return pulumi.get(self, "security_group_ids")
 
     @security_group_ids.setter
@@ -292,9 +221,6 @@ class ApplicationNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The array of subnet Ids for customer VPC connectivity.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter

@@ -48,9 +48,6 @@ class GetQueuesResult:
     @property
     @pulumi.getter(name="queueUrls")
     def queue_urls(self) -> Sequence[str]:
-        """
-        A list of queue URLs.
-        """
         return pulumi.get(self, "queue_urls")
 
 
@@ -68,20 +65,7 @@ class AwaitableGetQueuesResult(GetQueuesResult):
 def get_queues(queue_name_prefix: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueuesResult:
     """
-    Data source for managing an AWS SQS (Simple Queue) Queues.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queues(queue_name_prefix="example")
-    ```
-
-
-    :param str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
@@ -98,19 +82,6 @@ def get_queues(queue_name_prefix: Optional[str] = None,
 def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueuesResult]:
     """
-    Data source for managing an AWS SQS (Simple Queue) Queues.
-
-    ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.sqs.get_queues(queue_name_prefix="example")
-    ```
-
-
-    :param str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    Use this data source to access information about an existing resource.
     """
     ...

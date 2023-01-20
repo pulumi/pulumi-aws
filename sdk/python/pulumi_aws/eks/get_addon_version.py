@@ -64,9 +64,6 @@ class GetAddonVersionResult:
     @property
     @pulumi.getter
     def version(self) -> str:
-        """
-        Version of the EKS add-on.
-        """
         return pulumi.get(self, "version")
 
 
@@ -88,32 +85,7 @@ def get_addon_version(addon_name: Optional[str] = None,
                       most_recent: Optional[bool] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonVersionResult:
     """
-    Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
-        addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
-    ```
-
-
-    :param str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
-    :param bool most_recent: Determines if the most recent or default version of the addon should be returned.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
@@ -136,31 +108,6 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[str]] = None,
                              most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonVersionResult]:
     """
-    Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"])
-    latest_addon_version = aws.eks.get_addon_version(addon_name="vpc-cni",
-        kubernetes_version=aws_eks_cluster["example"]["version"],
-        most_recent=True)
-    vpc_cni = aws.eks.Addon("vpcCni",
-        cluster_name=aws_eks_cluster["example"]["name"],
-        addon_name="vpc-cni",
-        addon_version=latest_addon_version.version)
-    pulumi.export("default", default_addon_version.version)
-    pulumi.export("latest", latest_addon_version.version)
-    ```
-
-
-    :param str addon_name: Name of the EKS add-on. The name must match one of
-           the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
-    :param str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
-    :param bool most_recent: Determines if the most recent or default version of the addon should be returned.
+    Use this data source to access information about an existing resource.
     """
     ...

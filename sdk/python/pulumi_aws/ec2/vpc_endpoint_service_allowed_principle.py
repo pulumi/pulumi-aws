@@ -18,8 +18,6 @@ class VpcEndpointServiceAllowedPrincipleArgs:
                  vpc_endpoint_service_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a VpcEndpointServiceAllowedPrinciple resource.
-        :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
-        :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         pulumi.set(__self__, "principal_arn", principal_arn)
         pulumi.set(__self__, "vpc_endpoint_service_id", vpc_endpoint_service_id)
@@ -27,9 +25,6 @@ class VpcEndpointServiceAllowedPrincipleArgs:
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the principal to allow permissions.
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -39,9 +34,6 @@ class VpcEndpointServiceAllowedPrincipleArgs:
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> pulumi.Input[str]:
-        """
-        The ID of the VPC endpoint service to allow permission.
-        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 
     @vpc_endpoint_service_id.setter
@@ -56,8 +48,6 @@ class _VpcEndpointServiceAllowedPrincipleState:
                  vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcEndpointServiceAllowedPrinciple resources.
-        :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
-        :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         if principal_arn is not None:
             pulumi.set(__self__, "principal_arn", principal_arn)
@@ -67,9 +57,6 @@ class _VpcEndpointServiceAllowedPrincipleState:
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the principal to allow permissions.
-        """
         return pulumi.get(self, "principal_arn")
 
     @principal_arn.setter
@@ -79,9 +66,6 @@ class _VpcEndpointServiceAllowedPrincipleState:
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the VPC endpoint service to allow permission.
-        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 
     @vpc_endpoint_service_id.setter
@@ -98,32 +82,9 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                  vpc_endpoint_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a resource to allow a principal to discover a VPC endpoint service.
-
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
-            principal_arn=current.arn)
-        ```
-
+        Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
-        :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         ...
     @overload
@@ -132,28 +93,7 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
                  args: VpcEndpointServiceAllowedPrincipleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to allow a principal to discover a VPC endpoint service.
-
-        > **NOTE on VPC Endpoint Services and VPC Endpoint Service Allowed Principals:** This provider provides
-        both a standalone VPC Endpoint Service Allowed Principal resource
-        and a VPC Endpoint Service resource with an `allowed_principals` attribute. Do not use the same principal ARN in both
-        a VPC Endpoint Service resource and a VPC Endpoint Service Allowed Principal resource. Doing so will cause a conflict
-        and will overwrite the association.
-
-        ## Example Usage
-
-        Basic usage:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        current = aws.get_caller_identity()
-        allow_me_to_foo = aws.ec2.VpcEndpointServiceAllowedPrinciple("allowMeToFoo",
-            vpc_endpoint_service_id=aws_vpc_endpoint_service["foo"]["id"],
-            principal_arn=current.arn)
-        ```
-
+        Create a VpcEndpointServiceAllowedPrinciple resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param VpcEndpointServiceAllowedPrincipleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,8 +145,6 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] principal_arn: The ARN of the principal to allow permissions.
-        :param pulumi.Input[str] vpc_endpoint_service_id: The ID of the VPC endpoint service to allow permission.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,16 +157,10 @@ class VpcEndpointServiceAllowedPrinciple(pulumi.CustomResource):
     @property
     @pulumi.getter(name="principalArn")
     def principal_arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the principal to allow permissions.
-        """
         return pulumi.get(self, "principal_arn")
 
     @property
     @pulumi.getter(name="vpcEndpointServiceId")
     def vpc_endpoint_service_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the VPC endpoint service to allow permission.
-        """
         return pulumi.get(self, "vpc_endpoint_service_id")
 

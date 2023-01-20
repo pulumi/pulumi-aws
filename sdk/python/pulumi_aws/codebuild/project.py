@@ -41,29 +41,6 @@ class ProjectArgs:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
-        :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
-        :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
-        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        :param pulumi.Input[str] description: Short description of the project.
-        :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "artifacts", artifacts)
         pulumi.set(__self__, "environment", environment)
@@ -111,9 +88,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def artifacts(self) -> pulumi.Input['ProjectArtifactsArgs']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
@@ -123,9 +97,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Input['ProjectEnvironmentArgs']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -135,9 +106,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Input[str]:
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -147,9 +115,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input['ProjectSourceArgs']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -159,9 +124,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="badgeEnabled")
     def badge_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        """
         return pulumi.get(self, "badge_enabled")
 
     @badge_enabled.setter
@@ -171,9 +133,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="buildBatchConfig")
     def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
-        """
-        Defines the batch build options for the project.
-        """
         return pulumi.get(self, "build_batch_config")
 
     @build_batch_config.setter
@@ -183,9 +142,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        """
         return pulumi.get(self, "build_timeout")
 
     @build_timeout.setter
@@ -195,9 +151,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "cache")
 
     @cache.setter
@@ -207,9 +160,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="concurrentBuildLimit")
     def concurrent_build_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        """
         return pulumi.get(self, "concurrent_build_limit")
 
     @concurrent_build_limit.setter
@@ -219,9 +169,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Short description of the project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -231,9 +178,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -243,9 +187,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
-        """
-        A set of file system locations to mount inside the build. File system locations are documented below.
-        """
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
@@ -255,9 +196,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
@@ -267,9 +205,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -279,9 +214,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectVisibility")
     def project_visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        """
         return pulumi.get(self, "project_visibility")
 
     @project_visibility.setter
@@ -291,9 +223,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        """
         return pulumi.get(self, "queued_timeout")
 
     @queued_timeout.setter
@@ -303,9 +232,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        """
         return pulumi.get(self, "resource_access_role")
 
     @resource_access_role.setter
@@ -315,9 +241,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_artifacts")
 
     @secondary_artifacts.setter
@@ -327,9 +250,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="secondarySourceVersions")
     def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_source_versions")
 
     @secondary_source_versions.setter
@@ -339,9 +259,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="secondarySources")
     def secondary_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_sources")
 
     @secondary_sources.setter
@@ -351,9 +268,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
@@ -363,9 +277,6 @@ class ProjectArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -375,9 +286,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -417,33 +325,6 @@ class _ProjectState:
                  vpc_config: Optional[pulumi.Input['ProjectVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Project resources.
-        :param pulumi.Input[str] arn: ARN of the CodeBuild project.
-        :param pulumi.Input['ProjectArtifactsArgs'] artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
-        :param pulumi.Input['ProjectBuildBatchConfigArgs'] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        :param pulumi.Input['ProjectCacheArgs'] cache: Configuration block. Detailed below.
-        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        :param pulumi.Input[str] description: Short description of the project.
-        :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input['ProjectEnvironmentArgs'] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input['ProjectLogsConfigArgs'] logs_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        :param pulumi.Input[str] public_project_alias: The project identifier used with the public build APIs.
-        :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input['ProjectSourceArgs'] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -503,9 +384,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the CodeBuild project.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -515,9 +393,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def artifacts(self) -> Optional[pulumi.Input['ProjectArtifactsArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "artifacts")
 
     @artifacts.setter
@@ -527,9 +402,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="badgeEnabled")
     def badge_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        """
         return pulumi.get(self, "badge_enabled")
 
     @badge_enabled.setter
@@ -539,9 +411,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="badgeUrl")
     def badge_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        URL of the build badge when `badge_enabled` is enabled.
-        """
         return pulumi.get(self, "badge_url")
 
     @badge_url.setter
@@ -551,9 +420,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="buildBatchConfig")
     def build_batch_config(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigArgs']]:
-        """
-        Defines the batch build options for the project.
-        """
         return pulumi.get(self, "build_batch_config")
 
     @build_batch_config.setter
@@ -563,9 +429,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        """
         return pulumi.get(self, "build_timeout")
 
     @build_timeout.setter
@@ -575,9 +438,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def cache(self) -> Optional[pulumi.Input['ProjectCacheArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "cache")
 
     @cache.setter
@@ -587,9 +447,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="concurrentBuildLimit")
     def concurrent_build_limit(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        """
         return pulumi.get(self, "concurrent_build_limit")
 
     @concurrent_build_limit.setter
@@ -599,9 +456,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Short description of the project.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -611,9 +465,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
@@ -623,9 +474,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input['ProjectEnvironmentArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -635,9 +483,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectFileSystemLocationArgs']]]]:
-        """
-        A set of file system locations to mount inside the build. File system locations are documented below.
-        """
         return pulumi.get(self, "file_system_locations")
 
     @file_system_locations.setter
@@ -647,9 +492,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> Optional[pulumi.Input['ProjectLogsConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "logs_config")
 
     @logs_config.setter
@@ -659,9 +501,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -671,9 +510,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="projectVisibility")
     def project_visibility(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        """
         return pulumi.get(self, "project_visibility")
 
     @project_visibility.setter
@@ -683,9 +519,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="publicProjectAlias")
     def public_project_alias(self) -> Optional[pulumi.Input[str]]:
-        """
-        The project identifier used with the public build APIs.
-        """
         return pulumi.get(self, "public_project_alias")
 
     @public_project_alias.setter
@@ -695,9 +528,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        """
         return pulumi.get(self, "queued_timeout")
 
     @queued_timeout.setter
@@ -707,9 +537,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        """
         return pulumi.get(self, "resource_access_role")
 
     @resource_access_role.setter
@@ -719,9 +546,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_artifacts")
 
     @secondary_artifacts.setter
@@ -731,9 +555,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="secondarySourceVersions")
     def secondary_source_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_source_versions")
 
     @secondary_source_versions.setter
@@ -743,9 +564,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="secondarySources")
     def secondary_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_sources")
 
     @secondary_sources.setter
@@ -755,9 +573,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         return pulumi.get(self, "service_role")
 
     @service_role.setter
@@ -767,9 +582,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['ProjectSourceArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -779,9 +591,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        """
         return pulumi.get(self, "source_version")
 
     @source_version.setter
@@ -791,9 +600,6 @@ class _ProjectState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -803,9 +609,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -815,9 +618,6 @@ class _ProjectState:
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ProjectVpcConfigArgs']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
@@ -855,220 +655,9 @@ class Project(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.name,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Resource": [
-                "*"
-              ],
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ]
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeVpcs"
-              ],
-              "Resource": "*"
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterfacePermission"
-              ],
-              "Resource": [
-                "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
-              ],
-              "Condition": {{
-                "StringEquals": {{
-                  "ec2:Subnet": [
-                    "{aws_subnet["example1"]["arn"]}",
-                    "{aws_subnet["example2"]["arn"]}"
-                  ],
-                  "ec2:AuthorizedService": "codebuild.amazonaws.com"
-                }}
-              }}
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "s3:*"
-              ],
-              "Resource": [
-                "{example_bucket_v2_arn}",
-                "{example_bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
-        example_project = aws.codebuild.Project("exampleProject",
-            description="test_codebuild_project",
-            build_timeout=5,
-            service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="S3",
-                location=example_bucket_v2.bucket,
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY1",
-                        value="SOME_VALUE1",
-                    ),
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY2",
-                        value="SOME_VALUE2",
-                        type="PARAMETER_STORE",
-                    ),
-                ],
-            ),
-            logs_config=aws.codebuild.ProjectLogsConfigArgs(
-                cloudwatch_logs=aws.codebuild.ProjectLogsConfigCloudwatchLogsArgs(
-                    group_name="log-group",
-                    stream_name="log-stream",
-                ),
-                s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
-                    status="ENABLED",
-                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
-                ),
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-                git_submodules_config=aws.codebuild.ProjectSourceGitSubmodulesConfigArgs(
-                    fetch_submodules=True,
-                ),
-            ),
-            source_version="master",
-            vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnets=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
-                ],
-                security_group_ids=[
-                    aws_security_group["example1"]["id"],
-                    aws_security_group["example2"]["id"],
-                ],
-            ),
-            tags={
-                "Environment": "Test",
-            })
-        project_with_cache = aws.codebuild.Project("project-with-cache",
-            description="test_codebuild_project_cache",
-            build_timeout=5,
-            queued_timeout=5,
-            service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="LOCAL",
-                modes=[
-                    "LOCAL_DOCKER_LAYER_CACHE",
-                    "LOCAL_SOURCE_CACHE",
-                ],
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                    name="SOME_KEY1",
-                    value="SOME_VALUE1",
-                )],
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-            ),
-            tags={
-                "Environment": "Test",
-            })
-        ```
-
-        ## Import
-
-        CodeBuild Project can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
-        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        :param pulumi.Input[str] description: Short description of the project.
-        :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         ...
     @overload
@@ -1077,195 +666,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
-            bucket=example_bucket_v2.id,
-            acl="private")
-        example_role = aws.iam.Role("exampleRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com"
-              },
-              "Action": "sts:AssumeRole"
-            }
-          ]
-        }
-        \"\"\")
-        example_role_policy = aws.iam.RolePolicy("exampleRolePolicy",
-            role=example_role.name,
-            policy=pulumi.Output.all(example_bucket_v2.arn, example_bucket_v2.arn).apply(lambda exampleBucketV2Arn, exampleBucketV2Arn1: f\"\"\"{{
-          "Version": "2012-10-17",
-          "Statement": [
-            {{
-              "Effect": "Allow",
-              "Resource": [
-                "*"
-              ],
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ]
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterface",
-                "ec2:DescribeDhcpOptions",
-                "ec2:DescribeNetworkInterfaces",
-                "ec2:DeleteNetworkInterface",
-                "ec2:DescribeSubnets",
-                "ec2:DescribeSecurityGroups",
-                "ec2:DescribeVpcs"
-              ],
-              "Resource": "*"
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "ec2:CreateNetworkInterfacePermission"
-              ],
-              "Resource": [
-                "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
-              ],
-              "Condition": {{
-                "StringEquals": {{
-                  "ec2:Subnet": [
-                    "{aws_subnet["example1"]["arn"]}",
-                    "{aws_subnet["example2"]["arn"]}"
-                  ],
-                  "ec2:AuthorizedService": "codebuild.amazonaws.com"
-                }}
-              }}
-            }},
-            {{
-              "Effect": "Allow",
-              "Action": [
-                "s3:*"
-              ],
-              "Resource": [
-                "{example_bucket_v2_arn}",
-                "{example_bucket_v2_arn1}/*"
-              ]
-            }}
-          ]
-        }}
-        \"\"\"))
-        example_project = aws.codebuild.Project("exampleProject",
-            description="test_codebuild_project",
-            build_timeout=5,
-            service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="S3",
-                location=example_bucket_v2.bucket,
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY1",
-                        value="SOME_VALUE1",
-                    ),
-                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                        name="SOME_KEY2",
-                        value="SOME_VALUE2",
-                        type="PARAMETER_STORE",
-                    ),
-                ],
-            ),
-            logs_config=aws.codebuild.ProjectLogsConfigArgs(
-                cloudwatch_logs=aws.codebuild.ProjectLogsConfigCloudwatchLogsArgs(
-                    group_name="log-group",
-                    stream_name="log-stream",
-                ),
-                s3_logs=aws.codebuild.ProjectLogsConfigS3LogsArgs(
-                    status="ENABLED",
-                    location=example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
-                ),
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-                git_submodules_config=aws.codebuild.ProjectSourceGitSubmodulesConfigArgs(
-                    fetch_submodules=True,
-                ),
-            ),
-            source_version="master",
-            vpc_config=aws.codebuild.ProjectVpcConfigArgs(
-                vpc_id=aws_vpc["example"]["id"],
-                subnets=[
-                    aws_subnet["example1"]["id"],
-                    aws_subnet["example2"]["id"],
-                ],
-                security_group_ids=[
-                    aws_security_group["example1"]["id"],
-                    aws_security_group["example2"]["id"],
-                ],
-            ),
-            tags={
-                "Environment": "Test",
-            })
-        project_with_cache = aws.codebuild.Project("project-with-cache",
-            description="test_codebuild_project_cache",
-            build_timeout=5,
-            queued_timeout=5,
-            service_role=example_role.arn,
-            artifacts=aws.codebuild.ProjectArtifactsArgs(
-                type="NO_ARTIFACTS",
-            ),
-            cache=aws.codebuild.ProjectCacheArgs(
-                type="LOCAL",
-                modes=[
-                    "LOCAL_DOCKER_LAYER_CACHE",
-                    "LOCAL_SOURCE_CACHE",
-                ],
-            ),
-            environment=aws.codebuild.ProjectEnvironmentArgs(
-                compute_type="BUILD_GENERAL1_SMALL",
-                image="aws/codebuild/standard:1.0",
-                type="LINUX_CONTAINER",
-                image_pull_credentials_type="CODEBUILD",
-                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
-                    name="SOME_KEY1",
-                    value="SOME_VALUE1",
-                )],
-            ),
-            source=aws.codebuild.ProjectSourceArgs(
-                type="GITHUB",
-                location="https://github.com/mitchellh/packer.git",
-                git_clone_depth=1,
-            ),
-            tags={
-                "Environment": "Test",
-            })
-        ```
-
-        ## Import
-
-        CodeBuild Project can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
-        ```
-
+        Create a Project resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1392,33 +793,6 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the CodeBuild project.
-        :param pulumi.Input[pulumi.InputType['ProjectArtifactsArgs']] artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[bool] badge_enabled: Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        :param pulumi.Input[str] badge_url: URL of the build badge when `badge_enabled` is enabled.
-        :param pulumi.Input[pulumi.InputType['ProjectBuildBatchConfigArgs']] build_batch_config: Defines the batch build options for the project.
-        :param pulumi.Input[int] build_timeout: Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        :param pulumi.Input[pulumi.InputType['ProjectCacheArgs']] cache: Configuration block. Detailed below.
-        :param pulumi.Input[int] concurrent_build_limit: Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        :param pulumi.Input[str] description: Short description of the project.
-        :param pulumi.Input[str] encryption_key: AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        :param pulumi.Input[pulumi.InputType['ProjectEnvironmentArgs']] environment: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectFileSystemLocationArgs']]]] file_system_locations: A set of file system locations to mount inside the build. File system locations are documented below.
-        :param pulumi.Input[pulumi.InputType['ProjectLogsConfigArgs']] logs_config: Configuration block. Detailed below.
-        :param pulumi.Input[str] name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        :param pulumi.Input[str] project_visibility: Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        :param pulumi.Input[str] public_project_alias: The project identifier used with the public build APIs.
-        :param pulumi.Input[int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        :param pulumi.Input[str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondaryArtifactArgs']]]] secondary_artifacts: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceVersionArgs']]]] secondary_source_versions: Configuration block. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectSecondarySourceArgs']]]] secondary_sources: Configuration block. Detailed below.
-        :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
-        :param pulumi.Input[pulumi.InputType['ProjectSourceArgs']] source: Configuration block. Detailed below.
-        :param pulumi.Input[str] source_version: The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1456,216 +830,135 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the CodeBuild project.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def artifacts(self) -> pulumi.Output['outputs.ProjectArtifacts']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "artifacts")
 
     @property
     @pulumi.getter(name="badgeEnabled")
     def badge_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-        """
         return pulumi.get(self, "badge_enabled")
 
     @property
     @pulumi.getter(name="badgeUrl")
     def badge_url(self) -> pulumi.Output[str]:
-        """
-        URL of the build badge when `badge_enabled` is enabled.
-        """
         return pulumi.get(self, "badge_url")
 
     @property
     @pulumi.getter(name="buildBatchConfig")
     def build_batch_config(self) -> pulumi.Output[Optional['outputs.ProjectBuildBatchConfig']]:
-        """
-        Defines the batch build options for the project.
-        """
         return pulumi.get(self, "build_batch_config")
 
     @property
     @pulumi.getter(name="buildTimeout")
     def build_timeout(self) -> pulumi.Output[Optional[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-        """
         return pulumi.get(self, "build_timeout")
 
     @property
     @pulumi.getter
     def cache(self) -> pulumi.Output[Optional['outputs.ProjectCache']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "cache")
 
     @property
     @pulumi.getter(name="concurrentBuildLimit")
     def concurrent_build_limit(self) -> pulumi.Output[Optional[int]]:
-        """
-        Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-        """
         return pulumi.get(self, "concurrent_build_limit")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
-        """
-        Short description of the project.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[str]:
-        """
-        AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
-        """
         return pulumi.get(self, "encryption_key")
 
     @property
     @pulumi.getter
     def environment(self) -> pulumi.Output['outputs.ProjectEnvironment']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "environment")
 
     @property
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectFileSystemLocation']]]:
-        """
-        A set of file system locations to mount inside the build. File system locations are documented below.
-        """
         return pulumi.get(self, "file_system_locations")
 
     @property
     @pulumi.getter(name="logsConfig")
     def logs_config(self) -> pulumi.Output[Optional['outputs.ProjectLogsConfig']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "logs_config")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectVisibility")
     def project_visibility(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-        """
         return pulumi.get(self, "project_visibility")
 
     @property
     @pulumi.getter(name="publicProjectAlias")
     def public_project_alias(self) -> pulumi.Output[str]:
-        """
-        The project identifier used with the public build APIs.
-        """
         return pulumi.get(self, "public_project_alias")
 
     @property
     @pulumi.getter(name="queuedTimeout")
     def queued_timeout(self) -> pulumi.Output[Optional[int]]:
-        """
-        Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-        """
         return pulumi.get(self, "queued_timeout")
 
     @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds.
-        """
         return pulumi.get(self, "resource_access_role")
 
     @property
     @pulumi.getter(name="secondaryArtifacts")
     def secondary_artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSecondaryArtifact']]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_artifacts")
 
     @property
     @pulumi.getter(name="secondarySourceVersions")
     def secondary_source_versions(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSecondarySourceVersion']]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_source_versions")
 
     @property
     @pulumi.getter(name="secondarySources")
     def secondary_sources(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectSecondarySource']]]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "secondary_sources")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
-        """
-        Specifies the service role ARN for the batch build project.
-        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.ProjectSource']:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "source")
 
     @property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-        """
         return pulumi.get(self, "source_version")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.ProjectVpcConfig']]:
-        """
-        Configuration block. Detailed below.
-        """
         return pulumi.get(self, "vpc_config")
 

@@ -19,9 +19,6 @@ class PermissionSetInlinePolicyArgs:
                  permission_set_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a PermissionSetInlinePolicy resource.
-        :param pulumi.Input[str] inline_policy: The IAM inline policy to attach to a Permission Set.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         pulumi.set(__self__, "inline_policy", inline_policy)
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -30,9 +27,6 @@ class PermissionSetInlinePolicyArgs:
     @property
     @pulumi.getter(name="inlinePolicy")
     def inline_policy(self) -> pulumi.Input[str]:
-        """
-        The IAM inline policy to attach to a Permission Set.
-        """
         return pulumi.get(self, "inline_policy")
 
     @inline_policy.setter
@@ -42,9 +36,6 @@ class PermissionSetInlinePolicyArgs:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -54,9 +45,6 @@ class PermissionSetInlinePolicyArgs:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Input[str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -72,9 +60,6 @@ class _PermissionSetInlinePolicyState:
                  permission_set_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PermissionSetInlinePolicy resources.
-        :param pulumi.Input[str] inline_policy: The IAM inline policy to attach to a Permission Set.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         if inline_policy is not None:
             pulumi.set(__self__, "inline_policy", inline_policy)
@@ -86,9 +71,6 @@ class _PermissionSetInlinePolicyState:
     @property
     @pulumi.getter(name="inlinePolicy")
     def inline_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IAM inline policy to attach to a Permission Set.
-        """
         return pulumi.get(self, "inline_policy")
 
     @inline_policy.setter
@@ -98,9 +80,6 @@ class _PermissionSetInlinePolicyState:
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @instance_arn.setter
@@ -110,9 +89,6 @@ class _PermissionSetInlinePolicyState:
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 
     @permission_set_arn.setter
@@ -130,24 +106,9 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
-        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-
-        ## Import
-
-        SSO Permission Set Inline Policies can be imported using the `permission_set_arn` and `instance_arn` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
-
+        Create a PermissionSetInlinePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] inline_policy: The IAM inline policy to attach to a Permission Set.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         ...
     @overload
@@ -156,19 +117,7 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  args: PermissionSetInlinePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
-
-        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
-        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
-
-        ## Import
-
-        SSO Permission Set Inline Policies can be imported using the `permission_set_arn` and `instance_arn` separated by a comma (`,`) e.g.,
-
-        ```sh
-         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-        ```
-
+        Create a PermissionSetInlinePolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PermissionSetInlinePolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +174,6 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] inline_policy: The IAM inline policy to attach to a Permission Set.
-        :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,24 +187,15 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inlinePolicy")
     def inline_policy(self) -> pulumi.Output[str]:
-        """
-        The IAM inline policy to attach to a Permission Set.
-        """
         return pulumi.get(self, "inline_policy")
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Permission Set.
-        """
         return pulumi.get(self, "permission_set_arn")
 

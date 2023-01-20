@@ -30,18 +30,6 @@ class PolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
-        :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
-        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
-        :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
-        :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
@@ -69,9 +57,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> pulumi.Input[bool]:
-        """
-        A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @exclude_resource_tags.setter
@@ -81,9 +66,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="securityServicePolicyData")
     def security_service_policy_data(self) -> pulumi.Input['PolicySecurityServicePolicyDataArgs']:
-        """
-        The objects to include in Security Service Policy Data. Documented below.
-        """
         return pulumi.get(self, "security_service_policy_data")
 
     @security_service_policy_data.setter
@@ -93,9 +75,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="deleteAllPolicyResources")
     def delete_all_policy_resources(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        """
         return pulumi.get(self, "delete_all_policy_resources")
 
     @delete_all_policy_resources.setter
@@ -105,9 +84,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="deleteUnusedFmManagedResources")
     def delete_unused_fm_managed_resources(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
 
     @delete_unused_fm_managed_resources.setter
@@ -117,9 +93,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
-        """
-        A map of lists of accounts and OU's to exclude from the policy.
-        """
         return pulumi.get(self, "exclude_map")
 
     @exclude_map.setter
@@ -129,9 +102,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="includeMap")
     def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
-        """
-        A map of lists of accounts and OU's to include in the policy.
-        """
         return pulumi.get(self, "include_map")
 
     @include_map.setter
@@ -141,9 +111,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The friendly name of the AWS Firewall Manager Policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -153,9 +120,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        """
         return pulumi.get(self, "remediation_enabled")
 
     @remediation_enabled.setter
@@ -165,9 +129,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -177,9 +138,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -189,9 +147,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="resourceTypeLists")
     def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        """
         return pulumi.get(self, "resource_type_lists")
 
     @resource_type_lists.setter
@@ -201,9 +156,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -231,20 +183,6 @@ class _PolicyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Policy resources.
-        :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
-        :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
-        :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
-        :param pulumi.Input[str] policy_update_token: A unique identifier for each update to the policy.
-        :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -289,9 +227,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="deleteAllPolicyResources")
     def delete_all_policy_resources(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        """
         return pulumi.get(self, "delete_all_policy_resources")
 
     @delete_all_policy_resources.setter
@@ -301,9 +236,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="deleteUnusedFmManagedResources")
     def delete_unused_fm_managed_resources(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
 
     @delete_unused_fm_managed_resources.setter
@@ -313,9 +245,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
-        """
-        A map of lists of accounts and OU's to exclude from the policy.
-        """
         return pulumi.get(self, "exclude_map")
 
     @exclude_map.setter
@@ -325,9 +254,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @exclude_resource_tags.setter
@@ -337,9 +263,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="includeMap")
     def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
-        """
-        A map of lists of accounts and OU's to include in the policy.
-        """
         return pulumi.get(self, "include_map")
 
     @include_map.setter
@@ -349,9 +272,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The friendly name of the AWS Firewall Manager Policy.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -361,9 +281,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="policyUpdateToken")
     def policy_update_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        A unique identifier for each update to the policy.
-        """
         return pulumi.get(self, "policy_update_token")
 
     @policy_update_token.setter
@@ -373,9 +290,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        """
         return pulumi.get(self, "remediation_enabled")
 
     @remediation_enabled.setter
@@ -385,9 +299,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -397,9 +308,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
@@ -409,9 +317,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="resourceTypeLists")
     def resource_type_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        """
         return pulumi.get(self, "resource_type_lists")
 
     @resource_type_lists.setter
@@ -421,9 +326,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="securityServicePolicyData")
     def security_service_policy_data(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataArgs']]:
-        """
-        The objects to include in Security Service Policy Data. Documented below.
-        """
         return pulumi.get(self, "security_service_policy_data")
 
     @security_service_policy_data.setter
@@ -433,9 +335,6 @@ class _PolicyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -445,9 +344,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -474,63 +370,9 @@ class Policy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
-            exclude_resource_tags=False,
-            remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
-            security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
-                type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
-                    "type": "WAF",
-                    "ruleGroups": [{
-                        "id": id,
-                        "overrideAction": {
-                            "type": "COUNT",
-                        },
-                    }],
-                    "defaultAction": {
-                        "type": "BLOCK",
-                    },
-                    "overrideCustomerWebACLAssociation": False,
-                })),
-            ),
-            tags={
-                "Name": "example-fms-policy",
-            })
-        ```
-
-        ## Import
-
-        Firewall Manager policies can be imported using the policy ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
-        :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
-        :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
-        :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
         ...
     @overload
@@ -539,49 +381,7 @@ class Policy(pulumi.CustomResource):
                  args: PolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-        example_rule_group = aws.wafregional.RuleGroup("exampleRuleGroup", metric_name="WAFRuleGroupExample")
-        example_policy = aws.fms.Policy("examplePolicy",
-            exclude_resource_tags=False,
-            remediation_enabled=False,
-            resource_type="AWS::ElasticLoadBalancingV2::LoadBalancer",
-            security_service_policy_data=aws.fms.PolicySecurityServicePolicyDataArgs(
-                type="WAF",
-                managed_service_data=example_rule_group.id.apply(lambda id: json.dumps({
-                    "type": "WAF",
-                    "ruleGroups": [{
-                        "id": id,
-                        "overrideAction": {
-                            "type": "COUNT",
-                        },
-                    }],
-                    "defaultAction": {
-                        "type": "BLOCK",
-                    },
-                    "overrideCustomerWebACLAssociation": False,
-                })),
-            ),
-            tags={
-                "Name": "example-fms-policy",
-            })
-        ```
-
-        ## Import
-
-        Firewall Manager policies can be imported using the policy ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
-        ```
-
+        Create a Policy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -669,20 +469,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[bool] delete_unused_fm_managed_resources: If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
-        :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
-        :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
-        :param pulumi.Input[str] policy_update_token: A unique identifier for each update to the policy.
-        :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        :param pulumi.Input[str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        :param pulumi.Input[pulumi.InputType['PolicySecurityServicePolicyDataArgs']] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -713,112 +499,70 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deleteAllPolicyResources")
     def delete_all_policy_resources(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        """
         return pulumi.get(self, "delete_all_policy_resources")
 
     @property
     @pulumi.getter(name="deleteUnusedFmManagedResources")
     def delete_unused_fm_managed_resources(self) -> pulumi.Output[Optional[bool]]:
-        """
-        If true, Firewall Manager will automatically remove protections from resources that leave the policy scope. Defaults to `false`. More information can be found here [AWS Firewall Manager policy contents](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html)
-        """
         return pulumi.get(self, "delete_unused_fm_managed_resources")
 
     @property
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> pulumi.Output[Optional['outputs.PolicyExcludeMap']]:
-        """
-        A map of lists of accounts and OU's to exclude from the policy.
-        """
         return pulumi.get(self, "exclude_map")
 
     @property
     @pulumi.getter(name="excludeResourceTags")
     def exclude_resource_tags(self) -> pulumi.Output[bool]:
-        """
-        A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        """
         return pulumi.get(self, "exclude_resource_tags")
 
     @property
     @pulumi.getter(name="includeMap")
     def include_map(self) -> pulumi.Output[Optional['outputs.PolicyIncludeMap']]:
-        """
-        A map of lists of accounts and OU's to include in the policy.
-        """
         return pulumi.get(self, "include_map")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The friendly name of the AWS Firewall Manager Policy.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="policyUpdateToken")
     def policy_update_token(self) -> pulumi.Output[str]:
-        """
-        A unique identifier for each update to the policy.
-        """
         return pulumi.get(self, "policy_update_token")
 
     @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
-        """
         return pulumi.get(self, "remediation_enabled")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
-        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
-        """
-        A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
-        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter(name="resourceTypeLists")
     def resource_type_lists(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
-        """
         return pulumi.get(self, "resource_type_lists")
 
     @property
     @pulumi.getter(name="securityServicePolicyData")
     def security_service_policy_data(self) -> pulumi.Output['outputs.PolicySecurityServicePolicyData']:
-        """
-        The objects to include in Security Service Policy Data. Documented below.
-        """
         return pulumi.get(self, "security_service_policy_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

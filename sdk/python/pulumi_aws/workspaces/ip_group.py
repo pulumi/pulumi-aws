@@ -22,10 +22,6 @@ class IpGroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IpGroup resource.
-        :param pulumi.Input[str] description: The description.
-        :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -39,9 +35,6 @@ class IpGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -51,9 +44,6 @@ class IpGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the IP group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -63,9 +53,6 @@ class IpGroupArgs:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]]]:
-        """
-        One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -75,9 +62,6 @@ class IpGroupArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -95,11 +79,6 @@ class _IpGroupState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering IpGroup resources.
-        :param pulumi.Input[str] description: The description.
-        :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -115,9 +94,6 @@ class _IpGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -127,9 +103,6 @@ class _IpGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the IP group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -139,9 +112,6 @@ class _IpGroupState:
     @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupRuleArgs']]]]:
-        """
-        One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        """
         return pulumi.get(self, "rules")
 
     @rules.setter
@@ -151,9 +121,6 @@ class _IpGroupState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -163,9 +130,6 @@ class _IpGroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -184,46 +148,9 @@ class IpGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an IP access control group in AWS WorkSpaces Service
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        contractors = aws.workspaces.IpGroup("contractors",
-            description="Contractors IP access control group",
-            rules=[
-                aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
-                    source="150.24.14.0/24",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
-                    source="125.191.14.85/32",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
-                    source="44.98.100.0/24",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        WorkSpaces IP groups can be imported using their GroupID, e.g.,
-
-        ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
-        ```
-
+        Create a IpGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description.
-        :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -232,40 +159,7 @@ class IpGroup(pulumi.CustomResource):
                  args: Optional[IpGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an IP access control group in AWS WorkSpaces Service
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        contractors = aws.workspaces.IpGroup("contractors",
-            description="Contractors IP access control group",
-            rules=[
-                aws.workspaces.IpGroupRuleArgs(
-                    description="NY",
-                    source="150.24.14.0/24",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="LA",
-                    source="125.191.14.85/32",
-                ),
-                aws.workspaces.IpGroupRuleArgs(
-                    description="STL",
-                    source="44.98.100.0/24",
-                ),
-            ])
-        ```
-
-        ## Import
-
-        WorkSpaces IP groups can be imported using their GroupID, e.g.,
-
-        ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
-        ```
-
+        Create a IpGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param IpGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -321,11 +215,6 @@ class IpGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description.
-        :param pulumi.Input[str] name: The name of the IP group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpGroupRuleArgs']]]] rules: One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -341,40 +230,25 @@ class IpGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the IP group.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.IpGroupRule']]]:
-        """
-        One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
-        """
         return pulumi.get(self, "rules")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

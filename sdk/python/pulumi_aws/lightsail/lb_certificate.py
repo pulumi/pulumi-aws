@@ -22,10 +22,6 @@ class LbCertificateArgs:
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LbCertificate resource.
-        :param pulumi.Input[str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
-        :param pulumi.Input[str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         pulumi.set(__self__, "lb_name", lb_name)
         if domain_name is not None:
@@ -38,9 +34,6 @@ class LbCertificateArgs:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Input[str]:
-        """
-        The load balancer name where you want to create the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -50,9 +43,6 @@ class LbCertificateArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The domain name (e.g., example.com) for your SSL/TLS certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -62,9 +52,6 @@ class LbCertificateArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SSL/TLS certificate name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -74,9 +61,6 @@ class LbCertificateArgs:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -97,12 +81,6 @@ class _LbCertificateState:
                  support_code: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LbCertificate resources.
-        :param pulumi.Input[str] arn: The ARN of the lightsail certificate.
-        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
-        :param pulumi.Input[str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -124,9 +102,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the lightsail certificate.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -136,9 +111,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp when the instance was created.
-        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -148,9 +120,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The domain name (e.g., example.com) for your SSL/TLS certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -169,9 +138,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The load balancer name where you want to create the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
@@ -181,9 +147,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SSL/TLS certificate name.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -193,9 +156,6 @@ class _LbCertificateState:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -223,39 +183,9 @@ class LbCertificate(pulumi.CustomResource):
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Creates a Lightsail load balancer Certificate resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        ```
-
-        ## Import
-
-        `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-        ```
-
+        Create a LbCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
-        :param pulumi.Input[str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         ...
     @overload
@@ -264,33 +194,7 @@ class LbCertificate(pulumi.CustomResource):
                  args: LbCertificateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a Lightsail load balancer Certificate resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test_lb = aws.lightsail.Lb("testLb",
-            health_check_path="/",
-            instance_port=80,
-            tags={
-                "foo": "bar",
-            })
-        test_lb_certificate = aws.lightsail.LbCertificate("testLbCertificate",
-            lb_name=test_lb.id,
-            domain_name="test.com")
-        ```
-
-        ## Import
-
-        `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
-
-        ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-        ```
-
+        Create a LbCertificate resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param LbCertificateArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,12 +258,6 @@ class LbCertificate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the lightsail certificate.
-        :param pulumi.Input[str] created_at: The timestamp when the instance was created.
-        :param pulumi.Input[str] domain_name: The domain name (e.g., example.com) for your SSL/TLS certificate.
-        :param pulumi.Input[str] lb_name: The load balancer name where you want to create the SSL/TLS certificate.
-        :param pulumi.Input[str] name: The SSL/TLS certificate name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -378,25 +276,16 @@ class LbCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the lightsail certificate.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
-        """
-        The timestamp when the instance was created.
-        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
-        """
-        The domain name (e.g., example.com) for your SSL/TLS certificate.
-        """
         return pulumi.get(self, "domain_name")
 
     @property
@@ -407,25 +296,16 @@ class LbCertificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="lbName")
     def lb_name(self) -> pulumi.Output[str]:
-        """
-        The load balancer name where you want to create the SSL/TLS certificate.
-        """
         return pulumi.get(self, "lb_name")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The SSL/TLS certificate name.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Output[Sequence[str]]:
-        """
-        Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @property

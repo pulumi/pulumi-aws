@@ -19,9 +19,6 @@ class UserInGroupArgs:
                  username: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserInGroup resource.
-        :param pulumi.Input[str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -30,9 +27,6 @@ class UserInGroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -42,9 +36,6 @@ class UserInGroupArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -54,9 +45,6 @@ class UserInGroupArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -72,9 +60,6 @@ class _UserInGroupState:
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserInGroup resources.
-        :param pulumi.Input[str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
@@ -86,9 +71,6 @@ class _UserInGroupState:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -98,9 +80,6 @@ class _UserInGroupState:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -110,9 +89,6 @@ class _UserInGroupState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -130,36 +106,9 @@ class UserInGroup(pulumi.CustomResource):
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Adds the specified user to the specified group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
-            temporary_password_validity_days=7,
-            minimum_length=6,
-            require_uppercase=False,
-            require_symbols=False,
-            require_numbers=False,
-        ))
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=aws_cognito_user_pool["test"]["id"],
-            username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=aws_cognito_user_pool["test"]["id"])
-        example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
-            user_pool_id=example_user_pool.id,
-            group_name=example_user_group.name,
-            username=example_user.username)
-        ```
-
+        Create a UserInGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
         ...
     @overload
@@ -168,31 +117,7 @@ class UserInGroup(pulumi.CustomResource):
                  args: UserInGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Adds the specified user to the specified group.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
-            temporary_password_validity_days=7,
-            minimum_length=6,
-            require_uppercase=False,
-            require_symbols=False,
-            require_numbers=False,
-        ))
-        example_user = aws.cognito.User("exampleUser",
-            user_pool_id=aws_cognito_user_pool["test"]["id"],
-            username="example")
-        example_user_group = aws.cognito.UserGroup("exampleUserGroup", user_pool_id=aws_cognito_user_pool["test"]["id"])
-        example_user_in_group = aws.cognito.UserInGroup("exampleUserInGroup",
-            user_pool_id=example_user_pool.id,
-            group_name=example_user_group.name,
-            username=example_user.username)
-        ```
-
+        Create a UserInGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserInGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -249,9 +174,6 @@ class UserInGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] group_name: The name of the group to which the user is to be added.
-        :param pulumi.Input[str] user_pool_id: The user pool ID of the user and group.
-        :param pulumi.Input[str] username: The username of the user to be added to the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,24 +187,15 @@ class UserInGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[str]:
-        """
-        The name of the group to which the user is to be added.
-        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
-        """
-        The user pool ID of the user and group.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
-        """
-        The username of the user to be added to the group.
-        """
         return pulumi.get(self, "username")
 

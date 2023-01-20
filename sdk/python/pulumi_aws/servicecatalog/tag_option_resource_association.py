@@ -18,8 +18,6 @@ class TagOptionResourceAssociationArgs:
                  tag_option_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TagOptionResourceAssociation resource.
-        :param pulumi.Input[str] resource_id: Resource identifier.
-        :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "tag_option_id", tag_option_id)
@@ -27,9 +25,6 @@ class TagOptionResourceAssociationArgs:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -39,9 +34,6 @@ class TagOptionResourceAssociationArgs:
     @property
     @pulumi.getter(name="tagOptionId")
     def tag_option_id(self) -> pulumi.Input[str]:
-        """
-        Tag Option identifier.
-        """
         return pulumi.get(self, "tag_option_id")
 
     @tag_option_id.setter
@@ -60,12 +52,6 @@ class _TagOptionResourceAssociationState:
                  tag_option_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagOptionResourceAssociation resources.
-        :param pulumi.Input[str] resource_arn: ARN of the resource.
-        :param pulumi.Input[str] resource_created_time: Creation time of the resource.
-        :param pulumi.Input[str] resource_description: Description of the resource.
-        :param pulumi.Input[str] resource_id: Resource identifier.
-        :param pulumi.Input[str] resource_name: Description of the resource.
-        :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
@@ -83,9 +69,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the resource.
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -95,9 +78,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="resourceCreatedTime")
     def resource_created_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Creation time of the resource.
-        """
         return pulumi.get(self, "resource_created_time")
 
     @resource_created_time.setter
@@ -107,9 +87,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="resourceDescription")
     def resource_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the resource.
-        """
         return pulumi.get(self, "resource_description")
 
     @resource_description.setter
@@ -119,9 +96,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
@@ -131,9 +105,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the resource.
-        """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
@@ -143,9 +114,6 @@ class _TagOptionResourceAssociationState:
     @property
     @pulumi.getter(name="tagOptionId")
     def tag_option_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Tag Option identifier.
-        """
         return pulumi.get(self, "tag_option_id")
 
     @tag_option_id.setter
@@ -162,34 +130,9 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
                  tag_option_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a Service Catalog Tag Option Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.TagOptionResourceAssociation("example",
-            resource_id="prod-dnigbtea24ste",
-            tag_option_id="tag-pjtvyakdlyo3m")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a TagOptionResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_id: Resource identifier.
-        :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
         ...
     @overload
@@ -198,30 +141,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
                  args: TagOptionResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Service Catalog Tag Option Resource Association.
-
-        > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-
-        ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.servicecatalog.TagOptionResourceAssociation("example",
-            resource_id="prod-dnigbtea24ste",
-            tag_option_id="tag-pjtvyakdlyo3m")
-        ```
-
-        ## Import
-
-        `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
-        ```
-
+        Create a TagOptionResourceAssociation resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagOptionResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,12 +201,6 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_arn: ARN of the resource.
-        :param pulumi.Input[str] resource_created_time: Creation time of the resource.
-        :param pulumi.Input[str] resource_description: Description of the resource.
-        :param pulumi.Input[str] resource_id: Resource identifier.
-        :param pulumi.Input[str] resource_name_: Description of the resource.
-        :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,48 +217,30 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the resource.
-        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="resourceCreatedTime")
     def resource_created_time(self) -> pulumi.Output[str]:
-        """
-        Creation time of the resource.
-        """
         return pulumi.get(self, "resource_created_time")
 
     @property
     @pulumi.getter(name="resourceDescription")
     def resource_description(self) -> pulumi.Output[str]:
-        """
-        Description of the resource.
-        """
         return pulumi.get(self, "resource_description")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        Resource identifier.
-        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Output[str]:
-        """
-        Description of the resource.
-        """
         return pulumi.get(self, "resource_name")
 
     @property
     @pulumi.getter(name="tagOptionId")
     def tag_option_id(self) -> pulumi.Output[str]:
-        """
-        Tag Option identifier.
-        """
         return pulumi.get(self, "tag_option_id")
 

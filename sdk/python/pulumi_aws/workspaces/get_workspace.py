@@ -71,9 +71,6 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="computerName")
     def computer_name(self) -> str:
-        """
-        Name of the WorkSpace, as seen by the operating system.
-        """
         return pulumi.get(self, "computer_name")
 
     @property
@@ -92,9 +89,6 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
-        """
-        IP address of the WorkSpace.
-        """
         return pulumi.get(self, "ip_address")
 
     @property
@@ -105,9 +99,6 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter
     def state(self) -> str:
-        """
-        Operational state of the WorkSpace.
-        """
         return pulumi.get(self, "state")
 
     @property
@@ -168,32 +159,7 @@ def get_workspace(directory_id: Optional[str] = None,
                   workspace_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-
-    ## Example Usage
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
-
-
-    :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param Mapping[str, str] tags: Tags for the WorkSpace.
-    :param str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
@@ -226,31 +192,6 @@ def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = N
                          workspace_id: Optional[pulumi.Input[Optional[str]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
-
-    ## Example Usage
-    ### Filter By Workspace ID
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
-    ```
-    ### Filter By Directory ID & User Name
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
-        user_name="Example")
-    ```
-
-
-    :param str directory_id: ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
-    :param Mapping[str, str] tags: Tags for the WorkSpace.
-    :param str user_name: User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
-    :param str workspace_id: ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    Use this data source to access information about an existing resource.
     """
     ...

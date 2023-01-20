@@ -28,17 +28,6 @@ class UserArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input['UserPhoneConfigArgs'] phone_config: A block that contains information about the phone settings for the user. Documented below.
-        :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input['UserIdentityInfoArgs'] identity_info: A block that contains information about the identity of the user. Documented below.
-        :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "phone_config", phone_config)
@@ -60,9 +49,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -72,9 +58,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> pulumi.Input['UserPhoneConfigArgs']:
-        """
-        A block that contains information about the phone settings for the user. Documented below.
-        """
         return pulumi.get(self, "phone_config")
 
     @phone_config.setter
@@ -84,9 +67,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> pulumi.Input[str]:
-        """
-        The identifier of the routing profile for the user.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @routing_profile_id.setter
@@ -96,9 +76,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        """
         return pulumi.get(self, "security_profile_ids")
 
     @security_profile_ids.setter
@@ -108,9 +85,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="directoryUserId")
     def directory_user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        """
         return pulumi.get(self, "directory_user_id")
 
     @directory_user_id.setter
@@ -120,9 +94,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the hierarchy group for the user.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
@@ -132,9 +103,6 @@ class UserArgs:
     @property
     @pulumi.getter(name="identityInfo")
     def identity_info(self) -> Optional[pulumi.Input['UserIdentityInfoArgs']]:
-        """
-        A block that contains information about the identity of the user. Documented below.
-        """
         return pulumi.get(self, "identity_info")
 
     @identity_info.setter
@@ -144,9 +112,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,9 +121,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -168,10 +130,6 @@ class UserArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags to apply to the user. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -197,20 +155,6 @@ class _UserState:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the user.
-        :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input['UserIdentityInfoArgs'] identity_info: A block that contains information about the identity of the user. Documented below.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input['UserPhoneConfigArgs'] phone_config: A block that contains information about the phone settings for the user. Documented below.
-        :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_id: The identifier for the user.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -242,9 +186,6 @@ class _UserState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the user.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -254,9 +195,6 @@ class _UserState:
     @property
     @pulumi.getter(name="directoryUserId")
     def directory_user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        """
         return pulumi.get(self, "directory_user_id")
 
     @directory_user_id.setter
@@ -266,9 +204,6 @@ class _UserState:
     @property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the hierarchy group for the user.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @hierarchy_group_id.setter
@@ -278,9 +213,6 @@ class _UserState:
     @property
     @pulumi.getter(name="identityInfo")
     def identity_info(self) -> Optional[pulumi.Input['UserIdentityInfoArgs']]:
-        """
-        A block that contains information about the identity of the user. Documented below.
-        """
         return pulumi.get(self, "identity_info")
 
     @identity_info.setter
@@ -290,9 +222,6 @@ class _UserState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -302,9 +231,6 @@ class _UserState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -314,9 +240,6 @@ class _UserState:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -326,9 +249,6 @@ class _UserState:
     @property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> Optional[pulumi.Input['UserPhoneConfigArgs']]:
-        """
-        A block that contains information about the phone settings for the user. Documented below.
-        """
         return pulumi.get(self, "phone_config")
 
     @phone_config.setter
@@ -338,9 +258,6 @@ class _UserState:
     @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the routing profile for the user.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @routing_profile_id.setter
@@ -350,9 +267,6 @@ class _UserState:
     @property
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        """
         return pulumi.get(self, "security_profile_ids")
 
     @security_profile_ids.setter
@@ -362,10 +276,6 @@ class _UserState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags to apply to the user. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -375,9 +285,6 @@ class _UserState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -387,9 +294,6 @@ class _UserState:
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier for the user.
-        """
         return pulumi.get(self, "user_id")
 
     @user_id.setter
@@ -414,131 +318,9 @@ class User(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an Amazon Connect User resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With hierarchy_group_id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With identity_info filled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With phone_config phone type as desk phone
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With multiple Security profile ids specified in security_profile_ids
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
-            ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
-        ```
-
-        ## Import
-
-        Amazon Connect Users can be imported using the `instance_id` and `user_id` separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']] identity_info: A block that contains information about the identity of the user. Documented below.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']] phone_config: A block that contains information about the phone settings for the user. Documented below.
-        :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -547,118 +329,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Connect User resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With hierarchy_group_id
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            hierarchy_group_id=aws_connect_user_hierarchy_group["example"]["hierarchy_group_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With identity_info filled
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            identity_info=aws.connect.UserIdentityInfoArgs(
-                email="example@example.com",
-                first_name="example",
-                last_name="example2",
-            ),
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With phone_config phone type as desk phone
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[aws_connect_security_profile["example"]["security_profile_id"]],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                phone_type="SOFT_PHONE",
-            ))
-        ```
-        ### With multiple Security profile ids specified in security_profile_ids
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.connect.User("example",
-            instance_id=aws_connect_instance["example"]["id"],
-            password="Password123",
-            routing_profile_id=aws_connect_routing_profile["example"]["routing_profile_id"],
-            security_profile_ids=[
-                aws_connect_security_profile["example"]["security_profile_id"],
-                aws_connect_security_profile["example2"]["security_profile_id"],
-            ],
-            phone_config=aws.connect.UserPhoneConfigArgs(
-                after_contact_work_time_limit=0,
-                auto_accept=False,
-                desk_phone_number="+112345678912",
-                phone_type="DESK_PHONE",
-            ))
-        ```
-
-        ## Import
-
-        Amazon Connect Users can be imported using the `instance_id` and `user_id` separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a User resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -746,20 +417,6 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the user.
-        :param pulumi.Input[str] directory_user_id: The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        :param pulumi.Input[str] hierarchy_group_id: The identifier of the hierarchy group for the user.
-        :param pulumi.Input[pulumi.InputType['UserIdentityInfoArgs']] identity_info: A block that contains information about the identity of the user. Documented below.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        :param pulumi.Input[pulumi.InputType['UserPhoneConfigArgs']] phone_config: A block that contains information about the phone settings for the user. Documented below.
-        :param pulumi.Input[str] routing_profile_id: The identifier of the routing profile for the user.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the user. If configured with a provider
-               `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] user_id: The identifier for the user.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -783,105 +440,65 @@ class User(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the user.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="directoryUserId")
     def directory_user_id(self) -> pulumi.Output[str]:
-        """
-        The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        """
         return pulumi.get(self, "directory_user_id")
 
     @property
     @pulumi.getter(name="hierarchyGroupId")
     def hierarchy_group_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identifier of the hierarchy group for the user.
-        """
         return pulumi.get(self, "hierarchy_group_id")
 
     @property
     @pulumi.getter(name="identityInfo")
     def identity_info(self) -> pulumi.Output[Optional['outputs.UserIdentityInfo']]:
-        """
-        A block that contains information about the identity of the user. Documented below.
-        """
         return pulumi.get(self, "identity_info")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
-        """
-        The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        """
         return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> pulumi.Output['outputs.UserPhoneConfig']:
-        """
-        A block that contains information about the phone settings for the user. Documented below.
-        """
         return pulumi.get(self, "phone_config")
 
     @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> pulumi.Output[str]:
-        """
-        The identifier of the routing profile for the user.
-        """
         return pulumi.get(self, "routing_profile_id")
 
     @property
     @pulumi.getter(name="securityProfileIds")
     def security_profile_ids(self) -> pulumi.Output[Sequence[str]]:
-        """
-        A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        """
         return pulumi.get(self, "security_profile_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Tags to apply to the user. If configured with a provider
-        `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
-        """
-        The identifier for the user.
-        """
         return pulumi.get(self, "user_id")
 

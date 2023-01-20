@@ -22,10 +22,6 @@ class EventConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventConnection resource.
-        :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
         pulumi.set(__self__, "auth_parameters", auth_parameters)
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -37,9 +33,6 @@ class EventConnectionArgs:
     @property
     @pulumi.getter(name="authParameters")
     def auth_parameters(self) -> pulumi.Input['EventConnectionAuthParametersArgs']:
-        """
-        Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "auth_parameters")
 
     @auth_parameters.setter
@@ -49,9 +42,6 @@ class EventConnectionArgs:
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Input[str]:
-        """
-        Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
@@ -61,9 +51,6 @@ class EventConnectionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Enter a description for the connection. Maximum of 512 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,9 +60,6 @@ class EventConnectionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -94,12 +78,6 @@ class _EventConnectionState:
                  secret_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventConnection resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the connection.
-        :param pulumi.Input['EventConnectionAuthParametersArgs'] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -117,9 +95,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -129,9 +104,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter(name="authParameters")
     def auth_parameters(self) -> Optional[pulumi.Input['EventConnectionAuthParametersArgs']]:
-        """
-        Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "auth_parameters")
 
     @auth_parameters.setter
@@ -141,9 +113,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
@@ -153,9 +122,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Enter a description for the connection. Maximum of 512 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -165,9 +131,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -177,9 +140,6 @@ class _EventConnectionState:
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-        """
         return pulumi.get(self, "secret_arn")
 
     @secret_arn.setter
@@ -198,57 +158,9 @@ class EventConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an EventBridge connection resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
-        ```
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
-        ```
-
-        ## Import
-
-        EventBridge Connection can be imported using the `name`, e.g., console
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
-        ```
-
+        Create a EventConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         """
         ...
     @overload
@@ -257,51 +169,7 @@ class EventConnection(pulumi.CustomResource):
                  args: EventConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an EventBridge connection resource.
-
-        > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
-                    key="x-signature",
-                    value="1234",
-                ),
-            ),
-            authorization_type="API_KEY",
-            description="A connection description")
-        ```
-        ### Basic Authorization
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudwatch.EventConnection("test",
-            auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                basic=aws.cloudwatch.EventConnectionAuthParametersBasicArgs(
-                    password="Pass1234!",
-                    username="user",
-                ),
-            ),
-            authorization_type="BASIC",
-            description="A connection description")
-        ```
-
-        ## Import
-
-        EventBridge Connection can be imported using the `name`, e.g., console
-
-        ```sh
-         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
-        ```
-
+        Create a EventConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,12 +231,6 @@ class EventConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the connection.
-        :param pulumi.Input[pulumi.InputType['EventConnectionAuthParametersArgs']] auth_parameters: Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input[str] authorization_type: Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        :param pulumi.Input[str] description: Enter a description for the connection. Maximum of 512 characters.
-        :param pulumi.Input[str] name: The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -385,48 +247,30 @@ class EventConnection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the connection.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authParameters")
     def auth_parameters(self) -> pulumi.Output['outputs.EventConnectionAuthParameters']:
-        """
-        Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "auth_parameters")
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Output[str]:
-        """
-        Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-        """
         return pulumi.get(self, "authorization_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Enter a description for the connection. Maximum of 512 characters.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-        """
         return pulumi.get(self, "secret_arn")
 

@@ -23,11 +23,6 @@ class ResourceLfTagsArgs:
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
         The set of arguments for constructing a ResourceLfTags resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]] lf_tags: Set of LF-tags to attach to the resource. See below.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input['ResourceLfTagsDatabaseArgs'] database: Configuration block for a database resource. See below.
-        :param pulumi.Input['ResourceLfTagsTableArgs'] table: Configuration block for a table resource. See below.
-        :param pulumi.Input['ResourceLfTagsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See below.
         """
         pulumi.set(__self__, "lf_tags", lf_tags)
         if catalog_id is not None:
@@ -42,9 +37,6 @@ class ResourceLfTagsArgs:
     @property
     @pulumi.getter(name="lfTags")
     def lf_tags(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]:
-        """
-        Set of LF-tags to attach to the resource. See below.
-        """
         return pulumi.get(self, "lf_tags")
 
     @lf_tags.setter
@@ -54,9 +46,6 @@ class ResourceLfTagsArgs:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -66,9 +55,6 @@ class ResourceLfTagsArgs:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]:
-        """
-        Configuration block for a database resource. See below.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -78,9 +64,6 @@ class ResourceLfTagsArgs:
     @property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
-        """
-        Configuration block for a table resource. See below.
-        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -90,9 +73,6 @@ class ResourceLfTagsArgs:
     @property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]:
-        """
-        Configuration block for a table with columns resource. See below.
-        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -110,11 +90,6 @@ class _ResourceLfTagsState:
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']] = None):
         """
         Input properties used for looking up and filtering ResourceLfTags resources.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input['ResourceLfTagsDatabaseArgs'] database: Configuration block for a database resource. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]] lf_tags: Set of LF-tags to attach to the resource. See below.
-        :param pulumi.Input['ResourceLfTagsTableArgs'] table: Configuration block for a table resource. See below.
-        :param pulumi.Input['ResourceLfTagsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See below.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -130,9 +105,6 @@ class _ResourceLfTagsState:
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @catalog_id.setter
@@ -142,9 +114,6 @@ class _ResourceLfTagsState:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input['ResourceLfTagsDatabaseArgs']]:
-        """
-        Configuration block for a database resource. See below.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -154,9 +123,6 @@ class _ResourceLfTagsState:
     @property
     @pulumi.getter(name="lfTags")
     def lf_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLfTagsLfTagArgs']]]]:
-        """
-        Set of LF-tags to attach to the resource. See below.
-        """
         return pulumi.get(self, "lf_tags")
 
     @lf_tags.setter
@@ -166,9 +132,6 @@ class _ResourceLfTagsState:
     @property
     @pulumi.getter
     def table(self) -> Optional[pulumi.Input['ResourceLfTagsTableArgs']]:
-        """
-        Configuration block for a table resource. See below.
-        """
         return pulumi.get(self, "table")
 
     @table.setter
@@ -178,9 +141,6 @@ class _ResourceLfTagsState:
     @property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional[pulumi.Input['ResourceLfTagsTableWithColumnsArgs']]:
-        """
-        Configuration block for a table with columns resource. See below.
-        """
         return pulumi.get(self, "table_with_columns")
 
     @table_with_columns.setter
@@ -200,88 +160,9 @@ class ResourceLfTags(pulumi.CustomResource):
                  table_with_columns: Optional[pulumi.Input[pulumi.InputType['ResourceLfTagsTableWithColumnsArgs']]] = None,
                  __props__=None):
         """
-        Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
-
-        ## Example Usage
-        ### Database Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
-        ```
-        ### Multiple Tags Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
-            values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
-            ])
-        ```
-
+        Create a ResourceLfTags resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsDatabaseArgs']] database: Configuration block for a database resource. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceLfTagsLfTagArgs']]]] lf_tags: Set of LF-tags to attach to the resource. See below.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsTableArgs']] table: Configuration block for a table resource. See below.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsTableWithColumnsArgs']] table_with_columns: Configuration block for a table with columns resource. See below.
         """
         ...
     @overload
@@ -290,81 +171,7 @@ class ResourceLfTags(pulumi.CustomResource):
                  args: ResourceLfTagsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
-
-        ## Example Usage
-        ### Database Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[aws.lakeformation.ResourceLfTagsLfTagArgs(
-                key=example_lf_tag.key,
-                value="stowe",
-            )])
-        ```
-        ### Multiple Tags Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_lf_tag = aws.lakeformation.LfTag("exampleLfTag",
-            key="right",
-            values=[
-                "abbey",
-                "village",
-                "luffield",
-                "woodcote",
-                "copse",
-                "chapel",
-                "stowe",
-                "club",
-            ])
-        example2 = aws.lakeformation.LfTag("example2",
-            key="left",
-            values=[
-                "farm",
-                "theloop",
-                "aintree",
-                "brooklands",
-                "maggotts",
-                "becketts",
-                "vale",
-            ])
-        example_resource_lf_tags = aws.lakeformation.ResourceLfTags("exampleResourceLfTags",
-            database=aws.lakeformation.ResourceLfTagsDatabaseArgs(
-                name=aws_glue_catalog_database["example"]["name"],
-            ),
-            lf_tags=[
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="right",
-                    value="luffield",
-                ),
-                aws.lakeformation.ResourceLfTagsLfTagArgs(
-                    key="left",
-                    value="aintree",
-                ),
-            ])
-        ```
-
+        Create a ResourceLfTags resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ResourceLfTagsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,11 +230,6 @@ class ResourceLfTags(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsDatabaseArgs']] database: Configuration block for a database resource. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceLfTagsLfTagArgs']]]] lf_tags: Set of LF-tags to attach to the resource. See below.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsTableArgs']] table: Configuration block for a table resource. See below.
-        :param pulumi.Input[pulumi.InputType['ResourceLfTagsTableWithColumnsArgs']] table_with_columns: Configuration block for a table with columns resource. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -443,40 +245,25 @@ class ResourceLfTags(pulumi.CustomResource):
     @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> pulumi.Output[str]:
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
         return pulumi.get(self, "catalog_id")
 
     @property
     @pulumi.getter
     def database(self) -> pulumi.Output['outputs.ResourceLfTagsDatabase']:
-        """
-        Configuration block for a database resource. See below.
-        """
         return pulumi.get(self, "database")
 
     @property
     @pulumi.getter(name="lfTags")
     def lf_tags(self) -> pulumi.Output[Sequence['outputs.ResourceLfTagsLfTag']]:
-        """
-        Set of LF-tags to attach to the resource. See below.
-        """
         return pulumi.get(self, "lf_tags")
 
     @property
     @pulumi.getter
     def table(self) -> pulumi.Output['outputs.ResourceLfTagsTable']:
-        """
-        Configuration block for a table resource. See below.
-        """
         return pulumi.get(self, "table")
 
     @property
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> pulumi.Output['outputs.ResourceLfTagsTableWithColumns']:
-        """
-        Configuration block for a table with columns resource. See below.
-        """
         return pulumi.get(self, "table_with_columns")
 

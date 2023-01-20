@@ -50,65 +50,41 @@ class GetKeyResult:
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
-        """
-        Date and time when the API Key was created.
-        """
         return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
     def description(self) -> str:
-        """
-        Description of the API Key.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
-        """
-        Whether the API Key is enabled.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        Set to the ID of the API Key.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> str:
-        """
-        Date and time when the API Key was last updated.
-        """
         return pulumi.get(self, "last_updated_date")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Set to the name of the API Key.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags for the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def value(self) -> str:
-        """
-        Set to the value of the API Key.
-        """
         return pulumi.get(self, "value")
 
 
@@ -132,21 +108,7 @@ def get_key(id: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
-    Use this data source to get the name and value of a pre-existing API Key, for
-    example to supply credentials for a dependency microservice.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
-    ```
-
-
-    :param str id: ID of the API Key to look up.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -170,20 +132,6 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
-    Use this data source to get the name and value of a pre-existing API Key, for
-    example to supply credentials for a dependency microservice.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
-    ```
-
-
-    :param str id: ID of the API Key to look up.
-    :param Mapping[str, str] tags: Map of tags for the resource.
+    Use this data source to access information about an existing resource.
     """
     ...

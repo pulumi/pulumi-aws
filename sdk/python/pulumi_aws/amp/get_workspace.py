@@ -50,25 +50,16 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter
     def alias(self) -> str:
-        """
-        Prometheus workspace alias.
-        """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Prometheus workspace.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdDate")
     def created_date(self) -> str:
-        """
-        Creation date of the Prometheus workspace.
-        """
         return pulumi.get(self, "created_date")
 
     @property
@@ -82,25 +73,16 @@ class GetWorkspaceResult:
     @property
     @pulumi.getter(name="prometheusEndpoint")
     def prometheus_endpoint(self) -> str:
-        """
-        Endpoint of the Prometheus workspace.
-        """
         return pulumi.get(self, "prometheus_endpoint")
 
     @property
     @pulumi.getter
     def status(self) -> str:
-        """
-        Status of the Prometheus workspace.
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags assigned to the resource.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -129,21 +111,7 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
                   workspace_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
-    Provides an Amazon Managed Prometheus workspace data source.
-
-    ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
-    ```
-
-
-    :param Mapping[str, str] tags: Tags assigned to the resource.
-    :param str workspace_id: Prometheus workspace ID.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['tags'] = tags
@@ -167,20 +135,6 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
                          workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
-    Provides an Amazon Managed Prometheus workspace data source.
-
-    ## Example Usage
-    ### Basic configuration
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.amp.get_workspace(workspace_id="ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7")
-    ```
-
-
-    :param Mapping[str, str] tags: Tags assigned to the resource.
-    :param str workspace_id: Prometheus workspace ID.
+    Use this data source to access information about an existing resource.
     """
     ...

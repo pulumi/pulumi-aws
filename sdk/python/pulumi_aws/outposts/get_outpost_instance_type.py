@@ -76,12 +76,7 @@ def get_outpost_instance_type(arn: Optional[str] = None,
                               preferred_instance_types: Optional[Sequence[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypeResult:
     """
-    Information about single Outpost Instance Type.
-
-
-    :param str arn: Outpost ARN.
-    :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
-    :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -103,11 +98,6 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
                                      preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostInstanceTypeResult]:
     """
-    Information about single Outpost Instance Type.
-
-
-    :param str arn: Outpost ARN.
-    :param str instance_type: Desired instance type. Conflicts with `preferred_instance_types`.
-    :param Sequence[str] preferred_instance_types: Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
+    Use this data source to access information about an existing resource.
     """
     ...

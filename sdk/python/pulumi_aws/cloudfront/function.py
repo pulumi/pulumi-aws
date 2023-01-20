@@ -21,11 +21,6 @@ class FunctionArgs:
                  publish: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Function resource.
-        :param pulumi.Input[str] code: Source code of the function
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] name: Unique name for your CloudFront Function.
-        :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "runtime", runtime)
@@ -39,9 +34,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def code(self) -> pulumi.Input[str]:
-        """
-        Source code of the function
-        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -51,9 +43,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
-        """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -63,9 +52,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -75,9 +61,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique name for your CloudFront Function.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -87,9 +70,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -111,15 +91,6 @@ class _FunctionState:
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Function resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
-        :param pulumi.Input[str] code: Source code of the function
-        :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
-        :param pulumi.Input[str] name: Unique name for your CloudFront Function.
-        :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -143,9 +114,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) identifying your CloudFront Function.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -155,9 +123,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def code(self) -> Optional[pulumi.Input[str]]:
-        """
-        Source code of the function
-        """
         return pulumi.get(self, "code")
 
     @code.setter
@@ -167,9 +132,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -179,9 +141,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        """
         return pulumi.get(self, "etag")
 
     @etag.setter
@@ -191,9 +150,6 @@ class _FunctionState:
     @property
     @pulumi.getter(name="liveStageEtag")
     def live_stage_etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        ETag hash of any `LIVE` stage of the function.
-        """
         return pulumi.get(self, "live_stage_etag")
 
     @live_stage_etag.setter
@@ -203,9 +159,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Unique name for your CloudFront Function.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -215,9 +168,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def publish(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        """
         return pulumi.get(self, "publish")
 
     @publish.setter
@@ -227,9 +177,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        """
         return pulumi.get(self, "runtime")
 
     @runtime.setter
@@ -239,9 +186,6 @@ class _FunctionState:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -261,41 +205,9 @@ class Function(pulumi.CustomResource):
                  runtime: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
-
-        See [CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
-
-        > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
-
-        ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-1.0",
-            comment="my function",
-            publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
-        ```
-
-        ## Import
-
-        CloudFront Functions can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudfront/function:Function test my_test_function
-        ```
-
+        Create a Function resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] code: Source code of the function
-        :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] name: Unique name for your CloudFront Function.
-        :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
         """
         ...
     @overload
@@ -304,34 +216,7 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
-
-        See [CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
-
-        > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
-
-        ## Example Usage
-        ### Basic Example
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.cloudfront.Function("test",
-            runtime="cloudfront-js-1.0",
-            comment="my function",
-            publish=True,
-            code=(lambda path: open(path).read())(f"{path['module']}/function.js"))
-        ```
-
-        ## Import
-
-        CloudFront Functions can be imported using the `name`, e.g.,
-
-        ```sh
-         $ pulumi import aws:cloudfront/function:Function test my_test_function
-        ```
-
+        Create a Function resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -400,15 +285,6 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
-        :param pulumi.Input[str] code: Source code of the function
-        :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
-        :param pulumi.Input[str] name: Unique name for your CloudFront Function.
-        :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        :param pulumi.Input[str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -428,72 +304,45 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) identifying your CloudFront Function.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def code(self) -> pulumi.Output[str]:
-        """
-        Source code of the function
-        """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[str]]:
-        """
-        Comment.
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
-        """
-        ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
-        """
         return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="liveStageEtag")
     def live_stage_etag(self) -> pulumi.Output[str]:
-        """
-        ETag hash of any `LIVE` stage of the function.
-        """
         return pulumi.get(self, "live_stage_etag")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Unique name for your CloudFront Function.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def publish(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
-        """
         return pulumi.get(self, "publish")
 
     @property
     @pulumi.getter
     def runtime(self) -> pulumi.Output[str]:
-        """
-        Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
-        """
         return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
-        """
-        Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
-        """
         return pulumi.get(self, "status")
 

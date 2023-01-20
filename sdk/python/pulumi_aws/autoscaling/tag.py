@@ -20,8 +20,6 @@ class TagArgs:
                  tag: pulumi.Input['TagTagArgs']):
         """
         The set of arguments for constructing a Tag resource.
-        :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         pulumi.set(__self__, "tag", tag)
@@ -29,9 +27,6 @@ class TagArgs:
     @property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Input[str]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -41,9 +36,6 @@ class TagArgs:
     @property
     @pulumi.getter
     def tag(self) -> pulumi.Input['TagTagArgs']:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -58,8 +50,6 @@ class _TagState:
                  tag: Optional[pulumi.Input['TagTagArgs']] = None):
         """
         Input properties used for looking up and filtering Tag resources.
-        :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input['TagTagArgs'] tag: Tag to create. The `tag` block is documented below.
         """
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -69,9 +59,6 @@ class _TagState:
     @property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @autoscaling_group_name.setter
@@ -81,9 +68,6 @@ class _TagState:
     @property
     @pulumi.getter
     def tag(self) -> Optional[pulumi.Input['TagTagArgs']]:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 
     @tag.setter
@@ -100,24 +84,9 @@ class Tag(pulumi.CustomResource):
                  tag: Optional[pulumi.Input[pulumi.InputType['TagTagArgs']]] = None,
                  __props__=None):
         """
-        Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Import
-
-        `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
-
-        ```sh
-         $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[pulumi.InputType['TagTagArgs']] tag: Tag to create. The `tag` block is documented below.
         """
         ...
     @overload
@@ -126,20 +95,7 @@ class Tag(pulumi.CustomResource):
                  args: TagArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
-
-        > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
-
-        > **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
-
-        ## Import
-
-        `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
-
-        ```sh
-         $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-        ```
-
+        Create a Tag resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,8 +147,6 @@ class Tag(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autoscaling_group_name: Name of the Autoscaling Group to apply the tag to.
-        :param pulumi.Input[pulumi.InputType['TagTagArgs']] tag: Tag to create. The `tag` block is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -205,16 +159,10 @@ class Tag(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscalingGroupName")
     def autoscaling_group_name(self) -> pulumi.Output[str]:
-        """
-        Name of the Autoscaling Group to apply the tag to.
-        """
         return pulumi.get(self, "autoscaling_group_name")
 
     @property
     @pulumi.getter
     def tag(self) -> pulumi.Output['outputs.TagTag']:
-        """
-        Tag to create. The `tag` block is documented below.
-        """
         return pulumi.get(self, "tag")
 

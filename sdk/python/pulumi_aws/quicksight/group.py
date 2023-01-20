@@ -20,10 +20,6 @@ class GroupArgs:
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Group resource.
-        :param pulumi.Input[str] group_name: A name for the group.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] description: A description for the group.
-        :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
         """
         pulumi.set(__self__, "group_name", group_name)
         if aws_account_id is not None:
@@ -36,9 +32,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[str]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -48,9 +41,6 @@ class GroupArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -60,9 +50,6 @@ class GroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +59,6 @@ class GroupArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -92,11 +76,6 @@ class _GroupState:
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] description: A description for the group.
-        :param pulumi.Input[str] group_name: A name for the group.
-        :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -112,9 +91,6 @@ class _GroupState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon Resource Name (ARN) of group
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -124,9 +100,6 @@ class _GroupState:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -136,9 +109,6 @@ class _GroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -148,9 +118,6 @@ class _GroupState:
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
@@ -160,9 +127,6 @@ class _GroupState:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -181,31 +145,9 @@ class Group(pulumi.CustomResource):
                  namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource for managing QuickSight Group
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Group("example", group_name="tf-example")
-        ```
-
-        ## Import
-
-        QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
-
-        ```sh
-         $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] description: A description for the group.
-        :param pulumi.Input[str] group_name: A name for the group.
-        :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
         """
         ...
     @overload
@@ -214,25 +156,7 @@ class Group(pulumi.CustomResource):
                  args: GroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing QuickSight Group
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.quicksight.Group("example", group_name="tf-example")
-        ```
-
-        ## Import
-
-        QuickSight Group can be imported using the aws account id, namespace and group name separated by `/`.
-
-        ```sh
-         $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
-        ```
-
+        Create a Group resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,11 +214,6 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of group
-        :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[str] description: A description for the group.
-        :param pulumi.Input[str] group_name: A name for the group.
-        :param pulumi.Input[str] namespace: The namespace. Currently, you should set this to `default`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,40 +229,25 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        Amazon Resource Name (ARN) of group
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        The ID for the AWS account that the group is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        A description for the group.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[str]:
-        """
-        A name for the group.
-        """
         return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[str]]:
-        """
-        The namespace. Currently, you should set this to `default`.
-        """
         return pulumi.get(self, "namespace")
 

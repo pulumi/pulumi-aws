@@ -68,25 +68,16 @@ class GetZoneResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the Hosted Zone.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
     def caller_reference(self) -> str:
-        """
-        Caller Reference of the Hosted Zone.
-        """
         return pulumi.get(self, "caller_reference")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        Comment field of the Hosted Zone.
-        """
         return pulumi.get(self, "comment")
 
     @property
@@ -100,17 +91,11 @@ class GetZoneResult:
     @property
     @pulumi.getter(name="linkedServiceDescription")
     def linked_service_description(self) -> str:
-        """
-        The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-        """
         return pulumi.get(self, "linked_service_description")
 
     @property
     @pulumi.getter(name="linkedServicePrincipal")
     def linked_service_principal(self) -> str:
-        """
-        The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-        """
         return pulumi.get(self, "linked_service_principal")
 
     @property
@@ -121,17 +106,11 @@ class GetZoneResult:
     @property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> Sequence[str]:
-        """
-        List of DNS name servers for the Hosted Zone.
-        """
         return pulumi.get(self, "name_servers")
 
     @property
     @pulumi.getter(name="primaryNameServer")
     def primary_name_server(self) -> str:
-        """
-        The Route 53 name server that created the SOA record.
-        """
         return pulumi.get(self, "primary_name_server")
 
     @property
@@ -142,9 +121,6 @@ class GetZoneResult:
     @property
     @pulumi.getter(name="resourceRecordSetCount")
     def resource_record_set_count(self) -> int:
-        """
-        The number of Record Set in the Hosted Zone.
-        """
         return pulumi.get(self, "resource_record_set_count")
 
     @property
@@ -193,35 +169,7 @@ def get_zone(name: Optional[str] = None,
              zone_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetZoneResult:
     """
-    `route53.Zone` provides details about a specific Route 53 Hosted Zone.
-
-    This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type="A",
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
-
-
-    :param str name: Hosted Zone name of the desired Hosted Zone.
-    :param bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param int resource_record_set_count: The number of Record Set in the Hosted Zone.
-    :param Mapping[str, str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-    :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param str zone_id: Hosted Zone id of the desired Hosted Zone.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -259,34 +207,6 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                     zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZoneResult]:
     """
-    `route53.Zone` provides details about a specific Route 53 Hosted Zone.
-
-    This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
-
-    ## Example Usage
-
-    The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    selected = aws.route53.get_zone(name="test.com.",
-        private_zone=True)
-    www = aws.route53.Record("www",
-        zone_id=selected.zone_id,
-        name=f"www.{selected.name}",
-        type="A",
-        ttl=300,
-        records=["10.0.0.1"])
-    ```
-
-
-    :param str name: Hosted Zone name of the desired Hosted Zone.
-    :param bool private_zone: Used with `name` field to get a private Hosted Zone.
-    :param int resource_record_set_count: The number of Record Set in the Hosted Zone.
-    :param Mapping[str, str] tags: Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
-    :param str vpc_id: Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
-    :param str zone_id: Hosted Zone id of the desired Hosted Zone.
+    Use this data source to access information about an existing resource.
     """
     ...

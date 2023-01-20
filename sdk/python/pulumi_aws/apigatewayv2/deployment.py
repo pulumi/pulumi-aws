@@ -19,9 +19,6 @@ class DeploymentArgs:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is not None:
@@ -32,9 +29,6 @@ class DeploymentArgs:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Input[str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -44,9 +38,6 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -56,9 +47,6 @@ class DeploymentArgs:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -75,10 +63,6 @@ class _DeploymentState:
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
-        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -92,9 +76,6 @@ class _DeploymentState:
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @api_id.setter
@@ -104,9 +85,6 @@ class _DeploymentState:
     @property
     @pulumi.getter(name="autoDeployed")
     def auto_deployed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the deployment was automatically released.
-        """
         return pulumi.get(self, "auto_deployed")
 
     @auto_deployed.setter
@@ -116,9 +94,6 @@ class _DeploymentState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -128,9 +103,6 @@ class _DeploymentState:
     @property
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 
     @triggers.setter
@@ -148,38 +120,9 @@ class Deployment(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages an Amazon API Gateway Version 2 deployment.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            description="Example deployment")
-        ```
-
-        ## Import
-
-        `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
-        ```
-
-         The `triggers` argument cannot be imported.
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         ...
     @overload
@@ -188,33 +131,7 @@ class Deployment(pulumi.CustomResource):
                  args: DeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Amazon API Gateway Version 2 deployment.
-        More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-
-        > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=aws_apigatewayv2_api["example"]["id"],
-            description="Example deployment")
-        ```
-
-        ## Import
-
-        `aws_apigatewayv2_deployment` can be imported by using the API identifier and deployment identifier, e.g.,
-
-        ```sh
-         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
-        ```
-
-         The `triggers` argument cannot be imported.
-
+        Create a Deployment resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -269,10 +186,6 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] api_id: API identifier.
-        :param pulumi.Input[bool] auto_deployed: Whether the deployment was automatically released.
-        :param pulumi.Input[str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -287,32 +200,20 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="apiId")
     def api_id(self) -> pulumi.Output[str]:
-        """
-        API identifier.
-        """
         return pulumi.get(self, "api_id")
 
     @property
     @pulumi.getter(name="autoDeployed")
     def auto_deployed(self) -> pulumi.Output[bool]:
-        """
-        Whether the deployment was automatically released.
-        """
         return pulumi.get(self, "auto_deployed")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        """
         return pulumi.get(self, "triggers")
 

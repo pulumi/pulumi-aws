@@ -20,10 +20,6 @@ class RouteArgs:
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
-        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
@@ -35,9 +31,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[str]:
-        """
-        IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -47,9 +40,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Input[str]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -59,9 +49,6 @@ class RouteArgs:
     @property
     @pulumi.getter
     def blackhole(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to drop traffic that matches this route (default to `false`).
-        """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
@@ -71,9 +58,6 @@ class RouteArgs:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -90,10 +74,6 @@ class _RouteState:
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Route resources.
-        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
-        :param pulumi.Input[str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         if blackhole is not None:
             pulumi.set(__self__, "blackhole", blackhole)
@@ -107,9 +87,6 @@ class _RouteState:
     @property
     @pulumi.getter
     def blackhole(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to drop traffic that matches this route (default to `false`).
-        """
         return pulumi.get(self, "blackhole")
 
     @blackhole.setter
@@ -119,9 +96,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> Optional[pulumi.Input[str]]:
-        """
-        IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @destination_cidr_block.setter
@@ -131,9 +105,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @transit_gateway_attachment_id.setter
@@ -143,9 +114,6 @@ class _RouteState:
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
     @transit_gateway_route_table_id.setter
@@ -164,46 +132,9 @@ class Route(pulumi.CustomResource):
                  transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an EC2 Transit Gateway Route.
-
-        ## Example Usage
-        ### Standard usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.Route("example",
-            destination_cidr_block="0.0.0.0/0",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
-        ```
-        ### Blackhole route
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.Route("example",
-            destination_cidr_block="0.0.0.0/0",
-            blackhole=True,
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_route` can be imported by using the EC2 Transit Gateway Route Table, an underscore, and the destination, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
-        :param pulumi.Input[str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         ...
     @overload
@@ -212,40 +143,7 @@ class Route(pulumi.CustomResource):
                  args: RouteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an EC2 Transit Gateway Route.
-
-        ## Example Usage
-        ### Standard usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.Route("example",
-            destination_cidr_block="0.0.0.0/0",
-            transit_gateway_attachment_id=aws_ec2_transit_gateway_vpc_attachment["example"]["id"],
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
-        ```
-        ### Blackhole route
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2transitgateway.Route("example",
-            destination_cidr_block="0.0.0.0/0",
-            blackhole=True,
-            transit_gateway_route_table_id=aws_ec2_transit_gateway["example"]["association_default_route_table_id"])
-        ```
-
-        ## Import
-
-        `aws_ec2_transit_gateway_route` can be imported by using the EC2 Transit Gateway Route Table, an underscore, and the destination, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
-        ```
-
+        Create a Route resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -303,10 +201,6 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] blackhole: Indicates whether to drop traffic that matches this route (default to `false`).
-        :param pulumi.Input[str] destination_cidr_block: IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        :param pulumi.Input[str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        :param pulumi.Input[str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -321,32 +215,20 @@ class Route(pulumi.CustomResource):
     @property
     @pulumi.getter
     def blackhole(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates whether to drop traffic that matches this route (default to `false`).
-        """
         return pulumi.get(self, "blackhole")
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Output[str]:
-        """
-        IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
-        """
         return pulumi.get(self, "destination_cidr_block")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
-        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableId")
     def transit_gateway_route_table_id(self) -> pulumi.Output[str]:
-        """
-        Identifier of EC2 Transit Gateway Route Table.
-        """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

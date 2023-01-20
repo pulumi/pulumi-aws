@@ -21,11 +21,6 @@ class UserGroupArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
-        :param pulumi.Input[str] description: The description of the user group.
-        :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[int] precedence: The precedence of the user group.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if description is not None:
@@ -40,9 +35,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -52,9 +44,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the user group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -64,9 +53,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the user group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -76,9 +62,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter
     def precedence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The precedence of the user group.
-        """
         return pulumi.get(self, "precedence")
 
     @precedence.setter
@@ -88,9 +71,6 @@ class UserGroupArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the IAM role to be associated with the user group.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -108,11 +88,6 @@ class _UserGroupState:
                  user_pool_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserGroup resources.
-        :param pulumi.Input[str] description: The description of the user group.
-        :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[int] precedence: The precedence of the user group.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -128,9 +103,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the user group.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -140,9 +112,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the user group.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -152,9 +121,6 @@ class _UserGroupState:
     @property
     @pulumi.getter
     def precedence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The precedence of the user group.
-        """
         return pulumi.get(self, "precedence")
 
     @precedence.setter
@@ -164,9 +130,6 @@ class _UserGroupState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the IAM role to be associated with the user group.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -176,9 +139,6 @@ class _UserGroupState:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -198,59 +158,9 @@ class UserGroup(pulumi.CustomResource):
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Cognito User Group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role = aws.iam.Role("groupRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Federated": "cognito-identity.amazonaws.com"
-              },
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {
-                "StringEquals": {
-                  "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-                },
-                "ForAnyValue:StringLike": {
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }
-              }
-            }
-          ]
-        }
-        \"\"\")
-        main_user_group = aws.cognito.UserGroup("mainUserGroup",
-            user_pool_id=main_user_pool.id,
-            description="Managed by Pulumi",
-            precedence=42,
-            role_arn=group_role.arn)
-        ```
-
-        ## Import
-
-        Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-        ```
-
+        Create a UserGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the user group.
-        :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[int] precedence: The precedence of the user group.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
     @overload
@@ -259,52 +169,7 @@ class UserGroup(pulumi.CustomResource):
                  args: UserGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Cognito User Group resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        main_user_pool = aws.cognito.UserPool("mainUserPool")
-        group_role = aws.iam.Role("groupRole", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Sid": "",
-              "Effect": "Allow",
-              "Principal": {
-                "Federated": "cognito-identity.amazonaws.com"
-              },
-              "Action": "sts:AssumeRoleWithWebIdentity",
-              "Condition": {
-                "StringEquals": {
-                  "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-dead-beef-cafe-123456790ab"
-                },
-                "ForAnyValue:StringLike": {
-                  "cognito-identity.amazonaws.com:amr": "authenticated"
-                }
-              }
-            }
-          ]
-        }
-        \"\"\")
-        main_user_group = aws.cognito.UserGroup("mainUserGroup",
-            user_pool_id=main_user_pool.id,
-            description="Managed by Pulumi",
-            precedence=42,
-            role_arn=group_role.arn)
-        ```
-
-        ## Import
-
-        Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
-
-        ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-        ```
-
+        Create a UserGroup resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -363,11 +228,6 @@ class UserGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the user group.
-        :param pulumi.Input[str] name: The name of the user group.
-        :param pulumi.Input[int] precedence: The precedence of the user group.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be associated with the user group.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,40 +243,25 @@ class UserGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the user group.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        The name of the user group.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def precedence(self) -> pulumi.Output[Optional[int]]:
-        """
-        The precedence of the user group.
-        """
         return pulumi.get(self, "precedence")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN of the IAM role to be associated with the user group.
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
-        """
-        The user pool ID.
-        """
         return pulumi.get(self, "user_pool_id")
 

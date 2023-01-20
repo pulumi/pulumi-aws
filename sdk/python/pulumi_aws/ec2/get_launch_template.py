@@ -225,9 +225,6 @@ class GetLaunchTemplateResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        ID of the launch template.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -394,33 +391,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateResult:
     """
-    Provides information about a Launch Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_launch_template(name="my-launch-template")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
-        name="launch-template-name",
-        values=["some-template"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str id: ID of the specific launch template to retrieve.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -479,32 +450,6 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
-    Provides information about a Launch Template.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    default = aws.ec2.get_launch_template(name="my-launch-template")
-    ```
-    ### Filter
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.ec2.get_launch_template(filters=[aws.ec2.GetLaunchTemplateFilterArgs(
-        name="launch-template-name",
-        values=["some-template"],
-    )])
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str id: ID of the specific launch template to retrieve.
-    :param str name: Name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+    Use this data source to access information about an existing resource.
     """
     ...

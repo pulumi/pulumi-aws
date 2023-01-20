@@ -49,18 +49,12 @@ __all__ = [
 class ClusterAutoTerminationPolicyArgs:
     def __init__(__self__, *,
                  idle_timeout: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] idle_timeout: Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-        """
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
 
     @property
     @pulumi.getter(name="idleTimeout")
     def idle_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-        """
         return pulumi.get(self, "idle_timeout")
 
     @idle_timeout.setter
@@ -74,11 +68,6 @@ class ClusterBootstrapActionArgs:
                  name: pulumi.Input[str],
                  path: pulumi.Input[str],
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] name: Name of the step.
-        :param pulumi.Input[str] path: Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: List of command line arguments passed to the JAR file's main function when executed.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "path", path)
         if args is not None:
@@ -87,9 +76,6 @@ class ClusterBootstrapActionArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -99,9 +85,6 @@ class ClusterBootstrapActionArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[str]:
-        """
-        Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -111,9 +94,6 @@ class ClusterBootstrapActionArgs:
     @property
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of command line arguments passed to the JAR file's main function when executed.
-        """
         return pulumi.get(self, "args")
 
     @args.setter
@@ -132,14 +112,6 @@ class ClusterCoreInstanceFleetArgs:
                  provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet.
-        :param pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification.
-        :param pulumi.Input[str] name: Name of the step.
-        :param pulumi.Input[int] target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if instance_type_configs is not None:
@@ -160,9 +132,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the cluster.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -172,9 +141,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter(name="instanceTypeConfigs")
     def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]]:
-        """
-        Configuration block for instance fleet.
-        """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
@@ -184,9 +150,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsArgs']]:
-        """
-        Configuration block for launch specification.
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -196,9 +159,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -226,9 +186,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
@@ -238,9 +195,6 @@ class ClusterCoreInstanceFleetArgs:
     @property
     @pulumi.getter(name="targetSpotCapacity")
     def target_spot_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
@@ -257,14 +211,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
                  ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
             pulumi.set(__self__, "bid_price", bid_price)
@@ -280,9 +226,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        EC2 instance type for all instances in the instance group.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -292,9 +235,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -304,9 +244,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
-        """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
     @bid_price_as_percentage_of_on_demand_price.setter
@@ -316,9 +253,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
-        """
-        Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
@@ -328,9 +262,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
-        """
-        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -340,9 +271,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -355,10 +283,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input[str] classification: Classification within a configuration.
-        :param pulumi.Input[Mapping[str, Any]] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -367,9 +291,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        Classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @classification.setter
@@ -379,9 +300,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -396,12 +314,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
-        :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -412,9 +324,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        Volume size, in gibibytes (GiB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -424,9 +333,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -436,9 +342,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of I/O operations per second (IOPS) that the volume supports.
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -448,9 +351,6 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -463,10 +363,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
                  on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
                  spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
-        """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
@@ -475,9 +371,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="onDemandSpecifications")
     def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
-        """
-        Configuration block for on demand instances launch specifications.
-        """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
@@ -487,9 +380,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="spotSpecifications")
     def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
-        """
-        Configuration block for spot instances launch specifications.
-        """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
@@ -501,17 +391,11 @@ class ClusterCoreInstanceFleetLaunchSpecificationsArgs:
 class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -526,12 +410,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
                  timeout_action: pulumi.Input[str],
                  timeout_duration_minutes: pulumi.Input[int],
                  block_duration_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        :param pulumi.Input[str] timeout_action: Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        :param pulumi.Input[int] timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        :param pulumi.Input[int] block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         pulumi.set(__self__, "timeout_action", timeout_action)
         pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
@@ -541,9 +419,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -553,9 +428,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutAction")
     def timeout_action(self) -> pulumi.Input[str]:
-        """
-        Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        """
         return pulumi.get(self, "timeout_action")
 
     @timeout_action.setter
@@ -565,9 +437,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutDurationMinutes")
     def timeout_duration_minutes(self) -> pulumi.Input[int]:
-        """
-        Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        """
         return pulumi.get(self, "timeout_duration_minutes")
 
     @timeout_duration_minutes.setter
@@ -577,9 +446,6 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="blockDurationMinutes")
     def block_duration_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         return pulumi.get(self, "block_duration_minutes")
 
     @block_duration_minutes.setter
@@ -597,15 +463,6 @@ class ClusterCoreInstanceGroupArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
-        :param pulumi.Input[str] autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param pulumi.Input[str] name: Name of the step.
-        """
         pulumi.set(__self__, "instance_type", instance_type)
         if autoscaling_policy is not None:
             pulumi.set(__self__, "autoscaling_policy", autoscaling_policy)
@@ -623,9 +480,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        EC2 instance type for all instances in the instance group.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -635,9 +489,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter(name="autoscalingPolicy")
     def autoscaling_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
-        """
         return pulumi.get(self, "autoscaling_policy")
 
     @autoscaling_policy.setter
@@ -647,9 +498,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -659,9 +507,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]]:
-        """
-        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -671,9 +516,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the cluster.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -683,9 +525,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -695,9 +534,6 @@ class ClusterCoreInstanceGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -713,13 +549,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
-        :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
-        :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -732,9 +561,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        Volume size, in gibibytes (GiB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -744,9 +570,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -756,9 +579,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of I/O operations per second (IOPS) that the volume supports.
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -768,9 +588,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        The throughput, in mebibyte per second (MiB/s).
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -780,9 +597,6 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -802,17 +616,6 @@ class ClusterEc2AttributesArgs:
                  service_access_security_group: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] instance_profile: Instance Profile for EC2 instances of the cluster assume this role.
-        :param pulumi.Input[str] additional_master_security_groups: String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
-        :param pulumi.Input[str] additional_slave_security_groups: String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
-        :param pulumi.Input[str] emr_managed_master_security_group: Identifier of the Amazon EC2 EMR-Managed security group for the master node.
-        :param pulumi.Input[str] emr_managed_slave_security_group: Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
-        :param pulumi.Input[str] key_name: Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
-        :param pulumi.Input[str] service_access_security_group: Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
-        :param pulumi.Input[str] subnet_id: VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
-        """
         pulumi.set(__self__, "instance_profile", instance_profile)
         if additional_master_security_groups is not None:
             pulumi.set(__self__, "additional_master_security_groups", additional_master_security_groups)
@@ -834,9 +637,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="instanceProfile")
     def instance_profile(self) -> pulumi.Input[str]:
-        """
-        Instance Profile for EC2 instances of the cluster assume this role.
-        """
         return pulumi.get(self, "instance_profile")
 
     @instance_profile.setter
@@ -846,9 +646,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="additionalMasterSecurityGroups")
     def additional_master_security_groups(self) -> Optional[pulumi.Input[str]]:
-        """
-        String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
-        """
         return pulumi.get(self, "additional_master_security_groups")
 
     @additional_master_security_groups.setter
@@ -858,9 +655,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="additionalSlaveSecurityGroups")
     def additional_slave_security_groups(self) -> Optional[pulumi.Input[str]]:
-        """
-        String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
-        """
         return pulumi.get(self, "additional_slave_security_groups")
 
     @additional_slave_security_groups.setter
@@ -870,9 +664,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="emrManagedMasterSecurityGroup")
     def emr_managed_master_security_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the Amazon EC2 EMR-Managed security group for the master node.
-        """
         return pulumi.get(self, "emr_managed_master_security_group")
 
     @emr_managed_master_security_group.setter
@@ -882,9 +673,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="emrManagedSlaveSecurityGroup")
     def emr_managed_slave_security_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
-        """
         return pulumi.get(self, "emr_managed_slave_security_group")
 
     @emr_managed_slave_security_group.setter
@@ -894,9 +682,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
-        """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
@@ -906,9 +691,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="serviceAccessSecurityGroup")
     def service_access_security_group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
-        """
         return pulumi.get(self, "service_access_security_group")
 
     @service_access_security_group.setter
@@ -918,9 +700,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -930,9 +709,6 @@ class ClusterEc2AttributesArgs:
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
-        """
         return pulumi.get(self, "subnet_ids")
 
     @subnet_ids.setter
@@ -948,13 +724,6 @@ class ClusterKerberosAttributesArgs:
                  ad_domain_join_password: Optional[pulumi.Input[str]] = None,
                  ad_domain_join_user: Optional[pulumi.Input[str]] = None,
                  cross_realm_trust_principal_password: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] kdc_admin_password: Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[str] realm: Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-        :param pulumi.Input[str] ad_domain_join_password: Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[str] ad_domain_join_user: Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-        :param pulumi.Input[str] cross_realm_trust_principal_password: Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-        """
         pulumi.set(__self__, "kdc_admin_password", kdc_admin_password)
         pulumi.set(__self__, "realm", realm)
         if ad_domain_join_password is not None:
@@ -967,9 +736,6 @@ class ClusterKerberosAttributesArgs:
     @property
     @pulumi.getter(name="kdcAdminPassword")
     def kdc_admin_password(self) -> pulumi.Input[str]:
-        """
-        Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "kdc_admin_password")
 
     @kdc_admin_password.setter
@@ -979,9 +745,6 @@ class ClusterKerberosAttributesArgs:
     @property
     @pulumi.getter
     def realm(self) -> pulumi.Input[str]:
-        """
-        Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
-        """
         return pulumi.get(self, "realm")
 
     @realm.setter
@@ -991,9 +754,6 @@ class ClusterKerberosAttributesArgs:
     @property
     @pulumi.getter(name="adDomainJoinPassword")
     def ad_domain_join_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "ad_domain_join_password")
 
     @ad_domain_join_password.setter
@@ -1003,9 +763,6 @@ class ClusterKerberosAttributesArgs:
     @property
     @pulumi.getter(name="adDomainJoinUser")
     def ad_domain_join_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        Required only when establishing a cross-realm trust with an Active Directory domain. A user with sufficient privileges to join resources to the domain. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "ad_domain_join_user")
 
     @ad_domain_join_user.setter
@@ -1015,9 +772,6 @@ class ClusterKerberosAttributesArgs:
     @property
     @pulumi.getter(name="crossRealmTrustPrincipalPassword")
     def cross_realm_trust_principal_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Required only when establishing a cross-realm trust with a KDC in a different realm. The cross-realm principal password, which must be identical across realms. This provider cannot perform drift detection of this configuration.
-        """
         return pulumi.get(self, "cross_realm_trust_principal_password")
 
     @cross_realm_trust_principal_password.setter
@@ -1036,14 +790,6 @@ class ClusterMasterInstanceFleetArgs:
                  provisioned_spot_capacity: Optional[pulumi.Input[int]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet.
-        :param pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification.
-        :param pulumi.Input[str] name: Name of the step.
-        :param pulumi.Input[int] target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        :param pulumi.Input[int] target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if instance_type_configs is not None:
@@ -1064,9 +810,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the cluster.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1076,9 +819,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter(name="instanceTypeConfigs")
     def instance_type_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]]:
-        """
-        Configuration block for instance fleet.
-        """
         return pulumi.get(self, "instance_type_configs")
 
     @instance_type_configs.setter
@@ -1088,9 +828,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsArgs']]:
-        """
-        Configuration block for launch specification.
-        """
         return pulumi.get(self, "launch_specifications")
 
     @launch_specifications.setter
@@ -1100,9 +837,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1130,9 +864,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
-        """
         return pulumi.get(self, "target_on_demand_capacity")
 
     @target_on_demand_capacity.setter
@@ -1142,9 +873,6 @@ class ClusterMasterInstanceFleetArgs:
     @property
     @pulumi.getter(name="targetSpotCapacity")
     def target_spot_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
-        """
         return pulumi.get(self, "target_spot_capacity")
 
     @target_spot_capacity.setter
@@ -1161,14 +889,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
                  ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
             pulumi.set(__self__, "bid_price", bid_price)
@@ -1184,9 +904,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        EC2 instance type for all instances in the instance group.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -1196,9 +913,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -1208,9 +922,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
-        """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
     @bid_price_as_percentage_of_on_demand_price.setter
@@ -1220,9 +931,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
-        """
-        Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
@@ -1232,9 +940,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
-        """
-        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -1244,9 +949,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -1259,10 +961,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input[str] classification: Classification within a configuration.
-        :param pulumi.Input[Mapping[str, Any]] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -1271,9 +969,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        Classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @classification.setter
@@ -1283,9 +978,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -1300,12 +992,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
-        :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -1316,9 +1002,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        Volume size, in gibibytes (GiB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1328,9 +1011,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1340,9 +1020,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of I/O operations per second (IOPS) that the volume supports.
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1352,9 +1029,6 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -1367,10 +1041,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
                  on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
                  spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications.
-        """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
@@ -1379,9 +1049,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="onDemandSpecifications")
     def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
-        """
-        Configuration block for on demand instances launch specifications.
-        """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
@@ -1391,9 +1058,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="spotSpecifications")
     def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
-        """
-        Configuration block for spot instances launch specifications.
-        """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
@@ -1405,17 +1069,11 @@ class ClusterMasterInstanceFleetLaunchSpecificationsArgs:
 class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -1430,12 +1088,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
                  timeout_action: pulumi.Input[str],
                  timeout_duration_minutes: pulumi.Input[int],
                  block_duration_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        :param pulumi.Input[str] timeout_action: Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        :param pulumi.Input[int] timeout_duration_minutes: Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        :param pulumi.Input[int] block_duration_minutes: Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         pulumi.set(__self__, "timeout_action", timeout_action)
         pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
@@ -1445,9 +1097,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -1457,9 +1106,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutAction")
     def timeout_action(self) -> pulumi.Input[str]:
-        """
-        Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        """
         return pulumi.get(self, "timeout_action")
 
     @timeout_action.setter
@@ -1469,9 +1115,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutDurationMinutes")
     def timeout_duration_minutes(self) -> pulumi.Input[int]:
-        """
-        Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        """
         return pulumi.get(self, "timeout_duration_minutes")
 
     @timeout_duration_minutes.setter
@@ -1481,9 +1124,6 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="blockDurationMinutes")
     def block_duration_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         return pulumi.get(self, "block_duration_minutes")
 
     @block_duration_minutes.setter
@@ -1500,14 +1140,6 @@ class ClusterMasterInstanceGroupArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] instance_type: EC2 instance type for all instances in the instance group.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param pulumi.Input[str] id: ID of the cluster.
-        :param pulumi.Input[int] instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        :param pulumi.Input[str] name: Name of the step.
-        """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
             pulumi.set(__self__, "bid_price", bid_price)
@@ -1523,9 +1155,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        EC2 instance type for all instances in the instance group.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -1535,9 +1164,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -1547,9 +1173,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]]:
-        """
-        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -1559,9 +1182,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the cluster.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1571,9 +1191,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
-        """
         return pulumi.get(self, "instance_count")
 
     @instance_count.setter
@@ -1583,9 +1200,6 @@ class ClusterMasterInstanceGroupArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1601,13 +1215,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
-        :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
-        :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -1620,9 +1227,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        Volume size, in gibibytes (GiB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1632,9 +1236,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1644,9 +1245,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of I/O operations per second (IOPS) that the volume supports.
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -1656,9 +1254,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
-        """
-        The throughput, in mebibyte per second (MiB/s).
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -1668,9 +1263,6 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -1684,11 +1276,6 @@ class ClusterStepArgs:
                  action_on_failure: pulumi.Input[str],
                  hadoop_jar_step: pulumi.Input['ClusterStepHadoopJarStepArgs'],
                  name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] action_on_failure: Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        :param pulumi.Input['ClusterStepHadoopJarStepArgs'] hadoop_jar_step: JAR file used for the step. See below.
-        :param pulumi.Input[str] name: Name of the step.
-        """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
         pulumi.set(__self__, "hadoop_jar_step", hadoop_jar_step)
         pulumi.set(__self__, "name", name)
@@ -1696,9 +1283,6 @@ class ClusterStepArgs:
     @property
     @pulumi.getter(name="actionOnFailure")
     def action_on_failure(self) -> pulumi.Input[str]:
-        """
-        Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        """
         return pulumi.get(self, "action_on_failure")
 
     @action_on_failure.setter
@@ -1708,9 +1292,6 @@ class ClusterStepArgs:
     @property
     @pulumi.getter(name="hadoopJarStep")
     def hadoop_jar_step(self) -> pulumi.Input['ClusterStepHadoopJarStepArgs']:
-        """
-        JAR file used for the step. See below.
-        """
         return pulumi.get(self, "hadoop_jar_step")
 
     @hadoop_jar_step.setter
@@ -1720,9 +1301,6 @@ class ClusterStepArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        Name of the step.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1737,12 +1315,6 @@ class ClusterStepHadoopJarStepArgs:
                  args: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  main_class: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] jar: Path to a JAR file run during the step.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] args: List of command line arguments passed to the JAR file's main function when executed.
-        :param pulumi.Input[str] main_class: Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         pulumi.set(__self__, "jar", jar)
         if args is not None:
             pulumi.set(__self__, "args", args)
@@ -1754,9 +1326,6 @@ class ClusterStepHadoopJarStepArgs:
     @property
     @pulumi.getter
     def jar(self) -> pulumi.Input[str]:
-        """
-        Path to a JAR file run during the step.
-        """
         return pulumi.get(self, "jar")
 
     @jar.setter
@@ -1766,9 +1335,6 @@ class ClusterStepHadoopJarStepArgs:
     @property
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of command line arguments passed to the JAR file's main function when executed.
-        """
         return pulumi.get(self, "args")
 
     @args.setter
@@ -1778,9 +1344,6 @@ class ClusterStepHadoopJarStepArgs:
     @property
     @pulumi.getter(name="mainClass")
     def main_class(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the main class in the specified Java file. If not specified, the JAR file should specify a Main-Class in its manifest file.
-        """
         return pulumi.get(self, "main_class")
 
     @main_class.setter
@@ -1790,9 +1353,6 @@ class ClusterStepHadoopJarStepArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -1809,14 +1369,6 @@ class InstanceFleetInstanceTypeConfigArgs:
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]] = None,
                  ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]] = None,
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] instance_type: An EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        :param pulumi.Input[int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         pulumi.set(__self__, "instance_type", instance_type)
         if bid_price is not None:
             pulumi.set(__self__, "bid_price", bid_price)
@@ -1832,9 +1384,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
-        """
-        An EC2 instance type, such as m4.xlarge.
-        """
         return pulumi.get(self, "instance_type")
 
     @instance_type.setter
@@ -1844,9 +1393,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
-        """
-        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        """
         return pulumi.get(self, "bid_price")
 
     @bid_price.setter
@@ -1856,9 +1402,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
-        """
-        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
     @bid_price_as_percentage_of_on_demand_price.setter
@@ -1868,9 +1411,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]]:
-        """
-        A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
@@ -1880,9 +1420,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="ebsConfigs")
     def ebs_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]]:
-        """
-        Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
-        """
         return pulumi.get(self, "ebs_configs")
 
     @ebs_configs.setter
@@ -1892,9 +1429,6 @@ class InstanceFleetInstanceTypeConfigArgs:
     @property
     @pulumi.getter(name="weightedCapacity")
     def weighted_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
-        """
         return pulumi.get(self, "weighted_capacity")
 
     @weighted_capacity.setter
@@ -1907,10 +1441,6 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        :param pulumi.Input[str] classification: The classification within a configuration.
-        :param pulumi.Input[Mapping[str, Any]] properties: A map of properties specified within a configuration classification
-        """
         if classification is not None:
             pulumi.set(__self__, "classification", classification)
         if properties is not None:
@@ -1919,9 +1449,6 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def classification(self) -> Optional[pulumi.Input[str]]:
-        """
-        The classification within a configuration.
-        """
         return pulumi.get(self, "classification")
 
     @classification.setter
@@ -1931,9 +1458,6 @@ class InstanceFleetInstanceTypeConfigConfigurationArgs:
     @property
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        A map of properties specified within a configuration classification
-        """
         return pulumi.get(self, "properties")
 
     @properties.setter
@@ -1948,12 +1472,6 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: The volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the volume supports
-        :param pulumi.Input[int] volumes_per_instance: The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -1964,9 +1482,6 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        The volume size, in gibibytes (GiB).
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -1976,9 +1491,6 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1988,9 +1500,6 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of I/O operations per second (IOPS) that the volume supports
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -2000,9 +1509,6 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -2015,10 +1521,6 @@ class InstanceFleetLaunchSpecificationsArgs:
     def __init__(__self__, *,
                  on_demand_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]] = None,
                  spot_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]] on_demand_specifications: Configuration block for on demand instances launch specifications
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]] spot_specifications: Configuration block for spot instances launch specifications
-        """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
         if spot_specifications is not None:
@@ -2027,9 +1529,6 @@ class InstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="onDemandSpecifications")
     def on_demand_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]:
-        """
-        Configuration block for on demand instances launch specifications
-        """
         return pulumi.get(self, "on_demand_specifications")
 
     @on_demand_specifications.setter
@@ -2039,9 +1538,6 @@ class InstanceFleetLaunchSpecificationsArgs:
     @property
     @pulumi.getter(name="spotSpecifications")
     def spot_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]:
-        """
-        Configuration block for spot instances launch specifications
-        """
         return pulumi.get(self, "spot_specifications")
 
     @spot_specifications.setter
@@ -2053,17 +1549,11 @@ class InstanceFleetLaunchSpecificationsArgs:
 class InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -2078,12 +1568,6 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
                  timeout_action: pulumi.Input[str],
                  timeout_duration_minutes: pulumi.Input[int],
                  block_duration_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] allocation_strategy: Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        :param pulumi.Input[str] timeout_action: The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        :param pulumi.Input[int] timeout_duration_minutes: The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        :param pulumi.Input[int] block_duration_minutes: The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
         pulumi.set(__self__, "timeout_action", timeout_action)
         pulumi.set(__self__, "timeout_duration_minutes", timeout_duration_minutes)
@@ -2093,9 +1577,6 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[str]:
-        """
-        Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-        """
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
@@ -2105,9 +1586,6 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutAction")
     def timeout_action(self) -> pulumi.Input[str]:
-        """
-        The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
-        """
         return pulumi.get(self, "timeout_action")
 
     @timeout_action.setter
@@ -2117,9 +1595,6 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="timeoutDurationMinutes")
     def timeout_duration_minutes(self) -> pulumi.Input[int]:
-        """
-        The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
-        """
         return pulumi.get(self, "timeout_duration_minutes")
 
     @timeout_duration_minutes.setter
@@ -2129,9 +1604,6 @@ class InstanceFleetLaunchSpecificationsSpotSpecificationArgs:
     @property
     @pulumi.getter(name="blockDurationMinutes")
     def block_duration_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-        """
         return pulumi.get(self, "block_duration_minutes")
 
     @block_duration_minutes.setter
@@ -2146,12 +1618,6 @@ class InstanceGroupEbsConfigArgs:
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] size: The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-        :param pulumi.Input[str] type: The volume type. Valid options are 'gp2', 'io1' and 'standard'.
-        :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS) that the volume supports.
-        :param pulumi.Input[int] volumes_per_instance: The number of EBS Volumes to attach per instance.
-        """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
@@ -2162,9 +1628,6 @@ class InstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def size(self) -> pulumi.Input[int]:
-        """
-        The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-        """
         return pulumi.get(self, "size")
 
     @size.setter
@@ -2174,9 +1637,6 @@ class InstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        The volume type. Valid options are 'gp2', 'io1' and 'standard'.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2186,9 +1646,6 @@ class InstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of I/O operations per second (IOPS) that the volume supports.
-        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -2198,9 +1655,6 @@ class InstanceGroupEbsConfigArgs:
     @property
     @pulumi.getter(name="volumesPerInstance")
     def volumes_per_instance(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of EBS Volumes to attach per instance.
-        """
         return pulumi.get(self, "volumes_per_instance")
 
     @volumes_per_instance.setter
@@ -2216,13 +1670,6 @@ class ManagedScalingPolicyComputeLimitArgs:
                  unit_type: pulumi.Input[str],
                  maximum_core_capacity_units: Optional[pulumi.Input[int]] = None,
                  maximum_ondemand_capacity_units: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] maximum_capacity_units: The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-        :param pulumi.Input[int] minimum_capacity_units: The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-        :param pulumi.Input[str] unit_type: The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
-        :param pulumi.Input[int] maximum_core_capacity_units: The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
-        :param pulumi.Input[int] maximum_ondemand_capacity_units: The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
-        """
         pulumi.set(__self__, "maximum_capacity_units", maximum_capacity_units)
         pulumi.set(__self__, "minimum_capacity_units", minimum_capacity_units)
         pulumi.set(__self__, "unit_type", unit_type)
@@ -2234,9 +1681,6 @@ class ManagedScalingPolicyComputeLimitArgs:
     @property
     @pulumi.getter(name="maximumCapacityUnits")
     def maximum_capacity_units(self) -> pulumi.Input[int]:
-        """
-        The upper boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-        """
         return pulumi.get(self, "maximum_capacity_units")
 
     @maximum_capacity_units.setter
@@ -2246,9 +1690,6 @@ class ManagedScalingPolicyComputeLimitArgs:
     @property
     @pulumi.getter(name="minimumCapacityUnits")
     def minimum_capacity_units(self) -> pulumi.Input[int]:
-        """
-        The lower boundary of EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. Managed scaling activities are not allowed beyond this boundary. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.
-        """
         return pulumi.get(self, "minimum_capacity_units")
 
     @minimum_capacity_units.setter
@@ -2258,9 +1699,6 @@ class ManagedScalingPolicyComputeLimitArgs:
     @property
     @pulumi.getter(name="unitType")
     def unit_type(self) -> pulumi.Input[str]:
-        """
-        The unit type used for specifying a managed scaling policy. Valid Values: `InstanceFleetUnits` | `Instances` | `VCPU`
-        """
         return pulumi.get(self, "unit_type")
 
     @unit_type.setter
@@ -2270,9 +1708,6 @@ class ManagedScalingPolicyComputeLimitArgs:
     @property
     @pulumi.getter(name="maximumCoreCapacityUnits")
     def maximum_core_capacity_units(self) -> Optional[pulumi.Input[int]]:
-        """
-        The upper boundary of EC2 units for core node type in a cluster. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The core units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between core and task nodes.
-        """
         return pulumi.get(self, "maximum_core_capacity_units")
 
     @maximum_core_capacity_units.setter
@@ -2282,9 +1717,6 @@ class ManagedScalingPolicyComputeLimitArgs:
     @property
     @pulumi.getter(name="maximumOndemandCapacityUnits")
     def maximum_ondemand_capacity_units(self) -> Optional[pulumi.Input[int]]:
-        """
-        The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
-        """
         return pulumi.get(self, "maximum_ondemand_capacity_units")
 
     @maximum_ondemand_capacity_units.setter
@@ -2297,10 +1729,6 @@ class GetReleaseLabelsFiltersArgs:
     def __init__(__self__, *,
                  application: Optional[str] = None,
                  prefix: Optional[str] = None):
-        """
-        :param str application: Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
-        :param str prefix: Optional release label version prefix filter. For example, `emr-5`.
-        """
         if application is not None:
             pulumi.set(__self__, "application", application)
         if prefix is not None:
@@ -2309,9 +1737,6 @@ class GetReleaseLabelsFiltersArgs:
     @property
     @pulumi.getter
     def application(self) -> Optional[str]:
-        """
-        Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
-        """
         return pulumi.get(self, "application")
 
     @application.setter
@@ -2321,9 +1746,6 @@ class GetReleaseLabelsFiltersArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
-        """
-        Optional release label version prefix filter. For example, `emr-5`.
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

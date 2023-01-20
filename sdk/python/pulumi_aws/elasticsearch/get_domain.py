@@ -96,81 +96,51 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="accessPolicies")
     def access_policies(self) -> str:
-        """
-        The policy document attached to the domain.
-        """
         return pulumi.get(self, "access_policies")
 
     @property
     @pulumi.getter(name="advancedOptions")
     def advanced_options(self) -> Mapping[str, str]:
-        """
-        Key-value string pairs to specify advanced configuration options.
-        """
         return pulumi.get(self, "advanced_options")
 
     @property
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Sequence['outputs.GetDomainAdvancedSecurityOptionResult']:
-        """
-        Status of the Elasticsearch domain's advanced security options. The block consists of the following attributes:
-        """
         return pulumi.get(self, "advanced_security_options")
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        The ARN of the domain.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="autoTuneOptions")
     def auto_tune_options(self) -> Sequence['outputs.GetDomainAutoTuneOptionResult']:
-        """
-        Configuration of the Auto-Tune options of the domain.
-        """
         return pulumi.get(self, "auto_tune_options")
 
     @property
     @pulumi.getter(name="clusterConfigs")
     def cluster_configs(self) -> Sequence['outputs.GetDomainClusterConfigResult']:
-        """
-        Cluster configuration of the domain.
-        """
         return pulumi.get(self, "cluster_configs")
 
     @property
     @pulumi.getter(name="cognitoOptions")
     def cognito_options(self) -> Sequence['outputs.GetDomainCognitoOptionResult']:
-        """
-        Domain Amazon Cognito Authentication options for Kibana.
-        """
         return pulumi.get(self, "cognito_options")
 
     @property
     @pulumi.getter
     def created(self) -> bool:
-        """
-        Status of the creation of the domain.
-        """
         return pulumi.get(self, "created")
 
     @property
     @pulumi.getter
     def deleted(self) -> bool:
-        """
-        Status of the deletion of the domain.
-        """
         return pulumi.get(self, "deleted")
 
     @property
     @pulumi.getter(name="domainId")
     def domain_id(self) -> str:
-        """
-        Unique identifier for the domain.
-        """
         return pulumi.get(self, "domain_id")
 
     @property
@@ -181,33 +151,21 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="ebsOptions")
     def ebs_options(self) -> Sequence['outputs.GetDomainEbsOptionResult']:
-        """
-        EBS Options for the instances in the domain.
-        """
         return pulumi.get(self, "ebs_options")
 
     @property
     @pulumi.getter(name="elasticsearchVersion")
     def elasticsearch_version(self) -> str:
-        """
-        Elasticsearch version for the domain.
-        """
         return pulumi.get(self, "elasticsearch_version")
 
     @property
     @pulumi.getter(name="encryptionAtRests")
     def encryption_at_rests(self) -> Sequence['outputs.GetDomainEncryptionAtRestResult']:
-        """
-        Domain encryption at rest related options.
-        """
         return pulumi.get(self, "encryption_at_rests")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
-        """
-        Domain-specific endpoint used to submit index, search, and data upload requests.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -221,34 +179,21 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="kibanaEndpoint")
     def kibana_endpoint(self) -> str:
-        """
-        Domain-specific endpoint used to access the Kibana application.
-        """
         return pulumi.get(self, "kibana_endpoint")
 
     @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
-        """
-        Domain log publishing related options.
-        """
         return pulumi.get(self, "log_publishing_options")
 
     @property
     @pulumi.getter(name="nodeToNodeEncryptions")
     def node_to_node_encryptions(self) -> Sequence['outputs.GetDomainNodeToNodeEncryptionResult']:
-        """
-        Domain in transit encryption related options.
-        """
         return pulumi.get(self, "node_to_node_encryptions")
 
     @property
     @pulumi.getter
     def processing(self) -> bool:
-        """
-        Status of a configuration change in the domain.
-        * `snapshot_options` – Domain snapshot related options.
-        """
         return pulumi.get(self, "processing")
 
     @property
@@ -259,17 +204,11 @@ class GetDomainResult:
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Tags assigned to the domain.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Sequence['outputs.GetDomainVpcOptionResult']:
-        """
-        VPC Options for private Elasticsearch domains.
-        """
         return pulumi.get(self, "vpc_options")
 
 
@@ -308,20 +247,7 @@ def get_domain(domain_name: Optional[str] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
-    Use this data source to get information about an Elasticsearch Domain
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.elasticsearch.get_domain(domain_name="my-domain-name")
-    ```
-
-
-    :param str domain_name: Name of the domain.
-    :param Mapping[str, str] tags: Tags assigned to the domain.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -360,19 +286,6 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
     """
-    Use this data source to get information about an Elasticsearch Domain
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    my_domain = aws.elasticsearch.get_domain(domain_name="my-domain-name")
-    ```
-
-
-    :param str domain_name: Name of the domain.
-    :param Mapping[str, str] tags: Tags assigned to the domain.
+    Use this data source to access information about an existing resource.
     """
     ...

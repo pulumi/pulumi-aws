@@ -102,17 +102,11 @@ class GetPermissionsResult:
     @property
     @pulumi.getter
     def permissions(self) -> Sequence[str]:
-        """
-        List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="permissionsWithGrantOptions")
     def permissions_with_grant_options(self) -> Sequence[str]:
-        """
-        Subset of `permissions` which the principal can pass.
-        """
         return pulumi.get(self, "permissions_with_grant_options")
 
     @property
@@ -162,69 +156,7 @@ def get_permissions(catalog_id: Optional[str] = None,
                     table_with_columns: Optional[pulumi.InputType['GetPermissionsTableWithColumnsArgs']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-    > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-    ## Example Usage
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
-        ))
-    ```
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
-            catalog_id="110376042874",
-        ))
-    ```
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
-            resource_type="DATABASE",
-            expressions=[
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Team",
-                    values=["Sales"],
-                ),
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Environment",
-                    values=[
-                        "Dev",
-                        "Production",
-                    ],
-                ),
-            ],
-        ))
-    ```
-
-
-    :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-    :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
-    :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
-    :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
@@ -266,68 +198,6 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
                            table_with_columns: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsTableWithColumnsArgs']]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-    > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-    ## Example Usage
-    ### Permissions For A Lake Formation S3 Resource
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
-            arn=aws_lakeformation_resource["test"]["arn"],
-        ))
-    ```
-    ### Permissions For A Glue Catalog Database
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        database=aws.lakeformation.GetPermissionsDatabaseArgs(
-            name=aws_glue_catalog_database["test"]["name"],
-            catalog_id="110376042874",
-        ))
-    ```
-    ### Permissions For Tag-Based Access Control
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
-        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
-            resource_type="DATABASE",
-            expressions=[
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Team",
-                    values=["Sales"],
-                ),
-                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
-                    key="Environment",
-                    values=[
-                        "Dev",
-                        "Production",
-                    ],
-                ),
-            ],
-        ))
-    ```
-
-
-    :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-    :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-    :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
-    :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
-    :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
-    :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+    Use this data source to access information about an existing resource.
     """
     ...

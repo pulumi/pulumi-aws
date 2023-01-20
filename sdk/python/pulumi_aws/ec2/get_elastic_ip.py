@@ -76,41 +76,26 @@ class GetElasticIpResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> str:
-        """
-        ID representing the association of the address with an instance in a VPC.
-        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="carrierIp")
     def carrier_ip(self) -> str:
-        """
-        Carrier IP address.
-        """
         return pulumi.get(self, "carrier_ip")
 
     @property
     @pulumi.getter(name="customerOwnedIp")
     def customer_owned_ip(self) -> str:
-        """
-        Customer Owned IP.
-        """
         return pulumi.get(self, "customer_owned_ip")
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> str:
-        """
-        The ID of a Customer Owned IP Pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing)
-        """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
     @pulumi.getter
     def domain(self) -> str:
-        """
-        Whether the address is for use in EC2-Classic (standard) or in a VPC (vpc).
-        """
         return pulumi.get(self, "domain")
 
     @property
@@ -121,81 +106,51 @@ class GetElasticIpResult:
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        If VPC Elastic IP, the allocation identifier. If EC2-Classic Elastic IP, the public IP address.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> str:
-        """
-        ID of the instance that the address is associated with (if any).
-        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> str:
-        """
-        The ID of the network interface.
-        """
         return pulumi.get(self, "network_interface_id")
 
     @property
     @pulumi.getter(name="networkInterfaceOwnerId")
     def network_interface_owner_id(self) -> str:
-        """
-        The ID of the AWS account that owns the network interface.
-        """
         return pulumi.get(self, "network_interface_owner_id")
 
     @property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> str:
-        """
-        Private DNS associated with the Elastic IP address.
-        """
         return pulumi.get(self, "private_dns")
 
     @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
-        """
-        Private IP address associated with the Elastic IP address.
-        """
         return pulumi.get(self, "private_ip")
 
     @property
     @pulumi.getter(name="publicDns")
     def public_dns(self) -> str:
-        """
-        Public DNS associated with the Elastic IP address.
-        """
         return pulumi.get(self, "public_dns")
 
     @property
     @pulumi.getter(name="publicIp")
     def public_ip(self) -> str:
-        """
-        Public IP address of Elastic IP.
-        """
         return pulumi.get(self, "public_ip")
 
     @property
     @pulumi.getter(name="publicIpv4Pool")
     def public_ipv4_pool(self) -> str:
-        """
-        ID of an address pool.
-        """
         return pulumi.get(self, "public_ipv4_pool")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Key-value map of tags associated with Elastic IP.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -229,52 +184,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticIpResult:
     """
-    `ec2.Eip` provides details about a specific Elastic IP.
-
-    ## Example Usage
-    ### Search By Allocation ID (VPC only)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
-    ```
-    ### Search By Filters (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
-        name="tag:Name",
-        values=["exampleNameTagValue"],
-    )])
-    ```
-    ### Search By Public IP (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
-    ```
-    ### Search By Tags (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_tags = aws.ec2.get_elastic_ip(tags={
-        "Name": "exampleNameTagValue",
-    })
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-    :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
-    :param str public_ip: Public IP of the specific EIP to retrieve.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -310,51 +220,6 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticIpResult]:
     """
-    `ec2.Eip` provides details about a specific Elastic IP.
-
-    ## Example Usage
-    ### Search By Allocation ID (VPC only)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
-    ```
-    ### Search By Filters (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
-        name="tag:Name",
-        values=["exampleNameTagValue"],
-    )])
-    ```
-    ### Search By Public IP (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
-    ```
-    ### Search By Tags (EC2-Classic or VPC)
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    by_tags = aws.ec2.get_elastic_ip(tags={
-        "Name": "exampleNameTagValue",
-    })
-    ```
-
-
-    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-    :param str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
-    :param str public_ip: Public IP of the specific EIP to retrieve.
-    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    Use this data source to access information about an existing resource.
     """
     ...

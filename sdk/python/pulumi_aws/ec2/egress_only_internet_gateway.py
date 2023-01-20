@@ -18,8 +18,6 @@ class EgressOnlyInternetGatewayArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EgressOnlyInternetGateway resource.
-        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if tags is not None:
@@ -28,9 +26,6 @@ class EgressOnlyInternetGatewayArgs:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[str]:
-        """
-        The VPC ID to create in.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -40,9 +35,6 @@ class EgressOnlyInternetGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -58,9 +50,6 @@ class _EgressOnlyInternetGatewayState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -72,9 +61,6 @@ class _EgressOnlyInternetGatewayState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -84,9 +70,6 @@ class _EgressOnlyInternetGatewayState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -96,9 +79,6 @@ class _EgressOnlyInternetGatewayState:
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The VPC ID to create in.
-        """
         return pulumi.get(self, "vpc_id")
 
     @vpc_id.setter
@@ -115,39 +95,9 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        [IPv6 only] Creates an egress-only Internet gateway for your VPC.
-        An egress-only Internet gateway is used to enable outbound communication
-        over IPv6 from instances in your VPC to the Internet, and prevents hosts
-        outside of your VPC from initiating an IPv6 connection with your instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.1.0.0/16",
-            assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
-            vpc_id=example_vpc.id,
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        ## Import
-
-        Egress-only Internet gateways can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-        ```
-
+        Create a EgressOnlyInternetGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
         ...
     @overload
@@ -156,35 +106,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                  args: EgressOnlyInternetGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        [IPv6 only] Creates an egress-only Internet gateway for your VPC.
-        An egress-only Internet gateway is used to enable outbound communication
-        over IPv6 from instances in your VPC to the Internet, and prevents hosts
-        outside of your VPC from initiating an IPv6 connection with your instance.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example_vpc = aws.ec2.Vpc("exampleVpc",
-            cidr_block="10.1.0.0/16",
-            assign_generated_ipv6_cidr_block=True)
-        example_egress_only_internet_gateway = aws.ec2.EgressOnlyInternetGateway("exampleEgressOnlyInternetGateway",
-            vpc_id=example_vpc.id,
-            tags={
-                "Name": "main",
-            })
-        ```
-
-        ## Import
-
-        Egress-only Internet gateways can be imported using the `id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
-        ```
-
+        Create a EgressOnlyInternetGateway resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EgressOnlyInternetGatewayArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,9 +158,6 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -252,24 +171,15 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
-        """
-        The VPC ID to create in.
-        """
         return pulumi.get(self, "vpc_id")
 

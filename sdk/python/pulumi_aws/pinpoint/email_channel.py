@@ -22,12 +22,6 @@ class EmailChannelArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EmailChannel resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
-        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "from_address", from_address)
@@ -42,9 +36,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -54,9 +45,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Input[str]:
-        """
-        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        """
         return pulumi.get(self, "from_address")
 
     @from_address.setter
@@ -66,9 +54,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter
     def identity(self) -> pulumi.Input[str]:
-        """
-        The ARN of an identity verified with SES.
-        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -78,9 +63,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        """
         return pulumi.get(self, "configuration_set")
 
     @configuration_set.setter
@@ -90,9 +72,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -102,9 +81,6 @@ class EmailChannelArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -124,13 +100,6 @@ class _EmailChannelState:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EmailChannel resources.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
-        :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
-        :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -150,9 +119,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -162,9 +128,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        """
         return pulumi.get(self, "configuration_set")
 
     @configuration_set.setter
@@ -174,9 +137,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -186,9 +146,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        """
         return pulumi.get(self, "from_address")
 
     @from_address.setter
@@ -198,9 +155,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of an identity verified with SES.
-        """
         return pulumi.get(self, "identity")
 
     @identity.setter
@@ -210,9 +164,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> Optional[pulumi.Input[int]]:
-        """
-        Messages per second that can be sent.
-        """
         return pulumi.get(self, "messages_per_second")
 
     @messages_per_second.setter
@@ -222,9 +173,6 @@ class _EmailChannelState:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -245,68 +193,9 @@ class EmailChannel(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint Email Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        email = aws.pinpoint.EmailChannel("email",
-            application_id=app.application_id,
-            from_address="user@example.com",
-            role_arn=role.arn)
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "mobileanalytics:PutEvents",
-              "mobileanalytics:PutItems"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-              "*"
-            ]
-          }
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Pinpoint Email Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-        ```
-
+        Create a EmailChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
-        :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         ...
     @overload
@@ -315,60 +204,7 @@ class EmailChannel(pulumi.CustomResource):
                  args: EmailChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint Email Channel resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        app = aws.pinpoint.App("app")
-        role = aws.iam.Role("role", assume_role_policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Principal": {
-                "Service": "pinpoint.amazonaws.com"
-              },
-              "Effect": "Allow",
-              "Sid": ""
-            }
-          ]
-        }
-        \"\"\")
-        email = aws.pinpoint.EmailChannel("email",
-            application_id=app.application_id,
-            from_address="user@example.com",
-            role_arn=role.arn)
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy = aws.iam.RolePolicy("rolePolicy",
-            role=role.id,
-            policy=\"\"\"{
-          "Version": "2012-10-17",
-          "Statement": {
-            "Action": [
-              "mobileanalytics:PutEvents",
-              "mobileanalytics:PutItems"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-              "*"
-            ]
-          }
-        }
-        \"\"\")
-        ```
-
-        ## Import
-
-        Pinpoint Email Channel can be imported using the `application-id`, e.g.,
-
-        ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-        ```
-
+        Create a EmailChannel resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailChannelArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,13 +272,6 @@ class EmailChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
-        :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
-        :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -460,56 +289,35 @@ class EmailChannel(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
-        """
-        The application ID.
-        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-        """
         return pulumi.get(self, "configuration_set")
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether the channel is enabled or disabled. Defaults to `true`.
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Output[str]:
-        """
-        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-        """
         return pulumi.get(self, "from_address")
 
     @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[str]:
-        """
-        The ARN of an identity verified with SES.
-        """
         return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> pulumi.Output[int]:
-        """
-        Messages per second that can be sent.
-        """
         return pulumi.get(self, "messages_per_second")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
-        """
         return pulumi.get(self, "role_arn")
 

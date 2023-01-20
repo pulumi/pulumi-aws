@@ -62,12 +62,6 @@ class EventConnectionAuthParametersArgs:
                  basic: Optional[pulumi.Input['EventConnectionAuthParametersBasicArgs']] = None,
                  invocation_http_parameters: Optional[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs']] = None,
                  oauth: Optional[pulumi.Input['EventConnectionAuthParametersOauthArgs']] = None):
-        """
-        :param pulumi.Input['EventConnectionAuthParametersApiKeyArgs'] api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        :param pulumi.Input['EventConnectionAuthParametersBasicArgs'] basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        :param pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs'] invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input['EventConnectionAuthParametersOauthArgs'] oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
-        """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if basic is not None:
@@ -80,9 +74,6 @@ class EventConnectionAuthParametersArgs:
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[pulumi.Input['EventConnectionAuthParametersApiKeyArgs']]:
-        """
-        Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
@@ -92,9 +83,6 @@ class EventConnectionAuthParametersArgs:
     @property
     @pulumi.getter
     def basic(self) -> Optional[pulumi.Input['EventConnectionAuthParametersBasicArgs']]:
-        """
-        Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        """
         return pulumi.get(self, "basic")
 
     @basic.setter
@@ -104,9 +92,6 @@ class EventConnectionAuthParametersArgs:
     @property
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> Optional[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgs']]:
-        """
-        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "invocation_http_parameters")
 
     @invocation_http_parameters.setter
@@ -116,9 +101,6 @@ class EventConnectionAuthParametersArgs:
     @property
     @pulumi.getter
     def oauth(self) -> Optional[pulumi.Input['EventConnectionAuthParametersOauthArgs']]:
-        """
-        Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
-        """
         return pulumi.get(self, "oauth")
 
     @oauth.setter
@@ -131,19 +113,12 @@ class EventConnectionAuthParametersApiKeyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -153,9 +128,6 @@ class EventConnectionAuthParametersApiKeyArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -168,19 +140,12 @@ class EventConnectionAuthParametersBasicArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] password: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param pulumi.Input[str] username: A username for the authorization.
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -190,9 +155,6 @@ class EventConnectionAuthParametersBasicArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
-        """
-        A username for the authorization.
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -206,11 +168,6 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
                  bodies: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgs']]]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]]] = None,
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgs']]] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -221,9 +178,6 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
     @property
     @pulumi.getter
     def bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgs']]]]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @bodies.setter
@@ -233,9 +187,6 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
     @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]]]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @headers.setter
@@ -245,9 +196,6 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]]]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
     @query_strings.setter
@@ -261,11 +209,6 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -276,9 +219,6 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -288,9 +228,6 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -300,9 +237,6 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -316,11 +250,6 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -331,9 +260,6 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -343,9 +269,6 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -355,9 +278,6 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -371,11 +291,6 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -386,9 +301,6 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -398,9 +310,6 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -410,9 +319,6 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -427,12 +333,6 @@ class EventConnectionAuthParametersOauthArgs:
                  http_method: pulumi.Input[str],
                  oauth_http_parameters: pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs'],
                  client_parameters: Optional[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs']] = None):
-        """
-        :param pulumi.Input[str] authorization_endpoint: The URL to the authorization endpoint.
-        :param pulumi.Input[str] http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs'] oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs'] client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "http_method", http_method)
         pulumi.set(__self__, "oauth_http_parameters", oauth_http_parameters)
@@ -442,9 +342,6 @@ class EventConnectionAuthParametersOauthArgs:
     @property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> pulumi.Input[str]:
-        """
-        The URL to the authorization endpoint.
-        """
         return pulumi.get(self, "authorization_endpoint")
 
     @authorization_endpoint.setter
@@ -454,9 +351,6 @@ class EventConnectionAuthParametersOauthArgs:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -466,9 +360,6 @@ class EventConnectionAuthParametersOauthArgs:
     @property
     @pulumi.getter(name="oauthHttpParameters")
     def oauth_http_parameters(self) -> pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgs']:
-        """
-        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
         return pulumi.get(self, "oauth_http_parameters")
 
     @oauth_http_parameters.setter
@@ -478,9 +369,6 @@ class EventConnectionAuthParametersOauthArgs:
     @property
     @pulumi.getter(name="clientParameters")
     def client_parameters(self) -> Optional[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgs']]:
-        """
-        Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        """
         return pulumi.get(self, "client_parameters")
 
     @client_parameters.setter
@@ -493,19 +381,12 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] client_id: The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        :param pulumi.Input[str] client_secret: The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
 
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
-        """
-        The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -515,9 +396,6 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
     @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Input[str]:
-        """
-        The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "client_secret")
 
     @client_secret.setter
@@ -531,11 +409,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
                  bodies: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs']]]] = None,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]]] = None,
                  query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs']]] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
         if headers is not None:
@@ -546,9 +419,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
     @property
     @pulumi.getter
     def bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs']]]]:
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "bodies")
 
     @bodies.setter
@@ -558,9 +428,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
     @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]]]:
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "headers")
 
     @headers.setter
@@ -570,9 +437,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]]]:
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
         return pulumi.get(self, "query_strings")
 
     @query_strings.setter
@@ -586,11 +450,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -601,9 +460,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -613,9 +469,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -625,9 +478,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -641,11 +491,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -656,9 +501,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -668,9 +510,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -680,9 +519,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -696,11 +532,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
                  is_value_secret: Optional[pulumi.Input[bool]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[bool] is_value_secret: Specified whether the value is secret.
-        :param pulumi.Input[str] key: Header Name.
-        :param pulumi.Input[str] value: Header Value. Created and stored in AWS Secrets Manager.
-        """
         if is_value_secret is not None:
             pulumi.set(__self__, "is_value_secret", is_value_secret)
         if key is not None:
@@ -711,9 +542,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
     @property
     @pulumi.getter(name="isValueSecret")
     def is_value_secret(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specified whether the value is secret.
-        """
         return pulumi.get(self, "is_value_secret")
 
     @is_value_secret.setter
@@ -723,9 +551,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Name.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -735,9 +560,6 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -751,11 +573,6 @@ class EventPermissionConditionArgs:
                  key: pulumi.Input[str],
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        :param pulumi.Input[str] type: Type of condition. Value values: `StringEquals`.
-        :param pulumi.Input[str] value: Value for the key.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -763,9 +580,6 @@ class EventPermissionConditionArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -775,9 +589,6 @@ class EventPermissionConditionArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of condition. Value values: `StringEquals`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -787,9 +598,6 @@ class EventPermissionConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Value for the key.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -804,12 +612,6 @@ class EventTargetBatchTargetArgs:
                  job_name: pulumi.Input[str],
                  array_size: Optional[pulumi.Input[int]] = None,
                  job_attempts: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] job_definition: The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        :param pulumi.Input[str] job_name: The name to use for this execution of the job, if the target is an AWS Batch job.
-        :param pulumi.Input[int] array_size: The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        :param pulumi.Input[int] job_attempts: The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-        """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
         if array_size is not None:
@@ -820,9 +622,6 @@ class EventTargetBatchTargetArgs:
     @property
     @pulumi.getter(name="jobDefinition")
     def job_definition(self) -> pulumi.Input[str]:
-        """
-        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        """
         return pulumi.get(self, "job_definition")
 
     @job_definition.setter
@@ -832,9 +631,6 @@ class EventTargetBatchTargetArgs:
     @property
     @pulumi.getter(name="jobName")
     def job_name(self) -> pulumi.Input[str]:
-        """
-        The name to use for this execution of the job, if the target is an AWS Batch job.
-        """
         return pulumi.get(self, "job_name")
 
     @job_name.setter
@@ -844,9 +640,6 @@ class EventTargetBatchTargetArgs:
     @property
     @pulumi.getter(name="arraySize")
     def array_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        """
         return pulumi.get(self, "array_size")
 
     @array_size.setter
@@ -856,9 +649,6 @@ class EventTargetBatchTargetArgs:
     @property
     @pulumi.getter(name="jobAttempts")
     def job_attempts(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-        """
         return pulumi.get(self, "job_attempts")
 
     @job_attempts.setter
@@ -870,18 +660,12 @@ class EventTargetBatchTargetArgs:
 class EventTargetDeadLetterConfigArgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] arn: - ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        - ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -904,20 +688,6 @@ class EventTargetEcsTargetArgs:
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_count: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-        :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
-        :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
-        :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        :param pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs'] network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-        :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to ecs resources.
-        :param pulumi.Input[int] task_count: The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-        """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if capacity_provider_strategies is not None:
             pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
@@ -945,9 +715,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> pulumi.Input[str]:
-        """
-        The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        """
         return pulumi.get(self, "task_definition_arn")
 
     @task_definition_arn.setter
@@ -957,9 +724,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]]:
-        """
-        The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-        """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
@@ -969,9 +733,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies whether to enable Amazon ECS managed tags for the task.
-        """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
     @enable_ecs_managed_tags.setter
@@ -981,9 +742,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        """
         return pulumi.get(self, "enable_execute_command")
 
     @enable_execute_command.setter
@@ -993,9 +751,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter
     def group(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies an ECS task group for the task. The maximum length is 255 characters.
-        """
         return pulumi.get(self, "group")
 
     @group.setter
@@ -1005,9 +760,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        """
         return pulumi.get(self, "launch_type")
 
     @launch_type.setter
@@ -1017,9 +769,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs']]:
-        """
-        Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
@@ -1029,9 +778,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]]:
-        """
-        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-        """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
@@ -1041,9 +787,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
         return pulumi.get(self, "platform_version")
 
     @platform_version.setter
@@ -1053,9 +796,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
-        """
         return pulumi.get(self, "propagate_tags")
 
     @propagate_tags.setter
@@ -1065,9 +805,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags to assign to ecs resources.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -1077,9 +814,6 @@ class EventTargetEcsTargetArgs:
     @property
     @pulumi.getter(name="taskCount")
     def task_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-        """
         return pulumi.get(self, "task_count")
 
     @task_count.setter
@@ -1093,11 +827,6 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
                  capacity_provider: pulumi.Input[str],
                  base: Optional[pulumi.Input[int]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] capacity_provider: Short name of the capacity provider.
-        :param pulumi.Input[int] base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-        :param pulumi.Input[int] weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
         pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
             pulumi.set(__self__, "base", base)
@@ -1107,9 +836,6 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
     @property
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> pulumi.Input[str]:
-        """
-        Short name of the capacity provider.
-        """
         return pulumi.get(self, "capacity_provider")
 
     @capacity_provider.setter
@@ -1119,9 +845,6 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
     @property
     @pulumi.getter
     def base(self) -> Optional[pulumi.Input[int]]:
-        """
-        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-        """
         return pulumi.get(self, "base")
 
     @base.setter
@@ -1131,9 +854,6 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
     @property
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
-        """
-        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
         return pulumi.get(self, "weight")
 
     @weight.setter
@@ -1147,11 +867,6 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  assign_public_ip: Optional[pulumi.Input[bool]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets associated with the task or service.
-        :param pulumi.Input[bool] assign_public_ip: Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        """
         pulumi.set(__self__, "subnets", subnets)
         if assign_public_ip is not None:
             pulumi.set(__self__, "assign_public_ip", assign_public_ip)
@@ -1161,9 +876,6 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
     @property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The subnets associated with the task or service.
-        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -1173,9 +885,6 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
-        """
         return pulumi.get(self, "assign_public_ip")
 
     @assign_public_ip.setter
@@ -1185,9 +894,6 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1200,10 +906,6 @@ class EventTargetEcsTargetPlacementConstraintArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  expression: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        :param pulumi.Input[str] expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        """
         pulumi.set(__self__, "type", type)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -1211,9 +913,6 @@ class EventTargetEcsTargetPlacementConstraintArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1223,9 +922,6 @@ class EventTargetEcsTargetPlacementConstraintArgs:
     @property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[str]]:
-        """
-        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -1239,11 +935,6 @@ class EventTargetHttpTargetArgs:
                  header_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path_parameter_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query_string_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] header_parameters: Enables you to specify HTTP headers to add to the request.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] path_parameter_values: The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] query_string_parameters: Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        """
         if header_parameters is not None:
             pulumi.set(__self__, "header_parameters", header_parameters)
         if path_parameter_values is not None:
@@ -1254,9 +945,6 @@ class EventTargetHttpTargetArgs:
     @property
     @pulumi.getter(name="headerParameters")
     def header_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Enables you to specify HTTP headers to add to the request.
-        """
         return pulumi.get(self, "header_parameters")
 
     @header_parameters.setter
@@ -1266,9 +954,6 @@ class EventTargetHttpTargetArgs:
     @property
     @pulumi.getter(name="pathParameterValues")
     def path_parameter_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        """
         return pulumi.get(self, "path_parameter_values")
 
     @path_parameter_values.setter
@@ -1278,9 +963,6 @@ class EventTargetHttpTargetArgs:
     @property
     @pulumi.getter(name="queryStringParameters")
     def query_string_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        """
         return pulumi.get(self, "query_string_parameters")
 
     @query_string_parameters.setter
@@ -1293,13 +975,6 @@ class EventTargetInputTransformerArgs:
     def __init__(__self__, *,
                  input_template: pulumi.Input[str],
                  input_paths: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[str] input_template: Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
-               * You can have as many as 100 key-value pairs.
-               * You must use JSON dot notation, not bracket notation.
-               * The keys can't start with "AWS".
-        """
         pulumi.set(__self__, "input_template", input_template)
         if input_paths is not None:
             pulumi.set(__self__, "input_paths", input_paths)
@@ -1307,9 +982,6 @@ class EventTargetInputTransformerArgs:
     @property
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> pulumi.Input[str]:
-        """
-        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        """
         return pulumi.get(self, "input_template")
 
     @input_template.setter
@@ -1319,12 +991,6 @@ class EventTargetInputTransformerArgs:
     @property
     @pulumi.getter(name="inputPaths")
     def input_paths(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key value pairs specified in the form of JSONPath (for example, time = $.time)
-        * You can have as many as 100 key-value pairs.
-        * You must use JSON dot notation, not bracket notation.
-        * The keys can't start with "AWS".
-        """
         return pulumi.get(self, "input_paths")
 
     @input_paths.setter
@@ -1336,18 +1002,12 @@ class EventTargetInputTransformerArgs:
 class EventTargetKinesisTargetArgs:
     def __init__(__self__, *,
                  partition_key_path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] partition_key_path: The JSON path to be extracted from the event and used as the partition key.
-        """
         if partition_key_path is not None:
             pulumi.set(__self__, "partition_key_path", partition_key_path)
 
     @property
     @pulumi.getter(name="partitionKeyPath")
     def partition_key_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The JSON path to be extracted from the event and used as the partition key.
-        """
         return pulumi.get(self, "partition_key_path")
 
     @partition_key_path.setter
@@ -1364,14 +1024,6 @@ class EventTargetRedshiftTargetArgs:
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] database: The name of the database.
-        :param pulumi.Input[str] db_user: The database user name.
-        :param pulumi.Input[str] secrets_manager_arn: The name or ARN of the secret that enables access to the database.
-        :param pulumi.Input[str] sql: The SQL statement text to run.
-        :param pulumi.Input[str] statement_name: The name of the SQL statement.
-        :param pulumi.Input[bool] with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
         pulumi.set(__self__, "database", database)
         if db_user is not None:
             pulumi.set(__self__, "db_user", db_user)
@@ -1387,9 +1039,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        The name of the database.
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -1399,9 +1048,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter(name="dbUser")
     def db_user(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database user name.
-        """
         return pulumi.get(self, "db_user")
 
     @db_user.setter
@@ -1411,9 +1057,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
         return pulumi.get(self, "secrets_manager_arn")
 
     @secrets_manager_arn.setter
@@ -1423,9 +1066,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter
     def sql(self) -> Optional[pulumi.Input[str]]:
-        """
-        The SQL statement text to run.
-        """
         return pulumi.get(self, "sql")
 
     @sql.setter
@@ -1435,9 +1075,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter(name="statementName")
     def statement_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the SQL statement.
-        """
         return pulumi.get(self, "statement_name")
 
     @statement_name.setter
@@ -1447,9 +1084,6 @@ class EventTargetRedshiftTargetArgs:
     @property
     @pulumi.getter(name="withEvent")
     def with_event(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
         return pulumi.get(self, "with_event")
 
     @with_event.setter
@@ -1462,10 +1096,6 @@ class EventTargetRetryPolicyArgs:
     def __init__(__self__, *,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] maximum_event_age_in_seconds: The age in seconds to continue to make retry attempts.
-        :param pulumi.Input[int] maximum_retry_attempts: maximum number of retry attempts to make before the request fails
-        """
         if maximum_event_age_in_seconds is not None:
             pulumi.set(__self__, "maximum_event_age_in_seconds", maximum_event_age_in_seconds)
         if maximum_retry_attempts is not None:
@@ -1474,9 +1104,6 @@ class EventTargetRetryPolicyArgs:
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
     def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The age in seconds to continue to make retry attempts.
-        """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @maximum_event_age_in_seconds.setter
@@ -1486,9 +1113,6 @@ class EventTargetRetryPolicyArgs:
     @property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
-        """
-        maximum number of retry attempts to make before the request fails
-        """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @maximum_retry_attempts.setter
@@ -1501,19 +1125,12 @@ class EventTargetRunCommandTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        :param pulumi.Input[str] key: Can be either `tag:tag-key` or `InstanceIds`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Can be either `tag:tag-key` or `InstanceIds`.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1523,9 +1140,6 @@ class EventTargetRunCommandTargetArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1537,18 +1151,12 @@ class EventTargetRunCommandTargetArgs:
 class EventTargetSqsTargetArgs:
     def __init__(__self__, *,
                  message_group_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] message_group_id: The FIFO message group ID to use as the target.
-        """
         if message_group_id is not None:
             pulumi.set(__self__, "message_group_id", message_group_id)
 
     @property
     @pulumi.getter(name="messageGroupId")
     def message_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The FIFO message group ID to use as the target.
-        """
         return pulumi.get(self, "message_group_id")
 
     @message_group_id.setter
@@ -1565,14 +1173,6 @@ class LogMetricFilterMetricTransformationArgs:
                  default_value: Optional[pulumi.Input[str]] = None,
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] name: The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-        :param pulumi.Input[str] namespace: The destination namespace of the CloudWatch metric.
-        :param pulumi.Input[str] value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        :param pulumi.Input[str] default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
-        :param pulumi.Input[str] unit: The unit to assign to the metric. If you omit this, the unit is set as `None`.
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
@@ -1586,9 +1186,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1598,9 +1195,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
-        """
-        The destination namespace of the CloudWatch metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1610,9 +1204,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1622,9 +1213,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-        """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
@@ -1634,9 +1222,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -1646,9 +1231,6 @@ class LogMetricFilterMetricTransformationArgs:
     @property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unit to assign to the metric. If you omit this, the unit is set as `None`.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1665,14 +1247,6 @@ class MetricAlarmMetricQueryArgs:
                  label: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input['MetricAlarmMetricQueryMetricArgs']] = None,
                  return_data: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] id: A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        :param pulumi.Input[str] account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
-        :param pulumi.Input[str] expression: The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-        :param pulumi.Input[str] label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        :param pulumi.Input['MetricAlarmMetricQueryMetricArgs'] metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        :param pulumi.Input[bool] return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-        """
         pulumi.set(__self__, "id", id)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1688,9 +1262,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
-        """
-        A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -1700,9 +1271,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the account where the metrics are located, if this is a cross-account alarm.
-        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -1712,9 +1280,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter
     def expression(self) -> Optional[pulumi.Input[str]]:
-        """
-        The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-        """
         return pulumi.get(self, "expression")
 
     @expression.setter
@@ -1724,9 +1289,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter
     def label(self) -> Optional[pulumi.Input[str]]:
-        """
-        A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        """
         return pulumi.get(self, "label")
 
     @label.setter
@@ -1736,9 +1298,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter
     def metric(self) -> Optional[pulumi.Input['MetricAlarmMetricQueryMetricArgs']]:
-        """
-        The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        """
         return pulumi.get(self, "metric")
 
     @metric.setter
@@ -1748,9 +1307,6 @@ class MetricAlarmMetricQueryArgs:
     @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-        """
         return pulumi.get(self, "return_data")
 
     @return_data.setter
@@ -1767,17 +1323,6 @@ class MetricAlarmMetricQueryMetricArgs:
                  dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] metric_name: The name for this metric.
-               See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[int] period: The period in seconds over which the specified `stat` is applied.
-        :param pulumi.Input[str] stat: The statistic to apply to this metric.
-               See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] namespace: The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-               See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[str] unit: The unit for this metric.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "period", period)
         pulumi.set(__self__, "stat", stat)
@@ -1791,10 +1336,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
-        """
-        The name for this metric.
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -1804,9 +1345,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter
     def period(self) -> pulumi.Input[int]:
-        """
-        The period in seconds over which the specified `stat` is applied.
-        """
         return pulumi.get(self, "period")
 
     @period.setter
@@ -1816,10 +1354,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter
     def stat(self) -> pulumi.Input[str]:
-        """
-        The statistic to apply to this metric.
-        See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        """
         return pulumi.get(self, "stat")
 
     @stat.setter
@@ -1829,9 +1363,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -1841,10 +1372,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1854,9 +1381,6 @@ class MetricAlarmMetricQueryMetricArgs:
     @property
     @pulumi.getter
     def unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unit for this metric.
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -1868,17 +1392,11 @@ class MetricAlarmMetricQueryMetricArgs:
 class MetricStreamExcludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] namespace: The namespace of the metric.
-        """
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1890,17 +1408,11 @@ class MetricStreamExcludeFilterArgs:
 class MetricStreamIncludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] namespace: The namespace of the metric.
-        """
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1913,19 +1425,12 @@ class MetricStreamStatisticsConfigurationArgs:
     def __init__(__self__, *,
                  additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
                  include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
 
     @property
     @pulumi.getter(name="additionalStatistics")
     def additional_statistics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The additional statistics to stream for the metrics listed in `include_metrics`.
-        """
         return pulumi.get(self, "additional_statistics")
 
     @additional_statistics.setter
@@ -1935,9 +1440,6 @@ class MetricStreamStatisticsConfigurationArgs:
     @property
     @pulumi.getter(name="includeMetrics")
     def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]:
-        """
-        An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
         return pulumi.get(self, "include_metrics")
 
     @include_metrics.setter
@@ -1950,19 +1452,12 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
                  namespace: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] metric_name: The name of the metric.
-        :param pulumi.Input[str] namespace: The namespace of the metric.
-        """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
 
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
-        """
-        The name of the metric.
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -1972,9 +1467,6 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
     @property
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
-        """
-        The namespace of the metric.
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -1988,11 +1480,6 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
                  data_identifiers: Sequence[str],
                  operation: 'GetLogDataProtectionPolicyDocumentStatementOperationArgs',
                  sid: Optional[str] = None):
-        """
-        :param Sequence[str] data_identifiers: Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationArgs' operation: Configures the data protection operation applied by this statement.
-        :param str sid: Name of this statement.
-        """
         pulumi.set(__self__, "data_identifiers", data_identifiers)
         pulumi.set(__self__, "operation", operation)
         if sid is not None:
@@ -2001,9 +1488,6 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
     @property
     @pulumi.getter(name="dataIdentifiers")
     def data_identifiers(self) -> Sequence[str]:
-        """
-        Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        """
         return pulumi.get(self, "data_identifiers")
 
     @data_identifiers.setter
@@ -2013,9 +1497,6 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
     @property
     @pulumi.getter
     def operation(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationArgs':
-        """
-        Configures the data protection operation applied by this statement.
-        """
         return pulumi.get(self, "operation")
 
     @operation.setter
@@ -2025,9 +1506,6 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
     @property
     @pulumi.getter
     def sid(self) -> Optional[str]:
-        """
-        Name of this statement.
-        """
         return pulumi.get(self, "sid")
 
     @sid.setter
@@ -2040,10 +1518,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
     def __init__(__self__, *,
                  audit: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs'] = None,
                  deidentify: Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs'] = None):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
-        """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
         if deidentify is not None:
@@ -2052,9 +1526,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
     @property
     @pulumi.getter
     def audit(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs']:
-        """
-        Configures the detection of sensitive data.
-        """
         return pulumi.get(self, "audit")
 
     @audit.setter
@@ -2064,9 +1535,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
     @property
     @pulumi.getter
     def deidentify(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs']:
-        """
-        Configures the masking of sensitive data.
-        """
         return pulumi.get(self, "deidentify")
 
     @deidentify.setter
@@ -2078,17 +1546,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
     def __init__(__self__, *,
                  findings_destination: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs'):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs' findings_destination: Configures destinations to send audit findings to.
-        """
         pulumi.set(__self__, "findings_destination", findings_destination)
 
     @property
     @pulumi.getter(name="findingsDestination")
     def findings_destination(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs':
-        """
-        Configures destinations to send audit findings to.
-        """
         return pulumi.get(self, "findings_destination")
 
     @findings_destination.setter
@@ -2102,11 +1564,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
                  cloudwatch_logs: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs'] = None,
                  firehose: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs'] = None,
                  s3: Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args'] = None):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs' cloudwatch_logs: Configures CloudWatch Logs as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs' firehose: Configures Kinesis Firehose as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args' s3: Configures S3 as a findings destination.
-        """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         if firehose is not None:
@@ -2117,9 +1574,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
     @property
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs']:
-        """
-        Configures CloudWatch Logs as a findings destination.
-        """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
@@ -2129,9 +1583,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
     @property
     @pulumi.getter
     def firehose(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs']:
-        """
-        Configures Kinesis Firehose as a findings destination.
-        """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
@@ -2141,9 +1592,6 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
     @property
     @pulumi.getter
     def s3(self) -> Optional['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args']:
-        """
-        Configures S3 as a findings destination.
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -2155,17 +1603,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs:
     def __init__(__self__, *,
                  log_group: str):
-        """
-        :param str log_group: Name of the CloudWatch Log Group to send findings to.
-        """
         pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
     def log_group(self) -> str:
-        """
-        Name of the CloudWatch Log Group to send findings to.
-        """
         return pulumi.get(self, "log_group")
 
     @log_group.setter
@@ -2177,17 +1619,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream: str):
-        """
-        :param str delivery_stream: Name of the Kinesis Firehose Delivery Stream to send findings to.
-        """
         pulumi.set(__self__, "delivery_stream", delivery_stream)
 
     @property
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> str:
-        """
-        Name of the Kinesis Firehose Delivery Stream to send findings to.
-        """
         return pulumi.get(self, "delivery_stream")
 
     @delivery_stream.setter
@@ -2199,17 +1635,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args:
     def __init__(__self__, *,
                  bucket: str):
-        """
-        :param str bucket: Name of the S3 Bucket to send findings to.
-        """
         pulumi.set(__self__, "bucket", bucket)
 
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        """
-        Name of the S3 Bucket to send findings to.
-        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -2221,17 +1651,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
     def __init__(__self__, *,
                  mask_config: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs'):
-        """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs' mask_config: An empty object that configures masking.
-        """
         pulumi.set(__self__, "mask_config", mask_config)
 
     @property
     @pulumi.getter(name="maskConfig")
     def mask_config(self) -> 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs':
-        """
-        An empty object that configures masking.
-        """
         return pulumi.get(self, "mask_config")
 
     @mask_config.setter

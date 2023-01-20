@@ -24,14 +24,6 @@ class DeploymentStrategyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStrategy resource.
-        :param pulumi.Input[int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        :param pulumi.Input[str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        :param pulumi.Input[str] description: Description of the deployment strategy. Can be at most 1024 characters.
-        :param pulumi.Input[int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        :param pulumi.Input[str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "deployment_duration_in_minutes", deployment_duration_in_minutes)
         pulumi.set(__self__, "growth_factor", growth_factor)
@@ -50,9 +42,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter(name="deploymentDurationInMinutes")
     def deployment_duration_in_minutes(self) -> pulumi.Input[int]:
-        """
-        Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "deployment_duration_in_minutes")
 
     @deployment_duration_in_minutes.setter
@@ -62,9 +51,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter(name="growthFactor")
     def growth_factor(self) -> pulumi.Input[float]:
-        """
-        Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        """
         return pulumi.get(self, "growth_factor")
 
     @growth_factor.setter
@@ -74,9 +60,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter(name="replicateTo")
     def replicate_to(self) -> pulumi.Input[str]:
-        """
-        Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        """
         return pulumi.get(self, "replicate_to")
 
     @replicate_to.setter
@@ -86,9 +69,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the deployment strategy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,9 +78,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter(name="finalBakeTimeInMinutes")
     def final_bake_time_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "final_bake_time_in_minutes")
 
     @final_bake_time_in_minutes.setter
@@ -110,9 +87,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter(name="growthType")
     def growth_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        """
         return pulumi.get(self, "growth_type")
 
     @growth_type.setter
@@ -122,9 +96,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -134,9 +105,6 @@ class DeploymentStrategyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -159,16 +127,6 @@ class _DeploymentStrategyState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DeploymentStrategy resources.
-        :param pulumi.Input[str] arn: ARN of the AppConfig Deployment Strategy.
-        :param pulumi.Input[int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[str] description: Description of the deployment strategy. Can be at most 1024 characters.
-        :param pulumi.Input[int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        :param pulumi.Input[str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        :param pulumi.Input[str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -194,9 +152,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARN of the AppConfig Deployment Strategy.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -206,9 +161,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="deploymentDurationInMinutes")
     def deployment_duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "deployment_duration_in_minutes")
 
     @deployment_duration_in_minutes.setter
@@ -218,9 +170,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the deployment strategy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -230,9 +179,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="finalBakeTimeInMinutes")
     def final_bake_time_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "final_bake_time_in_minutes")
 
     @final_bake_time_in_minutes.setter
@@ -242,9 +188,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="growthFactor")
     def growth_factor(self) -> Optional[pulumi.Input[float]]:
-        """
-        Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        """
         return pulumi.get(self, "growth_factor")
 
     @growth_factor.setter
@@ -254,9 +197,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="growthType")
     def growth_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        """
         return pulumi.get(self, "growth_type")
 
     @growth_type.setter
@@ -266,9 +206,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -278,9 +215,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="replicateTo")
     def replicate_to(self) -> Optional[pulumi.Input[str]]:
-        """
-        Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        """
         return pulumi.get(self, "replicate_to")
 
     @replicate_to.setter
@@ -290,9 +224,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,9 +233,6 @@ class _DeploymentStrategyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -327,44 +255,9 @@ class DeploymentStrategy(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an AppConfig Deployment Strategy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.DeploymentStrategy("example",
-            deployment_duration_in_minutes=3,
-            description="Example Deployment Strategy",
-            final_bake_time_in_minutes=4,
-            growth_factor=10,
-            growth_type="LINEAR",
-            replicate_to="NONE",
-            tags={
-                "Type": "AppConfig Deployment Strategy",
-            })
-        ```
-
-        ## Import
-
-        AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-        ```
-
+        Create a DeploymentStrategy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[str] description: Description of the deployment strategy. Can be at most 1024 characters.
-        :param pulumi.Input[int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        :param pulumi.Input[str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        :param pulumi.Input[str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -373,34 +266,7 @@ class DeploymentStrategy(pulumi.CustomResource):
                  args: DeploymentStrategyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an AppConfig Deployment Strategy resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appconfig.DeploymentStrategy("example",
-            deployment_duration_in_minutes=3,
-            description="Example Deployment Strategy",
-            final_bake_time_in_minutes=4,
-            growth_factor=10,
-            growth_type="LINEAR",
-            replicate_to="NONE",
-            tags={
-                "Type": "AppConfig Deployment Strategy",
-            })
-        ```
-
-        ## Import
-
-        AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
-
-        ```sh
-         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-        ```
-
+        Create a DeploymentStrategy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DeploymentStrategyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -476,16 +342,6 @@ class DeploymentStrategy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: ARN of the AppConfig Deployment Strategy.
-        :param pulumi.Input[int] deployment_duration_in_minutes: Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[str] description: Description of the deployment strategy. Can be at most 1024 characters.
-        :param pulumi.Input[int] final_bake_time_in_minutes: Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        :param pulumi.Input[float] growth_factor: Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        :param pulumi.Input[str] growth_type: Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        :param pulumi.Input[str] name: Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        :param pulumi.Input[str] replicate_to: Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,80 +362,50 @@ class DeploymentStrategy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        ARN of the AppConfig Deployment Strategy.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deploymentDurationInMinutes")
     def deployment_duration_in_minutes(self) -> pulumi.Output[int]:
-        """
-        Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "deployment_duration_in_minutes")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Description of the deployment strategy. Can be at most 1024 characters.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="finalBakeTimeInMinutes")
     def final_bake_time_in_minutes(self) -> pulumi.Output[Optional[int]]:
-        """
-        Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-        """
         return pulumi.get(self, "final_bake_time_in_minutes")
 
     @property
     @pulumi.getter(name="growthFactor")
     def growth_factor(self) -> pulumi.Output[float]:
-        """
-        Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-        """
         return pulumi.get(self, "growth_factor")
 
     @property
     @pulumi.getter(name="growthType")
     def growth_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-        """
         return pulumi.get(self, "growth_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Name for the deployment strategy. Must be between 1 and 64 characters in length.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="replicateTo")
     def replicate_to(self) -> pulumi.Output[str]:
-        """
-        Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-        """
         return pulumi.get(self, "replicate_to")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

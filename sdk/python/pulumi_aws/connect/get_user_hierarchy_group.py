@@ -51,9 +51,6 @@ class GetUserHierarchyGroupResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN of the hierarchy group.
-        """
         return pulumi.get(self, "arn")
 
     @property
@@ -64,9 +61,6 @@ class GetUserHierarchyGroupResult:
     @property
     @pulumi.getter(name="hierarchyPaths")
     def hierarchy_paths(self) -> Sequence['outputs.GetUserHierarchyGroupHierarchyPathResult']:
-        """
-        Block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
-        """
         return pulumi.get(self, "hierarchy_paths")
 
     @property
@@ -85,25 +79,16 @@ class GetUserHierarchyGroupResult:
     @property
     @pulumi.getter(name="levelId")
     def level_id(self) -> str:
-        """
-        Identifier of the level in the hierarchy group.
-        """
         return pulumi.get(self, "level_id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Name of the hierarchy group.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
-        """
-        Map of tags to assign to the hierarchy group.
-        """
         return pulumi.get(self, "tags")
 
 
@@ -129,35 +114,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
                              tags: Optional[Mapping[str, str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserHierarchyGroupResult:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Group.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific hierarchy group by name
-    :param Mapping[str, str] tags: Map of tags to assign to the hierarchy group.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id
@@ -185,34 +142,6 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
-    Provides details about a specific Amazon Connect User Hierarchy Group.
-
-    ## Example Usage
-
-    By `name`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-        name="Example")
-    ```
-
-    By `hierarchy_group_id`
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.connect.get_user_hierarchy_group(hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111",
-        instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
-    ```
-
-
-    :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
-    :param str instance_id: Reference to the hosting Amazon Connect Instance
-    :param str name: Returns information on a specific hierarchy group by name
-    :param Mapping[str, str] tags: Map of tags to assign to the hierarchy group.
+    Use this data source to access information about an existing resource.
     """
     ...

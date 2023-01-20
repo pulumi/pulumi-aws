@@ -45,25 +45,16 @@ class GetRealtimeLogConfigResult:
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.GetRealtimeLogConfigEndpointResult']:
-        """
-        (Required) Amazon Kinesis data streams where real-time log data is sent.
-        """
         return pulumi.get(self, "endpoints")
 
     @property
     @pulumi.getter
     def fields(self) -> Sequence[str]:
-        """
-        (Required) Fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
-        """
         return pulumi.get(self, "fields")
 
     @property
@@ -82,9 +73,6 @@ class GetRealtimeLogConfigResult:
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> int:
-        """
-        (Required) Sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
-        """
         return pulumi.get(self, "sampling_rate")
 
 
@@ -105,19 +93,7 @@ class AwaitableGetRealtimeLogConfigResult(GetRealtimeLogConfigResult):
 def get_realtime_log_config(name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRealtimeLogConfigResult:
     """
-    Provides a CloudFront real-time log configuration resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_realtime_log_config(name="example")
-    ```
-
-
-    :param str name: Unique name to identify this real-time log configuration.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -137,18 +113,6 @@ def get_realtime_log_config(name: Optional[str] = None,
 def get_realtime_log_config_output(name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
-    Provides a CloudFront real-time log configuration resource.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.cloudfront.get_realtime_log_config(name="example")
-    ```
-
-
-    :param str name: Unique name to identify this real-time log configuration.
+    Use this data source to access information about an existing resource.
     """
     ...

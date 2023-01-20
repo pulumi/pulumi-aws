@@ -24,14 +24,6 @@ class ContactFlowArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContactFlow resource.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        :param pulumi.Input[str] description: Specifies the description of the Contact Flow.
-        :param pulumi.Input[str] filename: The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        :param pulumi.Input[str] name: Specifies the name of the Contact Flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if content is not None:
@@ -52,9 +44,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -64,9 +53,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -76,9 +62,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
@@ -88,9 +71,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the description of the Contact Flow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -100,9 +80,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -112,9 +89,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the Contact Flow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -124,9 +98,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -136,9 +107,6 @@ class ContactFlowArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -162,17 +130,6 @@ class _ContactFlowState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ContactFlow resources.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Contact Flow.
-        :param pulumi.Input[str] contact_flow_id: The identifier of the Contact Flow.
-        :param pulumi.Input[str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        :param pulumi.Input[str] description: Specifies the description of the Contact Flow.
-        :param pulumi.Input[str] filename: The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: Specifies the name of the Contact Flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -200,9 +157,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon Resource Name (ARN) of the Contact Flow.
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -212,9 +166,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identifier of the Contact Flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @contact_flow_id.setter
@@ -224,9 +175,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -236,9 +184,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        """
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
@@ -248,9 +193,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the description of the Contact Flow.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -260,9 +202,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def filename(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        """
         return pulumi.get(self, "filename")
 
     @filename.setter
@@ -272,9 +211,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @instance_id.setter
@@ -284,9 +220,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the Contact Flow.
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -296,9 +229,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -308,9 +238,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -320,9 +247,6 @@ class _ContactFlowState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -345,77 +269,9 @@ class ContactFlow(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Amazon Connect Contact Flow resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        This resource embeds or references Contact Flows specified in Amazon Connect Contact Flow Language. For more information see
-        [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html)
-
-        !> **WARN:** Contact Flows exported from the Console [Contact Flow import/export](https://docs.aws.amazon.com/connect/latest/adminguide/contact-flow-import-export.html) are not in the Amazon Connect Contact Flow Language and can not be used with this resource. Instead, the recommendation is to use the AWS CLI [`describe-contact-flow`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/describe-contact-flow.html).
-        See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.connect.ContactFlow("test",
-            content=\"\"\"	{
-        		"Version": "2019-10-30",
-        		"StartAction": "12345678-1234-1234-1234-123456789012",
-        		"Actions": [
-        			{
-        				"Identifier": "12345678-1234-1234-1234-123456789012",
-        				"Type": "MessageParticipant",
-        				"Transitions": {
-        					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        					"Errors": [],
-        					"Conditions": []
-        				},
-        				"Parameters": {
-        					"Text": "Thanks for calling the sample flow!"
-        				}
-        			},
-        			{
-        				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        				"Type": "DisconnectParticipant",
-        				"Transitions": {},
-        				"Parameters": {}
-        			}
-        		]
-        	}
-        	
-        \"\"\",
-            description="Test Contact Flow Description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            tags={
-                "Application": "Example",
-                "Method": "Create",
-                "Name": "Test Contact Flow",
-            },
-            type="CONTACT_FLOW")
-        ```
-
-        ## Import
-
-        Amazon Connect Contact Flows can be imported using the `instance_id` and `contact_flow_id` separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a ContactFlow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        :param pulumi.Input[str] description: Specifies the description of the Contact Flow.
-        :param pulumi.Input[str] filename: The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: Specifies the name of the Contact Flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
         ...
     @overload
@@ -424,67 +280,7 @@ class ContactFlow(pulumi.CustomResource):
                  args: ContactFlowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Amazon Connect Contact Flow resource. For more information see
-        [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-
-        This resource embeds or references Contact Flows specified in Amazon Connect Contact Flow Language. For more information see
-        [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html)
-
-        !> **WARN:** Contact Flows exported from the Console [Contact Flow import/export](https://docs.aws.amazon.com/connect/latest/adminguide/contact-flow-import-export.html) are not in the Amazon Connect Contact Flow Language and can not be used with this resource. Instead, the recommendation is to use the AWS CLI [`describe-contact-flow`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/describe-contact-flow.html).
-        See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
-
-        ## Example Usage
-        ### Basic
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.connect.ContactFlow("test",
-            content=\"\"\"	{
-        		"Version": "2019-10-30",
-        		"StartAction": "12345678-1234-1234-1234-123456789012",
-        		"Actions": [
-        			{
-        				"Identifier": "12345678-1234-1234-1234-123456789012",
-        				"Type": "MessageParticipant",
-        				"Transitions": {
-        					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        					"Errors": [],
-        					"Conditions": []
-        				},
-        				"Parameters": {
-        					"Text": "Thanks for calling the sample flow!"
-        				}
-        			},
-        			{
-        				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
-        				"Type": "DisconnectParticipant",
-        				"Transitions": {},
-        				"Parameters": {}
-        			}
-        		]
-        	}
-        	
-        \"\"\",
-            description="Test Contact Flow Description",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
-            tags={
-                "Application": "Example",
-                "Method": "Create",
-                "Name": "Test Contact Flow",
-            },
-            type="CONTACT_FLOW")
-        ```
-
-        ## Import
-
-        Amazon Connect Contact Flows can be imported using the `instance_id` and `contact_flow_id` separated by a colon (`:`), e.g.,
-
-        ```sh
-         $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-        ```
-
+        Create a ContactFlow resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ContactFlowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -558,17 +354,6 @@ class ContactFlow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Contact Flow.
-        :param pulumi.Input[str] contact_flow_id: The identifier of the Contact Flow.
-        :param pulumi.Input[str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        :param pulumi.Input[str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        :param pulumi.Input[str] description: Specifies the description of the Contact Flow.
-        :param pulumi.Input[str] filename: The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
-        :param pulumi.Input[str] name: Specifies the name of the Contact Flow.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[str] type: Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -590,88 +375,55 @@ class ContactFlow(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Contact Flow.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="contactFlowId")
     def contact_flow_id(self) -> pulumi.Output[str]:
-        """
-        The identifier of the Contact Flow.
-        """
         return pulumi.get(self, "contact_flow_id")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output[str]:
-        """
-        Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="contentHash")
     def content_hash(self) -> pulumi.Output[Optional[str]]:
-        """
-        Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-        """
         return pulumi.get(self, "content_hash")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the description of the Contact Flow.
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def filename(self) -> pulumi.Output[Optional[str]]:
-        """
-        The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-        """
         return pulumi.get(self, "filename")
 
     @property
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Output[str]:
-        """
-        Specifies the identifier of the hosting Amazon Connect Instance.
-        """
         return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        Specifies the name of the Contact Flow.
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Tags to apply to the Contact Flow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-        """
         return pulumi.get(self, "type")
 

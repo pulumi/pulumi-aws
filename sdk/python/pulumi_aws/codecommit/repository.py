@@ -20,10 +20,6 @@ class RepositoryArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
-        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
-        :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if default_branch is not None:
@@ -36,9 +32,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Input[str]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -48,9 +41,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default branch of the repository. The branch specified here needs to exist.
-        """
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -60,9 +50,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the repository. This needs to be less than 1000 characters
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -72,9 +59,6 @@ class RepositoryArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -96,15 +80,6 @@ class _RepositoryState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Repository resources.
-        :param pulumi.Input[str] arn: The ARN of the repository
-        :param pulumi.Input[str] clone_url_http: The URL to use for cloning the repository over HTTPS.
-        :param pulumi.Input[str] clone_url_ssh: The URL to use for cloning the repository over SSH.
-        :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
-        :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
-        :param pulumi.Input[str] repository_id: The ID of the repository
-        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -128,9 +103,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARN of the repository
-        """
         return pulumi.get(self, "arn")
 
     @arn.setter
@@ -140,9 +112,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="cloneUrlHttp")
     def clone_url_http(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to use for cloning the repository over HTTPS.
-        """
         return pulumi.get(self, "clone_url_http")
 
     @clone_url_http.setter
@@ -152,9 +121,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="cloneUrlSsh")
     def clone_url_ssh(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL to use for cloning the repository over SSH.
-        """
         return pulumi.get(self, "clone_url_ssh")
 
     @clone_url_ssh.setter
@@ -164,9 +130,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default branch of the repository. The branch specified here needs to exist.
-        """
         return pulumi.get(self, "default_branch")
 
     @default_branch.setter
@@ -176,9 +139,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the repository. This needs to be less than 1000 characters
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -188,9 +148,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ID of the repository
-        """
         return pulumi.get(self, "repository_id")
 
     @repository_id.setter
@@ -200,9 +157,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @repository_name.setter
@@ -212,9 +166,6 @@ class _RepositoryState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -224,9 +175,6 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -245,33 +193,9 @@ class Repository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a CodeCommit Repository Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
-        ```
-
-        ## Import
-
-        Codecommit repository can be imported using repository name, e.g.,
-
-        ```sh
-         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
-        :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
-        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -280,27 +204,7 @@ class Repository(pulumi.CustomResource):
                  args: RepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeCommit Repository Resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.codecommit.Repository("test",
-            description="This is the Sample App Repository",
-            repository_name="MyTestRepository")
-        ```
-
-        ## Import
-
-        Codecommit repository can be imported using repository name, e.g.,
-
-        ```sh
-         $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-        ```
-
+        Create a Repository resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param RepositoryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -366,15 +270,6 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the repository
-        :param pulumi.Input[str] clone_url_http: The URL to use for cloning the repository over HTTPS.
-        :param pulumi.Input[str] clone_url_ssh: The URL to use for cloning the repository over SSH.
-        :param pulumi.Input[str] default_branch: The default branch of the repository. The branch specified here needs to exist.
-        :param pulumi.Input[str] description: The description of the repository. This needs to be less than 1000 characters
-        :param pulumi.Input[str] repository_id: The ID of the repository
-        :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -394,72 +289,45 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
-        """
-        The ARN of the repository
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cloneUrlHttp")
     def clone_url_http(self) -> pulumi.Output[str]:
-        """
-        The URL to use for cloning the repository over HTTPS.
-        """
         return pulumi.get(self, "clone_url_http")
 
     @property
     @pulumi.getter(name="cloneUrlSsh")
     def clone_url_ssh(self) -> pulumi.Output[str]:
-        """
-        The URL to use for cloning the repository over SSH.
-        """
         return pulumi.get(self, "clone_url_ssh")
 
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> pulumi.Output[Optional[str]]:
-        """
-        The default branch of the repository. The branch specified here needs to exist.
-        """
         return pulumi.get(self, "default_branch")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The description of the repository. This needs to be less than 1000 characters
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> pulumi.Output[str]:
-        """
-        The ID of the repository
-        """
         return pulumi.get(self, "repository_id")
 
     @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> pulumi.Output[str]:
-        """
-        The name for the repository. This needs to be less than 100 characters.
-        """
         return pulumi.get(self, "repository_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
         return pulumi.get(self, "tags_all")
 

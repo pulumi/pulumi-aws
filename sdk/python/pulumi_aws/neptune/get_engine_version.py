@@ -67,17 +67,11 @@ class GetEngineVersionResult:
     @property
     @pulumi.getter(name="engineDescription")
     def engine_description(self) -> str:
-        """
-        Description of the database engine.
-        """
         return pulumi.get(self, "engine_description")
 
     @property
     @pulumi.getter(name="exportableLogTypes")
     def exportable_log_types(self) -> Sequence[str]:
-        """
-        Set of log types that the database engine has available for export to CloudWatch Logs.
-        """
         return pulumi.get(self, "exportable_log_types")
 
     @property
@@ -101,33 +95,21 @@ class GetEngineVersionResult:
     @property
     @pulumi.getter(name="supportedTimezones")
     def supported_timezones(self) -> Sequence[str]:
-        """
-        Set of the time zones supported by this engine.
-        """
         return pulumi.get(self, "supported_timezones")
 
     @property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> bool:
-        """
-        Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-        """
         return pulumi.get(self, "supports_log_exports_to_cloudwatch")
 
     @property
     @pulumi.getter(name="supportsReadReplica")
     def supports_read_replica(self) -> bool:
-        """
-        Indicates whether the database engine version supports read replicas.
-        """
         return pulumi.get(self, "supports_read_replica")
 
     @property
     @pulumi.getter(name="validUpgradeTargets")
     def valid_upgrade_targets(self) -> Sequence[str]:
-        """
-        Set of engine versions that this database engine version can be upgraded to.
-        """
         return pulumi.get(self, "valid_upgrade_targets")
 
     @property
@@ -138,9 +120,6 @@ class GetEngineVersionResult:
     @property
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> str:
-        """
-        Description of the database engine version.
-        """
         return pulumi.get(self, "version_description")
 
 
@@ -170,26 +149,7 @@ def get_engine_version(engine: Optional[str] = None,
                        version: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
-    Information about a Neptune engine version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_engine_version(preferred_versions=[
-        "1.0.3.0",
-        "1.0.2.2",
-        "1.0.2.1",
-    ])
-    ```
-
-
-    :param str engine: DB engine. (Default: `neptune`)
-    :param str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
-    :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -221,25 +181,6 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
                               version: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
-    Information about a Neptune engine version.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test = aws.neptune.get_engine_version(preferred_versions=[
-        "1.0.3.0",
-        "1.0.2.2",
-        "1.0.2.1",
-    ])
-    ```
-
-
-    :param str engine: DB engine. (Default: `neptune`)
-    :param str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `neptune1`.
-    :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-    :param str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    Use this data source to access information about an existing resource.
     """
     ...
