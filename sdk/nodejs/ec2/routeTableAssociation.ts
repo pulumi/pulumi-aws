@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an association between a route table and a subnet or a route table and an
- * internet gateway or virtual private gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
- *     subnetId: aws_subnet.foo.id,
- *     routeTableId: aws_route_table.bar.id,
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const routeTableAssociation = new aws.ec2.RouteTableAssociation("routeTableAssociation", {
- *     gatewayId: aws_internet_gateway.foo.id,
- *     routeTableId: aws_route_table.bar.id,
- * });
- * ```
- *
- * ## Import
- *
- * is already associated, will result in an error (e.g., `Resource.AlreadyAssociatedthe specified association for route table rtb-4176657279 conflicts with an existing association`) unless you first import the original association. EC2 Route Table Associations can be imported using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example with EC2 Subnets
- *
- * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
- * ```
- *
- *  For example with EC2 Internet Gateways
- *
- * ```sh
- *  $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
- * ```
- */
 export class RouteTableAssociation extends pulumi.CustomResource {
     /**
      * Get an existing RouteTableAssociation resource's state with the given name, ID, and optional extra
@@ -72,17 +32,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RouteTableAssociation.__pulumiType;
     }
 
-    /**
-     * The gateway ID to create an association. Conflicts with `subnetId`.
-     */
     public readonly gatewayId!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the routing table to associate with.
-     */
     public readonly routeTableId!: pulumi.Output<string>;
-    /**
-     * The subnet ID to create an association. Conflicts with `gatewayId`.
-     */
     public readonly subnetId!: pulumi.Output<string | undefined>;
 
     /**
@@ -119,17 +70,8 @@ export class RouteTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTableAssociation resources.
  */
 export interface RouteTableAssociationState {
-    /**
-     * The gateway ID to create an association. Conflicts with `subnetId`.
-     */
     gatewayId?: pulumi.Input<string>;
-    /**
-     * The ID of the routing table to associate with.
-     */
     routeTableId?: pulumi.Input<string>;
-    /**
-     * The subnet ID to create an association. Conflicts with `gatewayId`.
-     */
     subnetId?: pulumi.Input<string>;
 }
 
@@ -137,16 +79,7 @@ export interface RouteTableAssociationState {
  * The set of arguments for constructing a RouteTableAssociation resource.
  */
 export interface RouteTableAssociationArgs {
-    /**
-     * The gateway ID to create an association. Conflicts with `subnetId`.
-     */
     gatewayId?: pulumi.Input<string>;
-    /**
-     * The ID of the routing table to associate with.
-     */
     routeTableId: pulumi.Input<string>;
-    /**
-     * The subnet ID to create an association. Conflicts with `gatewayId`.
-     */
     subnetId?: pulumi.Input<string>;
 }

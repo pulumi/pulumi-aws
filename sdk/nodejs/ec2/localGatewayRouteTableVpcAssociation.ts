@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLocalGatewayRouteTable = aws.ec2.getLocalGatewayRouteTable({
- *     outpostArn: "arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef",
- * });
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleLocalGatewayRouteTableVpcAssociation = new aws.ec2.LocalGatewayRouteTableVpcAssociation("exampleLocalGatewayRouteTableVpcAssociation", {
- *     localGatewayRouteTableId: exampleLocalGatewayRouteTable.then(exampleLocalGatewayRouteTable => exampleLocalGatewayRouteTable.id),
- *     vpcId: exampleVpc.id,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
- * ```
- */
 export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource {
     /**
      * Get an existing LocalGatewayRouteTableVpcAssociation resource's state with the given name, ID, and optional extra
@@ -60,21 +33,9 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
     }
 
     public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
-    /**
-     * Identifier of EC2 Local Gateway Route Table.
-     */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Identifier of EC2 VPC.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -119,21 +80,9 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
  */
 export interface LocalGatewayRouteTableVpcAssociationState {
     localGatewayId?: pulumi.Input<string>;
-    /**
-     * Identifier of EC2 Local Gateway Route Table.
-     */
     localGatewayRouteTableId?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of EC2 VPC.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -141,16 +90,7 @@ export interface LocalGatewayRouteTableVpcAssociationState {
  * The set of arguments for constructing a LocalGatewayRouteTableVpcAssociation resource.
  */
 export interface LocalGatewayRouteTableVpcAssociationArgs {
-    /**
-     * Identifier of EC2 Local Gateway Route Table.
-     */
     localGatewayRouteTableId: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of EC2 VPC.
-     */
     vpcId: pulumi.Input<string>;
 }

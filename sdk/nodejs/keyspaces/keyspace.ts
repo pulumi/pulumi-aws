@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Keyspaces Keyspace.
- *
- * More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.keyspaces.Keyspace("example", {});
- * ```
- *
- * ## Import
- *
- * Use the `name` to import a keyspace. For example
- *
- * ```sh
- *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
- * ```
- */
 export class Keyspace extends pulumi.CustomResource {
     /**
      * Get an existing Keyspace resource's state with the given name, ID, and optional extra
@@ -54,21 +32,9 @@ export class Keyspace extends pulumi.CustomResource {
         return obj['__pulumiType'] === Keyspace.__pulumiType;
     }
 
-    /**
-     * The ARN of the keyspace.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The name of the keyspace to be created.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -104,21 +70,9 @@ export class Keyspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Keyspace resources.
  */
 export interface KeyspaceState {
-    /**
-     * The ARN of the keyspace.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the keyspace to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -126,12 +80,6 @@ export interface KeyspaceState {
  * The set of arguments for constructing a Keyspace resource.
  */
 export interface KeyspaceArgs {
-    /**
-     * The name of the keyspace to be created.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

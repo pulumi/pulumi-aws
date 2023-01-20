@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about an Image Builder Image.
- *
- * ## Example Usage
- * ### Latest
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImage({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
- * });
- * ```
- */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,13 +20,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getImage.
  */
 export interface GetImageArgs {
-    /**
-     * ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
-     */
     arn: string;
-    /**
-     * Key-value map of resource tags for the image.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -50,82 +29,25 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     readonly arn: string;
-    /**
-     * Build version ARN of the image. This will always have the `#.#.#/#` suffix.
-     */
     readonly buildVersionArn: string;
-    /**
-     * ARN of the container recipe.
-     */
     readonly containerRecipeArn: string;
-    /**
-     * Date the image was created.
-     */
     readonly dateCreated: string;
-    /**
-     * ARN of the Image Builder Distribution Configuration.
-     */
     readonly distributionConfigurationArn: string;
-    /**
-     * Whether additional information about the image being created is collected.
-     */
     readonly enhancedImageMetadataEnabled: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ARN of the image recipe.
-     */
     readonly imageRecipeArn: string;
-    /**
-     * List of an object with image tests configuration.
-     */
     readonly imageTestsConfigurations: outputs.imagebuilder.GetImageImageTestsConfiguration[];
-    /**
-     * ARN of the Image Builder Infrastructure Configuration.
-     */
     readonly infrastructureConfigurationArn: string;
-    /**
-     * Name of the AMI.
-     */
     readonly name: string;
-    /**
-     * Operating System version of the image.
-     */
     readonly osVersion: string;
-    /**
-     * List of objects with resources created by the image.
-     */
     readonly outputResources: outputs.imagebuilder.GetImageOutputResource[];
-    /**
-     * Platform of the image.
-     */
     readonly platform: string;
-    /**
-     * Key-value map of resource tags for the image.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Version of the image.
-     */
     readonly version: string;
 }
-/**
- * Provides details about an Image Builder Image.
- *
- * ## Example Usage
- * ### Latest
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImage({
- *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
- * });
- * ```
- */
 export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
     return pulumi.output(args).apply((a: any) => getImage(a, opts))
 }
@@ -134,12 +56,6 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getImage.
  */
 export interface GetImageOutputArgs {
-    /**
-     * ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the image.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

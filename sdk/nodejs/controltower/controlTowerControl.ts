@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
- * [AWS Control Tower User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/enable-guardrails.html).
- *
- * ## Import
- *
- * Control Tower Controls can be imported using their `organizational_unit_arn/control_identifier`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
- * ```
- */
 export class ControlTowerControl extends pulumi.CustomResource {
     /**
      * Get an existing ControlTowerControl resource's state with the given name, ID, and optional extra
@@ -44,13 +32,7 @@ export class ControlTowerControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === ControlTowerControl.__pulumiType;
     }
 
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     public readonly controlIdentifier!: pulumi.Output<string>;
-    /**
-     * The ARN of the organizational unit.
-     */
     public readonly targetIdentifier!: pulumi.Output<string>;
 
     /**
@@ -88,13 +70,7 @@ export class ControlTowerControl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ControlTowerControl resources.
  */
 export interface ControlTowerControlState {
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     controlIdentifier?: pulumi.Input<string>;
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier?: pulumi.Input<string>;
 }
 
@@ -102,12 +78,6 @@ export interface ControlTowerControlState {
  * The set of arguments for constructing a ControlTowerControl resource.
  */
 export interface ControlTowerControlArgs {
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     */
     controlIdentifier: pulumi.Input<string>;
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier: pulumi.Input<string>;
 }

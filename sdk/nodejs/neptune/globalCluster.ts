@@ -7,99 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Neptune Global Cluster. A global cluster consists of one primary region and up to five read-only secondary regions. You issue write operations directly to the primary cluster in the primary region and Amazon Neptune automatically replicates the data to the secondary regions using dedicated infrastructure.
- *
- * More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
- *
- * ## Example Usage
- * ### New Neptune Global Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.Provider("primary", {region: "us-east-2"});
- * const secondary = new aws.Provider("secondary", {region: "us-east-1"});
- * const example = new aws.neptune.GlobalCluster("example", {
- *     globalClusterIdentifier: "global-test",
- *     engine: "neptune",
- *     engineVersion: "1.2.0.0",
- * });
- * const primaryCluster = new aws.neptune.Cluster("primaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-primary-cluster",
- *     globalClusterIdentifier: example.id,
- *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const primaryClusterInstance = new aws.neptune.ClusterInstance("primaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-primary-cluster-instance",
- *     clusterIdentifier: primaryCluster.id,
- *     instanceClass: "db.r5.large",
- *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.primary,
- * });
- * const secondaryCluster = new aws.neptune.Cluster("secondaryCluster", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     clusterIdentifier: "test-secondary-cluster",
- *     globalClusterIdentifier: example.id,
- *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- * });
- * const secondaryClusterInstance = new aws.neptune.ClusterInstance("secondaryClusterInstance", {
- *     engine: example.engine,
- *     engineVersion: example.engineVersion,
- *     identifier: "test-secondary-cluster-instance",
- *     clusterIdentifier: secondaryCluster.id,
- *     instanceClass: "db.r5.large",
- *     neptuneSubnetGroupName: "default",
- * }, {
- *     provider: aws.secondary,
- *     dependsOn: [primaryClusterInstance],
- * });
- * ```
- * ### New Global Cluster From Existing DB Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const exampleCluster = new aws.neptune.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.neptune.GlobalCluster("exampleGlobalCluster", {
- *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_neptune_global_cluster` can be imported by using the Global Cluster identifier, e.g.
- *
- * ```sh
- *  $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
- * ```
- *
- *  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from configuration or use `ignore_changes` to hide the difference, e.g. terraform resource "aws_neptune_global_cluster" "example" {
- *
- * # ... other configuration ...
- *
- * # There is no API for reading source_db_cluster_identifier
- *
- *  lifecycle {
- *
- *  ignore_changes = [source_db_cluster_identifier]
- *
- *  } }
- */
 export class GlobalCluster extends pulumi.CustomResource {
     /**
      * Get an existing GlobalCluster resource's state with the given name, ID, and optional extra
@@ -128,43 +35,15 @@ export class GlobalCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalCluster.__pulumiType;
     }
 
-    /**
-     * Global Cluster Amazon Resource Name (ARN)
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-     */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     public readonly engine!: pulumi.Output<string>;
-    /**
-     * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
-     */
     public readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * The global cluster identifier.
-     */
     public readonly globalClusterIdentifier!: pulumi.Output<string>;
-    /**
-     * Set of objects containing Global Cluster members.
-     */
     public /*out*/ readonly globalClusterMembers!: pulumi.Output<outputs.neptune.GlobalClusterGlobalClusterMember[]>;
-    /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-     */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     */
     public readonly storageEncrypted!: pulumi.Output<boolean>;
 
     /**
@@ -215,43 +94,15 @@ export class GlobalCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GlobalCluster resources.
  */
 export interface GlobalClusterState {
-    /**
-     * Global Cluster Amazon Resource Name (ARN)
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-     */
     deletionProtection?: pulumi.Input<boolean>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * The global cluster identifier.
-     */
     globalClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Set of objects containing Global Cluster members.
-     */
     globalClusterMembers?: pulumi.Input<pulumi.Input<inputs.neptune.GlobalClusterGlobalClusterMember>[]>;
-    /**
-     * AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-     */
     globalClusterResourceId?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     */
     storageEncrypted?: pulumi.Input<boolean>;
 }
 
@@ -259,29 +110,10 @@ export interface GlobalClusterState {
  * The set of arguments for constructing a GlobalCluster resource.
  */
 export interface GlobalClusterArgs {
-    /**
-     * If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-     */
     deletionProtection?: pulumi.Input<boolean>;
-    /**
-     * Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `neptune`. Conflicts with `sourceDbClusterIdentifier`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
-     * * **NOTE:** Upgrading major versions is not supported.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * The global cluster identifier.
-     */
     globalClusterIdentifier: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-     */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-     */
     storageEncrypted?: pulumi.Input<boolean>;
 }

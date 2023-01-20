@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Safety Rule
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     assertedControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     waitPeriodMs: 5000,
- *     ruleConfig: {
- *         inverted: false,
- *         threshold: 1,
- *         type: "ATLEAST",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     waitPeriodMs: 5000,
- *     gatingControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     targetControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     ruleConfig: {
- *         inverted: false,
- *         threshold: 1,
- *         type: "ATLEAST",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
- * ```
- */
 export class SafetyRule extends pulumi.CustomResource {
     /**
      * Get an existing SafetyRule resource's state with the given name, ID, and optional extra
@@ -81,41 +35,14 @@ export class SafetyRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SafetyRule.__pulumiType;
     }
 
-    /**
-     * ARN of the safety rule.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-     */
     public readonly assertedControls!: pulumi.Output<string[] | undefined>;
-    /**
-     * ARN of the control panel in which this safety rule will reside.
-     */
     public readonly controlPanelArn!: pulumi.Output<string>;
-    /**
-     * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-     */
     public readonly gatingControls!: pulumi.Output<string[] | undefined>;
-    /**
-     * Name describing the safety rule.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Configuration block for safety rule criteria. See below.
-     */
     public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
-    /**
-     * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-     */
     public readonly targetControls!: pulumi.Output<string[] | undefined>;
-    /**
-     * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-     */
     public readonly waitPeriodMs!: pulumi.Output<number>;
 
     /**
@@ -170,41 +97,14 @@ export class SafetyRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SafetyRule resources.
  */
 export interface SafetyRuleState {
-    /**
-     * ARN of the safety rule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-     */
     assertedControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the control panel in which this safety rule will reside.
-     */
     controlPanelArn?: pulumi.Input<string>;
-    /**
-     * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-     */
     gatingControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name describing the safety rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration block for safety rule criteria. See below.
-     */
     ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
-    /**
-     * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-     */
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-     */
     waitPeriodMs?: pulumi.Input<number>;
 }
 
@@ -212,32 +112,11 @@ export interface SafetyRuleState {
  * The set of arguments for constructing a SafetyRule resource.
  */
 export interface SafetyRuleArgs {
-    /**
-     * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-     */
     assertedControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * ARN of the control panel in which this safety rule will reside.
-     */
     controlPanelArn: pulumi.Input<string>;
-    /**
-     * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-     */
     gatingControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name describing the safety rule.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Configuration block for safety rule criteria. See below.
-     */
     ruleConfig: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfig>;
-    /**
-     * Routing controls that can only be set or unset if the specified `ruleConfig` evaluates to true for the specified `gatingControls`.
-     */
     targetControls?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-     */
     waitPeriodMs: pulumi.Input<number>;
 }

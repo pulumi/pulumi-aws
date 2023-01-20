@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Subscribes to a Security Hub standard.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const pci321 = new aws.securityhub.StandardsSubscription("pci321", {standardsArn: "arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1"}, {
- *     dependsOn: [example],
- * });
- * ```
- *
- * ## Import
- *
- * Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
- * ```
- *
- * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
- * ```
- */
 export class StandardsSubscription extends pulumi.CustomResource {
     /**
      * Get an existing StandardsSubscription resource's state with the given name, ID, and optional extra
@@ -62,9 +32,6 @@ export class StandardsSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandardsSubscription.__pulumiType;
     }
 
-    /**
-     * The ARN of a standard - see below.
-     */
     public readonly standardsArn!: pulumi.Output<string>;
 
     /**
@@ -97,9 +64,6 @@ export class StandardsSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsSubscription resources.
  */
 export interface StandardsSubscriptionState {
-    /**
-     * The ARN of a standard - see below.
-     */
     standardsArn?: pulumi.Input<string>;
 }
 
@@ -107,8 +71,5 @@ export interface StandardsSubscriptionState {
  * The set of arguments for constructing a StandardsSubscription resource.
  */
 export interface StandardsSubscriptionArgs {
-    /**
-     * The ARN of a standard - see below.
-     */
     standardsArn: pulumi.Input<string>;
 }

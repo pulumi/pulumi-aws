@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
- */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,17 +18,8 @@ export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getPortfolio.
  */
 export interface GetPortfolioArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: string;
-    /**
-     * Portfolio identifier.
-     */
     id: string;
-    /**
-     * Tags applied to the portfolio.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -51,46 +28,14 @@ export interface GetPortfolioArgs {
  */
 export interface GetPortfolioResult {
     readonly acceptLanguage?: string;
-    /**
-     * Portfolio ARN.
-     */
     readonly arn: string;
-    /**
-     * Time the portfolio was created.
-     */
     readonly createdTime: string;
-    /**
-     * Description of the portfolio
-     */
     readonly description: string;
     readonly id: string;
-    /**
-     * Portfolio name.
-     */
     readonly name: string;
-    /**
-     * Name of the person or organization who owns the portfolio.
-     */
     readonly providerName: string;
-    /**
-     * Tags applied to the portfolio.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides information for a Service Catalog Portfolio.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const portfolio = aws.servicecatalog.getPortfolio({
- *     id: "port-07052002",
- * });
- * ```
- */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
     return pulumi.output(args).apply((a: any) => getPortfolio(a, opts))
 }
@@ -99,16 +44,7 @@ export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getPortfolio.
  */
 export interface GetPortfolioOutputArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     id: pulumi.Input<string>;
-    /**
-     * Tags applied to the portfolio.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

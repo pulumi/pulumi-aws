@@ -7,63 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon API Gateway Version 2 domain name.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- *
- * > **Note:** This resource establishes ownership of and the TLS settings for
- * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.DomainName("example", {
- *     domainName: "ws-api.example.com",
- *     domainNameConfiguration: {
- *         certificateArn: aws_acm_certificate.example.arn,
- *         endpointType: "REGIONAL",
- *         securityPolicy: "TLS_1_2",
- *     },
- * });
- * ```
- * ### Associated Route 53 Resource Record
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomainName = new aws.apigatewayv2.DomainName("exampleDomainName", {
- *     domainName: "http-api.example.com",
- *     domainNameConfiguration: {
- *         certificateArn: aws_acm_certificate.example.arn,
- *         endpointType: "REGIONAL",
- *         securityPolicy: "TLS_1_2",
- *     },
- * });
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone.example.zone_id,
- *     aliases: [{
- *         name: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),
- *         zoneId: exampleDomainName.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.hostedZoneId),
- *         evaluateTargetHealth: false,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
- * ```
- */
 export class DomainName extends pulumi.CustomResource {
     /**
      * Get an existing DomainName resource's state with the given name, ID, and optional extra
@@ -92,33 +35,12 @@ export class DomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainName.__pulumiType;
     }
 
-    /**
-     * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-     */
     public /*out*/ readonly apiMappingSelectionExpression!: pulumi.Output<string>;
-    /**
-     * ARN of the domain name.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Domain name. Must be between 1 and 512 characters in length.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * Domain name configuration. See below.
-     */
     public readonly domainNameConfiguration!: pulumi.Output<outputs.apigatewayv2.DomainNameDomainNameConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name.
-     */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
-    /**
-     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -166,33 +88,12 @@ export class DomainName extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainName resources.
  */
 export interface DomainNameState {
-    /**
-     * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-     */
     apiMappingSelectionExpression?: pulumi.Input<string>;
-    /**
-     * ARN of the domain name.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Domain name. Must be between 1 and 512 characters in length.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Domain name configuration. See below.
-     */
     domainNameConfiguration?: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name.
-     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
-    /**
-     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -200,20 +101,8 @@ export interface DomainNameState {
  * The set of arguments for constructing a DomainName resource.
  */
 export interface DomainNameArgs {
-    /**
-     * Domain name. Must be between 1 and 512 characters in length.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Domain name configuration. See below.
-     */
     domainNameConfiguration: pulumi.Input<inputs.apigatewayv2.DomainNameDomainNameConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name.
-     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigatewayv2.DomainNameMutualTlsAuthentication>;
-    /**
-     * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

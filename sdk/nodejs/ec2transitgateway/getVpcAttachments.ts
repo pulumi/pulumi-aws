@@ -7,11 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on EC2 Transit Gateway VPC Attachments.
- *
- * ## Example Usage
- */
 export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentsResult> {
     args = args || {};
 
@@ -25,9 +20,6 @@ export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.In
  * A collection of arguments for invoking getVpcAttachments.
  */
 export interface GetVpcAttachmentsArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetVpcAttachmentsFilter[];
 }
 
@@ -42,11 +34,6 @@ export interface GetVpcAttachmentsResult {
     readonly id: string;
     readonly ids: string[];
 }
-/**
- * Get information on EC2 Transit Gateway VPC Attachments.
- *
- * ## Example Usage
- */
 export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentsResult> {
     return pulumi.output(args).apply((a: any) => getVpcAttachments(a, opts))
 }
@@ -55,8 +42,5 @@ export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts
  * A collection of arguments for invoking getVpcAttachments.
  */
 export interface GetVpcAttachmentsOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentsFilterArgs>[]>;
 }

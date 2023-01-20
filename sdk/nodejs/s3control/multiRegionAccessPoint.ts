@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
- *
- * ## Example Usage
- * ### Multiple AWS Buckets in Different Regions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primaryRegion = new aws.Provider("primaryRegion", {region: "us-east-1"});
- * const secondaryRegion = new aws.Provider("secondaryRegion", {region: "us-west-2"});
- * const fooBucket = new aws.s3.BucketV2("fooBucket", {}, {
- *     provider: aws.primary_region,
- * });
- * const barBucket = new aws.s3.BucketV2("barBucket", {}, {
- *     provider: aws.secondary_region,
- * });
- * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
- *     name: "example",
- *     regions: [
- *         {
- *             bucket: fooBucket.id,
- *         },
- *         {
- *             bucket: barBucket.id,
- *         },
- *     ],
- * }});
- * ```
- *
- * ## Import
- *
- * Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
- *
- * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
- * ```
- */
 export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
      * Get an existing MultiRegionAccessPoint resource's state with the given name, ID, and optional extra
@@ -74,29 +35,11 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === MultiRegionAccessPoint.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * The alias for the Multi-Region Access Point.
-     */
     public /*out*/ readonly alias!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     */
     public readonly details!: pulumi.Output<outputs.s3control.MultiRegionAccessPointDetails>;
-    /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
-    /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -139,29 +82,11 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MultiRegionAccessPoint resources.
  */
 export interface MultiRegionAccessPointState {
-    /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The alias for the Multi-Region Access Point.
-     */
     alias?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     */
     details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
-    /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -169,12 +94,6 @@ export interface MultiRegionAccessPointState {
  * The set of arguments for constructing a MultiRegionAccessPoint resource.
  */
 export interface MultiRegionAccessPointArgs {
-    /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     */
     details: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
 }

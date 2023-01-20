@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue Catalog Database Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {name: "MyCatalogDatabase"});
- * ```
- * ### Create Table Default Permissions
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const awsGlueCatalogDatabase = new aws.glue.CatalogDatabase("awsGlueCatalogDatabase", {
- *     createTableDefaultPermissions: [{
- *         permissions: ["SELECT"],
- *         principal: {
- *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
- *         },
- *     }],
- *     name: "MyCatalogDatabase",
- * });
- * ```
- *
- * ## Import
- *
- * Glue Catalog Databases can be imported using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
- * ```
- */
 export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Get an existing CatalogDatabase resource's state with the given name, ID, and optional extra
@@ -71,37 +35,13 @@ export class CatalogDatabase extends pulumi.CustomResource {
         return obj['__pulumiType'] === CatalogDatabase.__pulumiType;
     }
 
-    /**
-     * ARN of the Glue Catalog Database.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ID of the Data Catalog in which the database resides.
-     */
     public readonly catalogId!: pulumi.Output<string>;
-    /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
-     */
     public readonly createTableDefaultPermissions!: pulumi.Output<outputs.glue.CatalogDatabaseCreateTableDefaultPermission[]>;
-    /**
-     * Description of the database.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Location of the database (for example, an HDFS path).
-     */
     public readonly locationUri!: pulumi.Output<string>;
-    /**
-     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * List of key-value pairs that define parameters and properties of the database.
-     */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
-     */
     public readonly targetDatabase!: pulumi.Output<outputs.glue.CatalogDatabaseTargetDatabase | undefined>;
 
     /**
@@ -145,37 +85,13 @@ export class CatalogDatabase extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogDatabase resources.
  */
 export interface CatalogDatabaseState {
-    /**
-     * ARN of the Glue Catalog Database.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ID of the Data Catalog in which the database resides.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
-     */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
-    /**
-     * Description of the database.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Location of the database (for example, an HDFS path).
-     */
     locationUri?: pulumi.Input<string>;
-    /**
-     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * List of key-value pairs that define parameters and properties of the database.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
-     */
     targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
 }
 
@@ -183,32 +99,11 @@ export interface CatalogDatabaseState {
  * The set of arguments for constructing a CatalogDatabase resource.
  */
 export interface CatalogDatabaseArgs {
-    /**
-     * ID of the Data Catalog in which the database resides.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Creates a set of default permissions on the table for principals. See `createTableDefaultPermission` below.
-     */
     createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.glue.CatalogDatabaseCreateTableDefaultPermission>[]>;
-    /**
-     * Description of the database.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Location of the database (for example, an HDFS path).
-     */
     locationUri?: pulumi.Input<string>;
-    /**
-     * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * List of key-value pairs that define parameters and properties of the database.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Configuration block for a target database for resource linking. See `targetDatabase` below.
-     */
     targetDatabase?: pulumi.Input<inputs.glue.CatalogDatabaseTargetDatabase>;
 }

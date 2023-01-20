@@ -7,62 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a AWS Transfer Workflow resource.
- *
- * ## Example Usage
- * ### Basic single step example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Workflow("example", {steps: [{
- *     deleteStepDetails: {
- *         name: "example",
- *         sourceFileLocation: `${original.file}`,
- *     },
- *     type: "DELETE",
- * }]});
- * ```
- * ### Multistep example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Workflow("example", {steps: [
- *     {
- *         customStepDetails: {
- *             name: "example",
- *             sourceFileLocation: `${original.file}`,
- *             target: aws_lambda_function.example.arn,
- *             timeoutSeconds: 60,
- *         },
- *         type: "CUSTOM",
- *     },
- *     {
- *         tagStepDetails: {
- *             name: "example",
- *             sourceFileLocation: `${original.file}`,
- *             tags: [{
- *                 key: "Name",
- *                 value: "Hello World",
- *             }],
- *         },
- *         type: "TAG",
- *     },
- * ]});
- * ```
- *
- * ## Import
- *
- * Transfer Workflows can be imported using the `worflow_id`.
- *
- * ```sh
- *  $ pulumi import aws:transfer/workflow:Workflow example example
- * ```
- */
 export class Workflow extends pulumi.CustomResource {
     /**
      * Get an existing Workflow resource's state with the given name, ID, and optional extra
@@ -91,29 +35,11 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
-    /**
-     * The Workflow ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A textual description for the workflow.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-     */
     public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
-    /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-     */
     public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
-    /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -156,29 +82,11 @@ export class Workflow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workflow resources.
  */
 export interface WorkflowState {
-    /**
-     * The Workflow ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A textual description for the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-     */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
-    /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-     */
     steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
-    /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -186,20 +94,8 @@ export interface WorkflowState {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
-    /**
-     * A textual description for the workflow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
-     */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
-    /**
-     * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
-     */
     steps: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
-    /**
-     * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

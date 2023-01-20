@@ -6,30 +6,6 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
-/**
- * Manages an API Gateway Request Validator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigateway.RequestValidator("example", {
- *     restApi: aws_api_gateway_rest_api.example.id,
- *     validateRequestBody: true,
- *     validateRequestParameters: true,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
- * ```
- */
 export class RequestValidator extends pulumi.CustomResource {
     /**
      * Get an existing RequestValidator resource's state with the given name, ID, and optional extra
@@ -58,21 +34,9 @@ export class RequestValidator extends pulumi.CustomResource {
         return obj['__pulumiType'] === RequestValidator.__pulumiType;
     }
 
-    /**
-     * Name of the request validator
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * ID of the associated Rest API
-     */
     public readonly restApi!: pulumi.Output<string>;
-    /**
-     * Boolean whether to validate request body. Defaults to `false`.
-     */
     public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
-    /**
-     * Boolean whether to validate request parameters. Defaults to `false`.
-     */
     public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -111,21 +75,9 @@ export class RequestValidator extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RequestValidator resources.
  */
 export interface RequestValidatorState {
-    /**
-     * Name of the request validator
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the associated Rest API
-     */
     restApi?: pulumi.Input<string | RestApi>;
-    /**
-     * Boolean whether to validate request body. Defaults to `false`.
-     */
     validateRequestBody?: pulumi.Input<boolean>;
-    /**
-     * Boolean whether to validate request parameters. Defaults to `false`.
-     */
     validateRequestParameters?: pulumi.Input<boolean>;
 }
 
@@ -133,20 +85,8 @@ export interface RequestValidatorState {
  * The set of arguments for constructing a RequestValidator resource.
  */
 export interface RequestValidatorArgs {
-    /**
-     * Name of the request validator
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the associated Rest API
-     */
     restApi: pulumi.Input<string | RestApi>;
-    /**
-     * Boolean whether to validate request body. Defaults to `false`.
-     */
     validateRequestBody?: pulumi.Input<boolean>;
-    /**
-     * Boolean whether to validate request parameters. Defaults to `false`.
-     */
     validateRequestParameters?: pulumi.Input<boolean>;
 }

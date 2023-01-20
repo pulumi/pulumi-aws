@@ -7,70 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Transcribe LanguageModel.
- *
- * > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transcribe.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json)});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
- *     role: exampleRole.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: [
- *                 "s3:GetObject",
- *                 "s3:ListBucket",
- *             ],
- *             Effect: "Allow",
- *             Resource: ["*"],
- *         }],
- *     }),
- * });
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
- * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucketV2.id,
- *     key: "transcribe/test1.txt",
- *     source: new pulumi.asset.FileAsset("test1.txt"),
- * });
- * const exampleLanguageModel = new aws.transcribe.LanguageModel("exampleLanguageModel", {
- *     modelName: "example",
- *     baseModelName: "NarrowBand",
- *     inputDataConfig: {
- *         dataAccessRoleArn: exampleRole.arn,
- *         s3Uri: pulumi.interpolate`s3://${exampleBucketV2.id}/transcribe/`,
- *     },
- *     languageCode: "en-US",
- *     tags: {
- *         ENVIRONMENT: "development",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Transcribe LanguageModel can be imported using the `model_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
- * ```
- */
 export class LanguageModel extends pulumi.CustomResource {
     /**
      * Get an existing LanguageModel resource's state with the given name, ID, and optional extra
@@ -99,29 +35,11 @@ export class LanguageModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === LanguageModel.__pulumiType;
     }
 
-    /**
-     * ARN of the LanguageModel.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of reference base model.
-     */
     public readonly baseModelName!: pulumi.Output<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     public readonly inputDataConfig!: pulumi.Output<outputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     public readonly languageCode!: pulumi.Output<string>;
-    /**
-     * The model name.
-     */
     public readonly modelName!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -176,29 +94,11 @@ export class LanguageModel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LanguageModel resources.
  */
 export interface LanguageModelState {
-    /**
-     * ARN of the LanguageModel.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of reference base model.
-     */
     baseModelName?: pulumi.Input<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     inputDataConfig?: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     languageCode?: pulumi.Input<string>;
-    /**
-     * The model name.
-     */
     modelName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -207,24 +107,9 @@ export interface LanguageModelState {
  * The set of arguments for constructing a LanguageModel resource.
  */
 export interface LanguageModelArgs {
-    /**
-     * Name of reference base model.
-     */
     baseModelName: pulumi.Input<string>;
-    /**
-     * The input data config for the LanguageModel. See Input Data Config for more details.
-     */
     inputDataConfig: pulumi.Input<inputs.transcribe.LanguageModelInputDataConfig>;
-    /**
-     * The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     */
     languageCode: pulumi.Input<string>;
-    /**
-     * The model name.
-     */
     modelName: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the LanguageModel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

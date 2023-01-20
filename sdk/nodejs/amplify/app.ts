@@ -7,119 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amplify App resource, a fullstack serverless app hosted on the [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html).
- *
- * > **Note:** When you create/update an Amplify App from the provider, you may end up with the error "BadRequestException: You should at least provide one valid token" because of authentication issues. See the section "Repository with Tokens" below.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {
- *     buildSpec: `  version: 0.1
- *   frontend:
- *     phases:
- *       preBuild:
- *         commands:
- *           - yarn install
- *       build:
- *         commands:
- *           - yarn run build
- *     artifacts:
- *       baseDirectory: build
- *       files:
- *         - '**&#47;*'
- *     cache:
- *       paths:
- *         - node_modules/**&#47;*
- *
- * `,
- *     customRules: [{
- *         source: "/<*>",
- *         status: "404",
- *         target: "/index.html",
- *     }],
- *     environmentVariables: {
- *         ENV: "test",
- *     },
- *     repository: "https://github.com/example/app",
- * });
- * ```
- * ### Repository with Tokens
- *
- * If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {
- *     accessToken: "...",
- *     repository: "https://github.com/example/app",
- * });
- * ```
- *
- * You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
- * ### Auto Branch Creation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {
- *     autoBranchCreationConfig: {
- *         enableAutoBuild: true,
- *     },
- *     autoBranchCreationPatterns: [
- *         "*",
- *         "*&#47;**",
- *     ],
- *     enableAutoBranchCreation: true,
- * });
- * ```
- * ### Rewrites and Redirects
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {customRules: [
- *     {
- *         source: "/api/<*>",
- *         status: "200",
- *         target: "https://api.example.com/api/<*>",
- *     },
- *     {
- *         source: `</^[^.]+$|\.(?!(css|gif|ico|jpg|js|png|txt|svg|woff|ttf|map|json)$)([^.]+$)/>`,
- *         status: "200",
- *         target: "/index.html",
- *     },
- * ]});
- * ```
- * ### Custom Image
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.amplify.App("example", {environmentVariables: {
- *     _CUSTOM_IMAGE: "node:16",
- * }});
- * ```
- *
- * ## Import
- *
- * Amplify App can be imported using Amplify App ID (appId), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
- * ```
- *
- *  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
- */
 export class App extends pulumi.CustomResource {
     /**
      * Get an existing App resource's state with the given name, ID, and optional extra
@@ -148,93 +35,27 @@ export class App extends pulumi.CustomResource {
         return obj['__pulumiType'] === App.__pulumiType;
     }
 
-    /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-     */
     public readonly accessToken!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the Amplify app.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
-     */
     public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig>;
-    /**
-     * Automated branch creation glob patterns for an Amplify app.
-     */
     public readonly autoBranchCreationPatterns!: pulumi.Output<string[] | undefined>;
-    /**
-     * Credentials for basic authorization for an Amplify app.
-     */
     public readonly basicAuthCredentials!: pulumi.Output<string | undefined>;
-    /**
-     * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-     */
     public readonly buildSpec!: pulumi.Output<string>;
-    /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
-     */
     public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
-    /**
-     * Default domain for the Amplify app.
-     */
     public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
-    /**
-     * Description for an Amplify app.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Enables automated branch creation for an Amplify app.
-     */
     public readonly enableAutoBranchCreation!: pulumi.Output<boolean | undefined>;
-    /**
-     * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-     */
     public readonly enableBasicAuth!: pulumi.Output<boolean | undefined>;
-    /**
-     * Enables auto-building of branches for the Amplify App.
-     */
     public readonly enableBranchAutoBuild!: pulumi.Output<boolean | undefined>;
-    /**
-     * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-     */
     public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
-    /**
-     * Environment variables map for an Amplify app.
-     */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * AWS Identity and Access Management (IAM) service role for an Amplify app.
-     */
     public readonly iamServiceRoleArn!: pulumi.Output<string | undefined>;
-    /**
-     * Name for an Amplify app.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-     */
     public readonly oauthToken!: pulumi.Output<string | undefined>;
-    /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-     */
     public readonly platform!: pulumi.Output<string | undefined>;
-    /**
-     * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
-     */
     public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
-    /**
-     * Repository for an Amplify app.
-     */
     public readonly repository!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -308,93 +129,27 @@ export class App extends pulumi.CustomResource {
  * Input properties used for looking up and filtering App resources.
  */
 export interface AppState {
-    /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-     */
     accessToken?: pulumi.Input<string>;
-    /**
-     * ARN of the Amplify app.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
-     */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
-    /**
-     * Automated branch creation glob patterns for an Amplify app.
-     */
     autoBranchCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Credentials for basic authorization for an Amplify app.
-     */
     basicAuthCredentials?: pulumi.Input<string>;
-    /**
-     * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-     */
     buildSpec?: pulumi.Input<string>;
-    /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
-     */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
-    /**
-     * Default domain for the Amplify app.
-     */
     defaultDomain?: pulumi.Input<string>;
-    /**
-     * Description for an Amplify app.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Enables automated branch creation for an Amplify app.
-     */
     enableAutoBranchCreation?: pulumi.Input<boolean>;
-    /**
-     * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-     */
     enableBasicAuth?: pulumi.Input<boolean>;
-    /**
-     * Enables auto-building of branches for the Amplify App.
-     */
     enableBranchAutoBuild?: pulumi.Input<boolean>;
-    /**
-     * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-     */
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
-    /**
-     * Environment variables map for an Amplify app.
-     */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * AWS Identity and Access Management (IAM) service role for an Amplify app.
-     */
     iamServiceRoleArn?: pulumi.Input<string>;
-    /**
-     * Name for an Amplify app.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-     */
     oauthToken?: pulumi.Input<string>;
-    /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-     */
     platform?: pulumi.Input<string>;
-    /**
-     * Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
-     */
     productionBranches?: pulumi.Input<pulumi.Input<inputs.amplify.AppProductionBranch>[]>;
-    /**
-     * Repository for an Amplify app.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -402,76 +157,22 @@ export interface AppState {
  * The set of arguments for constructing a App resource.
  */
 export interface AppArgs {
-    /**
-     * Personal access token for a third-party source control system for an Amplify app. The personal access token is used to create a webhook and a read-only deploy key. The token is not stored.
-     */
     accessToken?: pulumi.Input<string>;
-    /**
-     * Automated branch creation configuration for an Amplify app. An `autoBranchCreationConfig` block is documented below.
-     */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfig>;
-    /**
-     * Automated branch creation glob patterns for an Amplify app.
-     */
     autoBranchCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Credentials for basic authorization for an Amplify app.
-     */
     basicAuthCredentials?: pulumi.Input<string>;
-    /**
-     * The [build specification](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html) (build spec) for an Amplify app.
-     */
     buildSpec?: pulumi.Input<string>;
-    /**
-     * Custom rewrite and redirect rules for an Amplify app. A `customRule` block is documented below.
-     */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRule>[]>;
-    /**
-     * Description for an Amplify app.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Enables automated branch creation for an Amplify app.
-     */
     enableAutoBranchCreation?: pulumi.Input<boolean>;
-    /**
-     * Enables basic authorization for an Amplify app. This will apply to all branches that are part of this app.
-     */
     enableBasicAuth?: pulumi.Input<boolean>;
-    /**
-     * Enables auto-building of branches for the Amplify App.
-     */
     enableBranchAutoBuild?: pulumi.Input<boolean>;
-    /**
-     * Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
-     */
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
-    /**
-     * Environment variables map for an Amplify app.
-     */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * AWS Identity and Access Management (IAM) service role for an Amplify app.
-     */
     iamServiceRoleArn?: pulumi.Input<string>;
-    /**
-     * Name for an Amplify app.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
-     */
     oauthToken?: pulumi.Input<string>;
-    /**
-     * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
-     */
     platform?: pulumi.Input<string>;
-    /**
-     * Repository for an Amplify app.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4,74 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
- * });
- * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/24",
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
- * });
- * ```
- *
- * With the `disallowedCidrs` attribute:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleVpcIpam = new aws.ec2.VpcIpam("exampleVpcIpam", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
- * }]});
- * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("exampleVpcIpamPool", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
- * });
- * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("exampleVpcIpamPoolCidr", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     cidr: "172.2.0.0/16",
- * });
- * const exampleVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("exampleVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: exampleVpcIpamPool.id,
- *     netmaskLength: 28,
- *     disallowedCidrs: ["172.2.0.0/28"],
- * }, {
- *     dependsOn: [exampleVpcIpamPoolCidr],
- * });
- * ```
- *
- * ## Import
- *
- * IPAMs can be imported using the `allocation id`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example
- * ```
- */
 export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
     /**
      * Get an existing VpcIpamPoolCidrAllocation resource's state with the given name, ID, and optional extra
@@ -100,38 +32,14 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcIpamPoolCidrAllocation.__pulumiType;
     }
 
-    /**
-     * The CIDR you want to assign to the pool.
-     */
     public readonly cidr!: pulumi.Output<string>;
-    /**
-     * The description for the allocation.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     */
     public readonly disallowedCidrs!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly ipamPoolAllocationId!: pulumi.Output<string>;
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     */
     public readonly ipamPoolId!: pulumi.Output<string>;
-    /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
-     */
     public readonly netmaskLength!: pulumi.Output<number | undefined>;
-    /**
-     * The ID of the resource.
-     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
-    /**
-     * The owner of the resource.
-     */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
-    /**
-     * The type of the resource.
-     */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
 
     /**
@@ -180,38 +88,14 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
  */
 export interface VpcIpamPoolCidrAllocationState {
-    /**
-     * The CIDR you want to assign to the pool.
-     */
     cidr?: pulumi.Input<string>;
-    /**
-     * The description for the allocation.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     ipamPoolAllocationId?: pulumi.Input<string>;
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     */
     ipamPoolId?: pulumi.Input<string>;
-    /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
-     */
     netmaskLength?: pulumi.Input<number>;
-    /**
-     * The ID of the resource.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * The owner of the resource.
-     */
     resourceOwner?: pulumi.Input<string>;
-    /**
-     * The type of the resource.
-     */
     resourceType?: pulumi.Input<string>;
 }
 
@@ -219,24 +103,9 @@ export interface VpcIpamPoolCidrAllocationState {
  * The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
  */
 export interface VpcIpamPoolCidrAllocationArgs {
-    /**
-     * The CIDR you want to assign to the pool.
-     */
     cidr?: pulumi.Input<string>;
-    /**
-     * The description for the allocation.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Exclude a particular CIDR range from being returned by the pool.
-     */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ID of the pool to which you want to assign a CIDR.
-     */
     ipamPoolId: pulumi.Input<string>;
-    /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-32`.
-     */
     netmaskLength?: pulumi.Input<number>;
 }

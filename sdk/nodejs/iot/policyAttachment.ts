@@ -7,39 +7,6 @@ import * as utilities from "../utilities";
 import {ARN} from "..";
 import {Policy} from "./index";
 
-/**
- * Provides an IoT policy attachment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const pubsub = new aws.iot.Policy("pubsub", {policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "iot:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `});
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("csr.pem"),
- *     active: true,
- * });
- * const att = new aws.iot.PolicyAttachment("att", {
- *     policy: pubsub.name,
- *     target: cert.arn,
- * });
- * ```
- */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PolicyAttachment resource's state with the given name, ID, and optional extra
@@ -68,13 +35,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The name of the policy to attach.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * The identity to which the policy is attached.
-     */
     public readonly target!: pulumi.Output<ARN>;
 
     /**
@@ -112,13 +73,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyAttachment resources.
  */
 export interface PolicyAttachmentState {
-    /**
-     * The name of the policy to attach.
-     */
     policy?: pulumi.Input<string | Policy>;
-    /**
-     * The identity to which the policy is attached.
-     */
     target?: pulumi.Input<ARN>;
 }
 
@@ -126,12 +81,6 @@ export interface PolicyAttachmentState {
  * The set of arguments for constructing a PolicyAttachment resource.
  */
 export interface PolicyAttachmentArgs {
-    /**
-     * The name of the policy to attach.
-     */
     policy: pulumi.Input<string | Policy>;
-    /**
-     * The identity to which the policy is attached.
-     */
     target: pulumi.Input<ARN>;
 }

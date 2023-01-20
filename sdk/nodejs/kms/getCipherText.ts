@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
- * by using an AWS KMS customer master key. The value returned by this data source
- * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
- * resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = aws.kms.getCipherTextOutput({
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
- */
 export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptions): Promise<GetCipherTextResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,17 +18,8 @@ export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getCipherText.
  */
 export interface GetCipherTextArgs {
-    /**
-     * An optional mapping that makes up the encryption context.
-     */
     context?: {[key: string]: string};
-    /**
-     * Globally unique key ID for the customer master key.
-     */
     keyId: string;
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     */
     plaintext: string;
 }
 
@@ -62,9 +27,6 @@ export interface GetCipherTextArgs {
  * A collection of values returned by getCipherText.
  */
 export interface GetCipherTextResult {
-    /**
-     * Base64 encoded ciphertext
-     */
     readonly ciphertextBlob: string;
     readonly context?: {[key: string]: string};
     /**
@@ -74,32 +36,6 @@ export interface GetCipherTextResult {
     readonly keyId: string;
     readonly plaintext: string;
 }
-/**
- * The KMS ciphertext data source allows you to encrypt plaintext into ciphertext
- * by using an AWS KMS customer master key. The value returned by this data source
- * changes every apply. For a stable ciphertext value, see the `aws.kms.Ciphertext`
- * resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = aws.kms.getCipherTextOutput({
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
- */
 export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCipherTextResult> {
     return pulumi.output(args).apply((a: any) => getCipherText(a, opts))
 }
@@ -108,16 +44,7 @@ export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getCipherText.
  */
 export interface GetCipherTextOutputArgs {
-    /**
-     * An optional mapping that makes up the encryption context.
-     */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Globally unique key ID for the customer master key.
-     */
     keyId: pulumi.Input<string>;
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     */
     plaintext: pulumi.Input<string>;
 }

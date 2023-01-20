@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SES receipt filter resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const filter = new aws.ses.ReceiptFilter("filter", {
- *     cidr: "10.10.10.10",
- *     policy: "Block",
- * });
- * ```
- *
- * ## Import
- *
- * SES Receipt Filter can be imported using their `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
- * ```
- */
 export class ReceiptFilter extends pulumi.CustomResource {
     /**
      * Get an existing ReceiptFilter resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class ReceiptFilter extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReceiptFilter.__pulumiType;
     }
 
-    /**
-     * The SES receipt filter ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The IP address or address range to filter, in CIDR notation
-     */
     public readonly cidr!: pulumi.Output<string>;
-    /**
-     * The name of the filter
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Block or Allow
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -111,21 +76,9 @@ export class ReceiptFilter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReceiptFilter resources.
  */
 export interface ReceiptFilterState {
-    /**
-     * The SES receipt filter ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The IP address or address range to filter, in CIDR notation
-     */
     cidr?: pulumi.Input<string>;
-    /**
-     * The name of the filter
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Block or Allow
-     */
     policy?: pulumi.Input<string>;
 }
 
@@ -133,16 +86,7 @@ export interface ReceiptFilterState {
  * The set of arguments for constructing a ReceiptFilter resource.
  */
 export interface ReceiptFilterArgs {
-    /**
-     * The IP address or address range to filter, in CIDR notation
-     */
     cidr: pulumi.Input<string>;
-    /**
-     * The name of the filter
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Block or Allow
-     */
     policy: pulumi.Input<string>;
 }

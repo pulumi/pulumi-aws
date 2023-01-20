@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker Space resource.
- *
- * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Space("example", {
- *     domainId: aws_sagemaker_domain.test.id,
- *     spaceName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * SageMaker Spaces can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
- * ```
- */
 export class Space extends pulumi.CustomResource {
     /**
      * Get an existing Space resource's state with the given name, ID, and optional extra
@@ -59,33 +35,12 @@ export class Space extends pulumi.CustomResource {
         return obj['__pulumiType'] === Space.__pulumiType;
     }
 
-    /**
-     * The space's Amazon Resource Name (ARN).
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID of the associated Domain.
-     */
     public readonly domainId!: pulumi.Output<string>;
-    /**
-     * The ID of the space's profile in the Amazon Elastic File System volume.
-     */
     public /*out*/ readonly homeEfsFileSystemUid!: pulumi.Output<string>;
-    /**
-     * The name of the space.
-     */
     public readonly spaceName!: pulumi.Output<string>;
-    /**
-     * A collection of space settings. See Space Settings below.
-     */
     public readonly spaceSettings!: pulumi.Output<outputs.sagemaker.SpaceSpaceSettings | undefined>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -133,33 +88,12 @@ export class Space extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Space resources.
  */
 export interface SpaceState {
-    /**
-     * The space's Amazon Resource Name (ARN).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the associated Domain.
-     */
     domainId?: pulumi.Input<string>;
-    /**
-     * The ID of the space's profile in the Amazon Elastic File System volume.
-     */
     homeEfsFileSystemUid?: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName?: pulumi.Input<string>;
-    /**
-     * A collection of space settings. See Space Settings below.
-     */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -167,20 +101,8 @@ export interface SpaceState {
  * The set of arguments for constructing a Space resource.
  */
 export interface SpaceArgs {
-    /**
-     * The ID of the associated Domain.
-     */
     domainId: pulumi.Input<string>;
-    /**
-     * The name of the space.
-     */
     spaceName: pulumi.Input<string>;
-    /**
-     * A collection of space settings. See Space Settings below.
-     */
     spaceSettings?: pulumi.Input<inputs.sagemaker.SpaceSpaceSettings>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

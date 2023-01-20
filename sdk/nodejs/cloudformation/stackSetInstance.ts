@@ -7,87 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
- *
- * > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the StackSet (the `executionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for StackSets to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
- *
- * > **NOTE:** To retain the Stack during resource destroy, ensure `retainStack` has been set to `true` in the state first. This must be completed _before_ a deployment that would destroy the resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudformation.StackSetInstance("example", {
- *     accountId: "123456789012",
- *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
- * });
- * ```
- * ### Example IAM Setup in Target Account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
- *         principals: [{
- *             identifiers: [aws_iam_role.AWSCloudFormationStackSetAdministrationRole.arn],
- *             type: "AWS",
- *         }],
- *     }],
- * });
- * const aWSCloudFormationStackSetExecutionRole = new aws.iam.Role("aWSCloudFormationStackSetExecutionRole", {assumeRolePolicy: aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.then(aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy => aWSCloudFormationStackSetExecutionRoleAssumeRolePolicy.json)});
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "cloudformation:*",
- *             "s3:*",
- *             "sns:*",
- *         ],
- *         effect: "Allow",
- *         resources: ["*"],
- *     }],
- * });
- * const aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.then(aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument => aWSCloudFormationStackSetExecutionRoleMinimumExecutionPolicyPolicyDocument.json),
- *     role: aWSCloudFormationStackSetExecutionRole.name,
- * });
- * ```
- * ### Example Deployment across Organizations account
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudformation.StackSetInstance("example", {
- *     deploymentTargets: {
- *         organizationalUnitIds: [aws_organizations_organization.example.roots[0].id],
- *     },
- *     region: "us-east-1",
- *     stackSetName: aws_cloudformation_stack_set.example.name,
- * });
- * ```
- *
- * ## Import
- *
- * CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
- *
- * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
- * ```
- *
- *  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
- *
- * ```sh
- *  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
- * ```
- */
 export class StackSetInstance extends pulumi.CustomResource {
     /**
      * Get an existing StackSetInstance resource's state with the given name, ID, and optional extra
@@ -116,45 +35,15 @@ export class StackSetInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === StackSetInstance.__pulumiType;
     }
 
-    /**
-     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-     */
     public readonly callAs!: pulumi.Output<string | undefined>;
-    /**
-     * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-     */
     public readonly deploymentTargets!: pulumi.Output<outputs.cloudformation.StackSetInstanceDeploymentTargets | undefined>;
-    /**
-     * Preferences for how AWS CloudFormation performs a stack set operation.
-     */
     public readonly operationPreferences!: pulumi.Output<outputs.cloudformation.StackSetInstanceOperationPreferences | undefined>;
-    /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
-     */
     public /*out*/ readonly organizationalUnitId!: pulumi.Output<string>;
-    /**
-     * Key-value map of input parameters to override from the StackSet for this Instance.
-     */
     public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
-     */
     public readonly region!: pulumi.Output<string>;
-    /**
-     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-     */
     public readonly retainStack!: pulumi.Output<boolean | undefined>;
-    /**
-     * Stack identifier
-     */
     public /*out*/ readonly stackId!: pulumi.Output<string>;
-    /**
-     * Name of the StackSet.
-     */
     public readonly stackSetName!: pulumi.Output<string>;
 
     /**
@@ -205,45 +94,15 @@ export class StackSetInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StackSetInstance resources.
  */
 export interface StackSetInstanceState {
-    /**
-     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-     */
     callAs?: pulumi.Input<string>;
-    /**
-     * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-     */
     deploymentTargets?: pulumi.Input<inputs.cloudformation.StackSetInstanceDeploymentTargets>;
-    /**
-     * Preferences for how AWS CloudFormation performs a stack set operation.
-     */
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetInstanceOperationPreferences>;
-    /**
-     * The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
-     */
     organizationalUnitId?: pulumi.Input<string>;
-    /**
-     * Key-value map of input parameters to override from the StackSet for this Instance.
-     */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-     */
     retainStack?: pulumi.Input<boolean>;
-    /**
-     * Stack identifier
-     */
     stackId?: pulumi.Input<string>;
-    /**
-     * Name of the StackSet.
-     */
     stackSetName?: pulumi.Input<string>;
 }
 
@@ -251,36 +110,12 @@ export interface StackSetInstanceState {
  * The set of arguments for constructing a StackSetInstance resource.
  */
 export interface StackSetInstanceArgs {
-    /**
-     * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
-     */
     callAs?: pulumi.Input<string>;
-    /**
-     * The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
-     */
     deploymentTargets?: pulumi.Input<inputs.cloudformation.StackSetInstanceDeploymentTargets>;
-    /**
-     * Preferences for how AWS CloudFormation performs a stack set operation.
-     */
     operationPreferences?: pulumi.Input<inputs.cloudformation.StackSetInstanceOperationPreferences>;
-    /**
-     * Key-value map of input parameters to override from the StackSet for this Instance.
-     */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
-     */
     retainStack?: pulumi.Input<boolean>;
-    /**
-     * Name of the StackSet.
-     */
     stackSetName: pulumi.Input<string>;
 }

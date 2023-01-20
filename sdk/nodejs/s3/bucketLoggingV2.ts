@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an S3 bucket (server access) logging resource. For more information, see [Logging requests using server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerLogs.html)
- * in the AWS S3 User Guide.
- *
- * > **Note:** Amazon S3 supports server access logging, AWS CloudTrail, or a combination of both. Refer to the [Logging options for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/logging-with-S3.html)
- * to decide which method meets your requirements.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const logBucket = new aws.s3.BucketV2("logBucket", {});
- * const logBucketAcl = new aws.s3.BucketAclV2("logBucketAcl", {
- *     bucket: logBucket.id,
- *     acl: "log-delivery-write",
- * });
- * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("exampleBucketLoggingV2", {
- *     bucket: exampleBucketV2.id,
- *     targetBucket: logBucket.id,
- *     targetPrefix: "log/",
- * });
- * ```
- *
- * ## Import
- *
- * S3 bucket logging can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket logging resource should be imported using the `bucket` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name
- * ```
- *
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket logging resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
- *
- * ```sh
- *  $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
- * ```
- */
 export class BucketLoggingV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketLoggingV2 resource's state with the given name, ID, and optional extra
@@ -79,25 +35,10 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketLoggingV2.__pulumiType;
     }
 
-    /**
-     * The name of the bucket.
-     */
     public readonly bucket!: pulumi.Output<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
-     */
     public readonly targetBucket!: pulumi.Output<string>;
-    /**
-     * Set of configuration blocks with information for granting permissions documented below.
-     */
     public readonly targetGrants!: pulumi.Output<outputs.s3.BucketLoggingV2TargetGrant[] | undefined>;
-    /**
-     * A prefix for all log object keys.
-     */
     public readonly targetPrefix!: pulumi.Output<string>;
 
     /**
@@ -144,25 +85,10 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketLoggingV2 resources.
  */
 export interface BucketLoggingV2State {
-    /**
-     * The name of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
-     */
     targetBucket?: pulumi.Input<string>;
-    /**
-     * Set of configuration blocks with information for granting permissions documented below.
-     */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
-    /**
-     * A prefix for all log object keys.
-     */
     targetPrefix?: pulumi.Input<string>;
 }
 
@@ -170,24 +96,9 @@ export interface BucketLoggingV2State {
  * The set of arguments for constructing a BucketLoggingV2 resource.
  */
 export interface BucketLoggingV2Args {
-    /**
-     * The name of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
-     */
     targetBucket: pulumi.Input<string>;
-    /**
-     * Set of configuration blocks with information for granting permissions documented below.
-     */
     targetGrants?: pulumi.Input<pulumi.Input<inputs.s3.BucketLoggingV2TargetGrant>[]>;
-    /**
-     * A prefix for all log object keys.
-     */
     targetPrefix: pulumi.Input<string>;
 }

@@ -7,17 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
- *
- * ## Import
- *
- * SSO Account Assignments can be imported using the `instance_arn`
- *
- * ```sh
- *  $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
- * ```
- */
 export class InstanceAccessControlAttributes extends pulumi.CustomResource {
     /**
      * Get an existing InstanceAccessControlAttributes resource's state with the given name, ID, and optional extra
@@ -46,13 +35,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceAccessControlAttributes.__pulumiType;
     }
 
-    /**
-     * See AccessControlAttribute for more details.
-     */
     public readonly attributes!: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     public readonly instanceArn!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
@@ -96,13 +79,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
  */
 export interface InstanceAccessControlAttributesState {
-    /**
-     * See AccessControlAttribute for more details.
-     */
     attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     instanceArn?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     statusReason?: pulumi.Input<string>;
@@ -112,12 +89,6 @@ export interface InstanceAccessControlAttributesState {
  * The set of arguments for constructing a InstanceAccessControlAttributes resource.
  */
 export interface InstanceAccessControlAttributesArgs {
-    /**
-     * See AccessControlAttribute for more details.
-     */
     attributes: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     */
     instanceArn: pulumi.Input<string>;
 }

@@ -4,53 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
- *
- * > **Note:** Use `lifecycle` `ignoreChanges` for `replica` in the associated aws.dynamodb.Table configuration.
- *
- * > **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
- *
- * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.Provider("main", {region: "us-west-2"});
- * const alt = new aws.Provider("alt", {region: "us-east-2"});
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
- *     hashKey: "BrodoBaggins",
- *     billingMode: "PAY_PER_REQUEST",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     attributes: [{
- *         name: "BrodoBaggins",
- *         type: "S",
- *     }],
- * }, {
- *     provider: "aws.main",
- * });
- * const exampleTableReplica = new aws.dynamodb.TableReplica("exampleTableReplica", {
- *     globalTableArn: exampleTable.arn,
- *     tags: {
- *         Name: "IZPAWS",
- *         Pozo: "Amargo",
- *     },
- * }, {
- *     provider: "aws.alt",
- * });
- * ```
- *
- * ## Import
- *
- * DynamoDB table replicas can be imported using the `table-name:main-region`, _e.g._,
- *
- * ```sh
- *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
- * ```
- */
 export class TableReplica extends pulumi.CustomResource {
     /**
      * Get an existing TableReplica resource's state with the given name, ID, and optional extra
@@ -79,33 +32,12 @@ export class TableReplica extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableReplica.__pulumiType;
     }
 
-    /**
-     * ARN of the table replica.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ARN of the _main_ or global table which this resource will replicate.
-     */
     public readonly globalTableArn!: pulumi.Output<string>;
-    /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
-     */
     public readonly kmsKeyArn!: pulumi.Output<string>;
-    /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     */
     public readonly pointInTimeRecovery!: pulumi.Output<boolean | undefined>;
-    /**
-     * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-     */
     public readonly tableClassOverride!: pulumi.Output<string | undefined>;
-    /**
-     * Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -150,33 +82,12 @@ export class TableReplica extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TableReplica resources.
  */
 export interface TableReplicaState {
-    /**
-     * ARN of the table replica.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the _main_ or global table which this resource will replicate.
-     */
     globalTableArn?: pulumi.Input<string>;
-    /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     */
     pointInTimeRecovery?: pulumi.Input<boolean>;
-    /**
-     * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-     */
     tableClassOverride?: pulumi.Input<string>;
-    /**
-     * Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -184,24 +95,9 @@ export interface TableReplicaState {
  * The set of arguments for constructing a TableReplica resource.
  */
 export interface TableReplicaArgs {
-    /**
-     * ARN of the _main_ or global table which this resource will replicate.
-     */
     globalTableArn: pulumi.Input<string>;
-    /**
-     * ARN of the CMK that should be used for the AWS KMS encryption.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     */
     pointInTimeRecovery?: pulumi.Input<boolean>;
-    /**
-     * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
-     */
     tableClassOverride?: pulumi.Input<string>;
-    /**
-     * Map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

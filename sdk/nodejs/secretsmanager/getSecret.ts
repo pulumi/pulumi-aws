@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
- *
- * ## Example Usage
- * ### ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const by-arn = aws.secretsmanager.getSecret({
- *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * });
- * ```
- * ### Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const by-name = aws.secretsmanager.getSecret({
- *     name: "example",
- * });
- * ```
- */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     args = args || {};
 
@@ -46,13 +21,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
-    /**
-     * ARN of the secret to retrieve.
-     */
     arn?: string;
-    /**
-     * Name of the secret to retrieve.
-     */
     name?: string;
 }
 
@@ -60,75 +29,29 @@ export interface GetSecretArgs {
  * A collection of values returned by getSecret.
  */
 export interface GetSecretResult {
-    /**
-     * ARN of the secret.
-     */
     readonly arn: string;
-    /**
-     * Description of the secret.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
-     */
     readonly kmsKeyId: string;
     readonly name: string;
-    /**
-     * Resource-based policy document that's attached to the secret.
-     */
     readonly policy: string;
     /**
-     * Whether rotation is enabled or not.
-     *
      * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationEnabled: boolean;
     /**
-     * Rotation Lambda function ARN if rotation is enabled.
-     *
      * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationLambdaArn: string;
     /**
-     * Rotation rules if rotation is enabled.
-     *
      * @deprecated Use the aws_secretsmanager_secret_rotation data source instead
      */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRule[];
-    /**
-     * Tags of the secret.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
- *
- * ## Example Usage
- * ### ARN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const by-arn = aws.secretsmanager.getSecret({
- *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * });
- * ```
- * ### Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const by-name = aws.secretsmanager.getSecret({
- *     name: "example",
- * });
- * ```
- */
 export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))
 }
@@ -137,12 +60,6 @@ export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretOutputArgs {
-    /**
-     * ARN of the secret to retrieve.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the secret to retrieve.
-     */
     name?: pulumi.Input<string>;
 }

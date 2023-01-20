@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Image Builder Image.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.Image("example", {
- *     distributionConfigurationArn: aws_imagebuilder_distribution_configuration.example.arn,
- *     imageRecipeArn: aws_imagebuilder_image_recipe.example.arn,
- *     infrastructureConfigurationArn: aws_imagebuilder_infrastructure_configuration.example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
- * ```
- */
 export class Image extends pulumi.CustomResource {
     /**
      * Get an existing Image resource's state with the given name, ID, and optional extra
@@ -59,65 +35,20 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the image.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * - Amazon Resource Name (ARN) of the container recipe.
-     */
     public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
-    /**
-     * Date the image was created.
-     */
     public /*out*/ readonly dateCreated!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-     */
     public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
-    /**
-     * Whether additional information about the image being created is collected. Defaults to `true`.
-     */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of the image recipe.
-     */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
-    /**
-     * Configuration block with image tests configuration. Detailed below.
-     */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-     */
     public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
-    /**
-     * Name of the AMI.
-     */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Operating System version of the image.
-     */
     public /*out*/ readonly osVersion!: pulumi.Output<string>;
-    /**
-     * List of objects with resources created by the image.
-     */
     public /*out*/ readonly outputResources!: pulumi.Output<outputs.imagebuilder.ImageOutputResource[]>;
-    /**
-     * Platform of the image.
-     */
     public /*out*/ readonly platform!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Version of the image.
-     */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -178,65 +109,20 @@ export class Image extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Image resources.
  */
 export interface ImageState {
-    /**
-     * Amazon Resource Name (ARN) of the image.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * - Amazon Resource Name (ARN) of the container recipe.
-     */
     containerRecipeArn?: pulumi.Input<string>;
-    /**
-     * Date the image was created.
-     */
     dateCreated?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-     */
     distributionConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Whether additional information about the image being created is collected. Defaults to `true`.
-     */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
-    /**
-     * Amazon Resource Name (ARN) of the image recipe.
-     */
     imageRecipeArn?: pulumi.Input<string>;
-    /**
-     * Configuration block with image tests configuration. Detailed below.
-     */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-     */
     infrastructureConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Name of the AMI.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Operating System version of the image.
-     */
     osVersion?: pulumi.Input<string>;
-    /**
-     * List of objects with resources created by the image.
-     */
     outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[]>;
-    /**
-     * Platform of the image.
-     */
     platform?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Version of the image.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -244,32 +130,11 @@ export interface ImageState {
  * The set of arguments for constructing a Image resource.
  */
 export interface ImageArgs {
-    /**
-     * - Amazon Resource Name (ARN) of the container recipe.
-     */
     containerRecipeArn?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-     */
     distributionConfigurationArn?: pulumi.Input<string>;
-    /**
-     * Whether additional information about the image being created is collected. Defaults to `true`.
-     */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
-    /**
-     * Amazon Resource Name (ARN) of the image recipe.
-     */
     imageRecipeArn?: pulumi.Input<string>;
-    /**
-     * Configuration block with image tests configuration. Detailed below.
-     */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-     */
     infrastructureConfigurationArn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags for the Image Builder Image. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

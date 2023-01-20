@@ -7,36 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a Lightsail load balancer Certificate resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
- *     domainName: "test.com",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_lightsail_lb_certificate` can be imported by using the id attribute, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
- * ```
- */
 export class LbCertificate extends pulumi.CustomResource {
     /**
      * Get an existing LbCertificate resource's state with the given name, ID, and optional extra
@@ -65,30 +35,12 @@ export class LbCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbCertificate.__pulumiType;
     }
 
-    /**
-     * The ARN of the lightsail certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The timestamp when the instance was created.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
-     */
     public readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainValidationRecords!: pulumi.Output<outputs.lightsail.LbCertificateDomainValidationRecord[]>;
-    /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
-     */
     public readonly lbName!: pulumi.Output<string>;
-    /**
-     * The SSL/TLS certificate name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
@@ -136,30 +88,12 @@ export class LbCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbCertificate resources.
  */
 export interface LbCertificateState {
-    /**
-     * The ARN of the lightsail certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The timestamp when the instance was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
-     */
     domainName?: pulumi.Input<string>;
     domainValidationRecords?: pulumi.Input<pulumi.Input<inputs.lightsail.LbCertificateDomainValidationRecord>[]>;
-    /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
-     */
     lbName?: pulumi.Input<string>;
-    /**
-     * The SSL/TLS certificate name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     supportCode?: pulumi.Input<string>;
 }
@@ -168,20 +102,8 @@ export interface LbCertificateState {
  * The set of arguments for constructing a LbCertificate resource.
  */
 export interface LbCertificateArgs {
-    /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
-     */
     lbName: pulumi.Input<string>;
-    /**
-     * The SSL/TLS certificate name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
 }

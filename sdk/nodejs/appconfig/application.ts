@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppConfig Application resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.Application("example", {
- *     description: "Example AppConfig Application",
- *     tags: {
- *         Type: "AppConfig Application",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * AppConfig Applications can be imported using their application ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appconfig/application:Application example 71rxuzt
- * ```
- */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -57,25 +32,10 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * ARN of the AppConfig Application.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Description of the application. Can be at most 1024 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Name for the application. Must be between 1 and 64 characters in length.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -113,25 +73,10 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * ARN of the AppConfig Application.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the application. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name for the application. Must be between 1 and 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -139,16 +84,7 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * Description of the application. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name for the application. Must be between 1 and 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

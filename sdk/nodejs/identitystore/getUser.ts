@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get an Identity Store User.
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,23 +22,12 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
-     */
     alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
      * @deprecated Use the alternate_identifier attribute instead.
      */
     filter?: inputs.identitystore.GetUserFilter;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId: string;
-    /**
-     * The identifier for a user in the Identity Store.
-     */
     userId?: string;
 }
 
@@ -49,22 +35,10 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * List of details about the user's address.
-     */
     readonly addresses: outputs.identitystore.GetUserAddress[];
     readonly alternateIdentifier?: outputs.identitystore.GetUserAlternateIdentifier;
-    /**
-     * The name that is typically displayed when the user is referenced.
-     */
     readonly displayName: string;
-    /**
-     * List of details about the user's email.
-     */
     readonly emails: outputs.identitystore.GetUserEmail[];
-    /**
-     * List of identifiers issued to this resource by an external identity provider.
-     */
     readonly externalIds: outputs.identitystore.GetUserExternalId[];
     /**
      * @deprecated Use the alternate_identifier attribute instead.
@@ -75,51 +49,18 @@ export interface GetUserResult {
      */
     readonly id: string;
     readonly identityStoreId: string;
-    /**
-     * The user's geographical region or location.
-     */
     readonly locale: string;
-    /**
-     * Details about the user's full name.
-     */
     readonly names: outputs.identitystore.GetUserName[];
-    /**
-     * An alternate name for the user.
-     */
     readonly nickname: string;
-    /**
-     * List of details about the user's phone number.
-     */
     readonly phoneNumbers: outputs.identitystore.GetUserPhoneNumber[];
-    /**
-     * The preferred language of the user.
-     */
     readonly preferredLanguage: string;
-    /**
-     * An URL that may be associated with the user.
-     */
     readonly profileUrl: string;
-    /**
-     * The user's time zone.
-     */
     readonly timezone: string;
-    /**
-     * The user's title.
-     */
     readonly title: string;
     readonly userId: string;
-    /**
-     * User's user name value.
-     */
     readonly userName: string;
-    /**
-     * The user type.
-     */
     readonly userType: string;
 }
-/**
- * Use this data source to get an Identity Store User.
- */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
@@ -128,22 +69,11 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
-     */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
      * @deprecated Use the alternate_identifier attribute instead.
      */
     filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * The identifier for a user in the Identity Store.
-     */
     userId?: pulumi.Input<string>;
 }

@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Transit Gateway Connect.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.VpcAttachment("example", {
- *     subnetIds: [aws_subnet.example.id],
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpcId: aws_vpc.example.id,
- * });
- * const attachment = new aws.ec2transitgateway.Connect("attachment", {
- *     transportAttachmentId: example.id,
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
- * ```
- */
 export class Connect extends pulumi.CustomResource {
     /**
      * Get an existing Connect resource's state with the given name, ID, and optional extra
@@ -60,33 +32,12 @@ export class Connect extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connect.__pulumiType;
     }
 
-    /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
-     */
     public readonly protocol!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     public readonly transitGatewayDefaultRouteTableAssociation!: pulumi.Output<boolean | undefined>;
-    /**
-     * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     public readonly transitGatewayDefaultRouteTablePropagation!: pulumi.Output<boolean | undefined>;
-    /**
-     * Identifier of EC2 Transit Gateway.
-     */
     public readonly transitGatewayId!: pulumi.Output<string>;
-    /**
-     * The underlaying VPC attachment
-     */
     public readonly transportAttachmentId!: pulumi.Output<string>;
 
     /**
@@ -134,33 +85,12 @@ export class Connect extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connect resources.
  */
 export interface ConnectState {
-    /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
-    /**
-     * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
-    /**
-     * Identifier of EC2 Transit Gateway.
-     */
     transitGatewayId?: pulumi.Input<string>;
-    /**
-     * The underlaying VPC attachment
-     */
     transportAttachmentId?: pulumi.Input<string>;
 }
 
@@ -168,28 +98,10 @@ export interface ConnectState {
  * The set of arguments for constructing a Connect resource.
  */
 export interface ConnectArgs {
-    /**
-     * The tunnel protocol. Valida values: `gre`. Default is `gre`.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     transitGatewayDefaultRouteTableAssociation?: pulumi.Input<boolean>;
-    /**
-     * Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     */
     transitGatewayDefaultRouteTablePropagation?: pulumi.Input<boolean>;
-    /**
-     * Identifier of EC2 Transit Gateway.
-     */
     transitGatewayId: pulumi.Input<string>;
-    /**
-     * The underlaying VPC attachment
-     */
     transportAttachmentId: pulumi.Input<string>;
 }

@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AutoScaling Schedule resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foobarGroup = new aws.autoscaling.Group("foobarGroup", {
- *     availabilityZones: ["us-west-2a"],
- *     maxSize: 1,
- *     minSize: 1,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     forceDelete: true,
- *     terminationPolicies: ["OldestInstance"],
- * });
- * const foobarSchedule = new aws.autoscaling.Schedule("foobarSchedule", {
- *     scheduledActionName: "foobar",
- *     minSize: 0,
- *     maxSize: 1,
- *     desiredCapacity: 0,
- *     startTime: "2016-12-11T18:00:00Z",
- *     endTime: "2016-12-12T06:00:00Z",
- *     autoscalingGroupName: foobarGroup.name,
- * });
- * ```
- *
- * ## Import
- *
- * AutoScaling ScheduledAction can be imported using the `auto-scaling-group-name` and `scheduled-action-name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
- * ```
- */
 export class Schedule extends pulumi.CustomResource {
     /**
      * Get an existing Schedule resource's state with the given name, ID, and optional extra
@@ -69,45 +32,15 @@ export class Schedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schedule.__pulumiType;
     }
 
-    /**
-     * ARN assigned by AWS to the autoscaling schedule.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The name of the Auto Scaling group.
-     */
     public readonly autoscalingGroupName!: pulumi.Output<string>;
-    /**
-     * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-     */
     public readonly desiredCapacity!: pulumi.Output<number>;
-    /**
-     * The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     public readonly endTime!: pulumi.Output<string>;
-    /**
-     * The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-     */
     public readonly maxSize!: pulumi.Output<number>;
-    /**
-     * The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-     */
     public readonly minSize!: pulumi.Output<number>;
-    /**
-     * The recurring schedule for this action specified using the Unix cron syntax format.
-     */
     public readonly recurrence!: pulumi.Output<string>;
-    /**
-     * The name of this scaling action.
-     */
     public readonly scheduledActionName!: pulumi.Output<string>;
-    /**
-     * The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     public readonly startTime!: pulumi.Output<string>;
-    /**
-     * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-     */
     public readonly timeZone!: pulumi.Output<string>;
 
     /**
@@ -161,45 +94,15 @@ export class Schedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schedule resources.
  */
 export interface ScheduleState {
-    /**
-     * ARN assigned by AWS to the autoscaling schedule.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the Auto Scaling group.
-     */
     autoscalingGroupName?: pulumi.Input<string>;
-    /**
-     * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-     */
     desiredCapacity?: pulumi.Input<number>;
-    /**
-     * The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     endTime?: pulumi.Input<string>;
-    /**
-     * The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-     */
     maxSize?: pulumi.Input<number>;
-    /**
-     * The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-     */
     minSize?: pulumi.Input<number>;
-    /**
-     * The recurring schedule for this action specified using the Unix cron syntax format.
-     */
     recurrence?: pulumi.Input<string>;
-    /**
-     * The name of this scaling action.
-     */
     scheduledActionName?: pulumi.Input<string>;
-    /**
-     * The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     startTime?: pulumi.Input<string>;
-    /**
-     * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-     */
     timeZone?: pulumi.Input<string>;
 }
 
@@ -207,40 +110,13 @@ export interface ScheduleState {
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
-    /**
-     * The name of the Auto Scaling group.
-     */
     autoscalingGroupName: pulumi.Input<string>;
-    /**
-     * The initial capacity of the Auto Scaling group after the scheduled action runs and the capacity it attempts to maintain. Set to `-1` if you don't want to change the desired capacity at the scheduled time. Defaults to `0`.
-     */
     desiredCapacity?: pulumi.Input<number>;
-    /**
-     * The date and time for the recurring schedule to end, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     endTime?: pulumi.Input<string>;
-    /**
-     * The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
-     */
     maxSize?: pulumi.Input<number>;
-    /**
-     * The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
-     */
     minSize?: pulumi.Input<number>;
-    /**
-     * The recurring schedule for this action specified using the Unix cron syntax format.
-     */
     recurrence?: pulumi.Input<string>;
-    /**
-     * The name of this scaling action.
-     */
     scheduledActionName: pulumi.Input<string>;
-    /**
-     * The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
-     */
     startTime?: pulumi.Input<string>;
-    /**
-     * Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
-     */
     timeZone?: pulumi.Input<string>;
 }

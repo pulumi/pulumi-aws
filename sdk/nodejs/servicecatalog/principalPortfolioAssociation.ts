@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Principal Portfolio Association.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.PrincipalPortfolioAssociation("example", {
- *     portfolioId: "port-68656c6c6f",
- *     principalArn: "arn:aws:iam::123456789012:user/Eleanor",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_principal_portfolio_association` can be imported using the accept language, principal ARN, and portfolio ID, separated by a comma, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
- * ```
- */
 export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PrincipalPortfolioAssociation resource's state with the given name, ID, and optional extra
@@ -56,21 +32,9 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrincipalPortfolioAssociation.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
-    /**
-     * Portfolio identifier.
-     */
     public readonly portfolioId!: pulumi.Output<string>;
-    /**
-     * Principal ARN.
-     */
     public readonly principalArn!: pulumi.Output<string>;
-    /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-     */
     public readonly principalType!: pulumi.Output<string | undefined>;
 
     /**
@@ -112,21 +76,9 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrincipalPortfolioAssociation resources.
  */
 export interface PrincipalPortfolioAssociationState {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId?: pulumi.Input<string>;
-    /**
-     * Principal ARN.
-     */
     principalArn?: pulumi.Input<string>;
-    /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-     */
     principalType?: pulumi.Input<string>;
 }
 
@@ -134,20 +86,8 @@ export interface PrincipalPortfolioAssociationState {
  * The set of arguments for constructing a PrincipalPortfolioAssociation resource.
  */
 export interface PrincipalPortfolioAssociationArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId: pulumi.Input<string>;
-    /**
-     * Principal ARN.
-     */
     principalArn: pulumi.Input<string>;
-    /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
-     */
     principalType?: pulumi.Input<string>;
 }

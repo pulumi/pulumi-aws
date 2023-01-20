@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudcontrol.getResource({
- *     identifier: "example",
- *     typeName: "AWS::ECS::Cluster",
- * });
- * ```
- */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,21 +19,9 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceArgs {
-    /**
-     * Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-     */
     identifier: string;
-    /**
-     * ARN of the IAM Role to assume for operations.
-     */
     roleArn?: string;
-    /**
-     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-     */
     typeName: string;
-    /**
-     * Identifier of the CloudFormation resource type version.
-     */
     typeVersionId?: string;
 }
 
@@ -61,29 +34,11 @@ export interface GetResourceResult {
      */
     readonly id: string;
     readonly identifier: string;
-    /**
-     * JSON string matching the CloudFormation resource type schema with current configuration.
-     */
     readonly properties: string;
     readonly roleArn?: string;
     readonly typeName: string;
     readonly typeVersionId?: string;
 }
-/**
- * Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudcontrol.getResource({
- *     identifier: "example",
- *     typeName: "AWS::ECS::Cluster",
- * });
- * ```
- */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))
 }
@@ -92,20 +47,8 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResource.
  */
 export interface GetResourceOutputArgs {
-    /**
-     * Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * ARN of the IAM Role to assume for operations.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
-     */
     typeName: pulumi.Input<string>;
-    /**
-     * Identifier of the CloudFormation resource type version.
-     */
     typeVersionId?: pulumi.Input<string>;
 }

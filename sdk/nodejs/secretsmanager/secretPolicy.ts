@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage AWS Secrets Manager secret policy.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
- * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
- *     secretArn: exampleSecret.arn,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- * 	{
- * 	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
- * 	  "Effect": "Allow",
- * 	  "Principal": {
- * 		"AWS": "arn:aws:iam::123456789012:root"
- * 	  },
- * 	  "Action": "secretsmanager:GetSecretValue",
- * 	  "Resource": "*"
- * 	}
- *   ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
- */
 export class SecretPolicy extends pulumi.CustomResource {
     /**
      * Get an existing SecretPolicy resource's state with the given name, ID, and optional extra
@@ -71,17 +32,8 @@ export class SecretPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecretPolicy.__pulumiType;
     }
 
-    /**
-     * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-     */
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
-    /**
-     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * Secret ARN.
-     */
     public readonly secretArn!: pulumi.Output<string>;
 
     /**
@@ -121,17 +73,8 @@ export class SecretPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecretPolicy resources.
  */
 export interface SecretPolicyState {
-    /**
-     * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-     */
     blockPublicPolicy?: pulumi.Input<boolean>;
-    /**
-     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Secret ARN.
-     */
     secretArn?: pulumi.Input<string>;
 }
 
@@ -139,16 +82,7 @@ export interface SecretPolicyState {
  * The set of arguments for constructing a SecretPolicy resource.
  */
 export interface SecretPolicyArgs {
-    /**
-     * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-     */
     blockPublicPolicy?: pulumi.Input<boolean>;
-    /**
-     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Secret ARN.
-     */
     secretArn: pulumi.Input<string>;
 }

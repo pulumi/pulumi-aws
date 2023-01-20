@@ -7,71 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Glue Classifier resource.
- *
- * > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
- *
- * ## Example Usage
- * ### Csv Classifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Classifier("example", {csvClassifier: {
- *     allowSingleColumn: false,
- *     containsHeader: "PRESENT",
- *     delimiter: ",",
- *     disableValueTrimming: false,
- *     headers: [
- *         "example1",
- *         "example2",
- *     ],
- *     quoteSymbol: "'",
- * }});
- * ```
- * ### Grok Classifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Classifier("example", {grokClassifier: {
- *     classification: "example",
- *     grokPattern: "example",
- * }});
- * ```
- * ### JSON Classifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Classifier("example", {jsonClassifier: {
- *     jsonPath: "example",
- * }});
- * ```
- * ### XML Classifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Classifier("example", {xmlClassifier: {
- *     classification: "example",
- *     rowTag: "example",
- * }});
- * ```
- *
- * ## Import
- *
- * Glue Classifiers can be imported using their name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
- * ```
- */
 export class Classifier extends pulumi.CustomResource {
     /**
      * Get an existing Classifier resource's state with the given name, ID, and optional extra
@@ -100,25 +35,10 @@ export class Classifier extends pulumi.CustomResource {
         return obj['__pulumiType'] === Classifier.__pulumiType;
     }
 
-    /**
-     * A classifier for Csv content. Defined below.
-     */
     public readonly csvClassifier!: pulumi.Output<outputs.glue.ClassifierCsvClassifier | undefined>;
-    /**
-     * A classifier that uses grok patterns. Defined below.
-     */
     public readonly grokClassifier!: pulumi.Output<outputs.glue.ClassifierGrokClassifier | undefined>;
-    /**
-     * A classifier for JSON content. Defined below.
-     */
     public readonly jsonClassifier!: pulumi.Output<outputs.glue.ClassifierJsonClassifier | undefined>;
-    /**
-     * The name of the classifier.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A classifier for XML content. Defined below.
-     */
     public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
 
     /**
@@ -156,25 +76,10 @@ export class Classifier extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Classifier resources.
  */
 export interface ClassifierState {
-    /**
-     * A classifier for Csv content. Defined below.
-     */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
-    /**
-     * A classifier that uses grok patterns. Defined below.
-     */
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
-    /**
-     * A classifier for JSON content. Defined below.
-     */
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
-    /**
-     * The name of the classifier.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A classifier for XML content. Defined below.
-     */
     xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
 }
 
@@ -182,24 +87,9 @@ export interface ClassifierState {
  * The set of arguments for constructing a Classifier resource.
  */
 export interface ClassifierArgs {
-    /**
-     * A classifier for Csv content. Defined below.
-     */
     csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
-    /**
-     * A classifier that uses grok patterns. Defined below.
-     */
     grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
-    /**
-     * A classifier for JSON content. Defined below.
-     */
     jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
-    /**
-     * The name of the classifier.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A classifier for XML content. Defined below.
-     */
     xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
 }

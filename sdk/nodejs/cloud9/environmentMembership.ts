@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an environment member to an AWS Cloud9 development environment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testEnvironmentEC2 = new aws.cloud9.EnvironmentEC2("testEnvironmentEC2", {instanceType: "t2.micro"});
- * const testUser = new aws.iam.User("testUser", {});
- * const testEnvironmentMembership = new aws.cloud9.EnvironmentMembership("testEnvironmentMembership", {
- *     environmentId: testEnvironmentEC2.id,
- *     permissions: "read-only",
- *     userArn: testUser.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
- * ```
- */
 export class EnvironmentMembership extends pulumi.CustomResource {
     /**
      * Get an existing EnvironmentMembership resource's state with the given name, ID, and optional extra
@@ -58,21 +32,9 @@ export class EnvironmentMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnvironmentMembership.__pulumiType;
     }
 
-    /**
-     * The ID of the environment that contains the environment member you want to add.
-     */
     public readonly environmentId!: pulumi.Output<string>;
-    /**
-     * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     */
     public readonly permissions!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
-     */
     public readonly userArn!: pulumi.Output<string>;
-    /**
-     * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-     */
     public /*out*/ readonly userId!: pulumi.Output<string>;
 
     /**
@@ -117,21 +79,9 @@ export class EnvironmentMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EnvironmentMembership resources.
  */
 export interface EnvironmentMembershipState {
-    /**
-     * The ID of the environment that contains the environment member you want to add.
-     */
     environmentId?: pulumi.Input<string>;
-    /**
-     * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     */
     permissions?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
-     */
     userArn?: pulumi.Input<string>;
-    /**
-     * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-     */
     userId?: pulumi.Input<string>;
 }
 
@@ -139,16 +89,7 @@ export interface EnvironmentMembershipState {
  * The set of arguments for constructing a EnvironmentMembership resource.
  */
 export interface EnvironmentMembershipArgs {
-    /**
-     * The ID of the environment that contains the environment member you want to add.
-     */
     environmentId: pulumi.Input<string>;
-    /**
-     * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     */
     permissions: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
-     */
     userArn: pulumi.Input<string>;
 }

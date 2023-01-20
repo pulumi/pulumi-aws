@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a managed prefix list entry resource.
- *
- * > **NOTE on Managed Prefix Lists and Managed Prefix List Entries:** The provider
- * currently provides both a standalone Managed Prefix List Entry resource (a single entry),
- * and a Managed Prefix List resource with entries defined
- * in-line. At this time you cannot use a Managed Prefix List with in-line rules in
- * conjunction with any Managed Prefix List Entry resources. Doing so will cause a conflict
- * of entries and will overwrite entries.
- *
- * > **NOTE on Managed Prefix Lists with many entries:**  To improved execution times on larger
- * updates, if you plan to create a prefix list with more than 100 entries, it is **recommended**
- * that you use the inline `entry` block as part of the Managed Prefix List resource
- * resource instead.
- *
- * ## Example Usage
- *
- * Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
- *     cidr: aws_vpc.example.cidr_block,
- *     description: "Primary",
- *     prefixListId: example.id,
- * });
- * ```
- *
- * ## Import
- *
- * Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
- * ```
- */
 export class ManagedPrefixListEntry extends pulumi.CustomResource {
     /**
      * Get an existing ManagedPrefixListEntry resource's state with the given name, ID, and optional extra
@@ -77,17 +32,8 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedPrefixListEntry.__pulumiType;
     }
 
-    /**
-     * CIDR block of this entry.
-     */
     public readonly cidr!: pulumi.Output<string>;
-    /**
-     * Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * CIDR block of this entry.
-     */
     public readonly prefixListId!: pulumi.Output<string>;
 
     /**
@@ -127,17 +73,8 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedPrefixListEntry resources.
  */
 export interface ManagedPrefixListEntryState {
-    /**
-     * CIDR block of this entry.
-     */
     cidr?: pulumi.Input<string>;
-    /**
-     * Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * CIDR block of this entry.
-     */
     prefixListId?: pulumi.Input<string>;
 }
 
@@ -145,16 +82,7 @@ export interface ManagedPrefixListEntryState {
  * The set of arguments for constructing a ManagedPrefixListEntry resource.
  */
 export interface ManagedPrefixListEntryArgs {
-    /**
-     * CIDR block of this entry.
-     */
     cidr: pulumi.Input<string>;
-    /**
-     * Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * CIDR block of this entry.
-     */
     prefixListId: pulumi.Input<string>;
 }

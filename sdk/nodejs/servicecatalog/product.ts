@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Product.
- *
- * > **NOTE:** The user or role that uses this resources must have the `cloudformation:GetTemplate` IAM policy permission. This policy permission is required when using the `templatePhysicalId` argument.
- *
- * > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.Product("example", {
- *     owner: "example-owner",
- *     provisioningArtifactParameters: {
- *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- *     type: "CLOUD_FORMATION_TEMPLATE",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_product` can be imported using the product ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
- * ```
- */
 export class Product extends pulumi.CustomResource {
     /**
      * Get an existing Product resource's state with the given name, ID, and optional extra
@@ -69,69 +35,21 @@ export class Product extends pulumi.CustomResource {
         return obj['__pulumiType'] === Product.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the product.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Time when the product was created.
-     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     public readonly distributor!: pulumi.Output<string>;
-    /**
-     * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-     */
     public /*out*/ readonly hasDefaultPath!: pulumi.Output<boolean>;
-    /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Owner of the product.
-     */
     public readonly owner!: pulumi.Output<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
-     */
     public readonly provisioningArtifactParameters!: pulumi.Output<outputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Status of the product.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Support information about the product.
-     */
     public readonly supportDescription!: pulumi.Output<string>;
-    /**
-     * Contact email for product support.
-     */
     public readonly supportEmail!: pulumi.Output<string>;
-    /**
-     * Contact URL for product support.
-     */
     public readonly supportUrl!: pulumi.Output<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -200,69 +118,21 @@ export class Product extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Product resources.
  */
 export interface ProductState {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * ARN of the product.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Time when the product was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     distributor?: pulumi.Input<string>;
-    /**
-     * Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-     */
     hasDefaultPath?: pulumi.Input<boolean>;
-    /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Owner of the product.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
-     */
     provisioningArtifactParameters?: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Status of the product.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Support information about the product.
-     */
     supportDescription?: pulumi.Input<string>;
-    /**
-     * Contact email for product support.
-     */
     supportEmail?: pulumi.Input<string>;
-    /**
-     * Contact URL for product support.
-     */
     supportUrl?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -270,48 +140,15 @@ export interface ProductState {
  * The set of arguments for constructing a Product resource.
  */
 export interface ProductArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Distributor (i.e., vendor) of the product.
-     */
     distributor?: pulumi.Input<string>;
-    /**
-     * Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Owner of the product.
-     */
     owner: pulumi.Input<string>;
-    /**
-     * Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
-     */
     provisioningArtifactParameters: pulumi.Input<inputs.servicecatalog.ProductProvisioningArtifactParameters>;
-    /**
-     * Support information about the product.
-     */
     supportDescription?: pulumi.Input<string>;
-    /**
-     * Contact email for product support.
-     */
     supportEmail?: pulumi.Input<string>;
-    /**
-     * Contact URL for product support.
-     */
     supportUrl?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-     */
     type: pulumi.Input<string>;
 }

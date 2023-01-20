@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.Model("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     contentType: "application/json",
- *     schema: `{
- *   "$schema": "http://json-schema.org/draft-04/schema#",
- *   "title": "ExampleModel",
- *   "type": "object",
- *   "properties": {
- *     "id": { "type": "string" }
- *   }
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
- * ```
- */
 export class Model extends pulumi.CustomResource {
     /**
      * Get an existing Model resource's state with the given name, ID, and optional extra
@@ -65,25 +32,10 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
-    /**
-     * API identifier.
-     */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     */
     public readonly contentType!: pulumi.Output<string>;
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     */
     public readonly schema!: pulumi.Output<string>;
 
     /**
@@ -130,25 +82,10 @@ export class Model extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Model resources.
  */
 export interface ModelState {
-    /**
-     * API identifier.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     */
     contentType?: pulumi.Input<string>;
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     */
     schema?: pulumi.Input<string>;
 }
 
@@ -156,24 +93,9 @@ export interface ModelState {
  * The set of arguments for constructing a Model resource.
  */
 export interface ModelArgs {
-    /**
-     * API identifier.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     */
     contentType: pulumi.Input<string>;
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     */
     schema: pulumi.Input<string>;
 }

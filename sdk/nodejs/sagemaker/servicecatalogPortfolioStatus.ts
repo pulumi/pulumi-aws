@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
- *
- * ## Example Usage
- *
- * Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.ServicecatalogPortfolioStatus("example", {status: "Enabled"});
- * ```
- *
- * ## Import
- *
- * Models can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
- * ```
- */
 export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
     /**
      * Get an existing ServicecatalogPortfolioStatus resource's state with the given name, ID, and optional extra
@@ -54,9 +32,6 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServicecatalogPortfolioStatus.__pulumiType;
     }
 
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     public readonly status!: pulumi.Output<string>;
 
     /**
@@ -89,9 +64,6 @@ export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServicecatalogPortfolioStatus resources.
  */
 export interface ServicecatalogPortfolioStatusState {
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -99,8 +71,5 @@ export interface ServicecatalogPortfolioStatusState {
  * The set of arguments for constructing a ServicecatalogPortfolioStatus resource.
  */
 export interface ServicecatalogPortfolioStatusArgs {
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     */
     status: pulumi.Input<string>;
 }

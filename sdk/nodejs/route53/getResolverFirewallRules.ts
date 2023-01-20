@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
- *
- * ## Example Usage
- *
- * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
- * });
- * ```
- */
 export function getResolverFirewallRules(args: GetResolverFirewallRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallRulesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,17 +21,8 @@ export function getResolverFirewallRules(args: GetResolverFirewallRulesArgs, opt
  * A collection of arguments for invoking getResolverFirewallRules.
  */
 export interface GetResolverFirewallRulesArgs {
-    /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-     */
     action?: string;
-    /**
-     * The unique identifier of the firewall rule group that you want to retrieve the rules for.
-     */
     firewallRuleGroupId: string;
-    /**
-     * The setting that determines the processing order of the rules in a rule group.
-     */
     priority?: number;
 }
 
@@ -57,9 +32,6 @@ export interface GetResolverFirewallRulesArgs {
 export interface GetResolverFirewallRulesResult {
     readonly action?: string;
     readonly firewallRuleGroupId: string;
-    /**
-     * List with information about the firewall rules. See details below.
-     */
     readonly firewallRules: outputs.route53.GetResolverFirewallRulesFirewallRule[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -67,22 +39,6 @@ export interface GetResolverFirewallRulesResult {
     readonly id: string;
     readonly priority?: number;
 }
-/**
- * `aws.route53.getResolverFirewallRules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
- *
- * ## Example Usage
- *
- * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallRules({
- *     firewallRuleGroupId: aws_route53_resolver_firewall_rule_group.example.id,
- * });
- * ```
- */
 export function getResolverFirewallRulesOutput(args: GetResolverFirewallRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallRulesResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallRules(a, opts))
 }
@@ -91,16 +47,7 @@ export function getResolverFirewallRulesOutput(args: GetResolverFirewallRulesOut
  * A collection of arguments for invoking getResolverFirewallRules.
  */
 export interface GetResolverFirewallRulesOutputArgs {
-    /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
-     */
     action?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the firewall rule group that you want to retrieve the rules for.
-     */
     firewallRuleGroupId: pulumi.Input<string>;
-    /**
-     * The setting that determines the processing order of the rules in a rule group.
-     */
     priority?: pulumi.Input<number>;
 }

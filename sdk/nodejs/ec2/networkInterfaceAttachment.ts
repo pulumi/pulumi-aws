@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attach an Elastic network interface (ENI) resource with EC2 instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.NetworkInterfaceAttachment("test", {
- *     instanceId: aws_instance.test.id,
- *     networkInterfaceId: aws_network_interface.test.id,
- *     deviceIndex: 0,
- * });
- * ```
- *
- * ## Import
- *
- * Elastic network interface (ENI) Attachments can be imported using its Attachment ID e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
- * ```
- */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**
      * Get an existing NetworkInterfaceAttachment resource's state with the given name, ID, and optional extra
@@ -56,25 +32,10 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkInterfaceAttachment.__pulumiType;
     }
 
-    /**
-     * The ENI Attachment ID.
-     */
     public /*out*/ readonly attachmentId!: pulumi.Output<string>;
-    /**
-     * Network interface index (int).
-     */
     public readonly deviceIndex!: pulumi.Output<number>;
-    /**
-     * Instance ID to attach.
-     */
     public readonly instanceId!: pulumi.Output<string>;
-    /**
-     * ENI ID to attach.
-     */
     public readonly networkInterfaceId!: pulumi.Output<string>;
-    /**
-     * The status of the Network Interface Attachment.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -121,25 +82,10 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
  */
 export interface NetworkInterfaceAttachmentState {
-    /**
-     * The ENI Attachment ID.
-     */
     attachmentId?: pulumi.Input<string>;
-    /**
-     * Network interface index (int).
-     */
     deviceIndex?: pulumi.Input<number>;
-    /**
-     * Instance ID to attach.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * ENI ID to attach.
-     */
     networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * The status of the Network Interface Attachment.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -147,16 +93,7 @@ export interface NetworkInterfaceAttachmentState {
  * The set of arguments for constructing a NetworkInterfaceAttachment resource.
  */
 export interface NetworkInterfaceAttachmentArgs {
-    /**
-     * Network interface index (int).
-     */
     deviceIndex: pulumi.Input<number>;
-    /**
-     * Instance ID to attach.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * ENI ID to attach.
-     */
     networkInterfaceId: pulumi.Input<string>;
 }

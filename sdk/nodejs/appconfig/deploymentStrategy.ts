@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppConfig Deployment Strategy resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.DeploymentStrategy("example", {
- *     deploymentDurationInMinutes: 3,
- *     description: "Example Deployment Strategy",
- *     finalBakeTimeInMinutes: 4,
- *     growthFactor: 10,
- *     growthType: "LINEAR",
- *     replicateTo: "NONE",
- *     tags: {
- *         Type: "AppConfig Deployment Strategy",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
- * ```
- */
 export class DeploymentStrategy extends pulumi.CustomResource {
     /**
      * Get an existing DeploymentStrategy resource's state with the given name, ID, and optional extra
@@ -62,45 +32,15 @@ export class DeploymentStrategy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeploymentStrategy.__pulumiType;
     }
 
-    /**
-     * ARN of the AppConfig Deployment Strategy.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-     */
     public readonly deploymentDurationInMinutes!: pulumi.Output<number>;
-    /**
-     * Description of the deployment strategy. Can be at most 1024 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-     */
     public readonly finalBakeTimeInMinutes!: pulumi.Output<number | undefined>;
-    /**
-     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-     */
     public readonly growthFactor!: pulumi.Output<number>;
-    /**
-     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-     */
     public readonly growthType!: pulumi.Output<string | undefined>;
-    /**
-     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-     */
     public readonly replicateTo!: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -157,45 +97,15 @@ export class DeploymentStrategy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeploymentStrategy resources.
  */
 export interface DeploymentStrategyState {
-    /**
-     * ARN of the AppConfig Deployment Strategy.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-     */
     deploymentDurationInMinutes?: pulumi.Input<number>;
-    /**
-     * Description of the deployment strategy. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-     */
     finalBakeTimeInMinutes?: pulumi.Input<number>;
-    /**
-     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-     */
     growthFactor?: pulumi.Input<number>;
-    /**
-     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-     */
     growthType?: pulumi.Input<string>;
-    /**
-     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-     */
     replicateTo?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -203,36 +113,12 @@ export interface DeploymentStrategyState {
  * The set of arguments for constructing a DeploymentStrategy resource.
  */
 export interface DeploymentStrategyArgs {
-    /**
-     * Total amount of time for a deployment to last. Minimum value of 0, maximum value of 1440.
-     */
     deploymentDurationInMinutes: pulumi.Input<number>;
-    /**
-     * Description of the deployment strategy. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Amount of time AWS AppConfig monitors for alarms before considering the deployment to be complete and no longer eligible for automatic roll back. Minimum value of 0, maximum value of 1440.
-     */
     finalBakeTimeInMinutes?: pulumi.Input<number>;
-    /**
-     * Percentage of targets to receive a deployed configuration during each interval. Minimum value of 1.0, maximum value of 100.0.
-     */
     growthFactor: pulumi.Input<number>;
-    /**
-     * Algorithm used to define how percentage grows over time. Valid value: `LINEAR` and `EXPONENTIAL`. Defaults to `LINEAR`.
-     */
     growthType?: pulumi.Input<string>;
-    /**
-     * Name for the deployment strategy. Must be between 1 and 64 characters in length.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Where to save the deployment strategy. Valid values: `NONE` and `SSM_DOCUMENT`.
-     */
     replicateTo: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

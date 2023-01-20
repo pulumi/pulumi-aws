@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific CE Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.costexplorer.getTags({
- *     timePeriod: {
- *         end: "2022-12-01",
- *         start: "2021-01-01",
- *     },
- * });
- * ```
- */
 export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetTagsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,25 +23,10 @@ export function getTags(args: GetTagsArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getTags.
  */
 export interface GetTagsArgs {
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
-     */
     filter?: inputs.costexplorer.GetTagsFilter;
-    /**
-     * Value that you want to search for.
-     */
     searchString?: string;
-    /**
-     * Configuration block for the value by which you want to sort the data. See below.
-     */
     sortBies?: inputs.costexplorer.GetTagsSortBy[];
-    /**
-     * Key of the tag that you want to return values for.
-     */
     tagKey?: string;
-    /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
-     */
     timePeriod: inputs.costexplorer.GetTagsTimePeriod;
 }
 
@@ -74,29 +42,9 @@ export interface GetTagsResult {
     readonly searchString?: string;
     readonly sortBies?: outputs.costexplorer.GetTagsSortBy[];
     readonly tagKey?: string;
-    /**
-     * Tags that match your request.
-     */
     readonly tags: string[];
     readonly timePeriod: outputs.costexplorer.GetTagsTimePeriod;
 }
-/**
- * Provides details about a specific CE Tags.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.costexplorer.getTags({
- *     timePeriod: {
- *         end: "2022-12-01",
- *         start: "2021-01-01",
- *     },
- * });
- * ```
- */
 export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagsResult> {
     return pulumi.output(args).apply((a: any) => getTags(a, opts))
 }
@@ -105,24 +53,9 @@ export function getTagsOutput(args: GetTagsOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getTags.
  */
 export interface GetTagsOutputArgs {
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
-     */
     filter?: pulumi.Input<inputs.costexplorer.GetTagsFilterArgs>;
-    /**
-     * Value that you want to search for.
-     */
     searchString?: pulumi.Input<string>;
-    /**
-     * Configuration block for the value by which you want to sort the data. See below.
-     */
     sortBies?: pulumi.Input<pulumi.Input<inputs.costexplorer.GetTagsSortByArgs>[]>;
-    /**
-     * Key of the tag that you want to return values for.
-     */
     tagKey?: pulumi.Input<string>;
-    /**
-     * Configuration block for the start and end dates for retrieving the dimension values.
-     */
     timePeriod: pulumi.Input<inputs.costexplorer.GetTagsTimePeriodArgs>;
 }

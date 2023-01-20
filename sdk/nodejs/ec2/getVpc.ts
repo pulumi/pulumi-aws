@@ -7,13 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.ec2.Vpc` provides details about a specific VPC.
- *
- * This resource can prove useful when a module accepts a vpc id as
- * an input variable and needs to, for example, determine the CIDR block of that
- * VPC.
- */
 export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcResult> {
     args = args || {};
 
@@ -33,36 +26,12 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getVpc.
  */
 export interface GetVpcArgs {
-    /**
-     * Cidr block of the desired VPC.
-     */
     cidrBlock?: string;
-    /**
-     * Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
-     */
     default?: boolean;
-    /**
-     * DHCP options id of the desired VPC.
-     */
     dhcpOptionsId?: string;
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcFilter[];
-    /**
-     * ID of the specific VPC to retrieve.
-     */
     id?: string;
-    /**
-     * Current state of the desired VPC.
-     * Can be either `"pending"` or `"available"`.
-     */
     state?: string;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -70,65 +39,24 @@ export interface GetVpcArgs {
  * A collection of values returned by getVpc.
  */
 export interface GetVpcResult {
-    /**
-     * ARN of VPC
-     */
     readonly arn: string;
-    /**
-     * CIDR block for the association.
-     */
     readonly cidrBlock: string;
     readonly cidrBlockAssociations: outputs.ec2.GetVpcCidrBlockAssociation[];
     readonly default: boolean;
     readonly dhcpOptionsId: string;
-    /**
-     * Whether or not the VPC has DNS hostname support
-     */
     readonly enableDnsHostnames: boolean;
-    /**
-     * Whether or not the VPC has DNS support
-     */
     readonly enableDnsSupport: boolean;
-    /**
-     * Whether Network Address Usage metrics are enabled for your VPC
-     */
     readonly enableNetworkAddressUsageMetrics: boolean;
     readonly filters?: outputs.ec2.GetVpcFilter[];
     readonly id: string;
-    /**
-     * Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
-     */
     readonly instanceTenancy: string;
-    /**
-     * Association ID for the IPv6 CIDR block.
-     */
     readonly ipv6AssociationId: string;
-    /**
-     * IPv6 CIDR block.
-     */
     readonly ipv6CidrBlock: string;
-    /**
-     * ID of the main route table associated with this VPC.
-     */
     readonly mainRouteTableId: string;
-    /**
-     * ID of the AWS account that owns the VPC.
-     */
     readonly ownerId: string;
-    /**
-     * State of the association.
-     */
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * `aws.ec2.Vpc` provides details about a specific VPC.
- *
- * This resource can prove useful when a module accepts a vpc id as
- * an input variable and needs to, for example, determine the CIDR block of that
- * VPC.
- */
 export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
     return pulumi.output(args).apply((a: any) => getVpc(a, opts))
 }
@@ -137,35 +65,11 @@ export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOption
  * A collection of arguments for invoking getVpc.
  */
 export interface GetVpcOutputArgs {
-    /**
-     * Cidr block of the desired VPC.
-     */
     cidrBlock?: pulumi.Input<string>;
-    /**
-     * Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
-     */
     default?: pulumi.Input<boolean>;
-    /**
-     * DHCP options id of the desired VPC.
-     */
     dhcpOptionsId?: pulumi.Input<string>;
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcFilterArgs>[]>;
-    /**
-     * ID of the specific VPC to retrieve.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Current state of the desired VPC.
-     * Can be either `"pending"` or `"available"`.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

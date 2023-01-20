@@ -4,54 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeBuild Resource Policy Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {
- *     type: "TEST",
- *     exportConfig: {
- *         type: "NO_EXPORT",
- *     },
- * });
- * const currentPartition = aws.getPartition({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleResourcePolicy = new aws.codebuild.ResourcePolicy("exampleResourcePolicy", {
- *     resourceArn: exampleReportGroup.arn,
- *     policy: pulumi.all([currentPartition, currentCallerIdentity, exampleReportGroup.arn]).apply(([currentPartition, currentCallerIdentity, arn]) => JSON.stringify({
- *         Version: "2012-10-17",
- *         Id: "default",
- *         Statement: [{
- *             Sid: "default",
- *             Effect: "Allow",
- *             Principal: {
- *                 AWS: `arn:${currentPartition.partition}:iam::${currentCallerIdentity.accountId}:root`,
- *             },
- *             Action: [
- *                 "codebuild:BatchGetReportGroups",
- *                 "codebuild:BatchGetReports",
- *                 "codebuild:ListReportsForReportGroup",
- *                 "codebuild:DescribeTestCases",
- *             ],
- *             Resource: arn,
- *         }],
- *     })),
- * });
- * ```
- *
- * ## Import
- *
- * CodeBuild Resource Policy can be imported using the CodeBuild Resource Policy arn, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:codebuild/resourcePolicy:ResourcePolicy example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
- * ```
- */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
      * Get an existing ResourcePolicy resource's state with the given name, ID, and optional extra
@@ -80,13 +32,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
-    /**
-     * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
-     */
     public readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -124,13 +70,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
-    /**
-     * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -138,12 +78,6 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
-    /**
-     * A JSON-formatted resource policy. For more information, see [Sharing a Projec](https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share) and [Sharing a Report Group](https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share).
-     */
     policy: pulumi.Input<string>;
-    /**
-     * The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
-     */
     resourceArn: pulumi.Input<string>;
 }

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the signing certificate for a Cognito IdP user pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sc = aws.cognito.getUserPoolSigningCertificate({
- *     userPoolId: aws_cognito_user_pool.my_pool.id,
- * });
- * ```
- */
 export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolSigningCertificateResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +16,6 @@ export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificat
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateArgs {
-    /**
-     * Cognito user pool ID.
-     */
     userPoolId: string;
 }
 
@@ -40,9 +23,6 @@ export interface GetUserPoolSigningCertificateArgs {
  * A collection of values returned by getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateResult {
-    /**
-     * Certificate string
-     */
     readonly certificate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -50,20 +30,6 @@ export interface GetUserPoolSigningCertificateResult {
     readonly id: string;
     readonly userPoolId: string;
 }
-/**
- * Use this data source to get the signing certificate for a Cognito IdP user pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sc = aws.cognito.getUserPoolSigningCertificate({
- *     userPoolId: aws_cognito_user_pool.my_pool.id,
- * });
- * ```
- */
 export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
     return pulumi.output(args).apply((a: any) => getUserPoolSigningCertificate(a, opts))
 }
@@ -72,8 +38,5 @@ export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCert
  * A collection of arguments for invoking getUserPoolSigningCertificate.
  */
 export interface GetUserPoolSigningCertificateOutputArgs {
-    /**
-     * Cognito user pool ID.
-     */
     userPoolId: pulumi.Input<string>;
 }

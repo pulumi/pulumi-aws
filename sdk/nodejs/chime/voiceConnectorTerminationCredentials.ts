@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
- *
- * > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
- *     disabled: true,
- *     cpsLimit: 1,
- *     cidrAllowLists: ["50.35.78.96/31"],
- *     callingRegions: [
- *         "US",
- *         "CA",
- *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
- * });
- * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", {
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     credentials: [{
- *         username: "test",
- *         password: "test!",
- *     }],
- * }, {
- *     dependsOn: [defaultVoiceConnectorTermination],
- * });
- * ```
- *
- * ## Import
- *
- * Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
- * ```
- */
 export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource {
     /**
      * Get an existing VoiceConnectorTerminationCredentials resource's state with the given name, ID, and optional extra
@@ -76,13 +35,7 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
         return obj['__pulumiType'] === VoiceConnectorTerminationCredentials.__pulumiType;
     }
 
-    /**
-     * List of termination SIP credentials.
-     */
     public readonly credentials!: pulumi.Output<outputs.chime.VoiceConnectorTerminationCredentialsCredential[]>;
-    /**
-     * Amazon Chime Voice Connector ID.
-     */
     public readonly voiceConnectorId!: pulumi.Output<string>;
 
     /**
@@ -120,13 +73,7 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
  * Input properties used for looking up and filtering VoiceConnectorTerminationCredentials resources.
  */
 export interface VoiceConnectorTerminationCredentialsState {
-    /**
-     * List of termination SIP credentials.
-     */
     credentials?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
-    /**
-     * Amazon Chime Voice Connector ID.
-     */
     voiceConnectorId?: pulumi.Input<string>;
 }
 
@@ -134,12 +81,6 @@ export interface VoiceConnectorTerminationCredentialsState {
  * The set of arguments for constructing a VoiceConnectorTerminationCredentials resource.
  */
 export interface VoiceConnectorTerminationCredentialsArgs {
-    /**
-     * List of termination SIP credentials.
-     */
     credentials: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
-    /**
-     * Amazon Chime Voice Connector ID.
-     */
     voiceConnectorId: pulumi.Input<string>;
 }

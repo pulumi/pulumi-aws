@@ -7,52 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.worklink.Fleet("example", {});
- * ```
- *
- * Network Configuration Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.worklink.Fleet("example", {network: {
- *     vpcId: aws_vpc.test.id,
- *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
- *     securityGroupIds: [aws_security_group.test.id],
- * }});
- * ```
- *
- * Identity Provider Configuration Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const test = new aws.worklink.Fleet("test", {identityProvider: {
- *     type: "SAML",
- *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
- * }});
- * ```
- *
- * ## Import
- *
- * WorkLink can be imported using the ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
- * ```
- */
 export class Fleet extends pulumi.CustomResource {
     /**
      * Get an existing Fleet resource's state with the given name, ID, and optional extra
@@ -81,49 +35,16 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
-    /**
-     * The ARN of the created WorkLink Fleet.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-     */
     public readonly auditStreamArn!: pulumi.Output<string | undefined>;
-    /**
-     * The identifier used by users to sign in to the Amazon WorkLink app.
-     */
     public /*out*/ readonly companyCode!: pulumi.Output<string>;
-    /**
-     * The time that the fleet was created.
-     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-     */
     public readonly deviceCaCertificate!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the fleet.
-     */
     public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-     */
     public readonly identityProvider!: pulumi.Output<outputs.worklink.FleetIdentityProvider | undefined>;
-    /**
-     * The time that the fleet was last updated.
-     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * A region-unique name for the AMI.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-     */
     public readonly network!: pulumi.Output<outputs.worklink.FleetNetwork | undefined>;
-    /**
-     * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-     */
     public readonly optimizeForEndUserLocation!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -173,49 +94,16 @@ export class Fleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Fleet resources.
  */
 export interface FleetState {
-    /**
-     * The ARN of the created WorkLink Fleet.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-     */
     auditStreamArn?: pulumi.Input<string>;
-    /**
-     * The identifier used by users to sign in to the Amazon WorkLink app.
-     */
     companyCode?: pulumi.Input<string>;
-    /**
-     * The time that the fleet was created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-     */
     deviceCaCertificate?: pulumi.Input<string>;
-    /**
-     * The name of the fleet.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-     */
     identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
-    /**
-     * The time that the fleet was last updated.
-     */
     lastUpdatedTime?: pulumi.Input<string>;
-    /**
-     * A region-unique name for the AMI.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-     */
     network?: pulumi.Input<inputs.worklink.FleetNetwork>;
-    /**
-     * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-     */
     optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }
 
@@ -223,32 +111,11 @@ export interface FleetState {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
-    /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
-     */
     auditStreamArn?: pulumi.Input<string>;
-    /**
-     * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-     */
     deviceCaCertificate?: pulumi.Input<string>;
-    /**
-     * The name of the fleet.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-     */
     identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
-    /**
-     * A region-unique name for the AMI.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-     */
     network?: pulumi.Input<inputs.worklink.FleetNetwork>;
-    /**
-     * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-     */
     optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }

@@ -7,41 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
- *
- * This resource can prove useful when an ipam pool was created in another root
- * module and you need the pool's id as an input variable. For example, pools
- * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * The following example shows an account that has only 1 pool, perhaps shared
- * via RAM, and using that pool id to create a VPC with a CIDR derived from
- * AWS IPAM.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
- *     ipv4NetmaskLength: 28,
- * });
- * ```
- */
 export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolResult> {
     args = args || {};
 
@@ -59,25 +24,10 @@ export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getVpcIamPool.
  */
 export interface GetVpcIamPoolArgs {
-    /**
-     * Tags that are required to create resources in using this pool.
-     */
     allocationResourceTags?: {[key: string]: string};
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcIamPoolFilter[];
-    /**
-     * ID of the IPAM pool.
-     */
     id?: string;
-    /**
-     * ID of the IPAM pool you would like information on.
-     */
     ipamPoolId?: string;
-    /**
-     * Map of tags to assigned to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -85,107 +35,27 @@ export interface GetVpcIamPoolArgs {
  * A collection of values returned by getVpcIamPool.
  */
 export interface GetVpcIamPoolResult {
-    /**
-     * IP protocol assigned to this pool.
-     */
     readonly addressFamily: string;
-    /**
-     * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-     */
     readonly allocationDefaultNetmaskLength: number;
-    /**
-     * The maximum netmask length that will be required for CIDR allocations in this pool.
-     */
     readonly allocationMaxNetmaskLength: number;
-    /**
-     * The minimum netmask length that will be required for CIDR allocations in this pool.
-     */
     readonly allocationMinNetmaskLength: number;
-    /**
-     * Tags that are required to create resources in using this pool.
-     */
     readonly allocationResourceTags: {[key: string]: string};
-    /**
-     * ARN of the pool
-     */
     readonly arn: string;
-    /**
-     * If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-     */
     readonly autoImport: boolean;
-    /**
-     * Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-     */
     readonly awsService: string;
-    /**
-     * Description for the IPAM pool.
-     */
     readonly description: string;
     readonly filters?: outputs.ec2.GetVpcIamPoolFilter[];
-    /**
-     * ID of the IPAM pool.
-     */
     readonly id?: string;
     readonly ipamPoolId?: string;
-    /**
-     * ID of the scope the pool belongs to.
-     */
     readonly ipamScopeId: string;
     readonly ipamScopeType: string;
-    /**
-     * Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-     */
     readonly locale: string;
     readonly poolDepth: number;
-    /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-     */
     readonly publiclyAdvertisable: boolean;
-    /**
-     * ID of the source IPAM pool.
-     */
     readonly sourceIpamPoolId: string;
     readonly state: string;
-    /**
-     * Map of tags to assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * `aws.ec2.VpcIpamPool` provides details about an IPAM pool.
- *
- * This resource can prove useful when an ipam pool was created in another root
- * module and you need the pool's id as an input variable. For example, pools
- * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * The following example shows an account that has only 1 pool, perhaps shared
- * via RAM, and using that pool id to create a VPC with a CIDR derived from
- * AWS IPAM.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
- *     ipv4NetmaskLength: 28,
- * });
- * ```
- */
 export function getVpcIamPoolOutput(args?: GetVpcIamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolResult> {
     return pulumi.output(args).apply((a: any) => getVpcIamPool(a, opts))
 }
@@ -194,24 +64,9 @@ export function getVpcIamPoolOutput(args?: GetVpcIamPoolOutputArgs, opts?: pulum
  * A collection of arguments for invoking getVpcIamPool.
  */
 export interface GetVpcIamPoolOutputArgs {
-    /**
-     * Tags that are required to create resources in using this pool.
-     */
     allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolFilterArgs>[]>;
-    /**
-     * ID of the IPAM pool.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * ID of the IPAM pool you would like information on.
-     */
     ipamPoolId?: pulumi.Input<string>;
-    /**
-     * Map of tags to assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

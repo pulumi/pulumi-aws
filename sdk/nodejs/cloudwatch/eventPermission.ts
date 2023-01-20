@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
- *
- * ## Example Usage
- * ### Account Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const devAccountAccess = new aws.cloudwatch.EventPermission("devAccountAccess", {
- *     principal: "123456789012",
- *     statementId: "DevAccountAccess",
- * });
- * ```
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
- *     principal: "*",
- *     statementId: "OrganizationAccess",
- *     condition: {
- *         key: "aws:PrincipalOrgID",
- *         type: "StringEquals",
- *         value: aws_organizations_organization.example.id,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
- * ```
- */
 export class EventPermission extends pulumi.CustomResource {
     /**
      * Get an existing EventPermission resource's state with the given name, ID, and optional extra
@@ -79,25 +35,10 @@ export class EventPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventPermission.__pulumiType;
     }
 
-    /**
-     * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-     */
     public readonly action!: pulumi.Output<string | undefined>;
-    /**
-     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-     */
     public readonly condition!: pulumi.Output<outputs.cloudwatch.EventPermissionCondition | undefined>;
-    /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-     */
     public readonly eventBusName!: pulumi.Output<string | undefined>;
-    /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-     */
     public readonly principal!: pulumi.Output<string>;
-    /**
-     * An identifier string for the external account that you are granting permissions to.
-     */
     public readonly statementId!: pulumi.Output<string>;
 
     /**
@@ -141,25 +82,10 @@ export class EventPermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventPermission resources.
  */
 export interface EventPermissionState {
-    /**
-     * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-     */
     action?: pulumi.Input<string>;
-    /**
-     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-     */
     condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
-    /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-     */
     eventBusName?: pulumi.Input<string>;
-    /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-     */
     principal?: pulumi.Input<string>;
-    /**
-     * An identifier string for the external account that you are granting permissions to.
-     */
     statementId?: pulumi.Input<string>;
 }
 
@@ -167,24 +93,9 @@ export interface EventPermissionState {
  * The set of arguments for constructing a EventPermission resource.
  */
 export interface EventPermissionArgs {
-    /**
-     * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-     */
     action?: pulumi.Input<string>;
-    /**
-     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-     */
     condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
-    /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-     */
     eventBusName?: pulumi.Input<string>;
-    /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-     */
     principal: pulumi.Input<string>;
-    /**
-     * An identifier string for the external account that you are granting permissions to.
-     */
     statementId: pulumi.Input<string>;
 }

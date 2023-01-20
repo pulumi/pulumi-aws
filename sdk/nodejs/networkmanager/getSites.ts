@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about sites.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getSites({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getSites(args: GetSitesArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +17,7 @@ export function getSites(args: GetSitesArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getSites.
  */
 export interface GetSitesArgs {
-    /**
-     * ID of the Global Network of the sites to retrieve.
-     */
     globalNetworkId: string;
-    /**
-     * Restricts the list to the sites with these tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -53,29 +30,9 @@ export interface GetSitesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IDs of the sites.
-     */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
-/**
- * Retrieve information about sites.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getSites({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
     return pulumi.output(args).apply((a: any) => getSites(a, opts))
 }
@@ -84,12 +41,6 @@ export function getSitesOutput(args: GetSitesOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getSites.
  */
 export interface GetSitesOutputArgs {
-    /**
-     * ID of the Global Network of the sites to retrieve.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * Restricts the list to the sites with these tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
- *
- * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const newCsc = new aws.lambda.CodeSigningConfig("newCsc", {
- *     allowedPublishers: {
- *         signingProfileVersionArns: [
- *             aws_signer_signing_profile.example1.arn,
- *             aws_signer_signing_profile.example2.arn,
- *         ],
- *     },
- *     policies: {
- *         untrustedArtifactOnDeployment: "Warn",
- *     },
- *     description: "My awesome code signing config.",
- * });
- * ```
- *
- * ## Import
- *
- * Code Signing Configs can be imported using their ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
- * ```
- */
 export class CodeSigningConfig extends pulumi.CustomResource {
     /**
      * Get an existing CodeSigningConfig resource's state with the given name, ID, and optional extra
@@ -68,29 +35,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === CodeSigningConfig.__pulumiType;
     }
 
-    /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
-     */
     public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
-    /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Unique identifier for the code signing configuration.
-     */
     public /*out*/ readonly configId!: pulumi.Output<string>;
-    /**
-     * Descriptive name for this code signing configuration.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The date and time that the code signing configuration was last modified.
-     */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
-    /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-     */
     public readonly policies!: pulumi.Output<outputs.lambda.CodeSigningConfigPolicies>;
 
     /**
@@ -133,29 +82,11 @@ export class CodeSigningConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CodeSigningConfig resources.
  */
 export interface CodeSigningConfigState {
-    /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
-     */
     allowedPublishers?: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
-    /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Unique identifier for the code signing configuration.
-     */
     configId?: pulumi.Input<string>;
-    /**
-     * Descriptive name for this code signing configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The date and time that the code signing configuration was last modified.
-     */
     lastModified?: pulumi.Input<string>;
-    /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-     */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
 }
 
@@ -163,16 +94,7 @@ export interface CodeSigningConfigState {
  * The set of arguments for constructing a CodeSigningConfig resource.
  */
 export interface CodeSigningConfigArgs {
-    /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
-     */
     allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
-    /**
-     * Descriptive name for this code signing configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
-     */
     policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
 }

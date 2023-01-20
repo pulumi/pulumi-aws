@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a S3 bucket server-side encryption configuration resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
- * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
- *     bucket: mybucket.bucket,
- *     rules: [{
- *         applyServerSideEncryptionByDefault: {
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name
- * ```
- *
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket server-side encryption configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
- *
- * ```sh
- *  $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
- * ```
- */
 export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomResource {
     /**
      * Get an existing BucketServerSideEncryptionConfigurationV2 resource's state with the given name, ID, and optional extra
@@ -74,17 +35,8 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
         return obj['__pulumiType'] === BucketServerSideEncryptionConfigurationV2.__pulumiType;
     }
 
-    /**
-     * The name of the bucket.
-     */
     public readonly bucket!: pulumi.Output<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
-    /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-     */
     public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationV2Rule[]>;
 
     /**
@@ -124,17 +76,8 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
  * Input properties used for looking up and filtering BucketServerSideEncryptionConfigurationV2 resources.
  */
 export interface BucketServerSideEncryptionConfigurationV2State {
-    /**
-     * The name of the bucket.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }
 
@@ -142,16 +85,7 @@ export interface BucketServerSideEncryptionConfigurationV2State {
  * The set of arguments for constructing a BucketServerSideEncryptionConfigurationV2 resource.
  */
 export interface BucketServerSideEncryptionConfigurationV2Args {
-    /**
-     * The name of the bucket.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * The account ID of the expected bucket owner.
-     */
     expectedBucketOwner?: pulumi.Input<string>;
-    /**
-     * Set of server-side encryption configuration rules. documented below. Currently, only a single rule is supported.
-     */
     rules: pulumi.Input<pulumi.Input<inputs.s3.BucketServerSideEncryptionConfigurationV2Rule>[]>;
 }

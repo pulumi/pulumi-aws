@@ -7,80 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Container Registry Replication Configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *     }],
- * }});
- * ```
- * ## Multiple Region Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [
- *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *             {
- *                 region: exampleRegions.then(exampleRegions => exampleRegions.names?.[1]),
- *                 registryId: current.then(current => current.accountId),
- *             },
- *         ],
- *     }],
- * }});
- * ```
- *
- * ## Repository Filter Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleRegions = aws.getRegions({});
- * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
- *     rules: [{
- *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names?.[0]),
- *             registryId: current.then(current => current.accountId),
- *         }],
- *         repositoryFilters: [{
- *             filter: "prod-microservice",
- *             filterType: "PREFIX_MATCH",
- *         }],
- *     }],
- * }});
- * ```
- *
- * ## Import
- *
- * ECR Replication Configuration can be imported using the `registry_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
- * ```
- */
 export class ReplicationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing ReplicationConfiguration resource's state with the given name, ID, and optional extra
@@ -109,13 +35,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationConfiguration.__pulumiType;
     }
 
-    /**
-     * The account ID of the destination registry to replicate to.
-     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     public readonly replicationConfiguration!: pulumi.Output<outputs.ecr.ReplicationConfigurationReplicationConfiguration | undefined>;
 
     /**
@@ -147,13 +67,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationConfiguration resources.
  */
 export interface ReplicationConfigurationState {
-    /**
-     * The account ID of the destination registry to replicate to.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }
 
@@ -161,8 +75,5 @@ export interface ReplicationConfigurationState {
  * The set of arguments for constructing a ReplicationConfiguration resource.
  */
 export interface ReplicationConfigurationArgs {
-    /**
-     * Replication configuration for a registry. See Replication Configuration.
-     */
     replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }

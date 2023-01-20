@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an OpsWorks permission resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myStackPermission = new aws.opsworks.Permission("myStackPermission", {
- *     allowSsh: true,
- *     allowSudo: true,
- *     level: "iam_only",
- *     userArn: aws_iam_user.user.arn,
- *     stackId: aws_opsworks_stack.stack.id,
- * });
- * ```
- */
 export class Permission extends pulumi.CustomResource {
     /**
      * Get an existing Permission resource's state with the given name, ID, and optional extra
@@ -50,25 +32,10 @@ export class Permission extends pulumi.CustomResource {
         return obj['__pulumiType'] === Permission.__pulumiType;
     }
 
-    /**
-     * Whether the user is allowed to use SSH to communicate with the instance
-     */
     public readonly allowSsh!: pulumi.Output<boolean>;
-    /**
-     * Whether the user is allowed to use sudo to elevate privileges
-     */
     public readonly allowSudo!: pulumi.Output<boolean>;
-    /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-     */
     public readonly level!: pulumi.Output<string>;
-    /**
-     * The stack to set the permissions for
-     */
     public readonly stackId!: pulumi.Output<string>;
-    /**
-     * The user's IAM ARN to set permissions for
-     */
     public readonly userArn!: pulumi.Output<string>;
 
     /**
@@ -109,25 +76,10 @@ export class Permission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Permission resources.
  */
 export interface PermissionState {
-    /**
-     * Whether the user is allowed to use SSH to communicate with the instance
-     */
     allowSsh?: pulumi.Input<boolean>;
-    /**
-     * Whether the user is allowed to use sudo to elevate privileges
-     */
     allowSudo?: pulumi.Input<boolean>;
-    /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-     */
     level?: pulumi.Input<string>;
-    /**
-     * The stack to set the permissions for
-     */
     stackId?: pulumi.Input<string>;
-    /**
-     * The user's IAM ARN to set permissions for
-     */
     userArn?: pulumi.Input<string>;
 }
 
@@ -135,24 +87,9 @@ export interface PermissionState {
  * The set of arguments for constructing a Permission resource.
  */
 export interface PermissionArgs {
-    /**
-     * Whether the user is allowed to use SSH to communicate with the instance
-     */
     allowSsh?: pulumi.Input<boolean>;
-    /**
-     * Whether the user is allowed to use sudo to elevate privileges
-     */
     allowSudo?: pulumi.Input<boolean>;
-    /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
-     */
     level?: pulumi.Input<string>;
-    /**
-     * The stack to set the permissions for
-     */
     stackId?: pulumi.Input<string>;
-    /**
-     * The user's IAM ARN to set permissions for
-     */
     userArn: pulumi.Input<string>;
 }

@@ -7,79 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic Transcoder preset resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.elastictranscoder.Preset("bar", {
- *     audio: {
- *         audioPackingMode: "SingleTrack",
- *         bitRate: "96",
- *         channels: "2",
- *         codec: "AAC",
- *         sampleRate: "44100",
- *     },
- *     audioCodecOptions: {
- *         profile: "AAC-LC",
- *     },
- *     container: "mp4",
- *     description: "Sample Preset",
- *     thumbnails: {
- *         format: "png",
- *         interval: "120",
- *         maxHeight: "auto",
- *         maxWidth: "auto",
- *         paddingPolicy: "Pad",
- *         sizingPolicy: "Fit",
- *     },
- *     video: {
- *         bitRate: "1600",
- *         codec: "H.264",
- *         displayAspectRatio: "16:9",
- *         fixedGop: "false",
- *         frameRate: "auto",
- *         keyframesMaxDist: "240",
- *         maxFrameRate: "60",
- *         maxHeight: "auto",
- *         maxWidth: "auto",
- *         paddingPolicy: "Pad",
- *         sizingPolicy: "Fit",
- *     },
- *     videoCodecOptions: {
- *         ColorSpaceConversionMode: "None",
- *         InterlacedMode: "Progressive",
- *         Level: "2.2",
- *         MaxReferenceFrames: "3",
- *         Profile: "main",
- *     },
- *     videoWatermarks: [{
- *         horizontalAlign: "Right",
- *         horizontalOffset: "10px",
- *         id: "Test",
- *         maxHeight: `20%`,
- *         maxWidth: `20%`,
- *         opacity: "55.5",
- *         sizingPolicy: "ShrinkToFit",
- *         target: "Content",
- *         verticalAlign: "Bottom",
- *         verticalOffset: "10px",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Elastic Transcoder presets can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
- * ```
- */
 export class Preset extends pulumi.CustomResource {
     /**
      * Get an existing Preset resource's state with the given name, ID, and optional extra
@@ -108,46 +35,16 @@ export class Preset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Preset.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Audio parameters object (documented below).
-     */
     public readonly audio!: pulumi.Output<outputs.elastictranscoder.PresetAudio | undefined>;
-    /**
-     * Codec options for the audio parameters (documented below)
-     */
     public readonly audioCodecOptions!: pulumi.Output<outputs.elastictranscoder.PresetAudioCodecOptions>;
-    /**
-     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-     */
     public readonly container!: pulumi.Output<string>;
-    /**
-     * A description of the preset (maximum 255 characters)
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the preset. (maximum 40 characters)
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Thumbnail parameters object (documented below)
-     */
     public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
     public readonly type!: pulumi.Output<string>;
-    /**
-     * Video parameters object (documented below)
-     */
     public readonly video!: pulumi.Output<outputs.elastictranscoder.PresetVideo | undefined>;
-    /**
-     * Codec options for the video parameters
-     */
     public readonly videoCodecOptions!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Watermark parameters for the video parameters (documented below)
-     */
     public readonly videoWatermarks!: pulumi.Output<outputs.elastictranscoder.PresetVideoWatermark[] | undefined>;
 
     /**
@@ -200,46 +97,16 @@ export class Preset extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Preset resources.
  */
 export interface PresetState {
-    /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Audio parameters object (documented below).
-     */
     audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
-    /**
-     * Codec options for the audio parameters (documented below)
-     */
     audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
-    /**
-     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-     */
     container?: pulumi.Input<string>;
-    /**
-     * A description of the preset (maximum 255 characters)
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the preset. (maximum 40 characters)
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Thumbnail parameters object (documented below)
-     */
     thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
     type?: pulumi.Input<string>;
-    /**
-     * Video parameters object (documented below)
-     */
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
-    /**
-     * Codec options for the video parameters
-     */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Watermark parameters for the video parameters (documented below)
-     */
     videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }
 
@@ -247,41 +114,14 @@ export interface PresetState {
  * The set of arguments for constructing a Preset resource.
  */
 export interface PresetArgs {
-    /**
-     * Audio parameters object (documented below).
-     */
     audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
-    /**
-     * Codec options for the audio parameters (documented below)
-     */
     audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
-    /**
-     * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
-     */
     container: pulumi.Input<string>;
-    /**
-     * A description of the preset (maximum 255 characters)
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the preset. (maximum 40 characters)
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Thumbnail parameters object (documented below)
-     */
     thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
     type?: pulumi.Input<string>;
-    /**
-     * Video parameters object (documented below)
-     */
     video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
-    /**
-     * Codec options for the video parameters
-     */
     videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Watermark parameters for the video parameters (documented below)
-     */
     videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }

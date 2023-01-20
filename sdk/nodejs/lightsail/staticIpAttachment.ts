@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
- *
- * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testStaticIp = new aws.lightsail.StaticIp("testStaticIp", {});
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: "us-east-1b",
- *     blueprintId: "string",
- *     bundleId: "string",
- *     keyPairName: "some_key_name",
- * });
- * const testStaticIpAttachment = new aws.lightsail.StaticIpAttachment("testStaticIpAttachment", {
- *     staticIpName: testStaticIp.id,
- *     instanceName: testInstance.id,
- * });
- * ```
- */
 export class StaticIpAttachment extends pulumi.CustomResource {
     /**
      * Get an existing StaticIpAttachment resource's state with the given name, ID, and optional extra
@@ -56,17 +32,8 @@ export class StaticIpAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === StaticIpAttachment.__pulumiType;
     }
 
-    /**
-     * The name of the Lightsail instance to attach the IP to
-     */
     public readonly instanceName!: pulumi.Output<string>;
-    /**
-     * The allocated static IP address
-     */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
-    /**
-     * The name of the allocated static IP
-     */
     public readonly staticIpName!: pulumi.Output<string>;
 
     /**
@@ -106,17 +73,8 @@ export class StaticIpAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StaticIpAttachment resources.
  */
 export interface StaticIpAttachmentState {
-    /**
-     * The name of the Lightsail instance to attach the IP to
-     */
     instanceName?: pulumi.Input<string>;
-    /**
-     * The allocated static IP address
-     */
     ipAddress?: pulumi.Input<string>;
-    /**
-     * The name of the allocated static IP
-     */
     staticIpName?: pulumi.Input<string>;
 }
 
@@ -124,12 +82,6 @@ export interface StaticIpAttachmentState {
  * The set of arguments for constructing a StaticIpAttachment resource.
  */
 export interface StaticIpAttachmentArgs {
-    /**
-     * The name of the Lightsail instance to attach the IP to
-     */
     instanceName: pulumi.Input<string>;
-    /**
-     * The name of the allocated static IP
-     */
     staticIpName: pulumi.Input<string>;
 }

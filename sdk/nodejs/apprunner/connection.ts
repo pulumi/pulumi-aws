@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an App Runner Connection.
- *
- * > **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.Connection("example", {
- *     connectionName: "example",
- *     providerType: "GITHUB",
- *     tags: {
- *         Name: "example-apprunner-connection",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * App Runner Connections can be imported by using the `connection_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apprunner/connection:Connection example example
- * ```
- */
 export class Connection extends pulumi.CustomResource {
     /**
      * Get an existing Connection resource's state with the given name, ID, and optional extra
@@ -60,29 +32,11 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
-    /**
-     * ARN of the connection.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of the connection.
-     */
     public readonly connectionName!: pulumi.Output<string>;
-    /**
-     * Source repository provider. Valid values: `GITHUB`.
-     */
     public readonly providerType!: pulumi.Output<string>;
-    /**
-     * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -128,29 +82,11 @@ export class Connection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connection resources.
  */
 export interface ConnectionState {
-    /**
-     * ARN of the connection.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the connection.
-     */
     connectionName?: pulumi.Input<string>;
-    /**
-     * Source repository provider. Valid values: `GITHUB`.
-     */
     providerType?: pulumi.Input<string>;
-    /**
-     * Current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -158,16 +94,7 @@ export interface ConnectionState {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
-    /**
-     * Name of the connection.
-     */
     connectionName: pulumi.Input<string>;
-    /**
-     * Source repository provider. Valid values: `GITHUB`.
-     */
     providerType: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

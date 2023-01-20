@@ -7,19 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon MSK Serverless cluster.
- *
- * > **Note:** To manage a _provisioned_ Amazon MSK cluster, use the `aws.msk.Cluster` resource.
- *
- * ## Import
- *
- * MSK serverless clusters can be imported using the cluster `arn`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
- * ```
- */
 export class ServerlessCluster extends pulumi.CustomResource {
     /**
      * Get an existing ServerlessCluster resource's state with the given name, ID, and optional extra
@@ -48,29 +35,11 @@ export class ServerlessCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerlessCluster.__pulumiType;
     }
 
-    /**
-     * The ARN of the serverless cluster.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Specifies client authentication information for the serverless cluster. See below.
-     */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ServerlessClusterClientAuthentication>;
-    /**
-     * The name of the serverless cluster.
-     */
     public readonly clusterName!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * VPC configuration information. See below.
-     */
     public readonly vpcConfigs!: pulumi.Output<outputs.msk.ServerlessClusterVpcConfig[]>;
 
     /**
@@ -116,29 +85,11 @@ export class ServerlessCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServerlessCluster resources.
  */
 export interface ServerlessClusterState {
-    /**
-     * The ARN of the serverless cluster.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies client authentication information for the serverless cluster. See below.
-     */
     clientAuthentication?: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
-    /**
-     * The name of the serverless cluster.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC configuration information. See below.
-     */
     vpcConfigs?: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
 }
 
@@ -146,20 +97,8 @@ export interface ServerlessClusterState {
  * The set of arguments for constructing a ServerlessCluster resource.
  */
 export interface ServerlessClusterArgs {
-    /**
-     * Specifies client authentication information for the serverless cluster. See below.
-     */
     clientAuthentication: pulumi.Input<inputs.msk.ServerlessClusterClientAuthentication>;
-    /**
-     * The name of the serverless cluster.
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC configuration information. See below.
-     */
     vpcConfigs: pulumi.Input<pulumi.Input<inputs.msk.ServerlessClusterVpcConfig>[]>;
 }

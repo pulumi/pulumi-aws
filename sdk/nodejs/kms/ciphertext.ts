@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
- * by using an AWS KMS customer master key. The value returned by this resource
- * is stable across every apply. For a changing ciphertext value each apply, see
- * the `aws.kms.Ciphertext` data source.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const oauthConfig = new aws.kms.Key("oauthConfig", {
- *     description: "oauth config",
- *     isEnabled: true,
- * });
- * const oauth = new aws.kms.Ciphertext("oauth", {
- *     keyId: oauthConfig.keyId,
- *     plaintext: `{
- *   "client_id": "e587dbae22222f55da22",
- *   "client_secret": "8289575d00000ace55e1815ec13673955721b8a5"
- * }
- * `,
- * });
- * ```
- */
 export class Ciphertext extends pulumi.CustomResource {
     /**
      * Get an existing Ciphertext resource's state with the given name, ID, and optional extra
@@ -58,21 +32,9 @@ export class Ciphertext extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ciphertext.__pulumiType;
     }
 
-    /**
-     * Base64 encoded ciphertext
-     */
     public /*out*/ readonly ciphertextBlob!: pulumi.Output<string>;
-    /**
-     * An optional mapping that makes up the encryption context.
-     */
     public readonly context!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Globally unique key ID for the customer master key.
-     */
     public readonly keyId!: pulumi.Output<string>;
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     */
     public readonly plaintext!: pulumi.Output<string>;
 
     /**
@@ -116,21 +78,9 @@ export class Ciphertext extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Ciphertext resources.
  */
 export interface CiphertextState {
-    /**
-     * Base64 encoded ciphertext
-     */
     ciphertextBlob?: pulumi.Input<string>;
-    /**
-     * An optional mapping that makes up the encryption context.
-     */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Globally unique key ID for the customer master key.
-     */
     keyId?: pulumi.Input<string>;
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     */
     plaintext?: pulumi.Input<string>;
 }
 
@@ -138,16 +88,7 @@ export interface CiphertextState {
  * The set of arguments for constructing a Ciphertext resource.
  */
 export interface CiphertextArgs {
-    /**
-     * An optional mapping that makes up the encryption context.
-     */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Globally unique key ID for the customer master key.
-     */
     keyId: pulumi.Input<string>;
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     */
     plaintext: pulumi.Input<string>;
 }

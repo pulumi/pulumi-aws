@@ -4,11 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to invoke custom lambda functions as data source.
- * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
- * invocation type.
- */
 export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptions): Promise<GetInvocationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,18 +18,8 @@ export function getInvocation(args: GetInvocationArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getInvocation.
  */
 export interface GetInvocationArgs {
-    /**
-     * Name of the lambda function.
-     */
     functionName: string;
-    /**
-     * String in JSON format that is passed as payload to the lambda function.
-     */
     input: string;
-    /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
-     */
     qualifier?: string;
 }
 
@@ -49,16 +34,8 @@ export interface GetInvocationResult {
     readonly id: string;
     readonly input: string;
     readonly qualifier?: string;
-    /**
-     * String result of the lambda function invocation.
-     */
     readonly result: string;
 }
-/**
- * Use this data source to invoke custom lambda functions as data source.
- * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
- * invocation type.
- */
 export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvocationResult> {
     return pulumi.output(args).apply((a: any) => getInvocation(a, opts))
 }
@@ -67,17 +44,7 @@ export function getInvocationOutput(args: GetInvocationOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getInvocation.
  */
 export interface GetInvocationOutputArgs {
-    /**
-     * Name of the lambda function.
-     */
     functionName: pulumi.Input<string>;
-    /**
-     * String in JSON format that is passed as payload to the lambda function.
-     */
     input: pulumi.Input<string>;
-    /**
-     * Qualifier (a.k.a version) of the lambda function. Defaults
-     * to `$LATEST`.
-     */
     qualifier?: pulumi.Input<string>;
 }

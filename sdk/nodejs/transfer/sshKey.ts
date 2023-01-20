@@ -4,74 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a AWS Transfer User SSH Key resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleServer = new aws.transfer.Server("exampleServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Effect": "Allow",
- * 		"Principal": {
- * 			"Service": "transfer.amazonaws.com"
- * 		},
- * 		"Action": "sts:AssumeRole"
- * 		}
- * 	]
- * }
- * `});
- * const exampleUser = new aws.transfer.User("exampleUser", {
- *     serverId: exampleServer.id,
- *     userName: "tftestuser",
- *     role: exampleRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
- *     serverId: exampleServer.id,
- *     userName: exampleUser.userName,
- *     body: "... SSH key ...",
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Sid": "AllowFullAccesstoS3",
- * 			"Effect": "Allow",
- * 			"Action": [
- * 				"s3:*"
- * 			],
- * 			"Resource": "*"
- * 		}
- * 	]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
- *
- * ```sh
- *  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
- * ```
- */
 export class SshKey extends pulumi.CustomResource {
     /**
      * Get an existing SshKey resource's state with the given name, ID, and optional extra
@@ -100,17 +32,8 @@ export class SshKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === SshKey.__pulumiType;
     }
 
-    /**
-     * The public key portion of an SSH key pair.
-     */
     public readonly body!: pulumi.Output<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     public readonly serverId!: pulumi.Output<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -153,17 +76,8 @@ export class SshKey extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SshKey resources.
  */
 export interface SshKeyState {
-    /**
-     * The public key portion of an SSH key pair.
-     */
     body?: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId?: pulumi.Input<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -171,16 +85,7 @@ export interface SshKeyState {
  * The set of arguments for constructing a SshKey resource.
  */
 export interface SshKeyArgs {
-    /**
-     * The public key portion of an SSH key pair.
-     */
     body: pulumi.Input<string>;
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     */
     serverId: pulumi.Input<string>;
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     */
     userName: pulumi.Input<string>;
 }

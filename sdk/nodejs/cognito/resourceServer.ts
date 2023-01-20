@@ -7,47 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Cognito Resource Server.
- *
- * ## Example Usage
- * ### Create a basic resource server
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     userPoolId: pool.id,
- * });
- * ```
- * ### Create a resource server with sample-scope
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const pool = new aws.cognito.UserPool("pool", {});
- * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     scopes: [{
- *         scopeName: "sample-scope",
- *         scopeDescription: "a Sample Scope Description",
- *     }],
- *     userPoolId: pool.id,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_cognito_resource_server` can be imported using their User Pool ID and Identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example us-west-2_abc123:https://example.com
- * ```
- */
 export class ResourceServer extends pulumi.CustomResource {
     /**
      * Get an existing ResourceServer resource's state with the given name, ID, and optional extra
@@ -76,21 +35,9 @@ export class ResourceServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceServer.__pulumiType;
     }
 
-    /**
-     * An identifier for the resource server.
-     */
     public readonly identifier!: pulumi.Output<string>;
-    /**
-     * A name for the resource server.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A list of all scopes configured for this resource server in the format identifier/scope_name.
-     */
     public /*out*/ readonly scopeIdentifiers!: pulumi.Output<string[]>;
-    /**
-     * A list of Authorization Scope.
-     */
     public readonly scopes!: pulumi.Output<outputs.cognito.ResourceServerScope[] | undefined>;
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -135,21 +82,9 @@ export class ResourceServer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceServer resources.
  */
 export interface ResourceServerState {
-    /**
-     * An identifier for the resource server.
-     */
     identifier?: pulumi.Input<string>;
-    /**
-     * A name for the resource server.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of all scopes configured for this resource server in the format identifier/scope_name.
-     */
     scopeIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of Authorization Scope.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
     userPoolId?: pulumi.Input<string>;
 }
@@ -158,17 +93,8 @@ export interface ResourceServerState {
  * The set of arguments for constructing a ResourceServer resource.
  */
 export interface ResourceServerArgs {
-    /**
-     * An identifier for the resource server.
-     */
     identifier: pulumi.Input<string>;
-    /**
-     * A name for the resource server.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of Authorization Scope.
-     */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
     userPoolId: pulumi.Input<string>;
 }

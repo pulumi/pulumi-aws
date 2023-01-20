@@ -5,38 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Load Balancer Listener Certificate resource.
- *
- * This resource is for additional certificates and does not replace the default certificate on the listener.
- *
- * > **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {});
- * // ...
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
- * // ...
- * const exampleListenerCertificate = new aws.lb.ListenerCertificate("exampleListenerCertificate", {
- *     listenerArn: frontEndListener.arn,
- *     certificateArn: exampleCertificate.arn,
- * });
- * ```
- *
- * ## Import
- *
- * Listener Certificates can be imported by using the listener arn and certificate arn, separated by an underscore (`_`), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:applicationloadbalancing/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
- * ```
- *
  * @deprecated aws.applicationloadbalancing.ListenerCertificate has been deprecated in favor of aws.alb.ListenerCertificate
  */
 export class ListenerCertificate extends pulumi.CustomResource {
@@ -68,13 +36,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ListenerCertificate.__pulumiType;
     }
 
-    /**
-     * The ARN of the certificate to attach to the listener.
-     */
     public readonly certificateArn!: pulumi.Output<string>;
-    /**
-     * The ARN of the listener to which to attach the certificate.
-     */
     public readonly listenerArn!: pulumi.Output<string>;
 
     /**
@@ -115,13 +77,7 @@ export class ListenerCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ListenerCertificate resources.
  */
 export interface ListenerCertificateState {
-    /**
-     * The ARN of the certificate to attach to the listener.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * The ARN of the listener to which to attach the certificate.
-     */
     listenerArn?: pulumi.Input<string>;
 }
 
@@ -129,12 +85,6 @@ export interface ListenerCertificateState {
  * The set of arguments for constructing a ListenerCertificate resource.
  */
 export interface ListenerCertificateArgs {
-    /**
-     * The ARN of the certificate to attach to the listener.
-     */
     certificateArn: pulumi.Input<string>;
-    /**
-     * The ARN of the listener to which to attach the certificate.
-     */
     listenerArn: pulumi.Input<string>;
 }

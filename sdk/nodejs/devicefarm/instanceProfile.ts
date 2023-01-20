@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage AWS Device Farm Instance Profiles.
- * ∂
- * > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devicefarm.InstanceProfile("example", {});
- * ```
- *
- * ## Import
- *
- * DeviceFarm Instance Profiles can be imported by their arn
- *
- * ```sh
- *  $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
- * ```
- */
 export class InstanceProfile extends pulumi.CustomResource {
     /**
      * Get an existing InstanceProfile resource's state with the given name, ID, and optional extra
@@ -54,37 +32,13 @@ export class InstanceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceProfile.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name of this instance profile.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the instance profile.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
-     */
     public readonly excludeAppPackagesFromCleanups!: pulumi.Output<string[] | undefined>;
-    /**
-     * The name for the instance profile.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-     */
     public readonly packageCleanup!: pulumi.Output<boolean | undefined>;
-    /**
-     * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-     */
     public readonly rebootAfterUse!: pulumi.Output<boolean | undefined>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -128,37 +82,13 @@ export class InstanceProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceProfile resources.
  */
 export interface InstanceProfileState {
-    /**
-     * The Amazon Resource Name of this instance profile.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the instance profile.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
-     */
     excludeAppPackagesFromCleanups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name for the instance profile.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-     */
     packageCleanup?: pulumi.Input<boolean>;
-    /**
-     * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-     */
     rebootAfterUse?: pulumi.Input<boolean>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -166,28 +96,10 @@ export interface InstanceProfileState {
  * The set of arguments for constructing a InstanceProfile resource.
  */
 export interface InstanceProfileArgs {
-    /**
-     * The description of the instance profile.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
-     */
     excludeAppPackagesFromCleanups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name for the instance profile.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * When set to `true`, Device Farm removes app packages after a test run. The default value is `false` for private devices.
-     */
     packageCleanup?: pulumi.Input<boolean>;
-    /**
-     * When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
-     */
     rebootAfterUse?: pulumi.Input<boolean>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

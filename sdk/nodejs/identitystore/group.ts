@@ -7,19 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IdentityStore Group.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
- *
- * ```sh
- *  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra
@@ -48,25 +35,10 @@ export class Group extends pulumi.CustomResource {
         return obj['__pulumiType'] === Group.__pulumiType;
     }
 
-    /**
-     * A string containing the description of the group.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     public readonly displayName!: pulumi.Output<string>;
-    /**
-     * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     */
     public /*out*/ readonly externalIds!: pulumi.Output<outputs.identitystore.GroupExternalId[]>;
-    /**
-     * The identifier of the newly created group in the identity store.
-     */
     public /*out*/ readonly groupId!: pulumi.Output<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     */
     public readonly identityStoreId!: pulumi.Output<string>;
 
     /**
@@ -110,25 +82,10 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    /**
-     * A string containing the description of the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     */
     externalIds?: pulumi.Input<pulumi.Input<inputs.identitystore.GroupExternalId>[]>;
-    /**
-     * The identifier of the newly created group in the identity store.
-     */
     groupId?: pulumi.Input<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     */
     identityStoreId?: pulumi.Input<string>;
 }
 
@@ -136,16 +93,7 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    /**
-     * A string containing the description of the group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * The globally unique identifier for the identity store.
-     */
     identityStoreId: pulumi.Input<string>;
 }

@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Lex Bot Alias resource. For more information see
- * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderFlowersProd = new aws.lex.BotAlias("orderFlowersProd", {
- *     botName: "OrderFlowers",
- *     botVersion: "1",
- *     description: "Production Version of the OrderFlowers Bot.",
- *     name: "OrderFlowersProd",
- * });
- * ```
- *
- * ## Import
- *
- * Bot aliases can be imported using an ID with the format `bot_name:bot_alias_name`.
- *
- * ```sh
- *  $ pulumi import aws:lex/botAlias:BotAlias order_flowers_prod OrderFlowers:OrderFlowersProd
- * ```
- */
 export class BotAlias extends pulumi.CustomResource {
     /**
      * Get an existing BotAlias resource's state with the given name, ID, and optional extra
@@ -61,41 +35,14 @@ export class BotAlias extends pulumi.CustomResource {
         return obj['__pulumiType'] === BotAlias.__pulumiType;
     }
 
-    /**
-     * The ARN of the bot alias.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The name of the bot.
-     */
     public readonly botName!: pulumi.Output<string>;
-    /**
-     * The name of the bot.
-     */
     public readonly botVersion!: pulumi.Output<string>;
-    /**
-     * Checksum of the bot alias.
-     */
     public /*out*/ readonly checksum!: pulumi.Output<string>;
-    /**
-     * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     */
     public readonly conversationLogs!: pulumi.Output<outputs.lex.BotAliasConversationLogs | undefined>;
-    /**
-     * The date that the bot alias was created.
-     */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
-    /**
-     * A description of the alias. Must be less than or equal to 200 characters in length.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-     */
     public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
-    /**
-     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -147,41 +94,14 @@ export class BotAlias extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BotAlias resources.
  */
 export interface BotAliasState {
-    /**
-     * The ARN of the bot alias.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the bot.
-     */
     botName?: pulumi.Input<string>;
-    /**
-     * The name of the bot.
-     */
     botVersion?: pulumi.Input<string>;
-    /**
-     * Checksum of the bot alias.
-     */
     checksum?: pulumi.Input<string>;
-    /**
-     * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     */
     conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
-    /**
-     * The date that the bot alias was created.
-     */
     createdDate?: pulumi.Input<string>;
-    /**
-     * A description of the alias. Must be less than or equal to 200 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
-     */
     lastUpdatedDate?: pulumi.Input<string>;
-    /**
-     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -189,24 +109,9 @@ export interface BotAliasState {
  * The set of arguments for constructing a BotAlias resource.
  */
 export interface BotAliasArgs {
-    /**
-     * The name of the bot.
-     */
     botName: pulumi.Input<string>;
-    /**
-     * The name of the bot.
-     */
     botVersion: pulumi.Input<string>;
-    /**
-     * The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
-     */
     conversationLogs?: pulumi.Input<inputs.lex.BotAliasConversationLogs>;
-    /**
-     * A description of the alias. Must be less than or equal to 200 characters in length.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
-     */
     name?: pulumi.Input<string>;
 }

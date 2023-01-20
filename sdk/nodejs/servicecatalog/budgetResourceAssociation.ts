@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Budget Resource Association.
- *
- * > **Tip:** A "resource" is either a Service Catalog portfolio or product.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.BudgetResourceAssociation("example", {
- *     budgetName: "budget-pjtvyakdlyo3m",
- *     resourceId: "prod-dnigbtea24ste",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
- * ```
- */
 export class BudgetResourceAssociation extends pulumi.CustomResource {
     /**
      * Get an existing BudgetResourceAssociation resource's state with the given name, ID, and optional extra
@@ -58,13 +32,7 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === BudgetResourceAssociation.__pulumiType;
     }
 
-    /**
-     * Budget name.
-     */
     public readonly budgetName!: pulumi.Output<string>;
-    /**
-     * Resource identifier.
-     */
     public readonly resourceId!: pulumi.Output<string>;
 
     /**
@@ -102,13 +70,7 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BudgetResourceAssociation resources.
  */
 export interface BudgetResourceAssociationState {
-    /**
-     * Budget name.
-     */
     budgetName?: pulumi.Input<string>;
-    /**
-     * Resource identifier.
-     */
     resourceId?: pulumi.Input<string>;
 }
 
@@ -116,12 +78,6 @@ export interface BudgetResourceAssociationState {
  * The set of arguments for constructing a BudgetResourceAssociation resource.
  */
 export interface BudgetResourceAssociationArgs {
-    /**
-     * Budget name.
-     */
     budgetName: pulumi.Input<string>;
-    /**
-     * Resource identifier.
-     */
     resourceId: pulumi.Input<string>;
 }

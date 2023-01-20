@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeArtifact Repostory Permissions Policy Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
- *     domain: "example",
- *     encryptionKey: exampleKey.arn,
- * });
- * const exampleRepository = new aws.codeartifact.Repository("exampleRepository", {
- *     repository: "example",
- *     domain: exampleDomain.domain,
- * });
- * const exampleRepositoryPermissionsPolicy = new aws.codeartifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", {
- *     repository: exampleRepository.repository,
- *     domain: exampleDomain.domain,
- *     policyDocument: pulumi.interpolate`{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "codeartifact:CreateRepository",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Resource": "${exampleDomain.arn}"
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * CodeArtifact Repository Permissions Policies can be imported using the CodeArtifact Repository ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:codeartifact/repositoryPermissionsPolicy:RepositoryPermissionsPolicy example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
- * ```
- */
 export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryPermissionsPolicy resource's state with the given name, ID, and optional extra
@@ -76,29 +32,11 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPermissionsPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     public readonly domain!: pulumi.Output<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     public readonly domainOwner!: pulumi.Output<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     public readonly policyDocument!: pulumi.Output<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     public readonly policyRevision!: pulumi.Output<string>;
-    /**
-     * The name of the repository to set the resource policy on.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * The ARN of the resource associated with the resource policy.
-     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -147,29 +85,11 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPermissionsPolicy resources.
  */
 export interface RepositoryPermissionsPolicyState {
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     policyRevision?: pulumi.Input<string>;
-    /**
-     * The name of the repository to set the resource policy on.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * The ARN of the resource associated with the resource policy.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -177,24 +97,9 @@ export interface RepositoryPermissionsPolicyState {
  * The set of arguments for constructing a RepositoryPermissionsPolicy resource.
  */
 export interface RepositoryPermissionsPolicyArgs {
-    /**
-     * The name of the domain on which to set the resource policy.
-     */
     domain: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     */
     policyDocument: pulumi.Input<string>;
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
-     */
     policyRevision?: pulumi.Input<string>;
-    /**
-     * The name of the repository to set the resource policy on.
-     */
     repository: pulumi.Input<string>;
 }

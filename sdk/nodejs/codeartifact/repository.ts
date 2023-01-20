@@ -7,70 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeArtifact Repository Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
- *     domain: "example",
- *     encryptionKey: exampleKey.arn,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: exampleDomain.domain,
- * });
- * ```
- * ### With Upstream Repository
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const upstream = new aws.codeartifact.Repository("upstream", {
- *     repository: "upstream",
- *     domain: aws_codeartifact_domain.test.domain,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: aws_codeartifact_domain.example.domain,
- *     upstreams: [{
- *         repositoryName: upstream.repository,
- *     }],
- * });
- * ```
- * ### With External Connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const upstream = new aws.codeartifact.Repository("upstream", {
- *     repository: "upstream",
- *     domain: aws_codeartifact_domain.test.domain,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: aws_codeartifact_domain.example.domain,
- *     externalConnections: {
- *         externalConnectionName: "public:npmjs",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
- * ```
- */
 export class Repository extends pulumi.CustomResource {
     /**
      * Get an existing Repository resource's state with the given name, ID, and optional extra
@@ -99,45 +35,15 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
-    /**
-     * The account number of the AWS account that manages the repository.
-     */
     public /*out*/ readonly administratorAccount!: pulumi.Output<string>;
-    /**
-     * The ARN of the repository.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the repository.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The domain that contains the created repository.
-     */
     public readonly domain!: pulumi.Output<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     public readonly domainOwner!: pulumi.Output<string>;
-    /**
-     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-     */
     public readonly externalConnections!: pulumi.Output<outputs.codeartifact.RepositoryExternalConnections | undefined>;
-    /**
-     * The name of the repository to create.
-     */
     public readonly repository!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-     */
     public readonly upstreams!: pulumi.Output<outputs.codeartifact.RepositoryUpstream[] | undefined>;
 
     /**
@@ -191,45 +97,15 @@ export class Repository extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Repository resources.
  */
 export interface RepositoryState {
-    /**
-     * The account number of the AWS account that manages the repository.
-     */
     administratorAccount?: pulumi.Input<string>;
-    /**
-     * The ARN of the repository.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the repository.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The domain that contains the created repository.
-     */
     domain?: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-     */
     externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
-    /**
-     * The name of the repository to create.
-     */
     repository?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-     */
     upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
 }
 
@@ -237,32 +113,11 @@ export interface RepositoryState {
  * The set of arguments for constructing a Repository resource.
  */
 export interface RepositoryArgs {
-    /**
-     * The description of the repository.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The domain that contains the created repository.
-     */
     domain: pulumi.Input<string>;
-    /**
-     * The account number of the AWS account that owns the domain.
-     */
     domainOwner?: pulumi.Input<string>;
-    /**
-     * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
-     */
     externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
-    /**
-     * The name of the repository to create.
-     */
     repository: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
-     */
     upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
 }

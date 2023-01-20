@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync API Cache.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiCache = new aws.appsync.ApiCache("exampleApiCache", {
- *     apiId: exampleGraphQLApi.id,
- *     apiCachingBehavior: "FULL_REQUEST_CACHING",
- *     type: "LARGE",
- *     ttl: 900,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
- * ```
- */
 export class ApiCache extends pulumi.CustomResource {
     /**
      * Get an existing ApiCache resource's state with the given name, ID, and optional extra
@@ -58,29 +32,11 @@ export class ApiCache extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiCache.__pulumiType;
     }
 
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     public readonly apiCachingBehavior!: pulumi.Output<string>;
-    /**
-     * GraphQL API ID.
-     */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     public readonly ttl!: pulumi.Output<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -132,29 +88,11 @@ export class ApiCache extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiCache resources.
  */
 export interface ApiCacheState {
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     apiCachingBehavior?: pulumi.Input<string>;
-    /**
-     * GraphQL API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     ttl?: pulumi.Input<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -162,28 +100,10 @@ export interface ApiCacheState {
  * The set of arguments for constructing a ApiCache resource.
  */
 export interface ApiCacheArgs {
-    /**
-     * Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
-     */
     apiCachingBehavior: pulumi.Input<string>;
-    /**
-     * GraphQL API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * At-rest encryption flag for cache. You cannot update this setting after creation.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * TTL in seconds for cache entries.
-     */
     ttl: pulumi.Input<number>;
-    /**
-     * Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
-     */
     type: pulumi.Input<string>;
 }

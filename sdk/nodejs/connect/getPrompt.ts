@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific Amazon Connect Prompt.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getPrompt({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Beep.wav",
- * });
- * ```
- */
 export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Promise<GetPromptResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +17,7 @@ export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getPrompt.
  */
 export interface GetPromptArgs {
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     */
     instanceId: string;
-    /**
-     * Returns information on a specific Prompt by name
-     */
     name: string;
 }
 
@@ -48,9 +25,6 @@ export interface GetPromptArgs {
  * A collection of values returned by getPrompt.
  */
 export interface GetPromptResult {
-    /**
-     * ARN of the Prompt.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -58,28 +32,8 @@ export interface GetPromptResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
-    /**
-     * Identifier for the prompt.
-     */
     readonly promptId: string;
 }
-/**
- * Provides details about a specific Amazon Connect Prompt.
- *
- * ## Example Usage
- *
- * By `name`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.connect.getPrompt({
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Beep.wav",
- * });
- * ```
- */
 export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
     return pulumi.output(args).apply((a: any) => getPrompt(a, opts))
 }
@@ -88,12 +42,6 @@ export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getPrompt.
  */
 export interface GetPromptOutputArgs {
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Returns information on a specific Prompt by name
-     */
     name: pulumi.Input<string>;
 }

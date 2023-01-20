@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an CloudSearch domain service access policy resource.
- *
- * The provider waits for the domain service access policy to become `Active` when applying a configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomain = new aws.cloudsearch.Domain("exampleDomain", {});
- * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("exampleDomainServiceAccessPolicy", {
- *     domainName: exampleDomain.id,
- *     accessPolicy: `{
- *   "Version":"2012-10-17",
- *   "Statement":[{
- *     "Sid":"search_only",
- *     "Effect":"Allow",
- *     "Principal":"*",
- *     "Action":[
- *       "cloudsearch:search",
- *       "cloudsearch:document"
- *     ],
- *     "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
- *   }]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * CloudSearch domain service access policies can be imported using the domain name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
- * ```
- */
 export class DomainServiceAccessPolicy extends pulumi.CustomResource {
     /**
      * Get an existing DomainServiceAccessPolicy resource's state with the given name, ID, and optional extra
@@ -71,13 +32,7 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainServiceAccessPolicy.__pulumiType;
     }
 
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     public readonly accessPolicy!: pulumi.Output<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     public readonly domainName!: pulumi.Output<string>;
 
     /**
@@ -115,13 +70,7 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainServiceAccessPolicy resources.
  */
 export interface DomainServiceAccessPolicyState {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     accessPolicy?: pulumi.Input<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     domainName?: pulumi.Input<string>;
 }
 
@@ -129,12 +78,6 @@ export interface DomainServiceAccessPolicyState {
  * The set of arguments for constructing a DomainServiceAccessPolicy resource.
  */
 export interface DomainServiceAccessPolicyArgs {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     */
     accessPolicy: pulumi.Input<string>;
-    /**
-     * The CloudSearch domain name the policy applies to.
-     */
     domainName: pulumi.Input<string>;
 }

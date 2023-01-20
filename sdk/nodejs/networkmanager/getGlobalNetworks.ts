@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about global networks.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getGlobalNetworks({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getGlobalNetworks(args?: GetGlobalNetworksArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalNetworksResult> {
     args = args || {};
 
@@ -33,9 +17,6 @@ export function getGlobalNetworks(args?: GetGlobalNetworksArgs, opts?: pulumi.In
  * A collection of arguments for invoking getGlobalNetworks.
  */
 export interface GetGlobalNetworksArgs {
-    /**
-     * Restricts the list to the global networks with these tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -47,28 +28,9 @@ export interface GetGlobalNetworksResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IDs of the global networks.
-     */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
-/**
- * Retrieve information about global networks.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getGlobalNetworks({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getGlobalNetworksOutput(args?: GetGlobalNetworksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalNetworksResult> {
     return pulumi.output(args).apply((a: any) => getGlobalNetworks(a, opts))
 }
@@ -77,8 +39,5 @@ export function getGlobalNetworksOutput(args?: GetGlobalNetworksOutputArgs, opts
  * A collection of arguments for invoking getGlobalNetworks.
  */
 export interface GetGlobalNetworksOutputArgs {
-    /**
-     * Restricts the list to the global networks with these tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

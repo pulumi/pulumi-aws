@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about a specific hardware asset in an Outpost.
- */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -20,13 +17,7 @@ export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getAsset.
  */
 export interface GetAssetArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: string;
-    /**
-     * ID of the asset.
-     */
     assetId: string;
 }
 
@@ -36,30 +27,15 @@ export interface GetAssetArgs {
 export interface GetAssetResult {
     readonly arn: string;
     readonly assetId: string;
-    /**
-     * Type of the asset.
-     */
     readonly assetType: string;
-    /**
-     * Host ID of the Dedicated Hosts on the asset, if a Dedicated Host is provisioned.
-     */
     readonly hostId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Position of an asset in a rack measured in rack units.
-     */
     readonly rackElevation: number;
-    /**
-     * Rack ID of the asset.
-     */
     readonly rackId: string;
 }
-/**
- * Information about a specific hardware asset in an Outpost.
- */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))
 }
@@ -68,12 +44,6 @@ export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAsset.
  */
 export interface GetAssetOutputArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * ID of the asset.
-     */
     assetId: pulumi.Input<string>;
 }

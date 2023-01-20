@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds an IoT Thing to an IoT Thing Group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.ThingGroupMembership("example", {
- *     overrideDynamicGroup: true,
- *     thingGroupName: "example-group",
- *     thingName: "example-thing",
- * });
- * ```
- *
- * ## Import
- *
- * IoT Thing Group Membership can be imported using the thing group name and thing name.
- *
- * ```sh
- *  $ pulumi import aws:iot/thingGroupMembership:ThingGroupMembership example thing_group_name/thing_name
- * ```
- */
 export class ThingGroupMembership extends pulumi.CustomResource {
     /**
      * Get an existing ThingGroupMembership resource's state with the given name, ID, and optional extra
@@ -56,17 +32,8 @@ export class ThingGroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingGroupMembership.__pulumiType;
     }
 
-    /**
-     * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-     */
     public readonly overrideDynamicGroup!: pulumi.Output<boolean | undefined>;
-    /**
-     * The name of the group to which you are adding a thing.
-     */
     public readonly thingGroupName!: pulumi.Output<string>;
-    /**
-     * The name of the thing to add to a group.
-     */
     public readonly thingName!: pulumi.Output<string>;
 
     /**
@@ -106,17 +73,8 @@ export class ThingGroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ThingGroupMembership resources.
  */
 export interface ThingGroupMembershipState {
-    /**
-     * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-     */
     overrideDynamicGroup?: pulumi.Input<boolean>;
-    /**
-     * The name of the group to which you are adding a thing.
-     */
     thingGroupName?: pulumi.Input<string>;
-    /**
-     * The name of the thing to add to a group.
-     */
     thingName?: pulumi.Input<string>;
 }
 
@@ -124,16 +82,7 @@ export interface ThingGroupMembershipState {
  * The set of arguments for constructing a ThingGroupMembership resource.
  */
 export interface ThingGroupMembershipArgs {
-    /**
-     * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
-     */
     overrideDynamicGroup?: pulumi.Input<boolean>;
-    /**
-     * The name of the group to which you are adding a thing.
-     */
     thingGroupName: pulumi.Input<string>;
-    /**
-     * The name of the thing to add to a group.
-     */
     thingName: pulumi.Input<string>;
 }

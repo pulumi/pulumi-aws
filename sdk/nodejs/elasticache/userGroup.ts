@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ElastiCache user group resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testUser = new aws.elasticache.User("testUser", {
- *     userId: "testUserId",
- *     userName: "default",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const testUserGroup = new aws.elasticache.UserGroup("testUserGroup", {
- *     engine: "REDIS",
- *     userGroupId: "userGroupId",
- *     userIds: [testUser.userId],
- * });
- * ```
- *
- * ## Import
- *
- * ElastiCache user groups can be imported using the `user_group_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
- * ```
- */
 export class UserGroup extends pulumi.CustomResource {
     /**
      * Get an existing UserGroup resource's state with the given name, ID, and optional extra
@@ -63,29 +32,11 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
-    /**
-     * The ARN that identifies the user group.
-     */
     public readonly arn!: pulumi.Output<string>;
-    /**
-     * The current supported value is `REDIS`.
-     */
     public readonly engine!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The ID of the user group.
-     */
     public readonly userGroupId!: pulumi.Output<string>;
-    /**
-     * The list of user IDs that belong to the user group.
-     */
     public readonly userIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -131,29 +82,11 @@ export class UserGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroup resources.
  */
 export interface UserGroupState {
-    /**
-     * The ARN that identifies the user group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The current supported value is `REDIS`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the user group.
-     */
     userGroupId?: pulumi.Input<string>;
-    /**
-     * The list of user IDs that belong to the user group.
-     */
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -161,24 +94,9 @@ export interface UserGroupState {
  * The set of arguments for constructing a UserGroup resource.
  */
 export interface UserGroupArgs {
-    /**
-     * The ARN that identifies the user group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The current supported value is `REDIS`.
-     */
     engine: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the user group.
-     */
     userGroupId: pulumi.Input<string>;
-    /**
-     * The list of user IDs that belong to the user group.
-     */
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

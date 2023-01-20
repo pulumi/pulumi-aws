@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Inspector V2 Delegated Admin Account.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.inspector2.DelegatedAdminAccount("example", {accountId: current.then(current => current.accountId)});
- * ```
- *
- * ## Import
- *
- * Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
- * ```
- */
 export class DelegatedAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing DelegatedAdminAccount resource's state with the given name, ID, and optional extra
@@ -54,13 +32,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === DelegatedAdminAccount.__pulumiType;
     }
 
-    /**
-     * Account to enable as delegated admin account.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * Status of this delegated admin account.
-     */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
 
     /**
@@ -95,13 +67,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DelegatedAdminAccount resources.
  */
 export interface DelegatedAdminAccountState {
-    /**
-     * Account to enable as delegated admin account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Status of this delegated admin account.
-     */
     relationshipStatus?: pulumi.Input<string>;
 }
 
@@ -109,8 +75,5 @@ export interface DelegatedAdminAccountState {
  * The set of arguments for constructing a DelegatedAdminAccount resource.
  */
 export interface DelegatedAdminAccountArgs {
-    /**
-     * Account to enable as delegated admin account.
-     */
     accountId: pulumi.Input<string>;
 }

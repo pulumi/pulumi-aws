@@ -4,49 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Object Lambda Access Point resource policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
- *     supportingAccessPoint: exampleAccessPoint.arn,
- *     transformationConfigurations: [{
- *         actions: ["GetObject"],
- *         contentTransformation: {
- *             awsLambda: {
- *                 functionArn: aws_lambda_function.example.arn,
- *             },
- *         },
- *     }],
- * }});
- * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", {policy: exampleObjectLambdaAccessPoint.arn.apply(arn => JSON.stringify({
- *     Version: "2008-10-17",
- *     Statement: [{
- *         Effect: "Allow",
- *         Action: "s3-object-lambda:GetObject",
- *         Principal: {
- *             AWS: data.aws_caller_identity.current.account_id,
- *         },
- *         Resource: arn,
- *     }],
- * }))});
- * ```
- *
- * ## Import
- *
- * Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
- *
- * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
- * ```
- */
 export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ObjectLambdaAccessPointPolicy resource's state with the given name, ID, and optional extra
@@ -75,21 +32,9 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ObjectLambdaAccessPointPolicy.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * Indicates whether this access point currently has a policy that allows public access.
-     */
     public /*out*/ readonly hasPublicAccessPolicy!: pulumi.Output<boolean>;
-    /**
-     * The name of the Object Lambda Access Point.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The Object Lambda Access Point resource policy document.
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -128,21 +73,9 @@ export class ObjectLambdaAccessPointPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ObjectLambdaAccessPointPolicy resources.
  */
 export interface ObjectLambdaAccessPointPolicyState {
-    /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Indicates whether this access point currently has a policy that allows public access.
-     */
     hasPublicAccessPolicy?: pulumi.Input<boolean>;
-    /**
-     * The name of the Object Lambda Access Point.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Object Lambda Access Point resource policy document.
-     */
     policy?: pulumi.Input<string>;
 }
 
@@ -150,16 +83,7 @@ export interface ObjectLambdaAccessPointPolicyState {
  * The set of arguments for constructing a ObjectLambdaAccessPointPolicy resource.
  */
 export interface ObjectLambdaAccessPointPolicyArgs {
-    /**
-     * The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The name of the Object Lambda Access Point.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Object Lambda Access Point resource policy document.
-     */
     policy: pulumi.Input<string>;
 }

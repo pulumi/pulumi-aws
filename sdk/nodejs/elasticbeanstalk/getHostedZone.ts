@@ -4,18 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.elasticbeanstalk.getHostedZone({});
- * ```
- */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
     args = args || {};
 
@@ -29,9 +17,6 @@ export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getHostedZone.
  */
 export interface GetHostedZoneArgs {
-    /**
-     * Region you'd like the zone for. By default, fetches the current region.
-     */
     region?: string;
 }
 
@@ -43,23 +28,8 @@ export interface GetHostedZoneResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Region of the hosted zone.
-     */
     readonly region?: string;
 }
-/**
- * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.elasticbeanstalk.getHostedZone({});
- * ```
- */
 export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
     return pulumi.output(args).apply((a: any) => getHostedZone(a, opts))
 }
@@ -68,8 +38,5 @@ export function getHostedZoneOutput(args?: GetHostedZoneOutputArgs, opts?: pulum
  * A collection of arguments for invoking getHostedZone.
  */
 export interface GetHostedZoneOutputArgs {
-    /**
-     * Region you'd like the zone for. By default, fetches the current region.
-     */
     region?: pulumi.Input<string>;
 }

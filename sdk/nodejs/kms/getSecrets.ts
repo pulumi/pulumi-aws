@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Decrypt multiple secrets from data encrypted with the AWS KMS service.
- */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,9 +19,6 @@ export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsArgs {
-    /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     */
     secrets: inputs.kms.GetSecretsSecret[];
 }
 
@@ -36,15 +30,9 @@ export interface GetSecretsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Map containing each `secret` `name` as the key with its decrypted plaintext value
-     */
     readonly plaintext: {[key: string]: string};
     readonly secrets: outputs.kms.GetSecretsSecret[];
 }
-/**
- * Decrypt multiple secrets from data encrypted with the AWS KMS service.
- */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsResult> {
     return pulumi.output(args).apply((a: any) => getSecrets(a, opts))
 }
@@ -53,8 +41,5 @@ export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getSecrets.
  */
 export interface GetSecretsOutputArgs {
-    /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     */
     secrets: pulumi.Input<pulumi.Input<inputs.kms.GetSecretsSecretArgs>[]>;
 }

@@ -4,54 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
- *
- * > To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUser = new aws.iam.User("exampleUser", {
- *     path: "/",
- *     forceDestroy: true,
- * });
- * const exampleUserLoginProfile = new aws.iam.UserLoginProfile("exampleUserLoginProfile", {
- *     user: exampleUser.name,
- *     pgpKey: "keybase:some_person_that_exists",
- * });
- * export const password = exampleUserLoginProfile.encryptedPassword;
- * ```
- *
- * ## Import
- *
- * IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
- * ```
- *
- *  Since this provider has no method to read the PGP or password information during import, use [`ignore_changes` argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore them unless password recreation is desired. e.g. terraform resource "aws_iam_user_login_profile" "example" {
- *
- * # ... other configuration ...
- *
- *  lifecycle {
- *
- *  ignore_changes = [
- *
- *  password_length,
- *
- *  password_reset_required,
- *
- *  pgp_key,
- *
- *  ]
- *
- *  } }
- */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**
      * Get an existing UserLoginProfile resource's state with the given name, ID, and optional extra
@@ -80,33 +32,12 @@ export class UserLoginProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserLoginProfile.__pulumiType;
     }
 
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-     */
     public /*out*/ readonly encryptedPassword!: pulumi.Output<string>;
-    /**
-     * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-     */
     public /*out*/ readonly keyFingerprint!: pulumi.Output<string>;
-    /**
-     * The plain text password, only available when `pgpKey` is not provided.
-     */
     public /*out*/ readonly password!: pulumi.Output<string>;
-    /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-     */
     public readonly passwordLength!: pulumi.Output<number | undefined>;
-    /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-     */
     public readonly passwordResetRequired!: pulumi.Output<boolean>;
-    /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-     */
     public readonly pgpKey!: pulumi.Output<string | undefined>;
-    /**
-     * The IAM user's name.
-     */
     public readonly user!: pulumi.Output<string>;
 
     /**
@@ -151,33 +82,12 @@ export class UserLoginProfile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserLoginProfile resources.
  */
 export interface UserLoginProfileState {
-    /**
-     * The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-     */
     encryptedPassword?: pulumi.Input<string>;
-    /**
-     * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-     */
     keyFingerprint?: pulumi.Input<string>;
-    /**
-     * The plain text password, only available when `pgpKey` is not provided.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-     */
     passwordLength?: pulumi.Input<number>;
-    /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-     */
     passwordResetRequired?: pulumi.Input<boolean>;
-    /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-     */
     pgpKey?: pulumi.Input<string>;
-    /**
-     * The IAM user's name.
-     */
     user?: pulumi.Input<string>;
 }
 
@@ -185,20 +95,8 @@ export interface UserLoginProfileState {
  * The set of arguments for constructing a UserLoginProfile resource.
  */
 export interface UserLoginProfileArgs {
-    /**
-     * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-     */
     passwordLength?: pulumi.Input<number>;
-    /**
-     * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-     */
     passwordResetRequired?: pulumi.Input<boolean>;
-    /**
-     * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-     */
     pgpKey?: pulumi.Input<string>;
-    /**
-     * The IAM user's name.
-     */
     user: pulumi.Input<string>;
 }

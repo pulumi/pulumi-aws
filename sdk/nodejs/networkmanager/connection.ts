@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a connection between two devices.
- * The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.Connection("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     deviceId: aws_networkmanager_device.example1.id,
- *     connectedDeviceId: aws_networkmanager_device.example2.id,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_networkmanager_connection` can be imported using the connection ARN, e.g.
- *
- * ```sh
- *  $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
- * ```
- */
 export class Connection extends pulumi.CustomResource {
     /**
      * Get an existing Connection resource's state with the given name, ID, and optional extra
@@ -57,41 +32,14 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the connection.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID of the second device in the connection.
-     */
     public readonly connectedDeviceId!: pulumi.Output<string>;
-    /**
-     * The ID of the link for the second device.
-     */
     public readonly connectedLinkId!: pulumi.Output<string | undefined>;
-    /**
-     * A description of the connection.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the first device in the connection.
-     */
     public readonly deviceId!: pulumi.Output<string>;
-    /**
-     * The ID of the global network.
-     */
     public readonly globalNetworkId!: pulumi.Output<string>;
-    /**
-     * The ID of the link for the first device.
-     */
     public readonly linkId!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -146,41 +94,14 @@ export class Connection extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Connection resources.
  */
 export interface ConnectionState {
-    /**
-     * The Amazon Resource Name (ARN) of the connection.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the second device in the connection.
-     */
     connectedDeviceId?: pulumi.Input<string>;
-    /**
-     * The ID of the link for the second device.
-     */
     connectedLinkId?: pulumi.Input<string>;
-    /**
-     * A description of the connection.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the first device in the connection.
-     */
     deviceId?: pulumi.Input<string>;
-    /**
-     * The ID of the global network.
-     */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * The ID of the link for the first device.
-     */
     linkId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -188,32 +109,11 @@ export interface ConnectionState {
  * The set of arguments for constructing a Connection resource.
  */
 export interface ConnectionArgs {
-    /**
-     * The ID of the second device in the connection.
-     */
     connectedDeviceId: pulumi.Input<string>;
-    /**
-     * The ID of the link for the second device.
-     */
     connectedLinkId?: pulumi.Input<string>;
-    /**
-     * A description of the connection.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the first device in the connection.
-     */
     deviceId: pulumi.Input<string>;
-    /**
-     * The ID of the global network.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * The ID of the link for the first device.
-     */
     linkId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the connection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,73 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
- *
- * ## Example Usage
- * ### Basic Usage - Logging to CloudWatch
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     cloudwatchLogs: {
- *         logGroupName: exampleLogGroup.name,
- *     },
- * }});
- * ```
- * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {bucketPrefix: "tf-ivschat-logging-bucket"});
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "firehose.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream", {
- *     destination: "extended_s3",
- *     extendedS3Configuration: {
- *         roleArn: exampleRole.arn,
- *         bucketArn: exampleBucketV2.arn,
- *     },
- *     tags: {
- *         LogDeliveryEnabled: "true",
- *     },
- * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const exampleLoggingConfiguration = new aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", {destinationConfiguration: {
- *     firehose: {
- *         deliveryStreamName: exampleFirehoseDeliveryStream.name,
- *     },
- * }});
- * ```
- *
- * ## Import
- *
- * IVS (Interactive Video) Chat Logging Configuration can be imported using the ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
- * ```
- */
 export class LoggingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing LoggingConfiguration resource's state with the given name, ID, and optional extra
@@ -102,29 +35,11 @@ export class LoggingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoggingConfiguration.__pulumiType;
     }
 
-    /**
-     * ARN of the Logging Configuration.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration | undefined>;
-    /**
-     * Logging Configuration name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * State of the Logging Configuration.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -164,29 +79,11 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoggingConfiguration resources.
  */
 export interface LoggingConfigurationState {
-    /**
-     * ARN of the Logging Configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     */
     destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
-    /**
-     * Logging Configuration name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * State of the Logging Configuration.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -194,16 +91,7 @@ export interface LoggingConfigurationState {
  * The set of arguments for constructing a LoggingConfiguration resource.
  */
 export interface LoggingConfigurationArgs {
-    /**
-     * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     */
     destinationConfiguration?: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfiguration>;
-    /**
-     * Logging Configuration name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

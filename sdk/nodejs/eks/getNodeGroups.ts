@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
- */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,9 +16,6 @@ export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getNodeGroups.
  */
 export interface GetNodeGroupsArgs {
-    /**
-     * Name of the cluster.
-     */
     clusterName: string;
 }
 
@@ -34,14 +28,8 @@ export interface GetNodeGroupsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of all node group names in an EKS Cluster.
-     */
     readonly names: string[];
 }
-/**
- * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
- */
 export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupsResult> {
     return pulumi.output(args).apply((a: any) => getNodeGroups(a, opts))
 }
@@ -50,8 +38,5 @@ export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getNodeGroups.
  */
 export interface GetNodeGroupsOutputArgs {
-    /**
-     * Name of the cluster.
-     */
     clusterName: pulumi.Input<string>;
 }

@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
- *
- * ## Example Usage
- * ### Retrieve Secret Rotation Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.secretsmanager.getSecretRotation({
- *     secretId: data.aws_secretsmanager_secret.example.id,
- * });
- * ```
- */
 export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretRotationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,9 +19,6 @@ export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationArgs {
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     */
     secretId: string;
 }
 
@@ -48,35 +30,11 @@ export interface GetSecretRotationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ARN of the secret.
-     */
     readonly rotationEnabled: boolean;
-    /**
-     * Decrypted part of the protected secret information that was originally provided as a string.
-     */
     readonly rotationLambdaArn: string;
-    /**
-     * Decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
-     */
     readonly rotationRules: outputs.secretsmanager.GetSecretRotationRotationRule[];
     readonly secretId: string;
 }
-/**
- * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
- *
- * ## Example Usage
- * ### Retrieve Secret Rotation Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.secretsmanager.getSecretRotation({
- *     secretId: data.aws_secretsmanager_secret.example.id,
- * });
- * ```
- */
 export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretRotationResult> {
     return pulumi.output(args).apply((a: any) => getSecretRotation(a, opts))
 }
@@ -85,8 +43,5 @@ export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?
  * A collection of arguments for invoking getSecretRotation.
  */
 export interface GetSecretRotationOutputArgs {
-    /**
-     * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
-     */
     secretId: pulumi.Input<string>;
 }

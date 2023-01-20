@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byName = aws.waf.getSubscribedRuleGroup({
- *     name: "F5 Bot Detection Signatures For AWS WAF",
- * });
- * const byMetricName = aws.waf.getSubscribedRuleGroup({
- *     metricName: "F5BotDetectionSignatures",
- * });
- * // ...
- * const acl = new aws.waf.WebAcl("acl", {rules: [
- *     {
- *         priority: 1,
- *         ruleId: byName.then(byName => byName.id),
- *         type: "GROUP",
- *     },
- *     {
- *         priority: 2,
- *         ruleId: byMetricName.then(byMetricName => byMetricName.id),
- *         type: "GROUP",
- *     },
- * ]});
- * ```
- */
 export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscribedRuleGroupResult> {
     args = args || {};
 
@@ -48,13 +18,7 @@ export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?:
  * A collection of arguments for invoking getSubscribedRuleGroup.
  */
 export interface GetSubscribedRuleGroupArgs {
-    /**
-     * Name of the WAF rule group.
-     */
     metricName?: string;
-    /**
-     * Name of the WAF rule group.
-     */
     name?: string;
 }
 
@@ -69,36 +33,6 @@ export interface GetSubscribedRuleGroupResult {
     readonly metricName?: string;
     readonly name?: string;
 }
-/**
- * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byName = aws.waf.getSubscribedRuleGroup({
- *     name: "F5 Bot Detection Signatures For AWS WAF",
- * });
- * const byMetricName = aws.waf.getSubscribedRuleGroup({
- *     metricName: "F5BotDetectionSignatures",
- * });
- * // ...
- * const acl = new aws.waf.WebAcl("acl", {rules: [
- *     {
- *         priority: 1,
- *         ruleId: byName.then(byName => byName.id),
- *         type: "GROUP",
- *     },
- *     {
- *         priority: 2,
- *         ruleId: byMetricName.then(byMetricName => byMetricName.id),
- *         type: "GROUP",
- *     },
- * ]});
- * ```
- */
 export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscribedRuleGroupResult> {
     return pulumi.output(args).apply((a: any) => getSubscribedRuleGroup(a, opts))
 }
@@ -107,12 +41,6 @@ export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutput
  * A collection of arguments for invoking getSubscribedRuleGroup.
  */
 export interface GetSubscribedRuleGroupOutputArgs {
-    /**
-     * Name of the WAF rule group.
-     */
     metricName?: pulumi.Input<string>;
-    /**
-     * Name of the WAF rule group.
-     */
     name?: pulumi.Input<string>;
 }

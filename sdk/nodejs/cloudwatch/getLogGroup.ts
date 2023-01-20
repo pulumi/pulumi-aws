@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information about an AWS Cloudwatch Log Group
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getLogGroup({
- *     name: "MyImportantLogs",
- * });
- * ```
- */
 export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,13 +17,7 @@ export function getLogGroup(args: GetLogGroupArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getLogGroup.
  */
 export interface GetLogGroupArgs {
-    /**
-     * Name of the Cloudwatch log group
-     */
     name: string;
-    /**
-     * Map of tags to assign to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -45,46 +25,17 @@ export interface GetLogGroupArgs {
  * A collection of values returned by getLogGroup.
  */
 export interface GetLogGroupResult {
-    /**
-     * ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-     */
     readonly arn: string;
-    /**
-     * Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-     */
     readonly creationTime: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ARN of the KMS Key to use when encrypting log data.
-     */
     readonly kmsKeyId: string;
     readonly name: string;
-    /**
-     * Number of days log events retained in the specified log group.
-     */
     readonly retentionInDays: number;
-    /**
-     * Map of tags to assign to the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to get information about an AWS Cloudwatch Log Group
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getLogGroup({
- *     name: "MyImportantLogs",
- * });
- * ```
- */
 export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
     return pulumi.output(args).apply((a: any) => getLogGroup(a, opts))
 }
@@ -93,12 +44,6 @@ export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getLogGroup.
  */
 export interface GetLogGroupOutputArgs {
-    /**
-     * Name of the Cloudwatch log group
-     */
     name: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

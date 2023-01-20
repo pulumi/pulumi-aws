@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {multicastSupport: "enable"});
- * const exampleVpcAttachment = new aws.ec2transitgateway.VpcAttachment("exampleVpcAttachment", {
- *     subnetIds: [aws_subnet.example.id],
- *     transitGatewayId: exampleTransitGateway.id,
- *     vpcId: aws_vpc.example.id,
- * });
- * const exampleMulticastDomain = new aws.ec2transitgateway.MulticastDomain("exampleMulticastDomain", {transitGatewayId: exampleTransitGateway.id});
- * const exampleMulticastDomainAssociation = new aws.ec2transitgateway.MulticastDomainAssociation("exampleMulticastDomainAssociation", {
- *     subnetId: aws_subnet.example.id,
- *     transitGatewayAttachmentId: exampleVpcAttachment.id,
- *     transitGatewayMulticastDomainId: exampleMulticastDomain.id,
- * });
- * ```
- */
 export class MulticastDomainAssociation extends pulumi.CustomResource {
     /**
      * Get an existing MulticastDomainAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === MulticastDomainAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     public readonly subnetId!: pulumi.Output<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
@@ -108,17 +76,8 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastDomainAssociation resources.
  */
 export interface MulticastDomainAssociationState {
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     transitGatewayAttachmentId?: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     transitGatewayMulticastDomainId?: pulumi.Input<string>;
 }
 
@@ -126,16 +85,7 @@ export interface MulticastDomainAssociationState {
  * The set of arguments for constructing a MulticastDomainAssociation resource.
  */
 export interface MulticastDomainAssociationArgs {
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     */
     subnetId: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway attachment.
-     */
     transitGatewayAttachmentId: pulumi.Input<string>;
-    /**
-     * The ID of the transit gateway multicast domain.
-     */
     transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

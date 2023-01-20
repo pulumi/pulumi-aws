@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Pinpoint SMS Channel resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const sms = new aws.pinpoint.SmsChannel("sms", {applicationId: app.applicationId});
- * ```
- *
- * ## Import
- *
- * Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
- * ```
- */
 export class SmsChannel extends pulumi.CustomResource {
     /**
      * Get an existing SmsChannel resource's state with the given name, ID, and optional extra
@@ -53,29 +32,11 @@ export class SmsChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === SmsChannel.__pulumiType;
     }
 
-    /**
-     * The application ID.
-     */
     public readonly applicationId!: pulumi.Output<string>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Promotional messages per second that can be sent.
-     */
     public /*out*/ readonly promotionalMessagesPerSecond!: pulumi.Output<number>;
-    /**
-     * Sender identifier of your messages.
-     */
     public readonly senderId!: pulumi.Output<string | undefined>;
-    /**
-     * The Short Code registered with the phone provider.
-     */
     public readonly shortCode!: pulumi.Output<string | undefined>;
-    /**
-     * Transactional messages per second that can be sent.
-     */
     public /*out*/ readonly transactionalMessagesPerSecond!: pulumi.Output<number>;
 
     /**
@@ -118,29 +79,11 @@ export class SmsChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SmsChannel resources.
  */
 export interface SmsChannelState {
-    /**
-     * The application ID.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Promotional messages per second that can be sent.
-     */
     promotionalMessagesPerSecond?: pulumi.Input<number>;
-    /**
-     * Sender identifier of your messages.
-     */
     senderId?: pulumi.Input<string>;
-    /**
-     * The Short Code registered with the phone provider.
-     */
     shortCode?: pulumi.Input<string>;
-    /**
-     * Transactional messages per second that can be sent.
-     */
     transactionalMessagesPerSecond?: pulumi.Input<number>;
 }
 
@@ -148,20 +91,8 @@ export interface SmsChannelState {
  * The set of arguments for constructing a SmsChannel resource.
  */
 export interface SmsChannelArgs {
-    /**
-     * The application ID.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Sender identifier of your messages.
-     */
     senderId?: pulumi.Input<string>;
-    /**
-     * The Short Code registered with the phone provider.
-     */
     shortCode?: pulumi.Input<string>;
 }

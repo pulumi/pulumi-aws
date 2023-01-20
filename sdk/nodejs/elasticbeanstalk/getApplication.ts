@@ -7,22 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about an Elastic Beanstalk Application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.elasticbeanstalk.getApplication({
- *     name: "example",
- * });
- * export const arn = example.then(example => example.arn);
- * export const description = example.then(example => example.description);
- * ```
- */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,9 +19,6 @@ export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationArgs {
-    /**
-     * Name of the application
-     */
     name: string;
 }
 
@@ -46,13 +27,7 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     readonly appversionLifecycle: outputs.elasticbeanstalk.GetApplicationAppversionLifecycle;
-    /**
-     * ARN of the application.
-     */
     readonly arn: string;
-    /**
-     * Short description of the application
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -60,22 +35,6 @@ export interface GetApplicationResult {
     readonly id: string;
     readonly name: string;
 }
-/**
- * Retrieve information about an Elastic Beanstalk Application.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.elasticbeanstalk.getApplication({
- *     name: "example",
- * });
- * export const arn = example.then(example => example.arn);
- * export const description = example.then(example => example.description);
- * ```
- */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))
 }
@@ -84,8 +43,5 @@ export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulu
  * A collection of arguments for invoking getApplication.
  */
 export interface GetApplicationOutputArgs {
-    /**
-     * Name of the application
-     */
     name: pulumi.Input<string>;
 }

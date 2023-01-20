@@ -7,45 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sample = new aws.emr.Cluster("sample", {
- *     releaseLabel: "emr-5.30.0",
- *     masterInstanceGroup: {
- *         instanceType: "m4.large",
- *     },
- *     coreInstanceGroup: {
- *         instanceType: "c4.large",
- *     },
- * });
- * // skip ...
- * const samplepolicy = new aws.emr.ManagedScalingPolicy("samplepolicy", {
- *     clusterId: sample.id,
- *     computeLimits: [{
- *         unitType: "Instances",
- *         minimumCapacityUnits: 2,
- *         maximumCapacityUnits: 10,
- *         maximumOndemandCapacityUnits: 2,
- *         maximumCoreCapacityUnits: 10,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
- *
- * ```sh
- *  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
- * ```
- */
 export class ManagedScalingPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ManagedScalingPolicy resource's state with the given name, ID, and optional extra
@@ -74,13 +35,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedScalingPolicy.__pulumiType;
     }
 
-    /**
-     * ID of the EMR cluster
-     */
     public readonly clusterId!: pulumi.Output<string>;
-    /**
-     * Configuration block with compute limit settings. Described below.
-     */
     public readonly computeLimits!: pulumi.Output<outputs.emr.ManagedScalingPolicyComputeLimit[]>;
 
     /**
@@ -118,13 +73,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedScalingPolicy resources.
  */
 export interface ManagedScalingPolicyState {
-    /**
-     * ID of the EMR cluster
-     */
     clusterId?: pulumi.Input<string>;
-    /**
-     * Configuration block with compute limit settings. Described below.
-     */
     computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
 }
 
@@ -132,12 +81,6 @@ export interface ManagedScalingPolicyState {
  * The set of arguments for constructing a ManagedScalingPolicy resource.
  */
 export interface ManagedScalingPolicyArgs {
-    /**
-     * ID of the EMR cluster
-     */
     clusterId: pulumi.Input<string>;
-    /**
-     * Configuration block with compute limit settings. Described below.
-     */
     computeLimits: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
 }

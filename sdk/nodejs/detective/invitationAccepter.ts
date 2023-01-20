@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primaryGraph = new aws.detective.Graph("primaryGraph", {});
- * const primaryMember = new aws.detective.Member("primaryMember", {
- *     accountId: "ACCOUNT ID",
- *     emailAddress: "EMAIL",
- *     graphArn: primaryGraph.id,
- *     message: "Message of the invite",
- * });
- * const member = new aws.detective.InvitationAccepter("member", {graphArn: primaryGraph.graphArn}, {
- *     provider: "awsalternate",
- *     dependsOn: [primaryMember],
- * });
- * ```
- *
- * ## Import
- *
- * `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
- *
- * ```sh
- *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
- * ```
- */
 export class InvitationAccepter extends pulumi.CustomResource {
     /**
      * Get an existing InvitationAccepter resource's state with the given name, ID, and optional extra
@@ -62,9 +32,6 @@ export class InvitationAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === InvitationAccepter.__pulumiType;
     }
 
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     */
     public readonly graphArn!: pulumi.Output<string>;
 
     /**
@@ -97,9 +64,6 @@ export class InvitationAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InvitationAccepter resources.
  */
 export interface InvitationAccepterState {
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     */
     graphArn?: pulumi.Input<string>;
 }
 
@@ -107,8 +71,5 @@ export interface InvitationAccepterState {
  * The set of arguments for constructing a InvitationAccepter resource.
  */
 export interface InvitationAccepterArgs {
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     */
     graphArn: pulumi.Input<string>;
 }

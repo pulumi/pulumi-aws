@@ -7,121 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Config Rule.
- *
- * > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
- *
- * ## Example Usage
- * ### AWS Managed Rules
- *
- * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * const rule = new aws.cfg.Rule("rule", {source: {
- *     owner: "AWS",
- *     sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
- * }}, {
- *     dependsOn: [foo],
- * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *   	{
- *   		"Action": "config:Put*",
- *   		"Effect": "Allow",
- *   		"Resource": "*"
- *
- *   	}
- *   ]
- * }
- * `,
- * });
- * ```
- * ### Custom Rules
- *
- * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRecorder = new aws.cfg.Recorder("exampleRecorder", {});
- * // ... other configuration ...
- * const exampleFunction = new aws.lambda.Function("exampleFunction", {});
- * // ... other configuration ...
- * const examplePermission = new aws.lambda.Permission("examplePermission", {
- *     action: "lambda:InvokeFunction",
- *     "function": exampleFunction.arn,
- *     principal: "config.amazonaws.com",
- * });
- * // ... other configuration ...
- * const exampleRule = new aws.cfg.Rule("exampleRule", {source: {
- *     owner: "CUSTOM_LAMBDA",
- *     sourceIdentifier: exampleFunction.arn,
- * }}, {
- *     dependsOn: [
- *         exampleRecorder,
- *         examplePermission,
- *     ],
- * });
- * ```
- * ### Custom Policies
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cfg.Rule("example", {source: {
- *     owner: "CUSTOM_POLICY",
- *     sourceDetails: [{
- *         messageType: "ConfigurationItemChangeNotification",
- *     }],
- *     customPolicyDetails: {
- *         policyRuntime: "guard-2.x.x",
- *         policyText: `	  rule tableisactive when
- * 		  resourceType == "AWS::DynamoDB::Table" {
- * 		  configuration.tableStatus == ['ACTIVE']
- * 	  }
- * 	  
- * 	  rule checkcompliance when
- * 		  resourceType == "AWS::DynamoDB::Table"
- * 		  tableisactive {
- * 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
- * 	  }
- * `,
- *     },
- * }});
- * ```
- *
- * ## Import
- *
- * Config Rule can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cfg/rule:Rule foo example
- * ```
- */
 export class Rule extends pulumi.CustomResource {
     /**
      * Get an existing Rule resource's state with the given name, ID, and optional extra
@@ -150,45 +35,15 @@ export class Rule extends pulumi.CustomResource {
         return obj['__pulumiType'] === Rule.__pulumiType;
     }
 
-    /**
-     * The ARN of the config rule
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Description of the rule
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A string in JSON format that is passed to the AWS Config rule Lambda function.
-     */
     public readonly inputParameters!: pulumi.Output<string | undefined>;
-    /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
-     */
     public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the rule
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The ID of the config rule
-     */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
-    /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-     */
     public readonly scope!: pulumi.Output<outputs.cfg.RuleScope | undefined>;
-    /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
-     */
     public readonly source!: pulumi.Output<outputs.cfg.RuleSource>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -239,45 +94,15 @@ export class Rule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Rule resources.
  */
 export interface RuleState {
-    /**
-     * The ARN of the config rule
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the rule
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string in JSON format that is passed to the AWS Config rule Lambda function.
-     */
     inputParameters?: pulumi.Input<string>;
-    /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
-     */
     maximumExecutionFrequency?: pulumi.Input<string>;
-    /**
-     * The name of the rule
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The ID of the config rule
-     */
     ruleId?: pulumi.Input<string>;
-    /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-     */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
-    /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
-     */
     source?: pulumi.Input<inputs.cfg.RuleSource>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -285,32 +110,11 @@ export interface RuleState {
  * The set of arguments for constructing a Rule resource.
  */
 export interface RuleArgs {
-    /**
-     * Description of the rule
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A string in JSON format that is passed to the AWS Config rule Lambda function.
-     */
     inputParameters?: pulumi.Input<string>;
-    /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
-     */
     maximumExecutionFrequency?: pulumi.Input<string>;
-    /**
-     * The name of the rule
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-     */
     scope?: pulumi.Input<inputs.cfg.RuleScope>;
-    /**
-     * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
-     */
     source: pulumi.Input<inputs.cfg.RuleSource>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

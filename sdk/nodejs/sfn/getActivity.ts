@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
- */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
     args = args || {};
 
@@ -32,13 +18,7 @@ export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getActivity.
  */
 export interface GetActivityArgs {
-    /**
-     * ARN that identifies the activity.
-     */
     arn?: string;
-    /**
-     * Name that identifies the activity.
-     */
     name?: string;
 }
 
@@ -47,9 +27,6 @@ export interface GetActivityArgs {
  */
 export interface GetActivityResult {
     readonly arn: string;
-    /**
-     * Date the activity was created.
-     */
     readonly creationDate: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -57,20 +34,6 @@ export interface GetActivityResult {
     readonly id: string;
     readonly name: string;
 }
-/**
- * Provides a Step Functions Activity data source
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sfnActivity = aws.sfn.getActivity({
- *     name: "my-activity",
- * });
- * ```
- */
 export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
     return pulumi.output(args).apply((a: any) => getActivity(a, opts))
 }
@@ -79,12 +42,6 @@ export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getActivity.
  */
 export interface GetActivityOutputArgs {
-    /**
-     * ARN that identifies the activity.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name that identifies the activity.
-     */
     name?: pulumi.Input<string>;
 }

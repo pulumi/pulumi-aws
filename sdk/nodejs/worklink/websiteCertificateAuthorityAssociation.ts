@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const example = new aws.worklink.Fleet("example", {});
- * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
- *     fleetArn: aws_worklink_fleet.test.arn,
- *     certificate: fs.readFileSync("certificate.pem"),
- * });
- * ```
- *
- * ## Import
- *
- * WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
- * ```
- */
 export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResource {
     /**
      * Get an existing WebsiteCertificateAuthorityAssociation resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
         return obj['__pulumiType'] === WebsiteCertificateAuthorityAssociation.__pulumiType;
     }
 
-    /**
-     * The root certificate of the Certificate Authority.
-     */
     public readonly certificate!: pulumi.Output<string>;
-    /**
-     * The certificate name to display.
-     */
     public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of the fleet.
-     */
     public readonly fleetArn!: pulumi.Output<string>;
-    /**
-     * A unique identifier for the Certificate Authority.
-     */
     public /*out*/ readonly websiteCaId!: pulumi.Output<string>;
 
     /**
@@ -111,21 +76,9 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
  * Input properties used for looking up and filtering WebsiteCertificateAuthorityAssociation resources.
  */
 export interface WebsiteCertificateAuthorityAssociationState {
-    /**
-     * The root certificate of the Certificate Authority.
-     */
     certificate?: pulumi.Input<string>;
-    /**
-     * The certificate name to display.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The ARN of the fleet.
-     */
     fleetArn?: pulumi.Input<string>;
-    /**
-     * A unique identifier for the Certificate Authority.
-     */
     websiteCaId?: pulumi.Input<string>;
 }
 
@@ -133,16 +86,7 @@ export interface WebsiteCertificateAuthorityAssociationState {
  * The set of arguments for constructing a WebsiteCertificateAuthorityAssociation resource.
  */
 export interface WebsiteCertificateAuthorityAssociationArgs {
-    /**
-     * The root certificate of the Certificate Authority.
-     */
     certificate: pulumi.Input<string>;
-    /**
-     * The certificate name to display.
-     */
     displayName?: pulumi.Input<string>;
-    /**
-     * The ARN of the fleet.
-     */
     fleetArn: pulumi.Input<string>;
 }

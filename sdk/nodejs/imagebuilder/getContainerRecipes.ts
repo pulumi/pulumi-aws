@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getContainerRecipes({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
- */
 export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerRecipesResult> {
     args = args || {};
 
@@ -39,13 +21,7 @@ export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulum
  * A collection of arguments for invoking getContainerRecipes.
  */
 export interface GetContainerRecipesArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetContainerRecipesFilter[];
-    /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     */
     owner?: string;
 }
 
@@ -53,39 +29,15 @@ export interface GetContainerRecipesArgs {
  * A collection of values returned by getContainerRecipes.
  */
 export interface GetContainerRecipesResult {
-    /**
-     * Set of ARNs of the matched Image Builder Container Recipes.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetContainerRecipesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Container Recipes.
-     */
     readonly names: string[];
     readonly owner?: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getContainerRecipes({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
- */
 export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipesResult> {
     return pulumi.output(args).apply((a: any) => getContainerRecipes(a, opts))
 }
@@ -94,12 +46,6 @@ export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, 
  * A collection of arguments for invoking getContainerRecipes.
  */
 export interface GetContainerRecipesOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetContainerRecipesFilterArgs>[]>;
-    /**
-     * Owner of the container recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     */
     owner?: pulumi.Input<string>;
 }

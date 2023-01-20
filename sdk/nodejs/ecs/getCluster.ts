@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * The ECS Cluster data source allows access to details of a specific
- * cluster within an AWS ECS service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecs-mongo = aws.ecs.getCluster({
- *     clusterName: "ecs-mongo-production",
- * });
- * ```
- */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,9 +19,6 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterArgs {
-    /**
-     * Name of the ECS Cluster
-     */
     clusterName: string;
 }
 
@@ -44,55 +26,19 @@ export interface GetClusterArgs {
  * A collection of values returned by getCluster.
  */
 export interface GetClusterResult {
-    /**
-     * ARN of the ECS Cluster
-     */
     readonly arn: string;
     readonly clusterName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Number of pending tasks for the ECS Cluster
-     */
     readonly pendingTasksCount: number;
-    /**
-     * The number of registered container instances for the ECS Cluster
-     */
     readonly registeredContainerInstancesCount: number;
-    /**
-     * Number of running tasks for the ECS Cluster
-     */
     readonly runningTasksCount: number;
-    /**
-     * The default Service Connect namespace
-     */
     readonly serviceConnectDefaults: outputs.ecs.GetClusterServiceConnectDefault[];
-    /**
-     * Settings associated with the ECS Cluster
-     */
     readonly settings: outputs.ecs.GetClusterSetting[];
-    /**
-     * Status of the ECS Cluster
-     */
     readonly status: string;
 }
-/**
- * The ECS Cluster data source allows access to details of a specific
- * cluster within an AWS ECS service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ecs-mongo = aws.ecs.getCluster({
- *     clusterName: "ecs-mongo-production",
- * });
- * ```
- */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))
 }
@@ -101,8 +47,5 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getCluster.
  */
 export interface GetClusterOutputArgs {
-    /**
-     * Name of the ECS Cluster
-     */
     clusterName: pulumi.Input<string>;
 }

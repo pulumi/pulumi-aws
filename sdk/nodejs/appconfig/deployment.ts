@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppConfig Deployment resource for an `aws.appconfig.Application` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.Deployment("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
- *     configurationVersion: aws_appconfig_hosted_configuration_version.example.version_number,
- *     deploymentStrategyId: aws_appconfig_deployment_strategy.example.id,
- *     description: "My example deployment",
- *     environmentId: aws_appconfig_environment.example.environment_id,
- *     tags: {
- *         Type: "AppConfig Deployment",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
- * ```
- */
 export class Deployment extends pulumi.CustomResource {
     /**
      * Get an existing Deployment resource's state with the given name, ID, and optional extra
@@ -62,49 +32,16 @@ export class Deployment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Deployment.__pulumiType;
     }
 
-    /**
-     * Application ID. Must be between 4 and 7 characters in length.
-     */
     public readonly applicationId!: pulumi.Output<string>;
-    /**
-     * ARN of the AppConfig Deployment.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Configuration profile ID. Must be between 4 and 7 characters in length.
-     */
     public readonly configurationProfileId!: pulumi.Output<string>;
-    /**
-     * Configuration version to deploy. Can be at most 1024 characters.
-     */
     public readonly configurationVersion!: pulumi.Output<string>;
-    /**
-     * Deployment number.
-     */
     public /*out*/ readonly deploymentNumber!: pulumi.Output<number>;
-    /**
-     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-     */
     public readonly deploymentStrategyId!: pulumi.Output<string>;
-    /**
-     * Description of the deployment. Can be at most 1024 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Environment ID. Must be between 4 and 7 characters in length.
-     */
     public readonly environmentId!: pulumi.Output<string>;
-    /**
-     * State of the deployment.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -169,49 +106,16 @@ export class Deployment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Deployment resources.
  */
 export interface DeploymentState {
-    /**
-     * Application ID. Must be between 4 and 7 characters in length.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * ARN of the AppConfig Deployment.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration profile ID. Must be between 4 and 7 characters in length.
-     */
     configurationProfileId?: pulumi.Input<string>;
-    /**
-     * Configuration version to deploy. Can be at most 1024 characters.
-     */
     configurationVersion?: pulumi.Input<string>;
-    /**
-     * Deployment number.
-     */
     deploymentNumber?: pulumi.Input<number>;
-    /**
-     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-     */
     deploymentStrategyId?: pulumi.Input<string>;
-    /**
-     * Description of the deployment. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Environment ID. Must be between 4 and 7 characters in length.
-     */
     environmentId?: pulumi.Input<string>;
-    /**
-     * State of the deployment.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -219,32 +123,11 @@ export interface DeploymentState {
  * The set of arguments for constructing a Deployment resource.
  */
 export interface DeploymentArgs {
-    /**
-     * Application ID. Must be between 4 and 7 characters in length.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Configuration profile ID. Must be between 4 and 7 characters in length.
-     */
     configurationProfileId: pulumi.Input<string>;
-    /**
-     * Configuration version to deploy. Can be at most 1024 characters.
-     */
     configurationVersion: pulumi.Input<string>;
-    /**
-     * Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-     */
     deploymentStrategyId: pulumi.Input<string>;
-    /**
-     * Description of the deployment. Can be at most 1024 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Environment ID. Must be between 4 and 7 characters in length.
-     */
     environmentId: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

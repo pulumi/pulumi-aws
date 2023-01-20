@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Serverless Endpoint Access.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.EndpointAccess("example", {
- *     endpointName: "example",
- *     workgroupName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Redshift Serverless Endpoint Access can be imported using the `endpoint_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
- * ```
- */
 export class EndpointAccess extends pulumi.CustomResource {
     /**
      * Get an existing EndpointAccess resource's state with the given name, ID, and optional extra
@@ -58,37 +35,13 @@ export class EndpointAccess extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointAccess.__pulumiType;
     }
 
-    /**
-     * The DNS address of the VPC endpoint.
-     */
     public /*out*/ readonly address!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The name of the endpoint.
-     */
     public readonly endpointName!: pulumi.Output<string>;
-    /**
-     * The port that Amazon Redshift Serverless listens on.
-     */
     public /*out*/ readonly port!: pulumi.Output<number>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    /**
-     * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     */
     public /*out*/ readonly vpcEndpoints!: pulumi.Output<outputs.redshiftserverless.EndpointAccessVpcEndpoint[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
-    /**
-     * The name of the workgroup.
-     */
     public readonly workgroupName!: pulumi.Output<string>;
 
     /**
@@ -141,37 +94,13 @@ export class EndpointAccess extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointAccess resources.
  */
 export interface EndpointAccessState {
-    /**
-     * The DNS address of the VPC endpoint.
-     */
     address?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint.
-     */
     endpointName?: pulumi.Input<string>;
-    /**
-     * The port that Amazon Redshift Serverless listens on.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-     */
     vpcEndpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.EndpointAccessVpcEndpoint>[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName?: pulumi.Input<string>;
 }
 
@@ -179,20 +108,8 @@ export interface EndpointAccessState {
  * The set of arguments for constructing a EndpointAccess resource.
  */
 export interface EndpointAccessArgs {
-    /**
-     * The name of the endpoint.
-     */
     endpointName: pulumi.Input<string>;
-    /**
-     * An array of VPC subnet IDs to associate with the endpoint.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName: pulumi.Input<string>;
 }

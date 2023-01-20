@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync API Association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.DomainNameApiAssociation("example", {
- *     apiId: aws_appsync_graphql_api.example.id,
- *     domainName: aws_appsync_domain_name.example.domain_name,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
- * ```
- */
 export class DomainNameApiAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DomainNameApiAssociation resource's state with the given name, ID, and optional extra
@@ -55,13 +32,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainNameApiAssociation.__pulumiType;
     }
 
-    /**
-     * API ID.
-     */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * Appsync domain name.
-     */
     public readonly domainName!: pulumi.Output<string>;
 
     /**
@@ -99,13 +70,7 @@ export class DomainNameApiAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainNameApiAssociation resources.
  */
 export interface DomainNameApiAssociationState {
-    /**
-     * API ID.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * Appsync domain name.
-     */
     domainName?: pulumi.Input<string>;
 }
 
@@ -113,12 +78,6 @@ export interface DomainNameApiAssociationState {
  * The set of arguments for constructing a DomainNameApiAssociation resource.
  */
 export interface DomainNameApiAssociationArgs {
-    /**
-     * API ID.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * Appsync domain name.
-     */
     domainName: pulumi.Input<string>;
 }

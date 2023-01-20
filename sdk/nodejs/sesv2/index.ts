@@ -10,6 +10,11 @@ export type ConfigurationSet = import("./configurationSet").ConfigurationSet;
 export const ConfigurationSet: typeof import("./configurationSet").ConfigurationSet = null as any;
 utilities.lazyLoad(exports, ["ConfigurationSet"], () => require("./configurationSet"));
 
+export { ConfigurationSetEventDestinationArgs, ConfigurationSetEventDestinationState } from "./configurationSetEventDestination";
+export type ConfigurationSetEventDestination = import("./configurationSetEventDestination").ConfigurationSetEventDestination;
+export const ConfigurationSetEventDestination: typeof import("./configurationSetEventDestination").ConfigurationSetEventDestination = null as any;
+utilities.lazyLoad(exports, ["ConfigurationSetEventDestination"], () => require("./configurationSetEventDestination"));
+
 export { DedicatedIpAssignmentArgs, DedicatedIpAssignmentState } from "./dedicatedIpAssignment";
 export type DedicatedIpAssignment = import("./dedicatedIpAssignment").DedicatedIpAssignment;
 export const DedicatedIpAssignment: typeof import("./dedicatedIpAssignment").DedicatedIpAssignment = null as any;
@@ -47,6 +52,8 @@ const _module = {
         switch (type) {
             case "aws:sesv2/configurationSet:ConfigurationSet":
                 return new ConfigurationSet(name, <any>undefined, { urn })
+            case "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination":
+                return new ConfigurationSetEventDestination(name, <any>undefined, { urn })
             case "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment":
                 return new DedicatedIpAssignment(name, <any>undefined, { urn })
             case "aws:sesv2/dedicatedIpPool:DedicatedIpPool":
@@ -63,6 +70,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSet", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/configurationSetEventDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/dedicatedIpPool", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentity", _module)

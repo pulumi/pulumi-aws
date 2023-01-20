@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicediscovery.HttpNamespace("example", {description: "example"});
- * ```
- *
- * ## Import
- *
- * Service Discovery HTTP Namespace can be imported using the namespace ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
- * ```
- */
 export class HttpNamespace extends pulumi.CustomResource {
     /**
      * Get an existing HttpNamespace resource's state with the given name, ID, and optional extra
@@ -50,29 +32,11 @@ export class HttpNamespace extends pulumi.CustomResource {
         return obj['__pulumiType'] === HttpNamespace.__pulumiType;
     }
 
-    /**
-     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The name of an HTTP namespace.
-     */
     public /*out*/ readonly httpName!: pulumi.Output<string>;
-    /**
-     * The name of the http namespace.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -112,29 +76,11 @@ export class HttpNamespace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HttpNamespace resources.
  */
 export interface HttpNamespaceState {
-    /**
-     * The ARN that Amazon Route 53 assigns to the namespace when you create it.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of an HTTP namespace.
-     */
     httpName?: pulumi.Input<string>;
-    /**
-     * The name of the http namespace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -142,16 +88,7 @@ export interface HttpNamespaceState {
  * The set of arguments for constructing a HttpNamespace resource.
  */
 export interface HttpNamespaceArgs {
-    /**
-     * The description that you specify for the namespace when you create it.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the http namespace.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

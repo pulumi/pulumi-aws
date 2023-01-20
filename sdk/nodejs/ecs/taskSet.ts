@@ -7,37 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
- *
- * See [ECS Task Set section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ecs.TaskSet("example", {
- *     service: aws_ecs_service.example.id,
- *     cluster: aws_ecs_cluster.example.id,
- *     taskDefinition: aws_ecs_task_definition.example.arn,
- *     loadBalancers: [{
- *         targetGroupArn: aws_lb_target_group.example.arn,
- *         containerName: "mongo",
- *         containerPort: 8080,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * ECS Task Sets can be imported via the `task_set_id`, `service`, and `cluster` separated by commas (`,`) e.g.
- *
- * ```sh
- *  $ pulumi import aws:ecs/taskSet:TaskSet example ecs-svc/7177320696926227436,arn:aws:ecs:us-west-2:123456789101:service/example/example-1234567890,arn:aws:ecs:us-west-2:123456789101:cluster/example
- * ```
- */
 export class TaskSet extends pulumi.CustomResource {
     /**
      * Get an existing TaskSet resource's state with the given name, ID, and optional extra
@@ -66,85 +35,25 @@ export class TaskSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === TaskSet.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) that identifies the task set.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-     */
     public readonly capacityProviderStrategies!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategy[] | undefined>;
-    /**
-     * The short name or ARN of the cluster that hosts the service to create the task set in.
-     */
     public readonly cluster!: pulumi.Output<string>;
-    /**
-     * The external ID associated with the task set.
-     */
     public readonly externalId!: pulumi.Output<string>;
-    /**
-     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-     */
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
-    /**
-     * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-     */
     public readonly launchType!: pulumi.Output<string>;
-    /**
-     * Details on load balancers that are used with a task set. Detailed below.
-     */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
-    /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-     */
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
-    /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     */
     public readonly platformVersion!: pulumi.Output<string>;
-    /**
-     * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-     */
     public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale>;
-    /**
-     * The short name or ARN of the ECS service.
-     */
     public readonly service!: pulumi.Output<string>;
-    /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
-     */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistries | undefined>;
-    /**
-     * The stability status. This indicates whether the task set has reached a steady state.
-     */
     public /*out*/ readonly stabilityStatus!: pulumi.Output<string>;
-    /**
-     * The status of the task set.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-     */
     public readonly taskDefinition!: pulumi.Output<string>;
-    /**
-     * The ID of the task set.
-     */
     public /*out*/ readonly taskSetId!: pulumi.Output<string>;
-    /**
-     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
-     */
     public readonly waitUntilStable!: pulumi.Output<boolean | undefined>;
-    /**
-     * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-     */
     public readonly waitUntilStableTimeout!: pulumi.Output<string | undefined>;
 
     /**
@@ -221,85 +130,25 @@ export class TaskSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TaskSet resources.
  */
 export interface TaskSetState {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the task set.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-     */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategy>[]>;
-    /**
-     * The short name or ARN of the cluster that hosts the service to create the task set in.
-     */
     cluster?: pulumi.Input<string>;
-    /**
-     * The external ID associated with the task set.
-     */
     externalId?: pulumi.Input<string>;
-    /**
-     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-     */
     forceDelete?: pulumi.Input<boolean>;
-    /**
-     * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-     */
     launchType?: pulumi.Input<string>;
-    /**
-     * Details on load balancers that are used with a task set. Detailed below.
-     */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancer>[]>;
-    /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-     */
     networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfiguration>;
-    /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     */
     platformVersion?: pulumi.Input<string>;
-    /**
-     * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-     */
     scale?: pulumi.Input<inputs.ecs.TaskSetScale>;
-    /**
-     * The short name or ARN of the ECS service.
-     */
     service?: pulumi.Input<string>;
-    /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
-     */
     serviceRegistries?: pulumi.Input<inputs.ecs.TaskSetServiceRegistries>;
-    /**
-     * The stability status. This indicates whether the task set has reached a steady state.
-     */
     stabilityStatus?: pulumi.Input<string>;
-    /**
-     * The status of the task set.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-     */
     taskDefinition?: pulumi.Input<string>;
-    /**
-     * The ID of the task set.
-     */
     taskSetId?: pulumi.Input<string>;
-    /**
-     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
-     */
     waitUntilStable?: pulumi.Input<boolean>;
-    /**
-     * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-     */
     waitUntilStableTimeout?: pulumi.Input<string>;
 }
 
@@ -307,64 +156,19 @@ export interface TaskSetState {
  * The set of arguments for constructing a TaskSet resource.
  */
 export interface TaskSetArgs {
-    /**
-     * The capacity provider strategy to use for the service. Can be one or more.  Defined below.
-     */
     capacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategy>[]>;
-    /**
-     * The short name or ARN of the cluster that hosts the service to create the task set in.
-     */
     cluster: pulumi.Input<string>;
-    /**
-     * The external ID associated with the task set.
-     */
     externalId?: pulumi.Input<string>;
-    /**
-     * Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
-     */
     forceDelete?: pulumi.Input<boolean>;
-    /**
-     * The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-     */
     launchType?: pulumi.Input<string>;
-    /**
-     * Details on load balancers that are used with a task set. Detailed below.
-     */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancer>[]>;
-    /**
-     * The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
-     */
     networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfiguration>;
-    /**
-     * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     */
     platformVersion?: pulumi.Input<string>;
-    /**
-     * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-     */
     scale?: pulumi.Input<inputs.ecs.TaskSetScale>;
-    /**
-     * The short name or ARN of the ECS service.
-     */
     service: pulumi.Input<string>;
-    /**
-     * The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
-     */
     serviceRegistries?: pulumi.Input<inputs.ecs.TaskSetServiceRegistries>;
-    /**
-     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
-     */
     taskDefinition: pulumi.Input<string>;
-    /**
-     * Whether the provider should wait until the task set has reached `STEADY_STATE`.
-     */
     waitUntilStable?: pulumi.Input<boolean>;
-    /**
-     * Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
-     */
     waitUntilStableTimeout?: pulumi.Input<string>;
 }

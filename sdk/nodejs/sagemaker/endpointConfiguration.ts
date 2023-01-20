@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker endpoint configuration resource.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ec = new aws.sagemaker.EndpointConfiguration("ec", {
- *     productionVariants: [{
- *         variantName: "variant-1",
- *         modelName: aws_sagemaker_model.m.name,
- *         initialInstanceCount: 1,
- *         instanceType: "ml.t2.medium",
- *     }],
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Endpoint configurations can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
- * ```
- */
 export class EndpointConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing EndpointConfiguration resource's state with the given name, ID, and optional extra
@@ -67,41 +35,14 @@ export class EndpointConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EndpointConfiguration.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
-     */
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
-    /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-     */
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
-    /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-     */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-     */
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationProductionVariant[]>;
-    /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-     */
     public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigurationShadowProductionVariant[] | undefined>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -150,41 +91,14 @@ export class EndpointConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EndpointConfiguration resources.
  */
 export interface EndpointConfigurationState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
-     */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
-    /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-     */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
-    /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-     */
     productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
-    /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-     */
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -192,32 +106,11 @@ export interface EndpointConfigurationState {
  * The set of arguments for constructing a EndpointConfiguration resource.
  */
 export interface EndpointConfigurationArgs {
-    /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
-     */
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
-    /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-     */
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
-    /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-     */
     kmsKeyArn?: pulumi.Input<string>;
-    /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-     */
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
-    /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-     */
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationShadowProductionVariant>[]>;
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

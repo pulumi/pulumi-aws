@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds the specified user to the specified group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {passwordPolicy: {
- *     temporaryPasswordValidityDays: 7,
- *     minimumLength: 6,
- *     requireUppercase: false,
- *     requireSymbols: false,
- *     requireNumbers: false,
- * }});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: aws_cognito_user_pool.test.id,
- *     username: "example",
- * });
- * const exampleUserGroup = new aws.cognito.UserGroup("exampleUserGroup", {userPoolId: aws_cognito_user_pool.test.id});
- * const exampleUserInGroup = new aws.cognito.UserInGroup("exampleUserInGroup", {
- *     userPoolId: exampleUserPool.id,
- *     groupName: exampleUserGroup.name,
- *     username: exampleUser.username,
- * });
- * ```
- */
 export class UserInGroup extends pulumi.CustomResource {
     /**
      * Get an existing UserInGroup resource's state with the given name, ID, and optional extra
@@ -60,17 +32,8 @@ export class UserInGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserInGroup.__pulumiType;
     }
 
-    /**
-     * The name of the group to which the user is to be added.
-     */
     public readonly groupName!: pulumi.Output<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     public readonly userPoolId!: pulumi.Output<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -113,17 +76,8 @@ export class UserInGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserInGroup resources.
  */
 export interface UserInGroupState {
-    /**
-     * The name of the group to which the user is to be added.
-     */
     groupName?: pulumi.Input<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     userPoolId?: pulumi.Input<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -131,16 +85,7 @@ export interface UserInGroupState {
  * The set of arguments for constructing a UserInGroup resource.
  */
 export interface UserInGroupArgs {
-    /**
-     * The name of the group to which the user is to be added.
-     */
     groupName: pulumi.Input<string>;
-    /**
-     * The user pool ID of the user and group.
-     */
     userPoolId: pulumi.Input<string>;
-    /**
-     * The username of the user to be added to the group.
-     */
     username: pulumi.Input<string>;
 }

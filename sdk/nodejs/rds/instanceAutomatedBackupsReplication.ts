@@ -4,75 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manage cross-region replication of automated backups to a different AWS Region. Documentation for cross-region automated backup replication can be found at:
- *
- * * [Replicating automated backups to another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)
- *
- * > **Note:** This resource has to be created in the destination region.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
- *     retentionPeriod: 14,
- *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
- * });
- * ```
- * ## Encrypting the automated backup with KMS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.InstanceAutomatedBackupsReplication("default", {
- *     kmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
- *     sourceDbInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:mydatabase",
- * });
- * ```
- *
- * ## Example including a RDS DB instance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replica = new aws.Provider("replica", {region: "us-west-2"});
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
- *     allocatedStorage: 10,
- *     identifier: "mydb",
- *     engine: "postgres",
- *     engineVersion: "13.4",
- *     instanceClass: "db.t3.micro",
- *     name: "mydb",
- *     username: "masterusername",
- *     password: "mustbeeightcharacters",
- *     backupRetentionPeriod: 7,
- *     storageEncrypted: true,
- *     skipFinalSnapshot: true,
- * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "Encryption key for automated backups"}, {
- *     provider: "aws.replica",
- * });
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
- *     sourceDbInstanceArn: defaultInstance.arn,
- *     kmsKeyId: defaultKey.arn,
- * }, {
- *     provider: "aws.replica",
- * });
- * ```
- *
- * ## Import
- *
- * RDS instance automated backups replication can be imported using the `arn`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
- * ```
- */
 export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
     /**
      * Get an existing InstanceAutomatedBackupsReplication resource's state with the given name, ID, and optional extra
@@ -101,21 +32,9 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === InstanceAutomatedBackupsReplication.__pulumiType;
     }
 
-    /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-     */
     public readonly kmsKeyId!: pulumi.Output<string>;
-    /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
-     */
     public readonly preSignedUrl!: pulumi.Output<string | undefined>;
-    /**
-     * The retention period for the replicated automated backups, defaults to `7`.
-     */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
-     */
     public readonly sourceDbInstanceArn!: pulumi.Output<string>;
 
     /**
@@ -154,21 +73,9 @@ export class InstanceAutomatedBackupsReplication extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceAutomatedBackupsReplication resources.
  */
 export interface InstanceAutomatedBackupsReplicationState {
-    /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
-     */
     preSignedUrl?: pulumi.Input<string>;
-    /**
-     * The retention period for the replicated automated backups, defaults to `7`.
-     */
     retentionPeriod?: pulumi.Input<number>;
-    /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
-     */
     sourceDbInstanceArn?: pulumi.Input<string>;
 }
 
@@ -176,20 +83,8 @@ export interface InstanceAutomatedBackupsReplicationState {
  * The set of arguments for constructing a InstanceAutomatedBackupsReplication resource.
  */
 export interface InstanceAutomatedBackupsReplicationArgs {
-    /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
-     */
     preSignedUrl?: pulumi.Input<string>;
-    /**
-     * The retention period for the replicated automated backups, defaults to `7`.
-     */
     retentionPeriod?: pulumi.Input<number>;
-    /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
-     */
     sourceDbInstanceArn: pulumi.Input<string>;
 }

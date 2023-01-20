@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides details about a specific CostExplorer Cost Category.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.costexplorer.getCostCategory({
- *     costCategoryArn: "costCategoryARN",
- * });
- * ```
- */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +20,7 @@ export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getCostCategory.
  */
 export interface GetCostCategoryArgs {
-    /**
-     * Unique name for the Cost Category.
-     */
     costCategoryArn: string;
-    /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -49,50 +29,18 @@ export interface GetCostCategoryArgs {
  */
 export interface GetCostCategoryResult {
     readonly costCategoryArn: string;
-    /**
-     * Effective end data of your Cost Category.
-     */
     readonly effectiveEnd: string;
-    /**
-     * Effective state data of your Cost Category.
-     */
     readonly effectiveStart: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
-    /**
-     * Rule schema version in this particular Cost Category.
-     */
     readonly ruleVersion: string;
-    /**
-     * Configuration block for the `Expression` object used to categorize costs. See below.
-     */
     readonly rules: outputs.costexplorer.GetCostCategoryRule[];
-    /**
-     * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-     */
     readonly splitChargeRules: outputs.costexplorer.GetCostCategorySplitChargeRule[];
-    /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides details about a specific CostExplorer Cost Category.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.costexplorer.getCostCategory({
- *     costCategoryArn: "costCategoryARN",
- * });
- * ```
- */
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
     return pulumi.output(args).apply((a: any) => getCostCategory(a, opts))
 }
@@ -101,12 +49,6 @@ export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pu
  * A collection of arguments for invoking getCostCategory.
  */
 export interface GetCostCategoryOutputArgs {
-    /**
-     * Unique name for the Cost Category.
-     */
     costCategoryArn: pulumi.Input<string>;
-    /**
-     * Configuration block for the specific `Tag` to use for `Expression`. See below.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

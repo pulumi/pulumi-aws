@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about single Outpost Instance Type.
- */
 export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypeResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,17 +18,8 @@ export function getOutpostInstanceType(args: GetOutpostInstanceTypeArgs, opts?: 
  * A collection of arguments for invoking getOutpostInstanceType.
  */
 export interface GetOutpostInstanceTypeArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: string;
-    /**
-     * Desired instance type. Conflicts with `preferredInstanceTypes`.
-     */
     instanceType?: string;
-    /**
-     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
-     */
     preferredInstanceTypes?: string[];
 }
 
@@ -47,9 +35,6 @@ export interface GetOutpostInstanceTypeResult {
     readonly instanceType: string;
     readonly preferredInstanceTypes?: string[];
 }
-/**
- * Information about single Outpost Instance Type.
- */
 export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypeResult> {
     return pulumi.output(args).apply((a: any) => getOutpostInstanceType(a, opts))
 }
@@ -58,16 +43,7 @@ export function getOutpostInstanceTypeOutput(args: GetOutpostInstanceTypeOutputA
  * A collection of arguments for invoking getOutpostInstanceType.
  */
 export interface GetOutpostInstanceTypeOutputArgs {
-    /**
-     * Outpost ARN.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Desired instance type. Conflicts with `preferredInstanceTypes`.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
-     */
     preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }

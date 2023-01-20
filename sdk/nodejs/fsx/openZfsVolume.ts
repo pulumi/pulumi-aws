@@ -7,27 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon FSx for OpenZFS volume.
- * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OpenZfsVolume("test", {parentVolumeId: aws_fsx_openzfs_file_system.test.root_volume_id});
- * ```
- *
- * ## Import
- *
- * FSx Volumes can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
- * ```
- */
 export class OpenZfsVolume extends pulumi.CustomResource {
     /**
      * Get an existing OpenZfsVolume resource's state with the given name, ID, and optional extra
@@ -56,61 +35,19 @@ export class OpenZfsVolume extends pulumi.CustomResource {
         return obj['__pulumiType'] === OpenZfsVolume.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name of the file system.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-     */
     public readonly copyTagsToSnapshots!: pulumi.Output<boolean | undefined>;
-    /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-     */
     public readonly dataCompressionType!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-     */
     public readonly nfsExports!: pulumi.Output<outputs.fsx.OpenZfsVolumeNfsExports | undefined>;
-    /**
-     * The ARN of the source snapshot to create the volume from.
-     */
     public readonly originSnapshot!: pulumi.Output<outputs.fsx.OpenZfsVolumeOriginSnapshot | undefined>;
-    /**
-     * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-     */
     public readonly parentVolumeId!: pulumi.Output<string>;
-    /**
-     * specifies whether the volume is read-only. Default is false.
-     */
     public readonly readOnly!: pulumi.Output<boolean>;
-    /**
-     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-     */
     public readonly recordSizeKib!: pulumi.Output<number | undefined>;
-    /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     */
     public readonly storageCapacityQuotaGib!: pulumi.Output<number>;
-    /**
-     * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-     */
     public readonly storageCapacityReservationGib!: pulumi.Output<number>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-     */
     public readonly userAndGroupQuotas!: pulumi.Output<outputs.fsx.OpenZfsVolumeUserAndGroupQuota[]>;
     public readonly volumeType!: pulumi.Output<string | undefined>;
 
@@ -172,61 +109,19 @@ export class OpenZfsVolume extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OpenZfsVolume resources.
  */
 export interface OpenZfsVolumeState {
-    /**
-     * Amazon Resource Name of the file system.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-     */
     copyTagsToSnapshots?: pulumi.Input<boolean>;
-    /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-     */
     dataCompressionType?: pulumi.Input<string>;
-    /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-     */
     nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
-    /**
-     * The ARN of the source snapshot to create the volume from.
-     */
     originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
-    /**
-     * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-     */
     parentVolumeId?: pulumi.Input<string>;
-    /**
-     * specifies whether the volume is read-only. Default is false.
-     */
     readOnly?: pulumi.Input<boolean>;
-    /**
-     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-     */
     recordSizeKib?: pulumi.Input<number>;
-    /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     */
     storageCapacityQuotaGib?: pulumi.Input<number>;
-    /**
-     * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-     */
     storageCapacityReservationGib?: pulumi.Input<number>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-     */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
 }
@@ -235,53 +130,17 @@ export interface OpenZfsVolumeState {
  * The set of arguments for constructing a OpenZfsVolume resource.
  */
 export interface OpenZfsVolumeArgs {
-    /**
-     * A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-     */
     copyTagsToSnapshots?: pulumi.Input<boolean>;
-    /**
-     * Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-     */
     dataCompressionType?: pulumi.Input<string>;
-    /**
-     * The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
-     */
     nfsExports?: pulumi.Input<inputs.fsx.OpenZfsVolumeNfsExports>;
-    /**
-     * The ARN of the source snapshot to create the volume from.
-     */
     originSnapshot?: pulumi.Input<inputs.fsx.OpenZfsVolumeOriginSnapshot>;
-    /**
-     * The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `rootVolumeId` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-     */
     parentVolumeId: pulumi.Input<string>;
-    /**
-     * specifies whether the volume is read-only. Default is false.
-     */
     readOnly?: pulumi.Input<boolean>;
-    /**
-     * The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-     */
     recordSizeKib?: pulumi.Input<number>;
-    /**
-     * - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-     */
     storageCapacityQuotaGib?: pulumi.Input<number>;
-    /**
-     * The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-     */
     storageCapacityReservationGib?: pulumi.Input<number>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
-     */
     userAndGroupQuotas?: pulumi.Input<pulumi.Input<inputs.fsx.OpenZfsVolumeUserAndGroupQuota>[]>;
     volumeType?: pulumi.Input<string>;
 }

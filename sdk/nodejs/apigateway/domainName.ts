@@ -7,94 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Registers a custom domain name for use with AWS API Gateway. Additional information about this functionality
- * can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- *
- * This resource just establishes ownership of and the TLS settings for
- * a particular domain name. An API can be attached to a particular path
- * under the registered domain name using
- * the `aws.apigateway.BasePathMapping` resource.
- *
- * API Gateway domains can be defined as either 'edge-optimized' or 'regional'.  In an edge-optimized configuration,
- * API Gateway internally creates and manages a CloudFront distribution to route requests on the given hostname. In
- * addition to this resource it's necessary to create a DNS record corresponding to the given domain name which is an alias
- * (either Route53 alias or traditional CNAME) to the Cloudfront domain name exported in the `cloudfrontDomainName`
- * attribute.
- *
- * In a regional configuration, API Gateway does not create a CloudFront distribution to route requests to the API, though
- * a distribution can be created if needed. In either case, it is necessary to create a DNS record corresponding to the
- * given domain name which is an alias (either Route53 alias or traditional CNAME) to the regional domain name exported in
- * the `regionalDomainName` attribute.
- *
- * > **Note:** API Gateway requires the use of AWS Certificate Manager (ACM) certificates instead of Identity and Access Management (IAM) certificates in regions that support ACM. Regions that support ACM can be found in the [Regions and Endpoints Documentation](https://docs.aws.amazon.com/general/latest/gr/rande.html#acm_region). To import an existing private key and certificate into ACM or request an ACM certificate, see the `aws.acm.Certificate` resource.
- *
- * > **Note:** The `aws.apigateway.DomainName` resource expects dependency on the `aws.acm.CertificateValidation` as
- * only verified certificates can be used. This can be made either explicitly by adding the
- * `dependsOn = [aws_acm_certificate_validation.cert]` attribute. Or implicitly by referring certificate ARN
- * from the validation resource where it will be available after the resource creation:
- * `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
- *
- * ## Example Usage
- * ### Edge Optimized (ACM Certificate)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     certificateArn: aws_acm_certificate_validation.example.certificate_arn,
- *     domainName: "api.example.com",
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     zoneId: aws_route53_zone.example.id,
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
- *     }],
- * });
- * ```
- * ### Edge Optimized (IAM Certificate)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const exampleDomainName = new aws.apigateway.DomainName("exampleDomainName", {
- *     domainName: "api.example.com",
- *     certificateName: "example-api",
- *     certificateBody: fs.readFileSync(`${path.module}/example.com/example.crt`),
- *     certificateChain: fs.readFileSync(`${path.module}/example.com/ca.crt`),
- *     certificatePrivateKey: fs.readFileSync(`${path.module}/example.com/example.key`),
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("exampleRecord", {
- *     zoneId: aws_route53_zone.example.id,
- *     name: exampleDomainName.domainName,
- *     type: "A",
- *     aliases: [{
- *         name: exampleDomainName.cloudfrontDomainName,
- *         zoneId: exampleDomainName.cloudfrontZoneId,
- *         evaluateTargetHealth: true,
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * API Gateway domain names can be imported using their `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
- * ```
- */
 export class DomainName extends pulumi.CustomResource {
     /**
      * Get an existing DomainName resource's state with the given name, ID, and optional extra
@@ -123,85 +35,25 @@ export class DomainName extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainName.__pulumiType;
     }
 
-    /**
-     * ARN of domain name.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
-    /**
-     * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     public readonly certificateBody!: pulumi.Output<string | undefined>;
-    /**
-     * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
-    /**
-     * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`. Required if `certificateArn` is not set.
-     */
     public readonly certificateName!: pulumi.Output<string | undefined>;
-    /**
-     * Private key associated with the domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     public readonly certificatePrivateKey!: pulumi.Output<string | undefined>;
-    /**
-     * Upload date associated with the domain certificate.
-     */
     public /*out*/ readonly certificateUploadDate!: pulumi.Output<string>;
-    /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-     */
     public /*out*/ readonly cloudfrontDomainName!: pulumi.Output<string>;
-    /**
-     * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-     */
     public /*out*/ readonly cloudfrontZoneId!: pulumi.Output<string>;
-    /**
-     * Fully-qualified domain name to register.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * Configuration block defining API endpoint information including type. See below.
-     */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name. See below.
-     */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigateway.DomainNameMutualTlsAuthentication | undefined>;
-    /**
-     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     */
     public readonly ownershipVerificationCertificateArn!: pulumi.Output<string>;
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     public readonly regionalCertificateArn!: pulumi.Output<string | undefined>;
-    /**
-     * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     public readonly regionalCertificateName!: pulumi.Output<string | undefined>;
-    /**
-     * Hostname for the custom domain's regional endpoint.
-     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
-    /**
-     * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-     */
     public /*out*/ readonly regionalZoneId!: pulumi.Output<string>;
-    /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-     */
     public readonly securityPolicy!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -274,85 +126,25 @@ export class DomainName extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainName resources.
  */
 export interface DomainNameState {
-    /**
-     * ARN of domain name.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`. Required if `certificateArn` is not set.
-     */
     certificateName?: pulumi.Input<string>;
-    /**
-     * Private key associated with the domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificatePrivateKey?: pulumi.Input<string>;
-    /**
-     * Upload date associated with the domain certificate.
-     */
     certificateUploadDate?: pulumi.Input<string>;
-    /**
-     * Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-     */
     cloudfrontDomainName?: pulumi.Input<string>;
-    /**
-     * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-     */
     cloudfrontZoneId?: pulumi.Input<string>;
-    /**
-     * Fully-qualified domain name to register.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Configuration block defining API endpoint information including type. See below.
-     */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name. See below.
-     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
-    /**
-     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     regionalCertificateArn?: pulumi.Input<string>;
-    /**
-     * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     regionalCertificateName?: pulumi.Input<string>;
-    /**
-     * Hostname for the custom domain's regional endpoint.
-     */
     regionalDomainName?: pulumi.Input<string>;
-    /**
-     * Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-     */
     regionalZoneId?: pulumi.Input<string>;
-    /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-     */
     securityPolicy?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -360,56 +152,17 @@ export interface DomainNameState {
  * The set of arguments for constructing a DomainName resource.
  */
 export interface DomainNameArgs {
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`. Required if `certificateArn` is not set.
-     */
     certificateName?: pulumi.Input<string>;
-    /**
-     * Private key associated with the domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
-     */
     certificatePrivateKey?: pulumi.Input<string>;
-    /**
-     * Fully-qualified domain name to register.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Configuration block defining API endpoint information including type. See below.
-     */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
-    /**
-     * Mutual TLS authentication configuration for the domain name. See below.
-     */
     mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
-    /**
-     * ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
-     */
     ownershipVerificationCertificateArn?: pulumi.Input<string>;
-    /**
-     * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     regionalCertificateArn?: pulumi.Input<string>;
-    /**
-     * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     */
     regionalCertificateName?: pulumi.Input<string>;
-    /**
-     * Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-     */
     securityPolicy?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

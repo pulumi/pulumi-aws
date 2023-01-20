@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Product Portfolio Association.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.ProductPortfolioAssociation("example", {
- *     portfolioId: "port-68656c6c6f",
- *     productId: "prod-dnigbtea24ste",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_product_portfolio_association` can be imported using the accept language, portfolio ID, and product ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
- * ```
- */
 export class ProductPortfolioAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ProductPortfolioAssociation resource's state with the given name, ID, and optional extra
@@ -56,21 +32,9 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProductPortfolioAssociation.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
-    /**
-     * Portfolio identifier.
-     */
     public readonly portfolioId!: pulumi.Output<string>;
-    /**
-     * Product identifier.
-     */
     public readonly productId!: pulumi.Output<string>;
-    /**
-     * Identifier of the source portfolio.
-     */
     public readonly sourcePortfolioId!: pulumi.Output<string | undefined>;
 
     /**
@@ -112,21 +76,9 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProductPortfolioAssociation resources.
  */
 export interface ProductPortfolioAssociationState {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId?: pulumi.Input<string>;
-    /**
-     * Product identifier.
-     */
     productId?: pulumi.Input<string>;
-    /**
-     * Identifier of the source portfolio.
-     */
     sourcePortfolioId?: pulumi.Input<string>;
 }
 
@@ -134,20 +86,8 @@ export interface ProductPortfolioAssociationState {
  * The set of arguments for constructing a ProductPortfolioAssociation resource.
  */
 export interface ProductPortfolioAssociationArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId: pulumi.Input<string>;
-    /**
-     * Product identifier.
-     */
     productId: pulumi.Input<string>;
-    /**
-     * Identifier of the source portfolio.
-     */
     sourcePortfolioId?: pulumi.Input<string>;
 }

@@ -7,62 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a core network resource.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.CoreNetwork("example", {globalNetworkId: aws_networkmanager_global_network.example.id});
- * ```
- * ### With description
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.CoreNetwork("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     description: "example",
- * });
- * ```
- * ### With policy document
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.CoreNetwork("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     policyDocument: data.aws_networkmanager_core_network_policy_document.example.json,
- * });
- * ```
- * ### With tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.CoreNetwork("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     tags: {
- *         hello: "world",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * `aws_networkmanager_core_network` can be imported using the core network ID, e.g.
- *
- * ```sh
- *  $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
- * ```
- */
 export class CoreNetwork extends pulumi.CustomResource {
     /**
      * Get an existing CoreNetwork resource's state with the given name, ID, and optional extra
@@ -91,45 +35,15 @@ export class CoreNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === CoreNetwork.__pulumiType;
     }
 
-    /**
-     * Core Network Amazon Resource Name (ARN).
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Timestamp when a core network was created.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * Description of the Core Network.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * One or more blocks detailing the edges within a core network. Detailed below.
-     */
     public /*out*/ readonly edges!: pulumi.Output<outputs.networkmanager.CoreNetworkEdge[]>;
-    /**
-     * The ID of the global network that a core network will be a part of.
-     */
     public readonly globalNetworkId!: pulumi.Output<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-     */
     public readonly policyDocument!: pulumi.Output<string | undefined>;
-    /**
-     * One or more blocks detailing the segments within a core network. Detailed below.
-     */
     public /*out*/ readonly segments!: pulumi.Output<outputs.networkmanager.CoreNetworkSegment[]>;
-    /**
-     * Current state of a core network.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -180,45 +94,15 @@ export class CoreNetwork extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CoreNetwork resources.
  */
 export interface CoreNetworkState {
-    /**
-     * Core Network Amazon Resource Name (ARN).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Timestamp when a core network was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Description of the Core Network.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * One or more blocks detailing the edges within a core network. Detailed below.
-     */
     edges?: pulumi.Input<pulumi.Input<inputs.networkmanager.CoreNetworkEdge>[]>;
-    /**
-     * The ID of the global network that a core network will be a part of.
-     */
     globalNetworkId?: pulumi.Input<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * One or more blocks detailing the segments within a core network. Detailed below.
-     */
     segments?: pulumi.Input<pulumi.Input<inputs.networkmanager.CoreNetworkSegment>[]>;
-    /**
-     * Current state of a core network.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -226,20 +110,8 @@ export interface CoreNetworkState {
  * The set of arguments for constructing a CoreNetwork resource.
  */
 export interface CoreNetworkArgs {
-    /**
-     * Description of the Core Network.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ID of the global network that a core network will be a part of.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-     */
     policyDocument?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

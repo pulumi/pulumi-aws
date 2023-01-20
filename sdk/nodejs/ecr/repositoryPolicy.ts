@@ -6,58 +6,6 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "../iam";
 
-/**
- * Provides an Elastic Container Registry Repository Policy.
- *
- * Note that currently only one policy may be applied to a repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecr.Repository("foo", {});
- * const foopolicy = new aws.ecr.RepositoryPolicy("foopolicy", {
- *     repository: foo.name,
- *     policy: `{
- *     "Version": "2008-10-17",
- *     "Statement": [
- *         {
- *             "Sid": "new policy",
- *             "Effect": "Allow",
- *             "Principal": "*",
- *             "Action": [
- *                 "ecr:GetDownloadUrlForLayer",
- *                 "ecr:BatchGetImage",
- *                 "ecr:BatchCheckLayerAvailability",
- *                 "ecr:PutImage",
- *                 "ecr:InitiateLayerUpload",
- *                 "ecr:UploadLayerPart",
- *                 "ecr:CompleteLayerUpload",
- *                 "ecr:DescribeRepositories",
- *                 "ecr:GetRepositoryPolicy",
- *                 "ecr:ListImages",
- *                 "ecr:DeleteRepository",
- *                 "ecr:BatchDeleteImage",
- *                 "ecr:SetRepositoryPolicy",
- *                 "ecr:DeleteRepositoryPolicy"
- *             ]
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * ECR Repository Policy can be imported using the repository name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
- * ```
- */
 export class RepositoryPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RepositoryPolicy resource's state with the given name, ID, and optional extra
@@ -86,17 +34,8 @@ export class RepositoryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryPolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     public readonly repository!: pulumi.Output<string>;
 
     /**
@@ -136,17 +75,8 @@ export class RepositoryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RepositoryPolicy resources.
  */
 export interface RepositoryPolicyState {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     policy?: pulumi.Input<string | PolicyDocument>;
-    /**
-     * The registry ID where the repository was created.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository?: pulumi.Input<string>;
 }
 
@@ -154,12 +84,6 @@ export interface RepositoryPolicyState {
  * The set of arguments for constructing a RepositoryPolicy resource.
  */
 export interface RepositoryPolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string.
-     */
     policy: pulumi.Input<string | PolicyDocument>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository: pulumi.Input<string>;
 }

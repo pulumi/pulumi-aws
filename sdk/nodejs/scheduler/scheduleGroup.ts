@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EventBridge Scheduler Schedule Group resource.
- *
- * You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.scheduler.ScheduleGroup("example", {});
- * ```
- *
- * ## Import
- *
- * Schedule groups can be imported using the `name`. For example
- *
- * ```sh
- *  $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
- * ```
- */
 export class ScheduleGroup extends pulumi.CustomResource {
     /**
      * Get an existing ScheduleGroup resource's state with the given name, ID, and optional extra
@@ -56,37 +32,13 @@ export class ScheduleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduleGroup.__pulumiType;
     }
 
-    /**
-     * ARN of the schedule group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Time at which the schedule group was created.
-     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * Time at which the schedule group was last modified.
-     */
     public /*out*/ readonly lastModificationDate!: pulumi.Output<string>;
-    /**
-     * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     public readonly namePrefix!: pulumi.Output<string>;
-    /**
-     * State of the schedule group. Can be `ACTIVE` or `DELETING`.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -130,37 +82,13 @@ export class ScheduleGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScheduleGroup resources.
  */
 export interface ScheduleGroupState {
-    /**
-     * ARN of the schedule group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Time at which the schedule group was created.
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * Time at which the schedule group was last modified.
-     */
     lastModificationDate?: pulumi.Input<string>;
-    /**
-     * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * State of the schedule group. Can be `ACTIVE` or `DELETING`.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -168,16 +96,7 @@ export interface ScheduleGroupState {
  * The set of arguments for constructing a ScheduleGroup resource.
  */
 export interface ScheduleGroupArgs {
-    /**
-     * Name of the schedule group. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

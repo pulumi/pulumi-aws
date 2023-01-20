@@ -4,17 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS IdentityStore Group Membership.
- *
- * ## Import
- *
- * `aws_identitystore_group_membership` can be imported using the `identity_store_id/membership_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
- * ```
- */
 export class GroupMembership extends pulumi.CustomResource {
     /**
      * Get an existing GroupMembership resource's state with the given name, ID, and optional extra
@@ -43,21 +32,9 @@ export class GroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupMembership.__pulumiType;
     }
 
-    /**
-     * The identifier for a group in the Identity Store.
-     */
     public readonly groupId!: pulumi.Output<string>;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     public readonly identityStoreId!: pulumi.Output<string>;
-    /**
-     * The identifier for a user in the Identity Store.
-     */
     public readonly memberId!: pulumi.Output<string>;
-    /**
-     * The identifier of the newly created group membership in the Identity Store.
-     */
     public /*out*/ readonly membershipId!: pulumi.Output<string>;
 
     /**
@@ -102,21 +79,9 @@ export class GroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupMembership resources.
  */
 export interface GroupMembershipState {
-    /**
-     * The identifier for a group in the Identity Store.
-     */
     groupId?: pulumi.Input<string>;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId?: pulumi.Input<string>;
-    /**
-     * The identifier for a user in the Identity Store.
-     */
     memberId?: pulumi.Input<string>;
-    /**
-     * The identifier of the newly created group membership in the Identity Store.
-     */
     membershipId?: pulumi.Input<string>;
 }
 
@@ -124,16 +89,7 @@ export interface GroupMembershipState {
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
-    /**
-     * The identifier for a group in the Identity Store.
-     */
     groupId: pulumi.Input<string>;
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     */
     identityStoreId: pulumi.Input<string>;
-    /**
-     * The identifier for a user in the Identity Store.
-     */
     memberId: pulumi.Input<string>;
 }

@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create a VPC Internet Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: aws_vpc.main.id,
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Internet Gateways can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
- * ```
- */
 export class InternetGateway extends pulumi.CustomResource {
     /**
      * Get an existing InternetGateway resource's state with the given name, ID, and optional extra
@@ -57,25 +32,10 @@ export class InternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGateway.__pulumiType;
     }
 
-    /**
-     * The ARN of the Internet Gateway.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID of the AWS account that owns the internet gateway.
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -113,25 +73,10 @@ export class InternetGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InternetGateway resources.
  */
 export interface InternetGatewayState {
-    /**
-     * The ARN of the Internet Gateway.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the AWS account that owns the internet gateway.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -139,12 +84,6 @@ export interface InternetGatewayState {
  * The set of arguments for constructing a InternetGateway resource.
  */
 export interface InternetGatewayArgs {
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC ID to create in.  See the aws.ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
-     */
     vpcId?: pulumi.Input<string>;
 }

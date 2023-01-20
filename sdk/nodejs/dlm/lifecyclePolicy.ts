@@ -7,19 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * DLM lifecycle policies can be imported by their policy ID
- *
- * ```sh
- *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
- * ```
- */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * Get an existing LifecyclePolicy resource's state with the given name, ID, and optional extra
@@ -48,33 +35,12 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A description for the DLM lifecycle policy.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The ARN of an IAM role that is able to be assumed by the DLM service.
-     */
     public readonly executionRoleArn!: pulumi.Output<string>;
-    /**
-     * See the `policyDetails` configuration block. Max of 1.
-     */
     public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails>;
-    /**
-     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     */
     public readonly state!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -125,33 +91,12 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LifecyclePolicy resources.
  */
 export interface LifecyclePolicyState {
-    /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A description for the DLM lifecycle policy.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The ARN of an IAM role that is able to be assumed by the DLM service.
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * See the `policyDetails` configuration block. Max of 1.
-     */
     policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
-    /**
-     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -159,24 +104,9 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
-    /**
-     * A description for the DLM lifecycle policy.
-     */
     description: pulumi.Input<string>;
-    /**
-     * The ARN of an IAM role that is able to be assumed by the DLM service.
-     */
     executionRoleArn: pulumi.Input<string>;
-    /**
-     * See the `policyDetails` configuration block. Max of 1.
-     */
     policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
-    /**
-     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

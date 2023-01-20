@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Information about a DocumentDB engine version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.docdb.getEngineVersion({
- *     version: "3.6.0",
- * });
- * ```
- */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
 
@@ -34,21 +20,9 @@ export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getEngineVersion.
  */
 export interface GetEngineVersionArgs {
-    /**
-     * DB engine. (Default: `docdb`)
-     */
     engine?: string;
-    /**
-     * Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
-     */
     parameterGroupFamily?: string;
-    /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     preferredVersions?: string[];
-    /**
-     * Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     version?: string;
 }
 
@@ -57,13 +31,7 @@ export interface GetEngineVersionArgs {
  */
 export interface GetEngineVersionResult {
     readonly engine?: string;
-    /**
-     * Description of the database engine.
-     */
     readonly engineDescription: string;
-    /**
-     * Set of log types that the database engine has available for export to CloudWatch Logs.
-     */
     readonly exportableLogTypes: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -71,34 +39,11 @@ export interface GetEngineVersionResult {
     readonly id: string;
     readonly parameterGroupFamily: string;
     readonly preferredVersions?: string[];
-    /**
-     * Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
-     */
     readonly supportsLogExportsToCloudwatch: boolean;
-    /**
-     * A set of engine versions that this database engine version can be upgraded to.
-     */
     readonly validUpgradeTargets: string[];
     readonly version: string;
-    /**
-     * Description of the database engine version.
-     */
     readonly versionDescription: string;
 }
-/**
- * Information about a DocumentDB engine version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.docdb.getEngineVersion({
- *     version: "3.6.0",
- * });
- * ```
- */
 export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
     return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))
 }
@@ -107,20 +52,8 @@ export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?:
  * A collection of arguments for invoking getEngineVersion.
  */
 export interface GetEngineVersionOutputArgs {
-    /**
-     * DB engine. (Default: `docdb`)
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
-     */
     parameterGroupFamily?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
-     */
     version?: pulumi.Input<string>;
 }

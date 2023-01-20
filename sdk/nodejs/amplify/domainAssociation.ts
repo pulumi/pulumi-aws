@@ -7,48 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amplify Domain Association resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApp = new aws.amplify.App("exampleApp", {customRules: [{
- *     source: "https://example.com",
- *     status: "302",
- *     target: "https://www.example.com",
- * }]});
- * const master = new aws.amplify.Branch("master", {
- *     appId: exampleApp.id,
- *     branchName: "master",
- * });
- * const exampleDomainAssociation = new aws.amplify.DomainAssociation("exampleDomainAssociation", {
- *     appId: exampleApp.id,
- *     domainName: "example.com",
- *     subDomains: [
- *         {
- *             branchName: master.branchName,
- *             prefix: "",
- *         },
- *         {
- *             branchName: master.branchName,
- *             prefix: "www",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
- * ```
- */
 export class DomainAssociation extends pulumi.CustomResource {
     /**
      * Get an existing DomainAssociation resource's state with the given name, ID, and optional extra
@@ -77,29 +35,11 @@ export class DomainAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainAssociation.__pulumiType;
     }
 
-    /**
-     * Unique ID for an Amplify app.
-     */
     public readonly appId!: pulumi.Output<string>;
-    /**
-     * ARN for the domain association.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The DNS record for certificate verification.
-     */
     public /*out*/ readonly certificateVerificationDnsRecord!: pulumi.Output<string>;
-    /**
-     * Domain name for the domain association.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * Setting for the subdomain. Documented below.
-     */
     public readonly subDomains!: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
-    /**
-     * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-     */
     public readonly waitForVerification!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -148,29 +88,11 @@ export class DomainAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DomainAssociation resources.
  */
 export interface DomainAssociationState {
-    /**
-     * Unique ID for an Amplify app.
-     */
     appId?: pulumi.Input<string>;
-    /**
-     * ARN for the domain association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The DNS record for certificate verification.
-     */
     certificateVerificationDnsRecord?: pulumi.Input<string>;
-    /**
-     * Domain name for the domain association.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Setting for the subdomain. Documented below.
-     */
     subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
-    /**
-     * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-     */
     waitForVerification?: pulumi.Input<boolean>;
 }
 
@@ -178,20 +100,8 @@ export interface DomainAssociationState {
  * The set of arguments for constructing a DomainAssociation resource.
  */
 export interface DomainAssociationArgs {
-    /**
-     * Unique ID for an Amplify app.
-     */
     appId: pulumi.Input<string>;
-    /**
-     * Domain name for the domain association.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * Setting for the subdomain. Documented below.
-     */
     subDomains: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
-    /**
-     * If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-     */
     waitForVerification?: pulumi.Input<boolean>;
 }

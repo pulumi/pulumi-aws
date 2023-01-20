@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an OpsWorks Ganglia layer resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const monitor = new aws.opsworks.GangliaLayer("monitor", {
- *     stackId: aws_opsworks_stack.main.id,
- *     password: "foobarbaz",
- * });
- * ```
- */
 export class GangliaLayer extends pulumi.CustomResource {
     /**
      * Get an existing GangliaLayer resource's state with the given name, ID, and optional extra
@@ -50,96 +35,33 @@ export class GangliaLayer extends pulumi.CustomResource {
         return obj['__pulumiType'] === GangliaLayer.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name(ARN) of the layer.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     public readonly autoAssignElasticIps!: pulumi.Output<boolean | undefined>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     public readonly autoAssignPublicIps!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
     public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.GangliaLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     public readonly customJson!: pulumi.Output<string | undefined>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     public readonly customSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly customSetupRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customShutdownRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customUndeployRecipes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.GangliaLayerEbsVolume[]>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     public readonly elasticLoadBalancer!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     public readonly installUpdatesOnBoot!: pulumi.Output<boolean | undefined>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
     public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The password to use for Ganglia.
-     */
     public readonly password!: pulumi.Output<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     public readonly stackId!: pulumi.Output<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The URL path to use for Ganglia. Defaults to "/ganglia".
-     */
     public readonly url!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
-    /**
-     * The username to use for Ganglia. Defaults to "opsworks".
-     */
     public readonly username!: pulumi.Output<string | undefined>;
 
     /**
@@ -229,96 +151,33 @@ export class GangliaLayer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GangliaLayer resources.
  */
 export interface GangliaLayerState {
-    /**
-     * The Amazon Resource Name(ARN) of the layer.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     autoAssignElasticIps?: pulumi.Input<boolean>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     autoAssignPublicIps?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     autoHealing?: pulumi.Input<boolean>;
     cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.GangliaLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     customInstanceProfileArn?: pulumi.Input<string>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     customJson?: pulumi.Input<string>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     drainElbOnShutdown?: pulumi.Input<boolean>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerEbsVolume>[]>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     elasticLoadBalancer?: pulumi.Input<string>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     installUpdatesOnBoot?: pulumi.Input<boolean>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     instanceShutdownTimeout?: pulumi.Input<number>;
     loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The password to use for Ganglia.
-     */
     password?: pulumi.Input<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     stackId?: pulumi.Input<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The URL path to use for Ganglia. Defaults to "/ganglia".
-     */
     url?: pulumi.Input<string>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
-    /**
-     * The username to use for Ganglia. Defaults to "opsworks".
-     */
     username?: pulumi.Input<string>;
 }
 
@@ -326,87 +185,30 @@ export interface GangliaLayerState {
  * The set of arguments for constructing a GangliaLayer resource.
  */
 export interface GangliaLayerArgs {
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     autoAssignElasticIps?: pulumi.Input<boolean>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     autoAssignPublicIps?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     autoHealing?: pulumi.Input<boolean>;
     cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.GangliaLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     customInstanceProfileArn?: pulumi.Input<string>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     customJson?: pulumi.Input<string>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     drainElbOnShutdown?: pulumi.Input<boolean>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.GangliaLayerEbsVolume>[]>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     elasticLoadBalancer?: pulumi.Input<string>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     installUpdatesOnBoot?: pulumi.Input<boolean>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     instanceShutdownTimeout?: pulumi.Input<number>;
     loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.GangliaLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The password to use for Ganglia.
-     */
     password: pulumi.Input<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     stackId: pulumi.Input<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The URL path to use for Ganglia. Defaults to "/ganglia".
-     */
     url?: pulumi.Input<string>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
-    /**
-     * The username to use for Ganglia. Defaults to "opsworks".
-     */
     username?: pulumi.Input<string>;
 }

@@ -4,14 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get an authentication token to communicate with an EKS cluster.
- *
- * Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
- * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
- * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
- * server configured.
- */
 export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterAuthResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,9 +16,6 @@ export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getClusterAuth.
  */
 export interface GetClusterAuthArgs {
-    /**
-     * Name of the cluster
-     */
     name: string;
 }
 
@@ -39,19 +28,8 @@ export interface GetClusterAuthResult {
      */
     readonly id: string;
     readonly name: string;
-    /**
-     * Token to use to authenticate with the cluster.
-     */
     readonly token: string;
 }
-/**
- * Get an authentication token to communicate with an EKS cluster.
- *
- * Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
- * [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
- * This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
- * server configured.
- */
 export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterAuthResult> {
     return pulumi.output(args).apply((a: any) => getClusterAuth(a, opts))
 }
@@ -60,8 +38,5 @@ export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulu
  * A collection of arguments for invoking getClusterAuth.
  */
 export interface GetClusterAuthOutputArgs {
-    /**
-     * Name of the cluster
-     */
     name: pulumi.Input<string>;
 }

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon API Gateway Version 2 API mapping.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.ApiMapping("example", {
- *     apiId: aws_apigatewayv2_api.example.id,
- *     domainName: aws_apigatewayv2_domain_name.example.id,
- *     stage: aws_apigatewayv2_stage.example.id,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_apigatewayv2_api_mapping` can be imported by using the API mapping identifier and domain name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
- * ```
- */
 export class ApiMapping extends pulumi.CustomResource {
     /**
      * Get an existing ApiMapping resource's state with the given name, ID, and optional extra
@@ -58,21 +32,9 @@ export class ApiMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApiMapping.__pulumiType;
     }
 
-    /**
-     * API identifier.
-     */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-     */
     public readonly apiMappingKey!: pulumi.Output<string | undefined>;
-    /**
-     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     */
     public readonly stage!: pulumi.Output<string>;
 
     /**
@@ -117,21 +79,9 @@ export class ApiMapping extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApiMapping resources.
  */
 export interface ApiMappingState {
-    /**
-     * API identifier.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-     */
     apiMappingKey?: pulumi.Input<string>;
-    /**
-     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     */
     stage?: pulumi.Input<string>;
 }
 
@@ -139,20 +89,8 @@ export interface ApiMappingState {
  * The set of arguments for constructing a ApiMapping resource.
  */
 export interface ApiMappingArgs {
-    /**
-     * API identifier.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
-     */
     apiMappingKey?: pulumi.Input<string>;
-    /**
-     * Domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
-     */
     stage: pulumi.Input<string>;
 }

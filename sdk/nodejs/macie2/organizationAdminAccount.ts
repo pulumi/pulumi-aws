@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "ID OF THE ADMIN ACCOUNT"}, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
- * ## Import
- *
- * `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -55,9 +32,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     public readonly adminAccountId!: pulumi.Output<string>;
 
     /**
@@ -90,9 +64,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     adminAccountId?: pulumi.Input<string>;
 }
 
@@ -100,8 +71,5 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
-     */
     adminAccountId: pulumi.Input<string>;
 }

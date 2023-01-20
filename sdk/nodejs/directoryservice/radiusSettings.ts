@@ -4,34 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.directoryservice.RadiusSettings("example", {
- *     directoryId: aws_directory_service_directory.example.id,
- *     authenticationProtocol: "PAP",
- *     displayLabel: "example",
- *     radiusPort: 1812,
- *     radiusRetries: 4,
- *     radiusServers: ["10.0.1.5"],
- *     radiusTimeout: 1,
- *     sharedSecret: "12345678",
- * });
- * ```
- *
- * ## Import
- *
- * RADIUS settings can be imported using the directory ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
- * ```
- */
 export class RadiusSettings extends pulumi.CustomResource {
     /**
      * Get an existing RadiusSettings resource's state with the given name, ID, and optional extra
@@ -60,41 +32,14 @@ export class RadiusSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === RadiusSettings.__pulumiType;
     }
 
-    /**
-     * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-     */
     public readonly authenticationProtocol!: pulumi.Output<string>;
-    /**
-     * The identifier of the directory for which you want to manager RADIUS settings.
-     */
     public readonly directoryId!: pulumi.Output<string>;
-    /**
-     * Display label.
-     */
     public readonly displayLabel!: pulumi.Output<string>;
-    /**
-     * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-     */
     public readonly radiusPort!: pulumi.Output<number>;
-    /**
-     * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-     */
     public readonly radiusRetries!: pulumi.Output<number>;
-    /**
-     * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-     */
     public readonly radiusServers!: pulumi.Output<string[]>;
-    /**
-     * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-     */
     public readonly radiusTimeout!: pulumi.Output<number>;
-    /**
-     * Required for enabling RADIUS on the directory.
-     */
     public readonly sharedSecret!: pulumi.Output<string>;
-    /**
-     * Not currently used.
-     */
     public readonly useSameUsername!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -166,41 +111,14 @@ export class RadiusSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RadiusSettings resources.
  */
 export interface RadiusSettingsState {
-    /**
-     * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-     */
     authenticationProtocol?: pulumi.Input<string>;
-    /**
-     * The identifier of the directory for which you want to manager RADIUS settings.
-     */
     directoryId?: pulumi.Input<string>;
-    /**
-     * Display label.
-     */
     displayLabel?: pulumi.Input<string>;
-    /**
-     * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-     */
     radiusPort?: pulumi.Input<number>;
-    /**
-     * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-     */
     radiusRetries?: pulumi.Input<number>;
-    /**
-     * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-     */
     radiusServers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-     */
     radiusTimeout?: pulumi.Input<number>;
-    /**
-     * Required for enabling RADIUS on the directory.
-     */
     sharedSecret?: pulumi.Input<string>;
-    /**
-     * Not currently used.
-     */
     useSameUsername?: pulumi.Input<boolean>;
 }
 
@@ -208,40 +126,13 @@ export interface RadiusSettingsState {
  * The set of arguments for constructing a RadiusSettings resource.
  */
 export interface RadiusSettingsArgs {
-    /**
-     * The protocol specified for your RADIUS endpoints. Valid values: `PAP`, `CHAP`, `MS-CHAPv1`, `MS-CHAPv2`.
-     */
     authenticationProtocol: pulumi.Input<string>;
-    /**
-     * The identifier of the directory for which you want to manager RADIUS settings.
-     */
     directoryId: pulumi.Input<string>;
-    /**
-     * Display label.
-     */
     displayLabel: pulumi.Input<string>;
-    /**
-     * The port that your RADIUS server is using for communications. Your self-managed network must allow inbound traffic over this port from the AWS Directory Service servers.
-     */
     radiusPort: pulumi.Input<number>;
-    /**
-     * The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
-     */
     radiusRetries: pulumi.Input<number>;
-    /**
-     * An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
-     */
     radiusServers: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
-     */
     radiusTimeout: pulumi.Input<number>;
-    /**
-     * Required for enabling RADIUS on the directory.
-     */
     sharedSecret: pulumi.Input<string>;
-    /**
-     * Not currently used.
-     */
     useSameUsername?: pulumi.Input<boolean>;
 }

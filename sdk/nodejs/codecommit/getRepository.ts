@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codecommit.getRepository({
- *     repositoryName: "MyTestRepository",
- * });
- * ```
- */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +16,6 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getRepository.
  */
 export interface GetRepositoryArgs {
-    /**
-     * Name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName: string;
 }
 
@@ -40,42 +23,16 @@ export interface GetRepositoryArgs {
  * A collection of values returned by getRepository.
  */
 export interface GetRepositoryResult {
-    /**
-     * ARN of the repository
-     */
     readonly arn: string;
-    /**
-     * URL to use for cloning the repository over HTTPS.
-     */
     readonly cloneUrlHttp: string;
-    /**
-     * URL to use for cloning the repository over SSH.
-     */
     readonly cloneUrlSsh: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * ID of the repository
-     */
     readonly repositoryId: string;
     readonly repositoryName: string;
 }
-/**
- * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.codecommit.getRepository({
- *     repositoryName: "MyTestRepository",
- * });
- * ```
- */
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
     return pulumi.output(args).apply((a: any) => getRepository(a, opts))
 }
@@ -84,8 +41,5 @@ export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getRepository.
  */
 export interface GetRepositoryOutputArgs {
-    /**
-     * Name for the repository. This needs to be less than 100 characters.
-     */
     repositoryName: pulumi.Input<string>;
 }

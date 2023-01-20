@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon MSK Connect Worker Configuration Resource.
- *
- * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.mskconnect.WorkerConfiguration("example", {propertiesFileContent: `key.converter=org.apache.kafka.connect.storage.StringConverter
- * value.converter=org.apache.kafka.connect.storage.StringConverter
- *
- * `});
- * ```
- *
- * ## Import
- *
- * MSK Connect Worker Configuration can be imported using the plugin's `arn`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
- * ```
- */
 export class WorkerConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing WorkerConfiguration resource's state with the given name, ID, and optional extra
@@ -56,25 +32,10 @@ export class WorkerConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkerConfiguration.__pulumiType;
     }
 
-    /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A summary description of the worker configuration.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     */
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
-    /**
-     * The name of the worker configuration.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     */
     public readonly propertiesFileContent!: pulumi.Output<string>;
 
     /**
@@ -115,25 +76,10 @@ export class WorkerConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WorkerConfiguration resources.
  */
 export interface WorkerConfigurationState {
-    /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A summary description of the worker configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * an ID of the latest successfully created revision of the worker configuration.
-     */
     latestRevision?: pulumi.Input<number>;
-    /**
-     * The name of the worker configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     */
     propertiesFileContent?: pulumi.Input<string>;
 }
 
@@ -141,16 +87,7 @@ export interface WorkerConfigurationState {
  * The set of arguments for constructing a WorkerConfiguration resource.
  */
 export interface WorkerConfigurationArgs {
-    /**
-     * A summary description of the worker configuration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the worker configuration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Contents of connect-distributed.properties file. The value can be either base64 encoded or in raw format.
-     */
     propertiesFileContent: pulumi.Input<string>;
 }

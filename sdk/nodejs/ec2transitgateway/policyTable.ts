@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EC2 Transit Gateway Policy Table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.PolicyTable("example", {
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     tags: {
- *         Name: "Example Policy Table",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * `aws_ec2_transit_gateway_policy_table` can be imported by using the EC2 Transit Gateway Policy Table identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
- * ```
- */
 export class PolicyTable extends pulumi.CustomResource {
     /**
      * Get an existing PolicyTable resource's state with the given name, ID, and optional extra
@@ -57,25 +32,10 @@ export class PolicyTable extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyTable.__pulumiType;
     }
 
-    /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The state of the EC2 Transit Gateway Policy Table.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * EC2 Transit Gateway identifier.
-     */
     public readonly transitGatewayId!: pulumi.Output<string>;
 
     /**
@@ -116,25 +76,10 @@ export class PolicyTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyTable resources.
  */
 export interface PolicyTableState {
-    /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The state of the EC2 Transit Gateway Policy Table.
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * EC2 Transit Gateway identifier.
-     */
     transitGatewayId?: pulumi.Input<string>;
 }
 
@@ -142,12 +87,6 @@ export interface PolicyTableState {
  * The set of arguments for constructing a PolicyTable resource.
  */
 export interface PolicyTableArgs {
-    /**
-     * Key-value tags for the EC2 Transit Gateway Policy Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * EC2 Transit Gateway identifier.
-     */
     transitGatewayId: pulumi.Input<string>;
 }

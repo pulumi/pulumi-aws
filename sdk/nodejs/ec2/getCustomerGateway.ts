@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get an existing AWS Customer Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ec2.getCustomerGateway({
- *     filters: [{
- *         name: "tag:Name",
- *         values: ["foo-prod"],
- *     }],
- * });
- * const main = new aws.ec2.VpnGateway("main", {
- *     vpcId: aws_vpc.main.id,
- *     amazonSideAsn: "7224",
- * });
- * const transit = new aws.ec2.VpnConnection("transit", {
- *     vpnGatewayId: main.id,
- *     customerGatewayId: foo.then(foo => foo.id),
- *     type: foo.then(foo => foo.type),
- *     staticRoutesOnly: false,
- * });
- * ```
- */
 export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerGatewayResult> {
     args = args || {};
 
@@ -49,17 +22,8 @@ export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.
  * A collection of arguments for invoking getCustomerGateway.
  */
 export interface GetCustomerGatewayArgs {
-    /**
-     * One or more [name-value pairs][dcg-filters] to filter by.
-     */
     filters?: inputs.ec2.GetCustomerGatewayFilter[];
-    /**
-     * ID of the gateway.
-     */
     id?: string;
-    /**
-     * Map of key-value pairs assigned to the gateway.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -67,64 +31,16 @@ export interface GetCustomerGatewayArgs {
  * A collection of values returned by getCustomerGateway.
  */
 export interface GetCustomerGatewayResult {
-    /**
-     * ARN of the customer gateway.
-     */
     readonly arn: string;
-    /**
-     * Gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-     */
     readonly bgpAsn: number;
-    /**
-     * ARN for the customer gateway certificate.
-     */
     readonly certificateArn: string;
-    /**
-     * Name for the customer gateway device.
-     */
     readonly deviceName: string;
     readonly filters?: outputs.ec2.GetCustomerGatewayFilter[];
     readonly id: string;
-    /**
-     * IP address of the gateway's Internet-routable external interface.
-     */
     readonly ipAddress: string;
-    /**
-     * Map of key-value pairs assigned to the gateway.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
-     */
     readonly type: string;
 }
-/**
- * Get an existing AWS Customer Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ec2.getCustomerGateway({
- *     filters: [{
- *         name: "tag:Name",
- *         values: ["foo-prod"],
- *     }],
- * });
- * const main = new aws.ec2.VpnGateway("main", {
- *     vpcId: aws_vpc.main.id,
- *     amazonSideAsn: "7224",
- * });
- * const transit = new aws.ec2.VpnConnection("transit", {
- *     vpnGatewayId: main.id,
- *     customerGatewayId: foo.then(foo => foo.id),
- *     type: foo.then(foo => foo.type),
- *     staticRoutesOnly: false,
- * });
- * ```
- */
 export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
     return pulumi.output(args).apply((a: any) => getCustomerGateway(a, opts))
 }
@@ -133,16 +49,7 @@ export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, op
  * A collection of arguments for invoking getCustomerGateway.
  */
 export interface GetCustomerGatewayOutputArgs {
-    /**
-     * One or more [name-value pairs][dcg-filters] to filter by.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCustomerGatewayFilterArgs>[]>;
-    /**
-     * ID of the gateway.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Map of key-value pairs assigned to the gateway.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Disable/enable Security Hub standards control in the current region.
- *
- * The `aws.securityhub.StandardsControl` behaves differently from normal resources, in that
- * The provider does not _create_ this resource, but instead "adopts" it
- * into management. When you _delete_ this resource configuration, the provider "abandons" resource as is and just removes it from the state.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.securityhub.Account("example", {});
- * const cisAwsFoundationsBenchmark = new aws.securityhub.StandardsSubscription("cisAwsFoundationsBenchmark", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
- *     dependsOn: [example],
- * });
- * const ensureIamPasswordPolicyPreventsPasswordReuse = new aws.securityhub.StandardsControl("ensureIamPasswordPolicyPreventsPasswordReuse", {
- *     standardsControlArn: "arn:aws:securityhub:us-east-1:111111111111:control/cis-aws-foundations-benchmark/v/1.2.0/1.10",
- *     controlStatus: "DISABLED",
- *     disabledReason: "We handle password policies within Okta",
- * }, {
- *     dependsOn: [cisAwsFoundationsBenchmark],
- * });
- * ```
- */
 export class StandardsControl extends pulumi.CustomResource {
     /**
      * Get an existing StandardsControl resource's state with the given name, ID, and optional extra
@@ -58,45 +32,15 @@ export class StandardsControl extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandardsControl.__pulumiType;
     }
 
-    /**
-     * The identifier of the security standard control.
-     */
     public /*out*/ readonly controlId!: pulumi.Output<string>;
-    /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     */
     public readonly controlStatus!: pulumi.Output<string>;
-    /**
-     * The date and time that the status of the security standard control was most recently updated.
-     */
     public /*out*/ readonly controlStatusUpdatedAt!: pulumi.Output<string>;
-    /**
-     * The standard control longer description. Provides information about what the control is checking for.
-     */
     public /*out*/ readonly description!: pulumi.Output<string>;
-    /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     */
     public readonly disabledReason!: pulumi.Output<string>;
-    /**
-     * The list of requirements that are related to this control.
-     */
     public /*out*/ readonly relatedRequirements!: pulumi.Output<string[]>;
-    /**
-     * A link to remediation information for the control in the Security Hub user documentation.
-     */
     public /*out*/ readonly remediationUrl!: pulumi.Output<string>;
-    /**
-     * The severity of findings generated from this security standard control.
-     */
     public /*out*/ readonly severityRating!: pulumi.Output<string>;
-    /**
-     * The standards control ARN.
-     */
     public readonly standardsControlArn!: pulumi.Output<string>;
-    /**
-     * The standard control title.
-     */
     public /*out*/ readonly title!: pulumi.Output<string>;
 
     /**
@@ -150,45 +94,15 @@ export class StandardsControl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsControl resources.
  */
 export interface StandardsControlState {
-    /**
-     * The identifier of the security standard control.
-     */
     controlId?: pulumi.Input<string>;
-    /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     */
     controlStatus?: pulumi.Input<string>;
-    /**
-     * The date and time that the status of the security standard control was most recently updated.
-     */
     controlStatusUpdatedAt?: pulumi.Input<string>;
-    /**
-     * The standard control longer description. Provides information about what the control is checking for.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     */
     disabledReason?: pulumi.Input<string>;
-    /**
-     * The list of requirements that are related to this control.
-     */
     relatedRequirements?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A link to remediation information for the control in the Security Hub user documentation.
-     */
     remediationUrl?: pulumi.Input<string>;
-    /**
-     * The severity of findings generated from this security standard control.
-     */
     severityRating?: pulumi.Input<string>;
-    /**
-     * The standards control ARN.
-     */
     standardsControlArn?: pulumi.Input<string>;
-    /**
-     * The standard control title.
-     */
     title?: pulumi.Input<string>;
 }
 
@@ -196,16 +110,7 @@ export interface StandardsControlState {
  * The set of arguments for constructing a StandardsControl resource.
  */
 export interface StandardsControlArgs {
-    /**
-     * The control status could be `ENABLED` or `DISABLED`. You have to specify `disabledReason` argument for `DISABLED` control status.
-     */
     controlStatus: pulumi.Input<string>;
-    /**
-     * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
-     */
     disabledReason?: pulumi.Input<string>;
-    /**
-     * The standards control ARN.
-     */
     standardsControlArn: pulumi.Input<string>;
 }

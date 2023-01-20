@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Executes a Redshift Data Statement.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftdata.Statement("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     database: aws_redshift_cluster.example.database_name,
- *     dbUser: aws_redshift_cluster.example.master_username,
- *     sql: "CREATE GROUP group_name;",
- * });
- * ```
- *
- * ## Import
- *
- * Redshift Data Statements can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshiftdata/statement:Statement example example
- * ```
- */
 export class Statement extends pulumi.CustomResource {
     /**
      * Get an existing Statement resource's state with the given name, ID, and optional extra
@@ -60,35 +35,15 @@ export class Statement extends pulumi.CustomResource {
         return obj['__pulumiType'] === Statement.__pulumiType;
     }
 
-    /**
-     * The cluster identifier.
-     */
-    public readonly clusterIdentifier!: pulumi.Output<string>;
-    /**
-     * The name of the database.
-     */
+    public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
     public readonly database!: pulumi.Output<string>;
-    /**
-     * The database user name.
-     */
     public readonly dbUser!: pulumi.Output<string | undefined>;
     public readonly parameters!: pulumi.Output<outputs.redshiftdata.StatementParameter[] | undefined>;
-    /**
-     * The name or ARN of the secret that enables access to the database.
-     */
     public readonly secretArn!: pulumi.Output<string | undefined>;
-    /**
-     * The SQL statement text to run.
-     */
     public readonly sql!: pulumi.Output<string>;
-    /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     */
     public readonly statementName!: pulumi.Output<string | undefined>;
-    /**
-     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     */
     public readonly withEvent!: pulumi.Output<boolean | undefined>;
+    public readonly workgroupName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Statement resource with the given unique name, arguments, and options.
@@ -111,11 +66,9 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["sql"] = state ? state.sql : undefined;
             resourceInputs["statementName"] = state ? state.statementName : undefined;
             resourceInputs["withEvent"] = state ? state.withEvent : undefined;
+            resourceInputs["workgroupName"] = state ? state.workgroupName : undefined;
         } else {
             const args = argsOrState as StatementArgs | undefined;
-            if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterIdentifier'");
-            }
             if ((!args || args.database === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'database'");
             }
@@ -130,6 +83,7 @@ export class Statement extends pulumi.CustomResource {
             resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["statementName"] = args ? args.statementName : undefined;
             resourceInputs["withEvent"] = args ? args.withEvent : undefined;
+            resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Statement.__pulumiType, name, resourceInputs, opts);
@@ -140,68 +94,28 @@ export class Statement extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Statement resources.
  */
 export interface StatementState {
-    /**
-     * The cluster identifier.
-     */
     clusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The name of the database.
-     */
     database?: pulumi.Input<string>;
-    /**
-     * The database user name.
-     */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
-    /**
-     * The name or ARN of the secret that enables access to the database.
-     */
     secretArn?: pulumi.Input<string>;
-    /**
-     * The SQL statement text to run.
-     */
     sql?: pulumi.Input<string>;
-    /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     */
     statementName?: pulumi.Input<string>;
-    /**
-     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     */
     withEvent?: pulumi.Input<boolean>;
+    workgroupName?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Statement resource.
  */
 export interface StatementArgs {
-    /**
-     * The cluster identifier.
-     */
-    clusterIdentifier: pulumi.Input<string>;
-    /**
-     * The name of the database.
-     */
+    clusterIdentifier?: pulumi.Input<string>;
     database: pulumi.Input<string>;
-    /**
-     * The database user name.
-     */
     dbUser?: pulumi.Input<string>;
     parameters?: pulumi.Input<pulumi.Input<inputs.redshiftdata.StatementParameter>[]>;
-    /**
-     * The name or ARN of the secret that enables access to the database.
-     */
     secretArn?: pulumi.Input<string>;
-    /**
-     * The SQL statement text to run.
-     */
     sql: pulumi.Input<string>;
-    /**
-     * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-     */
     statementName?: pulumi.Input<string>;
-    /**
-     * A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-     */
     withEvent?: pulumi.Input<boolean>;
+    workgroupName?: pulumi.Input<string>;
 }

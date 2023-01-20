@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a MemoryDB User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getUser({
- *     userName: "my-user",
- * });
- * ```
- */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +20,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserArgs {
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     tags?: {[key: string]: string};
-    /**
-     * Name of the user.
-     */
     userName: string;
 }
 
@@ -48,46 +28,17 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
-    /**
-     * Access permissions string used for this user.
-     */
     readonly accessString: string;
-    /**
-     * ARN of the user.
-     */
     readonly arn: string;
-    /**
-     * Denotes the user's authentication properties.
-     */
     readonly authenticationModes: outputs.memorydb.GetUserAuthenticationMode[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The minimum engine version supported for the user.
-     */
     readonly minimumEngineVersion: string;
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     readonly tags: {[key: string]: string};
     readonly userName: string;
 }
-/**
- * Provides information about a MemoryDB User.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.memorydb.getUser({
- *     userName: "my-user",
- * });
- * ```
- */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
 }
@@ -96,12 +47,6 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getUser.
  */
 export interface GetUserOutputArgs {
-    /**
-     * Map of tags assigned to the subnet group.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the user.
-     */
     userName: pulumi.Input<string>;
 }

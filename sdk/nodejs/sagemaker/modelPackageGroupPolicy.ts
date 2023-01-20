@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker Model Package Group Policy resource.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * SageMaker Model Package Groups can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
- * ```
- */
 export class ModelPackageGroupPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ModelPackageGroupPolicy resource's state with the given name, ID, and optional extra
@@ -45,9 +32,6 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackageGroupPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the model package group.
-     */
     public readonly modelPackageGroupName!: pulumi.Output<string>;
     public readonly resourcePolicy!: pulumi.Output<string>;
 
@@ -86,9 +70,6 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
  */
 export interface ModelPackageGroupPolicyState {
-    /**
-     * The name of the model package group.
-     */
     modelPackageGroupName?: pulumi.Input<string>;
     resourcePolicy?: pulumi.Input<string>;
 }
@@ -97,9 +78,6 @@ export interface ModelPackageGroupPolicyState {
  * The set of arguments for constructing a ModelPackageGroupPolicy resource.
  */
 export interface ModelPackageGroupPolicyArgs {
-    /**
-     * The name of the model package group.
-     */
     modelPackageGroupName: pulumi.Input<string>;
     resourcePolicy: pulumi.Input<string>;
 }

@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an IAM Signing Certificate resource to upload Signing Certificates.
- *
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const testCert = new aws.iam.SigningCertificate("testCert", {
- *     username: "some_test_cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- * });
- * ```
- *
- * **Example with cert in-line:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testCertAlt = new aws.iam.SigningCertificate("testCertAlt", {
- *     certificateBody: `-----BEGIN CERTIFICATE-----
- * [......] # cert contents
- * -----END CERTIFICATE-----
- *
- * `,
- *     username: "some_test_cert",
- * });
- * ```
- *
- * ## Import
- *
- * IAM Signing Certificates can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
- * ```
- */
 export class SigningCertificate extends pulumi.CustomResource {
     /**
      * Get an existing SigningCertificate resource's state with the given name, ID, and optional extra
@@ -74,21 +32,9 @@ export class SigningCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === SigningCertificate.__pulumiType;
     }
 
-    /**
-     * The contents of the signing certificate in PEM-encoded format.
-     */
     public readonly certificateBody!: pulumi.Output<string>;
-    /**
-     * The ID for the signing certificate.
-     */
     public /*out*/ readonly certificateId!: pulumi.Output<string>;
-    /**
-     * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-     */
     public readonly status!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the user the signing certificate is for.
-     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -130,21 +76,9 @@ export class SigningCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SigningCertificate resources.
  */
 export interface SigningCertificateState {
-    /**
-     * The contents of the signing certificate in PEM-encoded format.
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * The ID for the signing certificate.
-     */
     certificateId?: pulumi.Input<string>;
-    /**
-     * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * The name of the user the signing certificate is for.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -152,16 +86,7 @@ export interface SigningCertificateState {
  * The set of arguments for constructing a SigningCertificate resource.
  */
 export interface SigningCertificateArgs {
-    /**
-     * The contents of the signing certificate in PEM-encoded format.
-     */
     certificateBody: pulumi.Input<string>;
-    /**
-     * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * The name of the user the signing certificate is for.
-     */
     userName: pulumi.Input<string>;
 }

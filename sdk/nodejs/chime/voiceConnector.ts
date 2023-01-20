@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.chime.VoiceConnector("test", {
- *     awsRegion: "us-east-1",
- *     requireEncryption: true,
- * });
- * ```
- *
- * ## Import
- *
- * Configuration Recorder can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
- * ```
- */
 export class VoiceConnector extends pulumi.CustomResource {
     /**
      * Get an existing VoiceConnector resource's state with the given name, ID, and optional extra
@@ -55,21 +32,9 @@ export class VoiceConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === VoiceConnector.__pulumiType;
     }
 
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     */
     public readonly awsRegion!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The outbound host name for the Amazon Chime Voice Connector.
-     */
     public /*out*/ readonly outboundHostName!: pulumi.Output<string>;
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     */
     public readonly requireEncryption!: pulumi.Output<boolean>;
 
     /**
@@ -108,21 +73,9 @@ export class VoiceConnector extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnector resources.
  */
 export interface VoiceConnectorState {
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     */
     awsRegion?: pulumi.Input<string>;
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The outbound host name for the Amazon Chime Voice Connector.
-     */
     outboundHostName?: pulumi.Input<string>;
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     */
     requireEncryption?: pulumi.Input<boolean>;
 }
 
@@ -130,16 +83,7 @@ export interface VoiceConnectorState {
  * The set of arguments for constructing a VoiceConnector resource.
  */
 export interface VoiceConnectorArgs {
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     */
     awsRegion?: pulumi.Input<string>;
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     */
     requireEncryption: pulumi.Input<boolean>;
 }

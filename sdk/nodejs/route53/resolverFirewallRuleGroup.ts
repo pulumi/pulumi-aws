@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNS Firewall rule group resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverFirewallRuleGroup("example", {});
- * ```
- *
- * ## Import
- *
- *  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
- * ```
- */
 export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing ResolverFirewallRuleGroup resource's state with the given name, ID, and optional extra
@@ -52,29 +32,11 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverFirewallRuleGroup.__pulumiType;
     }
 
-    /**
-     * The ARN (Amazon Resource Name) of the rule group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A name that lets you identify the rule group, to manage and use it.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-     */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -114,29 +76,11 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.
  */
 export interface ResolverFirewallRuleGroupState {
-    /**
-     * The ARN (Amazon Resource Name) of the rule group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A name that lets you identify the rule group, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
-     */
     shareStatus?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -144,12 +88,6 @@ export interface ResolverFirewallRuleGroupState {
  * The set of arguments for constructing a ResolverFirewallRuleGroup resource.
  */
 export interface ResolverFirewallRuleGroupArgs {
-    /**
-     * A name that lets you identify the rule group, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

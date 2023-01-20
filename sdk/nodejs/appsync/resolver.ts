@@ -7,121 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AppSync Resolver.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testGraphQLApi = new aws.appsync.GraphQLApi("testGraphQLApi", {
- *     authenticationType: "API_KEY",
- *     schema: `type Mutation {
- * 	putPost(id: ID!, title: String!): Post
- * }
- *
- * type Post {
- * 	id: ID!
- * 	title: String!
- * }
- *
- * type Query {
- * 	singlePost(id: ID!): Post
- * }
- *
- * schema {
- * 	query: Query
- * 	mutation: Mutation
- * }
- * `,
- * });
- * const testDataSource = new aws.appsync.DataSource("testDataSource", {
- *     apiId: testGraphQLApi.id,
- *     name: "my_example",
- *     type: "HTTP",
- *     httpConfig: {
- *         endpoint: "http://example.com",
- *     },
- * });
- * // UNIT type resolver (default)
- * const testResolver = new aws.appsync.Resolver("testResolver", {
- *     apiId: testGraphQLApi.id,
- *     field: "singlePost",
- *     type: "Query",
- *     dataSource: testDataSource.name,
- *     requestTemplate: `{
- *     "version": "2018-05-29",
- *     "method": "GET",
- *     "resourcePath": "/",
- *     "params":{
- *         "headers": $utils.http.copyheaders($ctx.request.headers)
- *     }
- * }
- * `,
- *     responseTemplate: `#if($ctx.result.statusCode == 200)
- *     $ctx.result.body
- * #else
- *     $utils.appendError($ctx.result.body, $ctx.result.statusCode)
- * #end
- * `,
- *     cachingConfig: {
- *         cachingKeys: [
- *             `$context.identity.sub`,
- *             `$context.arguments.id`,
- *         ],
- *         ttl: 60,
- *     },
- * });
- * // PIPELINE type resolver
- * const mutationPipelineTest = new aws.appsync.Resolver("mutationPipelineTest", {
- *     type: "Mutation",
- *     apiId: testGraphQLApi.id,
- *     field: "pipelineTest",
- *     requestTemplate: "{}",
- *     responseTemplate: `$util.toJson($ctx.result)`,
- *     kind: "PIPELINE",
- *     pipelineConfig: {
- *         functions: [
- *             aws_appsync_function.test1.function_id,
- *             aws_appsync_function.test2.function_id,
- *             aws_appsync_function.test3.function_id,
- *         ],
- *     },
- * });
- * ```
- * ### JS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const example = new aws.appsync.Resolver("example", {
- *     type: "Query",
- *     apiId: aws_appsync_graphql_api.test.id,
- *     field: "pipelineTest",
- *     kind: "PIPELINE",
- *     code: fs.readFileSync("some-code-dir"),
- *     runtime: {
- *         name: "APPSYNC_JS",
- *         runtimeVersion: "1.0.0",
- *     },
- *     pipelineConfig: {
- *         functions: [aws_appsync_function.test.function_id],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
- * ```
- */
 export class Resolver extends pulumi.CustomResource {
     /**
      * Get an existing Resolver resource's state with the given name, ID, and optional extra
@@ -150,61 +35,19 @@ export class Resolver extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resolver.__pulumiType;
     }
 
-    /**
-     * API ID for the GraphQL API.
-     */
     public readonly apiId!: pulumi.Output<string>;
-    /**
-     * ARN
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The Caching Config. See Caching Config.
-     */
     public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
-    /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-     */
     public readonly code!: pulumi.Output<string | undefined>;
-    /**
-     * Data source name.
-     */
     public readonly dataSource!: pulumi.Output<string | undefined>;
-    /**
-     * Field name from the schema defined in the GraphQL API.
-     */
     public readonly field!: pulumi.Output<string>;
-    /**
-     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
-     */
     public readonly kind!: pulumi.Output<string | undefined>;
-    /**
-     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-     */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
-    /**
-     * The caching configuration for the resolver. See Pipeline Config.
-     */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
-    /**
-     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     public readonly requestTemplate!: pulumi.Output<string | undefined>;
-    /**
-     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     public readonly responseTemplate!: pulumi.Output<string | undefined>;
-    /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-     */
     public readonly runtime!: pulumi.Output<outputs.appsync.ResolverRuntime | undefined>;
-    /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
-     */
     public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
-    /**
-     * Type name from the schema defined in the GraphQL API.
-     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -269,61 +112,19 @@ export class Resolver extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Resolver resources.
  */
 export interface ResolverState {
-    /**
-     * API ID for the GraphQL API.
-     */
     apiId?: pulumi.Input<string>;
-    /**
-     * ARN
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The Caching Config. See Caching Config.
-     */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
-    /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-     */
     code?: pulumi.Input<string>;
-    /**
-     * Data source name.
-     */
     dataSource?: pulumi.Input<string>;
-    /**
-     * Field name from the schema defined in the GraphQL API.
-     */
     field?: pulumi.Input<string>;
-    /**
-     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
-     */
     kind?: pulumi.Input<string>;
-    /**
-     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-     */
     maxBatchSize?: pulumi.Input<number>;
-    /**
-     * The caching configuration for the resolver. See Pipeline Config.
-     */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
-    /**
-     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     requestTemplate?: pulumi.Input<string>;
-    /**
-     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     responseTemplate?: pulumi.Input<string>;
-    /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-     */
     runtime?: pulumi.Input<inputs.appsync.ResolverRuntime>;
-    /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
-     */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
-    /**
-     * Type name from the schema defined in the GraphQL API.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -331,56 +132,17 @@ export interface ResolverState {
  * The set of arguments for constructing a Resolver resource.
  */
 export interface ResolverArgs {
-    /**
-     * API ID for the GraphQL API.
-     */
     apiId: pulumi.Input<string>;
-    /**
-     * The Caching Config. See Caching Config.
-     */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
-    /**
-     * The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-     */
     code?: pulumi.Input<string>;
-    /**
-     * Data source name.
-     */
     dataSource?: pulumi.Input<string>;
-    /**
-     * Field name from the schema defined in the GraphQL API.
-     */
     field: pulumi.Input<string>;
-    /**
-     * Resolver type. Valid values are `UNIT` and `PIPELINE`.
-     */
     kind?: pulumi.Input<string>;
-    /**
-     * Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-     */
     maxBatchSize?: pulumi.Input<number>;
-    /**
-     * The caching configuration for the resolver. See Pipeline Config.
-     */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
-    /**
-     * Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     requestTemplate?: pulumi.Input<string>;
-    /**
-     * Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
-     */
     responseTemplate?: pulumi.Input<string>;
-    /**
-     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
-     */
     runtime?: pulumi.Input<inputs.appsync.ResolverRuntime>;
-    /**
-     * Describes a Sync configuration for a resolver. See Sync Config.
-     */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfig>;
-    /**
-     * Type name from the schema defined in the GraphQL API.
-     */
     type: pulumi.Input<string>;
 }

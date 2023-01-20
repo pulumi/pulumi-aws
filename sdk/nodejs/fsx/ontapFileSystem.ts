@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Amazon FSx for NetApp ONTAP file system.
- * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapFileSystem("test", {
- *     storageCapacity: 1024,
- *     subnetIds: [
- *         aws_subnet.test1.id,
- *         aws_subnet.test2.id,
- *     ],
- *     deploymentType: "MULTI_AZ_1",
- *     throughputCapacity: 512,
- *     preferredSubnetId: aws_subnet.test1.id,
- * });
- * ```
- *
- * ## Import
- *
- * FSx File Systems can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
- * ```
- *
- *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the the provider configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the provider configuration or use `ignore_changes` to hide the difference, e.g., terraform resource "aws_fsx_ontap_file_system" "example" {
- *
- * # ... other configuration ...
- *
- *  security_group_ids = [aws_security_group.example.id]
- *
- * # There is no FSx API for reading security_group_ids
- *
- *  lifecycle {
- *
- *  ignore_changes = [security_group_ids]
- *
- *  } }
- */
 export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * Get an existing OntapFileSystem resource's state with the given name, ID, and optional extra
@@ -79,97 +35,28 @@ export class OntapFileSystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === OntapFileSystem.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name of the file system.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-     */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
-    /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-     */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
-    /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
-     */
     public readonly deploymentType!: pulumi.Output<string>;
-    /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
-     */
     public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OntapFileSystemDiskIopsConfiguration>;
-    /**
-     * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
-     */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
-    /**
-     * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-     */
     public readonly endpointIpAddressRange!: pulumi.Output<string>;
-    /**
-     * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-     */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.fsx.OntapFileSystemEndpoint[]>;
-    /**
-     * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-     */
     public readonly fsxAdminPassword!: pulumi.Output<string | undefined>;
-    /**
-     * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-     */
     public readonly kmsKeyId!: pulumi.Output<string>;
-    /**
-     * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
-     */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
-    /**
-     * AWS account identifier that created the file system.
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
-     */
     public readonly preferredSubnetId!: pulumi.Output<string>;
-    /**
-     * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
-     */
     public readonly routeTableIds!: pulumi.Output<string[]>;
-    /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-     */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-     */
     public readonly storageCapacity!: pulumi.Output<number | undefined>;
-    /**
-     * - The filesystem storage type. defaults to `SSD`.
-     */
     public readonly storageType!: pulumi.Output<string | undefined>;
-    /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
-     */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
-     */
     public readonly throughputCapacity!: pulumi.Output<number>;
-    /**
-     * Identifier of the Virtual Private Cloud for the file system.
-     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
-    /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-     */
     public readonly weeklyMaintenanceStartTime!: pulumi.Output<string>;
 
     /**
@@ -257,97 +144,28 @@ export class OntapFileSystem extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OntapFileSystem resources.
  */
 export interface OntapFileSystemState {
-    /**
-     * Amazon Resource Name of the file system.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-     */
     automaticBackupRetentionDays?: pulumi.Input<number>;
-    /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-     */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
-    /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
-     */
     deploymentType?: pulumi.Input<string>;
-    /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
-     */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
-    /**
-     * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
-     */
     dnsName?: pulumi.Input<string>;
-    /**
-     * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-     */
     endpointIpAddressRange?: pulumi.Input<string>;
-    /**
-     * The endpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
-     */
     endpoints?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpoint>[]>;
-    /**
-     * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-     */
     fsxAdminPassword?: pulumi.Input<string>;
-    /**
-     * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
-     */
     networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * AWS account identifier that created the file system.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
-     */
     preferredSubnetId?: pulumi.Input<string>;
-    /**
-     * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
-     */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-     */
     storageCapacity?: pulumi.Input<number>;
-    /**
-     * - The filesystem storage type. defaults to `SSD`.
-     */
     storageType?: pulumi.Input<string>;
-    /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
-     */
     throughputCapacity?: pulumi.Input<number>;
-    /**
-     * Identifier of the Virtual Private Cloud for the file system.
-     */
     vpcId?: pulumi.Input<string>;
-    /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-     */
     weeklyMaintenanceStartTime?: pulumi.Input<string>;
 }
 
@@ -355,68 +173,20 @@ export interface OntapFileSystemState {
  * The set of arguments for constructing a OntapFileSystem resource.
  */
 export interface OntapFileSystemArgs {
-    /**
-     * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
-     */
     automaticBackupRetentionDays?: pulumi.Input<number>;
-    /**
-     * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
-     */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
-    /**
-     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
-     */
     deploymentType: pulumi.Input<string>;
-    /**
-     * The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
-     */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OntapFileSystemDiskIopsConfiguration>;
-    /**
-     * Specifies the IP address range in which the endpoints to access your file system will be created. By default, Amazon FSx selects an unused IP address range for you from the 198.19.* range.
-     */
     endpointIpAddressRange?: pulumi.Input<string>;
-    /**
-     * The ONTAP administrative password for the fsxadmin user that you can use to administer your file system using the ONTAP CLI and REST API.
-     */
     fsxAdminPassword?: pulumi.Input<string>;
-    /**
-     * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
-     */
     preferredSubnetId: pulumi.Input<string>;
-    /**
-     * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
-     */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The storage capacity (GiB) of the file system. Valid values between `1024` and `196608`.
-     */
     storageCapacity?: pulumi.Input<number>;
-    /**
-     * - The filesystem storage type. defaults to `SSD`.
-     */
     storageType?: pulumi.Input<string>;
-    /**
-     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
-     */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, and `2048`.
-     */
     throughputCapacity: pulumi.Input<number>;
-    /**
-     * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
-     */
     weeklyMaintenanceStartTime?: pulumi.Input<string>;
 }

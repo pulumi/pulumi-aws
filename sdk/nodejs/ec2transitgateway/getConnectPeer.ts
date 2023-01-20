@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway Connect Peer.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnectPeer({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnectPeer({
- *     transitGatewayConnectPeerId: "tgw-connect-peer-12345678",
- * });
- * ```
- */
 export function getConnectPeer(args?: GetConnectPeerArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectPeerResult> {
     args = args || {};
 
@@ -50,17 +22,8 @@ export function getConnectPeer(args?: GetConnectPeerArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getConnectPeer.
  */
 export interface GetConnectPeerArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetConnectPeerFilter[];
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect Peer
-     */
     tags?: {[key: string]: string};
-    /**
-     * Identifier of the EC2 Transit Gateway Connect Peer.
-     */
     transitGatewayConnectPeerId?: string;
 }
 
@@ -68,69 +31,20 @@ export interface GetConnectPeerArgs {
  * A collection of values returned by getConnectPeer.
  */
 export interface GetConnectPeerResult {
-    /**
-     * EC2 Transit Gateway Connect Peer ARN
-     */
     readonly arn: string;
-    /**
-     * BGP ASN number assigned customer device
-     */
     readonly bgpAsn: string;
     readonly filters?: outputs.ec2transitgateway.GetConnectPeerFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * CIDR blocks that will be used for addressing within the tunnel.
-     */
     readonly insideCidrBlocks: string[];
-    /**
-     * IP addressed assigned to customer device, which is used as tunnel endpoint
-     */
     readonly peerAddress: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect Peer
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * The IP address assigned to Transit Gateway, which is used as tunnel endpoint.
-     */
     readonly transitGatewayAddress: string;
-    /**
-     * The Transit Gateway Connect
-     */
     readonly transitGatewayAttachmentId: string;
     readonly transitGatewayConnectPeerId: string;
 }
-/**
- * Get information on an EC2 Transit Gateway Connect Peer.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnectPeer({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getConnectPeer({
- *     transitGatewayConnectPeerId: "tgw-connect-peer-12345678",
- * });
- * ```
- */
 export function getConnectPeerOutput(args?: GetConnectPeerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectPeerResult> {
     return pulumi.output(args).apply((a: any) => getConnectPeer(a, opts))
 }
@@ -139,16 +53,7 @@ export function getConnectPeerOutput(args?: GetConnectPeerOutputArgs, opts?: pul
  * A collection of arguments for invoking getConnectPeer.
  */
 export interface GetConnectPeerOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectPeerFilterArgs>[]>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect Peer
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Identifier of the EC2 Transit Gateway Connect Peer.
-     */
     transitGatewayConnectPeerId?: pulumi.Input<string>;
 }

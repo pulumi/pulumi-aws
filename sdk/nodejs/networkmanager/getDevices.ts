@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about devices.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDevicesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,17 +18,8 @@ export function getDevices(args: GetDevicesArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getDevices.
  */
 export interface GetDevicesArgs {
-    /**
-     * ID of the Global Network of the devices to retrieve.
-     */
     globalNetworkId: string;
-    /**
-     * ID of the site of the devices to retrieve.
-     */
     siteId?: string;
-    /**
-     * Restricts the list to the devices with these tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -58,30 +32,10 @@ export interface GetDevicesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IDs of the devices.
-     */
     readonly ids: string[];
     readonly siteId?: string;
     readonly tags?: {[key: string]: string};
 }
-/**
- * Retrieve information about devices.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getDevices({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
- */
 export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicesResult> {
     return pulumi.output(args).apply((a: any) => getDevices(a, opts))
 }
@@ -90,16 +44,7 @@ export function getDevicesOutput(args: GetDevicesOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDevices.
  */
 export interface GetDevicesOutputArgs {
-    /**
-     * ID of the Global Network of the devices to retrieve.
-     */
     globalNetworkId: pulumi.Input<string>;
-    /**
-     * ID of the site of the devices to retrieve.
-     */
     siteId?: pulumi.Input<string>;
-    /**
-     * Restricts the list to the devices with these tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * Use this data source to get the access to the effective Account ID, User ID, and ARN in
- * which this provider is authorized.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * export const accountId = current.then(current => current.accountId);
- * export const callerArn = current.then(current => current.arn);
- * export const callerUser = current.then(current => current.userId);
- * ```
- */
 export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,20 +15,11 @@ export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCalle
  * A collection of values returned by getCallerIdentity.
  */
 export interface GetCallerIdentityResult {
-    /**
-     * AWS Account ID number of the account that owns or contains the calling entity.
-     */
     readonly accountId: string;
-    /**
-     * ARN associated with the calling entity.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Unique identifier of the calling entity.
-     */
     readonly userId: string;
 }

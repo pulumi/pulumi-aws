@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EventBridge event archive resource.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
- * ```
- * ## Example all optional arguments
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {
- *     description: "Archived events from order service",
- *     eventSourceArn: orderEventBus.arn,
- *     retentionDays: 7,
- *     eventPattern: `{
- *   "source": ["company.team.order"]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Event Archive can be imported using their name, for example console
- *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
- * ```
- */
 export class EventArchive extends pulumi.CustomResource {
     /**
      * Get an existing EventArchive resource's state with the given name, ID, and optional extra
@@ -72,29 +32,11 @@ export class EventArchive extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventArchive.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the event archive.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the new event archive.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
-     */
     public readonly eventPattern!: pulumi.Output<string | undefined>;
-    /**
-     * Event bus source ARN from where these events should be archived.
-     */
     public readonly eventSourceArn!: pulumi.Output<string>;
-    /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-     */
     public readonly retentionDays!: pulumi.Output<number | undefined>;
 
     /**
@@ -137,29 +79,11 @@ export class EventArchive extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventArchive resources.
  */
 export interface EventArchiveState {
-    /**
-     * The Amazon Resource Name (ARN) of the event archive.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the new event archive.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
-     */
     eventPattern?: pulumi.Input<string>;
-    /**
-     * Event bus source ARN from where these events should be archived.
-     */
     eventSourceArn?: pulumi.Input<string>;
-    /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-     */
     retentionDays?: pulumi.Input<number>;
 }
 
@@ -167,24 +91,9 @@ export interface EventArchiveState {
  * The set of arguments for constructing a EventArchive resource.
  */
 export interface EventArchiveArgs {
-    /**
-     * The description of the new event archive.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
-     */
     eventPattern?: pulumi.Input<string>;
-    /**
-     * Event bus source ARN from where these events should be archived.
-     */
     eventSourceArn: pulumi.Input<string>;
-    /**
-     * The name of the new event archive. The archive name cannot exceed 48 characters.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
-     */
     retentionDays?: pulumi.Input<number>;
 }

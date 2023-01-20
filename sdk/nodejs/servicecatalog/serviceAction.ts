@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog self-service action.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.ServiceAction("example", {
- *     definition: {
- *         name: "AWS-RestartEC2Instance",
- *     },
- *     description: "Motor generator unit",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
- * ```
- */
 export class ServiceAction extends pulumi.CustomResource {
     /**
      * Get an existing ServiceAction resource's state with the given name, ID, and optional extra
@@ -61,21 +35,9 @@ export class ServiceAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceAction.__pulumiType;
     }
 
-    /**
-     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
-    /**
-     * Self-service action definition configuration block. Detailed below.
-     */
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinition>;
-    /**
-     * Self-service action description.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * Self-service action name.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -114,21 +76,9 @@ export class ServiceAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceAction resources.
  */
 export interface ServiceActionState {
-    /**
-     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Self-service action definition configuration block. Detailed below.
-     */
     definition?: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
-    /**
-     * Self-service action description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Self-service action name.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -136,20 +86,8 @@ export interface ServiceActionState {
  * The set of arguments for constructing a ServiceAction resource.
  */
 export interface ServiceActionArgs {
-    /**
-     * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Self-service action definition configuration block. Detailed below.
-     */
     definition: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
-    /**
-     * Self-service action description.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Self-service action name.
-     */
     name?: pulumi.Input<string>;
 }

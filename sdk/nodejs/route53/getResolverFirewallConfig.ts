@@ -4,24 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall config using the VPC ID.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallConfig({
- *     resourceId: "vpc-exampleid",
- * });
- * ```
- */
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,9 +16,6 @@ export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, o
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigArgs {
-    /**
-     * The ID of the VPC from Amazon VPC that the configuration is for.
-     */
     resourceId: string;
 }
 
@@ -52,24 +31,6 @@ export interface GetResolverFirewallConfigResult {
     readonly ownerId: string;
     readonly resourceId: string;
 }
-/**
- * `aws.route53.ResolverFirewallConfig` provides details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * This data source allows to find a details about a specific a Route 53 Resolver DNS Firewall config.
- *
- * ## Example Usage
- *
- * The following example shows how to get a firewall config using the VPC ID.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.route53.getResolverFirewallConfig({
- *     resourceId: "vpc-exampleid",
- * });
- * ```
- */
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallConfig(a, opts))
 }
@@ -78,8 +39,5 @@ export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigO
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigOutputArgs {
-    /**
-     * The ID of the VPC from Amazon VPC that the configuration is for.
-     */
     resourceId: pulumi.Input<string>;
 }

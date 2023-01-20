@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNSSEC config resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const exampleResolverDnsSecConfig = new aws.route53.ResolverDnsSecConfig("exampleResolverDnsSecConfig", {resourceId: exampleVpc.id});
- * ```
- *
- * ## Import
- *
- *  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
- * ```
- */
 export class ResolverDnsSecConfig extends pulumi.CustomResource {
     /**
      * Get an existing ResolverDnsSecConfig resource's state with the given name, ID, and optional extra
@@ -57,21 +32,9 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverDnsSecConfig.__pulumiType;
     }
 
-    /**
-     * The ARN for a configuration for DNSSEC validation.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     public readonly resourceId!: pulumi.Output<string>;
-    /**
-     * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
 
     /**
@@ -110,21 +73,9 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverDnsSecConfig resources.
  */
 export interface ResolverDnsSecConfigState {
-    /**
-     * The ARN for a configuration for DNSSEC validation.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     resourceId?: pulumi.Input<string>;
-    /**
-     * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
-     */
     validationStatus?: pulumi.Input<string>;
 }
 
@@ -132,8 +83,5 @@ export interface ResolverDnsSecConfigState {
  * The set of arguments for constructing a ResolverDnsSecConfig resource.
  */
 export interface ResolverDnsSecConfigArgs {
-    /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
-     */
     resourceId: pulumi.Input<string>;
 }

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The IAM Account Alias data source allows access to the account alias
- * for the effective account in which this provider is working.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.iam.getAccountAlias({});
- * export const accountId = current.then(current => current.accountAlias);
- * ```
- */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -29,9 +15,6 @@ export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccount
  * A collection of values returned by getAccountAlias.
  */
 export interface GetAccountAliasResult {
-    /**
-     * Alias associated with the AWS account.
-     */
     readonly accountAlias: string;
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -7,41 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.IndexingConfiguration("example", {thingIndexingConfiguration: {
- *     customFields: [
- *         {
- *             name: "shadow.desired.power",
- *             type: "Boolean",
- *         },
- *         {
- *             name: "attributes.version",
- *             type: "Number",
- *         },
- *         {
- *             name: "shadow.name.thing1shadow.desired.DefaultDesired",
- *             type: "String",
- *         },
- *         {
- *             name: "deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
- *             type: "Number",
- *         },
- *     ],
- *     deviceDefenderIndexingMode: "VIOLATIONS",
- *     namedShadowIndexingMode: "ON",
- *     thingConnectivityIndexingMode: "STATUS",
- *     thingIndexingMode: "REGISTRY_AND_SHADOW",
- * }});
- * ```
- */
 export class IndexingConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing IndexingConfiguration resource's state with the given name, ID, and optional extra
@@ -70,13 +35,7 @@ export class IndexingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === IndexingConfiguration.__pulumiType;
     }
 
-    /**
-     * Thing group indexing configuration. See below.
-     */
     public readonly thingGroupIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     public readonly thingIndexingConfiguration!: pulumi.Output<outputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 
     /**
@@ -108,13 +67,7 @@ export class IndexingConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IndexingConfiguration resources.
  */
 export interface IndexingConfigurationState {
-    /**
-     * Thing group indexing configuration. See below.
-     */
     thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 }
 
@@ -122,12 +75,6 @@ export interface IndexingConfigurationState {
  * The set of arguments for constructing a IndexingConfiguration resource.
  */
 export interface IndexingConfigurationArgs {
-    /**
-     * Thing group indexing configuration. See below.
-     */
     thingGroupIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfiguration>;
-    /**
-     * Thing indexing configuration. See below.
-     */
     thingIndexingConfiguration?: pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfiguration>;
 }

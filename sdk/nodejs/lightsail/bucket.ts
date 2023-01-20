@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a lightsail bucket.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Bucket("test", {bundleId: "small_1_0"});
- * ```
- *
- * ## Import
- *
- * `aws_lightsail_bucket` can be imported by using the `name` attribute, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
- * ```
- */
 export class Bucket extends pulumi.CustomResource {
     /**
      * Get an existing Bucket resource's state with the given name, ID, and optional extra
@@ -52,41 +32,14 @@ export class Bucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bucket.__pulumiType;
     }
 
-    /**
-     * The ARN of the lightsail bucket.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-     */
     public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
-    /**
-     * - The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-     */
     public readonly bundleId!: pulumi.Output<string>;
-    /**
-     * The timestamp when the bucket was created.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * The name for the bucket.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The Amazon Web Services Region name.
-     */
     public /*out*/ readonly region!: pulumi.Output<string>;
-    /**
-     * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-     */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -138,41 +91,14 @@ export class Bucket extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Bucket resources.
  */
 export interface BucketState {
-    /**
-     * The ARN of the lightsail bucket.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The resource Availability Zone. Follows the format us-east-2a (case-sensitive).
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * - The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-     */
     bundleId?: pulumi.Input<string>;
-    /**
-     * The timestamp when the bucket was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * The name for the bucket.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Web Services Region name.
-     */
     region?: pulumi.Input<string>;
-    /**
-     * The support code for the resource. Include this code in your email to support when you have questions about a resource in Lightsail. This code enables our support team to look up your Lightsail information more easily.
-     */
     supportCode?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     url?: pulumi.Input<string>;
 }
@@ -181,16 +107,7 @@ export interface BucketState {
  * The set of arguments for constructing a Bucket resource.
  */
 export interface BucketArgs {
-    /**
-     * - The ID of the bundle to use for the bucket. A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a bucket. Use the [get-bucket-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-bucket-bundles.html) cli command to get a list of bundle IDs that you can specify.
-     */
     bundleId: pulumi.Input<string>;
-    /**
-     * The name for the bucket.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

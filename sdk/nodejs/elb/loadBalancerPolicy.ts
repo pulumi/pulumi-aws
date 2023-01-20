@@ -7,83 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [{
- *         instancePort: 443,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
- *     }],
- *     tags: {
- *         Name: "wu-tang",
- *     },
- * });
- * const wu_tang_ca_pubkey_policy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey"),
- *     }],
- * });
- * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-root-ca-backend-auth-policy",
- *     policyTypeName: "BackendServerAuthenticationPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKeyPolicyName",
- *         value: aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"].policy_name,
- *     }],
- * });
- * const wu_tang_ssl = new aws.elb.LoadBalancerPolicy("wu-tang-ssl", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
- *     policyAttributes: [
- *         {
- *             name: "ECDHE-ECDSA-AES128-GCM-SHA256",
- *             value: "true",
- *         },
- *         {
- *             name: "Protocol-TLSv1.2",
- *             value: "true",
- *         },
- *     ],
- * });
- * const wu_tang_ssl_tls_1_1 = new aws.elb.LoadBalancerPolicy("wu-tang-ssl-tls-1-1", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-ssl",
- *     policyTypeName: "SSLNegotiationPolicyType",
- *     policyAttributes: [{
- *         name: "Reference-Security-Policy",
- *         value: "ELBSecurityPolicy-TLS-1-1-2017-01",
- *     }],
- * });
- * const wu_tang_backend_auth_policies_443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     instancePort: 443,
- *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
- * });
- * const wu_tang_listener_policies_443 = new aws.elb.ListenerPolicy("wu-tang-listener-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     loadBalancerPort: 443,
- *     policyNames: [wu_tang_ssl.policyName],
- * });
- * ```
- */
 export class LoadBalancerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LoadBalancerPolicy resource's state with the given name, ID, and optional extra
@@ -112,21 +35,9 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LoadBalancerPolicy.__pulumiType;
     }
 
-    /**
-     * The load balancer on which the policy is defined.
-     */
     public readonly loadBalancerName!: pulumi.Output<string>;
-    /**
-     * Policy attribute to apply to the policy.
-     */
     public readonly policyAttributes!: pulumi.Output<outputs.elb.LoadBalancerPolicyPolicyAttribute[]>;
-    /**
-     * The name of the load balancer policy.
-     */
     public readonly policyName!: pulumi.Output<string>;
-    /**
-     * The policy type.
-     */
     public readonly policyTypeName!: pulumi.Output<string>;
 
     /**
@@ -173,21 +84,9 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LoadBalancerPolicy resources.
  */
 export interface LoadBalancerPolicyState {
-    /**
-     * The load balancer on which the policy is defined.
-     */
     loadBalancerName?: pulumi.Input<string>;
-    /**
-     * Policy attribute to apply to the policy.
-     */
     policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
-    /**
-     * The name of the load balancer policy.
-     */
     policyName?: pulumi.Input<string>;
-    /**
-     * The policy type.
-     */
     policyTypeName?: pulumi.Input<string>;
 }
 
@@ -195,20 +94,8 @@ export interface LoadBalancerPolicyState {
  * The set of arguments for constructing a LoadBalancerPolicy resource.
  */
 export interface LoadBalancerPolicyArgs {
-    /**
-     * The load balancer on which the policy is defined.
-     */
     loadBalancerName: pulumi.Input<string>;
-    /**
-     * Policy attribute to apply to the policy.
-     */
     policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
-    /**
-     * The name of the load balancer policy.
-     */
     policyName: pulumi.Input<string>;
-    /**
-     * The policy type.
-     */
     policyTypeName: pulumi.Input<string>;
 }

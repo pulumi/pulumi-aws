@@ -7,31 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Location Service Map.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.Map("example", {
- *     configuration: {
- *         style: "VectorHereBerlin",
- *     },
- *     mapName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_location_map` resources can be imported using the map name, e.g.
- *
- * ```sh
- *  $ pulumi import aws:location/map:Map example example
- * ```
- */
 export class Map extends pulumi.CustomResource {
     /**
      * Get an existing Map resource's state with the given name, ID, and optional extra
@@ -60,37 +35,13 @@ export class Map extends pulumi.CustomResource {
         return obj['__pulumiType'] === Map.__pulumiType;
     }
 
-    /**
-     * Configuration block with the map style selected from an available data provider. Detailed below.
-     */
     public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
-    /**
-     * The timestamp for when the map resource was created in ISO 8601 format.
-     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
-    /**
-     * An optional description for the map resource.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
-     */
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
-    /**
-     * The name for the map resource.
-     */
     public readonly mapName!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The timestamp for when the map resource was last updated in ISO 8601 format.
-     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -140,37 +91,13 @@ export class Map extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Map resources.
  */
 export interface MapState {
-    /**
-     * Configuration block with the map style selected from an available data provider. Detailed below.
-     */
     configuration?: pulumi.Input<inputs.location.MapConfiguration>;
-    /**
-     * The timestamp for when the map resource was created in ISO 8601 format.
-     */
     createTime?: pulumi.Input<string>;
-    /**
-     * An optional description for the map resource.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
-     */
     mapArn?: pulumi.Input<string>;
-    /**
-     * The name for the map resource.
-     */
     mapName?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The timestamp for when the map resource was last updated in ISO 8601 format.
-     */
     updateTime?: pulumi.Input<string>;
 }
 
@@ -178,20 +105,8 @@ export interface MapState {
  * The set of arguments for constructing a Map resource.
  */
 export interface MapArgs {
-    /**
-     * Configuration block with the map style selected from an available data provider. Detailed below.
-     */
     configuration: pulumi.Input<inputs.location.MapConfiguration>;
-    /**
-     * An optional description for the map resource.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name for the map resource.
-     */
     mapName: pulumi.Input<string>;
-    /**
-     * Key-value tags for the map. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,204 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Load Balancer Listener resource.
- *
- * > **Note:** `aws.alb.Listener` is known as `aws.lb.Listener`. The functionality is identical.
- *
- * ## Example Usage
- * ### Forward Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 443,
- *     protocol: "HTTPS",
- *     sslPolicy: "ELBSecurityPolicy-2016-08",
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     defaultActions: [{
- *         type: "forward",
- *         targetGroupArn: frontEndTargetGroup.arn,
- *     }],
- * });
- * ```
- *
- * To a NLB:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEnd = new aws.lb.Listener("frontEnd", {
- *     loadBalancerArn: aws_lb.front_end.arn,
- *     port: 443,
- *     protocol: "TLS",
- *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
- *     alpnPolicy: "HTTP2Preferred",
- *     defaultActions: [{
- *         type: "forward",
- *         targetGroupArn: aws_lb_target_group.front_end.arn,
- *     }],
- * });
- * ```
- * ### Redirect Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [{
- *         type: "redirect",
- *         redirect: {
- *             port: "443",
- *             protocol: "HTTPS",
- *             statusCode: "HTTP_301",
- *         },
- *     }],
- * });
- * ```
- * ### Fixed-response Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [{
- *         type: "fixed-response",
- *         fixedResponse: {
- *             contentType: "text/plain",
- *             messageBody: "Fixed response content",
- *             statusCode: "200",
- *         },
- *     }],
- * });
- * ```
- * ### Authenticate-cognito Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
- * // ...
- * const pool = new aws.cognito.UserPool("pool", {});
- * // ...
- * const client = new aws.cognito.UserPoolClient("client", {});
- * // ...
- * const domain = new aws.cognito.UserPoolDomain("domain", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [
- *         {
- *             type: "authenticate-cognito",
- *             authenticateCognito: {
- *                 userPoolArn: pool.arn,
- *                 userPoolClientId: client.id,
- *                 userPoolDomain: domain.domain,
- *             },
- *         },
- *         {
- *             type: "forward",
- *             targetGroupArn: frontEndTargetGroup.arn,
- *         },
- *     ],
- * });
- * ```
- * ### Authenticate-OIDC Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndTargetGroup = new aws.lb.TargetGroup("frontEndTargetGroup", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {
- *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: 80,
- *     protocol: "HTTP",
- *     defaultActions: [
- *         {
- *             type: "authenticate-oidc",
- *             authenticateOidc: {
- *                 authorizationEndpoint: "https://example.com/authorization_endpoint",
- *                 clientId: "client_id",
- *                 clientSecret: "client_secret",
- *                 issuer: "https://example.com",
- *                 tokenEndpoint: "https://example.com/token_endpoint",
- *                 userInfoEndpoint: "https://example.com/user_info_endpoint",
- *             },
- *         },
- *         {
- *             type: "forward",
- *             targetGroupArn: frontEndTargetGroup.arn,
- *         },
- *     ],
- * });
- * ```
- * ### Gateway Load Balancer Listener
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLoadBalancer = new aws.lb.LoadBalancer("exampleLoadBalancer", {
- *     loadBalancerType: "gateway",
- *     subnetMappings: [{
- *         subnetId: aws_subnet.example.id,
- *     }],
- * });
- * const exampleTargetGroup = new aws.lb.TargetGroup("exampleTargetGroup", {
- *     port: 6081,
- *     protocol: "GENEVE",
- *     vpcId: aws_vpc.example.id,
- *     healthCheck: {
- *         port: "80",
- *         protocol: "HTTP",
- *     },
- * });
- * const exampleListener = new aws.lb.Listener("exampleListener", {
- *     loadBalancerArn: exampleLoadBalancer.id,
- *     defaultActions: [{
- *         targetGroupArn: exampleTargetGroup.id,
- *         type: "forward",
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * Listeners can be imported using their ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
- * ```
- */
 export class Listener extends pulumi.CustomResource {
     /**
      * Get an existing Listener resource's state with the given name, ID, and optional extra
@@ -233,45 +35,15 @@ export class Listener extends pulumi.CustomResource {
         return obj['__pulumiType'] === Listener.__pulumiType;
     }
 
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     public readonly alpnPolicy!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the target group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
-    /**
-     * Configuration block for default actions. Detailed below.
-     */
     public readonly defaultActions!: pulumi.Output<outputs.lb.ListenerDefaultAction[]>;
-    /**
-     * ARN of the load balancer.
-     */
     public readonly loadBalancerArn!: pulumi.Output<string>;
-    /**
-     * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-     */
     public readonly port!: pulumi.Output<number | undefined>;
-    /**
-     * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-     */
     public readonly protocol!: pulumi.Output<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-     */
     public readonly sslPolicy!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -327,45 +99,15 @@ export class Listener extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Listener resources.
  */
 export interface ListenerState {
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     alpnPolicy?: pulumi.Input<string>;
-    /**
-     * ARN of the target group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for default actions. Detailed below.
-     */
     defaultActions?: pulumi.Input<pulumi.Input<inputs.lb.ListenerDefaultAction>[]>;
-    /**
-     * ARN of the load balancer.
-     */
     loadBalancerArn?: pulumi.Input<string>;
-    /**
-     * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-     */
     sslPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -373,36 +115,12 @@ export interface ListenerState {
  * The set of arguments for constructing a Listener resource.
  */
 export interface ListenerArgs {
-    /**
-     * Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-     */
     alpnPolicy?: pulumi.Input<string>;
-    /**
-     * ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-     */
     certificateArn?: pulumi.Input<string>;
-    /**
-     * Configuration block for default actions. Detailed below.
-     */
     defaultActions: pulumi.Input<pulumi.Input<inputs.lb.ListenerDefaultAction>[]>;
-    /**
-     * ARN of the load balancer.
-     */
     loadBalancerArn: pulumi.Input<string>;
-    /**
-     * Port. Specify a value from `1` to `65535` or `#{port}`. Defaults to `#{port}`.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * Protocol. Valid values are `HTTP`, `HTTPS`, or `#{protocol}`. Defaults to `#{protocol}`.
-     */
     protocol?: pulumi.Input<string>;
-    /**
-     * Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`.
-     */
     sslPolicy?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

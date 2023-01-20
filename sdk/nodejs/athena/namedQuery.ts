@@ -4,47 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Athena Named Query resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const hogeBucketV2 = new aws.s3.BucketV2("hogeBucketV2", {});
- * const testKey = new aws.kms.Key("testKey", {
- *     deletionWindowInDays: 7,
- *     description: "Athena KMS Key",
- * });
- * const testWorkgroup = new aws.athena.Workgroup("testWorkgroup", {configuration: {
- *     resultConfiguration: {
- *         encryptionConfiguration: {
- *             encryptionOption: "SSE_KMS",
- *             kmsKeyArn: testKey.arn,
- *         },
- *     },
- * }});
- * const hogeDatabase = new aws.athena.Database("hogeDatabase", {
- *     name: "users",
- *     bucket: hogeBucketV2.id,
- * });
- * const foo = new aws.athena.NamedQuery("foo", {
- *     workgroup: testWorkgroup.id,
- *     database: hogeDatabase.name,
- *     query: pulumi.interpolate`SELECT * FROM ${hogeDatabase.name} limit 10;`,
- * });
- * ```
- *
- * ## Import
- *
- * Athena Named Query can be imported using the query ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
- * ```
- */
 export class NamedQuery extends pulumi.CustomResource {
     /**
      * Get an existing NamedQuery resource's state with the given name, ID, and optional extra
@@ -73,25 +32,10 @@ export class NamedQuery extends pulumi.CustomResource {
         return obj['__pulumiType'] === NamedQuery.__pulumiType;
     }
 
-    /**
-     * Database to which the query belongs.
-     */
     public readonly database!: pulumi.Output<string>;
-    /**
-     * Brief explanation of the query. Maximum length of 1024.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Plain language name for the query. Maximum length of 128.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
-     */
     public readonly query!: pulumi.Output<string>;
-    /**
-     * Workgroup to which the query belongs. Defaults to `primary`
-     */
     public readonly workgroup!: pulumi.Output<string | undefined>;
 
     /**
@@ -135,25 +79,10 @@ export class NamedQuery extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NamedQuery resources.
  */
 export interface NamedQueryState {
-    /**
-     * Database to which the query belongs.
-     */
     database?: pulumi.Input<string>;
-    /**
-     * Brief explanation of the query. Maximum length of 1024.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Plain language name for the query. Maximum length of 128.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
-     */
     query?: pulumi.Input<string>;
-    /**
-     * Workgroup to which the query belongs. Defaults to `primary`
-     */
     workgroup?: pulumi.Input<string>;
 }
 
@@ -161,24 +90,9 @@ export interface NamedQueryState {
  * The set of arguments for constructing a NamedQuery resource.
  */
 export interface NamedQueryArgs {
-    /**
-     * Database to which the query belongs.
-     */
     database: pulumi.Input<string>;
-    /**
-     * Brief explanation of the query. Maximum length of 1024.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Plain language name for the query. Maximum length of 128.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
-     */
     query: pulumi.Input<string>;
-    /**
-     * Workgroup to which the query belongs. Defaults to `primary`
-     */
     workgroup?: pulumi.Input<string>;
 }

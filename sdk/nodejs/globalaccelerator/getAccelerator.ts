@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a Global Accelerator accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
- */
 export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     args = args || {};
 
@@ -40,13 +22,7 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getAccelerator.
  */
 export interface GetAcceleratorArgs {
-    /**
-     * Full ARN of the Global Accelerator.
-     */
     arn?: string;
-    /**
-     * Unique name of the Global Accelerator.
-     */
     name?: string;
     tags?: {[key: string]: string};
 }
@@ -69,24 +45,6 @@ export interface GetAcceleratorResult {
     readonly name: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Provides information about a Global Accelerator accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
- */
 export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
     return pulumi.output(args).apply((a: any) => getAccelerator(a, opts))
 }
@@ -95,13 +53,7 @@ export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pul
  * A collection of arguments for invoking getAccelerator.
  */
 export interface GetAcceleratorOutputArgs {
-    /**
-     * Full ARN of the Global Accelerator.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Unique name of the Global Accelerator.
-     */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

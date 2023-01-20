@@ -7,75 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
- *
- * * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
- * * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
- * * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
- * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
- * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
- *
- * > **NOTE:** After applying your changes, you may encounter a perpetual diff in your preview
- * output for a `parameter` whose `value` remains unchanged but whose `applyMethod` is changing
- * (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
- * apply method of a parameter is changing, the AWS API will not register this change. To change
- * the `applyMethod` of a parameter, its value must also change.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.ParameterGroup("default", {
- *     family: "mysql5.6",
- *     parameters: [
- *         {
- *             name: "character_set_server",
- *             value: "utf8",
- *         },
- *         {
- *             name: "character_set_client",
- *             value: "utf8",
- *         },
- *     ],
- * });
- * ```
- * ### `createBeforeDestroy` Lifecycle Configuration
- *
- * The `createBeforeDestroy`
- * lifecycle configuration is necessary for modifications that force re-creation of an existing,
- * in-use parameter group. This includes common situations like changing the group `name` or
- * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
- * of the deposed parameter group while still in use by the database during upgrade.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleParameterGroup = new aws.rds.ParameterGroup("exampleParameterGroup", {
- *     family: "postgres13",
- *     parameters: [{
- *         name: "log_connections",
- *         value: "1",
- *     }],
- * });
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     parameterGroupName: exampleParameterGroup.name,
- *     applyImmediately: true,
- * });
- * ```
- *
- * ## Import
- *
- * DB Parameter groups can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
- * ```
- */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Get an existing ParameterGroup resource's state with the given name, ID, and optional extra
@@ -104,37 +35,13 @@ export class ParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ParameterGroup.__pulumiType;
     }
 
-    /**
-     * The ARN of the db parameter group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the DB parameter group. Defaults to "Managed by Pulumi".
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The family of the DB parameter group.
-     */
     public readonly family!: pulumi.Output<string>;
-    /**
-     * The name of the DB parameter.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     public readonly namePrefix!: pulumi.Output<string>;
-    /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-     */
     public readonly parameters!: pulumi.Output<outputs.rds.ParameterGroupParameter[] | undefined>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -181,37 +88,13 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
-    /**
-     * The ARN of the db parameter group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the DB parameter group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The family of the DB parameter group.
-     */
     family?: pulumi.Input<string>;
-    /**
-     * The name of the DB parameter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -219,28 +102,10 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
-    /**
-     * The description of the DB parameter group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The family of the DB parameter group.
-     */
     family: pulumi.Input<string>;
-    /**
-     * The name of the DB parameter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ParameterGroupParameter>[]>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

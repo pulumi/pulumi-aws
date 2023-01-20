@@ -7,63 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Storage Lens configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const example = new aws.s3control.StorageLensConfiguration("example", {
- *     configId: "example-1",
- *     storageLensConfiguration: {
- *         enabled: true,
- *         accountLevel: {
- *             activityMetrics: {
- *                 enabled: true,
- *             },
- *             bucketLevel: {
- *                 activityMetrics: {
- *                     enabled: true,
- *                 },
- *             },
- *         },
- *         dataExport: {
- *             cloudWatchMetrics: {
- *                 enabled: true,
- *             },
- *             s3BucketDestination: {
- *                 accountId: current.then(current => current.accountId),
- *                 arn: aws_s3_bucket.target.arn,
- *                 format: "CSV",
- *                 outputSchemaVersion: "V_1",
- *                 encryption: {
- *                     sseS3s: [{}],
- *                 },
- *             },
- *         },
- *         exclude: {
- *             buckets: [
- *                 aws_s3_bucket.b1.arn,
- *                 aws_s3_bucket.b2.arn,
- *             ],
- *             regions: ["us-east-2"],
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * S3 Storage Lens configurations can be imported using the `account_id` and `config_id`, separated by a colon (`:`), e.g.
- *
- * ```sh
- *  $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
- * ```
- */
 export class StorageLensConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing StorageLensConfiguration resource's state with the given name, ID, and optional extra
@@ -92,29 +35,11 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageLensConfiguration.__pulumiType;
     }
 
-    /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the bucket.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID of the S3 Storage Lens configuration.
-     */
     public readonly configId!: pulumi.Output<string>;
-    /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-     */
     public readonly storageLensConfiguration!: pulumi.Output<outputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -160,29 +85,11 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StorageLensConfiguration resources.
  */
 export interface StorageLensConfigurationState {
-    /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the bucket.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID of the S3 Storage Lens configuration.
-     */
     configId?: pulumi.Input<string>;
-    /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-     */
     storageLensConfiguration?: pulumi.Input<inputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -190,20 +97,8 @@ export interface StorageLensConfigurationState {
  * The set of arguments for constructing a StorageLensConfiguration resource.
  */
 export interface StorageLensConfigurationArgs {
-    /**
-     * The account ID of the owner of the S3 Storage Lens metrics export bucket.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The ID of the S3 Storage Lens configuration.
-     */
     configId: pulumi.Input<string>;
-    /**
-     * The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-     */
     storageLensConfiguration: pulumi.Input<inputs.s3control.StorageLensConfigurationStorageLensConfiguration>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

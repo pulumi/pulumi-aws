@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.batch.getSchedulingPolicy({
- *     arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
- * });
- * ```
- */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +20,7 @@ export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi
  * A collection of arguments for invoking getSchedulingPolicy.
  */
 export interface GetSchedulingPolicyArgs {
-    /**
-     * ARN of the scheduling policy.
-     */
     arn: string;
-    /**
-     * Key-value map of resource tags
-     */
     tags?: {[key: string]: string};
 }
 
@@ -54,29 +34,9 @@ export interface GetSchedulingPolicyResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Name of the scheduling policy.
-     */
     readonly name: string;
-    /**
-     * Key-value map of resource tags
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.batch.getSchedulingPolicy({
- *     arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
- * });
- * ```
- */
 export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSchedulingPolicy(a, opts))
 }
@@ -85,12 +45,6 @@ export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, o
  * A collection of arguments for invoking getSchedulingPolicy.
  */
 export interface GetSchedulingPolicyOutputArgs {
-    /**
-     * ARN of the scheduling policy.
-     */
     arn: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

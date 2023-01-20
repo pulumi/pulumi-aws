@@ -7,11 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of VPC Ids for a region.
- *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- */
 export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcsResult> {
     args = args || {};
 
@@ -26,14 +21,7 @@ export function getVpcs(args?: GetVpcsArgs, opts?: pulumi.InvokeOptions): Promis
  * A collection of arguments for invoking getVpcs.
  */
 export interface GetVpcsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcsFilter[];
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -46,17 +34,9 @@ export interface GetVpcsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the VPC Ids found.
-     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-/**
- * This resource can be useful for getting back a list of VPC Ids for a region.
- *
- * The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
- */
 export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
     return pulumi.output(args).apply((a: any) => getVpcs(a, opts))
 }
@@ -65,13 +45,6 @@ export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getVpcs.
  */
 export interface GetVpcsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

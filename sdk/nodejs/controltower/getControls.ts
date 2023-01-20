@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * List of Control Tower controls applied to an OU.
- */
 export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions): Promise<GetControlsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,9 +16,6 @@ export function getControls(args: GetControlsArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsArgs {
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier: string;
 }
 
@@ -29,9 +23,6 @@ export interface GetControlsArgs {
  * A collection of values returned by getControls.
  */
 export interface GetControlsResult {
-    /**
-     * List of all the ARNs for the controls applied to the `targetIdentifier`.
-     */
     readonly enabledControls: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -39,9 +30,6 @@ export interface GetControlsResult {
     readonly id: string;
     readonly targetIdentifier: string;
 }
-/**
- * List of Control Tower controls applied to an OU.
- */
 export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlsResult> {
     return pulumi.output(args).apply((a: any) => getControls(a, opts))
 }
@@ -50,8 +38,5 @@ export function getControlsOutput(args: GetControlsOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getControls.
  */
 export interface GetControlsOutputArgs {
-    /**
-     * The ARN of the organizational unit.
-     */
     targetIdentifier: pulumi.Input<string>;
 }

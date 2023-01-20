@@ -4,55 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Associates an AppConfig Extension with a Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testTopic = new aws.sns.Topic("testTopic", {});
- * const testPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["appconfig.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json)});
- * const testExtension = new aws.appconfig.Extension("testExtension", {
- *     description: "test description",
- *     actionPoints: [{
- *         point: "ON_DEPLOYMENT_COMPLETE",
- *         actions: [{
- *             name: "test",
- *             roleArn: testRole.arn,
- *             uri: testTopic.arn,
- *         }],
- *     }],
- *     tags: {
- *         Type: "AppConfig Extension",
- *     },
- * });
- * const testApplication = new aws.appconfig.Application("testApplication", {});
- * const testExtensionAssociation = new aws.appconfig.ExtensionAssociation("testExtensionAssociation", {
- *     extensionArn: testExtension.arn,
- *     resourceArn: testApplication.arn,
- * });
- * ```
- *
- * ## Import
- *
- * AppConfig Extension Associations can be imported using their extension association ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
- * ```
- */
 export class ExtensionAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ExtensionAssociation resource's state with the given name, ID, and optional extra
@@ -81,25 +32,10 @@ export class ExtensionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExtensionAssociation.__pulumiType;
     }
 
-    /**
-     * ARN of the AppConfig Extension Association.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ARN of the extension defined in the association.
-     */
     public readonly extensionArn!: pulumi.Output<string>;
-    /**
-     * The version number for the extension defined in the association.
-     */
     public /*out*/ readonly extensionVersion!: pulumi.Output<number>;
-    /**
-     * The parameter names and values defined for the association.
-     */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     */
     public readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -143,25 +79,10 @@ export class ExtensionAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ExtensionAssociation resources.
  */
 export interface ExtensionAssociationState {
-    /**
-     * ARN of the AppConfig Extension Association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ARN of the extension defined in the association.
-     */
     extensionArn?: pulumi.Input<string>;
-    /**
-     * The version number for the extension defined in the association.
-     */
     extensionVersion?: pulumi.Input<number>;
-    /**
-     * The parameter names and values defined for the association.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -169,16 +90,7 @@ export interface ExtensionAssociationState {
  * The set of arguments for constructing a ExtensionAssociation resource.
  */
 export interface ExtensionAssociationArgs {
-    /**
-     * The ARN of the extension defined in the association.
-     */
     extensionArn: pulumi.Input<string>;
-    /**
-     * The parameter names and values defined for the association.
-     */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     */
     resourceArn: pulumi.Input<string>;
 }

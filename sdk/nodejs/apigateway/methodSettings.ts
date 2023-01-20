@@ -9,76 +9,6 @@ import * as utilities from "../utilities";
 
 import {RestApi} from "./index";
 
-/**
- * Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
- *
- * > **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
- *                 },
- *             },
- *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
- *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
- *     },
- * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
- *     stageName: "example",
- * });
- * const all = new aws.apigateway.MethodSettings("all", {
- *     restApi: exampleRestApi.id,
- *     stageName: exampleStage.stageName,
- *     methodPath: "*&#47;*",
- *     settings: {
- *         metricsEnabled: true,
- *         loggingLevel: "ERROR",
- *     },
- * });
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: exampleRestApi.id,
- *     stageName: exampleStage.stageName,
- *     methodPath: "path1/GET",
- *     settings: {
- *         metricsEnabled: true,
- *         loggingLevel: "INFO",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
- * ```
- */
 export class MethodSettings extends pulumi.CustomResource {
     /**
      * Get an existing MethodSettings resource's state with the given name, ID, and optional extra
@@ -107,21 +37,9 @@ export class MethodSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === MethodSettings.__pulumiType;
     }
 
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-     */
     public readonly methodPath!: pulumi.Output<string>;
-    /**
-     * ID of the REST API
-     */
     public readonly restApi!: pulumi.Output<string>;
-    /**
-     * Settings block, see below.
-     */
     public readonly settings!: pulumi.Output<outputs.apigateway.MethodSettingsSettings>;
-    /**
-     * Name of the stage
-     */
     public readonly stageName!: pulumi.Output<string>;
 
     /**
@@ -169,21 +87,9 @@ export class MethodSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MethodSettings resources.
  */
 export interface MethodSettingsState {
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-     */
     methodPath?: pulumi.Input<string>;
-    /**
-     * ID of the REST API
-     */
     restApi?: pulumi.Input<string | RestApi>;
-    /**
-     * Settings block, see below.
-     */
     settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
-    /**
-     * Name of the stage
-     */
     stageName?: pulumi.Input<string>;
 }
 
@@ -191,20 +97,8 @@ export interface MethodSettingsState {
  * The set of arguments for constructing a MethodSettings resource.
  */
 export interface MethodSettingsArgs {
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
-     */
     methodPath: pulumi.Input<string>;
-    /**
-     * ID of the REST API
-     */
     restApi: pulumi.Input<string | RestApi>;
-    /**
-     * Settings block, see below.
-     */
     settings: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
-    /**
-     * Name of the stage
-     */
     stageName: pulumi.Input<string>;
 }

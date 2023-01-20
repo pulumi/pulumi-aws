@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Information about single EC2 Instance Type Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceTypeOffering({
- *     filters: [{
- *         name: "instance-type",
- *         values: [
- *             "t2.micro",
- *             "t3.micro",
- *         ],
- *     }],
- *     preferredInstanceTypes: [
- *         "t3.micro",
- *         "t2.micro",
- *     ],
- * });
- * ```
- */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
     args = args || {};
 
@@ -46,17 +22,8 @@ export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts
  * A collection of arguments for invoking getInstanceTypeOffering.
  */
 export interface GetInstanceTypeOfferingArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-     */
     filters?: inputs.ec2.GetInstanceTypeOfferingFilter[];
-    /**
-     * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-     */
     locationType?: string;
-    /**
-     * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     */
     preferredInstanceTypes?: string[];
 }
 
@@ -69,37 +36,10 @@ export interface GetInstanceTypeOfferingResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * EC2 Instance Type.
-     */
     readonly instanceType: string;
     readonly locationType?: string;
     readonly preferredInstanceTypes?: string[];
 }
-/**
- * Information about single EC2 Instance Type Offering.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getInstanceTypeOffering({
- *     filters: [{
- *         name: "instance-type",
- *         values: [
- *             "t2.micro",
- *             "t3.micro",
- *         ],
- *     }],
- *     preferredInstanceTypes: [
- *         "t3.micro",
- *         "t2.micro",
- *     ],
- * });
- * ```
- */
 export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
     return pulumi.output(args).apply((a: any) => getInstanceTypeOffering(a, opts))
 }
@@ -108,16 +48,7 @@ export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutp
  * A collection of arguments for invoking getInstanceTypeOffering.
  */
 export interface GetInstanceTypeOfferingOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeOfferingFilterArgs>[]>;
-    /**
-     * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
-     */
     locationType?: pulumi.Input<string>;
-    /**
-     * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
-     */
     preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }

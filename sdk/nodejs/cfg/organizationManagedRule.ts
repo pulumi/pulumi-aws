@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Config Organization Managed Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Custom Rules (those invoking a custom Lambda Function), see the `aws.cfg.OrganizationCustomRule` resource.
- *
- * > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
- *
- * > **NOTE:** Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the `aws.cfg.Recorder` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("exampleOrganizationManagedRule", {ruleIdentifier: "IAM_PASSWORD_POLICY"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
- *
- * ## Import
- *
- * Config Organization Managed Rules can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
- * ```
- */
 export class OrganizationManagedRule extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationManagedRule resource's state with the given name, ID, and optional extra
@@ -62,49 +32,16 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationManagedRule.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the rule
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Description of the rule
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * List of AWS account identifiers to exclude from the rule
-     */
     public readonly excludedAccounts!: pulumi.Output<string[] | undefined>;
-    /**
-     * A string in JSON format that is passed to the AWS Config Rule Lambda Function
-     */
     public readonly inputParameters!: pulumi.Output<string | undefined>;
-    /**
-     * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-     */
     public readonly maximumExecutionFrequency!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the rule
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Identifier of the AWS resource to evaluate
-     */
     public readonly resourceIdScope!: pulumi.Output<string | undefined>;
-    /**
-     * List of types of AWS resources to evaluate
-     */
     public readonly resourceTypesScopes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-     */
     public readonly ruleIdentifier!: pulumi.Output<string>;
-    /**
-     * Tag key of AWS resources to evaluate
-     */
     public readonly tagKeyScope!: pulumi.Output<string | undefined>;
-    /**
-     * Tag value of AWS resources to evaluate
-     */
     public readonly tagValueScope!: pulumi.Output<string | undefined>;
 
     /**
@@ -157,49 +94,16 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationManagedRule resources.
  */
 export interface OrganizationManagedRuleState {
-    /**
-     * Amazon Resource Name (ARN) of the rule
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the rule
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of AWS account identifiers to exclude from the rule
-     */
     excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A string in JSON format that is passed to the AWS Config Rule Lambda Function
-     */
     inputParameters?: pulumi.Input<string>;
-    /**
-     * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-     */
     maximumExecutionFrequency?: pulumi.Input<string>;
-    /**
-     * The name of the rule
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Identifier of the AWS resource to evaluate
-     */
     resourceIdScope?: pulumi.Input<string>;
-    /**
-     * List of types of AWS resources to evaluate
-     */
     resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-     */
     ruleIdentifier?: pulumi.Input<string>;
-    /**
-     * Tag key of AWS resources to evaluate
-     */
     tagKeyScope?: pulumi.Input<string>;
-    /**
-     * Tag value of AWS resources to evaluate
-     */
     tagValueScope?: pulumi.Input<string>;
 }
 
@@ -207,44 +111,14 @@ export interface OrganizationManagedRuleState {
  * The set of arguments for constructing a OrganizationManagedRule resource.
  */
 export interface OrganizationManagedRuleArgs {
-    /**
-     * Description of the rule
-     */
     description?: pulumi.Input<string>;
-    /**
-     * List of AWS account identifiers to exclude from the rule
-     */
     excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A string in JSON format that is passed to the AWS Config Rule Lambda Function
-     */
     inputParameters?: pulumi.Input<string>;
-    /**
-     * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
-     */
     maximumExecutionFrequency?: pulumi.Input<string>;
-    /**
-     * The name of the rule
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Identifier of the AWS resource to evaluate
-     */
     resourceIdScope?: pulumi.Input<string>;
-    /**
-     * List of types of AWS resources to evaluate
-     */
     resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
-     */
     ruleIdentifier: pulumi.Input<string>;
-    /**
-     * Tag key of AWS resources to evaluate
-     */
     tagKeyScope?: pulumi.Input<string>;
-    /**
-     * Tag value of AWS resources to evaluate
-     */
     tagValueScope?: pulumi.Input<string>;
 }

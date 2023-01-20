@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS EventBridge Schemas Registry Policy.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         sid: "example",
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["109876543210"],
- *         }],
- *         actions: ["schemas:*"],
- *         resources: [
- *             "arn:aws:schemas:us-east-1:012345678901:registry/example",
- *             "arn:aws:schemas:us-east-1:012345678901:schema/example*",
- *         ],
- *     }],
- * });
- * const exampleRegistryPolicy = new aws.schemas.RegistryPolicy("exampleRegistryPolicy", {
- *     registryName: "example",
- *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
- * });
- * ```
- *
- * ## Import
- *
- * EventBridge Schema Registry Policy can be imported using the `registry_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
- * ```
- */
 export class RegistryPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RegistryPolicy resource's state with the given name, ID, and optional extra
@@ -71,13 +32,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * Name of EventBridge Schema Registry
-     */
     public readonly registryName!: pulumi.Output<string>;
 
     /**
@@ -115,13 +70,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegistryPolicy resources.
  */
 export interface RegistryPolicyState {
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * Name of EventBridge Schema Registry
-     */
     registryName?: pulumi.Input<string>;
 }
 
@@ -129,12 +78,6 @@ export interface RegistryPolicyState {
  * The set of arguments for constructing a RegistryPolicy resource.
  */
 export interface RegistryPolicyArgs {
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     */
     policy: pulumi.Input<string>;
-    /**
-     * Name of EventBridge Schema Registry
-     */
     registryName: pulumi.Input<string>;
 }

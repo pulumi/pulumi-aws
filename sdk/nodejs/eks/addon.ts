@@ -4,79 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EKS add-on.
- *
- * > **Note:** Amazon EKS add-on can only be used with Amazon EKS Clusters
- * running version 1.18 with platform version eks.3 or later
- * because add-ons rely on the Server-side Apply Kubernetes feature,
- * which is only available in Kubernetes 1.18 and later.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     addonName: "vpc-cni",
- * });
- * ```
- * ## Example Update add-on usage with resolveConflicts and PRESERVE
- *
- * `resolveConflicts` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
- *
- * > **Note:** `resolveConflicts` with `PRESERVE` can only be used for upgrading the add-ons but not during the creation of add-on.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     addonName: "coredns",
- *     addonVersion: "v1.8.7-eksbuild.3",
- *     resolveConflicts: "PRESERVE",
- * });
- * ```
- *
- * ## Example add-on usage with custom configurationValues
- *
- * Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
- *
- * > **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
- *
- * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
- * This below is an example for extracting the `configurationValues` schema for `coredns`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
- * Example to create a `coredns` managed addon with custom `configurationValues`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.Addon("example", {
- *     addonName: "coredns",
- *     addonVersion: "v1.8.7-eksbuild.3",
- *     clusterName: "mycluster",
- *     configurationValues: "{\"replicaCount\":4,\"resources\":{\"limits\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"150Mi\"}}}",
- *     resolveConflicts: "OVERWRITE",
- * });
- * ```
- *
- * ## Import
- *
- * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
- * ```
- */
 export class Addon extends pulumi.CustomResource {
     /**
      * Get an existing Addon resource's state with the given name, ID, and optional extra
@@ -105,62 +32,17 @@ export class Addon extends pulumi.CustomResource {
         return obj['__pulumiType'] === Addon.__pulumiType;
     }
 
-    /**
-     * Name of the EKS add-on. The name must match one of
-     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     public readonly addonName!: pulumi.Output<string>;
-    /**
-     * The version of the EKS add-on. The version must
-     * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     public readonly addonVersion!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-     */
     public readonly clusterName!: pulumi.Output<string>;
-    /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-     */
     public readonly configurationValues!: pulumi.Output<string>;
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
-    /**
-     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
-     */
     public readonly preserve!: pulumi.Output<boolean | undefined>;
-    /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
-     */
     public readonly resolveConflicts!: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of an
-     * existing IAM role to bind to the add-on's service account. The role must be
-     * assigned the IAM permissions required by the add-on. If you don't specify
-     * an existing IAM role, then the add-on uses the permissions assigned to the node
-     * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-     * in the Amazon EKS User Guide.
-     */
     public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -218,62 +100,17 @@ export class Addon extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Addon resources.
  */
 export interface AddonState {
-    /**
-     * Name of the EKS add-on. The name must match one of
-     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     addonName?: pulumi.Input<string>;
-    /**
-     * The version of the EKS add-on. The version must
-     * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     addonVersion?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the EKS add-on.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-     */
     clusterName?: pulumi.Input<string>;
-    /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-     */
     configurationValues?: pulumi.Input<string>;
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
-     */
     modifiedAt?: pulumi.Input<string>;
-    /**
-     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
-     */
     preserve?: pulumi.Input<boolean>;
-    /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
-     */
     resolveConflicts?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an
-     * existing IAM role to bind to the add-on's service account. The role must be
-     * assigned the IAM permissions required by the add-on. If you don't specify
-     * an existing IAM role, then the add-on uses the permissions assigned to the node
-     * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-     * in the Amazon EKS User Guide.
-     */
     serviceAccountRoleArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -281,45 +118,12 @@ export interface AddonState {
  * The set of arguments for constructing a Addon resource.
  */
 export interface AddonArgs {
-    /**
-     * Name of the EKS add-on. The name must match one of
-     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     addonName: pulumi.Input<string>;
-    /**
-     * The version of the EKS add-on. The version must
-     * match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
-     */
     addonVersion?: pulumi.Input<string>;
-    /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-     */
     clusterName: pulumi.Input<string>;
-    /**
-     * custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
-     */
     configurationValues?: pulumi.Input<string>;
-    /**
-     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
-     */
     preserve?: pulumi.Input<boolean>;
-    /**
-     * Define how to resolve parameter value conflicts
-     * when migrating an existing add-on to an Amazon EKS add-on or when applying
-     * version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
-     */
     resolveConflicts?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of an
-     * existing IAM role to bind to the add-on's service account. The role must be
-     * assigned the IAM permissions required by the add-on. If you don't specify
-     * an existing IAM role, then the add-on uses the permissions assigned to the node
-     * IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
-     * in the Amazon EKS User Guide.
-     */
     serviceAccountRoleArn?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

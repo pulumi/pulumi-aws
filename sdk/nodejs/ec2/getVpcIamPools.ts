@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
- *
- * This resource can prove useful when IPAM pools are created in another root
- * module and you need the pool ids as input variables. For example, pools
- * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getVpcIamPools({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * ```
- */
 export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolsResult> {
     args = args || {};
 
@@ -47,9 +20,6 @@ export function getVpcIamPools(args?: GetVpcIamPoolsArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getVpcIamPools.
  */
 export interface GetVpcIamPoolsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetVpcIamPoolsFilter[];
 }
 
@@ -62,38 +32,8 @@ export interface GetVpcIamPoolsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of IPAM pools and their attributes. See below for details
-     */
     readonly ipamPools: outputs.ec2.GetVpcIamPoolsIpamPool[];
 }
-/**
- * `aws.ec2.getVpcIamPools` provides details about IPAM pools.
- *
- * This resource can prove useful when IPAM pools are created in another root
- * module and you need the pool ids as input variables. For example, pools
- * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.ec2.getVpcIamPools({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * ```
- */
 export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolsResult> {
     return pulumi.output(args).apply((a: any) => getVpcIamPools(a, opts))
 }
@@ -102,8 +42,5 @@ export function getVpcIamPoolsOutput(args?: GetVpcIamPoolsOutputArgs, opts?: pul
  * A collection of arguments for invoking getVpcIamPools.
  */
 export interface GetVpcIamPoolsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolsFilterArgs>[]>;
 }

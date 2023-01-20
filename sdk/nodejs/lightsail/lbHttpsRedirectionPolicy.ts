@@ -4,44 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testLbCertificate = new aws.lightsail.LbCertificate("testLbCertificate", {
- *     lbName: testLb.id,
- *     domainName: "test.com",
- * });
- * const testLbCertificateAttachment = new aws.lightsail.LbCertificateAttachment("testLbCertificateAttachment", {
- *     lbName: testLb.name,
- *     certificateName: testLbCertificate.name,
- * });
- * const testLbHttpsRedirectionPolicy = new aws.lightsail.LbHttpsRedirectionPolicy("testLbHttpsRedirectionPolicy", {
- *     lbName: testLb.name,
- *     enabled: true,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_lightsail_lb_https_redirection_policy` can be imported by using the `lb_name` attribute, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
- * ```
- */
 export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
     /**
      * Get an existing LbHttpsRedirectionPolicy resource's state with the given name, ID, and optional extra
@@ -70,13 +32,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbHttpsRedirectionPolicy.__pulumiType;
     }
 
-    /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-     */
     public readonly enabled!: pulumi.Output<boolean>;
-    /**
-     * The name of the load balancer to which you want to enable http to https redirection.
-     */
     public readonly lbName!: pulumi.Output<string>;
 
     /**
@@ -114,13 +70,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbHttpsRedirectionPolicy resources.
  */
 export interface LbHttpsRedirectionPolicyState {
-    /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the load balancer to which you want to enable http to https redirection.
-     */
     lbName?: pulumi.Input<string>;
 }
 
@@ -128,12 +78,6 @@ export interface LbHttpsRedirectionPolicyState {
  * The set of arguments for constructing a LbHttpsRedirectionPolicy resource.
  */
 export interface LbHttpsRedirectionPolicyArgs {
-    /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-     */
     enabled: pulumi.Input<boolean>;
-    /**
-     * The name of the load balancer to which you want to enable http to https redirection.
-     */
     lbName: pulumi.Input<string>;
 }

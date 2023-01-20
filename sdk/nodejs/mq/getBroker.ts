@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
- */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
 
@@ -42,13 +22,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getBroker.
  */
 export interface GetBrokerArgs {
-    /**
-     * Unique id of the mq broker.
-     */
     brokerId?: string;
-    /**
-     * Unique name of the mq broker.
-     */
     brokerName?: string;
     tags?: {[key: string]: string};
 }
@@ -83,26 +57,6 @@ export interface GetBrokerResult {
     readonly tags: {[key: string]: string};
     readonly users: outputs.mq.GetBrokerUser[];
 }
-/**
- * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
- */
 export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
     return pulumi.output(args).apply((a: any) => getBroker(a, opts))
 }
@@ -111,13 +65,7 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getBroker.
  */
 export interface GetBrokerOutputArgs {
-    /**
-     * Unique id of the mq broker.
-     */
     brokerId?: pulumi.Input<string>;
-    /**
-     * Unique name of the mq broker.
-     */
     brokerName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

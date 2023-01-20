@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipes({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
- */
 export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.InvokeOptions): Promise<GetImageRecipesResult> {
     args = args || {};
 
@@ -39,13 +21,7 @@ export function getImageRecipes(args?: GetImageRecipesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getImageRecipes.
  */
 export interface GetImageRecipesArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.imagebuilder.GetImageRecipesFilter[];
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     */
     owner?: string;
 }
 
@@ -53,39 +29,15 @@ export interface GetImageRecipesArgs {
  * A collection of values returned by getImageRecipes.
  */
 export interface GetImageRecipesResult {
-    /**
-     * Set of ARNs of the matched Image Builder Image Recipes.
-     */
     readonly arns: string[];
     readonly filters?: outputs.imagebuilder.GetImageRecipesFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of names of the matched Image Builder Image Recipes.
-     */
     readonly names: string[];
     readonly owner?: string;
 }
-/**
- * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.imagebuilder.getImageRecipes({
- *     filters: [{
- *         name: "platform",
- *         values: ["Linux"],
- *     }],
- *     owner: "Self",
- * });
- * ```
- */
 export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipesResult> {
     return pulumi.output(args).apply((a: any) => getImageRecipes(a, opts))
 }
@@ -94,12 +46,6 @@ export function getImageRecipesOutput(args?: GetImageRecipesOutputArgs, opts?: p
  * A collection of arguments for invoking getImageRecipes.
  */
 export interface GetImageRecipesOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.GetImageRecipesFilterArgs>[]>;
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     */
     owner?: pulumi.Input<string>;
 }

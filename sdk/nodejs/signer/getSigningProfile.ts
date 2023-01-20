@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information about a Signer Signing Profile.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const productionSigningProfile = aws.signer.getSigningProfile({
- *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
- * });
- * ```
- */
 export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningProfileResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,13 +20,7 @@ export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getSigningProfile.
  */
 export interface GetSigningProfileArgs {
-    /**
-     * Name of the target signing profile.
-     */
     name: string;
-    /**
-     * List of tags associated with the signing profile.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -48,62 +28,21 @@ export interface GetSigningProfileArgs {
  * A collection of values returned by getSigningProfile.
  */
 export interface GetSigningProfileResult {
-    /**
-     * ARN for the signing profile.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
-    /**
-     * A human-readable name for the signing platform associated with the signing profile.
-     */
     readonly platformDisplayName: string;
-    /**
-     * ID of the platform that is used by the target signing profile.
-     */
     readonly platformId: string;
-    /**
-     * Revocation information for a signing profile.
-     */
     readonly revocationRecords: outputs.signer.GetSigningProfileRevocationRecord[];
-    /**
-     * The validity period for a signing job.
-     */
     readonly signatureValidityPeriods: outputs.signer.GetSigningProfileSignatureValidityPeriod[];
-    /**
-     * Status of the target signing profile.
-     */
     readonly status: string;
-    /**
-     * List of tags associated with the signing profile.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Current version of the signing profile.
-     */
     readonly version: string;
-    /**
-     * Signing profile ARN, including the profile version.
-     */
     readonly versionArn: string;
 }
-/**
- * Provides information about a Signer Signing Profile.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const productionSigningProfile = aws.signer.getSigningProfile({
- *     name: "prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK",
- * });
- * ```
- */
 export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSigningProfileResult> {
     return pulumi.output(args).apply((a: any) => getSigningProfile(a, opts))
 }
@@ -112,12 +51,6 @@ export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?
  * A collection of arguments for invoking getSigningProfile.
  */
 export interface GetSigningProfileOutputArgs {
-    /**
-     * Name of the target signing profile.
-     */
     name: pulumi.Input<string>;
-    /**
-     * List of tags associated with the signing profile.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

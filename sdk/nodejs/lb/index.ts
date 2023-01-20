@@ -10,6 +10,11 @@ export const getHostedZoneId: typeof import("./getHostedZoneId").getHostedZoneId
 export const getHostedZoneIdOutput: typeof import("./getHostedZoneId").getHostedZoneIdOutput = null as any;
 utilities.lazyLoad(exports, ["getHostedZoneId","getHostedZoneIdOutput"], () => require("./getHostedZoneId"));
 
+export { GetLbsArgs, GetLbsResult, GetLbsOutputArgs } from "./getLbs";
+export const getLbs: typeof import("./getLbs").getLbs = null as any;
+export const getLbsOutput: typeof import("./getLbs").getLbsOutput = null as any;
+utilities.lazyLoad(exports, ["getLbs","getLbsOutput"], () => require("./getLbs"));
+
 export { GetListenerArgs, GetListenerResult, GetListenerOutputArgs } from "./getListener";
 export const getListener: typeof import("./getListener").getListener = null as any;
 export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;

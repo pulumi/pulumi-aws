@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway Peering Attachment.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
     args = args || {};
 
@@ -50,18 +22,8 @@ export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pul
  * A collection of arguments for invoking getPeeringAttachment.
  */
 export interface GetPeeringAttachmentArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetPeeringAttachmentFilter[];
-    /**
-     * Identifier of the EC2 Transit Gateway Peering Attachment.
-     */
     id?: string;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -71,52 +33,12 @@ export interface GetPeeringAttachmentArgs {
 export interface GetPeeringAttachmentResult {
     readonly filters?: outputs.ec2transitgateway.GetPeeringAttachmentFilter[];
     readonly id: string;
-    /**
-     * Identifier of the peer AWS account
-     */
     readonly peerAccountId: string;
-    /**
-     * Identifier of the peer AWS region
-     */
     readonly peerRegion: string;
-    /**
-     * Identifier of the peer EC2 Transit Gateway
-     */
     readonly peerTransitGatewayId: string;
     readonly tags: {[key: string]: string};
-    /**
-     * Identifier of the local EC2 Transit Gateway
-     */
     readonly transitGatewayId: string;
 }
-/**
- * Get information on an EC2 Transit Gateway Peering Attachment.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getPeeringAttachment({
- *     filters: [{
- *         name: "transit-gateway-attachment-id",
- *         values: ["tgw-attach-12345678"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const attachment = aws.ec2transitgateway.getPeeringAttachment({
- *     id: "tgw-attach-12345678",
- * });
- * ```
- */
 export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getPeeringAttachment(a, opts))
 }
@@ -125,17 +47,7 @@ export function getPeeringAttachmentOutput(args?: GetPeeringAttachmentOutputArgs
  * A collection of arguments for invoking getPeeringAttachment.
  */
 export interface GetPeeringAttachmentOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetPeeringAttachmentFilterArgs>[]>;
-    /**
-     * Identifier of the EC2 Transit Gateway Peering Attachment.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

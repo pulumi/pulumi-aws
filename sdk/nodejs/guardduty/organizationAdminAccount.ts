@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a GuardDuty Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["guardduty.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {});
- * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
- *
- * ## Import
- *
- * GuardDuty Organization Admin Account can be imported using the AWS account ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -59,9 +32,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     public readonly adminAccountId!: pulumi.Output<string>;
 
     /**
@@ -94,9 +64,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     adminAccountId?: pulumi.Input<string>;
 }
 
@@ -104,8 +71,5 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     */
     adminAccountId: pulumi.Input<string>;
 }

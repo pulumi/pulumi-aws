@@ -7,24 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
- *
- * Certificates created using `aws.acmpca.Certificate` are not eligible for automatic renewal,
- * and must be replaced instead.
- * To issue a renewable certificate using an ACM PCA, create a `aws.acm.Certificate`
- * with the parameter `certificateAuthorityArn`.
- *
- * ## Example Usage
- *
- * ## Import
- *
- * ACM PCA Certificates can be imported using their ARN, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -53,38 +35,13 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    /**
-     * ARN of the certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * PEM-encoded certificate value.
-     */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
-    /**
-     * ARN of the certificate authority.
-     */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     */
     public /*out*/ readonly certificateChain!: pulumi.Output<string>;
-    /**
-     * Certificate Signing Request in PEM format.
-     */
     public readonly certificateSigningRequest!: pulumi.Output<string>;
-    /**
-     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-     */
     public readonly signingAlgorithm!: pulumi.Output<string>;
-    /**
-     * Template to use when issuing a certificate.
-     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-     */
     public readonly templateArn!: pulumi.Output<string | undefined>;
-    /**
-     * Configures end of the validity period for the certificate. See validity block below.
-     */
     public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
 
     /**
@@ -140,38 +97,13 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    /**
-     * ARN of the certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * PEM-encoded certificate value.
-     */
     certificate?: pulumi.Input<string>;
-    /**
-     * ARN of the certificate authority.
-     */
     certificateAuthorityArn?: pulumi.Input<string>;
-    /**
-     * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * Certificate Signing Request in PEM format.
-     */
     certificateSigningRequest?: pulumi.Input<string>;
-    /**
-     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-     */
     signingAlgorithm?: pulumi.Input<string>;
-    /**
-     * Template to use when issuing a certificate.
-     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-     */
     templateArn?: pulumi.Input<string>;
-    /**
-     * Configures end of the validity period for the certificate. See validity block below.
-     */
     validity?: pulumi.Input<inputs.acmpca.CertificateValidity>;
 }
 
@@ -179,25 +111,9 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * ARN of the certificate authority.
-     */
     certificateAuthorityArn: pulumi.Input<string>;
-    /**
-     * Certificate Signing Request in PEM format.
-     */
     certificateSigningRequest: pulumi.Input<string>;
-    /**
-     * Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-     */
     signingAlgorithm: pulumi.Input<string>;
-    /**
-     * Template to use when issuing a certificate.
-     * See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-     */
     templateArn?: pulumi.Input<string>;
-    /**
-     * Configures end of the validity period for the certificate. See validity block below.
-     */
     validity: pulumi.Input<inputs.acmpca.CertificateValidity>;
 }

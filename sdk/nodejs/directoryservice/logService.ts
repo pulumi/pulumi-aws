@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 14});
- * const ad-log-policyPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         principals: [{
- *             identifiers: ["ds.amazonaws.com"],
- *             type: "Service",
- *         }],
- *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
- *         effect: "Allow",
- *     }],
- * });
- * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", {
- *     policyDocument: ad_log_policyPolicyDocument.apply(ad_log_policyPolicyDocument => ad_log_policyPolicyDocument.json),
- *     policyName: "ad-log-policy",
- * });
- * const exampleLogService = new aws.directoryservice.LogService("exampleLogService", {
- *     directoryId: aws_directory_service_directory.example.id,
- *     logGroupName: exampleLogGroup.name,
- * });
- * ```
- *
- * ## Import
- *
- * Directory Service Log Subscriptions can be imported using the directory id, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
- * ```
- */
 export class LogService extends pulumi.CustomResource {
     /**
      * Get an existing LogService resource's state with the given name, ID, and optional extra
@@ -74,13 +32,7 @@ export class LogService extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogService.__pulumiType;
     }
 
-    /**
-     * ID of directory.
-     */
     public readonly directoryId!: pulumi.Output<string>;
-    /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     */
     public readonly logGroupName!: pulumi.Output<string>;
 
     /**
@@ -118,13 +70,7 @@ export class LogService extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LogService resources.
  */
 export interface LogServiceState {
-    /**
-     * ID of directory.
-     */
     directoryId?: pulumi.Input<string>;
-    /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     */
     logGroupName?: pulumi.Input<string>;
 }
 
@@ -132,12 +78,6 @@ export interface LogServiceState {
  * The set of arguments for constructing a LogService resource.
  */
 export interface LogServiceArgs {
-    /**
-     * ID of directory.
-     */
     directoryId: pulumi.Input<string>;
-    /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     */
     logGroupName: pulumi.Input<string>;
 }

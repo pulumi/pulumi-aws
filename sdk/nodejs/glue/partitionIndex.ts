@@ -7,101 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCatalogDatabase = new aws.glue.CatalogDatabase("exampleCatalogDatabase", {name: "example"});
- * const exampleCatalogTable = new aws.glue.CatalogTable("exampleCatalogTable", {
- *     name: "example",
- *     databaseName: exampleCatalogDatabase.name,
- *     owner: "my_owner",
- *     retention: 1,
- *     tableType: "VIRTUAL_VIEW",
- *     viewExpandedText: "view_expanded_text_1",
- *     viewOriginalText: "view_original_text_1",
- *     storageDescriptor: {
- *         bucketColumns: ["bucket_column_1"],
- *         compressed: false,
- *         inputFormat: "SequenceFileInputFormat",
- *         location: "my_location",
- *         numberOfBuckets: 1,
- *         outputFormat: "SequenceFileInputFormat",
- *         storedAsSubDirectories: false,
- *         parameters: {
- *             param1: "param1_val",
- *         },
- *         columns: [
- *             {
- *                 name: "my_column_1",
- *                 type: "int",
- *                 comment: "my_column1_comment",
- *             },
- *             {
- *                 name: "my_column_2",
- *                 type: "string",
- *                 comment: "my_column2_comment",
- *             },
- *         ],
- *         serDeInfo: {
- *             name: "ser_de_name",
- *             parameters: {
- *                 param1: "param_val_1",
- *             },
- *             serializationLibrary: "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
- *         },
- *         sortColumns: [{
- *             column: "my_column_1",
- *             sortOrder: 1,
- *         }],
- *         skewedInfo: {
- *             skewedColumnNames: ["my_column_1"],
- *             skewedColumnValueLocationMaps: {
- *                 my_column_1: "my_column_1_val_loc_map",
- *             },
- *             skewedColumnValues: ["skewed_val_1"],
- *         },
- *     },
- *     partitionKeys: [
- *         {
- *             name: "my_column_1",
- *             type: "int",
- *             comment: "my_column_1_comment",
- *         },
- *         {
- *             name: "my_column_2",
- *             type: "string",
- *             comment: "my_column_2_comment",
- *         },
- *     ],
- *     parameters: {
- *         param1: "param1_val",
- *     },
- * });
- * const examplePartitionIndex = new aws.glue.PartitionIndex("examplePartitionIndex", {
- *     databaseName: exampleCatalogDatabase.name,
- *     tableName: exampleCatalogTable.name,
- *     partitionIndex: {
- *         indexName: "example",
- *         keys: [
- *             "my_column_1",
- *             "my_column_2",
- *         ],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
- * ```
- */
 export class PartitionIndex extends pulumi.CustomResource {
     /**
      * Get an existing PartitionIndex resource's state with the given name, ID, and optional extra
@@ -130,21 +35,9 @@ export class PartitionIndex extends pulumi.CustomResource {
         return obj['__pulumiType'] === PartitionIndex.__pulumiType;
     }
 
-    /**
-     * The catalog ID where the table resides.
-     */
     public readonly catalogId!: pulumi.Output<string>;
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * Configuration block for a partition index. See `partitionIndex` below.
-     */
     public readonly partitionIndex!: pulumi.Output<outputs.glue.PartitionIndexPartitionIndex>;
-    /**
-     * Name of the table. For Hive compatibility, this must be entirely lowercase.
-     */
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -189,21 +82,9 @@ export class PartitionIndex extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PartitionIndex resources.
  */
 export interface PartitionIndexState {
-    /**
-     * The catalog ID where the table resides.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     */
     databaseName?: pulumi.Input<string>;
-    /**
-     * Configuration block for a partition index. See `partitionIndex` below.
-     */
     partitionIndex?: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
-    /**
-     * Name of the table. For Hive compatibility, this must be entirely lowercase.
-     */
     tableName?: pulumi.Input<string>;
 }
 
@@ -211,20 +92,8 @@ export interface PartitionIndexState {
  * The set of arguments for constructing a PartitionIndex resource.
  */
 export interface PartitionIndexArgs {
-    /**
-     * The catalog ID where the table resides.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     */
     databaseName: pulumi.Input<string>;
-    /**
-     * Configuration block for a partition index. See `partitionIndex` below.
-     */
     partitionIndex: pulumi.Input<inputs.glue.PartitionIndexPartitionIndex>;
-    /**
-     * Name of the table. For Hive compatibility, this must be entirely lowercase.
-     */
     tableName: pulumi.Input<string>;
 }

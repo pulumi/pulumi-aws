@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an S3 Object Lambda Access Point.
- * An Object Lambda access point is associated with exactly one standard access point and thus one Amazon S3 bucket.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
- *     supportingAccessPoint: exampleAccessPoint.arn,
- *     transformationConfigurations: [{
- *         actions: ["GetObject"],
- *         contentTransformation: {
- *             awsLambda: {
- *                 functionArn: aws_lambda_function.example.arn,
- *             },
- *         },
- *     }],
- * }});
- * ```
- *
- * ## Import
- *
- * Object Lambda Access Points can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.
- *
- * ```sh
- *  $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
- * ```
- */
 export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
     /**
      * Get an existing ObjectLambdaAccessPoint resource's state with the given name, ID, and optional extra
@@ -68,21 +35,9 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ObjectLambdaAccessPoint.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Object Lambda Access Point.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-     */
     public readonly configuration!: pulumi.Output<outputs.s3control.ObjectLambdaAccessPointConfiguration>;
-    /**
-     * The name for this Object Lambda Access Point.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -121,21 +76,9 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ObjectLambdaAccessPoint resources.
  */
 export interface ObjectLambdaAccessPointState {
-    /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Amazon Resource Name (ARN) of the Object Lambda Access Point.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-     */
     configuration?: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
-    /**
-     * The name for this Object Lambda Access Point.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -143,16 +86,7 @@ export interface ObjectLambdaAccessPointState {
  * The set of arguments for constructing a ObjectLambdaAccessPoint resource.
  */
 export interface ObjectLambdaAccessPointArgs {
-    /**
-     * The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-     */
     configuration: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfiguration>;
-    /**
-     * The name for this Object Lambda Access Point.
-     */
     name?: pulumi.Input<string>;
 }

@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Resource Access Manager (RAM) principal association. Depending if [RAM Sharing with AWS Organizations is enabled](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs), the RAM behavior with different principal types changes.
- *
- * When RAM Sharing with AWS Organizations is enabled:
- *
- * - For AWS Account ID, Organization, and Organizational Unit principals within the same AWS Organization, no resource share invitation is sent and resources become available automatically after creating the association.
- * - For AWS Account ID principals outside the AWS Organization, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
- *
- * When RAM Sharing with AWS Organizations is not enabled:
- *
- * - Organization and Organizational Unit principals cannot be used.
- * - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `aws.ram.ResourceShareAccepter` resource to accept these invitations.
- *
- * ## Example Usage
- * ### AWS Account ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleResourceShare = new aws.ram.ResourceShare("exampleResourceShare", {allowExternalPrincipals: true});
- * const examplePrincipalAssociation = new aws.ram.PrincipalAssociation("examplePrincipalAssociation", {
- *     principal: "111111111111",
- *     resourceShareArn: exampleResourceShare.arn,
- * });
- * ```
- * ### AWS Organization
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ram.PrincipalAssociation("example", {
- *     principal: aws_organizations_organization.example.arn,
- *     resourceShareArn: aws_ram_resource_share.example.arn,
- * });
- * ```
- *
- * ## Import
- *
- * RAM Principal Associations can be imported using their Resource Share ARN and the `principal` separated by a comma, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
- * ```
- */
 export class PrincipalAssociation extends pulumi.CustomResource {
     /**
      * Get an existing PrincipalAssociation resource's state with the given name, ID, and optional extra
@@ -78,13 +32,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrincipalAssociation.__pulumiType;
     }
 
-    /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-     */
     public readonly principal!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the resource share.
-     */
     public readonly resourceShareArn!: pulumi.Output<string>;
 
     /**
@@ -122,13 +70,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PrincipalAssociation resources.
  */
 export interface PrincipalAssociationState {
-    /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-     */
     principal?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the resource share.
-     */
     resourceShareArn?: pulumi.Input<string>;
 }
 
@@ -136,12 +78,6 @@ export interface PrincipalAssociationState {
  * The set of arguments for constructing a PrincipalAssociation resource.
  */
 export interface PrincipalAssociationArgs {
-    /**
-     * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
-     */
     principal: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the resource share.
-     */
     resourceShareArn: pulumi.Input<string>;
 }

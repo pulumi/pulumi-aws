@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNS Firewall rule group association resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {});
- * const exampleResolverFirewallRuleGroupAssociation = new aws.route53.ResolverFirewallRuleGroupAssociation("exampleResolverFirewallRuleGroupAssociation", {
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
- *     priority: 100,
- *     vpcId: aws_vpc.example.id,
- * });
- * ```
- *
- * ## Import
- *
- * Route 53 Resolver DNS Firewall rule group associations can be imported using the Route 53 Resolver DNS Firewall rule group association ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
- * ```
- */
 export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing ResolverFirewallRuleGroupAssociation resource's state with the given name, ID, and optional extra
@@ -57,37 +32,13 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === ResolverFirewallRuleGroupAssociation.__pulumiType;
     }
 
-    /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The unique identifier of the firewall rule group.
-     */
     public readonly firewallRuleGroupId!: pulumi.Output<string>;
-    /**
-     * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-     */
     public readonly mutationProtection!: pulumi.Output<string>;
-    /**
-     * A name that lets you identify the rule group association, to manage and use it.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-     */
     public readonly priority!: pulumi.Output<number>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The unique identifier of the VPC that you want to associate with the rule group.
-     */
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -140,37 +91,13 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
  * Input properties used for looking up and filtering ResolverFirewallRuleGroupAssociation resources.
  */
 export interface ResolverFirewallRuleGroupAssociationState {
-    /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the firewall rule group.
-     */
     firewallRuleGroupId?: pulumi.Input<string>;
-    /**
-     * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-     */
     mutationProtection?: pulumi.Input<string>;
-    /**
-     * A name that lets you identify the rule group association, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-     */
     priority?: pulumi.Input<number>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The unique identifier of the VPC that you want to associate with the rule group.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -178,28 +105,10 @@ export interface ResolverFirewallRuleGroupAssociationState {
  * The set of arguments for constructing a ResolverFirewallRuleGroupAssociation resource.
  */
 export interface ResolverFirewallRuleGroupAssociationArgs {
-    /**
-     * The unique identifier of the firewall rule group.
-     */
     firewallRuleGroupId: pulumi.Input<string>;
-    /**
-     * If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
-     */
     mutationProtection?: pulumi.Input<string>;
-    /**
-     * A name that lets you identify the rule group association, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
-     */
     priority: pulumi.Input<number>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The unique identifier of the VPC that you want to associate with the rule group.
-     */
     vpcId: pulumi.Input<string>;
 }

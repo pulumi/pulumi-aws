@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a MediaStore Container Policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const currentRegion = aws.getRegion({});
- * const currentCallerIdentity = aws.getCallerIdentity({});
- * const exampleContainer = new aws.mediastore.Container("exampleContainer", {});
- * const exampleContainerPolicy = new aws.mediastore.ContainerPolicy("exampleContainerPolicy", {
- *     containerName: exampleContainer.name,
- *     policy: pulumi.all([currentCallerIdentity, currentRegion, currentCallerIdentity, exampleContainer.name]).apply(([currentCallerIdentity, currentRegion, currentCallerIdentity1, name]) => `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [{
- * 		"Sid": "MediaStoreFullAccess",
- * 		"Action": [ "mediastore:*" ],
- * 		"Principal": {"AWS" : "arn:aws:iam::${currentCallerIdentity.accountId}:root"},
- * 		"Effect": "Allow",
- * 		"Resource": "arn:aws:mediastore:${currentRegion.name}:${currentCallerIdentity1.accountId}:container/${name}/*",
- * 		"Condition": {
- * 			"Bool": { "aws:SecureTransport": "true" }
- * 		}
- * 	}]
- * }
- * `),
- * });
- * ```
- *
- * ## Import
- *
- * MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
- * ```
- */
 export class ContainerPolicy extends pulumi.CustomResource {
     /**
      * Get an existing ContainerPolicy resource's state with the given name, ID, and optional extra
@@ -71,13 +32,7 @@ export class ContainerPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerPolicy.__pulumiType;
     }
 
-    /**
-     * The name of the container.
-     */
     public readonly containerName!: pulumi.Output<string>;
-    /**
-     * The contents of the policy.
-     */
     public readonly policy!: pulumi.Output<string>;
 
     /**
@@ -115,13 +70,7 @@ export class ContainerPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContainerPolicy resources.
  */
 export interface ContainerPolicyState {
-    /**
-     * The name of the container.
-     */
     containerName?: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     policy?: pulumi.Input<string>;
 }
 
@@ -129,12 +78,6 @@ export interface ContainerPolicyState {
  * The set of arguments for constructing a ContainerPolicy resource.
  */
 export interface ContainerPolicyArgs {
-    /**
-     * The name of the container.
-     */
     containerName: pulumi.Input<string>;
-    /**
-     * The contents of the policy.
-     */
     policy: pulumi.Input<string>;
 }

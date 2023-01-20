@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.rds.Instance("bar", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.21",
- *     instanceClass: "db.t2.micro",
- *     name: "baz",
- *     password: "barbarbarbar",
- *     username: "foo",
- *     maintenanceWindow: "Fri:09:00-Fri:09:30",
- *     backupRetentionPeriod: 0,
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const test = new aws.rds.Snapshot("test", {
- *     dbInstanceIdentifier: bar.id,
- *     dbSnapshotIdentifier: "testsnapshot1234",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
- * ```
- */
 export class Snapshot extends pulumi.CustomResource {
     /**
      * Get an existing Snapshot resource's state with the given name, ID, and optional extra
@@ -67,83 +32,26 @@ export class Snapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Snapshot.__pulumiType;
     }
 
-    /**
-     * Specifies the allocated storage size in gigabytes (GB).
-     */
     public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
-    /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-     */
     public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
-    /**
-     * The DB Instance Identifier from which to take the snapshot.
-     */
     public readonly dbInstanceIdentifier!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
-     */
     public /*out*/ readonly dbSnapshotArn!: pulumi.Output<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     public readonly dbSnapshotIdentifier!: pulumi.Output<string>;
-    /**
-     * Specifies whether the DB snapshot is encrypted.
-     */
     public /*out*/ readonly encrypted!: pulumi.Output<boolean>;
-    /**
-     * Specifies the name of the database engine.
-     */
     public /*out*/ readonly engine!: pulumi.Output<string>;
-    /**
-     * Specifies the version of the database engine.
-     */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-     */
     public /*out*/ readonly iops!: pulumi.Output<number>;
-    /**
-     * The ARN for the KMS encryption key.
-     */
     public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
-    /**
-     * License model information for the restored DB instance.
-     */
     public /*out*/ readonly licenseModel!: pulumi.Output<string>;
-    /**
-     * Provides the option group name for the DB snapshot.
-     */
     public /*out*/ readonly optionGroupName!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<number>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
-    /**
-     * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-     */
     public /*out*/ readonly sourceDbSnapshotIdentifier!: pulumi.Output<string>;
-    /**
-     * The region that the DB snapshot was created in or copied from.
-     */
     public /*out*/ readonly sourceRegion!: pulumi.Output<string>;
-    /**
-     * Specifies the status of this DB snapshot.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Specifies the storage type associated with DB snapshot.
-     */
     public /*out*/ readonly storageType!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Provides the VPC ID associated with the DB snapshot.
-     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -219,83 +127,26 @@ export class Snapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Snapshot resources.
  */
 export interface SnapshotState {
-    /**
-     * Specifies the allocated storage size in gigabytes (GB).
-     */
     allocatedStorage?: pulumi.Input<number>;
-    /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-     */
     availabilityZone?: pulumi.Input<string>;
-    /**
-     * The DB Instance Identifier from which to take the snapshot.
-     */
     dbInstanceIdentifier?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
-     */
     dbSnapshotArn?: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * Specifies whether the DB snapshot is encrypted.
-     */
     encrypted?: pulumi.Input<boolean>;
-    /**
-     * Specifies the name of the database engine.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Specifies the version of the database engine.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-     */
     iops?: pulumi.Input<number>;
-    /**
-     * The ARN for the KMS encryption key.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * License model information for the restored DB instance.
-     */
     licenseModel?: pulumi.Input<string>;
-    /**
-     * Provides the option group name for the DB snapshot.
-     */
     optionGroupName?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     snapshotType?: pulumi.Input<string>;
-    /**
-     * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-     */
     sourceDbSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * The region that the DB snapshot was created in or copied from.
-     */
     sourceRegion?: pulumi.Input<string>;
-    /**
-     * Specifies the status of this DB snapshot.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Specifies the storage type associated with DB snapshot.
-     */
     storageType?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Provides the VPC ID associated with the DB snapshot.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -303,16 +154,7 @@ export interface SnapshotState {
  * The set of arguments for constructing a Snapshot resource.
  */
 export interface SnapshotArgs {
-    /**
-     * The DB Instance Identifier from which to take the snapshot.
-     */
     dbInstanceIdentifier: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbSnapshotIdentifier: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

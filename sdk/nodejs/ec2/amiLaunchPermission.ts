@@ -4,53 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds a launch permission to an Amazon Machine Image (AMI).
- *
- * ## Example Usage
- * ### AWS Account ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     accountId: "123456789012",
- *     imageId: "ami-12345678",
- * });
- * ```
- * ### Public Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     group: "all",
- *     imageId: "ami-12345678",
- * });
- * ```
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.organizations.getOrganization({});
- * const example = new aws.ec2.AmiLaunchPermission("example", {
- *     imageId: "ami-12345678",
- *     organizationArn: current.then(current => current.arn),
- * });
- * ```
- *
- * ## Import
- *
- * AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
- * ```
- */
 export class AmiLaunchPermission extends pulumi.CustomResource {
     /**
      * Get an existing AmiLaunchPermission resource's state with the given name, ID, and optional extra
@@ -79,25 +32,10 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === AmiLaunchPermission.__pulumiType;
     }
 
-    /**
-     * AWS account ID for the launch permission.
-     */
     public readonly accountId!: pulumi.Output<string | undefined>;
-    /**
-     * Name of the group for the launch permission. Valid values: `"all"`.
-     */
     public readonly group!: pulumi.Output<string | undefined>;
-    /**
-     * ID of the AMI.
-     */
     public readonly imageId!: pulumi.Output<string>;
-    /**
-     * ARN of an organization for the launch permission.
-     */
     public readonly organizationArn!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of an organizational unit for the launch permission.
-     */
     public readonly organizationalUnitArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -138,25 +76,10 @@ export class AmiLaunchPermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AmiLaunchPermission resources.
  */
 export interface AmiLaunchPermissionState {
-    /**
-     * AWS account ID for the launch permission.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Name of the group for the launch permission. Valid values: `"all"`.
-     */
     group?: pulumi.Input<string>;
-    /**
-     * ID of the AMI.
-     */
     imageId?: pulumi.Input<string>;
-    /**
-     * ARN of an organization for the launch permission.
-     */
     organizationArn?: pulumi.Input<string>;
-    /**
-     * ARN of an organizational unit for the launch permission.
-     */
     organizationalUnitArn?: pulumi.Input<string>;
 }
 
@@ -164,24 +87,9 @@ export interface AmiLaunchPermissionState {
  * The set of arguments for constructing a AmiLaunchPermission resource.
  */
 export interface AmiLaunchPermissionArgs {
-    /**
-     * AWS account ID for the launch permission.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * Name of the group for the launch permission. Valid values: `"all"`.
-     */
     group?: pulumi.Input<string>;
-    /**
-     * ID of the AMI.
-     */
     imageId: pulumi.Input<string>;
-    /**
-     * ARN of an organization for the launch permission.
-     */
     organizationArn?: pulumi.Input<string>;
-    /**
-     * ARN of an organizational unit for the launch permission.
-     */
     organizationalUnitArn?: pulumi.Input<string>;
 }

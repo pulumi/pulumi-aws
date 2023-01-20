@@ -7,66 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an EMR Serverless Application.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
- * ### Initial Capacity Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     initialCapacities: [{
- *         initialCapacityConfig: {
- *             workerConfiguration: {
- *                 cpu: "2 vCPU",
- *                 memory: "10 GB",
- *             },
- *             workerCount: 1,
- *         },
- *         initialCapacityType: "HiveDriver",
- *     }],
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
- * ### Maximum Capacity Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emrserverless.Application("example", {
- *     maximumCapacity: {
- *         cpu: "2 vCPU",
- *         memory: "10 GB",
- *     },
- *     releaseLabel: "emr-6.6.0",
- *     type: "hive",
- * });
- * ```
- *
- * ## Import
- *
- * EMR Severless applications can be imported using the `id`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
- * ```
- */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -95,53 +35,17 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
-    /**
-     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-     */
     public readonly architecture!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the cluster.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The configuration for an application to automatically start on job submission.
-     */
     public readonly autoStartConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStartConfiguration>;
-    /**
-     * The configuration for an application to automatically stop after a certain amount of time being idle.
-     */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration>;
-    /**
-     * The capacity to initialize when the application is created.
-     */
     public readonly initialCapacities!: pulumi.Output<outputs.emrserverless.ApplicationInitialCapacity[] | undefined>;
-    /**
-     * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-     */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumCapacity>;
-    /**
-     * The name of the application.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The network configuration for customer VPC connectivity.
-     */
     public readonly networkConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
-    /**
-     * The EMR release version associated with the application.
-     */
     public readonly releaseLabel!: pulumi.Output<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The type of application you want to start, such as `spark` or `hive`.
-     */
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -199,53 +103,17 @@ export class Application extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Application resources.
  */
 export interface ApplicationState {
-    /**
-     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-     */
     architecture?: pulumi.Input<string>;
-    /**
-     * ARN of the cluster.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The configuration for an application to automatically start on job submission.
-     */
     autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
-    /**
-     * The configuration for an application to automatically stop after a certain amount of time being idle.
-     */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
-    /**
-     * The capacity to initialize when the application is created.
-     */
     initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
-    /**
-     * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-     */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
-    /**
-     * The name of the application.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The network configuration for customer VPC connectivity.
-     */
     networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
-    /**
-     * The EMR release version associated with the application.
-     */
     releaseLabel?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of application you want to start, such as `spark` or `hive`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -253,44 +121,14 @@ export interface ApplicationState {
  * The set of arguments for constructing a Application resource.
  */
 export interface ApplicationArgs {
-    /**
-     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-     */
     architecture?: pulumi.Input<string>;
-    /**
-     * The configuration for an application to automatically start on job submission.
-     */
     autoStartConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStartConfiguration>;
-    /**
-     * The configuration for an application to automatically stop after a certain amount of time being idle.
-     */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfiguration>;
-    /**
-     * The capacity to initialize when the application is created.
-     */
     initialCapacities?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationInitialCapacity>[]>;
-    /**
-     * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-     */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumCapacity>;
-    /**
-     * The name of the application.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The network configuration for customer VPC connectivity.
-     */
     networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
-    /**
-     * The EMR release version associated with the application.
-     */
     releaseLabel: pulumi.Input<string>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of application you want to start, such as `spark` or `hive`.
-     */
     type: pulumi.Input<string>;
 }

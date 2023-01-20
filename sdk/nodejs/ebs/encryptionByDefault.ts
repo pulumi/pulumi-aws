@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage whether default EBS encryption is enabled for your AWS account in the current AWS region. To manage the default KMS key for the region, see the `aws.ebs.DefaultKmsKey` resource.
- *
- * > **NOTE:** Removing this resource disables default EBS encryption.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.EncryptionByDefault("example", {enabled: true});
- * ```
- *
- * ## Import
- *
- * Default EBS encryption state can be imported, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
- * ```
- */
 export class EncryptionByDefault extends pulumi.CustomResource {
     /**
      * Get an existing EncryptionByDefault resource's state with the given name, ID, and optional extra
@@ -54,9 +32,6 @@ export class EncryptionByDefault extends pulumi.CustomResource {
         return obj['__pulumiType'] === EncryptionByDefault.__pulumiType;
     }
 
-    /**
-     * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -86,9 +61,6 @@ export class EncryptionByDefault extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EncryptionByDefault resources.
  */
 export interface EncryptionByDefaultState {
-    /**
-     * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
 }
 
@@ -96,8 +68,5 @@ export interface EncryptionByDefaultState {
  * The set of arguments for constructing a EncryptionByDefault resource.
  */
 export interface EncryptionByDefaultArgs {
-    /**
-     * Whether or not default EBS encryption is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
 }

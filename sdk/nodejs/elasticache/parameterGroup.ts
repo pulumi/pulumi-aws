@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ElastiCache parameter group resource.
- *
- * > **NOTE:** Attempting to remove the `reserved-memory` parameter when `family` is set to `redis2.6` or `redis2.8` may show a perpetual difference in this provider due to an ElastiCache API limitation. Leave that parameter configured with any value to workaround the issue.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.elasticache.ParameterGroup("default", {
- *     family: "redis2.8",
- *     parameters: [
- *         {
- *             name: "activerehashing",
- *             value: "yes",
- *         },
- *         {
- *             name: "min-slaves-to-write",
- *             value: "2",
- *         },
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * ElastiCache Parameter Groups can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
- * ```
- */
 export class ParameterGroup extends pulumi.CustomResource {
     /**
      * Get an existing ParameterGroup resource's state with the given name, ID, and optional extra
@@ -69,33 +35,12 @@ export class ParameterGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ParameterGroup.__pulumiType;
     }
 
-    /**
-     * The AWS ARN associated with the parameter group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * The family of the ElastiCache parameter group.
-     */
     public readonly family!: pulumi.Output<string>;
-    /**
-     * The name of the ElastiCache parameter.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A list of ElastiCache parameters to apply.
-     */
     public readonly parameters!: pulumi.Output<outputs.elasticache.ParameterGroupParameter[] | undefined>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -140,33 +85,12 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
-    /**
-     * The AWS ARN associated with the parameter group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The family of the ElastiCache parameter group.
-     */
     family?: pulumi.Input<string>;
-    /**
-     * The name of the ElastiCache parameter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of ElastiCache parameters to apply.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -174,24 +98,9 @@ export interface ParameterGroupState {
  * The set of arguments for constructing a ParameterGroup resource.
  */
 export interface ParameterGroupArgs {
-    /**
-     * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The family of the ElastiCache parameter group.
-     */
     family: pulumi.Input<string>;
-    /**
-     * The name of the ElastiCache parameter.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A list of ElastiCache parameters to apply.
-     */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

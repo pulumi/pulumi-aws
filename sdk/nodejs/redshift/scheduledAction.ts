@@ -7,88 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- * ### Pause Cluster Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": [
- *           "scheduler.redshift.amazonaws.com"
- *         ]
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const examplePolicy = new aws.iam.Policy("examplePolicy", {policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *       {
- *           "Sid": "VisualEditor0",
- *           "Effect": "Allow",
- *           "Action": [
- *               "redshift:PauseCluster",
- *               "redshift:ResumeCluster",
- *               "redshift:ResizeCluster"
- *           ],
- *           "Resource": "*"
- *       }
- *   ]
- * }
- * `});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: examplePolicy.arn,
- *     role: exampleRole.name,
- * });
- * const exampleScheduledAction = new aws.redshift.ScheduledAction("exampleScheduledAction", {
- *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: exampleRole.arn,
- *     targetAction: {
- *         pauseCluster: {
- *             clusterIdentifier: "tf-redshift001",
- *         },
- *     },
- * });
- * ```
- * ### Resize Cluster Action
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.ScheduledAction("example", {
- *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: aws_iam_role.example.arn,
- *     targetAction: {
- *         resizeCluster: {
- *             clusterIdentifier: "tf-redshift001",
- *             clusterType: "multi-node",
- *             nodeType: "dc1.large",
- *             numberOfNodes: 2,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Redshift Scheduled Action can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
- * ```
- */
 export class ScheduledAction extends pulumi.CustomResource {
     /**
      * Get an existing ScheduledAction resource's state with the given name, ID, and optional extra
@@ -117,37 +35,13 @@ export class ScheduledAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledAction.__pulumiType;
     }
 
-    /**
-     * The description of the scheduled action.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to enable the scheduled action. Default is `true` .
-     */
     public readonly enable!: pulumi.Output<boolean | undefined>;
-    /**
-     * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     public readonly endTime!: pulumi.Output<string | undefined>;
-    /**
-     * The IAM role to assume to run the scheduled action.
-     */
     public readonly iamRole!: pulumi.Output<string>;
-    /**
-     * The scheduled action name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-     */
     public readonly schedule!: pulumi.Output<string>;
-    /**
-     * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     public readonly startTime!: pulumi.Output<string | undefined>;
-    /**
-     * Target action. Documented below.
-     */
     public readonly targetAction!: pulumi.Output<outputs.redshift.ScheduledActionTargetAction>;
 
     /**
@@ -200,37 +94,13 @@ export class ScheduledAction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ScheduledAction resources.
  */
 export interface ScheduledActionState {
-    /**
-     * The description of the scheduled action.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether to enable the scheduled action. Default is `true` .
-     */
     enable?: pulumi.Input<boolean>;
-    /**
-     * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     endTime?: pulumi.Input<string>;
-    /**
-     * The IAM role to assume to run the scheduled action.
-     */
     iamRole?: pulumi.Input<string>;
-    /**
-     * The scheduled action name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-     */
     schedule?: pulumi.Input<string>;
-    /**
-     * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     startTime?: pulumi.Input<string>;
-    /**
-     * Target action. Documented below.
-     */
     targetAction?: pulumi.Input<inputs.redshift.ScheduledActionTargetAction>;
 }
 
@@ -238,36 +108,12 @@ export interface ScheduledActionState {
  * The set of arguments for constructing a ScheduledAction resource.
  */
 export interface ScheduledActionArgs {
-    /**
-     * The description of the scheduled action.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether to enable the scheduled action. Default is `true` .
-     */
     enable?: pulumi.Input<boolean>;
-    /**
-     * The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     endTime?: pulumi.Input<string>;
-    /**
-     * The IAM role to assume to run the scheduled action.
-     */
     iamRole: pulumi.Input<string>;
-    /**
-     * The scheduled action name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-     */
     schedule: pulumi.Input<string>;
-    /**
-     * The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-     */
     startTime?: pulumi.Input<string>;
-    /**
-     * Target action. Documented below.
-     */
     targetAction: pulumi.Input<inputs.redshift.ScheduledActionTargetAction>;
 }

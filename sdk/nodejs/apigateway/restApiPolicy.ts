@@ -4,51 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an API Gateway REST API Policy.
- *
- * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("testRestApiPolicy", {
- *     restApiId: testRestApi.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "AWS": "*"
- *       },
- *       "Action": "execute-api:Invoke",
- *       "Resource": "${testRestApi.executionArn}",
- *       "Condition": {
- *         "IpAddress": {
- *           "aws:SourceIp": "123.123.123.123/32"
- *         }
- *       }
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
- * ```
- */
 export class RestApiPolicy extends pulumi.CustomResource {
     /**
      * Get an existing RestApiPolicy resource's state with the given name, ID, and optional extra
@@ -77,13 +32,7 @@ export class RestApiPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RestApiPolicy.__pulumiType;
     }
 
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * ID of the REST API.
-     */
     public readonly restApiId!: pulumi.Output<string>;
 
     /**
@@ -121,13 +70,7 @@ export class RestApiPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RestApiPolicy resources.
  */
 export interface RestApiPolicyState {
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * ID of the REST API.
-     */
     restApiId?: pulumi.Input<string>;
 }
 
@@ -135,12 +78,6 @@ export interface RestApiPolicyState {
  * The set of arguments for constructing a RestApiPolicy resource.
  */
 export interface RestApiPolicyArgs {
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * ID of the REST API.
-     */
     restApiId: pulumi.Input<string>;
 }

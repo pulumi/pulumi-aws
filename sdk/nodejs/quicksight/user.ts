@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing QuickSight User
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.quicksight.User("example", {
- *     email: "author@example.com",
- *     iamArn: "arn:aws:iam::123456789012:user/Example",
- *     identityType: "IAM",
- *     namespace: "foo",
- *     sessionName: "an-author",
- *     userRole: "AUTHOR",
- * });
- * ```
- *
- * ## Import
- *
- * Importing is currently not supported on this resource.
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -55,41 +32,14 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the user
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
-    /**
-     * The email address of the user that you want to register.
-     */
     public readonly email!: pulumi.Output<string>;
-    /**
-     * The ARN of the IAM user or role that you are registering with Amazon QuickSight.
-     */
     public readonly iamArn!: pulumi.Output<string | undefined>;
-    /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
-     */
     public readonly identityType!: pulumi.Output<string>;
-    /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-     */
     public readonly namespace!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-     */
     public readonly sessionName!: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
-     */
     public readonly userName!: pulumi.Output<string | undefined>;
-    /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
-     */
     public readonly userRole!: pulumi.Output<string>;
 
     /**
@@ -144,41 +94,14 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * Amazon Resource Name (ARN) of the user
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The email address of the user that you want to register.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM user or role that you are registering with Amazon QuickSight.
-     */
     iamArn?: pulumi.Input<string>;
-    /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
-     */
     identityType?: pulumi.Input<string>;
-    /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-     */
     sessionName?: pulumi.Input<string>;
-    /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
-     */
     userName?: pulumi.Input<string>;
-    /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
-     */
     userRole?: pulumi.Input<string>;
 }
 
@@ -186,36 +109,12 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-     */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * The email address of the user that you want to register.
-     */
     email: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM user or role that you are registering with Amazon QuickSight.
-     */
     iamArn?: pulumi.Input<string>;
-    /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
-     */
     identityType: pulumi.Input<string>;
-    /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-     */
     namespace?: pulumi.Input<string>;
-    /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-     */
     sessionName?: pulumi.Input<string>;
-    /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
-     */
     userName?: pulumi.Input<string>;
-    /**
-     * The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
-     */
     userRole: pulumi.Input<string>;
 }

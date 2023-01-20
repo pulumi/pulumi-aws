@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
 
@@ -25,18 +22,8 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getRouteTables.
  */
 export interface GetRouteTablesArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetRouteTablesFilter[];
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired route tables.
-     */
     tags?: {[key: string]: string};
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: string;
 }
 
@@ -49,16 +36,10 @@ export interface GetRouteTablesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the route table ids found.
-     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-/**
- * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- */
 export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getRouteTables(a, opts))
 }
@@ -67,17 +48,7 @@ export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pul
  * A collection of arguments for invoking getRouteTables.
  */
 export interface GetRouteTablesOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTablesFilterArgs>[]>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired route tables.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: pulumi.Input<string>;
 }

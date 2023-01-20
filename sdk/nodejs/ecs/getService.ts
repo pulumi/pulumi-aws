@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * The ECS Service data source allows access to details of a specific
- * Service within a AWS ECS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecs.getService({
- *     serviceName: "example",
- *     clusterArn: data.aws_ecs_cluster.example.arn,
- * });
- * ```
- */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,17 +18,8 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getService.
  */
 export interface GetServiceArgs {
-    /**
-     * ARN of the ECS Cluster
-     */
     clusterArn: string;
-    /**
-     * Name of the ECS Service
-     */
     serviceName: string;
-    /**
-     * Resource tags.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -52,53 +27,19 @@ export interface GetServiceArgs {
  * A collection of values returned by getService.
  */
 export interface GetServiceResult {
-    /**
-     * ARN of the ECS Service
-     */
     readonly arn: string;
     readonly clusterArn: string;
-    /**
-     * Number of tasks for the ECS Service
-     */
     readonly desiredCount: number;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Launch type for the ECS Service
-     */
     readonly launchType: string;
-    /**
-     * Scheduling strategy for the ECS Service
-     */
     readonly schedulingStrategy: string;
     readonly serviceName: string;
-    /**
-     * Resource tags.
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * Family for the latest ACTIVE revision
-     */
     readonly taskDefinition: string;
 }
-/**
- * The ECS Service data source allows access to details of a specific
- * Service within a AWS ECS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecs.getService({
- *     serviceName: "example",
- *     clusterArn: data.aws_ecs_cluster.example.arn,
- * });
- * ```
- */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))
 }
@@ -107,16 +48,7 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getService.
  */
 export interface GetServiceOutputArgs {
-    /**
-     * ARN of the ECS Cluster
-     */
     clusterArn: pulumi.Input<string>;
-    /**
-     * Name of the ECS Service
-     */
     serviceName: pulumi.Input<string>;
-    /**
-     * Resource tags.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

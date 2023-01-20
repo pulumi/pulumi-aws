@@ -7,111 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CloudWatch Evidently Feature resource.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
- *     description: "example description",
- *     variations: [{
- *         name: "Variation1",
- *         value: {
- *             stringValue: "example",
- *         },
- *     }],
- *     tags: {
- *         Key1: "example Feature",
- *     },
- * });
- * ```
- * ### With default variation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
- *     defaultVariation: "Variation2",
- *     variations: [
- *         {
- *             name: "Variation1",
- *             value: {
- *                 stringValue: "exampleval1",
- *             },
- *         },
- *         {
- *             name: "Variation2",
- *             value: {
- *                 stringValue: "exampleval2",
- *             },
- *         },
- *     ],
- * });
- * ```
- * ### With entity overrides
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
- *     entityOverrides: {
- *         test1: "Variation1",
- *     },
- *     variations: [
- *         {
- *             name: "Variation1",
- *             value: {
- *                 stringValue: "exampleval1",
- *             },
- *         },
- *         {
- *             name: "Variation2",
- *             value: {
- *                 stringValue: "exampleval2",
- *             },
- *         },
- *     ],
- * });
- * ```
- * ### With evaluation strategy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.evidently.Feature("example", {
- *     project: aws_evidently_project.example.name,
- *     evaluationStrategy: "ALL_RULES",
- *     entityOverrides: {
- *         test1: "Variation1",
- *     },
- *     variations: [{
- *         name: "Variation1",
- *         value: {
- *             stringValue: "exampleval1",
- *         },
- *     }],
- * });
- * ```
- *
- * ## Import
- *
- * CloudWatch Evidently Feature can be imported using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
- * ```
- */
 export class Feature extends pulumi.CustomResource {
     /**
      * Get an existing Feature resource's state with the given name, ID, and optional extra
@@ -140,65 +35,20 @@ export class Feature extends pulumi.CustomResource {
         return obj['__pulumiType'] === Feature.__pulumiType;
     }
 
-    /**
-     * The ARN of the feature.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The date and time that the feature is created.
-     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-     */
     public readonly defaultVariation!: pulumi.Output<string>;
-    /**
-     * Specifies the description of the feature.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-     */
     public readonly entityOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * One or more blocks that define the evaluation rules for the feature. Detailed below
-     */
     public /*out*/ readonly evaluationRules!: pulumi.Output<outputs.evidently.FeatureEvaluationRule[]>;
-    /**
-     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-     */
     public readonly evaluationStrategy!: pulumi.Output<string>;
-    /**
-     * The date and time that the feature was most recently updated.
-     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The name or ARN of the project that is to contain the new feature.
-     */
     public readonly project!: pulumi.Output<string>;
-    /**
-     * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-     */
     public /*out*/ readonly valueType!: pulumi.Output<string>;
-    /**
-     * One or more blocks that contain the configuration of the feature's different variations. Detailed below
-     */
     public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariation[]>;
 
     /**
@@ -262,65 +112,20 @@ export class Feature extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Feature resources.
  */
 export interface FeatureState {
-    /**
-     * The ARN of the feature.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The date and time that the feature is created.
-     */
     createdTime?: pulumi.Input<string>;
-    /**
-     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-     */
     defaultVariation?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the feature.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-     */
     entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * One or more blocks that define the evaluation rules for the feature. Detailed below
-     */
     evaluationRules?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEvaluationRule>[]>;
-    /**
-     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-     */
     evaluationStrategy?: pulumi.Input<string>;
-    /**
-     * The date and time that the feature was most recently updated.
-     */
     lastUpdatedTime?: pulumi.Input<string>;
-    /**
-     * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name or ARN of the project that is to contain the new feature.
-     */
     project?: pulumi.Input<string>;
-    /**
-     * The current state of the feature. Valid values are `AVAILABLE` and `UPDATING`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Defines the type of value used to define the different feature variations. Valid Values: `STRING`, `LONG`, `DOUBLE`, `BOOLEAN`.
-     */
     valueType?: pulumi.Input<string>;
-    /**
-     * One or more blocks that contain the configuration of the feature's different variations. Detailed below
-     */
     variations?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[]>;
 }
 
@@ -328,36 +133,12 @@ export interface FeatureState {
  * The set of arguments for constructing a Feature resource.
  */
 export interface FeatureArgs {
-    /**
-     * The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `defaultVariation`, the first variation listed in the `variations` structure is used as the default variation.
-     */
     defaultVariation?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the feature.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
-     */
     entityOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
-     */
     evaluationStrategy?: pulumi.Input<string>;
-    /**
-     * The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name or ARN of the project that is to contain the new feature.
-     */
     project: pulumi.Input<string>;
-    /**
-     * Tags to apply to the feature. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * One or more blocks that contain the configuration of the feature's different variations. Detailed below
-     */
     variations: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariation>[]>;
 }

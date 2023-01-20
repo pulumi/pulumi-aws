@@ -7,49 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages the GuardDuty Organization Configuration in the current AWS Region. The AWS account utilizing this resource must have been assigned as a delegated Organization administrator account, e.g., via the `aws.guardduty.OrganizationAdminAccount` resource. More information about Organizations support in GuardDuty can be found in the [GuardDuty User Guide](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_organizations.html).
- *
- * > **NOTE:** This is an advanced resource. The provider will automatically assume management of the GuardDuty Organization Configuration without import and perform no actions on removal from the resource configuration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDetector = new aws.guardduty.Detector("exampleDetector", {enable: true});
- * const exampleOrganizationConfiguration = new aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration", {
- *     autoEnable: true,
- *     detectorId: exampleDetector.id,
- *     datasources: {
- *         s3Logs: {
- *             autoEnable: true,
- *         },
- *         kubernetes: {
- *             auditLogs: {
- *                 enable: true,
- *             },
- *         },
- *         malwareProtection: {
- *             scanEc2InstanceWithFindings: {
- *                 ebsVolumes: {
- *                     autoEnable: true,
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * GuardDuty Organization Configurations can be imported using the GuardDuty Detector ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
- * ```
- */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationConfiguration resource's state with the given name, ID, and optional extra
@@ -78,17 +35,8 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationConfiguration.__pulumiType;
     }
 
-    /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-     */
     public readonly autoEnable!: pulumi.Output<boolean>;
-    /**
-     * Configuration for the collected datasources.
-     */
     public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
-    /**
-     * The detector ID of the GuardDuty account.
-     */
     public readonly detectorId!: pulumi.Output<string>;
 
     /**
@@ -128,17 +76,8 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationConfiguration resources.
  */
 export interface OrganizationConfigurationState {
-    /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-     */
     autoEnable?: pulumi.Input<boolean>;
-    /**
-     * Configuration for the collected datasources.
-     */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
-    /**
-     * The detector ID of the GuardDuty account.
-     */
     detectorId?: pulumi.Input<string>;
 }
 
@@ -146,16 +85,7 @@ export interface OrganizationConfigurationState {
  * The set of arguments for constructing a OrganizationConfiguration resource.
  */
 export interface OrganizationConfigurationArgs {
-    /**
-     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-     */
     autoEnable: pulumi.Input<boolean>;
-    /**
-     * Configuration for the collected datasources.
-     */
     datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
-    /**
-     * The detector ID of the GuardDuty account.
-     */
     detectorId: pulumi.Input<string>;
 }

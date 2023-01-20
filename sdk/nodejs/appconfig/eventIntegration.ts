@@ -7,35 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon AppIntegrations Event Integration resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.EventIntegration("example", {
- *     description: "Example Description",
- *     eventFilter: {
- *         source: "aws.partner/examplepartner.com",
- *     },
- *     eventbridgeBus: "default",
- *     tags: {
- *         Name: "Example Event Integration",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Amazon AppIntegrations Event Integrations can be imported using the `name` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
- * ```
- */
 export class EventIntegration extends pulumi.CustomResource {
     /**
      * Get an existing EventIntegration resource's state with the given name, ID, and optional extra
@@ -64,33 +35,12 @@ export class EventIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventIntegration.__pulumiType;
     }
 
-    /**
-     * ARN of the Event Integration.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Description of the Event Integration.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     */
     public readonly eventFilter!: pulumi.Output<outputs.appconfig.EventIntegrationEventFilter>;
-    /**
-     * EventBridge bus.
-     */
     public readonly eventbridgeBus!: pulumi.Output<string>;
-    /**
-     * Name of the Event Integration.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -138,33 +88,12 @@ export class EventIntegration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventIntegration resources.
  */
 export interface EventIntegrationState {
-    /**
-     * ARN of the Event Integration.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Description of the Event Integration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     */
     eventFilter?: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
-    /**
-     * EventBridge bus.
-     */
     eventbridgeBus?: pulumi.Input<string>;
-    /**
-     * Name of the Event Integration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -172,24 +101,9 @@ export interface EventIntegrationState {
  * The set of arguments for constructing a EventIntegration resource.
  */
 export interface EventIntegrationArgs {
-    /**
-     * Description of the Event Integration.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Block that defines the configuration information for the event filter. The Event Filter block is documented below.
-     */
     eventFilter: pulumi.Input<inputs.appconfig.EventIntegrationEventFilter>;
-    /**
-     * EventBridge bus.
-     */
     eventbridgeBus: pulumi.Input<string>;
-    /**
-     * Name of the Event Integration.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Event Integration. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

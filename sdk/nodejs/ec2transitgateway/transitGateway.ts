@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 import {ARN} from "..";
 
-/**
- * Manages an EC2 Transit Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
- * ```
- *
- * ## Import
- *
- * `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
- * ```
- */
 export class TransitGateway extends pulumi.CustomResource {
     /**
      * Get an existing TransitGateway resource's state with the given name, ID, and optional extra
@@ -54,65 +34,20 @@ export class TransitGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGateway.__pulumiType;
     }
 
-    /**
-     * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-     */
     public readonly amazonSideAsn!: pulumi.Output<number | undefined>;
-    /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
-     */
     public /*out*/ readonly arn!: pulumi.Output<ARN>;
-    /**
-     * Identifier of the default association route table
-     */
     public /*out*/ readonly associationDefaultRouteTableId!: pulumi.Output<string>;
-    /**
-     * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     public readonly autoAcceptSharedAttachments!: pulumi.Output<string | undefined>;
-    /**
-     * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     public readonly defaultRouteTableAssociation!: pulumi.Output<string | undefined>;
-    /**
-     * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     public readonly defaultRouteTablePropagation!: pulumi.Output<string | undefined>;
-    /**
-     * Description of the EC2 Transit Gateway.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
-    /**
-     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
-    /**
-     * Identifier of the AWS account that owns the EC2 Transit Gateway
-     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * Identifier of the default propagation route table
-     */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-     */
     public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
-    /**
-     * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
 
     /**
@@ -170,65 +105,20 @@ export class TransitGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TransitGateway resources.
  */
 export interface TransitGatewayState {
-    /**
-     * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-     */
     amazonSideAsn?: pulumi.Input<number>;
-    /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
-     */
     arn?: pulumi.Input<ARN>;
-    /**
-     * Identifier of the default association route table
-     */
     associationDefaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     autoAcceptSharedAttachments?: pulumi.Input<string>;
-    /**
-     * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     defaultRouteTableAssociation?: pulumi.Input<string>;
-    /**
-     * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     defaultRouteTablePropagation?: pulumi.Input<string>;
-    /**
-     * Description of the EC2 Transit Gateway.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     dnsSupport?: pulumi.Input<string>;
-    /**
-     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     multicastSupport?: pulumi.Input<string>;
-    /**
-     * Identifier of the AWS account that owns the EC2 Transit Gateway
-     */
     ownerId?: pulumi.Input<string>;
-    /**
-     * Identifier of the default propagation route table
-     */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-     */
     transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     vpnEcmpSupport?: pulumi.Input<string>;
 }
 
@@ -236,44 +126,14 @@ export interface TransitGatewayState {
  * The set of arguments for constructing a TransitGateway resource.
  */
 export interface TransitGatewayArgs {
-    /**
-     * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
-     */
     amazonSideAsn?: pulumi.Input<number>;
-    /**
-     * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     autoAcceptSharedAttachments?: pulumi.Input<string>;
-    /**
-     * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     defaultRouteTableAssociation?: pulumi.Input<string>;
-    /**
-     * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     defaultRouteTablePropagation?: pulumi.Input<string>;
-    /**
-     * Description of the EC2 Transit Gateway.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     dnsSupport?: pulumi.Input<string>;
-    /**
-     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
-     */
     multicastSupport?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-     */
     transitGatewayCidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-     */
     vpnEcmpSupport?: pulumi.Input<string>;
 }

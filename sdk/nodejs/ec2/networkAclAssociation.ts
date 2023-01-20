@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
- *
- * > **NOTE on Network ACLs and Network ACL Associations:** the provider provides both a standalone network ACL association resource
- * and a network ACL resource with a `subnetIds` attribute. Do not use the same subnet ID in both a network ACL
- * resource and a network ACL association resource. Doing so will cause a conflict of associations and will overwrite the association.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.NetworkAclAssociation("main", {
- *     networkAclId: aws_network_acl.main.id,
- *     subnetId: aws_subnet.main.id,
- * });
- * ```
- */
 export class NetworkAclAssociation extends pulumi.CustomResource {
     /**
      * Get an existing NetworkAclAssociation resource's state with the given name, ID, and optional extra
@@ -51,13 +32,7 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkAclAssociation.__pulumiType;
     }
 
-    /**
-     * The ID of the network ACL.
-     */
     public readonly networkAclId!: pulumi.Output<string>;
-    /**
-     * The ID of the associated Subnet.
-     */
     public readonly subnetId!: pulumi.Output<string>;
 
     /**
@@ -95,13 +70,7 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkAclAssociation resources.
  */
 export interface NetworkAclAssociationState {
-    /**
-     * The ID of the network ACL.
-     */
     networkAclId?: pulumi.Input<string>;
-    /**
-     * The ID of the associated Subnet.
-     */
     subnetId?: pulumi.Input<string>;
 }
 
@@ -109,12 +78,6 @@ export interface NetworkAclAssociationState {
  * The set of arguments for constructing a NetworkAclAssociation resource.
  */
 export interface NetworkAclAssociationArgs {
-    /**
-     * The ID of the network ACL.
-     */
     networkAclId: pulumi.Input<string>;
-    /**
-     * The ID of the associated Subnet.
-     */
     subnetId: pulumi.Input<string>;
 }

@@ -7,54 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker Notebook Instance resource.
- *
- * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
- *     instanceType: "ml.t2.medium",
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- * ### Code repository usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "my-notebook-instance-code-repo",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/github/docs.git",
- *     },
- * });
- * const ni = new aws.sagemaker.NotebookInstance("ni", {
- *     roleArn: aws_iam_role.role.arn,
- *     instanceType: "ml.t2.medium",
- *     defaultCodeRepository: example.codeRepositoryName,
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * SageMaker Notebook Instances can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
- * ```
- */
 export class NotebookInstance extends pulumi.CustomResource {
     /**
      * Get an existing NotebookInstance resource's state with the given name, ID, and optional extra
@@ -83,86 +35,25 @@ export class NotebookInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotebookInstance.__pulumiType;
     }
 
-    /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     */
     public readonly acceleratorTypes!: pulumi.Output<string[] | undefined>;
-    /**
-     * An array of up to three Git repositories to associate with the notebook instance.
-     * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
-     */
     public readonly additionalCodeRepositories!: pulumi.Output<string[] | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
-     */
     public readonly defaultCodeRepository!: pulumi.Output<string | undefined>;
-    /**
-     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
-     */
     public readonly directInternetAccess!: pulumi.Output<string | undefined>;
-    /**
-     * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
-     */
     public readonly instanceMetadataServiceConfiguration!: pulumi.Output<outputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration | undefined>;
-    /**
-     * The name of ML compute instance type.
-     */
     public readonly instanceType!: pulumi.Output<string>;
-    /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    /**
-     * The name of a lifecycle configuration to associate with the notebook instance.
-     */
     public readonly lifecycleConfigName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the notebook instance (must be unique).
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
-     */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
-    /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
-     */
     public readonly platformIdentifier!: pulumi.Output<string>;
-    /**
-     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-     */
     public readonly roleArn!: pulumi.Output<string>;
-    /**
-     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
-     */
     public readonly rootAccess!: pulumi.Output<string | undefined>;
-    /**
-     * The associated security groups.
-     */
     public readonly securityGroups!: pulumi.Output<string[]>;
-    /**
-     * The VPC subnet ID.
-     */
     public readonly subnetId!: pulumi.Output<string | undefined>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
-     */
     public /*out*/ readonly url!: pulumi.Output<string>;
-    /**
-     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
-     */
     public readonly volumeSize!: pulumi.Output<number | undefined>;
 
     /**
@@ -236,86 +127,25 @@ export class NotebookInstance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NotebookInstance resources.
  */
 export interface NotebookInstanceState {
-    /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     */
     acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of up to three Git repositories to associate with the notebook instance.
-     * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
-     */
     additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
-     */
     defaultCodeRepository?: pulumi.Input<string>;
-    /**
-     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
-     */
     directInternetAccess?: pulumi.Input<string>;
-    /**
-     * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
-     */
     instanceMetadataServiceConfiguration?: pulumi.Input<inputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration>;
-    /**
-     * The name of ML compute instance type.
-     */
     instanceType?: pulumi.Input<string>;
-    /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The name of a lifecycle configuration to associate with the notebook instance.
-     */
     lifecycleConfigName?: pulumi.Input<string>;
-    /**
-     * The name of the notebook instance (must be unique).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
-     */
     networkInterfaceId?: pulumi.Input<string>;
-    /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
-     */
     platformIdentifier?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
-     */
     rootAccess?: pulumi.Input<string>;
-    /**
-     * The associated security groups.
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The VPC subnet ID.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
-     */
     url?: pulumi.Input<string>;
-    /**
-     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
-     */
     volumeSize?: pulumi.Input<number>;
 }
 
@@ -323,69 +153,20 @@ export interface NotebookInstanceState {
  * The set of arguments for constructing a NotebookInstance resource.
  */
 export interface NotebookInstanceArgs {
-    /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     */
     acceleratorTypes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of up to three Git repositories to associate with the notebook instance.
-     * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
-     */
     additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
-     */
     defaultCodeRepository?: pulumi.Input<string>;
-    /**
-     * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
-     */
     directInternetAccess?: pulumi.Input<string>;
-    /**
-     * Information on the IMDS configuration of the notebook instance. Conflicts with `instanceMetadataServiceConfiguration`. see details below.
-     */
     instanceMetadataServiceConfiguration?: pulumi.Input<inputs.sagemaker.NotebookInstanceInstanceMetadataServiceConfiguration>;
-    /**
-     * The name of ML compute instance type.
-     */
     instanceType: pulumi.Input<string>;
-    /**
-     * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The name of a lifecycle configuration to associate with the notebook instance.
-     */
     lifecycleConfigName?: pulumi.Input<string>;
-    /**
-     * The name of the notebook instance (must be unique).
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
-     */
     platformIdentifier?: pulumi.Input<string>;
-    /**
-     * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
-     */
     rootAccess?: pulumi.Input<string>;
-    /**
-     * The associated security groups.
-     */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The VPC subnet ID.
-     */
     subnetId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
-     */
     volumeSize?: pulumi.Input<number>;
 }

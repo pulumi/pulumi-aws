@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Location Service Tracker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.location.Tracker("example", {trackerName: "example"});
- * ```
- *
- * ## Import
- *
- * `aws_location_tracker` resources can be imported using the tracker name, e.g.
- *
- * ```sh
- *  $ pulumi import aws:location/tracker:Tracker example example
- * ```
- */
 export class Tracker extends pulumi.CustomResource {
     /**
      * Get an existing Tracker resource's state with the given name, ID, and optional extra
@@ -52,41 +32,14 @@ export class Tracker extends pulumi.CustomResource {
         return obj['__pulumiType'] === Tracker.__pulumiType;
     }
 
-    /**
-     * The timestamp for when the tracker resource was created in ISO 8601 format.
-     */
     public /*out*/ readonly createTime!: pulumi.Output<string>;
-    /**
-     * The optional description for the tracker resource.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    /**
-     * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-     */
     public readonly positionFiltering!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-     */
     public /*out*/ readonly trackerArn!: pulumi.Output<string>;
-    /**
-     * The name of the tracker resource.
-     */
     public readonly trackerName!: pulumi.Output<string>;
-    /**
-     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
-     */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -135,41 +88,14 @@ export class Tracker extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Tracker resources.
  */
 export interface TrackerState {
-    /**
-     * The timestamp for when the tracker resource was created in ISO 8601 format.
-     */
     createTime?: pulumi.Input<string>;
-    /**
-     * The optional description for the tracker resource.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-     */
     positionFiltering?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
-     */
     trackerArn?: pulumi.Input<string>;
-    /**
-     * The name of the tracker resource.
-     */
     trackerName?: pulumi.Input<string>;
-    /**
-     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
-     */
     updateTime?: pulumi.Input<string>;
 }
 
@@ -177,24 +103,9 @@ export interface TrackerState {
  * The set of arguments for constructing a Tracker resource.
  */
 export interface TrackerArgs {
-    /**
-     * The optional description for the tracker resource.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-     */
     positionFiltering?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the tracker. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the tracker resource.
-     */
     trackerName: pulumi.Input<string>;
 }

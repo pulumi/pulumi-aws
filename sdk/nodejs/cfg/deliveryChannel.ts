@@ -7,65 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Config Delivery Channel.
- *
- * > **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {forceDestroy: true});
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket}, {
- *     dependsOn: [fooRecorder],
- * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucketV2.arn}",
- *         "${bucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Delivery Channel can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
- * ```
- */
 export class DeliveryChannel extends pulumi.CustomResource {
     /**
      * Get an existing DeliveryChannel resource's state with the given name, ID, and optional extra
@@ -94,29 +35,11 @@ export class DeliveryChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryChannel.__pulumiType;
     }
 
-    /**
-     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The name of the S3 bucket used to store the configuration history.
-     */
     public readonly s3BucketName!: pulumi.Output<string>;
-    /**
-     * The prefix for the specified S3 bucket.
-     */
     public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-     */
     public readonly s3KmsKeyArn!: pulumi.Output<string | undefined>;
-    /**
-     * Options for how AWS Config delivers configuration snapshots. See below
-     */
     public readonly snapshotDeliveryProperties!: pulumi.Output<outputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
-    /**
-     * The ARN of the SNS topic that AWS Config delivers notifications to.
-     */
     public readonly snsTopicArn!: pulumi.Output<string | undefined>;
 
     /**
@@ -159,29 +82,11 @@ export class DeliveryChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DeliveryChannel resources.
  */
 export interface DeliveryChannelState {
-    /**
-     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the S3 bucket used to store the configuration history.
-     */
     s3BucketName?: pulumi.Input<string>;
-    /**
-     * The prefix for the specified S3 bucket.
-     */
     s3KeyPrefix?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-     */
     s3KmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Options for how AWS Config delivers configuration snapshots. See below
-     */
     snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
-    /**
-     * The ARN of the SNS topic that AWS Config delivers notifications to.
-     */
     snsTopicArn?: pulumi.Input<string>;
 }
 
@@ -189,28 +94,10 @@ export interface DeliveryChannelState {
  * The set of arguments for constructing a DeliveryChannel resource.
  */
 export interface DeliveryChannelArgs {
-    /**
-     * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the S3 bucket used to store the configuration history.
-     */
     s3BucketName: pulumi.Input<string>;
-    /**
-     * The prefix for the specified S3 bucket.
-     */
     s3KeyPrefix?: pulumi.Input<string>;
-    /**
-     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-     */
     s3KmsKeyArn?: pulumi.Input<string>;
-    /**
-     * Options for how AWS Config delivers configuration snapshots. See below
-     */
     snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
-    /**
-     * The ARN of the SNS topic that AWS Config delivers notifications to.
-     */
     snsTopicArn?: pulumi.Input<string>;
 }

@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS KMS (Key Management) Custom Key Store.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const test = new aws.kms.CustomKeyStore("test", {
- *     cloudHsmClusterId: _var.cloud_hsm_cluster_id,
- *     customKeyStoreName: "kms-custom-key-store-test",
- *     keyStorePassword: "noplaintextpasswords1",
- *     trustAnchorCertificate: fs.readFileSync("anchor-certificate.crt"),
- * });
- * ```
- *
- * ## Import
- *
- * KMS (Key Management) Custom Key Store can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
- * ```
- */
 export class CustomKeyStore extends pulumi.CustomResource {
     /**
      * Get an existing CustomKeyStore resource's state with the given name, ID, and optional extra
@@ -59,21 +32,9 @@ export class CustomKeyStore extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomKeyStore.__pulumiType;
     }
 
-    /**
-     * Cluster ID of CloudHSM.
-     */
     public readonly cloudHsmClusterId!: pulumi.Output<string>;
-    /**
-     * Unique name for Custom Key Store.
-     */
     public readonly customKeyStoreName!: pulumi.Output<string>;
-    /**
-     * Password for `kmsuser` on CloudHSM.
-     */
     public readonly keyStorePassword!: pulumi.Output<string>;
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     */
     public readonly trustAnchorCertificate!: pulumi.Output<string>;
 
     /**
@@ -121,21 +82,9 @@ export class CustomKeyStore extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomKeyStore resources.
  */
 export interface CustomKeyStoreState {
-    /**
-     * Cluster ID of CloudHSM.
-     */
     cloudHsmClusterId?: pulumi.Input<string>;
-    /**
-     * Unique name for Custom Key Store.
-     */
     customKeyStoreName?: pulumi.Input<string>;
-    /**
-     * Password for `kmsuser` on CloudHSM.
-     */
     keyStorePassword?: pulumi.Input<string>;
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     */
     trustAnchorCertificate?: pulumi.Input<string>;
 }
 
@@ -143,20 +92,8 @@ export interface CustomKeyStoreState {
  * The set of arguments for constructing a CustomKeyStore resource.
  */
 export interface CustomKeyStoreArgs {
-    /**
-     * Cluster ID of CloudHSM.
-     */
     cloudHsmClusterId: pulumi.Input<string>;
-    /**
-     * Unique name for Custom Key Store.
-     */
     customKeyStoreName: pulumi.Input<string>;
-    /**
-     * Password for `kmsuser` on CloudHSM.
-     */
     keyStorePassword: pulumi.Input<string>;
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     */
     trustAnchorCertificate: pulumi.Input<string>;
 }

@@ -4,30 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Service Catalog Tag Option.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.TagOption("example", {
- *     key: "nyckel",
- *     value: "värde",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
- * ```
- */
 export class TagOption extends pulumi.CustomResource {
     /**
      * Get an existing TagOption resource's state with the given name, ID, and optional extra
@@ -56,18 +32,9 @@ export class TagOption extends pulumi.CustomResource {
         return obj['__pulumiType'] === TagOption.__pulumiType;
     }
 
-    /**
-     * Whether tag option is active. Default is `true`.
-     */
     public readonly active!: pulumi.Output<boolean | undefined>;
-    /**
-     * Tag option key.
-     */
     public readonly key!: pulumi.Output<string>;
     public /*out*/ readonly owner!: pulumi.Output<string>;
-    /**
-     * Tag option value.
-     */
     public readonly value!: pulumi.Output<string>;
 
     /**
@@ -109,18 +76,9 @@ export class TagOption extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagOption resources.
  */
 export interface TagOptionState {
-    /**
-     * Whether tag option is active. Default is `true`.
-     */
     active?: pulumi.Input<boolean>;
-    /**
-     * Tag option key.
-     */
     key?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
-    /**
-     * Tag option value.
-     */
     value?: pulumi.Input<string>;
 }
 
@@ -128,16 +86,7 @@ export interface TagOptionState {
  * The set of arguments for constructing a TagOption resource.
  */
 export interface TagOptionArgs {
-    /**
-     * Whether tag option is active. Default is `true`.
-     */
     active?: pulumi.Input<boolean>;
-    /**
-     * Tag option key.
-     */
     key: pulumi.Input<string>;
-    /**
-     * Tag option value.
-     */
     value: pulumi.Input<string>;
 }

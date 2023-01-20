@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an RDS security group resource. This is only for DB instances in the
- * EC2-Classic Platform. For instances inside a VPC, use the
- * `aws_db_instance.vpc_security_group_ids`
- * attribute instead.
- *
- * !> **WARNING:** With the retirement of EC2-Classic the `aws.rds.SecurityGroup` resource has been deprecated and will be removed in a future version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.SecurityGroup("default", {ingress: [{
- *     cidr: "10.0.0.0/24",
- * }]});
- * ```
- *
- * ## Import
- *
- * DB Security groups can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/securityGroup:SecurityGroup default aws_rds_sg-1
- * ```
- */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroup resource's state with the given name, ID, and optional extra
@@ -62,29 +35,11 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
-    /**
-     * The arn of the DB security group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the DB security group. Defaults to "Managed by Pulumi".
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * A list of ingress rules.
-     */
     public readonly ingress!: pulumi.Output<outputs.rds.SecurityGroupIngress[]>;
-    /**
-     * The name of the DB security group.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -127,29 +82,11 @@ export class SecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroup resources.
  */
 export interface SecurityGroupState {
-    /**
-     * The arn of the DB security group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the DB security group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of ingress rules.
-     */
     ingress?: pulumi.Input<pulumi.Input<inputs.rds.SecurityGroupIngress>[]>;
-    /**
-     * The name of the DB security group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -157,20 +94,8 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * The description of the DB security group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of ingress rules.
-     */
     ingress: pulumi.Input<pulumi.Input<inputs.rds.SecurityGroupIngress>[]>;
-    /**
-     * The name of the DB security group.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

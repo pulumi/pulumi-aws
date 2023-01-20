@@ -7,30 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift security group. You use security groups to control access to non-VPC clusters.
- *
- * !> **WARNING:** With the retirement of EC2-Classic the `aws.redshift.SecurityGroup` resource has been deprecated and will be removed in a future version. Any existing resources can be removed from state manually.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.redshift.SecurityGroup("default", {ingress: [{
- *     cidr: "10.0.0.0/24",
- * }]});
- * ```
- *
- * ## Import
- *
- * Redshift security groups can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshift/securityGroup:SecurityGroup testgroup1 redshift_test_group
- * ```
- */
 export class SecurityGroup extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroup resource's state with the given name, ID, and optional extra
@@ -59,17 +35,8 @@ export class SecurityGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroup.__pulumiType;
     }
 
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Pulumi".
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * A list of ingress rules.
-     */
     public readonly ingress!: pulumi.Output<outputs.redshift.SecurityGroupIngress[]>;
-    /**
-     * The name of the Redshift security group.
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -106,17 +73,8 @@ export class SecurityGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroup resources.
  */
 export interface SecurityGroupState {
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of ingress rules.
-     */
     ingress?: pulumi.Input<pulumi.Input<inputs.redshift.SecurityGroupIngress>[]>;
-    /**
-     * The name of the Redshift security group.
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -124,16 +82,7 @@ export interface SecurityGroupState {
  * The set of arguments for constructing a SecurityGroup resource.
  */
 export interface SecurityGroupArgs {
-    /**
-     * The description of the Redshift security group. Defaults to "Managed by Pulumi".
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A list of ingress rules.
-     */
     ingress: pulumi.Input<pulumi.Input<inputs.redshift.SecurityGroupIngress>[]>;
-    /**
-     * The name of the Redshift security group.
-     */
     name?: pulumi.Input<string>;
 }

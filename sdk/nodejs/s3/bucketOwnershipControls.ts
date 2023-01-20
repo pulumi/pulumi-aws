@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("exampleBucketOwnershipControls", {
- *     bucket: exampleBucketV2.id,
- *     rule: {
- *         objectOwnership: "BucketOwnerPreferred",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
- * ```
- */
 export class BucketOwnershipControls extends pulumi.CustomResource {
     /**
      * Get an existing BucketOwnershipControls resource's state with the given name, ID, and optional extra
@@ -61,13 +35,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
         return obj['__pulumiType'] === BucketOwnershipControls.__pulumiType;
     }
 
-    /**
-     * The name of the bucket that you want to associate this access point with.
-     */
     public readonly bucket!: pulumi.Output<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     public readonly rule!: pulumi.Output<outputs.s3.BucketOwnershipControlsRule>;
 
     /**
@@ -105,13 +73,7 @@ export class BucketOwnershipControls extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BucketOwnershipControls resources.
  */
 export interface BucketOwnershipControlsState {
-    /**
-     * The name of the bucket that you want to associate this access point with.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }
 
@@ -119,12 +81,6 @@ export interface BucketOwnershipControlsState {
  * The set of arguments for constructing a BucketOwnershipControls resource.
  */
 export interface BucketOwnershipControlsArgs {
-    /**
-     * The name of the bucket that you want to associate this access point with.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Ownership Controls rules. Detailed below.
-     */
     rule: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }

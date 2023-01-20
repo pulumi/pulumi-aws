@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a DynamoDB contributor insights resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.dynamodb.ContributorInsights("test", {tableName: "ExampleTableName"});
- * ```
- *
- * ## Import
- *
- * `aws_dynamodb_contributor_insights` can be imported using the format `name:table_name/index:index_name`, followed by the account number, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012
- * ```
- */
 export class ContributorInsights extends pulumi.CustomResource {
     /**
      * Get an existing ContributorInsights resource's state with the given name, ID, and optional extra
@@ -52,13 +32,7 @@ export class ContributorInsights extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContributorInsights.__pulumiType;
     }
 
-    /**
-     * The global secondary index name
-     */
     public readonly indexName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the table to enable contributor insights
-     */
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -93,13 +67,7 @@ export class ContributorInsights extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContributorInsights resources.
  */
 export interface ContributorInsightsState {
-    /**
-     * The global secondary index name
-     */
     indexName?: pulumi.Input<string>;
-    /**
-     * The name of the table to enable contributor insights
-     */
     tableName?: pulumi.Input<string>;
 }
 
@@ -107,12 +75,6 @@ export interface ContributorInsightsState {
  * The set of arguments for constructing a ContributorInsights resource.
  */
 export interface ContributorInsightsArgs {
-    /**
-     * The global secondary index name
-     */
     indexName?: pulumi.Input<string>;
-    /**
-     * The name of the table to enable contributor insights
-     */
     tableName: pulumi.Input<string>;
 }

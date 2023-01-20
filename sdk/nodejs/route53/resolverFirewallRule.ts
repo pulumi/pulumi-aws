@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNS Firewall rule resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleResolverFirewallDomainList = new aws.route53.ResolverFirewallDomainList("exampleResolverFirewallDomainList", {
- *     domains: ["example.com"],
- *     tags: {},
- * });
- * const exampleResolverFirewallRuleGroup = new aws.route53.ResolverFirewallRuleGroup("exampleResolverFirewallRuleGroup", {tags: {}});
- * const exampleResolverFirewallRule = new aws.route53.ResolverFirewallRule("exampleResolverFirewallRule", {
- *     action: "BLOCK",
- *     blockOverrideDnsType: "CNAME",
- *     blockOverrideDomain: "example.com",
- *     blockOverrideTtl: 1,
- *     blockResponse: "OVERRIDE",
- *     firewallDomainListId: exampleResolverFirewallDomainList.id,
- *     firewallRuleGroupId: exampleResolverFirewallRuleGroup.id,
- *     priority: 100,
- * });
- * ```
- *
- * ## Import
- *
- *  Route 53 Resolver DNS Firewall rules can be imported using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':', e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
- * ```
- */
 export class ResolverFirewallRule extends pulumi.CustomResource {
     /**
      * Get an existing ResolverFirewallRule resource's state with the given name, ID, and optional extra
@@ -66,41 +32,14 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverFirewallRule.__pulumiType;
     }
 
-    /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
-     */
     public readonly action!: pulumi.Output<string>;
-    /**
-     * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
-     */
     public readonly blockOverrideDnsType!: pulumi.Output<string | undefined>;
-    /**
-     * The custom DNS record to send back in response to the query.
-     */
     public readonly blockOverrideDomain!: pulumi.Output<string | undefined>;
-    /**
-     * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
-     */
     public readonly blockOverrideTtl!: pulumi.Output<number | undefined>;
-    /**
-     * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
-     */
     public readonly blockResponse!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the domain list that you want to use in the rule.
-     */
     public readonly firewallDomainListId!: pulumi.Output<string>;
-    /**
-     * The unique identifier of the firewall rule group where you want to create the rule.
-     */
     public readonly firewallRuleGroupId!: pulumi.Output<string>;
-    /**
-     * A name that lets you identify the rule, to manage and use it.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
-     */
     public readonly priority!: pulumi.Output<number>;
 
     /**
@@ -158,41 +97,14 @@ export class ResolverFirewallRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverFirewallRule resources.
  */
 export interface ResolverFirewallRuleState {
-    /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
-     */
     action?: pulumi.Input<string>;
-    /**
-     * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
-     */
     blockOverrideDnsType?: pulumi.Input<string>;
-    /**
-     * The custom DNS record to send back in response to the query.
-     */
     blockOverrideDomain?: pulumi.Input<string>;
-    /**
-     * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
-     */
     blockOverrideTtl?: pulumi.Input<number>;
-    /**
-     * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
-     */
     blockResponse?: pulumi.Input<string>;
-    /**
-     * The ID of the domain list that you want to use in the rule.
-     */
     firewallDomainListId?: pulumi.Input<string>;
-    /**
-     * The unique identifier of the firewall rule group where you want to create the rule.
-     */
     firewallRuleGroupId?: pulumi.Input<string>;
-    /**
-     * A name that lets you identify the rule, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
-     */
     priority?: pulumi.Input<number>;
 }
 
@@ -200,40 +112,13 @@ export interface ResolverFirewallRuleState {
  * The set of arguments for constructing a ResolverFirewallRule resource.
  */
 export interface ResolverFirewallRuleArgs {
-    /**
-     * The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
-     */
     action: pulumi.Input<string>;
-    /**
-     * The DNS record's type. This determines the format of the record value that you provided in BlockOverrideDomain. Value values: `CNAME`.
-     */
     blockOverrideDnsType?: pulumi.Input<string>;
-    /**
-     * The custom DNS record to send back in response to the query.
-     */
     blockOverrideDomain?: pulumi.Input<string>;
-    /**
-     * The recommended amount of time, in seconds, for the DNS resolver or web browser to cache the provided override record. Minimum value of 0. Maximum value of 604800.
-     */
     blockOverrideTtl?: pulumi.Input<number>;
-    /**
-     * The way that you want DNS Firewall to block the request. Valid values: `NODATA`, `NXDOMAIN`, `OVERRIDE`.
-     */
     blockResponse?: pulumi.Input<string>;
-    /**
-     * The ID of the domain list that you want to use in the rule.
-     */
     firewallDomainListId: pulumi.Input<string>;
-    /**
-     * The unique identifier of the firewall rule group where you want to create the rule.
-     */
     firewallRuleGroupId: pulumi.Input<string>;
-    /**
-     * A name that lets you identify the rule, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
-     */
     priority: pulumi.Input<number>;
 }

@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
- */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,9 +17,6 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getLedger.
  */
 export interface GetLedgerArgs {
-    /**
-     * Friendly name of the ledger to match.
-     */
     name: string;
     tags?: {[key: string]: string};
 }
@@ -53,20 +36,6 @@ export interface GetLedgerResult {
     readonly permissionsMode: string;
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to fetch information about a Quantum Ledger Database.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.qldb.getLedger({
- *     name: "an_example_ledger",
- * });
- * ```
- */
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
     return pulumi.output(args).apply((a: any) => getLedger(a, opts))
 }
@@ -75,9 +44,6 @@ export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getLedger.
  */
 export interface GetLedgerOutputArgs {
-    /**
-     * Friendly name of the ledger to match.
-     */
     name: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

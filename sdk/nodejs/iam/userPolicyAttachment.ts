@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 import {ARN} from "..";
 import {User} from "./index";
 
-/**
- * Attaches a Managed IAM Policy to an IAM user
- *
- * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user = new aws.iam.User("user", {});
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: "{ ... policy JSON ... }",
- * });
- * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
- *     user: user.name,
- *     policyArn: policy.arn,
- * });
- * ```
- *
- * ## Import
- *
- * IAM user policy attachments can be imported using the user name and policy arn separated by `/`.
- *
- * ```sh
- *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * ```
- */
 export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing UserPolicyAttachment resource's state with the given name, ID, and optional extra
@@ -65,13 +35,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserPolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The ARN of the policy you want to apply
-     */
     public readonly policyArn!: pulumi.Output<ARN>;
-    /**
-     * The user the policy should be applied to
-     */
     public readonly user!: pulumi.Output<string>;
 
     /**
@@ -109,13 +73,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserPolicyAttachment resources.
  */
 export interface UserPolicyAttachmentState {
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn?: pulumi.Input<ARN>;
-    /**
-     * The user the policy should be applied to
-     */
     user?: pulumi.Input<string | User>;
 }
 
@@ -123,12 +81,6 @@ export interface UserPolicyAttachmentState {
  * The set of arguments for constructing a UserPolicyAttachment resource.
  */
 export interface UserPolicyAttachmentArgs {
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn: pulumi.Input<ARN>;
-    /**
-     * The user the policy should be applied to
-     */
     user: pulumi.Input<string | User>;
 }

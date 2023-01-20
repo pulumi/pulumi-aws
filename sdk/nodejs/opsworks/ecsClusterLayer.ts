@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an OpsWorks ECS Cluster layer resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opsworks.EcsClusterLayer("example", {
- *     stackId: aws_opsworks_stack.example.id,
- *     ecsClusterArn: aws_ecs_cluster.example.arn,
- * });
- * ```
- */
 export class EcsClusterLayer extends pulumi.CustomResource {
     /**
      * Get an existing EcsClusterLayer resource's state with the given name, ID, and optional extra
@@ -50,85 +35,31 @@ export class EcsClusterLayer extends pulumi.CustomResource {
         return obj['__pulumiType'] === EcsClusterLayer.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name(ARN) of the layer.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     public readonly autoAssignElasticIps!: pulumi.Output<boolean | undefined>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     public readonly autoAssignPublicIps!: pulumi.Output<boolean | undefined>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     public readonly autoHealing!: pulumi.Output<boolean | undefined>;
     public readonly cloudwatchConfiguration!: pulumi.Output<outputs.opsworks.EcsClusterLayerCloudwatchConfiguration | undefined>;
     public readonly customConfigureRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customDeployRecipes!: pulumi.Output<string[] | undefined>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     public readonly customInstanceProfileArn!: pulumi.Output<string | undefined>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     public readonly customJson!: pulumi.Output<string | undefined>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     public readonly customSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     public readonly customSetupRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customShutdownRecipes!: pulumi.Output<string[] | undefined>;
     public readonly customUndeployRecipes!: pulumi.Output<string[] | undefined>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     public readonly drainElbOnShutdown!: pulumi.Output<boolean | undefined>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     public readonly ebsVolumes!: pulumi.Output<outputs.opsworks.EcsClusterLayerEbsVolume[]>;
-    /**
-     * The ECS Cluster ARN of the layer.
-     */
     public readonly ecsClusterArn!: pulumi.Output<string>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     public readonly elasticLoadBalancer!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     public readonly installUpdatesOnBoot!: pulumi.Output<boolean | undefined>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     public readonly instanceShutdownTimeout!: pulumi.Output<number | undefined>;
     public readonly loadBasedAutoScaling!: pulumi.Output<outputs.opsworks.EcsClusterLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     public readonly stackId!: pulumi.Output<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     public readonly systemPackages!: pulumi.Output<string[] | undefined>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     public readonly useEbsOptimizedInstances!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -214,85 +145,31 @@ export class EcsClusterLayer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EcsClusterLayer resources.
  */
 export interface EcsClusterLayerState {
-    /**
-     * The Amazon Resource Name(ARN) of the layer.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     autoAssignElasticIps?: pulumi.Input<boolean>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     autoAssignPublicIps?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     autoHealing?: pulumi.Input<boolean>;
     cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.EcsClusterLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     customInstanceProfileArn?: pulumi.Input<string>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     customJson?: pulumi.Input<string>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     drainElbOnShutdown?: pulumi.Input<boolean>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.EcsClusterLayerEbsVolume>[]>;
-    /**
-     * The ECS Cluster ARN of the layer.
-     */
     ecsClusterArn?: pulumi.Input<string>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     elasticLoadBalancer?: pulumi.Input<string>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     installUpdatesOnBoot?: pulumi.Input<boolean>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     instanceShutdownTimeout?: pulumi.Input<number>;
     loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.EcsClusterLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     stackId?: pulumi.Input<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }
 
@@ -300,79 +177,28 @@ export interface EcsClusterLayerState {
  * The set of arguments for constructing a EcsClusterLayer resource.
  */
 export interface EcsClusterLayerArgs {
-    /**
-     * Whether to automatically assign an elastic IP address to the layer's instances.
-     */
     autoAssignElasticIps?: pulumi.Input<boolean>;
-    /**
-     * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
-     */
     autoAssignPublicIps?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable auto-healing for the layer.
-     */
     autoHealing?: pulumi.Input<boolean>;
     cloudwatchConfiguration?: pulumi.Input<inputs.opsworks.EcsClusterLayerCloudwatchConfiguration>;
     customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The ARN of an IAM profile that will be used for the layer's instances.
-     */
     customInstanceProfileArn?: pulumi.Input<string>;
-    /**
-     * Custom JSON attributes to apply to the layer.
-     */
     customJson?: pulumi.Input<string>;
-    /**
-     * Ids for a set of security groups to apply to the layer's instances.
-     */
     customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Whether to enable Elastic Load Balancing connection draining.
-     */
     drainElbOnShutdown?: pulumi.Input<boolean>;
-    /**
-     * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
-     */
     ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.EcsClusterLayerEbsVolume>[]>;
-    /**
-     * The ECS Cluster ARN of the layer.
-     */
     ecsClusterArn: pulumi.Input<string>;
-    /**
-     * Name of an Elastic Load Balancer to attach to this layer
-     */
     elasticLoadBalancer?: pulumi.Input<string>;
-    /**
-     * Whether to install OS and package updates on each instance when it boots.
-     */
     installUpdatesOnBoot?: pulumi.Input<boolean>;
-    /**
-     * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
-     */
     instanceShutdownTimeout?: pulumi.Input<number>;
     loadBasedAutoScaling?: pulumi.Input<inputs.opsworks.EcsClusterLayerLoadBasedAutoScaling>;
-    /**
-     * A human-readable name for the layer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * ID of the stack the layer will belong to.
-     */
     stackId: pulumi.Input<string>;
-    /**
-     * Names of a set of system packages to install on the layer's instances.
-     */
     systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether to use EBS-optimized instances.
-     */
     useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }

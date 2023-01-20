@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Serverless Workgroup.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftserverless.Workgroup("example", {
- *     namespaceName: "concurrency-scaling",
- *     workgroupName: "concurrency-scaling",
- * });
- * ```
- *
- * ## Import
- *
- * Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
- * ```
- */
 export class Workgroup extends pulumi.CustomResource {
     /**
      * Get an existing Workgroup resource's state with the given name, ID, and optional extra
@@ -58,54 +35,18 @@ export class Workgroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workgroup.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     */
     public readonly baseCapacity!: pulumi.Output<number>;
-    /**
-     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     */
     public readonly configParameters!: pulumi.Output<outputs.redshiftserverless.WorkgroupConfigParameter[]>;
-    /**
-     * The endpoint that is created from the workgroup. See `Endpoint` below.
-     */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.redshiftserverless.WorkgroupEndpoint[]>;
-    /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     */
     public readonly enhancedVpcRouting!: pulumi.Output<boolean | undefined>;
     public readonly namespaceName!: pulumi.Output<string>;
-    /**
-     * A value that specifies whether the workgroup can be accessed from a public network.
-     */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
-    /**
-     * An array of VPC subnet IDs to associate with the workgroup.
-     */
     public readonly subnetIds!: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The Redshift Workgroup ID.
-     */
     public /*out*/ readonly workgroupId!: pulumi.Output<string>;
-    /**
-     * The name of the workgroup.
-     */
     public readonly workgroupName!: pulumi.Output<string>;
 
     /**
@@ -165,54 +106,18 @@ export class Workgroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Workgroup resources.
  */
 export interface WorkgroupState {
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     */
     baseCapacity?: pulumi.Input<number>;
-    /**
-     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     */
     configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameter>[]>;
-    /**
-     * The endpoint that is created from the workgroup. See `Endpoint` below.
-     */
     endpoints?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupEndpoint>[]>;
-    /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     */
     enhancedVpcRouting?: pulumi.Input<boolean>;
     namespaceName?: pulumi.Input<string>;
-    /**
-     * A value that specifies whether the workgroup can be accessed from a public network.
-     */
     publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of VPC subnet IDs to associate with the workgroup.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The Redshift Workgroup ID.
-     */
     workgroupId?: pulumi.Input<string>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName?: pulumi.Input<string>;
 }
 
@@ -220,37 +125,13 @@ export interface WorkgroupState {
  * The set of arguments for constructing a Workgroup resource.
  */
 export interface WorkgroupArgs {
-    /**
-     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     */
     baseCapacity?: pulumi.Input<number>;
-    /**
-     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     */
     configParameters?: pulumi.Input<pulumi.Input<inputs.redshiftserverless.WorkgroupConfigParameter>[]>;
-    /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     */
     enhancedVpcRouting?: pulumi.Input<boolean>;
     namespaceName: pulumi.Input<string>;
-    /**
-     * A value that specifies whether the workgroup can be accessed from a public network.
-     */
     publiclyAccessible?: pulumi.Input<boolean>;
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * An array of VPC subnet IDs to associate with the workgroup.
-     */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name of the workgroup.
-     */
     workgroupName: pulumi.Input<string>;
 }

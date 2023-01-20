@@ -7,169 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an ElastiCache Replication Group resource.
- *
- * For working with a [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html) or a
- * [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
- * see the `aws.elasticache.Cluster` resource.
- *
- * > **Note:** When you change an attribute, such as `engineVersion`, by
- * default the ElastiCache API applies it in the next maintenance window. Because
- * of this, this provider may report a difference in its planning phase because the
- * actual modification has not yet taken place. You can use the
- * `applyImmediately` flag to instruct the service to apply the change
- * immediately. Using `applyImmediately` can result in a brief downtime as
- * servers reboots.
- * See the AWS Documentation on
- * [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
- * for more information.
- *
- * > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
- *
- * > **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
- *
- * ## Example Usage
- * ### Redis Cluster Mode Disabled
- *
- * To create a single shard primary with single read replica:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     description: "example description",
- *     nodeType: "cache.m4.large",
- *     numCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- *     preferredCacheClusterAzs: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- * });
- * ```
- *
- * You have two options for adjusting the number of replicas:
- *
- * * Adjusting `numCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
- * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     preferredCacheClusterAzs: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- *     description: "example description",
- *     nodeType: "cache.m4.large",
- *     numCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- * });
- * let replica: aws.elasticache.Cluster | undefined;
- * if (1 == true) {
- *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
- * }
- * ```
- * ### Redis Cluster Mode Enabled
- *
- * To create two shards with a primary and a single read replica each:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const baz = new aws.elasticache.ReplicationGroup("baz", {
- *     automaticFailoverEnabled: true,
- *     description: "example description",
- *     nodeType: "cache.t2.small",
- *     numNodeGroups: 2,
- *     parameterGroupName: "default.redis3.2.cluster.on",
- *     port: 6379,
- *     replicasPerNodeGroup: 1,
- * });
- * ```
- * ### Redis Log Delivery configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.ReplicationGroup("test", {
- *     description: "test description",
- *     nodeType: "cache.t3.small",
- *     port: 6379,
- *     applyImmediately: true,
- *     autoMinorVersionUpgrade: false,
- *     maintenanceWindow: "tue:06:30-tue:07:30",
- *     snapshotWindow: "01:00-02:00",
- *     logDeliveryConfigurations: [
- *         {
- *             destination: aws_cloudwatch_log_group.example.name,
- *             destinationType: "cloudwatch-logs",
- *             logFormat: "text",
- *             logType: "slow-log",
- *         },
- *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
- *             destinationType: "kinesis-firehose",
- *             logFormat: "json",
- *             logType: "engine-log",
- *         },
- *     ],
- * });
- * ```
- *
- * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
- *
- * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
- * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
- * for full details on using Replication Groups.
- * ### Creating a secondary replication group for a global replication group
- *
- * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     description: "primary replication group",
- *     engine: "redis",
- *     engineVersion: "5.0.6",
- *     nodeType: "cache.m5.large",
- *     numCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
- * });
- * const example = new aws.elasticache.GlobalReplicationGroup("example", {
- *     globalReplicationGroupIdSuffix: "example",
- *     primaryReplicationGroupId: primary.id,
- * }, {
- *     provider: aws.other_region,
- * });
- * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     description: "secondary replication group",
- *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numCacheClusters: 1,
- * });
- * ```
- *
- * ## Import
- *
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
- */
 export class ReplicationGroup extends pulumi.CustomResource {
     /**
      * Get an existing ReplicationGroup resource's state with the given name, ID, and optional extra
@@ -198,201 +35,60 @@ export class ReplicationGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationGroup.__pulumiType;
     }
 
-    /**
-     * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-     */
     public readonly applyImmediately!: pulumi.Output<boolean>;
-    /**
-     * ARN of the created ElastiCache Replication Group.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Whether to enable encryption at rest.
-     */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean>;
-    /**
-     * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-     */
     public readonly authToken!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
-     * Defaults to `true`.
-     */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
-    /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-     */
     public readonly automaticFailoverEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
-    /**
-     * Indicates if cluster mode is enabled.
-     */
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
      * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
-    /**
-     * Address of the replication group configuration endpoint when cluster mode is enabled.
-     */
     public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string>;
-    /**
-     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-     */
     public readonly dataTieringEnabled!: pulumi.Output<boolean>;
-    /**
-     * User-created description for the replication group. Must not be empty.
-     */
     public readonly description!: pulumi.Output<string>;
-    /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-     */
     public readonly engine!: pulumi.Output<string | undefined>;
-    /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
-     */
     public readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-     */
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
-    /**
-     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-     */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
-     */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
-    /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-     */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-     */
     public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfiguration[] | undefined>;
-    /**
-     * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-     */
     public readonly maintenanceWindow!: pulumi.Output<string>;
-    /**
-     * Identifiers of all the nodes that are part of this replication group.
-     */
     public /*out*/ readonly memberClusters!: pulumi.Output<string[]>;
-    /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
-     */
     public readonly multiAzEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
-     */
     public readonly nodeType!: pulumi.Output<string>;
-    /**
-     * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
-     */
     public readonly numCacheClusters!: pulumi.Output<number>;
-    /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-     */
     public readonly numNodeGroups!: pulumi.Output<number>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
      * @deprecated Use num_cache_clusters instead
      */
     public readonly numberCacheClusters!: pulumi.Output<number>;
-    /**
-     * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-     */
     public readonly parameterGroupName!: pulumi.Output<string>;
-    /**
-     * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-     */
     public readonly port!: pulumi.Output<number | undefined>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-     */
     public readonly preferredCacheClusterAzs!: pulumi.Output<string[] | undefined>;
-    /**
-     * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-     */
     public /*out*/ readonly primaryEndpointAddress!: pulumi.Output<string>;
-    /**
-     * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-     */
     public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
-    /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-     */
     public readonly replicasPerNodeGroup!: pulumi.Output<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
-     *
      * @deprecated Use description instead
      */
     public readonly replicationGroupDescription!: pulumi.Output<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
-     */
     public readonly replicationGroupId!: pulumi.Output<string>;
-    /**
-     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-     */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
-    /**
-     * List of cache security group names to associate with this replication group.
-     */
     public readonly securityGroupNames!: pulumi.Output<string[]>;
-    /**
-     * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-     */
     public readonly snapshotArns!: pulumi.Output<string[] | undefined>;
-    /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-     */
     public readonly snapshotName!: pulumi.Output<string | undefined>;
-    /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
-     */
     public readonly snapshotRetentionLimit!: pulumi.Output<number | undefined>;
-    /**
-     * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-     */
     public readonly snapshotWindow!: pulumi.Output<string>;
-    /**
-     * Name of the cache subnet group to be used for the replication group.
-     */
     public readonly subnetGroupName!: pulumi.Output<string>;
-    /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Whether to enable encryption in transit.
-     */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
-    /**
-     * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-     */
     public readonly userGroupIds!: pulumi.Output<string[] | undefined>;
 
     /**
@@ -514,201 +210,60 @@ export class ReplicationGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationGroup resources.
  */
 export interface ReplicationGroupState {
-    /**
-     * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-     */
     applyImmediately?: pulumi.Input<boolean>;
-    /**
-     * ARN of the created ElastiCache Replication Group.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether to enable encryption at rest.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-     */
     authToken?: pulumi.Input<string>;
-    /**
-     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
-     * Defaults to `true`.
-     */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-     */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Indicates if cluster mode is enabled.
-     */
     clusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
      * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
-    /**
-     * Address of the replication group configuration endpoint when cluster mode is enabled.
-     */
     configurationEndpointAddress?: pulumi.Input<string>;
-    /**
-     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-     */
     dataTieringEnabled?: pulumi.Input<boolean>;
-    /**
-     * User-created description for the replication group. Must not be empty.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-     */
     engineVersionActual?: pulumi.Input<string>;
-    /**
-     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-     */
     finalSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
-     */
     globalReplicationGroupId?: pulumi.Input<string>;
-    /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-     */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
-    /**
-     * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-     */
     maintenanceWindow?: pulumi.Input<string>;
-    /**
-     * Identifiers of all the nodes that are part of this replication group.
-     */
     memberClusters?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
-     */
     multiAzEnabled?: pulumi.Input<boolean>;
-    /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
-     */
     nodeType?: pulumi.Input<string>;
-    /**
-     * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     */
     notificationTopicArn?: pulumi.Input<string>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
-     */
     numCacheClusters?: pulumi.Input<number>;
-    /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-     */
     numNodeGroups?: pulumi.Input<number>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
      * @deprecated Use num_cache_clusters instead
      */
     numberCacheClusters?: pulumi.Input<number>;
-    /**
-     * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-     */
     parameterGroupName?: pulumi.Input<string>;
-    /**
-     * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-     */
     preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-     */
     primaryEndpointAddress?: pulumi.Input<string>;
-    /**
-     * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-     */
     readerEndpointAddress?: pulumi.Input<string>;
-    /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-     */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
-     *
      * @deprecated Use description instead
      */
     replicationGroupDescription?: pulumi.Input<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
-     */
     replicationGroupId?: pulumi.Input<string>;
-    /**
-     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of cache security group names to associate with this replication group.
-     */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-     */
     snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-     */
     snapshotName?: pulumi.Input<string>;
-    /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
-     */
     snapshotRetentionLimit?: pulumi.Input<number>;
-    /**
-     * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-     */
     snapshotWindow?: pulumi.Input<string>;
-    /**
-     * Name of the cache subnet group to be used for the replication group.
-     */
     subnetGroupName?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether to enable encryption in transit.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-     */
     userGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -716,168 +271,51 @@ export interface ReplicationGroupState {
  * The set of arguments for constructing a ReplicationGroup resource.
  */
 export interface ReplicationGroupArgs {
-    /**
-     * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-     */
     applyImmediately?: pulumi.Input<boolean>;
-    /**
-     * Whether to enable encryption at rest.
-     */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
-     */
     authToken?: pulumi.Input<string>;
-    /**
-     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
-     * Defaults to `true`.
-     */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
-    /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-     */
     automaticFailoverEnabled?: pulumi.Input<boolean>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     *
      * @deprecated Use num_node_groups and replicas_per_node_group instead
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
-    /**
-     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-     */
     dataTieringEnabled?: pulumi.Input<boolean>;
-    /**
-     * User-created description for the replication group. Must not be empty.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-     */
     finalSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter (or the `numNodeGroups` parameter of the deprecated `clusterMode` block) cannot be set.
-     */
     globalReplicationGroupId?: pulumi.Input<string>;
-    /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-     */
     logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
-    /**
-     * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-     */
     maintenanceWindow?: pulumi.Input<string>;
-    /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automaticFailoverEnabled` must also be enabled. Defaults to `false`.
-     */
     multiAzEnabled?: pulumi.Input<boolean>;
-    /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `globalReplicationGroupId` is set. Cannot be set if `globalReplicationGroupId` is set.
-     */
     nodeType?: pulumi.Input<string>;
-    /**
-     * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     */
     notificationTopicArn?: pulumi.Input<string>;
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numNodeGroups`, the deprecated`numberCacheClusters`, or the deprecated `clusterMode`. Defaults to `1`.
-     */
     numCacheClusters?: pulumi.Input<number>;
-    /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
-     */
     numNodeGroups?: pulumi.Input<number>;
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `numCacheClusters`, `numNodeGroups`, or the deprecated `clusterMode`. Defaults to `1`.
-     *
      * @deprecated Use num_cache_clusters instead
      */
     numberCacheClusters?: pulumi.Input<number>;
-    /**
-     * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-     */
     parameterGroupName?: pulumi.Input<string>;
-    /**
-     * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-     */
     port?: pulumi.Input<number>;
-    /**
-     * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-     */
     preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-     */
     replicasPerNodeGroup?: pulumi.Input<number>;
     /**
-     * User-created description for the replication group. Must not be empty.
-     *
      * @deprecated Use description instead
      */
     replicationGroupDescription?: pulumi.Input<string>;
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
-     */
     replicationGroupId?: pulumi.Input<string>;
-    /**
-     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-     */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of cache security group names to associate with this replication group.
-     */
     securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-     */
     snapshotArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshotName` forces a new resource.
-     */
     snapshotName?: pulumi.Input<string>;
-    /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshotRetentionLimit` is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
-     */
     snapshotRetentionLimit?: pulumi.Input<number>;
-    /**
-     * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-     */
     snapshotWindow?: pulumi.Input<string>;
-    /**
-     * Name of the cache subnet group to be used for the replication group.
-     */
     subnetGroupName?: pulumi.Input<string>;
-    /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Whether to enable encryption in transit.
-     */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
-    /**
-     * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-     */
     userGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

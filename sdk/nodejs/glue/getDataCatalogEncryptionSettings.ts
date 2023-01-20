@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
- */
 export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,9 +19,6 @@ export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionS
  * A collection of arguments for invoking getDataCatalogEncryptionSettings.
  */
 export interface GetDataCatalogEncryptionSettingsArgs {
-    /**
-     * ID of the Data Catalog. This is typically the AWS account ID.
-     */
     catalogId: string;
 }
 
@@ -33,18 +27,12 @@ export interface GetDataCatalogEncryptionSettingsArgs {
  */
 export interface GetDataCatalogEncryptionSettingsResult {
     readonly catalogId: string;
-    /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
-     */
     readonly dataCatalogEncryptionSettings: outputs.glue.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
-/**
- * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
- */
 export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncryptionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogEncryptionSettingsResult> {
     return pulumi.output(args).apply((a: any) => getDataCatalogEncryptionSettings(a, opts))
 }
@@ -53,8 +41,5 @@ export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncry
  * A collection of arguments for invoking getDataCatalogEncryptionSettings.
  */
 export interface GetDataCatalogEncryptionSettingsOutputArgs {
-    /**
-     * ID of the Data Catalog. This is typically the AWS account ID.
-     */
     catalogId: pulumi.Input<string>;
 }

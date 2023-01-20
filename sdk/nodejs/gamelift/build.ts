@@ -7,33 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an GameLift Build resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.gamelift.Build("test", {
- *     operatingSystem: "WINDOWS_2012",
- *     storageLocation: {
- *         bucket: aws_s3_bucket.test.bucket,
- *         key: aws_s3_object.test.key,
- *         roleArn: aws_iam_role.test.arn,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * GameLift Builds can be imported using the ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:gamelift/build:Build example <build-id>
- * ```
- */
 export class Build extends pulumi.CustomResource {
     /**
      * Get an existing Build resource's state with the given name, ID, and optional extra
@@ -62,33 +35,12 @@ export class Build extends pulumi.CustomResource {
         return obj['__pulumiType'] === Build.__pulumiType;
     }
 
-    /**
-     * GameLift Build ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of the build
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-     */
     public readonly operatingSystem!: pulumi.Output<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Version that is associated with this build.
-     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -136,33 +88,12 @@ export class Build extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Build resources.
  */
 export interface BuildState {
-    /**
-     * GameLift Build ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the build
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-     */
     operatingSystem?: pulumi.Input<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Version that is associated with this build.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -170,24 +101,9 @@ export interface BuildState {
  * The set of arguments for constructing a Build resource.
  */
 export interface BuildArgs {
-    /**
-     * Name of the build
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
-     */
     operatingSystem: pulumi.Input<string>;
-    /**
-     * Information indicating where your game build files are stored. See below.
-     */
     storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Version that is associated with this build.
-     */
     version?: pulumi.Input<string>;
 }

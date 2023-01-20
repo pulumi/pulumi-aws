@@ -7,42 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an AWS Config Configuration Recorder. Please note that this resource **does not start** the created recorder automatically.
- *
- * > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `aws.cfg.RecorderStatus` is a separate resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const foo = new aws.cfg.Recorder("foo", {roleArn: role.arn});
- * ```
- *
- * ## Import
- *
- * Configuration Recorder can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cfg/recorder:Recorder foo example
- * ```
- */
 export class Recorder extends pulumi.CustomResource {
     /**
      * Get an existing Recorder resource's state with the given name, ID, and optional extra
@@ -71,17 +35,8 @@ export class Recorder extends pulumi.CustomResource {
         return obj['__pulumiType'] === Recorder.__pulumiType;
     }
 
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Recording group - see below.
-     */
     public readonly recordingGroup!: pulumi.Output<outputs.cfg.RecorderRecordingGroup>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     */
     public readonly roleArn!: pulumi.Output<string>;
 
     /**
@@ -118,17 +73,8 @@ export class Recorder extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Recorder resources.
  */
 export interface RecorderState {
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Recording group - see below.
-     */
     recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     */
     roleArn?: pulumi.Input<string>;
 }
 
@@ -136,16 +82,7 @@ export interface RecorderState {
  * The set of arguments for constructing a Recorder resource.
  */
 export interface RecorderArgs {
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Recording group - see below.
-     */
     recordingGroup?: pulumi.Input<inputs.cfg.RecorderRecordingGroup>;
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     */
     roleArn: pulumi.Input<string>;
 }

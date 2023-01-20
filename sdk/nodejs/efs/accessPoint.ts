@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Elastic File System (EFS) access point.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.efs.AccessPoint("test", {fileSystemId: aws_efs_file_system.foo.id});
- * ```
- *
- * ## Import
- *
- * The EFS access points can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
- * ```
- */
 export class AccessPoint extends pulumi.CustomResource {
     /**
      * Get an existing AccessPoint resource's state with the given name, ID, and optional extra
@@ -55,34 +35,13 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
-    /**
-     * ARN of the access point.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * ARN of the file system.
-     */
     public /*out*/ readonly fileSystemArn!: pulumi.Output<string>;
-    /**
-     * ID of the file system for which the access point is intended.
-     */
     public readonly fileSystemId!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
-    /**
-     * Operating system user and group applied to all file system requests made using the access point. Detailed below.
-     */
     public readonly posixUser!: pulumi.Output<outputs.efs.AccessPointPosixUser | undefined>;
-    /**
-     * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-     */
     public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -129,34 +88,13 @@ export class AccessPoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccessPoint resources.
  */
 export interface AccessPointState {
-    /**
-     * ARN of the access point.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * ARN of the file system.
-     */
     fileSystemArn?: pulumi.Input<string>;
-    /**
-     * ID of the file system for which the access point is intended.
-     */
     fileSystemId?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
-    /**
-     * Operating system user and group applied to all file system requests made using the access point. Detailed below.
-     */
     posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
-    /**
-     * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-     */
     rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -164,20 +102,8 @@ export interface AccessPointState {
  * The set of arguments for constructing a AccessPoint resource.
  */
 export interface AccessPointArgs {
-    /**
-     * ID of the file system for which the access point is intended.
-     */
     fileSystemId: pulumi.Input<string>;
-    /**
-     * Operating system user and group applied to all file system requests made using the access point. Detailed below.
-     */
     posixUser?: pulumi.Input<inputs.efs.AccessPointPosixUser>;
-    /**
-     * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
-     */
     rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

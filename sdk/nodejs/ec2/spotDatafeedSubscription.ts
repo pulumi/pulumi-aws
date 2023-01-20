@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * > **Note:** There is only a single subscription allowed per account.
- *
- * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
- * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", {
- *     bucket: defaultBucketV2.bucket,
- *     prefix: "my_subdirectory",
- * });
- * ```
- *
- * ## Import
- *
- * A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
- * ```
- */
 export class SpotDatafeedSubscription extends pulumi.CustomResource {
     /**
      * Get an existing SpotDatafeedSubscription resource's state with the given name, ID, and optional extra
@@ -59,13 +32,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotDatafeedSubscription.__pulumiType;
     }
 
-    /**
-     * The Amazon S3 bucket in which to store the Spot instance data feed.
-     */
     public readonly bucket!: pulumi.Output<string>;
-    /**
-     * Path of folder inside bucket to place spot pricing data.
-     */
     public readonly prefix!: pulumi.Output<string | undefined>;
 
     /**
@@ -100,13 +67,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SpotDatafeedSubscription resources.
  */
 export interface SpotDatafeedSubscriptionState {
-    /**
-     * The Amazon S3 bucket in which to store the Spot instance data feed.
-     */
     bucket?: pulumi.Input<string>;
-    /**
-     * Path of folder inside bucket to place spot pricing data.
-     */
     prefix?: pulumi.Input<string>;
 }
 
@@ -114,12 +75,6 @@ export interface SpotDatafeedSubscriptionState {
  * The set of arguments for constructing a SpotDatafeedSubscription resource.
  */
 export interface SpotDatafeedSubscriptionArgs {
-    /**
-     * The Amazon S3 bucket in which to store the Spot instance data feed.
-     */
     bucket: pulumi.Input<string>;
-    /**
-     * Path of folder inside bucket to place spot pricing data.
-     */
     prefix?: pulumi.Input<string>;
 }

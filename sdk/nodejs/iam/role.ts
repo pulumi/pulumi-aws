@@ -9,163 +9,6 @@ import * as utilities from "../utilities";
 
 import {PolicyDocument} from "./index";
 
-/**
- * Provides an IAM role.
- *
- * > **NOTE:** If policies are attached to the role via the `aws.iam.PolicyAttachment` resource and you are modifying the role `name` or `path`, the `forceDetachPolicies` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.RolePolicyAttachment` resource (recommended) does not have this requirement.
- *
- * > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `aws.iam.PolicyAttachment`, `aws.iam.RolePolicyAttachment`, and `aws.iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
- *
- * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRole = new aws.iam.Role("testRole", {
- *     assumeRolePolicy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: "sts:AssumeRole",
- *             Effect: "Allow",
- *             Sid: "",
- *             Principal: {
- *                 Service: "ec2.amazonaws.com",
- *             },
- *         }],
- *     }),
- *     tags: {
- *         "tag-key": "tag-value",
- *     },
- * });
- * ```
- * ### Example of Using Data Source for Assume Role Policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const instance-assume-role-policy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ec2.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const instance = new aws.iam.Role("instance", {
- *     path: "/system/",
- *     assumeRolePolicy: instance_assume_role_policy.then(instance_assume_role_policy => instance_assume_role_policy.json),
- * });
- * ```
- * ### Example of Exclusive Inline Policies
- *
- * This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const inlinePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["ec2:DescribeAccountAttributes"],
- *         resources: ["*"],
- *     }],
- * });
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
- *     inlinePolicies: [
- *         {
- *             name: "my_inline_policy",
- *             policy: JSON.stringify({
- *                 Version: "2012-10-17",
- *                 Statement: [{
- *                     Action: ["ec2:Describe*"],
- *                     Effect: "Allow",
- *                     Resource: "*",
- *                 }],
- *             }),
- *         },
- *         {
- *             name: "policy-8675309",
- *             policy: inlinePolicy.then(inlinePolicy => inlinePolicy.json),
- *         },
- *     ],
- * });
- * ```
- * ### Example of Removing Inline Policies
- *
- * This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
- *     inlinePolicies: [{}],
- * });
- * ```
- * ### Example of Exclusive Managed Policies
- *
- * This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const policyOne = new aws.iam.Policy("policyOne", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: ["ec2:Describe*"],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
- * const policyTwo = new aws.iam.Policy("policyTwo", {policy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: [
- *             "s3:ListAllMyBuckets",
- *             "s3:ListBucket",
- *             "s3:HeadBucket",
- *         ],
- *         Effect: "Allow",
- *         Resource: "*",
- *     }],
- * })});
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
- *     managedPolicyArns: [
- *         policyOne.arn,
- *         policyTwo.arn,
- *     ],
- * });
- * ```
- * ### Example of Removing Managed Policies
- *
- * This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iam.Role("example", {
- *     assumeRolePolicy: data.aws_iam_policy_document.instance_assume_role_policy.json,
- *     managedPolicyArns: [],
- * });
- * ```
- *
- * ## Import
- *
- * IAM Roles can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:iam/role:Role developer developer_name
- * ```
- */
 export class Role extends pulumi.CustomResource {
     /**
      * Get an existing Role resource's state with the given name, ID, and optional extra
@@ -194,62 +37,20 @@ export class Role extends pulumi.CustomResource {
         return obj['__pulumiType'] === Role.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) specifying the role.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Policy that grants an entity permission to assume the role.
-     */
     public readonly assumeRolePolicy!: pulumi.Output<string>;
-    /**
-     * Creation date of the IAM role.
-     */
     public /*out*/ readonly createDate!: pulumi.Output<string>;
-    /**
-     * Description of the role.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-     */
     public readonly forceDetachPolicies!: pulumi.Output<boolean | undefined>;
-    /**
-     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-     */
     public readonly inlinePolicies!: pulumi.Output<outputs.iam.RoleInlinePolicy[]>;
     public readonly managedPolicyArns!: pulumi.Output<string[]>;
-    /**
-     * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-     */
     public readonly maxSessionDuration!: pulumi.Output<number | undefined>;
-    /**
-     * Name of the role policy.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-     */
     public readonly namePrefix!: pulumi.Output<string>;
-    /**
-     * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-     */
     public readonly path!: pulumi.Output<string | undefined>;
-    /**
-     * ARN of the policy that is used to set the permissions boundary for the role.
-     */
     public readonly permissionsBoundary!: pulumi.Output<string | undefined>;
-    /**
-     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Stable and unique string identifying the role.
-     */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
 
     /**
@@ -310,62 +111,20 @@ export class Role extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Role resources.
  */
 export interface RoleState {
-    /**
-     * Amazon Resource Name (ARN) specifying the role.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Policy that grants an entity permission to assume the role.
-     */
     assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
-    /**
-     * Creation date of the IAM role.
-     */
     createDate?: pulumi.Input<string>;
-    /**
-     * Description of the role.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-     */
     forceDetachPolicies?: pulumi.Input<boolean>;
-    /**
-     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-     */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-     */
     maxSessionDuration?: pulumi.Input<number>;
-    /**
-     * Name of the role policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * ARN of the policy that is used to set the permissions boundary for the role.
-     */
     permissionsBoundary?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Stable and unique string identifying the role.
-     */
     uniqueId?: pulumi.Input<string>;
 }
 
@@ -373,45 +132,15 @@ export interface RoleState {
  * The set of arguments for constructing a Role resource.
  */
 export interface RoleArgs {
-    /**
-     * Policy that grants an entity permission to assume the role.
-     */
     assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
-    /**
-     * Description of the role.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
-     */
     forceDetachPolicies?: pulumi.Input<boolean>;
-    /**
-     * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. See below. If no blocks are configured, the provider will not manage any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies added out of band on `apply`.
-     */
     inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
-     */
     maxSessionDuration?: pulumi.Input<number>;
-    /**
-     * Name of the role policy.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
-     */
     namePrefix?: pulumi.Input<string>;
-    /**
-     * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
-     */
     path?: pulumi.Input<string>;
-    /**
-     * ARN of the policy that is used to set the permissions boundary for the role.
-     */
     permissionsBoundary?: pulumi.Input<string>;
-    /**
-     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4,48 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a Lightsail Instance to a Lightsail Load Balancer.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const available = aws.getAvailabilityZones({
- *     state: "available",
- *     filters: [{
- *         name: "opt-in-status",
- *         values: ["opt-in-not-required"],
- *     }],
- * });
- * const testLb = new aws.lightsail.Lb("testLb", {
- *     healthCheckPath: "/",
- *     instancePort: 80,
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * const testInstance = new aws.lightsail.Instance("testInstance", {
- *     availabilityZone: available.then(available => available.names?.[0]),
- *     blueprintId: "amazon_linux",
- *     bundleId: "nano_1_0",
- * });
- * const testLbAttachment = new aws.lightsail.LbAttachment("testLbAttachment", {
- *     lbName: testLb.name,
- *     instanceName: testInstance.name,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
- * ```
- */
 export class LbAttachment extends pulumi.CustomResource {
     /**
      * Get an existing LbAttachment resource's state with the given name, ID, and optional extra
@@ -74,13 +32,7 @@ export class LbAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbAttachment.__pulumiType;
     }
 
-    /**
-     * The name of the instance to attach to the load balancer.
-     */
     public readonly instanceName!: pulumi.Output<string>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     public readonly lbName!: pulumi.Output<string>;
 
     /**
@@ -118,13 +70,7 @@ export class LbAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbAttachment resources.
  */
 export interface LbAttachmentState {
-    /**
-     * The name of the instance to attach to the load balancer.
-     */
     instanceName?: pulumi.Input<string>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     lbName?: pulumi.Input<string>;
 }
 
@@ -132,12 +78,6 @@ export interface LbAttachmentState {
  * The set of arguments for constructing a LbAttachment resource.
  */
 export interface LbAttachmentArgs {
-    /**
-     * The name of the instance to attach to the load balancer.
-     */
     instanceName: pulumi.Input<string>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     lbName: pulumi.Input<string>;
 }

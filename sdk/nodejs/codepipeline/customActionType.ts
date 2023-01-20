@@ -7,38 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeDeploy CustomActionType
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codepipeline.CustomActionType("example", {
- *     category: "Build",
- *     inputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     outputArtifactDetails: {
- *         maximumCount: 1,
- *         minimumCount: 0,
- *     },
- *     providerName: "example",
- *     version: "1",
- * });
- * ```
- *
- * ## Import
- *
- * CodeDeploy CustomActionType can be imported using the `id`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:terraform:1
- * ```
- */
 export class CustomActionType extends pulumi.CustomResource {
     /**
      * Get an existing CustomActionType resource's state with the given name, ID, and optional extra
@@ -67,49 +35,16 @@ export class CustomActionType extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomActionType.__pulumiType;
     }
 
-    /**
-     * The action ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     public readonly category!: pulumi.Output<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     public readonly configurationProperties!: pulumi.Output<outputs.codepipeline.CustomActionTypeConfigurationProperty[] | undefined>;
-    /**
-     * The details of the input artifact for the action.
-     */
     public readonly inputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     public readonly outputArtifactDetails!: pulumi.Output<outputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The creator of the action being called.
-     */
     public /*out*/ readonly owner!: pulumi.Output<string>;
-    /**
-     * The provider of the service used in the custom action
-     */
     public readonly providerName!: pulumi.Output<string>;
-    /**
-     * The settings for an action type.
-     */
     public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The version identifier of the custom action.
-     */
     public readonly version!: pulumi.Output<string>;
 
     /**
@@ -174,49 +109,16 @@ export class CustomActionType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomActionType resources.
  */
 export interface CustomActionTypeState {
-    /**
-     * The action ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     category?: pulumi.Input<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    /**
-     * The details of the input artifact for the action.
-     */
     inputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     outputArtifactDetails?: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The creator of the action being called.
-     */
     owner?: pulumi.Input<string>;
-    /**
-     * The provider of the service used in the custom action
-     */
     providerName?: pulumi.Input<string>;
-    /**
-     * The settings for an action type.
-     */
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version identifier of the custom action.
-     */
     version?: pulumi.Input<string>;
 }
 
@@ -224,36 +126,12 @@ export interface CustomActionTypeState {
  * The set of arguments for constructing a CustomActionType resource.
  */
 export interface CustomActionTypeArgs {
-    /**
-     * The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-     */
     category: pulumi.Input<string>;
-    /**
-     * The configuration properties for the custom action. Max 10 items.
-     */
     configurationProperties?: pulumi.Input<pulumi.Input<inputs.codepipeline.CustomActionTypeConfigurationProperty>[]>;
-    /**
-     * The details of the input artifact for the action.
-     */
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
-    /**
-     * The details of the output artifact of the action.
-     */
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
-    /**
-     * The provider of the service used in the custom action
-     */
     providerName: pulumi.Input<string>;
-    /**
-     * The settings for an action type.
-     */
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The version identifier of the custom action.
-     */
     version: pulumi.Input<string>;
 }

@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
     args = args || {};
 
@@ -24,14 +21,7 @@ export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: p
  * A collection of arguments for invoking getManagedPrefixLists.
  */
 export interface GetManagedPrefixListsArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetManagedPrefixListsFilter[];
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired .
-     */
     tags?: {[key: string]: string};
 }
 
@@ -44,15 +34,9 @@ export interface GetManagedPrefixListsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the managed prefix list ids found.
-     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
-/**
- * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListsResult> {
     return pulumi.output(args).apply((a: any) => getManagedPrefixLists(a, opts))
 }
@@ -61,13 +45,6 @@ export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputAr
  * A collection of arguments for invoking getManagedPrefixLists.
  */
 export interface GetManagedPrefixListsOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListsFilterArgs>[]>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired .
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

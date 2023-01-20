@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an Amazon MSK Connect custom plugin.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getCustomPlugin({
- *     name: "example-debezium-1",
- * });
- * ```
- */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,9 +16,6 @@ export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeO
  * A collection of arguments for invoking getCustomPlugin.
  */
 export interface GetCustomPluginArgs {
-    /**
-     * Name of the custom plugin.
-     */
     name: string;
 }
 
@@ -40,42 +23,16 @@ export interface GetCustomPluginArgs {
  * A collection of values returned by getCustomPlugin.
  */
 export interface GetCustomPluginResult {
-    /**
-     * the ARN of the custom plugin.
-     */
     readonly arn: string;
-    /**
-     * a summary description of the custom plugin.
-     */
     readonly description: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * an ID of the latest successfully created revision of the custom plugin.
-     */
     readonly latestRevision: number;
     readonly name: string;
-    /**
-     * the state of the custom plugin.
-     */
     readonly state: string;
 }
-/**
- * Get information on an Amazon MSK Connect custom plugin.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.mskconnect.getCustomPlugin({
- *     name: "example-debezium-1",
- * });
- * ```
- */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
     return pulumi.output(args).apply((a: any) => getCustomPlugin(a, opts))
 }
@@ -84,8 +41,5 @@ export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pu
  * A collection of arguments for invoking getCustomPlugin.
  */
 export interface GetCustomPluginOutputArgs {
-    /**
-     * Name of the custom plugin.
-     */
     name: pulumi.Input<string>;
 }

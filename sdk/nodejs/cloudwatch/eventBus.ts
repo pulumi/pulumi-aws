@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EventBridge event bus resource.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplepartnerEventSource = aws.cloudwatch.getEventSource({
- *     namePrefix: "aws.partner/examplepartner.com",
- * });
- * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartnerEventBus", {eventSourceName: examplepartnerEventSource.then(examplepartnerEventSource => examplepartnerEventSource.name)});
- * ```
- *
- * ## Import
- *
- * EventBridge event buses can be imported using the `name` (which can also be a partner event source name), e.g., console
- *
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
- * ```
- */
 export class EventBus extends pulumi.CustomResource {
     /**
      * Get an existing EventBus resource's state with the given name, ID, and optional extra
@@ -64,25 +32,10 @@ export class EventBus extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventBus.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the event bus.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
-     */
     public readonly eventSourceName!: pulumi.Output<string | undefined>;
-    /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -120,25 +73,10 @@ export class EventBus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventBus resources.
  */
 export interface EventBusState {
-    /**
-     * The Amazon Resource Name (ARN) of the event bus.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
-     */
     eventSourceName?: pulumi.Input<string>;
-    /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -146,16 +84,7 @@ export interface EventBusState {
  * The set of arguments for constructing a EventBus resource.
  */
 export interface EventBusArgs {
-    /**
-     * The partner event source that the new event bus will be matched with. Must match `name`.
-     */
     eventSourceName?: pulumi.Input<string>;
-    /**
-     * The name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure the `name` matches the `eventSourceName`.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

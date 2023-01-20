@@ -7,39 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a MemoryDB User.
- *
- * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as random from "@pulumi/random";
- *
- * const exampleRandomPassword = new random.RandomPassword("exampleRandomPassword", {length: 16});
- * const exampleUser = new aws.memorydb.User("exampleUser", {
- *     userName: "my-user",
- *     accessString: "on ~* &* +@all",
- *     authenticationMode: {
- *         type: "password",
- *         passwords: [exampleRandomPassword.result],
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Use the `user_name` to import a user. For example
- *
- * ```sh
- *  $ pulumi import aws:memorydb/user:User example my-user
- * ```
- *
- *  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
- */
 export class User extends pulumi.CustomResource {
     /**
      * Get an existing User resource's state with the given name, ID, and optional extra
@@ -68,34 +35,12 @@ export class User extends pulumi.CustomResource {
         return obj['__pulumiType'] === User.__pulumiType;
     }
 
-    /**
-     * The access permissions string used for this user.
-     */
     public readonly accessString!: pulumi.Output<string>;
-    /**
-     * The ARN of the user.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Denotes the user's authentication properties. Detailed below.
-     */
     public readonly authenticationMode!: pulumi.Output<outputs.memorydb.UserAuthenticationMode>;
-    /**
-     * The minimum engine version supported for the user.
-     * * `authenticationMode` configuration block
-     */
     public /*out*/ readonly minimumEngineVersion!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Name of the MemoryDB user. Up to 40 characters.
-     */
     public readonly userName!: pulumi.Output<string>;
 
     /**
@@ -146,34 +91,12 @@ export class User extends pulumi.CustomResource {
  * Input properties used for looking up and filtering User resources.
  */
 export interface UserState {
-    /**
-     * The access permissions string used for this user.
-     */
     accessString?: pulumi.Input<string>;
-    /**
-     * The ARN of the user.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Denotes the user's authentication properties. Detailed below.
-     */
     authenticationMode?: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
-    /**
-     * The minimum engine version supported for the user.
-     * * `authenticationMode` configuration block
-     */
     minimumEngineVersion?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the MemoryDB user. Up to 40 characters.
-     */
     userName?: pulumi.Input<string>;
 }
 
@@ -181,20 +104,8 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
-    /**
-     * The access permissions string used for this user.
-     */
     accessString: pulumi.Input<string>;
-    /**
-     * Denotes the user's authentication properties. Detailed below.
-     */
     authenticationMode: pulumi.Input<inputs.memorydb.UserAuthenticationMode>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Name of the MemoryDB user. Up to 40 characters.
-     */
     userName: pulumi.Input<string>;
 }

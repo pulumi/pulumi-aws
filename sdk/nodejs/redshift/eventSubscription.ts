@@ -4,46 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Redshift event subscription resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
- *     clusterIdentifier: "default",
- *     databaseName: "default",
- * });
- * // ...
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.redshift.EventSubscription("defaultEventSubscription", {
- *     snsTopicArn: defaultTopic.arn,
- *     sourceType: "cluster",
- *     sourceIds: [defaultCluster.id],
- *     severity: "INFO",
- *     eventCategories: [
- *         "configuration",
- *         "management",
- *         "monitoring",
- *         "security",
- *     ],
- *     tags: {
- *         Name: "default",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Redshift Event Subscriptions can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
- * ```
- */
 export class EventSubscription extends pulumi.CustomResource {
     /**
      * Get an existing EventSubscription resource's state with the given name, ID, and optional extra
@@ -72,50 +32,17 @@ export class EventSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventSubscription.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The AWS customer account associated with the Redshift event notification subscription
-     */
     public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
-    /**
-     * A boolean flag to enable/disable the subscription. Defaults to `true`.
-     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-     */
     public readonly eventCategories!: pulumi.Output<string[] | undefined>;
-    /**
-     * The name of the Redshift event subscription.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
-     */
     public readonly severity!: pulumi.Output<string | undefined>;
-    /**
-     * The ARN of the SNS topic to send events to.
-     */
     public readonly snsTopicArn!: pulumi.Output<string>;
-    /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
-     */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
-    /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
-     */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -170,50 +97,17 @@ export class EventSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventSubscription resources.
  */
 export interface EventSubscriptionState {
-    /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The AWS customer account associated with the Redshift event notification subscription
-     */
     customerAwsId?: pulumi.Input<string>;
-    /**
-     * A boolean flag to enable/disable the subscription. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-     */
     eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the Redshift event subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
-     */
     severity?: pulumi.Input<string>;
-    /**
-     * The ARN of the SNS topic to send events to.
-     */
     snsTopicArn?: pulumi.Input<string>;
-    /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
-     */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
-     */
     sourceType?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -221,36 +115,12 @@ export interface EventSubscriptionState {
  * The set of arguments for constructing a EventSubscription resource.
  */
 export interface EventSubscriptionArgs {
-    /**
-     * A boolean flag to enable/disable the subscription. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
-     */
     eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The name of the Redshift event subscription.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
-     */
     severity?: pulumi.Input<string>;
-    /**
-     * The ARN of the SNS topic to send events to.
-     */
     snsTopicArn: pulumi.Input<string>;
-    /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
-     */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
-     */
     sourceType?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

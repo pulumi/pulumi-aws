@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SES email identity resource
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ses.EmailIdentity("example", {email: "email@example.com"});
- * ```
- *
- * ## Import
- *
- * SES email identities can be imported using the email address.
- *
- * ```sh
- *  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
- * ```
- */
 export class EmailIdentity extends pulumi.CustomResource {
     /**
      * Get an existing EmailIdentity resource's state with the given name, ID, and optional extra
@@ -52,13 +32,7 @@ export class EmailIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailIdentity.__pulumiType;
     }
 
-    /**
-     * The ARN of the email identity.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The email address to assign to SES.
-     */
     public readonly email!: pulumi.Output<string>;
 
     /**
@@ -93,13 +67,7 @@ export class EmailIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EmailIdentity resources.
  */
 export interface EmailIdentityState {
-    /**
-     * The ARN of the email identity.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The email address to assign to SES.
-     */
     email?: pulumi.Input<string>;
 }
 
@@ -107,8 +75,5 @@ export interface EmailIdentityState {
  * The set of arguments for constructing a EmailIdentity resource.
  */
 export interface EmailIdentityArgs {
-    /**
-     * The email address to assign to SES.
-     */
     email: pulumi.Input<string>;
 }

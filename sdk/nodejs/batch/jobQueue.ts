@@ -4,58 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Batch Job Queue resource.
- *
- * ## Example Usage
- * ### Basic Job Queue
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testQueue = new aws.batch.JobQueue("testQueue", {
- *     state: "ENABLED",
- *     priority: 1,
- *     computeEnvironments: [
- *         aws_batch_compute_environment.test_environment_1.arn,
- *         aws_batch_compute_environment.test_environment_2.arn,
- *     ],
- * });
- * ```
- * ### Job Queue with a fair share scheduling policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSchedulingPolicy = new aws.batch.SchedulingPolicy("exampleSchedulingPolicy", {fairSharePolicy: {
- *     computeReservation: 1,
- *     shareDecaySeconds: 3600,
- *     shareDistributions: [{
- *         shareIdentifier: "A1*",
- *         weightFactor: 0.1,
- *     }],
- * }});
- * const exampleJobQueue = new aws.batch.JobQueue("exampleJobQueue", {
- *     schedulingPolicyArn: exampleSchedulingPolicy.arn,
- *     state: "ENABLED",
- *     priority: 1,
- *     computeEnvironments: [
- *         aws_batch_compute_environment.test_environment_1.arn,
- *         aws_batch_compute_environment.test_environment_2.arn,
- *     ],
- * });
- * ```
- *
- * ## Import
- *
- * Batch Job Queue can be imported using the `arn`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
- * ```
- */
 export class JobQueue extends pulumi.CustomResource {
     /**
      * Get an existing JobQueue resource's state with the given name, ID, and optional extra
@@ -84,40 +32,13 @@ export class JobQueue extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobQueue.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name of the job queue.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
-     */
     public readonly computeEnvironments!: pulumi.Output<string[]>;
-    /**
-     * Specifies the name of the job queue.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
-     */
     public readonly priority!: pulumi.Output<number>;
-    /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
-     */
     public readonly schedulingPolicyArn!: pulumi.Output<string | undefined>;
-    /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
-     */
     public readonly state!: pulumi.Output<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -170,40 +91,13 @@ export class JobQueue extends pulumi.CustomResource {
  * Input properties used for looking up and filtering JobQueue resources.
  */
 export interface JobQueueState {
-    /**
-     * The Amazon Resource Name of the job queue.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
-     */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Specifies the name of the job queue.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
-     */
     priority?: pulumi.Input<number>;
-    /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
-     */
     schedulingPolicyArn?: pulumi.Input<string>;
-    /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
-     */
     state?: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -211,31 +105,10 @@ export interface JobQueueState {
  * The set of arguments for constructing a JobQueue resource.
  */
 export interface JobQueueArgs {
-    /**
-     * Specifies the set of compute environments
-     * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order.
-     */
     computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Specifies the name of the job queue.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The priority of the job queue. Job queues with a higher priority
-     * are evaluated first when associated with the same compute environment.
-     */
     priority: pulumi.Input<number>;
-    /**
-     * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
-     */
     schedulingPolicyArn?: pulumi.Input<string>;
-    /**
-     * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
-     */
     state: pulumi.Input<string>;
-    /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

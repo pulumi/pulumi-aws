@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Enables the IPAM Service and promotes a delegated administrator.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const delegated = aws.getCallerIdentity({});
- * const example = new aws.ec2.VpcIpamOrganizationAdminAccount("example", {delegatedAdminAccountId: delegated.then(delegated => delegated.accountId)});
- * const ipamDelegateAccount = new aws.Provider("ipamDelegateAccount", {});
- * // authentication arguments omitted
- * ```
- *
- * ## Import
- *
- * IPAMs can be imported using the `delegate account id`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
- * ```
- */
 export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing VpcIpamOrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -57,22 +32,10 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === VpcIpamOrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * The Organizations ARN for the delegate account.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly delegatedAdminAccountId!: pulumi.Output<string>;
-    /**
-     * The Organizations email for the delegate account.
-     */
     public /*out*/ readonly email!: pulumi.Output<string>;
-    /**
-     * The Organizations name for the delegate account.
-     */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The AWS service principal.
-     */
     public /*out*/ readonly servicePrincipal!: pulumi.Output<string>;
 
     /**
@@ -113,22 +76,10 @@ export class VpcIpamOrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpcIpamOrganizationAdminAccount resources.
  */
 export interface VpcIpamOrganizationAdminAccountState {
-    /**
-     * The Organizations ARN for the delegate account.
-     */
     arn?: pulumi.Input<string>;
     delegatedAdminAccountId?: pulumi.Input<string>;
-    /**
-     * The Organizations email for the delegate account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * The Organizations name for the delegate account.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The AWS service principal.
-     */
     servicePrincipal?: pulumi.Input<string>;
 }
 

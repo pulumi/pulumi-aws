@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a GameLift Matchmaking Rule Set resources.
- *
- * ## Import
- *
- * GameLift Matchmaking Rule Sets
- *
- * can be imported using the ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example <ruleset-id>
- * ```
- */
 export class MatchmakingRuleSet extends pulumi.CustomResource {
     /**
      * Get an existing MatchmakingRuleSet resource's state with the given name, ID, and optional extra
@@ -45,22 +32,10 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === MatchmakingRuleSet.__pulumiType;
     }
 
-    /**
-     * Rule Set ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of the matchmaking rule set.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * JSON encoded string containing rule set data.
-     */
     public readonly ruleSetBody!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -101,22 +76,10 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MatchmakingRuleSet resources.
  */
 export interface MatchmakingRuleSetState {
-    /**
-     * Rule Set ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the matchmaking rule set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * JSON encoded string containing rule set data.
-     */
     ruleSetBody?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -124,13 +87,7 @@ export interface MatchmakingRuleSetState {
  * The set of arguments for constructing a MatchmakingRuleSet resource.
  */
 export interface MatchmakingRuleSetArgs {
-    /**
-     * Name of the matchmaking rule set.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * JSON encoded string containing rule set data.
-     */
     ruleSetBody: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
- *     hashKey: "id",
- *     attributes: [{
- *         name: "id",
- *         type: "S",
- *     }],
- * });
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination", {
- *     streamArn: exampleStream.arn,
- *     tableName: exampleTable.name,
- * });
- * ```
- *
- * ## Import
- *
- * DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
- * ```
- */
 export class KinesisStreamingDestination extends pulumi.CustomResource {
     /**
      * Get an existing KinesisStreamingDestination resource's state with the given name, ID, and optional extra
@@ -63,14 +32,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
         return obj['__pulumiType'] === KinesisStreamingDestination.__pulumiType;
     }
 
-    /**
-     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     */
     public readonly streamArn!: pulumi.Output<string>;
-    /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
-     */
     public readonly tableName!: pulumi.Output<string>;
 
     /**
@@ -108,14 +70,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KinesisStreamingDestination resources.
  */
 export interface KinesisStreamingDestinationState {
-    /**
-     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     */
     streamArn?: pulumi.Input<string>;
-    /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
-     */
     tableName?: pulumi.Input<string>;
 }
 
@@ -123,13 +78,6 @@ export interface KinesisStreamingDestinationState {
  * The set of arguments for constructing a KinesisStreamingDestination resource.
  */
 export interface KinesisStreamingDestinationArgs {
-    /**
-     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     */
     streamArn: pulumi.Input<string>;
-    /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
-     */
     tableName: pulumi.Input<string>;
 }

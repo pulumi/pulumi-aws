@@ -4,66 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Attaches a resource based policy to a private CA.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.acmpca.Policy("example", {
- *     resourceArn: aws_acmpca_certificate_authority.example.arn,
- *     policy: `{                        
- *    "Version":"2012-10-17",
- *    "Statement":[
- *       {    
- *          "Sid":"1",
- *          "Effect":"Allow",         
- *          "Principal":{                                                                                                                                               
- *             "AWS":"${data.aws_caller_identity.current.account_id}"                                                                                
- *          },
- *          "Action":[
- *             "acm-pca:DescribeCertificateAuthority",
- *             "acm-pca:GetCertificate",
- *             "acm-pca:GetCertificateAuthorityCertificate",
- *             "acm-pca:ListPermissions",
- *             "acm-pca:ListTags"                                                                                   
- *          ],                                                                                              
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}"
- *       },
- *       {
- *          "Sid":"1",  
- *          "Effect":"Allow",
- *          "Principal":{
- *             "AWS":"${data.aws_caller_identity.current.account_id}"
- *          },
- *          "Action":[
- *             "acm-pca:IssueCertificate"
- *          ],
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}",
- *          "Condition":{
- *             "StringEquals":{
- *                "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
- *             }
- *          }
- *       }
- *    ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * `aws_acmpca_policy` can be imported using the `resource_arn` value.
- *
- * ```sh
- *  $ pulumi import aws:acmpca/policy:Policy example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
- * ```
- */
 export class Policy extends pulumi.CustomResource {
     /**
      * Get an existing Policy resource's state with the given name, ID, and optional extra
@@ -92,13 +32,7 @@ export class Policy extends pulumi.CustomResource {
         return obj['__pulumiType'] === Policy.__pulumiType;
     }
 
-    /**
-     * JSON-formatted IAM policy to attach to the specified private CA resource.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * ARN of the private CA to associate with the policy.
-     */
     public readonly resourceArn!: pulumi.Output<string>;
 
     /**
@@ -136,13 +70,7 @@ export class Policy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Policy resources.
  */
 export interface PolicyState {
-    /**
-     * JSON-formatted IAM policy to attach to the specified private CA resource.
-     */
     policy?: pulumi.Input<string>;
-    /**
-     * ARN of the private CA to associate with the policy.
-     */
     resourceArn?: pulumi.Input<string>;
 }
 
@@ -150,12 +78,6 @@ export interface PolicyState {
  * The set of arguments for constructing a Policy resource.
  */
 export interface PolicyArgs {
-    /**
-     * JSON-formatted IAM policy to attach to the specified private CA resource.
-     */
     policy: pulumi.Input<string>;
-    /**
-     * ARN of the private CA to associate with the policy.
-     */
     resourceArn: pulumi.Input<string>;
 }

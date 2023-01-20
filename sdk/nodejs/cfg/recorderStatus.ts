@@ -4,70 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages status (recording / stopped) of an AWS Config Configuration Recorder.
- *
- * > **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket});
- * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
- *     dependsOn: [fooDeliveryChannel],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
- *     role: role.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
- * });
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucketV2.arn}",
- *         "${bucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
- * ```
- */
 export class RecorderStatus extends pulumi.CustomResource {
     /**
      * Get an existing RecorderStatus resource's state with the given name, ID, and optional extra
@@ -96,13 +32,7 @@ export class RecorderStatus extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecorderStatus.__pulumiType;
     }
 
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     public readonly isEnabled!: pulumi.Output<boolean>;
-    /**
-     * The name of the recorder
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -137,13 +67,7 @@ export class RecorderStatus extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RecorderStatus resources.
  */
 export interface RecorderStatusState {
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     isEnabled?: pulumi.Input<boolean>;
-    /**
-     * The name of the recorder
-     */
     name?: pulumi.Input<string>;
 }
 
@@ -151,12 +75,6 @@ export interface RecorderStatusState {
  * The set of arguments for constructing a RecorderStatus resource.
  */
 export interface RecorderStatusArgs {
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     */
     isEnabled: pulumi.Input<boolean>;
-    /**
-     * The name of the recorder
-     */
     name?: pulumi.Input<string>;
 }

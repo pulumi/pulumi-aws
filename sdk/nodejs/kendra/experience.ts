@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS Kendra Experience.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Experience("example", {
- *     indexId: aws_kendra_index.example.id,
- *     description: "My Kendra Experience",
- *     roleArn: aws_iam_role.example.arn,
- *     configuration: {
- *         contentSourceConfiguration: {
- *             directPutContent: true,
- *             faqIds: [aws_kendra_faq.example.faq_id],
- *         },
- *         userIdentityConfiguration: {
- *             identityAttributeName: "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Kendra Experience can be imported using the unique identifiers of the experience and index separated by a slash (`/`) e.g.,
- *
- * ```sh
- *  $ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
- * ```
- */
 export class Experience extends pulumi.CustomResource {
     /**
      * Get an existing Experience resource's state with the given name, ID, and optional extra
@@ -69,41 +35,14 @@ export class Experience extends pulumi.CustomResource {
         return obj['__pulumiType'] === Experience.__pulumiType;
     }
 
-    /**
-     * ARN of the Experience.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     */
     public readonly configuration!: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
-    /**
-     * A description for your Amazon Kendra experience.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-     */
     public /*out*/ readonly endpoints!: pulumi.Output<outputs.kendra.ExperienceEndpoint[]>;
-    /**
-     * The unique identifier of the experience.
-     */
     public /*out*/ readonly experienceId!: pulumi.Output<string>;
-    /**
-     * The identifier of the index for your Amazon Kendra experience.
-     */
     public readonly indexId!: pulumi.Output<string>;
-    /**
-     * A name for your Amazon Kendra experience.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     */
     public readonly roleArn!: pulumi.Output<string>;
-    /**
-     * The current processing status of your Amazon Kendra experience.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -155,41 +94,14 @@ export class Experience extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Experience resources.
  */
 export interface ExperienceState {
-    /**
-     * ARN of the Experience.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
-    /**
-     * A description for your Amazon Kendra experience.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Shows the endpoint URLs for your Amazon Kendra experiences. The URLs are unique and fully hosted by AWS.
-     */
     endpoints?: pulumi.Input<pulumi.Input<inputs.kendra.ExperienceEndpoint>[]>;
-    /**
-     * The unique identifier of the experience.
-     */
     experienceId?: pulumi.Input<string>;
-    /**
-     * The identifier of the index for your Amazon Kendra experience.
-     */
     indexId?: pulumi.Input<string>;
-    /**
-     * A name for your Amazon Kendra experience.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     */
     roleArn?: pulumi.Input<string>;
-    /**
-     * The current processing status of your Amazon Kendra experience.
-     */
     status?: pulumi.Input<string>;
 }
 
@@ -197,24 +109,9 @@ export interface ExperienceState {
  * The set of arguments for constructing a Experience resource.
  */
 export interface ExperienceArgs {
-    /**
-     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-     */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration>;
-    /**
-     * A description for your Amazon Kendra experience.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The identifier of the index for your Amazon Kendra experience.
-     */
     indexId: pulumi.Input<string>;
-    /**
-     * A name for your Amazon Kendra experience.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-     */
     roleArn: pulumi.Input<string>;
 }

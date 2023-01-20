@@ -7,32 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get detailed information about
- * the specified KMS Key with flexible key id input.
- * This can be useful to reference key alias
- * without having to hard code the ARN as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byAlias = aws.kms.getKey({
- *     keyId: "alias/my-key",
- * });
- * const byId = aws.kms.getKey({
- *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * const byAliasArn = aws.kms.getKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * });
- * const byKeyArn = aws.kms.getKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * ```
- */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,17 +20,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getKey.
  */
 export interface GetKeyArgs {
-    /**
-     * List of grant tokens
-     */
     grantTokens?: string[];
-    /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     */
     keyId: string;
 }
 
@@ -86,32 +50,6 @@ export interface GetKeyResult {
     readonly origin: string;
     readonly validTo: string;
 }
-/**
- * Use this data source to get detailed information about
- * the specified KMS Key with flexible key id input.
- * This can be useful to reference key alias
- * without having to hard code the ARN as input.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const byAlias = aws.kms.getKey({
- *     keyId: "alias/my-key",
- * });
- * const byId = aws.kms.getKey({
- *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * const byAliasArn = aws.kms.getKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * });
- * const byKeyArn = aws.kms.getKey({
- *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * });
- * ```
- */
 export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
     return pulumi.output(args).apply((a: any) => getKey(a, opts))
 }
@@ -120,16 +58,6 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getKey.
  */
 export interface GetKeyOutputArgs {
-    /**
-     * List of grant tokens
-     */
     grantTokens?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     */
     keyId: pulumi.Input<string>;
 }

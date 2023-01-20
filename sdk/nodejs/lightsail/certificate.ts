@@ -7,29 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a lightsail certificate.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.Certificate("test", {
- *     domainName: "testdomain.com",
- *     subjectAlternativeNames: ["www.testdomain.com"],
- * });
- * ```
- *
- * ## Import
- *
- * `aws_lightsail_certificate` can be imported using the certificate name, e.g.
- *
- * ```sh
- *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -58,37 +35,13 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    /**
-     * The ARN of the lightsail certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The timestamp when the instance was created.
-     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    /**
-     * A domain name for which the certificate should be issued.
-     */
     public readonly domainName!: pulumi.Output<string>;
-    /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-     */
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.lightsail.CertificateDomainValidationOption[]>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     public readonly subjectAlternativeNames!: pulumi.Output<string[]>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -132,37 +85,13 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    /**
-     * The ARN of the lightsail certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The timestamp when the instance was created.
-     */
     createdAt?: pulumi.Input<string>;
-    /**
-     * A domain name for which the certificate should be issued.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined.
-     */
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.lightsail.CertificateDomainValidationOption>[]>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -170,20 +99,8 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * A domain name for which the certificate should be issued.
-     */
     domainName?: pulumi.Input<string>;
-    /**
-     * The name of the Lightsail load balancer.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domainName` attribute is automatically added as a Subject Alternative Name.
-     */
     subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

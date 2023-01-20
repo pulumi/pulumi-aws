@@ -7,87 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
- *
- * ## Example Usage
- * ### Database Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
- *     key: "right",
- *     values: [
- *         "abbey",
- *         "village",
- *         "luffield",
- *         "woodcote",
- *         "copse",
- *         "chapel",
- *         "stowe",
- *         "club",
- *     ],
- * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
- *     database: {
- *         name: aws_glue_catalog_database.example.name,
- *     },
- *     lfTags: [{
- *         key: exampleLfTag.key,
- *         value: "stowe",
- *     }],
- * });
- * ```
- * ### Multiple Tags Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLfTag = new aws.lakeformation.LfTag("exampleLfTag", {
- *     key: "right",
- *     values: [
- *         "abbey",
- *         "village",
- *         "luffield",
- *         "woodcote",
- *         "copse",
- *         "chapel",
- *         "stowe",
- *         "club",
- *     ],
- * });
- * const example2 = new aws.lakeformation.LfTag("example2", {
- *     key: "left",
- *     values: [
- *         "farm",
- *         "theloop",
- *         "aintree",
- *         "brooklands",
- *         "maggotts",
- *         "becketts",
- *         "vale",
- *     ],
- * });
- * const exampleResourceLfTags = new aws.lakeformation.ResourceLfTags("exampleResourceLfTags", {
- *     database: {
- *         name: aws_glue_catalog_database.example.name,
- *     },
- *     lfTags: [
- *         {
- *             key: "right",
- *             value: "luffield",
- *         },
- *         {
- *             key: "left",
- *             value: "aintree",
- *         },
- *     ],
- * });
- * ```
- */
 export class ResourceLfTags extends pulumi.CustomResource {
     /**
      * Get an existing ResourceLfTags resource's state with the given name, ID, and optional extra
@@ -116,25 +35,10 @@ export class ResourceLfTags extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceLfTags.__pulumiType;
     }
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     */
     public readonly catalogId!: pulumi.Output<string>;
-    /**
-     * Configuration block for a database resource. See below.
-     */
     public readonly database!: pulumi.Output<outputs.lakeformation.ResourceLfTagsDatabase>;
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     */
     public readonly lfTags!: pulumi.Output<outputs.lakeformation.ResourceLfTagsLfTag[]>;
-    /**
-     * Configuration block for a table resource. See below.
-     */
     public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTable>;
-    /**
-     * Configuration block for a table with columns resource. See below.
-     */
     public readonly tableWithColumns!: pulumi.Output<outputs.lakeformation.ResourceLfTagsTableWithColumns>;
 
     /**
@@ -175,25 +79,10 @@ export class ResourceLfTags extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceLfTags resources.
  */
 export interface ResourceLfTagsState {
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Configuration block for a database resource. See below.
-     */
     database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     */
     lfTags?: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
-    /**
-     * Configuration block for a table resource. See below.
-     */
     table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
-    /**
-     * Configuration block for a table with columns resource. See below.
-     */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
 }
 
@@ -201,24 +90,9 @@ export interface ResourceLfTagsState {
  * The set of arguments for constructing a ResourceLfTags resource.
  */
 export interface ResourceLfTagsArgs {
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     */
     catalogId?: pulumi.Input<string>;
-    /**
-     * Configuration block for a database resource. See below.
-     */
     database?: pulumi.Input<inputs.lakeformation.ResourceLfTagsDatabase>;
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     */
     lfTags: pulumi.Input<pulumi.Input<inputs.lakeformation.ResourceLfTagsLfTag>[]>;
-    /**
-     * Configuration block for a table resource. See below.
-     */
     table?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTable>;
-    /**
-     * Configuration block for a table with columns resource. See below.
-     */
     tableWithColumns?: pulumi.Input<inputs.lakeformation.ResourceLfTagsTableWithColumns>;
 }

@@ -7,34 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getTransitGateway({
- *     filters: [{
- *         name: "options.amazon-side-asn",
- *         values: ["64512"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getTransitGateway({
- *     id: "tgw-12345678",
- * });
- * ```
- */
 export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
     args = args || {};
 
@@ -50,17 +22,8 @@ export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.In
  * A collection of arguments for invoking getTransitGateway.
  */
 export interface GetTransitGatewayArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetTransitGatewayFilter[];
-    /**
-     * Identifier of the EC2 Transit Gateway.
-     */
     id?: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway
-     */
     tags?: {[key: string]: string};
 }
 
@@ -68,96 +31,23 @@ export interface GetTransitGatewayArgs {
  * A collection of values returned by getTransitGateway.
  */
 export interface GetTransitGatewayResult {
-    /**
-     * Private Autonomous System Number (ASN) for the Amazon side of a BGP session
-     */
     readonly amazonSideAsn: number;
-    /**
-     * EC2 Transit Gateway ARN
-     */
     readonly arn: string;
-    /**
-     * Identifier of the default association route table
-     */
     readonly associationDefaultRouteTableId: string;
-    /**
-     * Whether resource attachment requests are automatically accepted
-     */
     readonly autoAcceptSharedAttachments: string;
-    /**
-     * Whether resource attachments are automatically associated with the default association route table
-     */
     readonly defaultRouteTableAssociation: string;
-    /**
-     * Whether resource attachments automatically propagate routes to the default propagation route table
-     */
     readonly defaultRouteTablePropagation: string;
-    /**
-     * Description of the EC2 Transit Gateway
-     */
     readonly description: string;
-    /**
-     * Whether DNS support is enabled
-     */
     readonly dnsSupport: string;
     readonly filters?: outputs.ec2transitgateway.GetTransitGatewayFilter[];
-    /**
-     * EC2 Transit Gateway identifier
-     */
     readonly id: string;
-    /**
-     * Whether Multicast support is enabled
-     */
     readonly multicastSupport: string;
-    /**
-     * Identifier of the AWS account that owns the EC2 Transit Gateway
-     */
     readonly ownerId: string;
-    /**
-     * Identifier of the default propagation route table
-     */
     readonly propagationDefaultRouteTableId: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * The list of associated CIDR blocks
-     */
     readonly transitGatewayCidrBlocks: string[];
-    /**
-     * Whether VPN Equal Cost Multipath Protocol support is enabled
-     */
     readonly vpnEcmpSupport: string;
 }
-/**
- * Get information on an EC2 Transit Gateway.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getTransitGateway({
- *     filters: [{
- *         name: "options.amazon-side-asn",
- *         values: ["64512"],
- *     }],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getTransitGateway({
- *     id: "tgw-12345678",
- * });
- * ```
- */
 export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
     return pulumi.output(args).apply((a: any) => getTransitGateway(a, opts))
 }
@@ -166,16 +56,7 @@ export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts
  * A collection of arguments for invoking getTransitGateway.
  */
 export interface GetTransitGatewayOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetTransitGatewayFilterArgs>[]>;
-    /**
-     * Identifier of the EC2 Transit Gateway.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

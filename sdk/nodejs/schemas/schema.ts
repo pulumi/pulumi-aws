@@ -4,53 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an EventBridge Schema resource.
- *
- * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRegistry = new aws.schemas.Registry("testRegistry", {});
- * const testSchema = new aws.schemas.Schema("testSchema", {
- *     registryName: testRegistry.name,
- *     type: "OpenApi3",
- *     description: "The schema definition for my event",
- *     content: JSON.stringify({
- *         openapi: "3.0.0",
- *         info: {
- *             version: "1.0.0",
- *             title: "Event",
- *         },
- *         paths: {},
- *         components: {
- *             schemas: {
- *                 Event: {
- *                     type: "object",
- *                     properties: {
- *                         name: {
- *                             type: "string",
- *                         },
- *                     },
- *                 },
- *             },
- *         },
- *     }),
- * });
- * ```
- *
- * ## Import
- *
- * EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
- *
- * ```sh
- *  $ pulumi import aws:schemas/schema:Schema test name/registry
- * ```
- */
 export class Schema extends pulumi.CustomResource {
     /**
      * Get an existing Schema resource's state with the given name, ID, and optional extra
@@ -79,49 +32,16 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the discoverer.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The schema specification. Must be a valid Open API 3.0 spec.
-     */
     public readonly content!: pulumi.Output<string>;
-    /**
-     * The description of the schema. Maximum of 256 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The last modified date of the schema.
-     */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
-    /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The name of the registry in which this schema belongs.
-     */
     public readonly registryName!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The type of the schema. Valid values: `OpenApi3`.
-     */
     public readonly type!: pulumi.Output<string>;
-    /**
-     * The version of the schema.
-     */
     public /*out*/ readonly version!: pulumi.Output<string>;
-    /**
-     * The created date of the version of the schema.
-     */
     public /*out*/ readonly versionCreatedDate!: pulumi.Output<string>;
 
     /**
@@ -180,49 +100,16 @@ export class Schema extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schema resources.
  */
 export interface SchemaState {
-    /**
-     * The Amazon Resource Name (ARN) of the discoverer.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The schema specification. Must be a valid Open API 3.0 spec.
-     */
     content?: pulumi.Input<string>;
-    /**
-     * The description of the schema. Maximum of 256 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The last modified date of the schema.
-     */
     lastModified?: pulumi.Input<string>;
-    /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the registry in which this schema belongs.
-     */
     registryName?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the schema. Valid values: `OpenApi3`.
-     */
     type?: pulumi.Input<string>;
-    /**
-     * The version of the schema.
-     */
     version?: pulumi.Input<string>;
-    /**
-     * The created date of the version of the schema.
-     */
     versionCreatedDate?: pulumi.Input<string>;
 }
 
@@ -230,28 +117,10 @@ export interface SchemaState {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
-    /**
-     * The schema specification. Must be a valid Open API 3.0 spec.
-     */
     content: pulumi.Input<string>;
-    /**
-     * The description of the schema. Maximum of 256 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The name of the registry in which this schema belongs.
-     */
     registryName: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the schema. Valid values: `OpenApi3`.
-     */
     type: pulumi.Input<string>;
 }

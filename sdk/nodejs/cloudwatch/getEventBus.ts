@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * This data source can be used to fetch information about a specific
- * EventBridge event bus. Use this data source to compute the ARN of
- * an event bus, given the name of the bus.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getEventBus({
- *     name: "example-bus-name",
- * });
- * ```
- */
 export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions): Promise<GetEventBusResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,9 +16,6 @@ export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getEventBus.
  */
 export interface GetEventBusArgs {
-    /**
-     * Friendly EventBridge event bus name.
-     */
     name: string;
 }
 
@@ -42,9 +23,6 @@ export interface GetEventBusArgs {
  * A collection of values returned by getEventBus.
  */
 export interface GetEventBusResult {
-    /**
-     * ARN.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -52,22 +30,6 @@ export interface GetEventBusResult {
     readonly id: string;
     readonly name: string;
 }
-/**
- * This data source can be used to fetch information about a specific
- * EventBridge event bus. Use this data source to compute the ARN of
- * an event bus, given the name of the bus.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.cloudwatch.getEventBus({
- *     name: "example-bus-name",
- * });
- * ```
- */
 export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
     return pulumi.output(args).apply((a: any) => getEventBus(a, opts))
 }
@@ -76,8 +38,5 @@ export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getEventBus.
  */
 export interface GetEventBusOutputArgs {
-    /**
-     * Friendly EventBridge event bus name.
-     */
     name: pulumi.Input<string>;
 }

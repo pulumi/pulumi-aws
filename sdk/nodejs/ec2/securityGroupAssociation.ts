@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to create an association between a VPC endpoint and a security group.
- *
- * > **NOTE on VPC Endpoints and VPC Endpoint Security Group Associations:** The provider provides
- * both a standalone VPC Endpoint Security Group Association (an association between a VPC endpoint
- * and a single `securityGroupId`) and a VPC Endpoint resource with a `securityGroupIds`
- * attribute. Do not use the same security group ID in both a VPC Endpoint resource and a VPC Endpoint Security
- * Group Association resource. Doing so will cause a conflict of associations and will overwrite the association.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sgEc2", {
- *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
- *     securityGroupId: aws_security_group.sg.id,
- * });
- * ```
- */
 export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroupAssociation resource's state with the given name, ID, and optional extra
@@ -55,17 +32,8 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupAssociation.__pulumiType;
     }
 
-    /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
-     */
     public readonly replaceDefaultAssociation!: pulumi.Output<boolean | undefined>;
-    /**
-     * The ID of the security group to be associated with the VPC endpoint.
-     */
     public readonly securityGroupId!: pulumi.Output<string>;
-    /**
-     * The ID of the VPC endpoint with which the security group will be associated.
-     */
     public readonly vpcEndpointId!: pulumi.Output<string>;
 
     /**
@@ -105,17 +73,8 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroupAssociation resources.
  */
 export interface SecurityGroupAssociationState {
-    /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
-     */
     replaceDefaultAssociation?: pulumi.Input<boolean>;
-    /**
-     * The ID of the security group to be associated with the VPC endpoint.
-     */
     securityGroupId?: pulumi.Input<string>;
-    /**
-     * The ID of the VPC endpoint with which the security group will be associated.
-     */
     vpcEndpointId?: pulumi.Input<string>;
 }
 
@@ -123,16 +82,7 @@ export interface SecurityGroupAssociationState {
  * The set of arguments for constructing a SecurityGroupAssociation resource.
  */
 export interface SecurityGroupAssociationArgs {
-    /**
-     * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`.
-     */
     replaceDefaultAssociation?: pulumi.Input<boolean>;
-    /**
-     * The ID of the security group to be associated with the VPC endpoint.
-     */
     securityGroupId: pulumi.Input<string>;
-    /**
-     * The ID of the VPC endpoint with which the security group will be associated.
-     */
     vpcEndpointId: pulumi.Input<string>;
 }

@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.HsmClientCertificate("example", {hsmClientCertificateIdentifier: "example"});
- * ```
- *
- * ## Import
- *
- * Redshift Hsm Client Certificates support import by `hsm_client_certificate_identifier`, e.g., console
- *
- * ```sh
- *  $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
- * ```
- */
 export class HsmClientCertificate extends pulumi.CustomResource {
     /**
      * Get an existing HsmClientCertificate resource's state with the given name, ID, and optional extra
@@ -52,25 +32,10 @@ export class HsmClientCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === HsmClientCertificate.__pulumiType;
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The identifier of the HSM client certificate.
-     */
     public readonly hsmClientCertificateIdentifier!: pulumi.Output<string>;
-    /**
-     * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-     */
     public /*out*/ readonly hsmClientCertificatePublicKey!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -111,25 +76,10 @@ export class HsmClientCertificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HsmClientCertificate resources.
  */
 export interface HsmClientCertificateState {
-    /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The identifier of the HSM client certificate.
-     */
     hsmClientCertificateIdentifier?: pulumi.Input<string>;
-    /**
-     * The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
-     */
     hsmClientCertificatePublicKey?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -137,12 +87,6 @@ export interface HsmClientCertificateState {
  * The set of arguments for constructing a HsmClientCertificate resource.
  */
 export interface HsmClientCertificateArgs {
-    /**
-     * The identifier of the HSM client certificate.
-     */
     hsmClientCertificateIdentifier: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

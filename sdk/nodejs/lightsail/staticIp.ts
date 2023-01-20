@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Allocates a static IP address.
- *
- * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.lightsail.StaticIp("test", {});
- * ```
- */
 export class StaticIp extends pulumi.CustomResource {
     /**
      * Get an existing StaticIp resource's state with the given name, ID, and optional extra
@@ -46,21 +32,9 @@ export class StaticIp extends pulumi.CustomResource {
         return obj['__pulumiType'] === StaticIp.__pulumiType;
     }
 
-    /**
-     * The ARN of the Lightsail static IP
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The allocated static IP address
-     */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
-    /**
-     * The name for the allocated static IP
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The support code.
-     */
     public /*out*/ readonly supportCode!: pulumi.Output<string>;
 
     /**
@@ -96,21 +70,9 @@ export class StaticIp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StaticIp resources.
  */
 export interface StaticIpState {
-    /**
-     * The ARN of the Lightsail static IP
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The allocated static IP address
-     */
     ipAddress?: pulumi.Input<string>;
-    /**
-     * The name for the allocated static IP
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The support code.
-     */
     supportCode?: pulumi.Input<string>;
 }
 
@@ -118,8 +80,5 @@ export interface StaticIpState {
  * The set of arguments for constructing a StaticIp resource.
  */
 export interface StaticIpArgs {
-    /**
-     * The name for the allocated static IP
-     */
     name?: pulumi.Input<string>;
 }

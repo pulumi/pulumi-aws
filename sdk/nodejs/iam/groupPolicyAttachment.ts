@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 import {ARN} from "..";
 import {Group} from "./index";
 
-/**
- * Attaches a Managed IAM Policy to an IAM group
- *
- * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const group = new aws.iam.Group("group", {});
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: "{ ... policy JSON ... }",
- * });
- * const test_attach = new aws.iam.GroupPolicyAttachment("test-attach", {
- *     group: group.name,
- *     policyArn: policy.arn,
- * });
- * ```
- *
- * ## Import
- *
- * IAM group policy attachments can be imported using the group name and policy arn separated by `/`.
- *
- * ```sh
- *  $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * ```
- */
 export class GroupPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing GroupPolicyAttachment resource's state with the given name, ID, and optional extra
@@ -65,13 +35,7 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupPolicyAttachment.__pulumiType;
     }
 
-    /**
-     * The group the policy should be applied to
-     */
     public readonly group!: pulumi.Output<string>;
-    /**
-     * The ARN of the policy you want to apply
-     */
     public readonly policyArn!: pulumi.Output<ARN>;
 
     /**
@@ -109,13 +73,7 @@ export class GroupPolicyAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupPolicyAttachment resources.
  */
 export interface GroupPolicyAttachmentState {
-    /**
-     * The group the policy should be applied to
-     */
     group?: pulumi.Input<string | Group>;
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn?: pulumi.Input<ARN>;
 }
 
@@ -123,12 +81,6 @@ export interface GroupPolicyAttachmentState {
  * The set of arguments for constructing a GroupPolicyAttachment resource.
  */
 export interface GroupPolicyAttachmentArgs {
-    /**
-     * The group the policy should be applied to
-     */
     group: pulumi.Input<string | Group>;
-    /**
-     * The ARN of the policy you want to apply
-     */
     policyArn: pulumi.Input<ARN>;
 }

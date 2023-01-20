@@ -7,11 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
- *
- * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
- */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
     args = args || {};
 
@@ -26,14 +21,7 @@ export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getEbsVolumes.
  */
 export interface GetEbsVolumesArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ebs.GetEbsVolumesFilter[];
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired volumes.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -46,18 +34,9 @@ export interface GetEbsVolumesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of all the EBS Volume IDs found. This data source will fail if
-     * no volumes match the provided criteria.
-     */
     readonly ids: string[];
     readonly tags?: {[key: string]: string};
 }
-/**
- * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
- *
- * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
- */
 export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEbsVolumesResult> {
     return pulumi.output(args).apply((a: any) => getEbsVolumes(a, opts))
 }
@@ -66,13 +45,6 @@ export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulum
  * A collection of arguments for invoking getEbsVolumes.
  */
 export interface GetEbsVolumesOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetEbsVolumesFilterArgs>[]>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired volumes.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

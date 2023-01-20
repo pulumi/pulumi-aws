@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkInsightsPath({
- *     networkInsightsPathId: aws_ec2_network_insights_path.example.id,
- * });
- * ```
- */
 export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInsightsPathResult> {
     args = args || {};
 
@@ -36,17 +22,8 @@ export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?:
  * A collection of arguments for invoking getNetworkInsightsPath.
  */
 export interface GetNetworkInsightsPathArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: inputs.ec2.GetNetworkInsightsPathFilter[];
-    /**
-     * ID of the Network Insights Path to select.
-     */
     networkInsightsPathId?: string;
-    /**
-     * Map of tags assigned to the resource.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -54,21 +31,9 @@ export interface GetNetworkInsightsPathArgs {
  * A collection of values returned by getNetworkInsightsPath.
  */
 export interface GetNetworkInsightsPathResult {
-    /**
-     * ARN of the selected Network Insights Path.
-     */
     readonly arn: string;
-    /**
-     * AWS resource that is the destination of the path.
-     */
     readonly destination: string;
-    /**
-     * IP address of the AWS resource that is the destination of the path.
-     */
     readonly destinationIp: string;
-    /**
-     * Destination port.
-     */
     readonly destinationPort: number;
     readonly filters?: outputs.ec2.GetNetworkInsightsPathFilter[];
     /**
@@ -76,37 +41,11 @@ export interface GetNetworkInsightsPathResult {
      */
     readonly id: string;
     readonly networkInsightsPathId: string;
-    /**
-     * Protocol.
-     */
     readonly protocol: string;
-    /**
-     * AWS resource that is the source of the path.
-     */
     readonly source: string;
-    /**
-     * IP address of the AWS resource that is the source of the path.
-     */
     readonly sourceIp: string;
-    /**
-     * Map of tags assigned to the resource.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * `aws.ec2.NetworkInsightsPath` provides details about a specific Network Insights Path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkInsightsPath({
- *     networkInsightsPathId: aws_ec2_network_insights_path.example.id,
- * });
- * ```
- */
 export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsPathResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInsightsPath(a, opts))
 }
@@ -115,16 +54,7 @@ export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutput
  * A collection of arguments for invoking getNetworkInsightsPath.
  */
 export interface GetNetworkInsightsPathOutputArgs {
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInsightsPathFilterArgs>[]>;
-    /**
-     * ID of the Network Insights Path to select.
-     */
     networkInsightsPathId?: pulumi.Input<string>;
-    /**
-     * Map of tags assigned to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

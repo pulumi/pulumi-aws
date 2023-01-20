@@ -7,20 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getDataLakeSettings({
- *     catalogId: "14916253649",
- * });
- * ```
- */
 export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataLakeSettingsResult> {
     args = args || {};
 
@@ -34,9 +20,6 @@ export function getDataLakeSettings(args?: GetDataLakeSettingsArgs, opts?: pulum
  * A collection of arguments for invoking getDataLakeSettings.
  */
 export interface GetDataLakeSettingsArgs {
-    /**
-     * Identifier for the Data Catalog. By default, the account ID.
-     */
     catalogId?: string;
 }
 
@@ -44,42 +27,16 @@ export interface GetDataLakeSettingsArgs {
  * A collection of values returned by getDataLakeSettings.
  */
 export interface GetDataLakeSettingsResult {
-    /**
-     * List of ARNs of AWS Lake Formation principals (IAM users or roles).
-     */
     readonly admins: string[];
     readonly catalogId?: string;
-    /**
-     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     */
     readonly createDatabaseDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateDatabaseDefaultPermission[];
-    /**
-     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     */
     readonly createTableDefaultPermissions: outputs.lakeformation.GetDataLakeSettingsCreateTableDefaultPermission[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
-     */
     readonly trustedResourceOwners: string[];
 }
-/**
- * Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.lakeformation.getDataLakeSettings({
- *     catalogId: "14916253649",
- * });
- * ```
- */
 export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeSettingsResult> {
     return pulumi.output(args).apply((a: any) => getDataLakeSettings(a, opts))
 }
@@ -88,8 +45,5 @@ export function getDataLakeSettingsOutput(args?: GetDataLakeSettingsOutputArgs, 
  * A collection of arguments for invoking getDataLakeSettings.
  */
 export interface GetDataLakeSettingsOutputArgs {
-    /**
-     * Identifier for the Data Catalog. By default, the account ID.
-     */
     catalogId?: pulumi.Input<string>;
 }

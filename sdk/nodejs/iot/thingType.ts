@@ -7,26 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS IoT Thing Type.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.iot.ThingType("foo", {});
- * ```
- *
- * ## Import
- *
- * IOT Thing Types can be imported using the name, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:iot/thingType:ThingType example example
- * ```
- */
 export class ThingType extends pulumi.CustomResource {
     /**
      * Get an existing ThingType resource's state with the given name, ID, and optional extra
@@ -55,29 +35,11 @@ export class ThingType extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThingType.__pulumiType;
     }
 
-    /**
-     * The ARN of the created AWS IoT Thing Type.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     public readonly deprecated!: pulumi.Output<boolean | undefined>;
-    /**
-     * The name of the thing type.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     public readonly properties!: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -117,29 +79,11 @@ export class ThingType extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ThingType resources.
  */
 export interface ThingTypeState {
-    /**
-     * The ARN of the created AWS IoT Thing Type.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     deprecated?: pulumi.Input<boolean>;
-    /**
-     * The name of the thing type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -147,20 +91,8 @@ export interface ThingTypeState {
  * The set of arguments for constructing a ThingType resource.
  */
 export interface ThingTypeArgs {
-    /**
-     * Whether the thing type is deprecated. If true, no new things could be associated with this type.
-     */
     deprecated?: pulumi.Input<boolean>;
-    /**
-     * The name of the thing type.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * , Configuration block that can contain the following properties of the thing type:
-     */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

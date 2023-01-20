@@ -7,41 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon MSK Connect Custom Plugin Resource.
- *
- * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("exampleBucketObjectv2", {
- *     bucket: exampleBucketV2.id,
- *     key: "debezium.zip",
- *     source: new pulumi.asset.FileAsset("debezium.zip"),
- * });
- * const exampleCustomPlugin = new aws.mskconnect.CustomPlugin("exampleCustomPlugin", {
- *     contentType: "ZIP",
- *     location: {
- *         s3: {
- *             bucketArn: exampleBucketV2.arn,
- *             fileKey: exampleBucketObjectv2.key,
- *         },
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * MSK Connect Custom Plugin can be imported using the plugin's `arn`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
- * ```
- */
 export class CustomPlugin extends pulumi.CustomResource {
     /**
      * Get an existing CustomPlugin resource's state with the given name, ID, and optional extra
@@ -70,33 +35,12 @@ export class CustomPlugin extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomPlugin.__pulumiType;
     }
 
-    /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     */
     public readonly contentType!: pulumi.Output<string>;
-    /**
-     * A summary description of the custom plugin.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * an ID of the latest successfully created revision of the custom plugin.
-     */
     public /*out*/ readonly latestRevision!: pulumi.Output<number>;
-    /**
-     * Information about the location of a custom plugin. See below.
-     */
     public readonly location!: pulumi.Output<outputs.mskconnect.CustomPluginLocation>;
-    /**
-     * The name of the custom plugin..
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * the state of the custom plugin.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
 
     /**
@@ -144,33 +88,12 @@ export class CustomPlugin extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CustomPlugin resources.
  */
 export interface CustomPluginState {
-    /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     */
     contentType?: pulumi.Input<string>;
-    /**
-     * A summary description of the custom plugin.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * an ID of the latest successfully created revision of the custom plugin.
-     */
     latestRevision?: pulumi.Input<number>;
-    /**
-     * Information about the location of a custom plugin. See below.
-     */
     location?: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
-    /**
-     * The name of the custom plugin..
-     */
     name?: pulumi.Input<string>;
-    /**
-     * the state of the custom plugin.
-     */
     state?: pulumi.Input<string>;
 }
 
@@ -178,20 +101,8 @@ export interface CustomPluginState {
  * The set of arguments for constructing a CustomPlugin resource.
  */
 export interface CustomPluginArgs {
-    /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     */
     contentType: pulumi.Input<string>;
-    /**
-     * A summary description of the custom plugin.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * Information about the location of a custom plugin. See below.
-     */
     location: pulumi.Input<inputs.mskconnect.CustomPluginLocation>;
-    /**
-     * The name of the custom plugin..
-     */
     name?: pulumi.Input<string>;
 }

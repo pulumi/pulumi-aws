@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates and manages an AWS IoT certificate.
- *
- * ## Example Usage
- * ### With CSR
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("/my/csr.pem"),
- *     active: true,
- * });
- * ```
- * ### Without CSR
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const cert = new aws.iot.Certificate("cert", {active: true});
- * ```
- * ### From existing certificate without a CA
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as fs from "fs";
- *
- * const cert = new aws.iot.Certificate("cert", {
- *     certificatePem: fs.readFileSync("/my/cert.pem"),
- *     active: true,
- * });
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra
@@ -69,41 +32,12 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
-    /**
-     * Boolean flag to indicate if the certificate should be active
-     */
     public readonly active!: pulumi.Output<boolean>;
-    /**
-     * The ARN of the created certificate.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-     */
     public readonly caPem!: pulumi.Output<string | undefined>;
-    /**
-     * The certificate to be registered. If `caPem` is unspecified, review
-     * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `caPem` is specified, review
-     * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-     * for more information on registering a certificate.
-     */
     public readonly certificatePem!: pulumi.Output<string>;
-    /**
-     * The certificate signing request. Review
-     * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-     * for more information on generating a certificate from a certificate signing request (CSR).
-     * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-     * for more information on generating keys and a certificate.
-     */
     public readonly csr!: pulumi.Output<string | undefined>;
-    /**
-     * When neither CSR nor certificate is provided, the private key.
-     */
     public /*out*/ readonly privateKey!: pulumi.Output<string>;
-    /**
-     * When neither CSR nor certificate is provided, the public key.
-     */
     public /*out*/ readonly publicKey!: pulumi.Output<string>;
 
     /**
@@ -150,41 +84,12 @@ export class Certificate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Certificate resources.
  */
 export interface CertificateState {
-    /**
-     * Boolean flag to indicate if the certificate should be active
-     */
     active?: pulumi.Input<boolean>;
-    /**
-     * The ARN of the created certificate.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-     */
     caPem?: pulumi.Input<string>;
-    /**
-     * The certificate to be registered. If `caPem` is unspecified, review
-     * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `caPem` is specified, review
-     * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-     * for more information on registering a certificate.
-     */
     certificatePem?: pulumi.Input<string>;
-    /**
-     * The certificate signing request. Review
-     * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-     * for more information on generating a certificate from a certificate signing request (CSR).
-     * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-     * for more information on generating keys and a certificate.
-     */
     csr?: pulumi.Input<string>;
-    /**
-     * When neither CSR nor certificate is provided, the private key.
-     */
     privateKey?: pulumi.Input<string>;
-    /**
-     * When neither CSR nor certificate is provided, the public key.
-     */
     publicKey?: pulumi.Input<string>;
 }
 
@@ -192,28 +97,8 @@ export interface CertificateState {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * Boolean flag to indicate if the certificate should be active
-     */
     active: pulumi.Input<boolean>;
-    /**
-     * The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
-     */
     caPem?: pulumi.Input<string>;
-    /**
-     * The certificate to be registered. If `caPem` is unspecified, review
-     * [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
-     * If `caPem` is specified, review
-     * [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
-     * for more information on registering a certificate.
-     */
     certificatePem?: pulumi.Input<string>;
-    /**
-     * The certificate signing request. Review
-     * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
-     * for more information on generating a certificate from a certificate signing request (CSR).
-     * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
-     * for more information on generating keys and a certificate.
-     */
     csr?: pulumi.Input<string>;
 }

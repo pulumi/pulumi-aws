@@ -4,28 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get a list of cognito user pools.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selectedRestApi = aws.apigateway.getRestApi({
- *     name: _var.api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
- *     name: _var.cognito_user_pool_name,
- * });
- * const cognito = new aws.apigateway.Authorizer("cognito", {
- *     type: "COGNITO_USER_POOLS",
- *     restApi: selectedRestApi.then(selectedRestApi => selectedRestApi.id),
- *     providerArns: selectedUserPools.then(selectedUserPools => selectedUserPools.arns),
- * });
- * ```
- */
 export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,9 +16,6 @@ export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getUserPools.
  */
 export interface GetUserPoolsArgs {
-    /**
-     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-     */
     name: string;
 }
 
@@ -48,42 +23,14 @@ export interface GetUserPoolsArgs {
  * A collection of values returned by getUserPools.
  */
 export interface GetUserPoolsResult {
-    /**
-     * Set of cognito user pool Amazon Resource Names (ARNs).
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of cognito user pool ids.
-     */
     readonly ids: string[];
     readonly name: string;
 }
-/**
- * Use this data source to get a list of cognito user pools.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selectedRestApi = aws.apigateway.getRestApi({
- *     name: _var.api_gateway_name,
- * });
- * const selectedUserPools = aws.cognito.getUserPools({
- *     name: _var.cognito_user_pool_name,
- * });
- * const cognito = new aws.apigateway.Authorizer("cognito", {
- *     type: "COGNITO_USER_POOLS",
- *     restApi: selectedRestApi.then(selectedRestApi => selectedRestApi.id),
- *     providerArns: selectedUserPools.then(selectedUserPools => selectedUserPools.arns),
- * });
- * ```
- */
 export function getUserPoolsOutput(args: GetUserPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolsResult> {
     return pulumi.output(args).apply((a: any) => getUserPools(a, opts))
 }
@@ -92,8 +39,5 @@ export function getUserPoolsOutput(args: GetUserPoolsOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getUserPools.
  */
 export interface GetUserPoolsOutputArgs {
-    /**
-     * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
-     */
     name: pulumi.Input<string>;
 }

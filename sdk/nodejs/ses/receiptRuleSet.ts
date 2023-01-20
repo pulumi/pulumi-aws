@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an SES receipt rule set resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ses.ReceiptRuleSet("main", {ruleSetName: "primary-rules"});
- * ```
- *
- * ## Import
- *
- * SES receipt rule sets can be imported using the rule set name.
- *
- * ```sh
- *  $ pulumi import aws:ses/receiptRuleSet:ReceiptRuleSet my_rule_set my_rule_set_name
- * ```
- */
 export class ReceiptRuleSet extends pulumi.CustomResource {
     /**
      * Get an existing ReceiptRuleSet resource's state with the given name, ID, and optional extra
@@ -52,13 +32,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReceiptRuleSet.__pulumiType;
     }
 
-    /**
-     * SES receipt rule set ARN.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Name of the rule set.
-     */
     public readonly ruleSetName!: pulumi.Output<string>;
 
     /**
@@ -93,13 +67,7 @@ export class ReceiptRuleSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReceiptRuleSet resources.
  */
 export interface ReceiptRuleSetState {
-    /**
-     * SES receipt rule set ARN.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Name of the rule set.
-     */
     ruleSetName?: pulumi.Input<string>;
 }
 
@@ -107,8 +75,5 @@ export interface ReceiptRuleSetState {
  * The set of arguments for constructing a ReceiptRuleSet resource.
  */
 export interface ReceiptRuleSetArgs {
-    /**
-     * Name of the rule set.
-     */
     ruleSetName: pulumi.Input<string>;
 }

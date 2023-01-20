@@ -4,69 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an Amazon Connect Contact Flow resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- *
- * This resource embeds or references Contact Flows specified in Amazon Connect Contact Flow Language. For more information see
- * [Amazon Connect Flow language](https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html)
- *
- * !> **WARN:** Contact Flows exported from the Console [Contact Flow import/export](https://docs.aws.amazon.com/connect/latest/adminguide/contact-flow-import-export.html) are not in the Amazon Connect Contact Flow Language and can not be used with this resource. Instead, the recommendation is to use the AWS CLI [`describe-contact-flow`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/connect/describe-contact-flow.html).
- * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
- *
- * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.ContactFlow("test", {
- *     content: `	{
- * 		"Version": "2019-10-30",
- * 		"StartAction": "12345678-1234-1234-1234-123456789012",
- * 		"Actions": [
- * 			{
- * 				"Identifier": "12345678-1234-1234-1234-123456789012",
- * 				"Type": "MessageParticipant",
- * 				"Transitions": {
- * 					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
- * 					"Errors": [],
- * 					"Conditions": []
- * 				},
- * 				"Parameters": {
- * 					"Text": "Thanks for calling the sample flow!"
- * 				}
- * 			},
- * 			{
- * 				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
- * 				"Type": "DisconnectParticipant",
- * 				"Transitions": {},
- * 				"Parameters": {}
- * 			}
- * 		]
- * 	}
- * 	
- * `,
- *     description: "Test Contact Flow Description",
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     tags: {
- *         Application: "Example",
- *         Method: "Create",
- *         Name: "Test Contact Flow",
- *     },
- *     type: "CONTACT_FLOW",
- * });
- * ```
- *
- * ## Import
- *
- * Amazon Connect Contact Flows can be imported using the `instance_id` and `contact_flow_id` separated by a colon (`:`), e.g.,
- *
- * ```sh
- *  $ pulumi import aws:connect/contactFlow:ContactFlow example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
- * ```
- */
 export class ContactFlow extends pulumi.CustomResource {
     /**
      * Get an existing ContactFlow resource's state with the given name, ID, and optional extra
@@ -95,49 +32,16 @@ export class ContactFlow extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactFlow.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The identifier of the Contact Flow.
-     */
     public /*out*/ readonly contactFlowId!: pulumi.Output<string>;
-    /**
-     * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-     */
     public readonly content!: pulumi.Output<string>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-     */
     public readonly contentHash!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the description of the Contact Flow.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-     */
     public readonly filename!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     public readonly instanceId!: pulumi.Output<string>;
-    /**
-     * Specifies the name of the Contact Flow.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Tags to apply to the Contact Flow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -190,49 +94,16 @@ export class ContactFlow extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContactFlow resources.
  */
 export interface ContactFlowState {
-    /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The identifier of the Contact Flow.
-     */
     contactFlowId?: pulumi.Input<string>;
-    /**
-     * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-     */
     content?: pulumi.Input<string>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-     */
     contentHash?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the Contact Flow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-     */
     filename?: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId?: pulumi.Input<string>;
-    /**
-     * Specifies the name of the Contact Flow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Contact Flow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-     */
     type?: pulumi.Input<string>;
 }
 
@@ -240,36 +111,12 @@ export interface ContactFlowState {
  * The set of arguments for constructing a ContactFlow resource.
  */
 export interface ContactFlowArgs {
-    /**
-     * Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
-     */
     content?: pulumi.Input<string>;
-    /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
-     */
     contentHash?: pulumi.Input<string>;
-    /**
-     * Specifies the description of the Contact Flow.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The path to the Contact Flow source within the local filesystem. Conflicts with `content`.
-     */
     filename?: pulumi.Input<string>;
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     */
     instanceId: pulumi.Input<string>;
-    /**
-     * Specifies the name of the Contact Flow.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * Tags to apply to the Contact Flow. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the type of the Contact Flow. Defaults to `CONTACT_FLOW`. Allowed Values are: `CONTACT_FLOW`, `CUSTOMER_QUEUE`, `CUSTOMER_HOLD`, `CUSTOMER_WHISPER`, `AGENT_HOLD`, `AGENT_WHISPER`, `OUTBOUND_WHISPER`, `AGENT_TRANSFER`, `QUEUE_TRANSFER`.
-     */
     type?: pulumi.Input<string>;
 }

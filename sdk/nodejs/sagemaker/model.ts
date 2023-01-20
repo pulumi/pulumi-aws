@@ -7,49 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a SageMaker model resource.
- *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRole = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["sagemaker.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
- * const test = aws.sagemaker.getPrebuiltEcrImage({
- *     repositoryName: "kmeans",
- * });
- * const exampleModel = new aws.sagemaker.Model("exampleModel", {
- *     executionRoleArn: exampleRole.arn,
- *     primaryContainer: {
- *         image: test.then(test => test.registryPath),
- *     },
- * });
- * ```
- * ## Inference Execution Config
- *
- * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
- *
- * ## Import
- *
- * Models can be imported using the `name`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
- * ```
- */
 export class Model extends pulumi.CustomResource {
     /**
      * Get an existing Model resource's state with the given name, ID, and optional extra
@@ -78,45 +35,15 @@ export class Model extends pulumi.CustomResource {
         return obj['__pulumiType'] === Model.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     */
     public readonly containers!: pulumi.Output<outputs.sagemaker.ModelContainer[] | undefined>;
-    /**
-     * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     */
     public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
-    /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
-     */
     public readonly executionRoleArn!: pulumi.Output<string>;
-    /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
-     */
     public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
-    /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     */
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelPrimaryContainer | undefined>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-     */
     public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.ModelVpcConfig | undefined>;
 
     /**
@@ -167,45 +94,15 @@ export class Model extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Model resources.
  */
 export interface ModelState {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this model.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     */
     containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
-    /**
-     * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     */
     enableNetworkIsolation?: pulumi.Input<boolean>;
-    /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
-     */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
-    /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     */
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-     */
     vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }
 
@@ -213,36 +110,12 @@ export interface ModelState {
  * The set of arguments for constructing a Model resource.
  */
 export interface ModelArgs {
-    /**
-     * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
-     */
     containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
-    /**
-     * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
-     */
     enableNetworkIsolation?: pulumi.Input<boolean>;
-    /**
-     * A role that SageMaker can assume to access model artifacts and docker images for deployment.
-     */
     executionRoleArn: pulumi.Input<string>;
-    /**
-     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
-     */
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
-    /**
-     * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
-     */
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
-     */
     vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }

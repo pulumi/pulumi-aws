@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Pinpoint Baidu Channel resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.BaiduChannel("channel", {
- *     applicationId: app.applicationId,
- *     apiKey: "",
- *     secretKey: "",
- * });
- * ```
- *
- * ## Import
- *
- * Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
- * ```
- */
 export class BaiduChannel extends pulumi.CustomResource {
     /**
      * Get an existing BaiduChannel resource's state with the given name, ID, and optional extra
@@ -57,21 +32,9 @@ export class BaiduChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === BaiduChannel.__pulumiType;
     }
 
-    /**
-     * Platform credential API key from Baidu.
-     */
     public readonly apiKey!: pulumi.Output<string>;
-    /**
-     * The application ID.
-     */
     public readonly applicationId!: pulumi.Output<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Platform credential Secret key from Baidu.
-     */
     public readonly secretKey!: pulumi.Output<string>;
 
     /**
@@ -118,21 +81,9 @@ export class BaiduChannel extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BaiduChannel resources.
  */
 export interface BaiduChannelState {
-    /**
-     * Platform credential API key from Baidu.
-     */
     apiKey?: pulumi.Input<string>;
-    /**
-     * The application ID.
-     */
     applicationId?: pulumi.Input<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Platform credential Secret key from Baidu.
-     */
     secretKey?: pulumi.Input<string>;
 }
 
@@ -140,20 +91,8 @@ export interface BaiduChannelState {
  * The set of arguments for constructing a BaiduChannel resource.
  */
 export interface BaiduChannelArgs {
-    /**
-     * Platform credential API key from Baidu.
-     */
     apiKey: pulumi.Input<string>;
-    /**
-     * The application ID.
-     */
     applicationId: pulumi.Input<string>;
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     */
     enabled?: pulumi.Input<boolean>;
-    /**
-     * Platform credential Secret key from Baidu.
-     */
     secretKey: pulumi.Input<string>;
 }

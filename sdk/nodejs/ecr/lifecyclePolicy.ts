@@ -6,81 +6,6 @@ import * as utilities from "../utilities";
 
 import {LifecyclePolicyDocument} from "./index";
 
-/**
- * Manages an ECR repository lifecycle policy.
- *
- * > **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
- *
- * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
- *
- * ## Example Usage
- * ### Policy on untagged image
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecr.Repository("foo", {});
- * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
- *     repository: foo.name,
- *     policy: `{
- *     "rules": [
- *         {
- *             "rulePriority": 1,
- *             "description": "Expire images older than 14 days",
- *             "selection": {
- *                 "tagStatus": "untagged",
- *                 "countType": "sinceImagePushed",
- *                 "countUnit": "days",
- *                 "countNumber": 14
- *             },
- *             "action": {
- *                 "type": "expire"
- *             }
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- * ### Policy on tagged image
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ecr.Repository("foo", {});
- * const foopolicy = new aws.ecr.LifecyclePolicy("foopolicy", {
- *     repository: foo.name,
- *     policy: `{
- *     "rules": [
- *         {
- *             "rulePriority": 1,
- *             "description": "Keep last 30 images",
- *             "selection": {
- *                 "tagStatus": "tagged",
- *                 "tagPrefixList": ["v"],
- *                 "countType": "imageCountMoreThan",
- *                 "countNumber": 30
- *             },
- *             "action": {
- *                 "type": "expire"
- *             }
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- *
- * ## Import
- *
- * ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
- * ```
- */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**
      * Get an existing LifecyclePolicy resource's state with the given name, ID, and optional extra
@@ -109,17 +34,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === LifecyclePolicy.__pulumiType;
     }
 
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     public readonly policy!: pulumi.Output<string>;
-    /**
-     * The registry ID where the repository was created.
-     */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     public readonly repository!: pulumi.Output<string>;
 
     /**
@@ -159,17 +75,8 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LifecyclePolicy resources.
  */
 export interface LifecyclePolicyState {
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     policy?: pulumi.Input<string | LifecyclePolicyDocument>;
-    /**
-     * The registry ID where the repository was created.
-     */
     registryId?: pulumi.Input<string>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository?: pulumi.Input<string>;
 }
 
@@ -177,12 +84,6 @@ export interface LifecyclePolicyState {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     */
     policy: pulumi.Input<string | LifecyclePolicyDocument>;
-    /**
-     * Name of the repository to apply the policy.
-     */
     repository: pulumi.Input<string>;
 }

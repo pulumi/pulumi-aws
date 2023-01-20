@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get information on an existing backup vault.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getVault({
- *     name: "example_backup_vault",
- * });
- * ```
- */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,13 +17,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getVault.
  */
 export interface GetVaultArgs {
-    /**
-     * Name of the backup vault.
-     */
     name: string;
-    /**
-     * Metadata that you can assign to help organize the resources that you create.
-     */
     tags?: {[key: string]: string};
 }
 
@@ -45,42 +25,16 @@ export interface GetVaultArgs {
  * A collection of values returned by getVault.
  */
 export interface GetVaultResult {
-    /**
-     * ARN of the vault.
-     */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Server-side encryption key that is used to protect your backups.
-     */
     readonly kmsKeyArn: string;
     readonly name: string;
-    /**
-     * Number of recovery points that are stored in a backup vault.
-     */
     readonly recoveryPoints: number;
-    /**
-     * Metadata that you can assign to help organize the resources that you create.
-     */
     readonly tags: {[key: string]: string};
 }
-/**
- * Use this data source to get information on an existing backup vault.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.backup.getVault({
- *     name: "example_backup_vault",
- * });
- * ```
- */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))
 }
@@ -89,12 +43,6 @@ export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getVault.
  */
 export interface GetVaultOutputArgs {
-    /**
-     * Name of the backup vault.
-     */
     name: pulumi.Input<string>;
-    /**
-     * Metadata that you can assign to help organize the resources that you create.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

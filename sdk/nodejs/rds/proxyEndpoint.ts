@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.ProxyEndpoint("example", {
- *     dbProxyName: aws_db_proxy.test.name,
- *     dbProxyEndpointName: "example",
- *     vpcSubnetIds: aws_subnet.test.map(__item => __item.id),
- *     targetRole: "READ_ONLY",
- * });
- * ```
- *
- * ## Import
- *
- * DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
- * ```
- */
 export class ProxyEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing ProxyEndpoint resource's state with the given name, ID, and optional extra
@@ -57,46 +32,16 @@ export class ProxyEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === ProxyEndpoint.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-     */
     public readonly dbProxyEndpointName!: pulumi.Output<string>;
-    /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
-     */
     public readonly dbProxyName!: pulumi.Output<string>;
-    /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
-    /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-     */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-     */
     public readonly targetRole!: pulumi.Output<string | undefined>;
-    /**
-     * The VPC ID of the DB proxy endpoint.
-     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
-    /**
-     * One or more VPC security group IDs to associate with the new proxy.
-     */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[]>;
-    /**
-     * One or more VPC subnet IDs to associate with the new proxy.
-     */
     public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
     /**
@@ -155,46 +100,16 @@ export class ProxyEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProxyEndpoint resources.
  */
 export interface ProxyEndpointState {
-    /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-     */
     dbProxyEndpointName?: pulumi.Input<string>;
-    /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
-     */
     dbProxyName?: pulumi.Input<string>;
-    /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
-     */
     endpoint?: pulumi.Input<string>;
-    /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
-     */
     isDefault?: pulumi.Input<boolean>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-     */
     targetRole?: pulumi.Input<string>;
-    /**
-     * The VPC ID of the DB proxy endpoint.
-     */
     vpcId?: pulumi.Input<string>;
-    /**
-     * One or more VPC security group IDs to associate with the new proxy.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * One or more VPC subnet IDs to associate with the new proxy.
-     */
     vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
@@ -202,28 +117,10 @@ export interface ProxyEndpointState {
  * The set of arguments for constructing a ProxyEndpoint resource.
  */
 export interface ProxyEndpointArgs {
-    /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
-     */
     dbProxyEndpointName: pulumi.Input<string>;
-    /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
-     */
     dbProxyName: pulumi.Input<string>;
-    /**
-     * A mapping of tags to assign to the resource.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
-     */
     targetRole?: pulumi.Input<string>;
-    /**
-     * One or more VPC security group IDs to associate with the new proxy.
-     */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * One or more VPC subnet IDs to associate with the new proxy.
-     */
     vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

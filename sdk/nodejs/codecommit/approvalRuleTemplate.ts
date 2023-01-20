@@ -4,39 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a CodeCommit Approval Rule Template Resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codecommit.ApprovalRuleTemplate("example", {
- *     content: `{
- *     "Version": "2018-11-08",
- *     "DestinationReferences": ["refs/heads/master"],
- *     "Statements": [{
- *         "Type": "Approvers",
- *         "NumberOfApprovalsNeeded": 2,
- *         "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
- *     }]
- * }
- *
- * `,
- *     description: "This is an example approval rule template",
- * });
- * ```
- *
- * ## Import
- *
- * CodeCommit approval rule templates can be imported using the `name`, e.g.
- *
- * ```sh
- *  $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
- * ```
- */
 export class ApprovalRuleTemplate extends pulumi.CustomResource {
     /**
      * Get an existing ApprovalRuleTemplate resource's state with the given name, ID, and optional extra
@@ -65,37 +32,13 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ApprovalRuleTemplate.__pulumiType;
     }
 
-    /**
-     * The ID of the approval rule template
-     */
     public /*out*/ readonly approvalRuleTemplateId!: pulumi.Output<string>;
-    /**
-     * The content of the approval rule template. Maximum of 3000 characters.
-     */
     public readonly content!: pulumi.Output<string>;
-    /**
-     * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
-    /**
-     * The description of the approval rule template. Maximum of 1000 characters.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-     */
     public /*out*/ readonly lastModifiedUser!: pulumi.Output<string>;
-    /**
-     * The name for the approval rule template. Maximum of 100 characters.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The SHA-256 hash signature for the content of the approval rule template.
-     */
     public /*out*/ readonly ruleContentSha256!: pulumi.Output<string>;
 
     /**
@@ -142,37 +85,13 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ApprovalRuleTemplate resources.
  */
 export interface ApprovalRuleTemplateState {
-    /**
-     * The ID of the approval rule template
-     */
     approvalRuleTemplateId?: pulumi.Input<string>;
-    /**
-     * The content of the approval rule template. Maximum of 3000 characters.
-     */
     content?: pulumi.Input<string>;
-    /**
-     * The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     creationDate?: pulumi.Input<string>;
-    /**
-     * The description of the approval rule template. Maximum of 1000 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     */
     lastModifiedDate?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-     */
     lastModifiedUser?: pulumi.Input<string>;
-    /**
-     * The name for the approval rule template. Maximum of 100 characters.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The SHA-256 hash signature for the content of the approval rule template.
-     */
     ruleContentSha256?: pulumi.Input<string>;
 }
 
@@ -180,16 +99,7 @@ export interface ApprovalRuleTemplateState {
  * The set of arguments for constructing a ApprovalRuleTemplate resource.
  */
 export interface ApprovalRuleTemplateArgs {
-    /**
-     * The content of the approval rule template. Maximum of 3000 characters.
-     */
     content: pulumi.Input<string>;
-    /**
-     * The description of the approval rule template. Maximum of 1000 characters.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The name for the approval rule template. Maximum of 100 characters.
-     */
     name?: pulumi.Input<string>;
 }

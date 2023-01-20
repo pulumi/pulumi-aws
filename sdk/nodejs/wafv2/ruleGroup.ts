@@ -7,266 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Creates a WAFv2 Rule Group resource.
- *
- * ## Example Usage
- * ### Simple
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.RuleGroup("example", {
- *     capacity: 2,
- *     rules: [{
- *         action: {
- *             allow: {},
- *         },
- *         name: "rule-1",
- *         priority: 1,
- *         statement: {
- *             geoMatchStatement: {
- *                 countryCodes: [
- *                     "US",
- *                     "NL",
- *                 ],
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     scope: "REGIONAL",
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * ```
- * ### Complex
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testIpSet = new aws.wafv2.IpSet("testIpSet", {
- *     scope: "REGIONAL",
- *     ipAddressVersion: "IPV4",
- *     addresses: [
- *         "1.1.1.1/32",
- *         "2.2.2.2/32",
- *     ],
- * });
- * const testRegexPatternSet = new aws.wafv2.RegexPatternSet("testRegexPatternSet", {
- *     scope: "REGIONAL",
- *     regularExpressions: [{
- *         regexString: "one",
- *     }],
- * });
- * const example = new aws.wafv2.RuleGroup("example", {
- *     description: "An rule group containing all statements",
- *     scope: "REGIONAL",
- *     capacity: 500,
- *     rules: [
- *         {
- *             name: "rule-1",
- *             priority: 1,
- *             action: {
- *                 block: {},
- *             },
- *             statement: {
- *                 notStatement: {
- *                     statements: [{
- *                         andStatement: {
- *                             statements: [
- *                                 {
- *                                     geoMatchStatement: {
- *                                         countryCodes: ["US"],
- *                                     },
- *                                 },
- *                                 {
- *                                     byteMatchStatement: {
- *                                         positionalConstraint: "CONTAINS",
- *                                         searchString: "word",
- *                                         fieldToMatch: {
- *                                             allQueryArguments: {},
- *                                         },
- *                                         textTransformations: [
- *                                             {
- *                                                 priority: 5,
- *                                                 type: "CMD_LINE",
- *                                             },
- *                                             {
- *                                                 priority: 2,
- *                                                 type: "LOWERCASE",
- *                                             },
- *                                         ],
- *                                     },
- *                                 },
- *                             ],
- *                         },
- *                     }],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "rule-1",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *         {
- *             name: "rule-2",
- *             priority: 2,
- *             action: {
- *                 count: {},
- *             },
- *             statement: {
- *                 orStatement: {
- *                     statements: [
- *                         {
- *                             regexMatchStatement: {
- *                                 regexString: "a-z?",
- *                                 fieldToMatch: {
- *                                     singleHeader: {
- *                                         name: "user-agent",
- *                                     },
- *                                 },
- *                                 textTransformations: [{
- *                                     priority: 6,
- *                                     type: "NONE",
- *                                 }],
- *                             },
- *                         },
- *                         {
- *                             sqliMatchStatement: {
- *                                 fieldToMatch: {
- *                                     body: {},
- *                                 },
- *                                 textTransformations: [
- *                                     {
- *                                         priority: 5,
- *                                         type: "URL_DECODE",
- *                                     },
- *                                     {
- *                                         priority: 4,
- *                                         type: "HTML_ENTITY_DECODE",
- *                                     },
- *                                     {
- *                                         priority: 3,
- *                                         type: "COMPRESS_WHITE_SPACE",
- *                                     },
- *                                 ],
- *                             },
- *                         },
- *                         {
- *                             xssMatchStatement: {
- *                                 fieldToMatch: {
- *                                     method: {},
- *                                 },
- *                                 textTransformations: [{
- *                                     priority: 2,
- *                                     type: "NONE",
- *                                 }],
- *                             },
- *                         },
- *                     ],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "rule-2",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *         {
- *             name: "rule-3",
- *             priority: 3,
- *             action: {
- *                 block: {},
- *             },
- *             statement: {
- *                 sizeConstraintStatement: {
- *                     comparisonOperator: "GT",
- *                     size: 100,
- *                     fieldToMatch: {
- *                         singleQueryArgument: {
- *                             name: "username",
- *                         },
- *                     },
- *                     textTransformations: [{
- *                         priority: 5,
- *                         type: "NONE",
- *                     }],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "rule-3",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *         {
- *             name: "rule-4",
- *             priority: 4,
- *             action: {
- *                 block: {},
- *             },
- *             statement: {
- *                 orStatement: {
- *                     statements: [
- *                         {
- *                             ipSetReferenceStatement: {
- *                                 arn: testIpSet.arn,
- *                             },
- *                         },
- *                         {
- *                             regexPatternSetReferenceStatement: {
- *                                 arn: testRegexPatternSet.arn,
- *                                 fieldToMatch: {
- *                                     singleHeader: {
- *                                         name: "referer",
- *                                     },
- *                                 },
- *                                 textTransformations: [{
- *                                     priority: 2,
- *                                     type: "NONE",
- *                                 }],
- *                             },
- *                         },
- *                     ],
- *                 },
- *             },
- *             visibilityConfig: {
- *                 cloudwatchMetricsEnabled: false,
- *                 metricName: "rule-4",
- *                 sampledRequestsEnabled: false,
- *             },
- *         },
- *     ],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- *     tags: {
- *         Name: "example-and-statement",
- *         Code: "123456",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * WAFv2 Rule Group can be imported using `ID/name/scope` e.g.,
- *
- * ```sh
- *  $ pulumi import aws:wafv2/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
- * ```
- */
 export class RuleGroup extends pulumi.CustomResource {
     /**
      * Get an existing RuleGroup resource's state with the given name, ID, and optional extra
@@ -295,46 +35,16 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-     */
     public readonly capacity!: pulumi.Output<number>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-     */
     public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
-    /**
-     * A friendly description of the rule group.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
-    /**
-     * The label string.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-     */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
     public readonly scope!: pulumi.Output<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     */
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
@@ -393,46 +103,16 @@ export class RuleGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RuleGroup resources.
  */
 export interface RuleGroupState {
-    /**
-     * The Amazon Resource Name (ARN) of the IP Set that this statement references.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-     */
     capacity?: pulumi.Input<number>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-     */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
-    /**
-     * A friendly description of the rule group.
-     */
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
-    /**
-     * The label string.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
     scope?: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     */
     visibilityConfig?: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
 }
 
@@ -440,36 +120,12 @@ export interface RuleGroupState {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
-    /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
-     */
     capacity: pulumi.Input<number>;
-    /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
-     */
     customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
-    /**
-     * A friendly description of the rule group.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * The label string.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
-     */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRule>[]>;
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     */
     scope: pulumi.Input<string>;
-    /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-     */
     visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfig>;
 }

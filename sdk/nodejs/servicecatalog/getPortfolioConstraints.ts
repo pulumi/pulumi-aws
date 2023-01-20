@@ -7,21 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides information on Service Catalog Portfolio Constraints.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicecatalog.getPortfolioConstraints({
- *     portfolioId: "port-3lli3b3an",
- * });
- * ```
- */
 export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioConstraintsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,17 +21,8 @@ export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?
  * A collection of arguments for invoking getPortfolioConstraints.
  */
 export interface GetPortfolioConstraintsArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: string;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId: string;
-    /**
-     * Product identifier.
-     */
     productId?: string;
 }
 
@@ -55,38 +31,14 @@ export interface GetPortfolioConstraintsArgs {
  */
 export interface GetPortfolioConstraintsResult {
     readonly acceptLanguage?: string;
-    /**
-     * List of information about the constraints. See details below.
-     */
     readonly details: outputs.servicecatalog.GetPortfolioConstraintsDetail[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-     */
     readonly portfolioId: string;
-    /**
-     * Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
-     */
     readonly productId?: string;
 }
-/**
- * Provides information on Service Catalog Portfolio Constraints.
- *
- * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.servicecatalog.getPortfolioConstraints({
- *     portfolioId: "port-3lli3b3an",
- * });
- * ```
- */
 export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
     return pulumi.output(args).apply((a: any) => getPortfolioConstraints(a, opts))
 }
@@ -95,16 +47,7 @@ export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutpu
  * A collection of arguments for invoking getPortfolioConstraints.
  */
 export interface GetPortfolioConstraintsOutputArgs {
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * Portfolio identifier.
-     */
     portfolioId: pulumi.Input<string>;
-    /**
-     * Product identifier.
-     */
     productId?: pulumi.Input<string>;
 }

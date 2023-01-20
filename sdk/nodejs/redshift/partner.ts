@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Creates a new Amazon Redshift Partner Integration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.Partner("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.id,
- *     accountId: "1234567910",
- *     databaseName: aws_redshift_cluster.example.database_name,
- *     partnerName: "example",
- * });
- * ```
- *
- * ## Import
- *
- * Redshift usage limits can be imported using the `id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
- * ```
- */
 export class Partner extends pulumi.CustomResource {
     /**
      * Get an existing Partner resource's state with the given name, ID, and optional extra
@@ -57,29 +32,11 @@ export class Partner extends pulumi.CustomResource {
         return obj['__pulumiType'] === Partner.__pulumiType;
     }
 
-    /**
-     * The Amazon Web Services account ID that owns the cluster.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * The cluster identifier of the cluster that receives data from the partner.
-     */
     public readonly clusterIdentifier!: pulumi.Output<string>;
-    /**
-     * The name of the database that receives data from the partner.
-     */
     public readonly databaseName!: pulumi.Output<string>;
-    /**
-     * The name of the partner that is authorized to send data.
-     */
     public readonly partnerName!: pulumi.Output<string>;
-    /**
-     * (Optional) The partner integration status.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * (Optional) The status message provided by the partner.
-     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
 
     /**
@@ -131,29 +88,11 @@ export class Partner extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Partner resources.
  */
 export interface PartnerState {
-    /**
-     * The Amazon Web Services account ID that owns the cluster.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The cluster identifier of the cluster that receives data from the partner.
-     */
     clusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The name of the database that receives data from the partner.
-     */
     databaseName?: pulumi.Input<string>;
-    /**
-     * The name of the partner that is authorized to send data.
-     */
     partnerName?: pulumi.Input<string>;
-    /**
-     * (Optional) The partner integration status.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * (Optional) The status message provided by the partner.
-     */
     statusMessage?: pulumi.Input<string>;
 }
 
@@ -161,20 +100,8 @@ export interface PartnerState {
  * The set of arguments for constructing a Partner resource.
  */
 export interface PartnerArgs {
-    /**
-     * The Amazon Web Services account ID that owns the cluster.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * The cluster identifier of the cluster that receives data from the partner.
-     */
     clusterIdentifier: pulumi.Input<string>;
-    /**
-     * The name of the database that receives data from the partner.
-     */
     databaseName: pulumi.Input<string>;
-    /**
-     * The name of the partner that is authorized to send data.
-     */
     partnerName: pulumi.Input<string>;
 }

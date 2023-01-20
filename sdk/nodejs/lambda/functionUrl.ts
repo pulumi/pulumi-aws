@@ -7,50 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
- *
- * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLatest = new aws.lambda.FunctionUrl("testLatest", {
- *     functionName: aws_lambda_function.test.function_name,
- *     authorizationType: "NONE",
- * });
- * const testLive = new aws.lambda.FunctionUrl("testLive", {
- *     functionName: aws_lambda_function.test.function_name,
- *     qualifier: "my_alias",
- *     authorizationType: "AWS_IAM",
- *     cors: {
- *         allowCredentials: true,
- *         allowOrigins: ["*"],
- *         allowMethods: ["*"],
- *         allowHeaders: [
- *             "date",
- *             "keep-alive",
- *         ],
- *         exposeHeaders: [
- *             "keep-alive",
- *             "date",
- *         ],
- *         maxAge: 86400,
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
- * ```
- */
 export class FunctionUrl extends pulumi.CustomResource {
     /**
      * Get an existing FunctionUrl resource's state with the given name, ID, and optional extra
@@ -79,33 +35,12 @@ export class FunctionUrl extends pulumi.CustomResource {
         return obj['__pulumiType'] === FunctionUrl.__pulumiType;
     }
 
-    /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     */
     public readonly authorizationType!: pulumi.Output<string>;
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     */
     public readonly cors!: pulumi.Output<outputs.lambda.FunctionUrlCors | undefined>;
-    /**
-     * The Amazon Resource Name (ARN) of the function.
-     */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
-    /**
-     * The name (or ARN) of the Lambda function.
-     */
     public readonly functionName!: pulumi.Output<string>;
-    /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
-     */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
-    /**
-     * The alias name or `"$LATEST"`.
-     */
     public readonly qualifier!: pulumi.Output<string | undefined>;
-    /**
-     * A generated ID for the endpoint.
-     */
     public /*out*/ readonly urlId!: pulumi.Output<string>;
 
     /**
@@ -153,33 +88,12 @@ export class FunctionUrl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FunctionUrl resources.
  */
 export interface FunctionUrlState {
-    /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     */
     authorizationType?: pulumi.Input<string>;
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     */
     cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
-    /**
-     * The Amazon Resource Name (ARN) of the function.
-     */
     functionArn?: pulumi.Input<string>;
-    /**
-     * The name (or ARN) of the Lambda function.
-     */
     functionName?: pulumi.Input<string>;
-    /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws`.
-     */
     functionUrl?: pulumi.Input<string>;
-    /**
-     * The alias name or `"$LATEST"`.
-     */
     qualifier?: pulumi.Input<string>;
-    /**
-     * A generated ID for the endpoint.
-     */
     urlId?: pulumi.Input<string>;
 }
 
@@ -187,20 +101,8 @@ export interface FunctionUrlState {
  * The set of arguments for constructing a FunctionUrl resource.
  */
 export interface FunctionUrlArgs {
-    /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     */
     authorizationType: pulumi.Input<string>;
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     */
     cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
-    /**
-     * The name (or ARN) of the Lambda function.
-     */
     functionName: pulumi.Input<string>;
-    /**
-     * The alias name or `"$LATEST"`.
-     */
     qualifier?: pulumi.Input<string>;
 }

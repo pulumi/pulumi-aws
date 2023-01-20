@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
- * It also sets the retention period, in hours, for the Amazon Kinesis data.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
- *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     dataRetention: 7,
- *     streamingNotificationTargets: ["SQS"],
- * });
- * ```
- *
- * ## Import
- *
- * Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4
- * ```
- */
 export class VoiceConnectorStreaming extends pulumi.CustomResource {
     /**
      * Get an existing VoiceConnectorStreaming resource's state with the given name, ID, and optional extra
@@ -59,21 +32,9 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
         return obj['__pulumiType'] === VoiceConnectorStreaming.__pulumiType;
     }
 
-    /**
-     * The retention period, in hours, for the Amazon Kinesis data.
-     */
     public readonly dataRetention!: pulumi.Output<number>;
-    /**
-     * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-     */
     public readonly disabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-     */
     public readonly streamingNotificationTargets!: pulumi.Output<string[] | undefined>;
-    /**
-     * The Amazon Chime Voice Connector ID.
-     */
     public readonly voiceConnectorId!: pulumi.Output<string>;
 
     /**
@@ -115,21 +76,9 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VoiceConnectorStreaming resources.
  */
 export interface VoiceConnectorStreamingState {
-    /**
-     * The retention period, in hours, for the Amazon Kinesis data.
-     */
     dataRetention?: pulumi.Input<number>;
-    /**
-     * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-     */
     disabled?: pulumi.Input<boolean>;
-    /**
-     * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-     */
     streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Amazon Chime Voice Connector ID.
-     */
     voiceConnectorId?: pulumi.Input<string>;
 }
 
@@ -137,20 +86,8 @@ export interface VoiceConnectorStreamingState {
  * The set of arguments for constructing a VoiceConnectorStreaming resource.
  */
 export interface VoiceConnectorStreamingArgs {
-    /**
-     * The retention period, in hours, for the Amazon Kinesis data.
-     */
     dataRetention: pulumi.Input<number>;
-    /**
-     * When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-     */
     disabled?: pulumi.Input<boolean>;
-    /**
-     * The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
-     */
     streamingNotificationTargets?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The Amazon Chime Voice Connector ID.
-     */
     voiceConnectorId: pulumi.Input<string>;
 }

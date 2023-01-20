@@ -7,23 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
- */
 export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.InvokeOptions): Promise<GetReleaseLabelsResult> {
     args = args || {};
 
@@ -37,9 +20,6 @@ export function getReleaseLabels(args?: GetReleaseLabelsArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getReleaseLabels.
  */
 export interface GetReleaseLabelsArgs {
-    /**
-     * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-     */
     filters?: inputs.emr.GetReleaseLabelsFilters;
 }
 
@@ -52,28 +32,8 @@ export interface GetReleaseLabelsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Returned release labels.
-     */
     readonly releaseLabels: string[];
 }
-/**
- * Retrieve information about EMR Release Labels.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emr.getReleaseLabels({
- *     filters: {
- *         application: "spark@2.1.0",
- *         prefix: "emr-5",
- *     },
- * });
- * ```
- */
 export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReleaseLabelsResult> {
     return pulumi.output(args).apply((a: any) => getReleaseLabels(a, opts))
 }
@@ -82,8 +42,5 @@ export function getReleaseLabelsOutput(args?: GetReleaseLabelsOutputArgs, opts?:
  * A collection of arguments for invoking getReleaseLabels.
  */
 export interface GetReleaseLabelsOutputArgs {
-    /**
-     * Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
-     */
     filters?: pulumi.Input<inputs.emr.GetReleaseLabelsFiltersArgs>;
 }

@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Security Hub administrator account for an organization. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Security Hub can be found in the [Security Hub User Guide](https://docs.aws.amazon.com/securityhub/latest/userguide/designate-orgs-admin-account.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["securityhub.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * // Auto enable security hub in organization member accounts
- * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
- * ```
- *
- * ## Import
- *
- * Security Hub Organization Admin Accounts can be imported using the AWS account ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
- * ```
- */
 export class OrganizationAdminAccount extends pulumi.CustomResource {
     /**
      * Get an existing OrganizationAdminAccount resource's state with the given name, ID, and optional extra
@@ -61,9 +32,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrganizationAdminAccount.__pulumiType;
     }
 
-    /**
-     * The AWS account identifier of the account to designate as the Security Hub administrator account.
-     */
     public readonly adminAccountId!: pulumi.Output<string>;
 
     /**
@@ -96,9 +64,6 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrganizationAdminAccount resources.
  */
 export interface OrganizationAdminAccountState {
-    /**
-     * The AWS account identifier of the account to designate as the Security Hub administrator account.
-     */
     adminAccountId?: pulumi.Input<string>;
 }
 
@@ -106,8 +71,5 @@ export interface OrganizationAdminAccountState {
  * The set of arguments for constructing a OrganizationAdminAccount resource.
  */
 export interface OrganizationAdminAccountArgs {
-    /**
-     * The AWS account identifier of the account to designate as the Security Hub administrator account.
-     */
     adminAccountId: pulumi.Input<string>;
 }

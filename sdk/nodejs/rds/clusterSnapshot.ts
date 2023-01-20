@@ -4,29 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_rds_cluster.example.id,
- *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
- * });
- * ```
- *
- * ## Import
- *
- * `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
- * ```
- */
 export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * Get an existing ClusterSnapshot resource's state with the given name, ID, and optional extra
@@ -55,67 +32,22 @@ export class ClusterSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterSnapshot.__pulumiType;
     }
 
-    /**
-     * Allocated storage size in gigabytes (GB).
-     */
     public /*out*/ readonly allocatedStorage!: pulumi.Output<number>;
-    /**
-     * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     */
     public /*out*/ readonly availabilityZones!: pulumi.Output<string[]>;
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     public readonly dbClusterIdentifier!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-     */
     public /*out*/ readonly dbClusterSnapshotArn!: pulumi.Output<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     public readonly dbClusterSnapshotIdentifier!: pulumi.Output<string>;
-    /**
-     * Name of the database engine.
-     */
     public /*out*/ readonly engine!: pulumi.Output<string>;
-    /**
-     * Version of the database engine for this DB cluster snapshot.
-     */
     public /*out*/ readonly engineVersion!: pulumi.Output<string>;
-    /**
-     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     */
     public /*out*/ readonly kmsKeyId!: pulumi.Output<string>;
-    /**
-     * License model information for the restored DB cluster.
-     */
     public /*out*/ readonly licenseModel!: pulumi.Output<string>;
-    /**
-     * Port that the DB cluster was listening on at the time of the snapshot.
-     */
     public /*out*/ readonly port!: pulumi.Output<number>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
-    /**
-     * The status of this DB Cluster Snapshot.
-     */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Whether the DB cluster snapshot is encrypted.
-     */
     public /*out*/ readonly storageEncrypted!: pulumi.Output<boolean>;
-    /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The VPC ID associated with the DB cluster snapshot.
-     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -183,67 +115,22 @@ export class ClusterSnapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ClusterSnapshot resources.
  */
 export interface ClusterSnapshotState {
-    /**
-     * Allocated storage size in gigabytes (GB).
-     */
     allocatedStorage?: pulumi.Input<number>;
-    /**
-     * List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-     */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     dbClusterIdentifier?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-     */
     dbClusterSnapshotArn?: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbClusterSnapshotIdentifier?: pulumi.Input<string>;
-    /**
-     * Name of the database engine.
-     */
     engine?: pulumi.Input<string>;
-    /**
-     * Version of the database engine for this DB cluster snapshot.
-     */
     engineVersion?: pulumi.Input<string>;
-    /**
-     * If storageEncrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
-     */
     kmsKeyId?: pulumi.Input<string>;
-    /**
-     * License model information for the restored DB cluster.
-     */
     licenseModel?: pulumi.Input<string>;
-    /**
-     * Port that the DB cluster was listening on at the time of the snapshot.
-     */
     port?: pulumi.Input<number>;
     snapshotType?: pulumi.Input<string>;
     sourceDbClusterSnapshotArn?: pulumi.Input<string>;
-    /**
-     * The status of this DB Cluster Snapshot.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * Whether the DB cluster snapshot is encrypted.
-     */
     storageEncrypted?: pulumi.Input<boolean>;
-    /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The VPC ID associated with the DB cluster snapshot.
-     */
     vpcId?: pulumi.Input<string>;
 }
 
@@ -251,16 +138,7 @@ export interface ClusterSnapshotState {
  * The set of arguments for constructing a ClusterSnapshot resource.
  */
 export interface ClusterSnapshotArgs {
-    /**
-     * The DB Cluster Identifier from which to take the snapshot.
-     */
     dbClusterIdentifier: pulumi.Input<string>;
-    /**
-     * The Identifier for the snapshot.
-     */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

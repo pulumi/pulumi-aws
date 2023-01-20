@@ -7,40 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Get information on an EC2 Transit Gateway Route Table.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTable({
- *     filters: [
- *         {
- *             name: "default-association-route-table",
- *             values: ["true"],
- *         },
- *         {
- *             name: "transit-gateway-id",
- *             values: ["tgw-12345678"],
- *         },
- *     ],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTable({
- *     id: "tgw-rtb-12345678",
- * });
- * ```
- */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     args = args || {};
 
@@ -56,17 +22,8 @@ export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOpti
  * A collection of arguments for invoking getRouteTable.
  */
 export interface GetRouteTableArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: inputs.ec2transitgateway.GetRouteTableFilter[];
-    /**
-     * Identifier of the EC2 Transit Gateway Route Table.
-     */
     id?: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table
-     */
     tags?: {[key: string]: string};
 }
 
@@ -74,66 +31,14 @@ export interface GetRouteTableArgs {
  * A collection of values returned by getRouteTable.
  */
 export interface GetRouteTableResult {
-    /**
-     * EC2 Transit Gateway Route Table ARN.
-     */
     readonly arn: string;
-    /**
-     * Boolean whether this is the default association route table for the EC2 Transit Gateway
-     */
     readonly defaultAssociationRouteTable: boolean;
-    /**
-     * Boolean whether this is the default propagation route table for the EC2 Transit Gateway
-     */
     readonly defaultPropagationRouteTable: boolean;
     readonly filters?: outputs.ec2transitgateway.GetRouteTableFilter[];
-    /**
-     * EC2 Transit Gateway Route Table identifier
-     */
     readonly id: string;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table
-     */
     readonly tags: {[key: string]: string};
-    /**
-     * EC2 Transit Gateway identifier
-     */
     readonly transitGatewayId: string;
 }
-/**
- * Get information on an EC2 Transit Gateway Route Table.
- *
- * ## Example Usage
- * ### By Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTable({
- *     filters: [
- *         {
- *             name: "default-association-route-table",
- *             values: ["true"],
- *         },
- *         {
- *             name: "transit-gateway-id",
- *             values: ["tgw-12345678"],
- *         },
- *     ],
- * });
- * ```
- * ### By Identifier
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getRouteTable({
- *     id: "tgw-rtb-12345678",
- * });
- * ```
- */
 export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getRouteTable(a, opts))
 }
@@ -142,16 +47,7 @@ export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulum
  * A collection of arguments for invoking getRouteTable.
  */
 export interface GetRouteTableOutputArgs {
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableFilterArgs>[]>;
-    /**
-     * Identifier of the EC2 Transit Gateway Route Table.
-     */
     id?: pulumi.Input<string>;
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

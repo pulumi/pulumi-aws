@@ -4,35 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.macie2.Account("exampleAccount", {});
- * const exampleMember = new aws.macie2.Member("exampleMember", {
- *     accountId: "AWS ACCOUNT ID",
- *     email: "EMAIL",
- *     invite: true,
- *     invitationMessage: "Message of the invitation",
- *     invitationDisableEmailNotification: true,
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
- * ## Import
- *
- * `aws_macie2_member` can be imported using the account ID of the member account, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:macie2/member:Member example 123456789012
- * ```
- */
 export class Member extends pulumi.CustomResource {
     /**
      * Get an existing Member resource's state with the given name, ID, and optional extra
@@ -61,55 +32,19 @@ export class Member extends pulumi.CustomResource {
         return obj['__pulumiType'] === Member.__pulumiType;
     }
 
-    /**
-     * The AWS account ID for the account.
-     */
     public readonly accountId!: pulumi.Output<string>;
-    /**
-     * The AWS account ID for the administrator account.
-     */
     public /*out*/ readonly administratorAccountId!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the account.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The email address for the account.
-     */
     public readonly email!: pulumi.Output<string>;
-    /**
-     * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-     */
     public readonly invitationDisableEmailNotification!: pulumi.Output<boolean | undefined>;
-    /**
-     * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-     */
     public readonly invitationMessage!: pulumi.Output<string | undefined>;
-    /**
-     * Send an invitation to a member
-     */
     public readonly invite!: pulumi.Output<boolean>;
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-     */
     public /*out*/ readonly invitedAt!: pulumi.Output<string>;
     public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
-    /**
-     * The current status of the relationship between the account and the administrator account.
-     */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
-    /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-     */
     public readonly status!: pulumi.Output<string>;
-    /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -171,55 +106,19 @@ export class Member extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Member resources.
  */
 export interface MemberState {
-    /**
-     * The AWS account ID for the account.
-     */
     accountId?: pulumi.Input<string>;
-    /**
-     * The AWS account ID for the administrator account.
-     */
     administratorAccountId?: pulumi.Input<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the account.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The email address for the account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-     */
     invitationDisableEmailNotification?: pulumi.Input<boolean>;
-    /**
-     * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-     */
     invitationMessage?: pulumi.Input<string>;
-    /**
-     * Send an invitation to a member
-     */
     invite?: pulumi.Input<boolean>;
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
-     */
     invitedAt?: pulumi.Input<string>;
     masterAccountId?: pulumi.Input<string>;
-    /**
-     * The current status of the relationship between the account and the administrator account.
-     */
     relationshipStatus?: pulumi.Input<string>;
-    /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
-     */
     updatedAt?: pulumi.Input<string>;
 }
 
@@ -227,32 +126,11 @@ export interface MemberState {
  * The set of arguments for constructing a Member resource.
  */
 export interface MemberArgs {
-    /**
-     * The AWS account ID for the account.
-     */
     accountId: pulumi.Input<string>;
-    /**
-     * The email address for the account.
-     */
     email: pulumi.Input<string>;
-    /**
-     * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-     */
     invitationDisableEmailNotification?: pulumi.Input<boolean>;
-    /**
-     * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
-     */
     invitationMessage?: pulumi.Input<string>;
-    /**
-     * Send an invitation to a member
-     */
     invite?: pulumi.Input<boolean>;
-    /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-     */
     status?: pulumi.Input<string>;
-    /**
-     * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

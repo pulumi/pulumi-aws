@@ -4,9 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
- */
 export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,16 +15,10 @@ export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesR
  * A collection of values returned by getInstances.
  */
 export interface GetInstancesResult {
-    /**
-     * Set of Amazon Resource Names (ARNs) of the SSO Instances.
-     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Set of identifiers of the identity stores connected to the SSO Instances.
-     */
     readonly identityStoreIds: string[];
 }

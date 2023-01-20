@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Route 53 Resolver DNS Firewall domain list resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53.ResolverFirewallDomainList("example", {});
- * ```
- *
- * ## Import
- *
- *  Route 53 Resolver DNS Firewall domain lists can be imported using the Route 53 Resolver DNS Firewall domain list ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
- * ```
- */
 export class ResolverFirewallDomainList extends pulumi.CustomResource {
     /**
      * Get an existing ResolverFirewallDomainList resource's state with the given name, ID, and optional extra
@@ -52,25 +32,10 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverFirewallDomainList.__pulumiType;
     }
 
-    /**
-     * The ARN (Amazon Resource Name) of the domain list.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * A array of domains for the firewall domain list.
-     */
     public readonly domains!: pulumi.Output<string[] | undefined>;
-    /**
-     * A name that lets you identify the domain list, to manage and use it.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -108,25 +73,10 @@ export class ResolverFirewallDomainList extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResolverFirewallDomainList resources.
  */
 export interface ResolverFirewallDomainListState {
-    /**
-     * The ARN (Amazon Resource Name) of the domain list.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * A array of domains for the firewall domain list.
-     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A name that lets you identify the domain list, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -134,16 +84,7 @@ export interface ResolverFirewallDomainListState {
  * The set of arguments for constructing a ResolverFirewallDomainList resource.
  */
 export interface ResolverFirewallDomainListArgs {
-    /**
-     * A array of domains for the firewall domain list.
-     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * A name that lets you identify the domain list, to manage and use it.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

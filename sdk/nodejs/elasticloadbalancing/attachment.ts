@@ -5,28 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Attaches an EC2 instance to an Elastic Load Balancer (ELB). For attaching resources with Application Load Balancer (ALB) or Network Load Balancer (NLB), see the `aws.lb.TargetGroupAttachment` resource.
- *
- * > **NOTE on ELB Instances and ELB Attachments:** This provider currently provides
- * both a standalone ELB Attachment resource (describing an instance attached to
- * an ELB), and an Elastic Load Balancer resource with
- * `instances` defined in-line. At this time you cannot use an ELB with in-line
- * instances in conjunction with an ELB Attachment resource. Doing so will cause a
- * conflict and will overwrite attachments.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer attachment
- * const baz = new aws.elb.Attachment("baz", {
- *     elb: aws_elb.bar.id,
- *     instance: aws_instance.foo.id,
- * });
- * ```
- *
  * @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment
  */
 export class Attachment extends pulumi.CustomResource {
@@ -58,13 +36,7 @@ export class Attachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Attachment.__pulumiType;
     }
 
-    /**
-     * The name of the ELB.
-     */
     public readonly elb!: pulumi.Output<string>;
-    /**
-     * Instance ID to place in the ELB pool.
-     */
     public readonly instance!: pulumi.Output<string>;
 
     /**
@@ -105,13 +77,7 @@ export class Attachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Attachment resources.
  */
 export interface AttachmentState {
-    /**
-     * The name of the ELB.
-     */
     elb?: pulumi.Input<string>;
-    /**
-     * Instance ID to place in the ELB pool.
-     */
     instance?: pulumi.Input<string>;
 }
 
@@ -119,12 +85,6 @@ export interface AttachmentState {
  * The set of arguments for constructing a Attachment resource.
  */
 export interface AttachmentArgs {
-    /**
-     * The name of the ELB.
-     */
     elb: pulumi.Input<string>;
-    /**
-     * Instance ID to place in the ELB pool.
-     */
     instance: pulumi.Input<string>;
 }

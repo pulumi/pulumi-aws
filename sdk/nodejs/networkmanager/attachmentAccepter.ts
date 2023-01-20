@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Resource for managing an AWS NetworkManager Attachment Accepter.
- *
- * ## Example Usage
- * ### Example with VPC attachment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_vpc_attachment.vpc.id,
- *     attachmentType: aws_networkmanager_vpc_attachment.vpc.attachment_type,
- * });
- * ```
- * ### Example with site-to-site VPN attachment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: aws_networkmanager_site_to_site_vpn_attachment.vpn.id,
- *     attachmentType: aws_networkmanager_site_to_site_vpn_attachment.vpn.attachment_type,
- * });
- * ```
- */
 export class AttachmentAccepter extends pulumi.CustomResource {
     /**
      * Get an existing AttachmentAccepter resource's state with the given name, ID, and optional extra
@@ -59,45 +32,15 @@ export class AttachmentAccepter extends pulumi.CustomResource {
         return obj['__pulumiType'] === AttachmentAccepter.__pulumiType;
     }
 
-    /**
-     * The ID of the attachment.
-     */
     public readonly attachmentId!: pulumi.Output<string>;
-    /**
-     * The policy rule number associated with the attachment.
-     */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
-    /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-     */
     public readonly attachmentType!: pulumi.Output<string>;
-    /**
-     * The ARN of a core network.
-     */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
-    /**
-     * The id of a core network.
-     */
     public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
-    /**
-     * The Region where the edge is located.
-     */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
-    /**
-     * The ID of the attachment account owner.
-     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
-    /**
-     * The attachment resource ARN.
-     */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
-    /**
-     * The name of the segment attachment.
-     */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
-    /**
-     * The state of the attachment.
-     */
     public /*out*/ readonly state!: pulumi.Output<string>;
 
     /**
@@ -151,45 +94,15 @@ export class AttachmentAccepter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AttachmentAccepter resources.
  */
 export interface AttachmentAccepterState {
-    /**
-     * The ID of the attachment.
-     */
     attachmentId?: pulumi.Input<string>;
-    /**
-     * The policy rule number associated with the attachment.
-     */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
-    /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-     */
     attachmentType?: pulumi.Input<string>;
-    /**
-     * The ARN of a core network.
-     */
     coreNetworkArn?: pulumi.Input<string>;
-    /**
-     * The id of a core network.
-     */
     coreNetworkId?: pulumi.Input<string>;
-    /**
-     * The Region where the edge is located.
-     */
     edgeLocation?: pulumi.Input<string>;
-    /**
-     * The ID of the attachment account owner.
-     */
     ownerAccountId?: pulumi.Input<string>;
-    /**
-     * The attachment resource ARN.
-     */
     resourceArn?: pulumi.Input<string>;
-    /**
-     * The name of the segment attachment.
-     */
     segmentName?: pulumi.Input<string>;
-    /**
-     * The state of the attachment.
-     */
     state?: pulumi.Input<string>;
 }
 
@@ -197,12 +110,6 @@ export interface AttachmentAccepterState {
  * The set of arguments for constructing a AttachmentAccepter resource.
  */
 export interface AttachmentAccepterArgs {
-    /**
-     * The ID of the attachment.
-     */
     attachmentId: pulumi.Input<string>;
-    /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
-     */
     attachmentType: pulumi.Input<string>;
 }

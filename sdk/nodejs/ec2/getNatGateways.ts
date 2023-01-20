@@ -7,9 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
- */
 export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOptions): Promise<GetNatGatewaysResult> {
     args = args || {};
 
@@ -25,18 +22,8 @@ export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getNatGateways.
  */
 export interface GetNatGatewaysArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: inputs.ec2.GetNatGatewaysFilter[];
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateways.
-     */
     tags?: {[key: string]: string};
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: string;
 }
 
@@ -49,16 +36,10 @@ export interface GetNatGatewaysResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * List of all the NAT gateway ids found.
-     */
     readonly ids: string[];
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
-/**
- * This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
- */
 export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewaysResult> {
     return pulumi.output(args).apply((a: any) => getNatGateways(a, opts))
 }
@@ -67,17 +48,7 @@ export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pul
  * A collection of arguments for invoking getNatGateways.
  */
 export interface GetNatGatewaysOutputArgs {
-    /**
-     * Custom filter block as described below.
-     */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewaysFilterArgs>[]>;
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired NAT Gateways.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * VPC ID that you want to filter from.
-     */
     vpcId?: pulumi.Input<string>;
 }

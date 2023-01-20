@@ -7,68 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-/**
- * Provides a Service Discovery Service resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
- *     description: "example",
- *     vpc: exampleVpc.id,
- * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
- *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
- *     dnsConfig: {
- *         namespaceId: examplePublicDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *     },
- *     healthCheckConfig: {
- *         failureThreshold: 10,
- *         resourcePath: "path",
- *         type: "HTTP",
- *     },
- * });
- * ```
- *
- * ## Import
- *
- * Service Discovery Service can be imported using the service ID, e.g.,
- *
- * ```sh
- *  $ pulumi import aws:servicediscovery/service:Service example 0123456789
- * ```
- */
 export class Service extends pulumi.CustomResource {
     /**
      * Get an existing Service resource's state with the given name, ID, and optional extra
@@ -97,46 +35,17 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
-    /**
-     * The ARN of the service.
-     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The description of the service.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-     */
     public readonly dnsConfig!: pulumi.Output<outputs.servicediscovery.ServiceDnsConfig | undefined>;
-    /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
-     */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
-    /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-     */
     public readonly healthCheckConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
-    /**
-     * A complex type that contains settings for ECS managed health checks.
-     */
     public readonly healthCheckCustomConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckCustomConfig | undefined>;
-    /**
-     * The name of the service.
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The ID of the namespace to use for DNS configuration.
-     */
     public readonly namespaceId!: pulumi.Output<string>;
-    /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -161,6 +70,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -171,6 +81,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -183,82 +94,30 @@ export class Service extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Service resources.
  */
 export interface ServiceState {
-    /**
-     * The ARN of the service.
-     */
     arn?: pulumi.Input<string>;
-    /**
-     * The description of the service.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-     */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
-    /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-     */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
-    /**
-     * A complex type that contains settings for ECS managed health checks.
-     */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
-    /**
-     * The name of the service.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The ID of the namespace to use for DNS configuration.
-     */
     namespaceId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    type?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
-    /**
-     * The description of the service.
-     */
     description?: pulumi.Input<string>;
-    /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-     */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
-    /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
-     */
     forceDestroy?: pulumi.Input<boolean>;
-    /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-     */
     healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
-    /**
-     * A complex type that contains settings for ECS managed health checks.
-     */
     healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
-    /**
-     * The name of the service.
-     */
     name?: pulumi.Input<string>;
-    /**
-     * The ID of the namespace to use for DNS configuration.
-     */
     namespaceId?: pulumi.Input<string>;
-    /**
-     * A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    type?: pulumi.Input<string>;
 }
