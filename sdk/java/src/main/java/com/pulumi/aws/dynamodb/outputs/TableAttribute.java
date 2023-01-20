@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TableAttribute {
-    /**
-     * @return Name of the index
-     * 
-     */
     private String name;
-    /**
-     * @return Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-     * 
-     */
     private String type;
 
     private TableAttribute() {}
-    /**
-     * @return Name of the index
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-     * 
-     */
     public String type() {
         return this.type;
     }

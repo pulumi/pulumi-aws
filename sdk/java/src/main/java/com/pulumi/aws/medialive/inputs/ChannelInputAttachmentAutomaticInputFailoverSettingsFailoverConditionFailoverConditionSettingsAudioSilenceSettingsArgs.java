@@ -16,17 +16,9 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs();
 
-    /**
-     * The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
-    /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
-     * 
-     */
     public Output<String> audioSelectorName() {
         return this.audioSelectorName;
     }
@@ -63,23 +55,11 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectorName(Output<String> audioSelectorName) {
             $.audioSelectorName = audioSelectorName;
             return this;
         }
 
-        /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioSelectorName(String audioSelectorName) {
             return audioSelectorName(Output.of(audioSelectorName));
         }

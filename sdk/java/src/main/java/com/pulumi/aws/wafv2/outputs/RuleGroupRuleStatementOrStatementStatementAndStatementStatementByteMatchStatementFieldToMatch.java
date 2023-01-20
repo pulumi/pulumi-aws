@@ -21,125 +21,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments allQueryArguments;
-    /**
-     * @return Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody body;
-    /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchCookies cookies;
-    /**
-     * @return Inspect the request headers. See Headers below for details.
-     * 
-     */
     private @Nullable List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchHeader> headers;
-    /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchJsonBody jsonBody;
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod method;
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString queryString;
-    /**
-     * @return Inspect a single header. See Single Header below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader singleHeader;
-    /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument singleQueryArgument;
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     private @Nullable RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath uriPath;
 
     private RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch() {}
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
-    /**
-     * @return Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody> body() {
         return Optional.ofNullable(this.body);
     }
-    /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchCookies> cookies() {
         return Optional.ofNullable(this.cookies);
     }
-    /**
-     * @return Inspect the request headers. See Headers below for details.
-     * 
-     */
     public List<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchJsonBody> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString> queryString() {
         return Optional.ofNullable(this.queryString);
     }
-    /**
-     * @return Inspect a single header. See Single Header below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
-    /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<RuleGroupRuleStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }

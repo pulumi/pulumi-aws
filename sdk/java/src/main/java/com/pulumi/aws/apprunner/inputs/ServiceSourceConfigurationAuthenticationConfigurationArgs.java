@@ -15,32 +15,16 @@ public final class ServiceSourceConfigurationAuthenticationConfigurationArgs ext
 
     public static final ServiceSourceConfigurationAuthenticationConfigurationArgs Empty = new ServiceSourceConfigurationAuthenticationConfigurationArgs();
 
-    /**
-     * ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
-     * 
-     */
     @Import(name="accessRoleArn")
     private @Nullable Output<String> accessRoleArn;
 
-    /**
-     * @return ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
-     * 
-     */
     public Optional<Output<String>> accessRoleArn() {
         return Optional.ofNullable(this.accessRoleArn);
     }
 
-    /**
-     * ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
-     * 
-     */
     @Import(name="connectionArn")
     private @Nullable Output<String> connectionArn;
 
-    /**
-     * @return ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
-     * 
-     */
     public Optional<Output<String>> connectionArn() {
         return Optional.ofNullable(this.connectionArn);
     }
@@ -70,44 +54,20 @@ public final class ServiceSourceConfigurationAuthenticationConfigurationArgs ext
             $ = new ServiceSourceConfigurationAuthenticationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessRoleArn ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRoleArn(@Nullable Output<String> accessRoleArn) {
             $.accessRoleArn = accessRoleArn;
             return this;
         }
 
-        /**
-         * @param accessRoleArn ARN of the IAM role that grants the App Runner service access to a source repository. Required for ECR image repositories (but not for ECR Public)
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessRoleArn(String accessRoleArn) {
             return accessRoleArn(Output.of(accessRoleArn));
         }
 
-        /**
-         * @param connectionArn ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(@Nullable Output<String> connectionArn) {
             $.connectionArn = connectionArn;
             return this;
         }
 
-        /**
-         * @param connectionArn ARN of the App Runner connection that enables the App Runner service to connect to a source repository. Required for GitHub code repositories.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionArn(String connectionArn) {
             return connectionArn(Output.of(connectionArn));
         }

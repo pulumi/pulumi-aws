@@ -15,47 +15,23 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
 
     public static final ServiceSpecificCredentialArgs Empty = new ServiceSpecificCredentialArgs();
 
-    /**
-     * The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
 
-    /**
-     * The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -86,65 +62,29 @@ public final class ServiceSpecificCredentialArgs extends com.pulumi.resources.Re
             $ = new ServiceSpecificCredentialArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param status The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param userName The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

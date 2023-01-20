@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceNetworkConfiguration {
-    /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceNetworkConfigurationEgressConfiguration egressConfiguration;
-    /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     private @Nullable ServiceNetworkConfigurationIngressConfiguration ingressConfiguration;
 
     private ServiceNetworkConfiguration() {}
-    /**
-     * @return Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-     * 
-     */
     public Optional<ServiceNetworkConfigurationEgressConfiguration> egressConfiguration() {
         return Optional.ofNullable(this.egressConfiguration);
     }
-    /**
-     * @return Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
-     * 
-     */
     public Optional<ServiceNetworkConfigurationIngressConfiguration> ingressConfiguration() {
         return Optional.ofNullable(this.ingressConfiguration);
     }

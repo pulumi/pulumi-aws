@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobS3JobDefinitionScopingIncludesAnd {
-    /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-     * 
-     */
     private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm simpleScopeTerm;
-    /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-     * 
-     */
     private @Nullable ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm tagScopeTerm;
 
     private ClassificationJobS3JobDefinitionScopingIncludesAnd() {}
-    /**
-     * @return A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-     * 
-     */
     public Optional<ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm> simpleScopeTerm() {
         return Optional.ofNullable(this.simpleScopeTerm);
     }
-    /**
-     * @return A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-     * 
-     */
     public Optional<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm> tagScopeTerm() {
         return Optional.ofNullable(this.tagScopeTerm);
     }

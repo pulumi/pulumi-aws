@@ -20,219 +20,71 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionResult {
-    /**
-     * @return Instruction set architecture for the Lambda function.
-     * 
-     */
     private List<String> architectures;
-    /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
-     * 
-     */
     private String arn;
-    /**
-     * @return ARN for a Code Signing Configuration.
-     * 
-     */
     private String codeSigningConfigArn;
-    /**
-     * @return Configure the function&#39;s *dead letter queue*.
-     * 
-     */
     private GetFunctionDeadLetterConfig deadLetterConfig;
-    /**
-     * @return Description of what your Lambda Function does.
-     * 
-     */
     private String description;
-    /**
-     * @return Lambda environment&#39;s configuration settings.
-     * 
-     */
     private GetFunctionEnvironment environment;
-    /**
-     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
-     * 
-     */
     private List<GetFunctionEphemeralStorage> ephemeralStorages;
-    /**
-     * @return Connection settings for an Amazon EFS file system.
-     * 
-     */
     private List<GetFunctionFileSystemConfig> fileSystemConfigs;
     private String functionName;
-    /**
-     * @return Function entrypoint in your code.
-     * 
-     */
     private String handler;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return URI of the container image.
-     * 
-     */
     private String imageUri;
-    /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway.
-     * 
-     */
     private String invokeArn;
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     private String kmsKeyArn;
-    /**
-     * @return Date this resource was last modified.
-     * 
-     */
     private String lastModified;
-    /**
-     * @return List of Lambda Layer ARNs attached to your Lambda Function.
-     * 
-     */
     private List<String> layers;
-    /**
-     * @return Amount of memory in MB your Lambda Function can use at runtime.
-     * 
-     */
     private Integer memorySize;
-    /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
-     * 
-     */
     private String qualifiedArn;
-    /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
-     * 
-     */
     private String qualifiedInvokeArn;
     private @Nullable String qualifier;
-    /**
-     * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
-     * 
-     */
     private Integer reservedConcurrentExecutions;
-    /**
-     * @return IAM role attached to the Lambda Function.
-     * 
-     */
     private String role;
-    /**
-     * @return Runtime environment for the Lambda function.
-     * 
-     */
     private String runtime;
-    /**
-     * @return ARN of a signing job.
-     * 
-     */
     private String signingJobArn;
-    /**
-     * @return The ARN for a signing profile version.
-     * 
-     */
     private String signingProfileVersionArn;
-    /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
-     * 
-     */
     private String sourceCodeHash;
-    /**
-     * @return Size in bytes of the function .zip file.
-     * 
-     */
     private Integer sourceCodeSize;
     private Map<String,String> tags;
-    /**
-     * @return Function execution time at which Lambda should terminate the function.
-     * 
-     */
     private Integer timeout;
-    /**
-     * @return Tracing settings of the function.
-     * 
-     */
     private GetFunctionTracingConfig tracingConfig;
-    /**
-     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
-     * 
-     */
     private String version;
-    /**
-     * @return VPC configuration associated with your Lambda function.
-     * 
-     */
     private GetFunctionVpcConfig vpcConfig;
 
     private GetFunctionResult() {}
-    /**
-     * @return Instruction set architecture for the Lambda function.
-     * 
-     */
     public List<String> architectures() {
         return this.architectures;
     }
-    /**
-     * @return Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return ARN for a Code Signing Configuration.
-     * 
-     */
     public String codeSigningConfigArn() {
         return this.codeSigningConfigArn;
     }
-    /**
-     * @return Configure the function&#39;s *dead letter queue*.
-     * 
-     */
     public GetFunctionDeadLetterConfig deadLetterConfig() {
         return this.deadLetterConfig;
     }
-    /**
-     * @return Description of what your Lambda Function does.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Lambda environment&#39;s configuration settings.
-     * 
-     */
     public GetFunctionEnvironment environment() {
         return this.environment;
     }
-    /**
-     * @return Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
-     * 
-     */
     public List<GetFunctionEphemeralStorage> ephemeralStorages() {
         return this.ephemeralStorages;
     }
-    /**
-     * @return Connection settings for an Amazon EFS file system.
-     * 
-     */
     public List<GetFunctionFileSystemConfig> fileSystemConfigs() {
         return this.fileSystemConfigs;
     }
     public String functionName() {
         return this.functionName;
     }
-    /**
-     * @return Function entrypoint in your code.
-     * 
-     */
     public String handler() {
         return this.handler;
     }
@@ -243,142 +95,66 @@ public final class GetFunctionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return URI of the container image.
-     * 
-     */
     public String imageUri() {
         return this.imageUri;
     }
-    /**
-     * @return ARN to be used for invoking Lambda Function from API Gateway.
-     * 
-     */
     public String invokeArn() {
         return this.invokeArn;
     }
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
-    /**
-     * @return Date this resource was last modified.
-     * 
-     */
     public String lastModified() {
         return this.lastModified;
     }
-    /**
-     * @return List of Lambda Layer ARNs attached to your Lambda Function.
-     * 
-     */
     public List<String> layers() {
         return this.layers;
     }
-    /**
-     * @return Amount of memory in MB your Lambda Function can use at runtime.
-     * 
-     */
     public Integer memorySize() {
         return this.memorySize;
     }
-    /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `arn`.
-     * 
-     */
     public String qualifiedArn() {
         return this.qualifiedArn;
     }
-    /**
-     * @return Qualified (`:QUALIFIER` or `:VERSION` suffix) ARN to be used for invoking Lambda Function from API Gateway. See also `invoke_arn`.
-     * 
-     */
     public String qualifiedInvokeArn() {
         return this.qualifiedInvokeArn;
     }
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
-    /**
-     * @return The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
-     * 
-     */
     public Integer reservedConcurrentExecutions() {
         return this.reservedConcurrentExecutions;
     }
-    /**
-     * @return IAM role attached to the Lambda Function.
-     * 
-     */
     public String role() {
         return this.role;
     }
-    /**
-     * @return Runtime environment for the Lambda function.
-     * 
-     */
     public String runtime() {
         return this.runtime;
     }
-    /**
-     * @return ARN of a signing job.
-     * 
-     */
     public String signingJobArn() {
         return this.signingJobArn;
     }
-    /**
-     * @return The ARN for a signing profile version.
-     * 
-     */
     public String signingProfileVersionArn() {
         return this.signingProfileVersionArn;
     }
-    /**
-     * @return Base64-encoded representation of raw SHA-256 sum of the zip file.
-     * 
-     */
     public String sourceCodeHash() {
         return this.sourceCodeHash;
     }
-    /**
-     * @return Size in bytes of the function .zip file.
-     * 
-     */
     public Integer sourceCodeSize() {
         return this.sourceCodeSize;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Function execution time at which Lambda should terminate the function.
-     * 
-     */
     public Integer timeout() {
         return this.timeout;
     }
-    /**
-     * @return Tracing settings of the function.
-     * 
-     */
     public GetFunctionTracingConfig tracingConfig() {
         return this.tracingConfig;
     }
-    /**
-     * @return The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
-     * 
-     */
     public String version() {
         return this.version;
     }
-    /**
-     * @return VPC configuration associated with your Lambda function.
-     * 
-     */
     public GetFunctionVpcConfig vpcConfig() {
         return this.vpcConfig;
     }

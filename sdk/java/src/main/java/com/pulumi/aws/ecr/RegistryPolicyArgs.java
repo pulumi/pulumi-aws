@@ -13,17 +13,9 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RegistryPolicyArgs Empty = new RegistryPolicyArgs();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -52,23 +44,11 @@ public final class RegistryPolicyArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RegistryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

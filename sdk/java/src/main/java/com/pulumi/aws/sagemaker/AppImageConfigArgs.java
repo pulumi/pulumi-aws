@@ -17,47 +17,23 @@ public final class AppImageConfigArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final AppImageConfigArgs Empty = new AppImageConfigArgs();
 
-    /**
-     * The name of the App Image Config.
-     * 
-     */
     @Import(name="appImageConfigName", required=true)
     private Output<String> appImageConfigName;
 
-    /**
-     * @return The name of the App Image Config.
-     * 
-     */
     public Output<String> appImageConfigName() {
         return this.appImageConfigName;
     }
 
-    /**
-     * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     * 
-     */
     @Import(name="kernelGatewayImageConfig")
     private @Nullable Output<AppImageConfigKernelGatewayImageConfigArgs> kernelGatewayImageConfig;
 
-    /**
-     * @return The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-     * 
-     */
     public Optional<Output<AppImageConfigKernelGatewayImageConfigArgs>> kernelGatewayImageConfig() {
         return Optional.ofNullable(this.kernelGatewayImageConfig);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class AppImageConfigArgs extends com.pulumi.resources.ResourceArgs 
             $ = new AppImageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(Output<String> appImageConfigName) {
             $.appImageConfigName = appImageConfigName;
             return this;
         }
 
-        /**
-         * @param appImageConfigName The name of the App Image Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appImageConfigName(String appImageConfigName) {
             return appImageConfigName(Output.of(appImageConfigName));
         }
 
-        /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayImageConfig(@Nullable Output<AppImageConfigKernelGatewayImageConfigArgs> kernelGatewayImageConfig) {
             $.kernelGatewayImageConfig = kernelGatewayImageConfig;
             return this;
         }
 
-        /**
-         * @param kernelGatewayImageConfig The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs kernelGatewayImageConfig) {
             return kernelGatewayImageConfig(Output.of(kernelGatewayImageConfig));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -11,137 +11,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BudgetCostTypes {
-    /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeCredit;
-    /**
-     * @return Whether a budget includes discounts. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeDiscount;
-    /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeOtherSubscription;
-    /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeRecurring;
-    /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeRefund;
-    /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeSubscription;
-    /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeSupport;
-    /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeTax;
-    /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-     * 
-     */
     private @Nullable Boolean includeUpfront;
-    /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`
-     * 
-     */
     private @Nullable Boolean useAmortized;
-    /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-     * 
-     */
     private @Nullable Boolean useBlended;
 
     private BudgetCostTypes() {}
-    /**
-     * @return A boolean value whether to include credits in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeCredit() {
         return Optional.ofNullable(this.includeCredit);
     }
-    /**
-     * @return Whether a budget includes discounts. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeDiscount() {
         return Optional.ofNullable(this.includeDiscount);
     }
-    /**
-     * @return A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeOtherSubscription() {
         return Optional.ofNullable(this.includeOtherSubscription);
     }
-    /**
-     * @return A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeRecurring() {
         return Optional.ofNullable(this.includeRecurring);
     }
-    /**
-     * @return A boolean value whether to include refunds in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeRefund() {
         return Optional.ofNullable(this.includeRefund);
     }
-    /**
-     * @return A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeSubscription() {
         return Optional.ofNullable(this.includeSubscription);
     }
-    /**
-     * @return A boolean value whether to include support costs in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeSupport() {
         return Optional.ofNullable(this.includeSupport);
     }
-    /**
-     * @return A boolean value whether to include tax in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeTax() {
         return Optional.ofNullable(this.includeTax);
     }
-    /**
-     * @return A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-     * 
-     */
     public Optional<Boolean> includeUpfront() {
         return Optional.ofNullable(this.includeUpfront);
     }
-    /**
-     * @return Whether a budget uses the amortized rate. Defaults to `false`
-     * 
-     */
     public Optional<Boolean> useAmortized() {
         return Optional.ofNullable(this.useAmortized);
     }
-    /**
-     * @return A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-     * 
-     */
     public Optional<Boolean> useBlended() {
         return Optional.ofNullable(this.useBlended);
     }

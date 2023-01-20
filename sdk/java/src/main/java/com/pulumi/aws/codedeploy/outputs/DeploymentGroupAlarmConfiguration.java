@@ -13,45 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupAlarmConfiguration {
-    /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-     * 
-     */
     private @Nullable List<String> alarms;
-    /**
-     * @return Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-     * 
-     */
     private @Nullable Boolean ignorePollAlarmFailure;
 
     private DeploymentGroupAlarmConfiguration() {}
-    /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-     * 
-     */
     public List<String> alarms() {
         return this.alarms == null ? List.of() : this.alarms;
     }
-    /**
-     * @return Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-     * 
-     */
     public Optional<Boolean> ignorePollAlarmFailure() {
         return Optional.ofNullable(this.ignorePollAlarmFailure);
     }

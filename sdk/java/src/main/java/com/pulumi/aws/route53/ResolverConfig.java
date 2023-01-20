@@ -13,98 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route 53 Resolver config resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.route53.ResolverConfig;
- * import com.pulumi.aws.route53.ResolverConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         var exampleResolverConfig = new ResolverConfig(&#34;exampleResolverConfig&#34;, ResolverConfigArgs.builder()        
- *             .resourceId(exampleVpc.id())
- *             .autodefinedReverseFlag(&#34;DISABLE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Route 53 Resolver configs can be imported using the Route 53 Resolver config ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
- * ```
- * 
- */
 @ResourceType(type="aws:route53/resolverConfig:ResolverConfig")
 public class ResolverConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-     * 
-     */
     @Export(name="autodefinedReverseFlag", refs={String.class}, tree="[0]")
     private Output<String> autodefinedReverseFlag;
 
-    /**
-     * @return Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
-     * 
-     */
     public Output<String> autodefinedReverseFlag() {
         return this.autodefinedReverseFlag;
     }
-    /**
-     * The AWS account ID of the owner of the VPC that this resolver configuration applies to.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The AWS account ID of the owner of the VPC that this resolver configuration applies to.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * The ID of the VPC that the configuration is for.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the VPC that the configuration is for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }

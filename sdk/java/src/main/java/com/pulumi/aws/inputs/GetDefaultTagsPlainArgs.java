@@ -15,17 +15,9 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetDefaultTagsPlainArgs Empty = new GetDefaultTagsPlainArgs();
 
-    /**
-     * Blocks of default tags set on the provider. See details below.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Blocks of default tags set on the provider. See details below.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,12 +46,6 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetDefaultTagsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Blocks of default tags set on the provider. See details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoadBalancerAccessLogs {
-    /**
-     * @return The S3 bucket name to store the logs in.
-     * 
-     */
     private String bucket;
-    /**
-     * @return Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     private @Nullable String prefix;
 
     private LoadBalancerAccessLogs() {}
-    /**
-     * @return The S3 bucket name to store the logs in.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return Boolean to enable / disable `access_logs`. Defaults to `false`, even when `bucket` is specified.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The S3 bucket prefix. Logs are stored in the root if not configured.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

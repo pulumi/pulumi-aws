@@ -16,197 +16,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint Email Channel resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.pinpoint.EmailChannel;
- * import com.pulumi.aws.pinpoint.EmailChannelArgs;
- * import com.pulumi.aws.ses.DomainIdentity;
- * import com.pulumi.aws.ses.DomainIdentityArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
- * 
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;pinpoint.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var email = new EmailChannel(&#34;email&#34;, EmailChannelArgs.builder()        
- *             .applicationId(app.applicationId())
- *             .fromAddress(&#34;user@example.com&#34;)
- *             .roleArn(role.arn())
- *             .build());
- * 
- *         var identity = new DomainIdentity(&#34;identity&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
- *             .build());
- * 
- *         var rolePolicy = new RolePolicy(&#34;rolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(role.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: {
- *     &#34;Action&#34;: [
- *       &#34;mobileanalytics:PutEvents&#34;,
- *       &#34;mobileanalytics:PutItems&#34;
- *     ],
- *     &#34;Effect&#34;: &#34;Allow&#34;,
- *     &#34;Resource&#34;: [
- *       &#34;*&#34;
- *     ]
- *   }
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Pinpoint Email Channel can be imported using the `application-id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/emailChannel:EmailChannel")
 public class EmailChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-     * 
-     */
     @Export(name="configurationSet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSet;
 
-    /**
-     * @return The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-     * 
-     */
     public Output<Optional<String>> configurationSet() {
         return Codegen.optional(this.configurationSet);
     }
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-     * 
-     */
     @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
-    /**
-     * @return The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-     * 
-     */
     public Output<String> fromAddress() {
         return this.fromAddress;
     }
-    /**
-     * The ARN of an identity verified with SES.
-     * 
-     */
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
-    /**
-     * @return The ARN of an identity verified with SES.
-     * 
-     */
     public Output<String> identity() {
         return this.identity;
     }
-    /**
-     * Messages per second that can be sent.
-     * 
-     */
     @Export(name="messagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> messagesPerSecond;
 
-    /**
-     * @return Messages per second that can be sent.
-     * 
-     */
     public Output<Integer> messagesPerSecond() {
         return this.messagesPerSecond;
     }
-    /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }

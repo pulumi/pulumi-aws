@@ -13,17 +13,9 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetInstanceProfilesArgs Empty = new GetInstanceProfilesArgs();
 
-    /**
-     * IAM role name.
-     * 
-     */
     @Import(name="roleName", required=true)
     private Output<String> roleName;
 
-    /**
-     * @return IAM role name.
-     * 
-     */
     public Output<String> roleName() {
         return this.roleName;
     }
@@ -52,23 +44,11 @@ public final class GetInstanceProfilesArgs extends com.pulumi.resources.InvokeAr
             $ = new GetInstanceProfilesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(Output<String> roleName) {
             $.roleName = roleName;
             return this;
         }
 
-        /**
-         * @param roleName IAM role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleName(String roleName) {
             return roleName(Output.of(roleName));
         }

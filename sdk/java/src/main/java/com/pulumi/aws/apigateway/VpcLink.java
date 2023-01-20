@@ -15,64 +15,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an API Gateway VPC Link.
- * 
- * &gt; **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
- * To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
- * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.LoadBalancer;
- * import com.pulumi.aws.lb.LoadBalancerArgs;
- * import com.pulumi.aws.lb.inputs.LoadBalancerSubnetMappingArgs;
- * import com.pulumi.aws.apigateway.VpcLink;
- * import com.pulumi.aws.apigateway.VpcLinkArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .internal(true)
- *             .loadBalancerType(&#34;network&#34;)
- *             .subnetMappings(LoadBalancerSubnetMappingArgs.builder()
- *                 .subnetId(&#34;12345&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleVpcLink = new VpcLink(&#34;exampleVpcLink&#34;, VpcLinkArgs.builder()        
- *             .description(&#34;example description&#34;)
- *             .targetArn(exampleLoadBalancer.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * API Gateway VPC Link can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/vpcLink:VpcLink")
 public class VpcLink extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -81,73 +23,33 @@ public class VpcLink extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the VPC link.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the VPC link.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name used to label and identify the VPC link.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name used to label and identify the VPC link.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     * 
-     */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
-    /**
-     * @return List of network load balancer arns in the VPC targeted by the VPC link. Currently AWS only supports 1 target.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }

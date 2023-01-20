@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogTablePartitionKey {
-    /**
-     * @return Free-form text comment.
-     * 
-     */
     private @Nullable String comment;
-    /**
-     * @return Name of the target table.
-     * 
-     */
     private String name;
-    /**
-     * @return Datatype of data in the Column.
-     * 
-     */
     private @Nullable String type;
 
     private CatalogTablePartitionKey() {}
-    /**
-     * @return Free-form text comment.
-     * 
-     */
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
     }
-    /**
-     * @return Name of the target table.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Datatype of data in the Column.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -19,193 +19,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Repository.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.Repository;
- * import com.pulumi.aws.ecr.RepositoryArgs;
- * import com.pulumi.aws.ecr.inputs.RepositoryImageScanningConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;, RepositoryArgs.builder()        
- *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
- *                 .scanOnPush(true)
- *                 .build())
- *             .imageTagMutability(&#34;MUTABLE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ECR Repositories can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ecr/repository:Repository service test-service
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/repository:Repository")
 public class Repository extends com.pulumi.resources.CustomResource {
-    /**
-     * Full ARN of the repository.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Full ARN of the repository.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Encryption configuration for the repository. See below for schema.
-     * 
-     */
     @Export(name="encryptionConfigurations", refs={List.class,RepositoryEncryptionConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RepositoryEncryptionConfiguration>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration for the repository. See below for schema.
-     * 
-     */
     public Output<Optional<List<RepositoryEncryptionConfiguration>>> encryptionConfigurations() {
         return Codegen.optional(this.encryptionConfigurations);
     }
-    /**
-     * If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     * 
-     */
     @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
-    /**
-     * @return If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }
-    /**
-     * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     * 
-     */
     @Export(name="imageScanningConfiguration", refs={RepositoryImageScanningConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RepositoryImageScanningConfiguration> imageScanningConfiguration;
 
-    /**
-     * @return Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     * 
-     */
     public Output<Optional<RepositoryImageScanningConfiguration>> imageScanningConfiguration() {
         return Codegen.optional(this.imageScanningConfiguration);
     }
-    /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     @Export(name="imageTagMutability", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageTagMutability;
 
-    /**
-     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     public Output<Optional<String>> imageTagMutability() {
         return Codegen.optional(this.imageTagMutability);
     }
-    /**
-     * Name of the repository.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the repository.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     * 
-     */
     @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
     private Output<String> repositoryUrl;
 
-    /**
-     * @return The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-     * 
-     */
     public Output<String> repositoryUrl() {
         return this.repositoryUrl;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

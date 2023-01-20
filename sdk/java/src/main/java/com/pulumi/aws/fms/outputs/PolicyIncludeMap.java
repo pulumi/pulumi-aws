@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyIncludeMap {
-    /**
-     * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     private @Nullable List<String> accounts;
-    /**
-     * @return A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     */
     private @Nullable List<String> orgunits;
 
     private PolicyIncludeMap() {}
-    /**
-     * @return A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-     * 
-     */
     public List<String> accounts() {
         return this.accounts == null ? List.of() : this.accounts;
     }
-    /**
-     * @return A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-     * 
-     */
     public List<String> orgunits() {
         return this.orgunits == null ? List.of() : this.orgunits;
     }

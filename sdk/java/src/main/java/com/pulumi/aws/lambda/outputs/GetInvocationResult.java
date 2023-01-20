@@ -19,10 +19,6 @@ public final class GetInvocationResult {
     private String id;
     private String input;
     private @Nullable String qualifier;
-    /**
-     * @return String result of the lambda function invocation.
-     * 
-     */
     private String result;
 
     private GetInvocationResult() {}
@@ -42,10 +38,6 @@ public final class GetInvocationResult {
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
-    /**
-     * @return String result of the lambda function invocation.
-     * 
-     */
     public String result() {
         return this.result;
     }

@@ -17,47 +17,23 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
 
     public static final RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs Empty = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs();
 
-    /**
-     * An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs> all;
 
-    /**
-     * @return An empty configuration block that is used for inspecting all headers.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs>> all() {
         return Optional.ofNullable(this.all);
     }
 
-    /**
-     * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-     * 
-     */
     @Import(name="excludedHeaders")
     private @Nullable Output<List<String>> excludedHeaders;
 
-    /**
-     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-     * 
-     */
     public Optional<Output<List<String>>> excludedHeaders() {
         return Optional.ofNullable(this.excludedHeaders);
     }
 
-    /**
-     * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-     * 
-     */
     @Import(name="includedHeaders")
     private @Nullable Output<List<String>> includedHeaders;
 
-    /**
-     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-     * 
-     */
     public Optional<Output<List<String>>> includedHeaders() {
         return Optional.ofNullable(this.includedHeaders);
     }
@@ -88,85 +64,37 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldT
             $ = new RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(@Nullable Output<RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs> all) {
             $.all = all;
             return this;
         }
 
-        /**
-         * @param all An empty configuration block that is used for inspecting all headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder all(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs all) {
             return all(Output.of(all));
         }
 
-        /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedHeaders(@Nullable Output<List<String>> excludedHeaders) {
             $.excludedHeaders = excludedHeaders;
             return this;
         }
 
-        /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedHeaders(List<String> excludedHeaders) {
             return excludedHeaders(Output.of(excludedHeaders));
         }
 
-        /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludedHeaders(String... excludedHeaders) {
             return excludedHeaders(List.of(excludedHeaders));
         }
 
-        /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedHeaders(@Nullable Output<List<String>> includedHeaders) {
             $.includedHeaders = includedHeaders;
             return this;
         }
 
-        /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedHeaders(List<String> includedHeaders) {
             return includedHeaders(Output.of(includedHeaders));
         }
 
-        /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includedHeaders(String... includedHeaders) {
             return includedHeaders(List.of(includedHeaders));
         }

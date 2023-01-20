@@ -30,242 +30,114 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesArgs();
 
-    /**
-     * Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-     * 
-     */
     @Import(name="amplitude")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs> amplitude;
 
-    /**
-     * @return Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs>> amplitude() {
         return Optional.ofNullable(this.amplitude);
     }
 
-    /**
-     * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="customConnector")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs> customConnector;
 
-    /**
-     * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs>> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
 
-    /**
-     * Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="datadog")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs> datadog;
 
-    /**
-     * @return Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs>> datadog() {
         return Optional.ofNullable(this.datadog);
     }
 
-    /**
-     * Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="dynatrace")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> dynatrace;
 
-    /**
-     * @return Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs>> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
 
-    /**
-     * Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     @Import(name="googleAnalytics")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> googleAnalytics;
 
-    /**
-     * @return Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs>> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
 
-    /**
-     * Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="inforNexus")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs> inforNexus;
 
-    /**
-     * @return Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs>> inforNexus() {
         return Optional.ofNullable(this.inforNexus);
     }
 
-    /**
-     * Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="marketo")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs> marketo;
 
-    /**
-     * @return Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs>> marketo() {
         return Optional.ofNullable(this.marketo);
     }
 
-    /**
-     * Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3Args> s3;
 
-    /**
-     * @return Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
 
-    /**
-     * Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="salesforce")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs> salesforce;
 
-    /**
-     * @return Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs>> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
 
-    /**
-     * Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="sapoData")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs> sapoData;
 
-    /**
-     * @return Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs>> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
 
-    /**
-     * Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="serviceNow")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs> serviceNow;
 
-    /**
-     * @return Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs>> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
 
-    /**
-     * Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="singular")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs> singular;
 
-    /**
-     * @return Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs>> singular() {
         return Optional.ofNullable(this.singular);
     }
 
-    /**
-     * Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="slack")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs> slack;
 
-    /**
-     * @return Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs>> slack() {
         return Optional.ofNullable(this.slack);
     }
 
-    /**
-     * Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="trendmicro")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> trendmicro;
 
-    /**
-     * @return Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs>> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }
 
-    /**
-     * Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="veeva")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs> veeva;
 
-    /**
-     * @return Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs>> veeva() {
         return Optional.ofNullable(this.veeva);
     }
 
-    /**
-     * Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     @Import(name="zendesk")
     private @Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs> zendesk;
 
-    /**
-     * @return Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<Output<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs>> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }
@@ -309,338 +181,146 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesArgs extends com
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amplitude Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amplitude(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs> amplitude) {
             $.amplitude = amplitude;
             return this;
         }
 
-        /**
-         * @param amplitude Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amplitude(FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs amplitude) {
             return amplitude(Output.of(amplitude));
         }
 
-        /**
-         * @param customConnector Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customConnector(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs> customConnector) {
             $.customConnector = customConnector;
             return this;
         }
 
-        /**
-         * @param customConnector Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customConnector(FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs customConnector) {
             return customConnector(Output.of(customConnector));
         }
 
-        /**
-         * @param datadog Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder datadog(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs> datadog) {
             $.datadog = datadog;
             return this;
         }
 
-        /**
-         * @param datadog Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder datadog(FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs datadog) {
             return datadog(Output.of(datadog));
         }
 
-        /**
-         * @param dynatrace Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynatrace(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs> dynatrace) {
             $.dynatrace = dynatrace;
             return this;
         }
 
-        /**
-         * @param dynatrace Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dynatrace(FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs dynatrace) {
             return dynatrace(Output.of(dynatrace));
         }
 
-        /**
-         * @param googleAnalytics Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleAnalytics(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs> googleAnalytics) {
             $.googleAnalytics = googleAnalytics;
             return this;
         }
 
-        /**
-         * @param googleAnalytics Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder googleAnalytics(FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs googleAnalytics) {
             return googleAnalytics(Output.of(googleAnalytics));
         }
 
-        /**
-         * @param inforNexus Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inforNexus(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs> inforNexus) {
             $.inforNexus = inforNexus;
             return this;
         }
 
-        /**
-         * @param inforNexus Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inforNexus(FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs inforNexus) {
             return inforNexus(Output.of(inforNexus));
         }
 
-        /**
-         * @param marketo Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketo(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs> marketo) {
             $.marketo = marketo;
             return this;
         }
 
-        /**
-         * @param marketo Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketo(FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs marketo) {
             return marketo(Output.of(marketo));
         }
 
-        /**
-         * @param s3 Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(FlowSourceFlowConfigSourceConnectorPropertiesS3Args s3) {
             return s3(Output.of(s3));
         }
 
-        /**
-         * @param salesforce Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder salesforce(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs> salesforce) {
             $.salesforce = salesforce;
             return this;
         }
 
-        /**
-         * @param salesforce Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder salesforce(FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs salesforce) {
             return salesforce(Output.of(salesforce));
         }
 
-        /**
-         * @param sapoData Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sapoData(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs> sapoData) {
             $.sapoData = sapoData;
             return this;
         }
 
-        /**
-         * @param sapoData Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sapoData(FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs sapoData) {
             return sapoData(Output.of(sapoData));
         }
 
-        /**
-         * @param serviceNow Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNow(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs> serviceNow) {
             $.serviceNow = serviceNow;
             return this;
         }
 
-        /**
-         * @param serviceNow Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceNow(FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs serviceNow) {
             return serviceNow(Output.of(serviceNow));
         }
 
-        /**
-         * @param singular Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singular(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs> singular) {
             $.singular = singular;
             return this;
         }
 
-        /**
-         * @param singular Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singular(FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs singular) {
             return singular(Output.of(singular));
         }
 
-        /**
-         * @param slack Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slack(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs> slack) {
             $.slack = slack;
             return this;
         }
 
-        /**
-         * @param slack Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slack(FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs slack) {
             return slack(Output.of(slack));
         }
 
-        /**
-         * @param trendmicro Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trendmicro(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs> trendmicro) {
             $.trendmicro = trendmicro;
             return this;
         }
 
-        /**
-         * @param trendmicro Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trendmicro(FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs trendmicro) {
             return trendmicro(Output.of(trendmicro));
         }
 
-        /**
-         * @param veeva Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder veeva(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs> veeva) {
             $.veeva = veeva;
             return this;
         }
 
-        /**
-         * @param veeva Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder veeva(FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs veeva) {
             return veeva(Output.of(veeva));
         }
 
-        /**
-         * @param zendesk Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zendesk(@Nullable Output<FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs> zendesk) {
             $.zendesk = zendesk;
             return this;
         }
 
-        /**
-         * @param zendesk Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zendesk(FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs zendesk) {
             return zendesk(Output.of(zendesk));
         }

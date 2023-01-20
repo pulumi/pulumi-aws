@@ -12,17 +12,9 @@ public final class GetConnectorPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetConnectorPlainArgs Empty = new GetConnectorPlainArgs();
 
-    /**
-     * Name of the connector.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the connector.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -51,12 +43,6 @@ public final class GetConnectorPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetConnectorPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

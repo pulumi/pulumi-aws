@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
-    /**
-     * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     private String eventAction;
-    /**
-     * @return Whether to send a notification.
-     * 
-     */
     private Boolean notify;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction() {}
-    /**
-     * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     public String eventAction() {
         return this.eventAction;
     }
-    /**
-     * @return Whether to send a notification.
-     * 
-     */
     public Boolean notify_() {
         return this.notify;
     }

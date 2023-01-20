@@ -15,32 +15,16 @@ public final class VpcEndpointPolicyState extends com.pulumi.resources.ResourceA
 
     public static final VpcEndpointPolicyState Empty = new VpcEndpointPolicyState();
 
-    /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * The VPC Endpoint ID.
-     * 
-     */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
-    /**
-     * @return The VPC Endpoint ID.
-     * 
-     */
     public Optional<Output<String>> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
@@ -70,44 +54,20 @@ public final class VpcEndpointPolicyState extends com.pulumi.resources.ResourceA
             $ = new VpcEndpointPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param vpcEndpointId The VPC Endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(@Nullable Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId The VPC Endpoint ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

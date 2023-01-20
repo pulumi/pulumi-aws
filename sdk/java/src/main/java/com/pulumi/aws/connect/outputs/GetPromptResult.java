@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPromptResult {
-    /**
-     * @return ARN of the Prompt.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,17 +17,9 @@ public final class GetPromptResult {
     private String id;
     private String instanceId;
     private String name;
-    /**
-     * @return Identifier for the prompt.
-     * 
-     */
     private String promptId;
 
     private GetPromptResult() {}
-    /**
-     * @return ARN of the Prompt.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -48,10 +36,6 @@ public final class GetPromptResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Identifier for the prompt.
-     * 
-     */
     public String promptId() {
         return this.promptId;
     }

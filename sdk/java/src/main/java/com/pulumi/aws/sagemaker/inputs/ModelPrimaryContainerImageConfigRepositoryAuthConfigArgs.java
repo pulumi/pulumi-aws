@@ -13,17 +13,9 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs exte
 
     public static final ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs Empty = new ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
-     * 
-     */
     @Import(name="repositoryCredentialsProviderArn", required=true)
     private Output<String> repositoryCredentialsProviderArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
-     * 
-     */
     public Output<String> repositoryCredentialsProviderArn() {
         return this.repositoryCredentialsProviderArn;
     }
@@ -52,23 +44,11 @@ public final class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs exte
             $ = new ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryCredentialsProviderArn The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryCredentialsProviderArn(Output<String> repositoryCredentialsProviderArn) {
             $.repositoryCredentialsProviderArn = repositoryCredentialsProviderArn;
             return this;
         }
 
-        /**
-         * @param repositoryCredentialsProviderArn The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryCredentialsProviderArn(String repositoryCredentialsProviderArn) {
             return repositoryCredentialsProviderArn(Output.of(repositoryCredentialsProviderArn));
         }

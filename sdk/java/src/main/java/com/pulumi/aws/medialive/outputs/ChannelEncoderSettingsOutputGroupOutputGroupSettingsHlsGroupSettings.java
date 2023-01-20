@@ -17,10 +17,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings {
-    /**
-     * @return The ad marker type for this output group.
-     * 
-     */
     private @Nullable List<String> adMarkers;
     private @Nullable String baseUrlContent;
     private @Nullable String baseUrlContent1;
@@ -31,10 +27,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String clientCache;
     private @Nullable String codecSpecification;
     private @Nullable String constantIv;
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination;
     private @Nullable String directoryStructure;
     private @Nullable String discontinuityTags;
@@ -44,10 +36,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable String iframeOnlyPlaylists;
     private @Nullable String incompleteSegmentBehavior;
     private @Nullable Integer indexNSegments;
-    /**
-     * @return Specifies behavior of last resort when input video os lost.
-     * 
-     */
     private @Nullable String inputLossAction;
     private @Nullable String ivInManifest;
     private @Nullable String ivSource;
@@ -67,20 +55,12 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     private @Nullable Integer segmentLength;
     private @Nullable Integer segmentsPerSubdirectory;
     private @Nullable String streamInfResolution;
-    /**
-     * @return Indicates ID3 frame that has the timecode.
-     * 
-     */
     private @Nullable String timedMetadataId3Frame;
     private @Nullable Integer timedMetadataId3Period;
     private @Nullable Integer timestampDeltaMilliseconds;
     private @Nullable String tsFileMode;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings() {}
-    /**
-     * @return The ad marker type for this output group.
-     * 
-     */
     public List<String> adMarkers() {
         return this.adMarkers == null ? List.of() : this.adMarkers;
     }
@@ -111,10 +91,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> constantIv() {
         return Optional.ofNullable(this.constantIv);
     }
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination destination() {
         return this.destination;
     }
@@ -142,10 +118,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<Integer> indexNSegments() {
         return Optional.ofNullable(this.indexNSegments);
     }
-    /**
-     * @return Specifies behavior of last resort when input video os lost.
-     * 
-     */
     public Optional<String> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
@@ -203,10 +175,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Optional<String> streamInfResolution() {
         return Optional.ofNullable(this.streamInfResolution);
     }
-    /**
-     * @return Indicates ID3 frame that has the timecode.
-     * 
-     */
     public Optional<String> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }

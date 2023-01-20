@@ -17,32 +17,16 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
 
     public static final ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs();
 
-    /**
-     * The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-     * 
-     */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
-    /**
-     * @return The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-     * 
-     */
     public Optional<Output<String>> comparator() {
         return Optional.ofNullable(this.comparator);
     }
 
-    /**
-     * The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-     * 
-     */
     @Import(name="tagValues")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>> tagValues;
 
-    /**
-     * @return The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-     * 
-     */
     public Optional<Output<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>>> tagValues() {
         return Optional.ofNullable(this.tagValues);
     }
@@ -72,54 +56,24 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagC
             $ = new ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparator The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(@Nullable Output<String> comparator) {
             $.comparator = comparator;
             return this;
         }
 
-        /**
-         * @param comparator The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(String comparator) {
             return comparator(Output.of(comparator));
         }
 
-        /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(@Nullable Output<List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs>> tagValues) {
             $.tagValues = tagValues;
             return this;
         }
 
-        /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(List<ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs> tagValues) {
             return tagValues(Output.of(tagValues));
         }
 
-        /**
-         * @param tagValues The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs... tagValues) {
             return tagValues(List.of(tagValues));
         }

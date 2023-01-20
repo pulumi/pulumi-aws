@@ -17,131 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create an organizational unit.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.OrganizationalUnit;
- * import com.pulumi.aws.organizations.OrganizationalUnitArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OrganizationalUnit(&#34;example&#34;, OrganizationalUnitArgs.builder()        
- *             .parentId(aws_organizations_organization.example().roots()[0].id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
- * ```
- * 
- */
 @ResourceType(type="aws:organizations/organizationalUnit:OrganizationalUnit")
 public class OrganizationalUnit extends com.pulumi.resources.CustomResource {
-    /**
-     * List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-     * 
-     */
     @Export(name="accounts", refs={List.class,OrganizationalUnitAccount.class}, tree="[0,1]")
     private Output<List<OrganizationalUnitAccount>> accounts;
 
-    /**
-     * @return List of child accounts for this Organizational Unit. Does not return account information for child Organizational Units. All elements have these attributes:
-     * 
-     */
     public Output<List<OrganizationalUnitAccount>> accounts() {
         return this.accounts;
     }
-    /**
-     * ARN of the organizational unit
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the organizational unit
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name for the organizational unit
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name for the organizational unit
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ID of the parent organizational unit, which may be the root
-     * 
-     */
     @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
-    /**
-     * @return ID of the parent organizational unit, which may be the root
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

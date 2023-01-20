@@ -15,32 +15,16 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
 
     public static final WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs Empty = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs();
 
-    /**
-     * Specifies the S3 bucket for the customer input file.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Specifies the S3 bucket for the customer input file.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * The name assigned to the tag that you create.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The name assigned to the tag that you create.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
@@ -70,44 +54,20 @@ public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocat
             $ = new WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Specifies the S3 bucket for the customer input file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Specifies the S3 bucket for the customer input file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key The name assigned to the tag that you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The name assigned to the tag that you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

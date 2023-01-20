@@ -13,62 +13,30 @@ public final class PartnerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PartnerArgs Empty = new PartnerArgs();
 
-    /**
-     * The Amazon Web Services account ID that owns the cluster.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return The Amazon Web Services account ID that owns the cluster.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
 
-    /**
-     * The cluster identifier of the cluster that receives data from the partner.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier of the cluster that receives data from the partner.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * The name of the database that receives data from the partner.
-     * 
-     */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the database that receives data from the partner.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
 
-    /**
-     * The name of the partner that is authorized to send data.
-     * 
-     */
     @Import(name="partnerName", required=true)
     private Output<String> partnerName;
 
-    /**
-     * @return The name of the partner that is authorized to send data.
-     * 
-     */
     public Output<String> partnerName() {
         return this.partnerName;
     }
@@ -100,86 +68,38 @@ public final class PartnerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PartnerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The Amazon Web Services account ID that owns the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The Amazon Web Services account ID that owns the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster that receives data from the partner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier of the cluster that receives data from the partner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param databaseName The name of the database that receives data from the partner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(Output<String> databaseName) {
             $.databaseName = databaseName;
             return this;
         }
 
-        /**
-         * @param databaseName The name of the database that receives data from the partner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder databaseName(String databaseName) {
             return databaseName(Output.of(databaseName));
         }
 
-        /**
-         * @param partnerName The name of the partner that is authorized to send data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partnerName(Output<String> partnerName) {
             $.partnerName = partnerName;
             return this;
         }
 
-        /**
-         * @param partnerName The name of the partner that is authorized to send data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partnerName(String partnerName) {
             return partnerName(Output.of(partnerName));
         }

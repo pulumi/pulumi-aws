@@ -17,166 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a MemoryDB Parameter Group.
- * 
- * More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.memorydb.ParameterGroup;
- * import com.pulumi.aws.memorydb.ParameterGroupArgs;
- * import com.pulumi.aws.memorydb.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
- *             .family(&#34;memorydb_redis6&#34;)
- *             .parameters(ParameterGroupParameterArgs.builder()
- *                 .name(&#34;activedefrag&#34;)
- *                 .value(&#34;yes&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Use the `name` to import a parameter group. For example
- * 
- * ```sh
- *  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
- * ```
- * 
- */
 @ResourceType(type="aws:memorydb/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the parameter group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the parameter group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description for the parameter group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description for the parameter group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The engine version that the parameter group can be used with.
-     * 
-     */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
-    /**
-     * @return The engine version that the parameter group can be used with.
-     * 
-     */
     public Output<String> family() {
         return this.family;
     }
-    /**
-     * The name of the parameter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
-    /**
-     * @return Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
-     * 
-     */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

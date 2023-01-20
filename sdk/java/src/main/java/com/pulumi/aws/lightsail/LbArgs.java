@@ -17,32 +17,16 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LbArgs Empty = new LbArgs();
 
-    /**
-     * The health check path of the load balancer. Default value &#34;/&#34;.
-     * 
-     */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
-    /**
-     * @return The health check path of the load balancer. Default value &#34;/&#34;.
-     * 
-     */
     public Optional<Output<String>> healthCheckPath() {
         return Optional.ofNullable(this.healthCheckPath);
     }
 
-    /**
-     * The instance port the load balancer will connect.
-     * 
-     */
     @Import(name="instancePort", required=true)
     private Output<Integer> instancePort;
 
-    /**
-     * @return The instance port the load balancer will connect.
-     * 
-     */
     public Output<Integer> instancePort() {
         return this.instancePort;
     }
@@ -54,32 +38,16 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ipAddressType);
     }
 
-    /**
-     * The name of the Lightsail load balancer.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Lightsail load balancer.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -112,44 +80,20 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LbArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheckPath The health check path of the load balancer. Default value &#34;/&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(@Nullable Output<String> healthCheckPath) {
             $.healthCheckPath = healthCheckPath;
             return this;
         }
 
-        /**
-         * @param healthCheckPath The health check path of the load balancer. Default value &#34;/&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckPath(String healthCheckPath) {
             return healthCheckPath(Output.of(healthCheckPath));
         }
 
-        /**
-         * @param instancePort The instance port the load balancer will connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(Output<Integer> instancePort) {
             $.instancePort = instancePort;
             return this;
         }
 
-        /**
-         * @param instancePort The instance port the load balancer will connect.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePort(Integer instancePort) {
             return instancePort(Output.of(instancePort));
         }
@@ -163,44 +107,20 @@ public final class LbArgs extends com.pulumi.resources.ResourceArgs {
             return ipAddressType(Output.of(ipAddressType));
         }
 
-        /**
-         * @param name The name of the Lightsail load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Lightsail load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

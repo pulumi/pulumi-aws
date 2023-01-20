@@ -15,145 +15,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Single Sign-On (SSO) Permission Set resource
- * 
- * &gt; **NOTE:** Updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- * 
- * ## Import
- * 
- * SSO Permission Sets can be imported using the `arn` and `instance_arn` separated by a comma (`,`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/permissionSet:PermissionSet")
 public class PermissionSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * The description of the Permission Set.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the Permission Set.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * The name of the Permission Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Permission Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The relay state URL used to redirect users within the application during the federation authentication process.
-     * 
-     */
     @Export(name="relayState", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> relayState;
 
-    /**
-     * @return The relay state URL used to redirect users within the application during the federation authentication process.
-     * 
-     */
     public Output<Optional<String>> relayState() {
         return Codegen.optional(this.relayState);
     }
-    /**
-     * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
-     * 
-     */
     @Export(name="sessionDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionDuration;
 
-    /**
-     * @return The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
-     * 
-     */
     public Output<Optional<String>> sessionDuration() {
         return Codegen.optional(this.sessionDuration);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

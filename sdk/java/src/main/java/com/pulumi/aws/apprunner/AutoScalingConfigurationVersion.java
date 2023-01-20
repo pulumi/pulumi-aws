@@ -17,191 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an App Runner AutoScaling Configuration Version.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apprunner.AutoScalingConfigurationVersion;
- * import com.pulumi.aws.apprunner.AutoScalingConfigurationVersionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AutoScalingConfigurationVersion(&#34;example&#34;, AutoScalingConfigurationVersionArgs.builder()        
- *             .autoScalingConfigurationName(&#34;example&#34;)
- *             .maxConcurrency(50)
- *             .maxSize(10)
- *             .minSize(2)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-autoscaling&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * App Runner AutoScaling Configuration Versions can be imported by using the `arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example &#34;arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
- * ```
- * 
- */
 @ResourceType(type="aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion")
 public class AutoScalingConfigurationVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of this auto scaling configuration version.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of this auto scaling configuration version.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the auto scaling configuration.
-     * 
-     */
     @Export(name="autoScalingConfigurationName", refs={String.class}, tree="[0]")
     private Output<String> autoScalingConfigurationName;
 
-    /**
-     * @return Name of the auto scaling configuration.
-     * 
-     */
     public Output<String> autoScalingConfigurationName() {
         return this.autoScalingConfigurationName;
     }
-    /**
-     * The revision of this auto scaling configuration.
-     * 
-     */
     @Export(name="autoScalingConfigurationRevision", refs={Integer.class}, tree="[0]")
     private Output<Integer> autoScalingConfigurationRevision;
 
-    /**
-     * @return The revision of this auto scaling configuration.
-     * 
-     */
     public Output<Integer> autoScalingConfigurationRevision() {
         return this.autoScalingConfigurationRevision;
     }
-    /**
-     * Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
-     * 
-     */
     @Export(name="latest", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> latest;
 
-    /**
-     * @return Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
-     * 
-     */
     public Output<Boolean> latest() {
         return this.latest;
     }
-    /**
-     * Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-     * 
-     */
     @Export(name="maxConcurrency", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxConcurrency;
 
-    /**
-     * @return Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-     * 
-     */
     public Output<Optional<Integer>> maxConcurrency() {
         return Codegen.optional(this.maxConcurrency);
     }
-    /**
-     * Maximal number of instances that App Runner provisions for your service.
-     * 
-     */
     @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxSize;
 
-    /**
-     * @return Maximal number of instances that App Runner provisions for your service.
-     * 
-     */
     public Output<Optional<Integer>> maxSize() {
         return Codegen.optional(this.maxSize);
     }
-    /**
-     * Minimal number of instances that App Runner provisions for your service.
-     * 
-     */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSize;
 
-    /**
-     * @return Minimal number of instances that App Runner provisions for your service.
-     * 
-     */
     public Output<Optional<Integer>> minSize() {
         return Codegen.optional(this.minSize);
     }
-    /**
-     * Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can&#39;t be used. It is permanently removed some time after deletion.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

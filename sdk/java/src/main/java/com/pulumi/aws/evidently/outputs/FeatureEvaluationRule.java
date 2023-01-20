@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureEvaluationRule {
-    /**
-     * @return The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
-     * 
-     */
     private @Nullable String type;
 
     private FeatureEvaluationRule() {}
-    /**
-     * @return The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -16,47 +16,23 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProjectCacheArgs Empty = new ProjectCacheArgs();
 
-    /**
-     * Location of the source code from git or s3.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-     * 
-     */
     @Import(name="modes")
     private @Nullable Output<List<String>> modes;
 
-    /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-     * 
-     */
     public Optional<Output<List<String>>> modes() {
         return Optional.ofNullable(this.modes);
     }
 
-    /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -87,75 +63,33 @@ public final class ProjectCacheArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ProjectCacheArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modes(@Nullable Output<List<String>> modes) {
             $.modes = modes;
             return this;
         }
 
-        /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modes(List<String> modes) {
             return modes(Output.of(modes));
         }
 
-        /**
-         * @param modes Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder modes(String... modes) {
             return modes(List.of(modes));
         }
 
-        /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

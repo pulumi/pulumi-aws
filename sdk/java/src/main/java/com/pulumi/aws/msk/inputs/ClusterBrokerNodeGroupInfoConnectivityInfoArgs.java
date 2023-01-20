@@ -15,17 +15,9 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
 
     public static final ClusterBrokerNodeGroupInfoConnectivityInfoArgs Empty = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs();
 
-    /**
-     * Access control settings for brokers. See below.
-     * 
-     */
     @Import(name="publicAccess")
     private @Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess;
 
-    /**
-     * @return Access control settings for brokers. See below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs>> publicAccess() {
         return Optional.ofNullable(this.publicAccess);
     }
@@ -54,23 +46,11 @@ public final class ClusterBrokerNodeGroupInfoConnectivityInfoArgs extends com.pu
             $ = new ClusterBrokerNodeGroupInfoConnectivityInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param publicAccess Access control settings for brokers. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccess(@Nullable Output<ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs> publicAccess) {
             $.publicAccess = publicAccess;
             return this;
         }
 
-        /**
-         * @param publicAccess Access control settings for brokers. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicAccess(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs publicAccess) {
             return publicAccess(Output.of(publicAccess));
         }

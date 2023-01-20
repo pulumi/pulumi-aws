@@ -17,32 +17,16 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
 
     public static final ResolverCachingConfigArgs Empty = new ResolverCachingConfigArgs();
 
-    /**
-     * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-     * 
-     */
     @Import(name="cachingKeys")
     private @Nullable Output<List<String>> cachingKeys;
 
-    /**
-     * @return The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-     * 
-     */
     public Optional<Output<List<String>>> cachingKeys() {
         return Optional.ofNullable(this.cachingKeys);
     }
 
-    /**
-     * The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-     * 
-     */
     @Import(name="ttl")
     private @Nullable Output<Integer> ttl;
 
-    /**
-     * @return The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-     * 
-     */
     public Optional<Output<Integer>> ttl() {
         return Optional.ofNullable(this.ttl);
     }
@@ -72,54 +56,24 @@ public final class ResolverCachingConfigArgs extends com.pulumi.resources.Resour
             $ = new ResolverCachingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachingKeys(@Nullable Output<List<String>> cachingKeys) {
             $.cachingKeys = cachingKeys;
             return this;
         }
 
-        /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachingKeys(List<String> cachingKeys) {
             return cachingKeys(Output.of(cachingKeys));
         }
 
-        /**
-         * @param cachingKeys The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cachingKeys(String... cachingKeys) {
             return cachingKeys(List.of(cachingKeys));
         }
 
-        /**
-         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(@Nullable Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
-        /**
-         * @param ttl The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }

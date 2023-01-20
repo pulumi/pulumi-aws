@@ -14,67 +14,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRule {
-    /**
-     * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     private @Nullable WebAclRuleAction action;
-    /**
-     * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     private @Nullable WebAclRuleOverrideAction overrideAction;
-    /**
-     * @return Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     private Integer priority;
-    /**
-     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     private String ruleId;
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-     * 
-     */
     private @Nullable String type;
 
     private WebAclRule() {}
-    /**
-     * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<WebAclRuleAction> action() {
         return Optional.ofNullable(this.action);
     }
-    /**
-     * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<WebAclRuleOverrideAction> overrideAction() {
         return Optional.ofNullable(this.overrideAction);
     }
-    /**
-     * @return Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     public Integer priority() {
         return this.priority;
     }
-    /**
-     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     public String ruleId() {
         return this.ruleId;
     }
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -14,47 +14,23 @@ public final class InstanceStorageConfigArgs extends com.pulumi.resources.Resour
 
     public static final InstanceStorageConfigArgs Empty = new InstanceStorageConfigArgs();
 
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
 
-    /**
-     * Specifies the storage configuration options for the Connect Instance. Documented below.
-     * 
-     */
     @Import(name="storageConfig", required=true)
     private Output<InstanceStorageConfigStorageConfigArgs> storageConfig;
 
-    /**
-     * @return Specifies the storage configuration options for the Connect Instance. Documented below.
-     * 
-     */
     public Output<InstanceStorageConfigStorageConfigArgs> storageConfig() {
         return this.storageConfig;
     }
@@ -85,65 +61,29 @@ public final class InstanceStorageConfigArgs extends com.pulumi.resources.Resour
             $ = new InstanceStorageConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Specifies the identifier of the hosting Amazon Connect Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param resourceType A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param storageConfig Specifies the storage configuration options for the Connect Instance. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageConfig(Output<InstanceStorageConfigStorageConfigArgs> storageConfig) {
             $.storageConfig = storageConfig;
             return this;
         }
 
-        /**
-         * @param storageConfig Specifies the storage configuration options for the Connect Instance. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageConfig(InstanceStorageConfigStorageConfigArgs storageConfig) {
             return storageConfig(Output.of(storageConfig));
         }

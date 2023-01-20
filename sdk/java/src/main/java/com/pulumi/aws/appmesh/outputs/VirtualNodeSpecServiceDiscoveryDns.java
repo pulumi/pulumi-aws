@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualNodeSpecServiceDiscoveryDns {
-    /**
-     * @return DNS host name for your virtual node.
-     * 
-     */
     private String hostname;
 
     private VirtualNodeSpecServiceDiscoveryDns() {}
-    /**
-     * @return DNS host name for your virtual node.
-     * 
-     */
     public String hostname() {
         return this.hostname;
     }

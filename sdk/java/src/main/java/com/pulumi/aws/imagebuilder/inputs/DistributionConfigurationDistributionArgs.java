@@ -20,92 +20,44 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
 
     public static final DistributionConfigurationDistributionArgs Empty = new DistributionConfigurationDistributionArgs();
 
-    /**
-     * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-     * 
-     */
     @Import(name="amiDistributionConfiguration")
     private @Nullable Output<DistributionConfigurationDistributionAmiDistributionConfigurationArgs> amiDistributionConfiguration;
 
-    /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-     * 
-     */
     public Optional<Output<DistributionConfigurationDistributionAmiDistributionConfigurationArgs>> amiDistributionConfiguration() {
         return Optional.ofNullable(this.amiDistributionConfiguration);
     }
 
-    /**
-     * Configuration block with container distribution settings. Detailed below.
-     * 
-     */
     @Import(name="containerDistributionConfiguration")
     private @Nullable Output<DistributionConfigurationDistributionContainerDistributionConfigurationArgs> containerDistributionConfiguration;
 
-    /**
-     * @return Configuration block with container distribution settings. Detailed below.
-     * 
-     */
     public Optional<Output<DistributionConfigurationDistributionContainerDistributionConfigurationArgs>> containerDistributionConfiguration() {
         return Optional.ofNullable(this.containerDistributionConfiguration);
     }
 
-    /**
-     * Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-     * 
-     */
     @Import(name="fastLaunchConfigurations")
     private @Nullable Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>> fastLaunchConfigurations;
 
-    /**
-     * @return Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-     * 
-     */
     public Optional<Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>>> fastLaunchConfigurations() {
         return Optional.ofNullable(this.fastLaunchConfigurations);
     }
 
-    /**
-     * Set of launch template configuration settings that apply to image distribution. Detailed below.
-     * 
-     */
     @Import(name="launchTemplateConfigurations")
     private @Nullable Output<List<DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>> launchTemplateConfigurations;
 
-    /**
-     * @return Set of launch template configuration settings that apply to image distribution. Detailed below.
-     * 
-     */
     public Optional<Output<List<DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>>> launchTemplateConfigurations() {
         return Optional.ofNullable(this.launchTemplateConfigurations);
     }
 
-    /**
-     * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     @Import(name="licenseConfigurationArns")
     private @Nullable Output<List<String>> licenseConfigurationArns;
 
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     public Optional<Output<List<String>>> licenseConfigurationArns() {
         return Optional.ofNullable(this.licenseConfigurationArns);
     }
 
-    /**
-     * AWS Region for the distribution.
-     * 
-     */
     @Import(name="region", required=true)
     private Output<String> region;
 
-    /**
-     * @return AWS Region for the distribution.
-     * 
-     */
     public Output<String> region() {
         return this.region;
     }
@@ -139,158 +91,68 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
             $ = new DistributionConfigurationDistributionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amiDistributionConfiguration Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amiDistributionConfiguration(@Nullable Output<DistributionConfigurationDistributionAmiDistributionConfigurationArgs> amiDistributionConfiguration) {
             $.amiDistributionConfiguration = amiDistributionConfiguration;
             return this;
         }
 
-        /**
-         * @param amiDistributionConfiguration Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amiDistributionConfiguration(DistributionConfigurationDistributionAmiDistributionConfigurationArgs amiDistributionConfiguration) {
             return amiDistributionConfiguration(Output.of(amiDistributionConfiguration));
         }
 
-        /**
-         * @param containerDistributionConfiguration Configuration block with container distribution settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerDistributionConfiguration(@Nullable Output<DistributionConfigurationDistributionContainerDistributionConfigurationArgs> containerDistributionConfiguration) {
             $.containerDistributionConfiguration = containerDistributionConfiguration;
             return this;
         }
 
-        /**
-         * @param containerDistributionConfiguration Configuration block with container distribution settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerDistributionConfiguration(DistributionConfigurationDistributionContainerDistributionConfigurationArgs containerDistributionConfiguration) {
             return containerDistributionConfiguration(Output.of(containerDistributionConfiguration));
         }
 
-        /**
-         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fastLaunchConfigurations(@Nullable Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>> fastLaunchConfigurations) {
             $.fastLaunchConfigurations = fastLaunchConfigurations;
             return this;
         }
 
-        /**
-         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fastLaunchConfigurations(List<DistributionConfigurationDistributionFastLaunchConfigurationArgs> fastLaunchConfigurations) {
             return fastLaunchConfigurations(Output.of(fastLaunchConfigurations));
         }
 
-        /**
-         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fastLaunchConfigurations(DistributionConfigurationDistributionFastLaunchConfigurationArgs... fastLaunchConfigurations) {
             return fastLaunchConfigurations(List.of(fastLaunchConfigurations));
         }
 
-        /**
-         * @param launchTemplateConfigurations Set of launch template configuration settings that apply to image distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateConfigurations(@Nullable Output<List<DistributionConfigurationDistributionLaunchTemplateConfigurationArgs>> launchTemplateConfigurations) {
             $.launchTemplateConfigurations = launchTemplateConfigurations;
             return this;
         }
 
-        /**
-         * @param launchTemplateConfigurations Set of launch template configuration settings that apply to image distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateConfigurations(List<DistributionConfigurationDistributionLaunchTemplateConfigurationArgs> launchTemplateConfigurations) {
             return launchTemplateConfigurations(Output.of(launchTemplateConfigurations));
         }
 
-        /**
-         * @param launchTemplateConfigurations Set of launch template configuration settings that apply to image distribution. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder launchTemplateConfigurations(DistributionConfigurationDistributionLaunchTemplateConfigurationArgs... launchTemplateConfigurations) {
             return launchTemplateConfigurations(List.of(launchTemplateConfigurations));
         }
 
-        /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseConfigurationArns(@Nullable Output<List<String>> licenseConfigurationArns) {
             $.licenseConfigurationArns = licenseConfigurationArns;
             return this;
         }
 
-        /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseConfigurationArns(List<String> licenseConfigurationArns) {
             return licenseConfigurationArns(Output.of(licenseConfigurationArns));
         }
 
-        /**
-         * @param licenseConfigurationArns Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-         * 
-         * @return builder
-         * 
-         */
         public Builder licenseConfigurationArns(String... licenseConfigurationArns) {
             return licenseConfigurationArns(List.of(licenseConfigurationArns));
         }
 
-        /**
-         * @param region AWS Region for the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS Region for the distribution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

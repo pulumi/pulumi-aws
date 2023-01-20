@@ -17,146 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional Rule Group Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.Rule;
- * import com.pulumi.aws.wafregional.RuleArgs;
- * import com.pulumi.aws.wafregional.RuleGroup;
- * import com.pulumi.aws.wafregional.RuleGroupArgs;
- * import com.pulumi.aws.wafregional.inputs.RuleGroupActivatedRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RuleGroupActivatedRuleActionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
- *             .metricName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleRuleGroup = new RuleGroup(&#34;exampleRuleGroup&#34;, RuleGroupArgs.builder()        
- *             .metricName(&#34;example&#34;)
- *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
- *                 .action(RuleGroupActivatedRuleActionArgs.builder()
- *                     .type(&#34;COUNT&#34;)
- *                     .build())
- *                 .priority(50)
- *                 .ruleId(exampleRule.id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Regional Rule Group can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of activated rules, see below
-     * 
-     */
     @Export(name="activatedRules", refs={List.class,RuleGroupActivatedRule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RuleGroupActivatedRule>> activatedRules;
 
-    /**
-     * @return A list of activated rules, see below
-     * 
-     */
     public Output<Optional<List<RuleGroupActivatedRule>>> activatedRules() {
         return Codegen.optional(this.activatedRules);
     }
-    /**
-     * The ARN of the WAF Regional Rule Group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF Regional Rule Group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A friendly name for the metrics from the rule group
-     * 
-     */
     @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
-    /**
-     * @return A friendly name for the metrics from the rule group
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
-    /**
-     * A friendly name of the rule group
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the rule group
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

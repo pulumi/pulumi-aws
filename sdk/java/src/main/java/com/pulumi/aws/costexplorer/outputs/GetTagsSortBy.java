@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTagsSortBy {
-    /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     private @Nullable String sortOrder;
 
     private GetTagsSortBy() {}
-    /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     public Optional<String> sortOrder() {
         return Optional.ofNullable(this.sortOrder);
     }

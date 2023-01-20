@@ -16,77 +16,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistribution {
-    /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-     * 
-     */
     private @Nullable DistributionConfigurationDistributionAmiDistributionConfiguration amiDistributionConfiguration;
-    /**
-     * @return Configuration block with container distribution settings. Detailed below.
-     * 
-     */
     private @Nullable DistributionConfigurationDistributionContainerDistributionConfiguration containerDistributionConfiguration;
-    /**
-     * @return Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-     * 
-     */
     private @Nullable List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
-    /**
-     * @return Set of launch template configuration settings that apply to image distribution. Detailed below.
-     * 
-     */
     private @Nullable List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     private @Nullable List<String> licenseConfigurationArns;
-    /**
-     * @return AWS Region for the distribution.
-     * 
-     */
     private String region;
 
     private DistributionConfigurationDistribution() {}
-    /**
-     * @return Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-     * 
-     */
     public Optional<DistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfiguration() {
         return Optional.ofNullable(this.amiDistributionConfiguration);
     }
-    /**
-     * @return Configuration block with container distribution settings. Detailed below.
-     * 
-     */
     public Optional<DistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfiguration() {
         return Optional.ofNullable(this.containerDistributionConfiguration);
     }
-    /**
-     * @return Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-     * 
-     */
     public List<DistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations() {
         return this.fastLaunchConfigurations == null ? List.of() : this.fastLaunchConfigurations;
     }
-    /**
-     * @return Set of launch template configuration settings that apply to image distribution. Detailed below.
-     * 
-     */
     public List<DistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations() {
         return this.launchTemplateConfigurations == null ? List.of() : this.launchTemplateConfigurations;
     }
-    /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-     * 
-     */
     public List<String> licenseConfigurationArns() {
         return this.licenseConfigurationArns == null ? List.of() : this.licenseConfigurationArns;
     }
-    /**
-     * @return AWS Region for the distribution.
-     * 
-     */
     public String region() {
         return this.region;
     }

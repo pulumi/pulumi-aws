@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatement {
-    /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     private List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatement> statements;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatement() {}
-    /**
-     * @return Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatement> statements() {
         return this.statements;
     }

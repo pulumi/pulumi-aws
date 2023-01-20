@@ -16,77 +16,37 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
 
     public static final MulticastDomainArgs Empty = new MulticastDomainArgs();
 
-    /**
-     * Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     @Import(name="autoAcceptSharedAssociations")
     private @Nullable Output<String> autoAcceptSharedAssociations;
 
-    /**
-     * @return Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     public Optional<Output<String>> autoAcceptSharedAssociations() {
         return Optional.ofNullable(this.autoAcceptSharedAssociations);
     }
 
-    /**
-     * Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     @Import(name="igmpv2Support")
     private @Nullable Output<String> igmpv2Support;
 
-    /**
-     * @return Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     public Optional<Output<String>> igmpv2Support() {
         return Optional.ofNullable(this.igmpv2Support);
     }
 
-    /**
-     * Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     @Import(name="staticSourcesSupport")
     private @Nullable Output<String> staticSourcesSupport;
 
-    /**
-     * @return Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-     * 
-     */
     public Optional<Output<String>> staticSourcesSupport() {
         return Optional.ofNullable(this.staticSourcesSupport);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-     * 
-     */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
-    /**
-     * @return EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
@@ -119,107 +79,47 @@ public final class MulticastDomainArgs extends com.pulumi.resources.ResourceArgs
             $ = new MulticastDomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoAcceptSharedAssociations Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoAcceptSharedAssociations(@Nullable Output<String> autoAcceptSharedAssociations) {
             $.autoAcceptSharedAssociations = autoAcceptSharedAssociations;
             return this;
         }
 
-        /**
-         * @param autoAcceptSharedAssociations Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoAcceptSharedAssociations(String autoAcceptSharedAssociations) {
             return autoAcceptSharedAssociations(Output.of(autoAcceptSharedAssociations));
         }
 
-        /**
-         * @param igmpv2Support Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder igmpv2Support(@Nullable Output<String> igmpv2Support) {
             $.igmpv2Support = igmpv2Support;
             return this;
         }
 
-        /**
-         * @param igmpv2Support Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder igmpv2Support(String igmpv2Support) {
             return igmpv2Support(Output.of(igmpv2Support));
         }
 
-        /**
-         * @param staticSourcesSupport Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticSourcesSupport(@Nullable Output<String> staticSourcesSupport) {
             $.staticSourcesSupport = staticSourcesSupport;
             return this;
         }
 
-        /**
-         * @param staticSourcesSupport Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder staticSourcesSupport(String staticSourcesSupport) {
             return staticSourcesSupport(Output.of(staticSourcesSupport));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }

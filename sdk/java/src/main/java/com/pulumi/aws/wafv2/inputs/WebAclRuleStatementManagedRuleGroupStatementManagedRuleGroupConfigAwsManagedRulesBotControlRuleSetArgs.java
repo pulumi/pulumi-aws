@@ -13,17 +13,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs();
 
-    /**
-     * The inspection level to use for the Bot Control rule group.
-     * 
-     */
     @Import(name="inspectionLevel", required=true)
     private Output<String> inspectionLevel;
 
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     public Output<String> inspectionLevel() {
         return this.inspectionLevel;
     }
@@ -52,23 +44,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inspectionLevel The inspection level to use for the Bot Control rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inspectionLevel(Output<String> inspectionLevel) {
             $.inspectionLevel = inspectionLevel;
             return this;
         }
 
-        /**
-         * @param inspectionLevel The inspection level to use for the Bot Control rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inspectionLevel(String inspectionLevel) {
             return inspectionLevel(Output.of(inspectionLevel));
         }

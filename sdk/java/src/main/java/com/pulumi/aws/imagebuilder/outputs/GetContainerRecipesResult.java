@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetContainerRecipesResult {
-    /**
-     * @return Set of ARNs of the matched Image Builder Container Recipes.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetContainerRecipesFilter> filters;
     /**
@@ -24,18 +20,10 @@ public final class GetContainerRecipesResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of names of the matched Image Builder Container Recipes.
-     * 
-     */
     private List<String> names;
     private @Nullable String owner;
 
     private GetContainerRecipesResult() {}
-    /**
-     * @return Set of ARNs of the matched Image Builder Container Recipes.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -49,10 +37,6 @@ public final class GetContainerRecipesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of names of the matched Image Builder Container Recipes.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

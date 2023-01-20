@@ -13,32 +13,16 @@ public final class FleetIdentityProviderArgs extends com.pulumi.resources.Resour
 
     public static final FleetIdentityProviderArgs Empty = new FleetIdentityProviderArgs();
 
-    /**
-     * The SAML metadata document provided by the customer’s identity provider.
-     * 
-     */
     @Import(name="samlMetadata", required=true)
     private Output<String> samlMetadata;
 
-    /**
-     * @return The SAML metadata document provided by the customer’s identity provider.
-     * 
-     */
     public Output<String> samlMetadata() {
         return this.samlMetadata;
     }
 
-    /**
-     * The type of identity provider.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of identity provider.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -68,44 +52,20 @@ public final class FleetIdentityProviderArgs extends com.pulumi.resources.Resour
             $ = new FleetIdentityProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param samlMetadata The SAML metadata document provided by the customer’s identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlMetadata(Output<String> samlMetadata) {
             $.samlMetadata = samlMetadata;
             return this;
         }
 
-        /**
-         * @param samlMetadata The SAML metadata document provided by the customer’s identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlMetadata(String samlMetadata) {
             return samlMetadata(Output.of(samlMetadata));
         }
 
-        /**
-         * @param type The type of identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

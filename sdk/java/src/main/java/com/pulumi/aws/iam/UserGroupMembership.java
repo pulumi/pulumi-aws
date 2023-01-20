@@ -14,98 +14,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource for adding an IAM User to IAM Groups. This
- * resource can be used multiple times with the same user for non-overlapping
- * groups.
- * 
- * To exclusively manage the users in a group, see the
- * `aws.iam.GroupMembership` resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.Group;
- * import com.pulumi.aws.iam.UserGroupMembership;
- * import com.pulumi.aws.iam.UserGroupMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var user1 = new User(&#34;user1&#34;);
- * 
- *         var group1 = new Group(&#34;group1&#34;);
- * 
- *         var group2 = new Group(&#34;group2&#34;);
- * 
- *         var example1 = new UserGroupMembership(&#34;example1&#34;, UserGroupMembershipArgs.builder()        
- *             .user(user1.name())
- *             .groups(            
- *                 group1.name(),
- *                 group2.name())
- *             .build());
- * 
- *         var group3 = new Group(&#34;group3&#34;);
- * 
- *         var example2 = new UserGroupMembership(&#34;example2&#34;, UserGroupMembershipArgs.builder()        
- *             .user(user1.name())
- *             .groups(group3.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IAM user group membership can be imported using the user name and group names separated by `/`.
- * 
- * ```sh
- *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
- * ```
- * 
- */
 @ResourceType(type="aws:iam/userGroupMembership:UserGroupMembership")
 public class UserGroupMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * A list of IAM Groups to add the user to
-     * 
-     */
     @Export(name="groups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groups;
 
-    /**
-     * @return A list of IAM Groups to add the user to
-     * 
-     */
     public Output<List<String>> groups() {
         return this.groups;
     }
-    /**
-     * The name of the IAM User to add to groups
-     * 
-     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
-    /**
-     * @return The name of the IAM User to add to groups
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }

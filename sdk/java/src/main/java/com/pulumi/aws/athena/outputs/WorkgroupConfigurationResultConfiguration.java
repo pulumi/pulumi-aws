@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationResultConfiguration {
-    /**
-     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationResultConfigurationAclConfiguration aclConfiguration;
-    /**
-     * @return Configuration block with encryption settings. See Encryption Configuration below.
-     * 
-     */
     private @Nullable WorkgroupConfigurationResultConfigurationEncryptionConfiguration encryptionConfiguration;
-    /**
-     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     private @Nullable String expectedBucketOwner;
-    /**
-     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-     * 
-     */
     private @Nullable String outputLocation;
 
     private WorkgroupConfigurationResultConfiguration() {}
-    /**
-     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationResultConfigurationAclConfiguration> aclConfiguration() {
         return Optional.ofNullable(this.aclConfiguration);
     }
-    /**
-     * @return Configuration block with encryption settings. See Encryption Configuration below.
-     * 
-     */
     public Optional<WorkgroupConfigurationResultConfigurationEncryptionConfiguration> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
-    /**
-     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     public Optional<String> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
-    /**
-     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-     * 
-     */
     public Optional<String> outputLocation() {
         return Optional.ofNullable(this.outputLocation);
     }

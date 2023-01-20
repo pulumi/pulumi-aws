@@ -13,95 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an CloudSearch domain service access policy resource.
- * 
- * The provider waits for the domain service access policy to become `Active` when applying a configuration.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudsearch.Domain;
- * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicy;
- * import com.pulumi.aws.cloudsearch.DomainServiceAccessPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;);
- * 
- *         var exampleDomainServiceAccessPolicy = new DomainServiceAccessPolicy(&#34;exampleDomainServiceAccessPolicy&#34;, DomainServiceAccessPolicyArgs.builder()        
- *             .domainName(exampleDomain.id())
- *             .accessPolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;:&#34;2012-10-17&#34;,
- *   &#34;Statement&#34;:[{
- *     &#34;Sid&#34;:&#34;search_only&#34;,
- *     &#34;Effect&#34;:&#34;Allow&#34;,
- *     &#34;Principal&#34;:&#34;*&#34;,
- *     &#34;Action&#34;:[
- *       &#34;cloudsearch:search&#34;,
- *       &#34;cloudsearch:document&#34;
- *     ],
- *     &#34;Condition&#34;:{&#34;IpAddress&#34;:{&#34;aws:SourceIp&#34;:&#34;192.0.2.0/32&#34;}}
- *   }]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CloudSearch domain service access policies can be imported using the domain name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
- * ```
- * 
- */
 @ResourceType(type="aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy")
 public class DomainServiceAccessPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     @Export(name="accessPolicy", refs={String.class}, tree="[0]")
     private Output<String> accessPolicy;
 
-    /**
-     * @return The access rules you want to configure. These rules replace any existing rules. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html) for details.
-     * 
-     */
     public Output<String> accessPolicy() {
         return this.accessPolicy;
     }
-    /**
-     * The CloudSearch domain name the policy applies to.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The CloudSearch domain name the policy applies to.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }

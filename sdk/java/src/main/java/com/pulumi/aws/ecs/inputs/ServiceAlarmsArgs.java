@@ -22,32 +22,16 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
         return this.alarmNames;
     }
 
-    /**
-     * Determines whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     @Import(name="enable", required=true)
     private Output<Boolean> enable;
 
-    /**
-     * @return Determines whether to use the CloudWatch alarm option in the service deployment process.
-     * 
-     */
     public Output<Boolean> enable() {
         return this.enable;
     }
 
-    /**
-     * Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     @Import(name="rollback", required=true)
     private Output<Boolean> rollback;
 
-    /**
-     * @return Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-     * 
-     */
     public Output<Boolean> rollback() {
         return this.rollback;
     }
@@ -91,44 +75,20 @@ public final class ServiceAlarmsArgs extends com.pulumi.resources.ResourceArgs {
             return alarmNames(List.of(alarmNames));
         }
 
-        /**
-         * @param enable Determines whether to use the CloudWatch alarm option in the service deployment process.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Determines whether to use the CloudWatch alarm option in the service deployment process.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
-        /**
-         * @param rollback Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Output<Boolean> rollback) {
             $.rollback = rollback;
             return this;
         }
 
-        /**
-         * @param rollback Determines whether to configure Amazon ECS to roll back the service if a service deployment fails. If rollback is used, when a service deployment fails, the service is rolled back to the last deployment that completed successfully.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rollback(Boolean rollback) {
             return rollback(Output.of(rollback));
         }

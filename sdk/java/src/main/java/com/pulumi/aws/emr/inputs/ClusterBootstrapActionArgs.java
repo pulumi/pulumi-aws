@@ -16,47 +16,23 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
 
     public static final ClusterBootstrapActionArgs Empty = new ClusterBootstrapActionArgs();
 
-    /**
-     * List of command line arguments passed to the JAR file&#39;s main function when executed.
-     * 
-     */
     @Import(name="args")
     private @Nullable Output<List<String>> args;
 
-    /**
-     * @return List of command line arguments passed to the JAR file&#39;s main function when executed.
-     * 
-     */
     public Optional<Output<List<String>>> args() {
         return Optional.ofNullable(this.args);
     }
 
-    /**
-     * Name of the step.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the step.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
@@ -87,75 +63,33 @@ public final class ClusterBootstrapActionArgs extends com.pulumi.resources.Resou
             $ = new ClusterBootstrapActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(@Nullable Output<List<String>> args) {
             $.args = args;
             return this;
         }
 
-        /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(List<String> args) {
             return args(Output.of(args));
         }
 
-        /**
-         * @param args List of command line arguments passed to the JAR file&#39;s main function when executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder args(String... args) {
             return args(List.of(args));
         }
 
-        /**
-         * @param name Name of the step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the step.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param path Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

@@ -12,77 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RoutingProfileQueueConfigsAssociated {
-    /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     private @Nullable String channel;
-    /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     private @Nullable Integer delay;
-    /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     private @Nullable Integer priority;
-    /**
-     * @return ARN for the queue.
-     * 
-     */
     private @Nullable String queueArn;
-    /**
-     * @return Specifies the identifier for the queue.
-     * 
-     */
     private @Nullable String queueId;
-    /**
-     * @return Name for the queue.
-     * 
-     */
     private @Nullable String queueName;
 
     private RoutingProfileQueueConfigsAssociated() {}
-    /**
-     * @return Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-     * 
-     */
     public Optional<String> channel() {
         return Optional.ofNullable(this.channel);
     }
-    /**
-     * @return Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-     * 
-     */
     public Optional<Integer> delay() {
         return Optional.ofNullable(this.delay);
     }
-    /**
-     * @return Specifies the order in which contacts are to be handled for the queue.
-     * 
-     */
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
-    /**
-     * @return ARN for the queue.
-     * 
-     */
     public Optional<String> queueArn() {
         return Optional.ofNullable(this.queueArn);
     }
-    /**
-     * @return Specifies the identifier for the queue.
-     * 
-     */
     public Optional<String> queueId() {
         return Optional.ofNullable(this.queueId);
     }
-    /**
-     * @return Name for the queue.
-     * 
-     */
     public Optional<String> queueName() {
         return Optional.ofNullable(this.queueName);
     }

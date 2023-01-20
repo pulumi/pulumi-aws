@@ -19,10 +19,6 @@ public final class GetNetworkInterfacesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the network interface ids found.
-     * 
-     */
     private List<String> ids;
     private Map<String,String> tags;
 
@@ -37,10 +33,6 @@ public final class GetNetworkInterfacesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the network interface ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

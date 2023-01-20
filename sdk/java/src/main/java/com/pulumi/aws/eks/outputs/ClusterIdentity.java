@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterIdentity {
-    /**
-     * @return Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     * 
-     */
     private @Nullable List<ClusterIdentityOidc> oidcs;
 
     private ClusterIdentity() {}
-    /**
-     * @return Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-     * 
-     */
     public List<ClusterIdentityOidc> oidcs() {
         return this.oidcs == null ? List.of() : this.oidcs;
     }

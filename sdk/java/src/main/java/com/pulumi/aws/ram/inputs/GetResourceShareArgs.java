@@ -18,77 +18,37 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetResourceShareArgs Empty = new GetResourceShareArgs();
 
-    /**
-     * Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetResourceShareFilterArgs>> filters;
 
-    /**
-     * @return Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-     * 
-     */
     public Optional<Output<List<GetResourceShareFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Name of the tag key to filter on.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the tag key to filter on.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-     * 
-     */
     @Import(name="resourceOwner", required=true)
     private Output<String> resourceOwner;
 
-    /**
-     * @return Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-     * 
-     */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
 
-    /**
-     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-     * 
-     */
     @Import(name="resourceShareStatus")
     private @Nullable Output<String> resourceShareStatus;
 
-    /**
-     * @return Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-     * 
-     */
     public Optional<Output<String>> resourceShareStatus() {
         return Optional.ofNullable(this.resourceShareStatus);
     }
 
-    /**
-     * Tags attached to the RAM share
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags attached to the RAM share
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -121,117 +81,51 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetResourceShareArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetResourceShareFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetResourceShareFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetResourceShareFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param name Name of the tag key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the tag key to filter on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceOwner(Output<String> resourceOwner) {
             $.resourceOwner = resourceOwner;
             return this;
         }
 
-        /**
-         * @param resourceOwner Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceOwner(String resourceOwner) {
             return resourceOwner(Output.of(resourceOwner));
         }
 
-        /**
-         * @param resourceShareStatus Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareStatus(@Nullable Output<String> resourceShareStatus) {
             $.resourceShareStatus = resourceShareStatus;
             return this;
         }
 
-        /**
-         * @param resourceShareStatus Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceShareStatus(String resourceShareStatus) {
             return resourceShareStatus(Output.of(resourceShareStatus));
         }
 
-        /**
-         * @param tags Tags attached to the RAM share
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags attached to the RAM share
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

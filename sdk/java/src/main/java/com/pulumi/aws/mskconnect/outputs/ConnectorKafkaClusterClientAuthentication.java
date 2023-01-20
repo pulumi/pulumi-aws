@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorKafkaClusterClientAuthentication {
-    /**
-     * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-     * 
-     */
     private @Nullable String authenticationType;
 
     private ConnectorKafkaClusterClientAuthentication() {}
-    /**
-     * @return The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-     * 
-     */
     public Optional<String> authenticationType() {
         return Optional.ofNullable(this.authenticationType);
     }

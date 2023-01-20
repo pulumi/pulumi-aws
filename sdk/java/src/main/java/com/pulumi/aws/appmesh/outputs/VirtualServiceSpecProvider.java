@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualServiceSpecProvider {
-    /**
-     * @return Virtual node associated with a virtual service.
-     * 
-     */
     private @Nullable VirtualServiceSpecProviderVirtualNode virtualNode;
-    /**
-     * @return Virtual router associated with a virtual service.
-     * 
-     */
     private @Nullable VirtualServiceSpecProviderVirtualRouter virtualRouter;
 
     private VirtualServiceSpecProvider() {}
-    /**
-     * @return Virtual node associated with a virtual service.
-     * 
-     */
     public Optional<VirtualServiceSpecProviderVirtualNode> virtualNode() {
         return Optional.ofNullable(this.virtualNode);
     }
-    /**
-     * @return Virtual router associated with a virtual service.
-     * 
-     */
     public Optional<VirtualServiceSpecProviderVirtualRouter> virtualRouter() {
         return Optional.ofNullable(this.virtualRouter);
     }

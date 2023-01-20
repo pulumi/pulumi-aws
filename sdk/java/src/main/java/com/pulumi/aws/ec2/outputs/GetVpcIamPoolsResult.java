@@ -19,10 +19,6 @@ public final class GetVpcIamPoolsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of IPAM pools and their attributes. See below for details
-     * 
-     */
     private List<GetVpcIamPoolsIpamPool> ipamPools;
 
     private GetVpcIamPoolsResult() {}
@@ -36,10 +32,6 @@ public final class GetVpcIamPoolsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of IPAM pools and their attributes. See below for details
-     * 
-     */
     public List<GetVpcIamPoolsIpamPool> ipamPools() {
         return this.ipamPools;
     }

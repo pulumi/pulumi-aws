@@ -16,62 +16,30 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LbCertificateArgs Empty = new LbCertificateArgs();
 
-    /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
 
-    /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return The load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
 
-    /**
-     * The SSL/TLS certificate name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The SSL/TLS certificate name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
@@ -103,96 +71,42 @@ public final class LbCertificateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LbCertificateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param name The SSL/TLS certificate name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The SSL/TLS certificate name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<List<String>> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }

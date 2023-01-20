@@ -24,665 +24,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Auto Scaling Group resource.
- * 
- * &gt; **Note:** You must specify either `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
- * 
- * &gt; **NOTE on Auto Scaling Groups and ASG Attachments:** This provider currently provides
- * both a standalone `aws.autoscaling.Attachment` resource
- * (describing an ASG attached to an ELB or ALB), and an `aws.autoscaling.Group`
- * with `load_balancers` and `target_group_arns` defined in-line. These two methods are not
- * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
- * `load_balancers` or `target_group_arns`, the `aws.autoscaling.Group` resource must be configured
- * to ignore changes to the `load_balancers` and `target_group_arns` arguments.
- * 
- * ## Example Usage
- * ### With Latest Version Of Launch Template
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foobar = new LaunchTemplate(&#34;foobar&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;foobar&#34;)
- *             .imageId(&#34;ami-1a2b3c&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
- *             .build());
- * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
- *             .launchTemplate(GroupLaunchTemplateArgs.builder()
- *                 .id(foobar.id())
- *                 .version(&#34;$Latest&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Mixed Instances Policy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
- *             .instanceType(&#34;c5.large&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyInstancesDistributionArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
- *             .instanceType(&#34;c5.large&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .capacityRebalance(true)
- *             .desiredCapacity(12)
- *             .maxSize(15)
- *             .minSize(12)
- *             .vpcZoneIdentifiers(            
- *                 aws_subnet.example1().id(),
- *                 aws_subnet.example2().id())
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .instancesDistribution(GroupMixedInstancesPolicyInstancesDistributionArgs.builder()
- *                     .onDemandBaseCapacity(0)
- *                     .onDemandPercentageAboveBaseCapacity(25)
- *                     .spotAllocationStrategy(&#34;capacity-optimized&#34;)
- *                     .build())
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c3.large&#34;)
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
- * 
- * When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
- *             .instanceType(&#34;c5.large&#34;)
- *             .build());
- * 
- *         var example2 = new LaunchTemplate(&#34;example2&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example2&#34;)
- *             .imageId(data.aws_ami().example2().id())
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(                    
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c4.large&#34;)
- *                             .weightedCapacity(&#34;3&#34;)
- *                             .build(),
- *                         GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                             .instanceType(&#34;c6g.large&#34;)
- *                             .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs.builder()
- *                                 .launchTemplateId(example2.id())
- *                                 .build())
- *                             .weightedCapacity(&#34;2&#34;)
- *                             .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Mixed Instances Policy with Attribute-based Instance Type Selection
- * 
- * As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
- *             .instanceType(&#34;c5.large&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(1)
- *             .minSize(1)
- *             .mixedInstancesPolicy(GroupMixedInstancesPolicyArgs.builder()
- *                 .launchTemplate(GroupMixedInstancesPolicyLaunchTemplateArgs.builder()
- *                     .launchTemplateSpecification(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs.builder()
- *                         .launchTemplateId(exampleLaunchTemplate.id())
- *                         .build())
- *                     .overrides(GroupMixedInstancesPolicyLaunchTemplateOverrideArgs.builder()
- *                         .instanceRequirements(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs.builder()
- *                             .memoryMib(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs.builder()
- *                                 .min(1000)
- *                                 .build())
- *                             .vcpuCount(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs.builder()
- *                                 .min(4)
- *                                 .build())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Automatically refresh all instances after the group is updated
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
- *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-hvm-*-x86_64-gp2&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t3.nano&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(2)
- *             .minSize(1)
- *             .launchTemplate(GroupLaunchTemplateArgs.builder()
- *                 .id(exampleLaunchTemplate.id())
- *                 .version(exampleLaunchTemplate.latestVersion())
- *                 .build())
- *             .tags(GroupTagArgs.builder()
- *                 .key(&#34;Key&#34;)
- *                 .value(&#34;Value&#34;)
- *                 .propagateAtLaunch(true)
- *                 .build())
- *             .instanceRefresh(GroupInstanceRefreshArgs.builder()
- *                 .strategy(&#34;Rolling&#34;)
- *                 .preferences(GroupInstanceRefreshPreferencesArgs.builder()
- *                     .minHealthyPercentage(50)
- *                     .build())
- *                 .triggers(&#34;tag&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Auto Scaling group with Warm Pool
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.LaunchTemplate;
- * import com.pulumi.aws.ec2.LaunchTemplateArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolArgs;
- * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolInstanceReusePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .namePrefix(&#34;example&#34;)
- *             .imageId(data.aws_ami().example().id())
- *             .instanceType(&#34;c5.large&#34;)
- *             .build());
- * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .availabilityZones(&#34;us-east-1a&#34;)
- *             .desiredCapacity(1)
- *             .maxSize(5)
- *             .minSize(1)
- *             .warmPool(GroupWarmPoolArgs.builder()
- *                 .poolState(&#34;Hibernated&#34;)
- *                 .minSize(1)
- *                 .maxGroupPreparedCapacity(10)
- *                 .instanceReusePolicy(GroupWarmPoolInstanceReusePolicyArgs.builder()
- *                     .reuseOnScaleIn(true)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Waiting for Capacity
- * 
- * A newly-created ASG is initially empty and begins to scale to `min_size` (or
- * `desired_capacity`, if specified) by launching instances using the provided
- * Launch Configuration. These instances take time to launch and boot.
- * 
- * On ASG Update, changes to these values also take time to result in the target
- * number of instances providing service.
- * 
- * This provider provides two mechanisms to help consistently manage ASG scale up
- * time across dependent resources.
- * 
- * #### Waiting for ASG Capacity
- * 
- * The first is default behavior. This provider waits after ASG creation for
- * `min_size` (or `desired_capacity`, if specified) healthy instances to show up
- * in the ASG before continuing.
- * 
- * If `min_size` or `desired_capacity` are changed in a subsequent update,
- * this provider will also wait for the correct number of healthy instances before
- * continuing.
- * 
- * This provider considers an instance &#34;healthy&#34; when the ASG reports `HealthStatus:
- * &#34;Healthy&#34;` and `LifecycleState: &#34;InService&#34;`. See the [AWS AutoScaling
- * Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
- * for more information on an ASG&#39;s lifecycle.
- * 
- * This provider will wait for healthy instances for up to
- * `wait_for_capacity_timeout`. If ASG creation is taking more than a few minutes,
- * it&#39;s worth investigating for scaling activity errors, which can be caused by
- * problems with the selected Launch Configuration.
- * 
- * Setting `wait_for_capacity_timeout` to `&#34;0&#34;` disables ASG Capacity waiting.
- * 
- * #### Waiting for ELB Capacity
- * 
- * The second mechanism is optional, and affects ASGs with attached ELBs specified
- * via the `load_balancers` attribute or with ALBs specified with `target_group_arns`.
- * 
- * The `min_elb_capacity` parameter causes the provider to wait for at least the
- * requested number of instances to show up `&#34;InService&#34;` in all attached ELBs
- * during ASG creation.  It has no effect on ASG updates.
- * 
- * If `wait_for_elb_capacity` is set, the provider will wait for exactly that number
- * of Instances to be `&#34;InService&#34;` in all attached ELBs on both creation and
- * updates.
- * 
- * These parameters can be used to ensure that service is being provided before
- * the provider moves on. If new instances don&#39;t pass the ELB&#39;s health checks for any
- * reason, the apply will time out, and the ASG will be marked as
- * tainted (i.e., marked to be destroyed in a follow up run).
- * 
- * As with ASG Capacity, the provider will wait for up to `wait_for_capacity_timeout`
- * for the proper number of instances to be healthy.
- * 
- * #### Troubleshooting Capacity Waiting Timeouts
- * 
- * If ASG creation takes more than a few minutes, this could indicate one of a
- * number of configuration problems. See the [AWS Docs on Load Balancer
- * Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
- * for more information.
- * 
- * ## Import
- * 
- * Auto Scaling Groups can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:autoscaling/group:Group web web-asg
- * ```
- * 
- */
 @ResourceType(type="aws:autoscaling/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN for this Auto Scaling Group
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN for this Auto Scaling Group
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
-     * 
-     */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
-    /**
-     * @return List of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
-     * 
-     */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
-     * 
-     */
     @Export(name="capacityRebalance", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> capacityRebalance;
 
-    /**
-     * @return Whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
-     * 
-     */
     public Output<Optional<Boolean>> capacityRebalance() {
         return Codegen.optional(this.capacityRebalance);
     }
-    /**
-     * Reserved.
-     * 
-     */
     @Export(name="context", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> context;
 
-    /**
-     * @return Reserved.
-     * 
-     */
     public Output<Optional<String>> context() {
         return Codegen.optional(this.context);
     }
-    /**
-     * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
-     * 
-     */
     @Export(name="defaultCooldown", refs={Integer.class}, tree="[0]")
     private Output<Integer> defaultCooldown;
 
-    /**
-     * @return Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
-     * 
-     */
     public Output<Integer> defaultCooldown() {
         return this.defaultCooldown;
     }
-    /**
-     * Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
-     * 
-     */
     @Export(name="defaultInstanceWarmup", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> defaultInstanceWarmup;
 
-    /**
-     * @return Amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
-     * 
-     */
     public Output<Optional<Integer>> defaultInstanceWarmup() {
         return Codegen.optional(this.defaultInstanceWarmup);
     }
-    /**
-     * Number of Amazon EC2 instances that
-     * should be running in the group. (See also Waiting for
-     * Capacity below.)
-     * 
-     */
     @Export(name="desiredCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredCapacity;
 
-    /**
-     * @return Number of Amazon EC2 instances that
-     * should be running in the group. (See also Waiting for
-     * Capacity below.)
-     * 
-     */
     public Output<Integer> desiredCapacity() {
         return this.desiredCapacity;
     }
-    /**
-     * The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
-     * 
-     */
     @Export(name="desiredCapacityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> desiredCapacityType;
 
-    /**
-     * @return The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `&#34;units&#34;`, `&#34;vcpu&#34;`, `&#34;memory-mib&#34;`.
-     * 
-     */
     public Output<Optional<String>> desiredCapacityType() {
         return Codegen.optional(this.desiredCapacityType);
     }
-    /**
-     * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
-     * 
-     */
     @Export(name="enabledMetrics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledMetrics;
 
-    /**
-     * @return List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
-     * 
-     */
     public Output<Optional<List<String>>> enabledMetrics() {
         return Codegen.optional(this.enabledMetrics);
     }
-    /**
-     * Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
-     * even if it&#39;s in the process of scaling a resource. Normally, this provider
-     * drains all the instances before deleting the group.  This bypasses that
-     * behavior and potentially leaves resources dangling.
-     * 
-     */
     @Export(name="forceDelete", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDelete;
 
-    /**
-     * @return Allows deleting the Auto Scaling Group without waiting
-     * for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
-     * even if it&#39;s in the process of scaling a resource. Normally, this provider
-     * drains all the instances before deleting the group.  This bypasses that
-     * behavior and potentially leaves resources dangling.
-     * 
-     */
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }
@@ -692,325 +92,127 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> forceDeleteWarmPool() {
         return Codegen.optional(this.forceDeleteWarmPool);
     }
-    /**
-     * Time (in seconds) after instance comes into service before checking health.
-     * 
-     */
     @Export(name="healthCheckGracePeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> healthCheckGracePeriod;
 
-    /**
-     * @return Time (in seconds) after instance comes into service before checking health.
-     * 
-     */
     public Output<Optional<Integer>> healthCheckGracePeriod() {
         return Codegen.optional(this.healthCheckGracePeriod);
     }
-    /**
-     * &#34;EC2&#34; or &#34;ELB&#34;. Controls how health checking is done.
-     * 
-     */
     @Export(name="healthCheckType", refs={String.class}, tree="[0]")
     private Output<String> healthCheckType;
 
-    /**
-     * @return &#34;EC2&#34; or &#34;ELB&#34;. Controls how health checking is done.
-     * 
-     */
     public Output<String> healthCheckType() {
         return this.healthCheckType;
     }
-    /**
-     * One or more
-     * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-     * to attach to the Auto Scaling Group **before** instances are launched. The
-     * syntax is exactly the same as the separate
-     * `aws.autoscaling.LifecycleHook`
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-     * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
-     * 
-     */
     @Export(name="initialLifecycleHooks", refs={List.class,GroupInitialLifecycleHook.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupInitialLifecycleHook>> initialLifecycleHooks;
 
-    /**
-     * @return One or more
-     * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
-     * to attach to the Auto Scaling Group **before** instances are launched. The
-     * syntax is exactly the same as the separate
-     * `aws.autoscaling.LifecycleHook`
-     * resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
-     * a new Auto Scaling Group. For all other use-cases, please use `aws.autoscaling.LifecycleHook` resource.
-     * 
-     */
     public Output<Optional<List<GroupInitialLifecycleHook>>> initialLifecycleHooks() {
         return Codegen.optional(this.initialLifecycleHooks);
     }
-    /**
-     * If this block is configured, start an
-     * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-     * when this Auto Scaling Group is updated. Defined below.
-     * 
-     */
     @Export(name="instanceRefresh", refs={GroupInstanceRefresh.class}, tree="[0]")
     private Output</* @Nullable */ GroupInstanceRefresh> instanceRefresh;
 
-    /**
-     * @return If this block is configured, start an
-     * [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
-     * when this Auto Scaling Group is updated. Defined below.
-     * 
-     */
     public Output<Optional<GroupInstanceRefresh>> instanceRefresh() {
         return Codegen.optional(this.instanceRefresh);
     }
-    /**
-     * Name of the launch configuration to use.
-     * 
-     */
     @Export(name="launchConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> launchConfiguration;
 
-    /**
-     * @return Name of the launch configuration to use.
-     * 
-     */
     public Output<Optional<String>> launchConfiguration() {
         return Codegen.optional(this.launchConfiguration);
     }
-    /**
-     * Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-     * 
-     */
     @Export(name="launchTemplate", refs={GroupLaunchTemplate.class}, tree="[0]")
     private Output</* @Nullable */ GroupLaunchTemplate> launchTemplate;
 
-    /**
-     * @return Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-     * 
-     */
     public Output<Optional<GroupLaunchTemplate>> launchTemplate() {
         return Codegen.optional(this.launchTemplate);
     }
-    /**
-     * List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-     * 
-     */
     @Export(name="loadBalancers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> loadBalancers;
 
-    /**
-     * @return List of elastic load balancer names to add to the autoscaling
-     * group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead.
-     * 
-     */
     public Output<Optional<List<String>>> loadBalancers() {
         return Codegen.optional(this.loadBalancers);
     }
-    /**
-     * Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
-     * 
-     */
     @Export(name="maxInstanceLifetime", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxInstanceLifetime;
 
-    /**
-     * @return Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
-     * 
-     */
     public Output<Optional<Integer>> maxInstanceLifetime() {
         return Codegen.optional(this.maxInstanceLifetime);
     }
-    /**
-     * Maximum size of the Auto Scaling Group.
-     * 
-     */
     @Export(name="maxSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxSize;
 
-    /**
-     * @return Maximum size of the Auto Scaling Group.
-     * 
-     */
     public Output<Integer> maxSize() {
         return this.maxSize;
     }
-    /**
-     * Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-     * 
-     */
     @Export(name="metricsGranularity", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> metricsGranularity;
 
-    /**
-     * @return Granularity to associate with the metrics to collect. The only valid value is `1Minute`. Default is `1Minute`.
-     * 
-     */
     public Output<Optional<String>> metricsGranularity() {
         return Codegen.optional(this.metricsGranularity);
     }
-    /**
-     * Setting this causes the provider to wait for
-     * this number of instances from this Auto Scaling Group to show up healthy in the
-     * ELB only on creation. Updates will not wait on ELB instance number changes.
-     * (See also Waiting for Capacity below.)
-     * 
-     */
     @Export(name="minElbCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minElbCapacity;
 
-    /**
-     * @return Setting this causes the provider to wait for
-     * this number of instances from this Auto Scaling Group to show up healthy in the
-     * ELB only on creation. Updates will not wait on ELB instance number changes.
-     * (See also Waiting for Capacity below.)
-     * 
-     */
     public Output<Optional<Integer>> minElbCapacity() {
         return Codegen.optional(this.minElbCapacity);
     }
-    /**
-     * Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-     * 
-     */
     @Export(name="minSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> minSize;
 
-    /**
-     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-     * 
-     */
     public Output<Integer> minSize() {
         return this.minSize;
     }
-    /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
-     * 
-     */
     @Export(name="mixedInstancesPolicy", refs={GroupMixedInstancesPolicy.class}, tree="[0]")
     private Output</* @Nullable */ GroupMixedInstancesPolicy> mixedInstancesPolicy;
 
-    /**
-     * @return Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
-     * 
-     */
     public Output<Optional<GroupMixedInstancesPolicy>> mixedInstancesPolicy() {
         return Codegen.optional(this.mixedInstancesPolicy);
     }
-    /**
-     * Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the Auto Scaling Group. By default generated by the provider. Conflicts with `name_prefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * Name of the placement group into which you&#39;ll launch your instances, if any.
-     * 
-     */
     @Export(name="placementGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementGroup;
 
-    /**
-     * @return Name of the placement group into which you&#39;ll launch your instances, if any.
-     * 
-     */
     public Output<Optional<String>> placementGroup() {
         return Codegen.optional(this.placementGroup);
     }
-    /**
-     * Whether newly launched instances
-     * are automatically protected from termination by Amazon EC2 Auto Scaling when
-     * scaling in. For more information about preventing instances from terminating
-     * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
-     * in the Amazon EC2 Auto Scaling User Guide.
-     * 
-     */
     @Export(name="protectFromScaleIn", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> protectFromScaleIn;
 
-    /**
-     * @return Whether newly launched instances
-     * are automatically protected from termination by Amazon EC2 Auto Scaling when
-     * scaling in. For more information about preventing instances from terminating
-     * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
-     * in the Amazon EC2 Auto Scaling User Guide.
-     * 
-     */
     public Output<Optional<Boolean>> protectFromScaleIn() {
         return Codegen.optional(this.protectFromScaleIn);
     }
-    /**
-     * ARN of the service-linked role that the ASG will use to call other AWS services
-     * 
-     */
     @Export(name="serviceLinkedRoleArn", refs={String.class}, tree="[0]")
     private Output<String> serviceLinkedRoleArn;
 
-    /**
-     * @return ARN of the service-linked role that the ASG will use to call other AWS services
-     * 
-     */
     public Output<String> serviceLinkedRoleArn() {
         return this.serviceLinkedRoleArn;
     }
-    /**
-     * List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-     * 
-     */
     @Export(name="suspendedProcesses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> suspendedProcesses;
 
-    /**
-     * @return List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
-     * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-     * 
-     */
     public Output<Optional<List<String>>> suspendedProcesses() {
         return Codegen.optional(this.suspendedProcesses);
     }
-    /**
-     * Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
-     * 
-     */
     @Export(name="tags", refs={List.class,GroupTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GroupTag>> tags;
 
-    /**
-     * @return Configuration block(s) containing resource tags. Conflicts with `tags`. See Tag below for more details.
-     * 
-     */
     public Output<Optional<List<GroupTag>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-     * 
      * @deprecated
      * Use tag instead
      * 
@@ -1019,112 +221,42 @@ public class Group extends com.pulumi.resources.CustomResource {
     @Export(name="tagsCollection", refs={List.class,Map.class,String.class}, tree="[0,[1,2,2]]")
     private Output</* @Nullable */ List<Map<String,String>>> tagsCollection;
 
-    /**
-     * @return Set of maps containing resource tags. Conflicts with `tag`. See Tags below for more details.
-     * 
-     */
     public Output<Optional<List<Map<String,String>>>> tagsCollection() {
         return Codegen.optional(this.tagsCollection);
     }
-    /**
-     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
-     * 
-     */
     @Export(name="targetGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetGroupArns;
 
-    /**
-     * @return Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing.
-     * 
-     */
     public Output<Optional<List<String>>> targetGroupArns() {
         return Codegen.optional(this.targetGroupArns);
     }
-    /**
-     * List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-     * 
-     */
     @Export(name="terminationPolicies", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> terminationPolicies;
 
-    /**
-     * @return List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-     * 
-     */
     public Output<Optional<List<String>>> terminationPolicies() {
         return Codegen.optional(this.terminationPolicies);
     }
-    /**
-     * List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
-     * 
-     */
     @Export(name="vpcZoneIdentifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcZoneIdentifiers;
 
-    /**
-     * @return List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
-     * 
-     */
     public Output<List<String>> vpcZoneIdentifiers() {
         return this.vpcZoneIdentifiers;
     }
-    /**
-     * Maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
-     * for Capacity below.) Setting this to &#34;0&#34; causes
-     * the provider to skip all Capacity Waiting behavior.
-     * 
-     */
     @Export(name="waitForCapacityTimeout", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> waitForCapacityTimeout;
 
-    /**
-     * @return Maximum
-     * [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
-     * wait for ASG instances to be healthy before timing out.  (See also Waiting
-     * for Capacity below.) Setting this to &#34;0&#34; causes
-     * the provider to skip all Capacity Waiting behavior.
-     * 
-     */
     public Output<Optional<String>> waitForCapacityTimeout() {
         return Codegen.optional(this.waitForCapacityTimeout);
     }
-    /**
-     * Setting this will cause the provider to wait
-     * for exactly this number of healthy instances from this Auto Scaling Group in
-     * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
-     * (See also Waiting for Capacity below.)
-     * 
-     */
     @Export(name="waitForElbCapacity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> waitForElbCapacity;
 
-    /**
-     * @return Setting this will cause the provider to wait
-     * for exactly this number of healthy instances from this Auto Scaling Group in
-     * all attached load balancers on both create and update operations. (Takes
-     * precedence over `min_elb_capacity` behavior.)
-     * (See also Waiting for Capacity below.)
-     * 
-     */
     public Output<Optional<Integer>> waitForElbCapacity() {
         return Codegen.optional(this.waitForElbCapacity);
     }
-    /**
-     * If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
-     * to the specified Auto Scaling group. Defined below
-     * 
-     */
     @Export(name="warmPool", refs={GroupWarmPool.class}, tree="[0]")
     private Output</* @Nullable */ GroupWarmPool> warmPool;
 
-    /**
-     * @return If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
-     * to the specified Auto Scaling group. Defined below
-     * 
-     */
     public Output<Optional<GroupWarmPool>> warmPool() {
         return Codegen.optional(this.warmPool);
     }

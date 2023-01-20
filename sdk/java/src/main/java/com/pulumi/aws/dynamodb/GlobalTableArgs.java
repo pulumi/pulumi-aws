@@ -17,32 +17,16 @@ public final class GlobalTableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GlobalTableArgs Empty = new GlobalTableArgs();
 
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     @Import(name="replicas", required=true)
     private Output<List<GlobalTableReplicaArgs>> replicas;
 
-    /**
-     * @return Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     public Output<List<GlobalTableReplicaArgs>> replicas() {
         return this.replicas;
     }
@@ -72,54 +56,24 @@ public final class GlobalTableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GlobalTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the global table. Must match underlying DynamoDB Table names in all regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the global table. Must match underlying DynamoDB Table names in all regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicas(Output<List<GlobalTableReplicaArgs>> replicas) {
             $.replicas = replicas;
             return this;
         }
 
-        /**
-         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicas(List<GlobalTableReplicaArgs> replicas) {
             return replicas(Output.of(replicas));
         }
 
-        /**
-         * @param replicas Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicas(GlobalTableReplicaArgs... replicas) {
             return replicas(List.of(replicas));
         }

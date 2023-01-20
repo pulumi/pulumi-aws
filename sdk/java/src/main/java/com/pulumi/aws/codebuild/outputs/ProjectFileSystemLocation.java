@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectFileSystemLocation {
-    /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-     * 
-     */
     private @Nullable String identifier;
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return The mount options for a file system created by AWS EFS.
-     * 
-     */
     private @Nullable String mountOptions;
-    /**
-     * @return The location in the container where you mount the file system.
-     * 
-     */
     private @Nullable String mountPoint;
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     private @Nullable String type;
 
     private ProjectFileSystemLocation() {}
-    /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-     * 
-     */
     public Optional<String> identifier() {
         return Optional.ofNullable(this.identifier);
     }
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return The mount options for a file system created by AWS EFS.
-     * 
-     */
     public Optional<String> mountOptions() {
         return Optional.ofNullable(this.mountOptions);
     }
-    /**
-     * @return The location in the container where you mount the file system.
-     * 
-     */
     public Optional<String> mountPoint() {
         return Optional.ofNullable(this.mountPoint);
     }
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

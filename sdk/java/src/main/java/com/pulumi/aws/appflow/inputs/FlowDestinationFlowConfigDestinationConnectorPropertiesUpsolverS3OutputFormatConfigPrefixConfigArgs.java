@@ -15,32 +15,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs();
 
-    /**
-     * Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     @Import(name="prefixFormat")
     private @Nullable Output<String> prefixFormat;
 
-    /**
-     * @return Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-     * 
-     */
     public Optional<Output<String>> prefixFormat() {
         return Optional.ofNullable(this.prefixFormat);
     }
 
-    /**
-     * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     @Import(name="prefixType", required=true)
     private Output<String> prefixType;
 
-    /**
-     * @return Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-     * 
-     */
     public Output<String> prefixType() {
         return this.prefixType;
     }
@@ -70,44 +54,20 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolv
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixFormat(@Nullable Output<String> prefixFormat) {
             $.prefixFormat = prefixFormat;
             return this;
         }
 
-        /**
-         * @param prefixFormat Determines the level of granularity that&#39;s included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixFormat(String prefixFormat) {
             return prefixFormat(Output.of(prefixFormat));
         }
 
-        /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixType(Output<String> prefixType) {
             $.prefixType = prefixType;
             return this;
         }
 
-        /**
-         * @param prefixType Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixType(String prefixType) {
             return prefixType(Output.of(prefixType));
         }

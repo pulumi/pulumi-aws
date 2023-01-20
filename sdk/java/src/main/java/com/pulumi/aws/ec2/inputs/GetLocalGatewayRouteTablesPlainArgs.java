@@ -17,34 +17,16 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
 
     public static final GetLocalGatewayRouteTablesPlainArgs Empty = new GetLocalGatewayRouteTablesPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetLocalGatewayRouteTablesFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetLocalGatewayRouteTablesFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired local gateway route table.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired local gateway route table.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -74,34 +56,15 @@ public final class GetLocalGatewayRouteTablesPlainArgs extends com.pulumi.resour
             $ = new GetLocalGatewayRouteTablesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetLocalGatewayRouteTablesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetLocalGatewayRouteTablesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired local gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

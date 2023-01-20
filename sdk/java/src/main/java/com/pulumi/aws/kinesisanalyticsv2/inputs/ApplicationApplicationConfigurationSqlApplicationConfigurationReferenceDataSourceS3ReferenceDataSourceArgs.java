@@ -13,32 +13,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs();
 
-    /**
-     * The ARN for the S3 bucket containing the application code.
-     * 
-     */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
-    /**
-     * @return The ARN for the S3 bucket containing the application code.
-     * 
-     */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
-    /**
-     * The file key for the object containing the application code.
-     * 
-     */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
-    /**
-     * @return The file key for the object containing the application code.
-     * 
-     */
     public Output<String> fileKey() {
         return this.fileKey;
     }
@@ -68,44 +52,20 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketArn The ARN for the S3 bucket containing the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(Output<String> bucketArn) {
             $.bucketArn = bucketArn;
             return this;
         }
 
-        /**
-         * @param bucketArn The ARN for the S3 bucket containing the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketArn(String bucketArn) {
             return bucketArn(Output.of(bucketArn));
         }
 
-        /**
-         * @param fileKey The file key for the object containing the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(Output<String> fileKey) {
             $.fileKey = fileKey;
             return this;
         }
 
-        /**
-         * @param fileKey The file key for the object containing the application code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileKey(String fileKey) {
             return fileKey(Output.of(fileKey));
         }

@@ -16,228 +16,71 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an entry (a rule) in a network ACL with the specified rule number.
- * 
- * &gt; **NOTE on Network ACLs and Network ACL Rules:** This provider currently
- * provides both a standalone Network ACL Rule resource and a Network ACL resource with rules
- * defined in-line. At this time you cannot use a Network ACL with in-line rules
- * in conjunction with any Network ACL Rule resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NetworkAcl;
- * import com.pulumi.aws.ec2.NetworkAclArgs;
- * import com.pulumi.aws.ec2.NetworkAclRule;
- * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var barNetworkAcl = new NetworkAcl(&#34;barNetworkAcl&#34;, NetworkAclArgs.builder()        
- *             .vpcId(aws_vpc.foo().id())
- *             .build());
- * 
- *         var barNetworkAclRule = new NetworkAclRule(&#34;barNetworkAclRule&#34;, NetworkAclRuleArgs.builder()        
- *             .networkAclId(barNetworkAcl.id())
- *             .ruleNumber(200)
- *             .egress(false)
- *             .protocol(&#34;tcp&#34;)
- *             .ruleAction(&#34;allow&#34;)
- *             .cidrBlock(aws_vpc.foo().cidr_block())
- *             .fromPort(22)
- *             .toPort(22)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
- * 
- * ## Import
- * 
- * Individual rules can be imported using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (e.g., 6) or string (e.g., tcp) value. If importing a rule previously provisioned by the provider, the `PROTOCOL` must be the input value used at creation time. For more information on protocol numbers and keywords, see herehttps://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml For example, import a network ACL Rule with an argument like thisconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
- * ```
- * 
- *  Or by the procotol&#39;s decimal valueconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/networkAclRule:NetworkAclRule")
 public class NetworkAclRule extends com.pulumi.resources.CustomResource {
-    /**
-     * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-     * 
-     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrBlock;
 
-    /**
-     * @return The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
-     * 
-     */
     public Output<Optional<String>> cidrBlock() {
         return Codegen.optional(this.cidrBlock);
     }
-    /**
-     * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-     * 
-     */
     @Export(name="egress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> egress;
 
-    /**
-     * @return Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
-     * 
-     */
     public Output<Optional<Boolean>> egress() {
         return Codegen.optional(this.egress);
     }
-    /**
-     * The from port to match.
-     * 
-     */
     @Export(name="fromPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> fromPort;
 
-    /**
-     * @return The from port to match.
-     * 
-     */
     public Output<Optional<Integer>> fromPort() {
         return Codegen.optional(this.fromPort);
     }
-    /**
-     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-     * 
-     */
     @Export(name="icmpCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icmpCode;
 
-    /**
-     * @return ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
-     * 
-     */
     public Output<Optional<Integer>> icmpCode() {
         return Codegen.optional(this.icmpCode);
     }
-    /**
-     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-     * 
-     */
     @Export(name="icmpType", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> icmpType;
 
-    /**
-     * @return ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
-     * 
-     */
     public Output<Optional<Integer>> icmpType() {
         return Codegen.optional(this.icmpType);
     }
-    /**
-     * The IPv6 CIDR block to allow or deny.
-     * 
-     */
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv6CidrBlock;
 
-    /**
-     * @return The IPv6 CIDR block to allow or deny.
-     * 
-     */
     public Output<Optional<String>> ipv6CidrBlock() {
         return Codegen.optional(this.ipv6CidrBlock);
     }
-    /**
-     * The ID of the network ACL.
-     * 
-     */
     @Export(name="networkAclId", refs={String.class}, tree="[0]")
     private Output<String> networkAclId;
 
-    /**
-     * @return The ID of the network ACL.
-     * 
-     */
     public Output<String> networkAclId() {
         return this.networkAclId;
     }
-    /**
-     * The protocol. A value of -1 means all protocols.
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
-    /**
-     * @return The protocol. A value of -1 means all protocols.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
-    /**
-     * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-     * 
-     */
     @Export(name="ruleAction", refs={String.class}, tree="[0]")
     private Output<String> ruleAction;
 
-    /**
-     * @return Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
-     * 
-     */
     public Output<String> ruleAction() {
         return this.ruleAction;
     }
-    /**
-     * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-     * 
-     */
     @Export(name="ruleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> ruleNumber;
 
-    /**
-     * @return The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
-     * 
-     */
     public Output<Integer> ruleNumber() {
         return this.ruleNumber;
     }
-    /**
-     * The to port to match.
-     * 
-     */
     @Export(name="toPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> toPort;
 
-    /**
-     * @return The to port to match.
-     * 
-     */
     public Output<Optional<Integer>> toPort() {
         return Codegen.optional(this.toPort);
     }

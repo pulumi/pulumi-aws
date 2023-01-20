@@ -15,32 +15,16 @@ public final class NetworkInsightsAnalysisAlternatePathHintArgs extends com.pulu
 
     public static final NetworkInsightsAnalysisAlternatePathHintArgs Empty = new NetworkInsightsAnalysisAlternatePathHintArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the component.
-     * 
-     */
     @Import(name="componentArn")
     private @Nullable Output<String> componentArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the component.
-     * 
-     */
     public Optional<Output<String>> componentArn() {
         return Optional.ofNullable(this.componentArn);
     }
 
-    /**
-     * The ID of the component.
-     * 
-     */
     @Import(name="componentId")
     private @Nullable Output<String> componentId;
 
-    /**
-     * @return The ID of the component.
-     * 
-     */
     public Optional<Output<String>> componentId() {
         return Optional.ofNullable(this.componentId);
     }
@@ -70,44 +54,20 @@ public final class NetworkInsightsAnalysisAlternatePathHintArgs extends com.pulu
             $ = new NetworkInsightsAnalysisAlternatePathHintArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param componentArn The Amazon Resource Name (ARN) of the component.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentArn(@Nullable Output<String> componentArn) {
             $.componentArn = componentArn;
             return this;
         }
 
-        /**
-         * @param componentArn The Amazon Resource Name (ARN) of the component.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentArn(String componentArn) {
             return componentArn(Output.of(componentArn));
         }
 
-        /**
-         * @param componentId The ID of the component.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentId(@Nullable Output<String> componentId) {
             $.componentId = componentId;
             return this;
         }
 
-        /**
-         * @param componentId The ID of the component.
-         * 
-         * @return builder
-         * 
-         */
         public Builder componentId(String componentId) {
             return componentId(Output.of(componentId));
         }

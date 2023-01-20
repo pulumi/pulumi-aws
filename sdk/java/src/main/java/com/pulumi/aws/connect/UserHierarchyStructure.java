@@ -14,136 +14,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Connect User Hierarchy Structure resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.UserHierarchyStructure;
- * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
- *                     .build())
- *                 .build())
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Five Levels
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.UserHierarchyStructure;
- * import com.pulumi.aws.connect.UserHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFiveArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelFourArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelOneArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelThreeArgs;
- * import com.pulumi.aws.connect.inputs.UserHierarchyStructureHierarchyStructureLevelTwoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new UserHierarchyStructure(&#34;example&#34;, UserHierarchyStructureArgs.builder()        
- *             .hierarchyStructure(UserHierarchyStructureHierarchyStructureArgs.builder()
- *                 .levelFive(UserHierarchyStructureHierarchyStructureLevelFiveArgs.builder()
- *                     .name(&#34;levelfive&#34;)
- *                     .build())
- *                 .levelFour(UserHierarchyStructureHierarchyStructureLevelFourArgs.builder()
- *                     .name(&#34;levelfour&#34;)
- *                     .build())
- *                 .levelOne(UserHierarchyStructureHierarchyStructureLevelOneArgs.builder()
- *                     .name(&#34;levelone&#34;)
- *                     .build())
- *                 .levelThree(UserHierarchyStructureHierarchyStructureLevelThreeArgs.builder()
- *                     .name(&#34;levelthree&#34;)
- *                     .build())
- *                 .levelTwo(UserHierarchyStructureHierarchyStructureLevelTwoArgs.builder()
- *                     .name(&#34;leveltwo&#34;)
- *                     .build())
- *                 .build())
- *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Amazon Connect User Hierarchy Structures can be imported using the `instance_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
- * ```
- * 
- */
 @ResourceType(type="aws:connect/userHierarchyStructure:UserHierarchyStructure")
 public class UserHierarchyStructure extends com.pulumi.resources.CustomResource {
-    /**
-     * A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
-     * 
-     */
     @Export(name="hierarchyStructure", refs={UserHierarchyStructureHierarchyStructure.class}, tree="[0]")
     private Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure;
 
-    /**
-     * @return A block that defines the hierarchy structure&#39;s levels. The `hierarchy_structure` block is documented below.
-     * 
-     */
     public Output<UserHierarchyStructureHierarchyStructure> hierarchyStructure() {
         return this.hierarchyStructure;
     }
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }

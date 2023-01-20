@@ -13,76 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a VPC Endpoint Route Table Association
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
- * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VpcEndpointRouteTableAssociation(&#34;example&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
- *             .routeTableId(aws_route_table.example().id())
- *             .vpcEndpointId(aws_vpc_endpoint.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * VPC Endpoint Route Table Associations can be imported using `vpc_endpoint_id` together with `route_table_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation")
 public class VpcEndpointRouteTableAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
-    /**
-     * @return Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }

@@ -11,31 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AmiCopyEphemeralBlockDevice {
-    /**
-     * @return Path at which the device is exposed to created instances.
-     * 
-     */
     private @Nullable String deviceName;
-    /**
-     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
-     * *N* is a volume number starting from zero.
-     * 
-     */
     private @Nullable String virtualName;
 
     private AmiCopyEphemeralBlockDevice() {}
-    /**
-     * @return Path at which the device is exposed to created instances.
-     * 
-     */
     public Optional<String> deviceName() {
         return Optional.ofNullable(this.deviceName);
     }
-    /**
-     * @return Name for the ephemeral device, of the form &#34;ephemeralN&#34; where
-     * *N* is a volume number starting from zero.
-     * 
-     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

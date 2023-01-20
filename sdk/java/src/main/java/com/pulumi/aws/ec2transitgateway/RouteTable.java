@@ -16,131 +16,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EC2 Transit Gateway Route Table.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.RouteTable;
- * import com.pulumi.aws.ec2transitgateway.RouteTableArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RouteTable(&#34;example&#34;, RouteTableArgs.builder()        
- *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/routeTable:RouteTable")
 public class RouteTable extends com.pulumi.resources.CustomResource {
-    /**
-     * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Boolean whether this is the default association route table for the EC2 Transit Gateway.
-     * 
-     */
     @Export(name="defaultAssociationRouteTable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultAssociationRouteTable;
 
-    /**
-     * @return Boolean whether this is the default association route table for the EC2 Transit Gateway.
-     * 
-     */
     public Output<Boolean> defaultAssociationRouteTable() {
         return this.defaultAssociationRouteTable;
     }
-    /**
-     * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-     * 
-     */
     @Export(name="defaultPropagationRouteTable", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> defaultPropagationRouteTable;
 
-    /**
-     * @return Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
-     * 
-     */
     public Output<Boolean> defaultPropagationRouteTable() {
         return this.defaultPropagationRouteTable;
     }
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Identifier of EC2 Transit Gateway.
-     * 
-     */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }

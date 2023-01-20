@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolAdminCreateUserConfigInviteMessageTemplate {
-    /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-     * 
-     */
     private @Nullable String emailMessage;
-    /**
-     * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-     * 
-     */
     private @Nullable String emailSubject;
-    /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-     * 
-     */
     private @Nullable String smsMessage;
 
     private UserPoolAdminCreateUserConfigInviteMessageTemplate() {}
-    /**
-     * @return Email message template. Must contain the `{####}` placeholder. Conflicts with `email_verification_message` argument.
-     * 
-     */
     public Optional<String> emailMessage() {
         return Optional.ofNullable(this.emailMessage);
     }
-    /**
-     * @return Subject line for the email message template. Conflicts with `email_verification_subject` argument.
-     * 
-     */
     public Optional<String> emailSubject() {
         return Optional.ofNullable(this.emailSubject);
     }
-    /**
-     * @return SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
-     * 
-     */
     public Optional<String> smsMessage() {
         return Optional.ofNullable(this.smsMessage);
     }

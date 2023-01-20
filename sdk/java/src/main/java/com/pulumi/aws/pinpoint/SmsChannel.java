@@ -16,134 +16,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint SMS Channel resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.SmsChannel;
- * import com.pulumi.aws.pinpoint.SmsChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
- * 
- *         var sms = new SmsChannel(&#34;sms&#34;, SmsChannelArgs.builder()        
- *             .applicationId(app.applicationId())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/smsChannel:SmsChannel")
 public class SmsChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Promotional messages per second that can be sent.
-     * 
-     */
     @Export(name="promotionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> promotionalMessagesPerSecond;
 
-    /**
-     * @return Promotional messages per second that can be sent.
-     * 
-     */
     public Output<Integer> promotionalMessagesPerSecond() {
         return this.promotionalMessagesPerSecond;
     }
-    /**
-     * Sender identifier of your messages.
-     * 
-     */
     @Export(name="senderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> senderId;
 
-    /**
-     * @return Sender identifier of your messages.
-     * 
-     */
     public Output<Optional<String>> senderId() {
         return Codegen.optional(this.senderId);
     }
-    /**
-     * The Short Code registered with the phone provider.
-     * 
-     */
     @Export(name="shortCode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shortCode;
 
-    /**
-     * @return The Short Code registered with the phone provider.
-     * 
-     */
     public Output<Optional<String>> shortCode() {
         return Codegen.optional(this.shortCode);
     }
-    /**
-     * Transactional messages per second that can be sent.
-     * 
-     */
     @Export(name="transactionalMessagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> transactionalMessagesPerSecond;
 
-    /**
-     * @return Transactional messages per second that can be sent.
-     * 
-     */
     public Output<Integer> transactionalMessagesPerSecond() {
         return this.transactionalMessagesPerSecond;
     }

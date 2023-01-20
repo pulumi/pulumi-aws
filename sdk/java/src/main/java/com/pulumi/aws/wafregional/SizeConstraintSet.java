@@ -16,57 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional Size Constraint Set Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.SizeConstraintSet;
- * import com.pulumi.aws.wafregional.SizeConstraintSetArgs;
- * import com.pulumi.aws.wafregional.inputs.SizeConstraintSetSizeConstraintArgs;
- * import com.pulumi.aws.wafregional.inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sizeConstraintSet = new SizeConstraintSet(&#34;sizeConstraintSet&#34;, SizeConstraintSetArgs.builder()        
- *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
- *                 .comparisonOperator(&#34;EQ&#34;)
- *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
- *                     .type(&#34;BODY&#34;)
- *                     .build())
- *                 .size(&#34;4096&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Size Constraint Set can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/sizeConstraintSet:SizeConstraintSet")
 public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -75,31 +24,15 @@ public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description of the Size Constraint Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Size Constraint Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies the parts of web requests that you want to inspect the size of.
-     * 
-     */
     @Export(name="sizeConstraints", refs={List.class,SizeConstraintSetSizeConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SizeConstraintSetSizeConstraint>> sizeConstraints;
 
-    /**
-     * @return Specifies the parts of web requests that you want to inspect the size of.
-     * 
-     */
     public Output<Optional<List<SizeConstraintSetSizeConstraint>>> sizeConstraints() {
         return Codegen.optional(this.sizeConstraints);
     }

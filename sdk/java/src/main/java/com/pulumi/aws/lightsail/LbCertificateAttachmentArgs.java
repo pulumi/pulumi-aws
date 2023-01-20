@@ -13,32 +13,16 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
 
     public static final LbCertificateAttachmentArgs Empty = new LbCertificateAttachmentArgs();
 
-    /**
-     * The name of your SSL/TLS certificate.
-     * 
-     */
     @Import(name="certificateName", required=true)
     private Output<String> certificateName;
 
-    /**
-     * @return The name of your SSL/TLS certificate.
-     * 
-     */
     public Output<String> certificateName() {
         return this.certificateName;
     }
 
-    /**
-     * The name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return The name of the load balancer to which you want to associate the SSL/TLS certificate.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
@@ -68,44 +52,20 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
             $ = new LbCertificateAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateName The name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(Output<String> certificateName) {
             $.certificateName = certificateName;
             return this;
         }
 
-        /**
-         * @param certificateName The name of your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateName(String certificateName) {
             return certificateName(Output.of(certificateName));
         }
 
-        /**
-         * @param lbName The name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName The name of the load balancer to which you want to associate the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }

@@ -15,17 +15,9 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs extends c
 
     public static final ServiceNetworkConfigurationIngressConfigurationArgs Empty = new ServiceNetworkConfigurationIngressConfigurationArgs();
 
-    /**
-     * Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
-     * 
-     */
     @Import(name="isPubliclyAccessible")
     private @Nullable Output<Boolean> isPubliclyAccessible;
 
-    /**
-     * @return Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
-     * 
-     */
     public Optional<Output<Boolean>> isPubliclyAccessible() {
         return Optional.ofNullable(this.isPubliclyAccessible);
     }
@@ -54,23 +46,11 @@ public final class ServiceNetworkConfigurationIngressConfigurationArgs extends c
             $ = new ServiceNetworkConfigurationIngressConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isPubliclyAccessible Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isPubliclyAccessible(@Nullable Output<Boolean> isPubliclyAccessible) {
             $.isPubliclyAccessible = isPubliclyAccessible;
             return this;
         }
 
-        /**
-         * @param isPubliclyAccessible Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to True. To make the service privately accessible, from only within an Amazon VPC set it to False.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isPubliclyAccessible(Boolean isPubliclyAccessible) {
             return isPubliclyAccessible(Output.of(isPubliclyAccessible));
         }

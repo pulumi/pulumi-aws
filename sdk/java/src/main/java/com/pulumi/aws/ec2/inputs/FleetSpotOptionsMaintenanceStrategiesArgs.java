@@ -15,17 +15,9 @@ public final class FleetSpotOptionsMaintenanceStrategiesArgs extends com.pulumi.
 
     public static final FleetSpotOptionsMaintenanceStrategiesArgs Empty = new FleetSpotOptionsMaintenanceStrategiesArgs();
 
-    /**
-     * Nested argument containing the capacity rebalance for your fleet request. Defined below.
-     * 
-     */
     @Import(name="capacityRebalance")
     private @Nullable Output<FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs> capacityRebalance;
 
-    /**
-     * @return Nested argument containing the capacity rebalance for your fleet request. Defined below.
-     * 
-     */
     public Optional<Output<FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs>> capacityRebalance() {
         return Optional.ofNullable(this.capacityRebalance);
     }
@@ -54,23 +46,11 @@ public final class FleetSpotOptionsMaintenanceStrategiesArgs extends com.pulumi.
             $ = new FleetSpotOptionsMaintenanceStrategiesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityRebalance Nested argument containing the capacity rebalance for your fleet request. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityRebalance(@Nullable Output<FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs> capacityRebalance) {
             $.capacityRebalance = capacityRebalance;
             return this;
         }
 
-        /**
-         * @param capacityRebalance Nested argument containing the capacity rebalance for your fleet request. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityRebalance(FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs capacityRebalance) {
             return capacityRebalance(Output.of(capacityRebalance));
         }

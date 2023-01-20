@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetComputeCapacity {
-    /**
-     * @return Number of currently available instances that can be used to stream sessions.
-     * 
-     */
     private @Nullable Integer available;
-    /**
-     * @return Desired number of streaming instances.
-     * 
-     */
     private Integer desiredInstances;
-    /**
-     * @return Number of instances in use for streaming.
-     * 
-     */
     private @Nullable Integer inUse;
-    /**
-     * @return Total number of simultaneous streaming instances that are running.
-     * 
-     */
     private @Nullable Integer running;
 
     private FleetComputeCapacity() {}
-    /**
-     * @return Number of currently available instances that can be used to stream sessions.
-     * 
-     */
     public Optional<Integer> available() {
         return Optional.ofNullable(this.available);
     }
-    /**
-     * @return Desired number of streaming instances.
-     * 
-     */
     public Integer desiredInstances() {
         return this.desiredInstances;
     }
-    /**
-     * @return Number of instances in use for streaming.
-     * 
-     */
     public Optional<Integer> inUse() {
         return Optional.ofNullable(this.inUse);
     }
-    /**
-     * @return Total number of simultaneous streaming instances that are running.
-     * 
-     */
     public Optional<Integer> running() {
         return Optional.ofNullable(this.running);
     }

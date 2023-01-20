@@ -16,32 +16,16 @@ public final class GetMapArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetMapArgs Empty = new GetMapArgs();
 
-    /**
-     * Name of the map resource.
-     * 
-     */
     @Import(name="mapName", required=true)
     private Output<String> mapName;
 
-    /**
-     * @return Name of the map resource.
-     * 
-     */
     public Output<String> mapName() {
         return this.mapName;
     }
 
-    /**
-     * Key-value map of resource tags for the map.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the map.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetMapArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetMapArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mapName Name of the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(Output<String> mapName) {
             $.mapName = mapName;
             return this;
         }
 
-        /**
-         * @param mapName Name of the map resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mapName(String mapName) {
             return mapName(Output.of(mapName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the map.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

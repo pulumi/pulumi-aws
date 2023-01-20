@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateTargetFilter {
-    /**
-     * @return Attribute path for the filter.
-     * 
-     */
     private String path;
-    /**
-     * @return Set of attribute values for the filter.
-     * 
-     */
     private List<String> values;
 
     private ExperimentTemplateTargetFilter() {}
-    /**
-     * @return Attribute path for the filter.
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Set of attribute values for the filter.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

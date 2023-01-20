@@ -14,17 +14,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementArgs();
 
-    /**
-     * Statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementArgs>> statements;
 
-    /**
-     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

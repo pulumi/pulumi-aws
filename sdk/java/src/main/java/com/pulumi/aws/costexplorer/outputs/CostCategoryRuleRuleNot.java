@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategoryRuleRuleNot {
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleNotCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleNotDimension dimension;
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable CostCategoryRuleRuleNotTags tags;
 
     private CostCategoryRuleRuleNot() {}
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleNotCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleNotDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
-    /**
-     * @return Configuration block for the specific `Tag` to use for `Expression`. See below.
-     * 
-     */
     public Optional<CostCategoryRuleRuleNotTags> tags() {
         return Optional.ofNullable(this.tags);
     }

@@ -15,47 +15,23 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfigArgs extends c
 
     public static final FeatureGroupOfflineStoreConfigDataCatalogConfigArgs Empty = new FeatureGroupOfflineStoreConfigDataCatalogConfigArgs();
 
-    /**
-     * The name of the Glue table catalog.
-     * 
-     */
     @Import(name="catalog")
     private @Nullable Output<String> catalog;
 
-    /**
-     * @return The name of the Glue table catalog.
-     * 
-     */
     public Optional<Output<String>> catalog() {
         return Optional.ofNullable(this.catalog);
     }
 
-    /**
-     * The name of the Glue table database.
-     * 
-     */
     @Import(name="database")
     private @Nullable Output<String> database;
 
-    /**
-     * @return The name of the Glue table database.
-     * 
-     */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * The name of the Glue table.
-     * 
-     */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
-    /**
-     * @return The name of the Glue table.
-     * 
-     */
     public Optional<Output<String>> tableName() {
         return Optional.ofNullable(this.tableName);
     }
@@ -86,65 +62,29 @@ public final class FeatureGroupOfflineStoreConfigDataCatalogConfigArgs extends c
             $ = new FeatureGroupOfflineStoreConfigDataCatalogConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalog The name of the Glue table catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalog(@Nullable Output<String> catalog) {
             $.catalog = catalog;
             return this;
         }
 
-        /**
-         * @param catalog The name of the Glue table catalog.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalog(String catalog) {
             return catalog(Output.of(catalog));
         }
 
-        /**
-         * @param database The name of the Glue table database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(@Nullable Output<String> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database The name of the Glue table database.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param tableName The name of the Glue table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(@Nullable Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the Glue table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

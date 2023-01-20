@@ -10,18 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetListenerDefaultActionForwardTargetGroup {
-    /**
-     * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-     * 
-     */
     private String arn;
     private Integer weight;
 
     private GetListenerDefaultActionForwardTargetGroup() {}
-    /**
-     * @return ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

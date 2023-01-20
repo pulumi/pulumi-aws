@@ -17,10 +17,6 @@ public final class GetSecretsResult {
      * 
      */
     private String id;
-    /**
-     * @return Map containing each `secret` `name` as the key with its decrypted plaintext value
-     * 
-     */
     private Map<String,String> plaintext;
     private List<GetSecretsSecret> secrets;
 
@@ -32,10 +28,6 @@ public final class GetSecretsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Map containing each `secret` `name` as the key with its decrypted plaintext value
-     * 
-     */
     public Map<String,String> plaintext() {
         return this.plaintext;
     }

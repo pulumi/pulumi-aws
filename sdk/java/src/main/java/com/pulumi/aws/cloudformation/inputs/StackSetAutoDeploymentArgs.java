@@ -15,32 +15,16 @@ public final class StackSetAutoDeploymentArgs extends com.pulumi.resources.Resou
 
     public static final StackSetAutoDeploymentArgs Empty = new StackSetAutoDeploymentArgs();
 
-    /**
-     * Whether or not auto-deployment is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not auto-deployment is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Whether or not to retain stacks when the account is removed.
-     * 
-     */
     @Import(name="retainStacksOnAccountRemoval")
     private @Nullable Output<Boolean> retainStacksOnAccountRemoval;
 
-    /**
-     * @return Whether or not to retain stacks when the account is removed.
-     * 
-     */
     public Optional<Output<Boolean>> retainStacksOnAccountRemoval() {
         return Optional.ofNullable(this.retainStacksOnAccountRemoval);
     }
@@ -70,44 +54,20 @@ public final class StackSetAutoDeploymentArgs extends com.pulumi.resources.Resou
             $ = new StackSetAutoDeploymentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether or not auto-deployment is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether or not auto-deployment is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param retainStacksOnAccountRemoval Whether or not to retain stacks when the account is removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainStacksOnAccountRemoval(@Nullable Output<Boolean> retainStacksOnAccountRemoval) {
             $.retainStacksOnAccountRemoval = retainStacksOnAccountRemoval;
             return this;
         }
 
-        /**
-         * @param retainStacksOnAccountRemoval Whether or not to retain stacks when the account is removed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retainStacksOnAccountRemoval(Boolean retainStacksOnAccountRemoval) {
             return retainStacksOnAccountRemoval(Output.of(retainStacksOnAccountRemoval));
         }

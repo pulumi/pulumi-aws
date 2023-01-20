@@ -17,47 +17,23 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WorkspaceArgs Empty = new WorkspaceArgs();
 
-    /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     * 
-     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
-    /**
-     * @return The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-     * 
-     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
-    /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
-     * 
-     */
     @Import(name="loggingConfiguration")
     private @Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration;
 
-    /**
-     * @return Logging configuration for the workspace. See Logging Configuration below for details.
-     * 
-     */
     public Optional<Output<WorkspaceLoggingConfigurationArgs>> loggingConfiguration() {
         return Optional.ofNullable(this.loggingConfiguration);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WorkspaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(@Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration) {
             $.loggingConfiguration = loggingConfiguration;
             return this;
         }
 
-        /**
-         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loggingConfiguration(WorkspaceLoggingConfigurationArgs loggingConfiguration) {
             return loggingConfiguration(Output.of(loggingConfiguration));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

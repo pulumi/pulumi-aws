@@ -15,32 +15,16 @@ public final class PatchGroupState extends com.pulumi.resources.ResourceArgs {
 
     public static final PatchGroupState Empty = new PatchGroupState();
 
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     * 
-     */
     @Import(name="baselineId")
     private @Nullable Output<String> baselineId;
 
-    /**
-     * @return The ID of the patch baseline to register the patch group with.
-     * 
-     */
     public Optional<Output<String>> baselineId() {
         return Optional.ofNullable(this.baselineId);
     }
 
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     @Import(name="patchGroup")
     private @Nullable Output<String> patchGroup;
 
-    /**
-     * @return The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     public Optional<Output<String>> patchGroup() {
         return Optional.ofNullable(this.patchGroup);
     }
@@ -70,44 +54,20 @@ public final class PatchGroupState extends com.pulumi.resources.ResourceArgs {
             $ = new PatchGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baselineId The ID of the patch baseline to register the patch group with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineId(@Nullable Output<String> baselineId) {
             $.baselineId = baselineId;
             return this;
         }
 
-        /**
-         * @param baselineId The ID of the patch baseline to register the patch group with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineId(String baselineId) {
             return baselineId(Output.of(baselineId));
         }
 
-        /**
-         * @param patchGroup The name of the patch group that should be registered with the patch baseline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchGroup(@Nullable Output<String> patchGroup) {
             $.patchGroup = patchGroup;
             return this;
         }
 
-        /**
-         * @param patchGroup The name of the patch group that should be registered with the patch baseline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder patchGroup(String patchGroup) {
             return patchGroup(Output.of(patchGroup));
         }

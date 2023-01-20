@@ -16,47 +16,23 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetProductArgs Empty = new GetProductArgs();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Product ID.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Product ID.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Tags to apply to the product.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the product.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,65 +63,29 @@ public final class GetProductArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetProductArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param id Product ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Product ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param tags Tags to apply to the product.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags to apply to the product.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

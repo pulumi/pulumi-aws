@@ -13,147 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a AWS Transfer User SSH Key resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transfer.Server;
- * import com.pulumi.aws.transfer.ServerArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.transfer.User;
- * import com.pulumi.aws.transfer.UserArgs;
- * import com.pulumi.aws.transfer.SshKey;
- * import com.pulumi.aws.transfer.SshKeyArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .identityProviderType(&#34;SERVICE_MANAGED&#34;)
- *             .tags(Map.of(&#34;NAME&#34;, &#34;tf-acc-test-transfer-server&#34;))
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 		&#34;Effect&#34;: &#34;Allow&#34;,
- * 		&#34;Principal&#34;: {
- * 			&#34;Service&#34;: &#34;transfer.amazonaws.com&#34;
- * 		},
- * 		&#34;Action&#34;: &#34;sts:AssumeRole&#34;
- * 		}
- * 	]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .serverId(exampleServer.id())
- *             .userName(&#34;tftestuser&#34;)
- *             .role(exampleRole.arn())
- *             .tags(Map.of(&#34;NAME&#34;, &#34;tftestuser&#34;))
- *             .build());
- * 
- *         var exampleSshKey = new SshKey(&#34;exampleSshKey&#34;, SshKeyArgs.builder()        
- *             .serverId(exampleServer.id())
- *             .userName(exampleUser.userName())
- *             .body(&#34;... SSH key ...&#34;)
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 			&#34;Sid&#34;: &#34;AllowFullAccesstoS3&#34;,
- * 			&#34;Effect&#34;: &#34;Allow&#34;,
- * 			&#34;Action&#34;: [
- * 				&#34;s3:*&#34;
- * 			],
- * 			&#34;Resource&#34;: &#34;*&#34;
- * 		}
- * 	]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.
- * 
- * ```sh
- *  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
- * ```
- * 
- */
 @ResourceType(type="aws:transfer/sshKey:SshKey")
 public class SshKey extends com.pulumi.resources.CustomResource {
-    /**
-     * The public key portion of an SSH key pair.
-     * 
-     */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
-    /**
-     * @return The public key portion of an SSH key pair.
-     * 
-     */
     public Output<String> body() {
         return this.body;
     }
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     @Export(name="serverId", refs={String.class}, tree="[0]")
     private Output<String> serverId;
 
-    /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     public Output<String> serverId() {
         return this.serverId;
     }
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return The name of the user account that is assigned to one or more servers.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

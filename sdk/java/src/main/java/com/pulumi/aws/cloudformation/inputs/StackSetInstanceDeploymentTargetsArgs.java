@@ -16,17 +16,9 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
 
     public static final StackSetInstanceDeploymentTargetsArgs Empty = new StackSetInstanceDeploymentTargetsArgs();
 
-    /**
-     * The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-     * 
-     */
     @Import(name="organizationalUnitIds")
     private @Nullable Output<List<String>> organizationalUnitIds;
 
-    /**
-     * @return The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-     * 
-     */
     public Optional<Output<List<String>>> organizationalUnitIds() {
         return Optional.ofNullable(this.organizationalUnitIds);
     }
@@ -55,33 +47,15 @@ public final class StackSetInstanceDeploymentTargetsArgs extends com.pulumi.reso
             $ = new StackSetInstanceDeploymentTargetsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(@Nullable Output<List<String>> organizationalUnitIds) {
             $.organizationalUnitIds = organizationalUnitIds;
             return this;
         }
 
-        /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(List<String> organizationalUnitIds) {
             return organizationalUnitIds(Output.of(organizationalUnitIds));
         }
 
-        /**
-         * @param organizationalUnitIds The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder organizationalUnitIds(String... organizationalUnitIds) {
             return organizationalUnitIds(List.of(organizationalUnitIds));
         }

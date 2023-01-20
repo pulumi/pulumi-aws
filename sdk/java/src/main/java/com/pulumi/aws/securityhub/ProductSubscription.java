@@ -13,85 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Subscribes to a Security Hub product.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.securityhub.ProductSubscription;
- * import com.pulumi.aws.securityhub.ProductSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         final var current = AwsFunctions.getRegion();
- * 
- *         var exampleProductSubscription = new ProductSubscription(&#34;exampleProductSubscription&#34;, ProductSubscriptionArgs.builder()        
- *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/productSubscription:ProductSubscription")
 public class ProductSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
-     * 
-     */
     @Export(name="productArn", refs={String.class}, tree="[0]")
     private Output<String> productArn;
 
-    /**
-     * @return The ARN of the product that generates findings that you want to import into Security Hub - see below.
-     * 
-     */
     public Output<String> productArn() {
         return this.productArn;
     }

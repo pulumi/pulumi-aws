@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class MetricStreamExcludeFilter {
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     private String namespace;
 
     private MetricStreamExcludeFilter() {}
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

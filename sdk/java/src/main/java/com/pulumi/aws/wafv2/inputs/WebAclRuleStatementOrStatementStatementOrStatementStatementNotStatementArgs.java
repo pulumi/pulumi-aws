@@ -14,17 +14,9 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementNo
 
     public static final WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementArgs Empty = new WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementArgs();
 
-    /**
-     * Statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementArgs>> statements;
 
-    /**
-     * @return Statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class WebAclRuleStatementOrStatementStatementOrStatementStatementNo
             $ = new WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements Statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

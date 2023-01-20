@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcDhcpOptionsFilter {
-    /**
-     * @return Name of the field to filter.
-     * 
-     */
     private String name;
-    /**
-     * @return Set of values for filtering.
-     * 
-     */
     private List<String> values;
 
     private GetVpcDhcpOptionsFilter() {}
-    /**
-     * @return Name of the field to filter.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Set of values for filtering.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }

@@ -15,61 +15,23 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GameLift Matchmaking Rule Set resources.
- * 
- * ## Import
- * 
- * GameLift Matchmaking Rule Sets
- * 
- * can be imported using the ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")
 public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Rule Set ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Rule Set ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the matchmaking rule set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the matchmaking rule set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * JSON encoded string containing rule set data.
-     * 
-     */
     @Export(name="ruleSetBody", refs={String.class}, tree="[0]")
     private Output<String> ruleSetBody;
 
-    /**
-     * @return JSON encoded string containing rule set data.
-     * 
-     */
     public Output<String> ruleSetBody() {
         return this.ruleSetBody;
     }
@@ -79,17 +41,9 @@ public class MatchmakingRuleSet extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

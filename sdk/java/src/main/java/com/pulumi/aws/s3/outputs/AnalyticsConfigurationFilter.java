@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsConfigurationFilter {
-    /**
-     * @return Object prefix for filtering.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Set of object tags for filtering.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private AnalyticsConfigurationFilter() {}
-    /**
-     * @return Object prefix for filtering.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Set of object tags for filtering.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

@@ -16,17 +16,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs();
 
-    /**
-     * Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination;
 
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination() {
         return this.destination;
     }
@@ -63,23 +55,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCapt
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination Destination address and port number for RTP or UDP packets. See Destination for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs destination) {
             return destination(Output.of(destination));
         }

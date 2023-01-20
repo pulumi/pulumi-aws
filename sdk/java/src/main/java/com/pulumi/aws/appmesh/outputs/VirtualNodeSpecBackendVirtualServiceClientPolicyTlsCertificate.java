@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
-    /**
-     * @return Local file certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile file;
-    /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private @Nullable VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds sds;
 
     private VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate() {}
-    /**
-     * @return Local file certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile> file() {
         return Optional.ofNullable(this.file);
     }
-    /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds> sds() {
         return Optional.ofNullable(this.sds);
     }

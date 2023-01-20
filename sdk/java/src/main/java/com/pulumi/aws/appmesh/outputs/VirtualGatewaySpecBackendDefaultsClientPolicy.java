@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecBackendDefaultsClientPolicy {
-    /**
-     * @return Transport Layer Security (TLS) client policy.
-     * 
-     */
     private @Nullable VirtualGatewaySpecBackendDefaultsClientPolicyTls tls;
 
     private VirtualGatewaySpecBackendDefaultsClientPolicy() {}
-    /**
-     * @return Transport Layer Security (TLS) client policy.
-     * 
-     */
     public Optional<VirtualGatewaySpecBackendDefaultsClientPolicyTls> tls() {
         return Optional.ofNullable(this.tls);
     }

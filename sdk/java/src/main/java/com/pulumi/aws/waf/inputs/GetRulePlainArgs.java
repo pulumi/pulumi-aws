@@ -12,17 +12,9 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRulePlainArgs Empty = new GetRulePlainArgs();
 
-    /**
-     * Name of the WAF rule.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the WAF rule.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -51,12 +43,6 @@ public final class GetRulePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRulePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the WAF rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

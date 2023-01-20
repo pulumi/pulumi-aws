@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecListenerConnectionPool {
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerConnectionPoolGrpc grpc;
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp http;
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerConnectionPoolHttp2 http2;
 
     private VirtualGatewaySpecListenerConnectionPool() {}
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerConnectionPoolGrpc> grpc() {
         return Optional.ofNullable(this.grpc);
     }
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerConnectionPoolHttp> http() {
         return Optional.ofNullable(this.http);
     }
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerConnectionPoolHttp2> http2() {
         return Optional.ofNullable(this.http2);
     }

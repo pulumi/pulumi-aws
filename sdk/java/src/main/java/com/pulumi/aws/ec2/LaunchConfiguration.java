@@ -20,456 +20,95 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a new launch configuration, used for autoscaling groups.
- * 
- * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchConfiguration;
- * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
- *                     .build())
- *             .owners(&#34;099720109477&#34;)
- *             .build());
- * 
- *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Using with AutoScaling Groups
- * 
- * Launch Configurations cannot be updated after creation with the Amazon
- * Web Service API. In order to update a Launch Configuration, this provider will
- * destroy the existing resource and create a replacement. In order to effectively
- * use a Launch Configuration resource with an AutoScaling Group resource,
- * it&#39;s recommended to specify `create_before_destroy` in a lifecycle block.
- * Either omit the Launch Configuration `name` attribute, or specify a partial name
- * with `name_prefix`.  Example:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchConfiguration;
- * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
- *                     .build())
- *             .owners(&#34;099720109477&#34;)
- *             .build());
- * 
- *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .namePrefix(&#34;lc-example-&#34;)
- *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
- *             .build());
- * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .launchConfiguration(asConf.name())
- *             .minSize(1)
- *             .maxSize(2)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * With this setup this provider generates a unique name for your Launch
- * Configuration and can then update the AutoScaling Group without conflict before
- * destroying the previous Launch Configuration.
- * 
- * ## Using with Spot Instances
- * 
- * Launch configurations can set the spot instance pricing to be used for the
- * Auto Scaling Group to reserve instances. Simply specifying the `spot_price`
- * parameter will set the price on the Launch Configuration which will attempt to
- * reserve your instances at this price.  See the [AWS Spot Instance
- * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
- * for more information or how to launch [Spot Instances][3] with this provider.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.LaunchConfiguration;
- * import com.pulumi.aws.ec2.LaunchConfigurationArgs;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.GroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .filters(            
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;name&#34;)
- *                     .values(&#34;ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*&#34;)
- *                     .build(),
- *                 GetAmiFilterArgs.builder()
- *                     .name(&#34;virtualization-type&#34;)
- *                     .values(&#34;hvm&#34;)
- *                     .build())
- *             .owners(&#34;099720109477&#34;)
- *             .build());
- * 
- *         var asConf = new LaunchConfiguration(&#34;asConf&#34;, LaunchConfigurationArgs.builder()        
- *             .imageId(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;m4.large&#34;)
- *             .spotPrice(&#34;0.001&#34;)
- *             .build());
- * 
- *         var bar = new Group(&#34;bar&#34;, GroupArgs.builder()        
- *             .launchConfiguration(asConf.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Block devices
- * 
- * Each of the `*_block_device` attributes controls a portion of the AWS
- * Launch Configuration&#39;s &#34;Block Device Mapping&#34;. It&#39;s a good idea to familiarize yourself with [AWS&#39;s Block Device
- * Mapping docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html)
- * to understand the implications of using these attributes.
- * 
- * Each AWS Instance type has a different set of Instance Store block devices
- * available for attachment. AWS [publishes a
- * list](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#StorageOnInstanceTypes)
- * of which ephemeral devices are available on each type. The devices are always
- * identified by the `virtual_name` in the format `ephemeral{0..N}`.
- * 
- * &gt; **NOTE:** Changes to `*_block_device` configuration of _existing_ resources
- * cannot currently be detected by this provider. After updating to block device
- * configuration, resource recreation can be manually triggered by using the
- * [`up` command with the --replace argument](https://www.pulumi.com/docs/reference/cli/pulumi_up/).
- * 
- * ### ebs_block_device
- * 
- * Modifying any of the `ebs_block_device` settings requires resource replacement.
- * 
- * * `device_name` - (Required) The name of the device to mount.
- * * `snapshot_id` - (Optional) The Snapshot ID to mount.
- * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `iops` - (Optional) The amount of provisioned
- *   [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
- *   This must be set with a `volume_type` of `&#34;io1&#34;`.
- * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed
- *   on instance termination (Default: `true`).
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
- * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
- * 
- * ### ephemeral_block_device
- * 
- * * `device_name` - (Required) The name of the block device to mount on the instance.
- * * `no_device` - (Optional) Whether the device in the block device mapping of the AMI is suppressed.
- * * `virtual_name` - (Optional) The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
- * 
- * ### root_block_device
- * 
- * &gt; Modifying any of the `root_block_device` settings requires resource replacement.
- * 
- * * `delete_on_termination` - (Optional) Whether the volume should be destroyed on instance termination. Defaults to `true`.
- * * `encrypted` - (Optional) Whether the volume should be encrypted or not. Defaults to `false`.
- * * `iops` - (Optional) The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
- * * `throughput` - (Optional) The throughput (MiBps) to provision for a `gp3` volume.
- * * `volume_size` - (Optional) The size of the volume in gigabytes.
- * * `volume_type` - (Optional) The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
- * 
- * ## Import
- * 
- * Launch configurations can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/launchConfiguration:LaunchConfiguration")
 public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name of the launch configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of the launch configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Associate a public ip address with an instance in a VPC.
-     * 
-     */
     @Export(name="associatePublicIpAddress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> associatePublicIpAddress;
 
-    /**
-     * @return Associate a public ip address with an instance in a VPC.
-     * 
-     */
     public Output<Optional<Boolean>> associatePublicIpAddress() {
         return Codegen.optional(this.associatePublicIpAddress);
     }
-    /**
-     * Additional EBS block devices to attach to the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="ebsBlockDevices", refs={List.class,LaunchConfigurationEbsBlockDevice.class}, tree="[0,1]")
     private Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices;
 
-    /**
-     * @return Additional EBS block devices to attach to the instance. See Block Devices below for details.
-     * 
-     */
     public Output<List<LaunchConfigurationEbsBlockDevice>> ebsBlockDevices() {
         return this.ebsBlockDevices;
     }
-    /**
-     * If true, the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     @Export(name="ebsOptimized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> ebsOptimized;
 
-    /**
-     * @return If true, the launched EC2 instance will be EBS-optimized.
-     * 
-     */
     public Output<Boolean> ebsOptimized() {
         return this.ebsOptimized;
     }
-    /**
-     * Enables/disables detailed monitoring. This is enabled by default.
-     * 
-     */
     @Export(name="enableMonitoring", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableMonitoring;
 
-    /**
-     * @return Enables/disables detailed monitoring. This is enabled by default.
-     * 
-     */
     public Output<Optional<Boolean>> enableMonitoring() {
         return Codegen.optional(this.enableMonitoring);
     }
-    /**
-     * Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="ephemeralBlockDevices", refs={List.class,LaunchConfigurationEphemeralBlockDevice.class}, tree="[0,1]")
     private Output</* @Nullable */ List<LaunchConfigurationEphemeralBlockDevice>> ephemeralBlockDevices;
 
-    /**
-     * @return Customize Ephemeral (also known as &#34;Instance Store&#34;) volumes on the instance. See Block Devices below for details.
-     * 
-     */
     public Output<Optional<List<LaunchConfigurationEphemeralBlockDevice>>> ephemeralBlockDevices() {
         return Codegen.optional(this.ephemeralBlockDevices);
     }
-    /**
-     * The name attribute of the IAM instance profile to associate with launched instances.
-     * 
-     */
     @Export(name="iamInstanceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamInstanceProfile;
 
-    /**
-     * @return The name attribute of the IAM instance profile to associate with launched instances.
-     * 
-     */
     public Output<Optional<String>> iamInstanceProfile() {
         return Codegen.optional(this.iamInstanceProfile);
     }
-    /**
-     * The EC2 image ID to launch.
-     * 
-     */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
-    /**
-     * @return The EC2 image ID to launch.
-     * 
-     */
     public Output<String> imageId() {
         return this.imageId;
     }
-    /**
-     * The size of instance to launch.
-     * 
-     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
-    /**
-     * @return The size of instance to launch.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
-    /**
-     * The key name that should be used for the instance.
-     * 
-     */
     @Export(name="keyName", refs={String.class}, tree="[0]")
     private Output<String> keyName;
 
-    /**
-     * @return The key name that should be used for the instance.
-     * 
-     */
     public Output<String> keyName() {
         return this.keyName;
     }
-    /**
-     * The metadata options for the instance.
-     * 
-     */
     @Export(name="metadataOptions", refs={LaunchConfigurationMetadataOptions.class}, tree="[0]")
     private Output<LaunchConfigurationMetadataOptions> metadataOptions;
 
-    /**
-     * @return The metadata options for the instance.
-     * 
-     */
     public Output<LaunchConfigurationMetadataOptions> metadataOptions() {
         return this.metadataOptions;
     }
-    /**
-     * The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.* `security_groups` - (Optional) A list of associated security group IDS.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-     * 
-     */
     @Export(name="placementTenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementTenancy;
 
-    /**
-     * @return The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS&#39;s Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
-     * 
-     */
     public Output<Optional<String>> placementTenancy() {
         return Codegen.optional(this.placementTenancy);
     }
-    /**
-     * Customize details about the root block device of the instance. See Block Devices below for details.
-     * 
-     */
     @Export(name="rootBlockDevice", refs={LaunchConfigurationRootBlockDevice.class}, tree="[0]")
     private Output<LaunchConfigurationRootBlockDevice> rootBlockDevice;
 
-    /**
-     * @return Customize details about the root block device of the instance. See Block Devices below for details.
-     * 
-     */
     public Output<LaunchConfigurationRootBlockDevice> rootBlockDevice() {
         return this.rootBlockDevice;
     }
@@ -479,51 +118,25 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> securityGroups() {
         return Codegen.optional(this.securityGroups);
     }
-    /**
-     * The maximum price to use for reserving spot instances.
-     * 
-     */
     @Export(name="spotPrice", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spotPrice;
 
-    /**
-     * @return The maximum price to use for reserving spot instances.
-     * 
-     */
     public Output<Optional<String>> spotPrice() {
         return Codegen.optional(this.spotPrice);
     }
-    /**
-     * The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-     * 
-     */
     @Export(name="userData", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userData;
 
-    /**
-     * @return The user data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
-     * 
-     */
     public Output<Optional<String>> userData() {
         return Codegen.optional(this.userData);
     }
-    /**
-     * Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-     * 
-     */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userDataBase64;
 
-    /**
-     * @return Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-     * 
-     */
     public Output<Optional<String>> userDataBase64() {
         return Codegen.optional(this.userDataBase64);
     }
     /**
-     * The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     * 
      * @deprecated
      * With the retirement of EC2-Classic the vpc_classic_link_id attribute has been deprecated and will be removed in a future version.
      * 
@@ -532,16 +145,10 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     @Export(name="vpcClassicLinkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcClassicLinkId;
 
-    /**
-     * @return The ID of a ClassicLink-enabled VPC. Only applies to EC2-Classic instances. (eg. `vpc-2730681a`)
-     * 
-     */
     public Output<Optional<String>> vpcClassicLinkId() {
         return Codegen.optional(this.vpcClassicLinkId);
     }
     /**
-     * The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     * 
      * @deprecated
      * With the retirement of EC2-Classic the vpc_classic_link_security_groups attribute has been deprecated and will be removed in a future version.
      * 
@@ -550,10 +157,6 @@ public class LaunchConfiguration extends com.pulumi.resources.CustomResource {
     @Export(name="vpcClassicLinkSecurityGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcClassicLinkSecurityGroups;
 
-    /**
-     * @return The IDs of one or more security groups for the specified ClassicLink-enabled VPC (eg. `sg-46ae3d11`).
-     * 
-     */
     public Output<Optional<List<String>>> vpcClassicLinkSecurityGroups() {
         return Codegen.optional(this.vpcClassicLinkSecurityGroups);
     }

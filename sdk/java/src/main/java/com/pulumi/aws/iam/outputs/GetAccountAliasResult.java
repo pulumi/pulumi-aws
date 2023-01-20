@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountAliasResult {
-    /**
-     * @return Alias associated with the AWS account.
-     * 
-     */
     private String accountAlias;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,10 +17,6 @@ public final class GetAccountAliasResult {
     private String id;
 
     private GetAccountAliasResult() {}
-    /**
-     * @return Alias associated with the AWS account.
-     * 
-     */
     public String accountAlias() {
         return this.accountAlias;
     }

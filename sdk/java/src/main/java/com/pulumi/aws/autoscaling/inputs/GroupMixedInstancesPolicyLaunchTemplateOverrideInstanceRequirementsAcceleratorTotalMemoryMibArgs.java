@@ -15,32 +15,16 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
 
     public static final GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs Empty = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs();
 
-    /**
-     * Maximum.
-     * 
-     */
     @Import(name="max")
     private @Nullable Output<Integer> max;
 
-    /**
-     * @return Maximum.
-     * 
-     */
     public Optional<Output<Integer>> max() {
         return Optional.ofNullable(this.max);
     }
 
-    /**
-     * Minimum.
-     * 
-     */
     @Import(name="min")
     private @Nullable Output<Integer> min;
 
-    /**
-     * @return Minimum.
-     * 
-     */
     public Optional<Output<Integer>> min() {
         return Optional.ofNullable(this.min);
     }
@@ -70,44 +54,20 @@ public final class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequir
             $ = new GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param max Maximum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(@Nullable Output<Integer> max) {
             $.max = max;
             return this;
         }
 
-        /**
-         * @param max Maximum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder max(Integer max) {
             return max(Output.of(max));
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(@Nullable Output<Integer> min) {
             $.min = min;
             return this;
         }
 
-        /**
-         * @param min Minimum.
-         * 
-         * @return builder
-         * 
-         */
         public Builder min(Integer min) {
             return min(Output.of(min));
         }

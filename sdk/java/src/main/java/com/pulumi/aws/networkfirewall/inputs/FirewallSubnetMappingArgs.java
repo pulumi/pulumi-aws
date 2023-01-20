@@ -13,17 +13,9 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
 
     public static final FirewallSubnetMappingArgs Empty = new FirewallSubnetMappingArgs();
 
-    /**
-     * The unique identifier for the subnet.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The unique identifier for the subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -52,23 +44,11 @@ public final class FirewallSubnetMappingArgs extends com.pulumi.resources.Resour
             $ = new FirewallSubnetMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subnetId The unique identifier for the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The unique identifier for the subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

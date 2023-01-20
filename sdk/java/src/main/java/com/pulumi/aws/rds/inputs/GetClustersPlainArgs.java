@@ -15,17 +15,9 @@ public final class GetClustersPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetClustersPlainArgs Empty = new GetClustersPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetClustersFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetClustersFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -54,23 +46,11 @@ public final class GetClustersPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetClustersPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetClustersFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetClustersFilter... filters) {
             return filters(List.of(filters));
         }

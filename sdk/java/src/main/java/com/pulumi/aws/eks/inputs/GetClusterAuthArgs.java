@@ -13,17 +13,9 @@ public final class GetClusterAuthArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterAuthArgs Empty = new GetClusterAuthArgs();
 
-    /**
-     * Name of the cluster
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the cluster
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -52,23 +44,11 @@ public final class GetClusterAuthArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterAuthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

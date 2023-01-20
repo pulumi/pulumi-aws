@@ -16,62 +16,30 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
 
     public static final ProjectLogsConfigS3LogsArgs Empty = new ProjectLogsConfigS3LogsArgs();
 
-    /**
-     * Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-     * 
-     */
     @Import(name="bucketOwnerAccess")
     private @Nullable Output<String> bucketOwnerAccess;
 
-    /**
-     * @return Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-     * 
-     */
     public Optional<Output<String>> bucketOwnerAccess() {
         return Optional.ofNullable(this.bucketOwnerAccess);
     }
 
-    /**
-     * Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-     * 
-     */
     @Import(name="encryptionDisabled")
     private @Nullable Output<Boolean> encryptionDisabled;
 
-    /**
-     * @return Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> encryptionDisabled() {
         return Optional.ofNullable(this.encryptionDisabled);
     }
 
-    /**
-     * Location of the source code from git or s3.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -103,86 +71,38 @@ public final class ProjectLogsConfigS3LogsArgs extends com.pulumi.resources.Reso
             $ = new ProjectLogsConfigS3LogsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwnerAccess(@Nullable Output<String> bucketOwnerAccess) {
             $.bucketOwnerAccess = bucketOwnerAccess;
             return this;
         }
 
-        /**
-         * @param bucketOwnerAccess Specifies the bucket owner&#39;s access for objects that another account uploads to their Amazon S3 bucket. By default, only the account that uploads the objects to the bucket has access to these objects. This property allows you to give the bucket owner access to these objects. Valid values are `NONE`, `READ_ONLY`, and `FULL`. your CodeBuild service role must have the `s3:PutBucketAcl` permission. This permission allows CodeBuild to modify the access control list for the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketOwnerAccess(String bucketOwnerAccess) {
             return bucketOwnerAccess(Output.of(bucketOwnerAccess));
         }
 
-        /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionDisabled(@Nullable Output<Boolean> encryptionDisabled) {
             $.encryptionDisabled = encryptionDisabled;
             return this;
         }
 
-        /**
-         * @param encryptionDisabled Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionDisabled(Boolean encryptionDisabled) {
             return encryptionDisabled(Output.of(encryptionDisabled));
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Current status of logs in S3 for a build project. Valid values: `ENABLED`, `DISABLED`. Defaults to `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

@@ -16,62 +16,30 @@ public final class GeofenceCollectionArgs extends com.pulumi.resources.ResourceA
 
     public static final GeofenceCollectionArgs Empty = new GeofenceCollectionArgs();
 
-    /**
-     * The name of the geofence collection.
-     * 
-     */
     @Import(name="collectionName", required=true)
     private Output<String> collectionName;
 
-    /**
-     * @return The name of the geofence collection.
-     * 
-     */
     public Output<String> collectionName() {
         return this.collectionName;
     }
 
-    /**
-     * The optional description for the geofence collection.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The optional description for the geofence collection.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -103,86 +71,38 @@ public final class GeofenceCollectionArgs extends com.pulumi.resources.ResourceA
             $ = new GeofenceCollectionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param collectionName The name of the geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionName(Output<String> collectionName) {
             $.collectionName = collectionName;
             return this;
         }
 
-        /**
-         * @param collectionName The name of the geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder collectionName(String collectionName) {
             return collectionName(Output.of(collectionName));
         }
 
-        /**
-         * @param description The optional description for the geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The optional description for the geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param tags Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the geofence collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

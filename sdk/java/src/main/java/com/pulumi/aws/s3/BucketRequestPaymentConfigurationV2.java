@@ -14,98 +14,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
- * 
- * &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket&#39;s `payer` to the S3 default: the bucket owner.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationV2;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationV2Args;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketRequestPaymentConfigurationV2(&#34;example&#34;, BucketRequestPaymentConfigurationV2Args.builder()        
- *             .bucket(aws_s3_bucket.example().bucket())
- *             .payer(&#34;Requester&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name
- * ```
- * 
- *  If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
 public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the bucket.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * The account ID of the expected bucket owner.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return The account ID of the expected bucket owner.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     @Export(name="payer", refs={String.class}, tree="[0]")
     private Output<String> payer;
 
-    /**
-     * @return Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
-     * 
-     */
     public Output<String> payer() {
         return this.payer;
     }

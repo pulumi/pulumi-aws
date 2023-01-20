@@ -15,32 +15,16 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
 
     public static final GatewayRouteSpecHttpRouteActionRewritePrefixArgs Empty = new GatewayRouteSpecHttpRouteActionRewritePrefixArgs();
 
-    /**
-     * Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     @Import(name="defaultPrefix")
     private @Nullable Output<String> defaultPrefix;
 
-    /**
-     * @return Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> defaultPrefix() {
         return Optional.ofNullable(this.defaultPrefix);
     }
 
-    /**
-     * Value used to replace the incoming route prefix when rewritten.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Value used to replace the incoming route prefix when rewritten.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,44 +54,20 @@ public final class GatewayRouteSpecHttpRouteActionRewritePrefixArgs extends com.
             $ = new GatewayRouteSpecHttpRouteActionRewritePrefixArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultPrefix Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultPrefix(@Nullable Output<String> defaultPrefix) {
             $.defaultPrefix = defaultPrefix;
             return this;
         }
 
-        /**
-         * @param defaultPrefix Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultPrefix(String defaultPrefix) {
             return defaultPrefix(Output.of(defaultPrefix));
         }
 
-        /**
-         * @param value Value used to replace the incoming route prefix when rewritten.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Value used to replace the incoming route prefix when rewritten.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

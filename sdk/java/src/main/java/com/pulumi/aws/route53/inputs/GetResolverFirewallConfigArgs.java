@@ -13,17 +13,9 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
 
     public static final GetResolverFirewallConfigArgs Empty = new GetResolverFirewallConfigArgs();
 
-    /**
-     * The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the VPC from Amazon VPC that the configuration is for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -52,23 +44,11 @@ public final class GetResolverFirewallConfigArgs extends com.pulumi.resources.In
             $ = new GetResolverFirewallConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the VPC from Amazon VPC that the configuration is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

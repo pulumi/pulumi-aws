@@ -16,66 +16,30 @@ public final class MountTargetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MountTargetArgs Empty = new MountTargetArgs();
 
-    /**
-     * The ID of the file system for which the mount target is intended.
-     * 
-     */
     @Import(name="fileSystemId", required=true)
     private Output<String> fileSystemId;
 
-    /**
-     * @return The ID of the file system for which the mount target is intended.
-     * 
-     */
     public Output<String> fileSystemId() {
         return this.fileSystemId;
     }
 
-    /**
-     * The address (within the address range of the specified subnet) at
-     * which the file system may be mounted via the mount target.
-     * 
-     */
     @Import(name="ipAddress")
     private @Nullable Output<String> ipAddress;
 
-    /**
-     * @return The address (within the address range of the specified subnet) at
-     * which the file system may be mounted via the mount target.
-     * 
-     */
     public Optional<Output<String>> ipAddress() {
         return Optional.ofNullable(this.ipAddress);
     }
 
-    /**
-     * A list of up to 5 VPC security group IDs (that must
-     * be for the same VPC as subnet specified) in effect for the mount target.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return A list of up to 5 VPC security group IDs (that must
-     * be for the same VPC as subnet specified) in effect for the mount target.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
-    /**
-     * The ID of the subnet to add the mount target in.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to add the mount target in.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -107,101 +71,42 @@ public final class MountTargetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new MountTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fileSystemId The ID of the file system for which the mount target is intended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(Output<String> fileSystemId) {
             $.fileSystemId = fileSystemId;
             return this;
         }
 
-        /**
-         * @param fileSystemId The ID of the file system for which the mount target is intended.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileSystemId(String fileSystemId) {
             return fileSystemId(Output.of(fileSystemId));
         }
 
-        /**
-         * @param ipAddress The address (within the address range of the specified subnet) at
-         * which the file system may be mounted via the mount target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
 
-        /**
-         * @param ipAddress The address (within the address range of the specified subnet) at
-         * which the file system may be mounted via the mount target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipAddress(String ipAddress) {
             return ipAddress(Output.of(ipAddress));
         }
 
-        /**
-         * @param securityGroups A list of up to 5 VPC security group IDs (that must
-         * be for the same VPC as subnet specified) in effect for the mount target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups A list of up to 5 VPC security group IDs (that must
-         * be for the same VPC as subnet specified) in effect for the mount target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups A list of up to 5 VPC security group IDs (that must
-         * be for the same VPC as subnet specified) in effect for the mount target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param subnetId The ID of the subnet to add the mount target in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet to add the mount target in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

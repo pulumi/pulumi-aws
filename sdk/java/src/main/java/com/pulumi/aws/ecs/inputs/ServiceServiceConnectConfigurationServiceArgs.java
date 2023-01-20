@@ -18,62 +18,30 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
 
     public static final ServiceServiceConnectConfigurationServiceArgs Empty = new ServiceServiceConnectConfigurationServiceArgs();
 
-    /**
-     * The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-     * 
-     */
     @Import(name="clientAliases", required=true)
     private Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases;
 
-    /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-     * 
-     */
     public Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases() {
         return this.clientAliases;
     }
 
-    /**
-     * The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     @Import(name="discoveryName")
     private @Nullable Output<String> discoveryName;
 
-    /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     public Optional<Output<String>> discoveryName() {
         return Optional.ofNullable(this.discoveryName);
     }
 
-    /**
-     * The port number for the Service Connect proxy to listen on.
-     * 
-     */
     @Import(name="ingressPortOverride")
     private @Nullable Output<Integer> ingressPortOverride;
 
-    /**
-     * @return The port number for the Service Connect proxy to listen on.
-     * 
-     */
     public Optional<Output<Integer>> ingressPortOverride() {
         return Optional.ofNullable(this.ingressPortOverride);
     }
 
-    /**
-     * The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     @Import(name="portName", required=true)
     private Output<String> portName;
 
-    /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     public Output<String> portName() {
         return this.portName;
     }
@@ -105,96 +73,42 @@ public final class ServiceServiceConnectConfigurationServiceArgs extends com.pul
             $ = new ServiceServiceConnectConfigurationServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAliases(Output<List<ServiceServiceConnectConfigurationServiceClientAliasArgs>> clientAliases) {
             $.clientAliases = clientAliases;
             return this;
         }
 
-        /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAliases(List<ServiceServiceConnectConfigurationServiceClientAliasArgs> clientAliases) {
             return clientAliases(Output.of(clientAliases));
         }
 
-        /**
-         * @param clientAliases The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientAliases(ServiceServiceConnectConfigurationServiceClientAliasArgs... clientAliases) {
             return clientAliases(List.of(clientAliases));
         }
 
-        /**
-         * @param discoveryName The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryName(@Nullable Output<String> discoveryName) {
             $.discoveryName = discoveryName;
             return this;
         }
 
-        /**
-         * @param discoveryName The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder discoveryName(String discoveryName) {
             return discoveryName(Output.of(discoveryName));
         }
 
-        /**
-         * @param ingressPortOverride The port number for the Service Connect proxy to listen on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingressPortOverride(@Nullable Output<Integer> ingressPortOverride) {
             $.ingressPortOverride = ingressPortOverride;
             return this;
         }
 
-        /**
-         * @param ingressPortOverride The port number for the Service Connect proxy to listen on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ingressPortOverride(Integer ingressPortOverride) {
             return ingressPortOverride(Output.of(ingressPortOverride));
         }
 
-        /**
-         * @param portName The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portName(Output<String> portName) {
             $.portName = portName;
             return this;
         }
 
-        /**
-         * @param portName The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portName(String portName) {
             return portName(Output.of(portName));
         }

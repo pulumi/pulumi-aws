@@ -14,118 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppSync Domain Name.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.DomainName;
- * import com.pulumi.aws.appsync.DomainNameArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;api.example.com&#34;)
- *             .certificateArn(aws_acm_certificate.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appsync/domainName:DomainName example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/domainName:DomainName")
 public class DomainName extends com.pulumi.resources.CustomResource {
-    /**
-     * Domain name that AppSync provides.
-     * 
-     */
     @Export(name="appsyncDomainName", refs={String.class}, tree="[0]")
     private Output<String> appsyncDomainName;
 
-    /**
-     * @return Domain name that AppSync provides.
-     * 
-     */
     public Output<String> appsyncDomainName() {
         return this.appsyncDomainName;
     }
-    /**
-     * ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-     * 
-     */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
-    /**
-     * @return ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
-     * 
-     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
-    /**
-     * A description of the Domain Name.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the Domain Name.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Domain name.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Domain name.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * ID of your Amazon Route 53 hosted zone.
-     * 
-     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
-    /**
-     * @return ID of your Amazon Route 53 hosted zone.
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }

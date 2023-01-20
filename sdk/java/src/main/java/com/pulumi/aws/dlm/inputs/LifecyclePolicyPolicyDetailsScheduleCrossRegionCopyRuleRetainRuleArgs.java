@@ -14,32 +14,16 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetain
 
     public static final LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs Empty = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs();
 
-    /**
-     * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-     * 
-     */
     @Import(name="interval", required=true)
     private Output<Integer> interval;
 
-    /**
-     * @return The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-     * 
-     */
     public Output<Integer> interval() {
         return this.interval;
     }
 
-    /**
-     * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
-     * 
-     */
     @Import(name="intervalUnit", required=true)
     private Output<String> intervalUnit;
 
-    /**
-     * @return The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
-     * 
-     */
     public Output<String> intervalUnit() {
         return this.intervalUnit;
     }
@@ -69,44 +53,20 @@ public final class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetain
             $ = new LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param interval The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param intervalUnit The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(Output<String> intervalUnit) {
             $.intervalUnit = intervalUnit;
             return this;
         }
 
-        /**
-         * @param intervalUnit The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intervalUnit(String intervalUnit) {
             return intervalUnit(Output.of(intervalUnit));
         }

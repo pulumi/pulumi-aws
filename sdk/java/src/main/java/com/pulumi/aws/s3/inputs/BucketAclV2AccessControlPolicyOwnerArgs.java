@@ -15,32 +15,16 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
 
     public static final BucketAclV2AccessControlPolicyOwnerArgs Empty = new BucketAclV2AccessControlPolicyOwnerArgs();
 
-    /**
-     * The display name of the owner.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
-    /**
-     * @return The display name of the owner.
-     * 
-     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * The ID of the owner.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return The ID of the owner.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -70,44 +54,20 @@ public final class BucketAclV2AccessControlPolicyOwnerArgs extends com.pulumi.re
             $ = new BucketAclV2AccessControlPolicyOwnerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param displayName The display name of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName The display name of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param id The ID of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The ID of the owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

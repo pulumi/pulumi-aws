@@ -15,62 +15,30 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
 
     public static final ServiceSettingState Empty = new ServiceSettingState();
 
-    /**
-     * ARN of the service setting.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the service setting.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * ID of the service setting.
-     * 
-     */
     @Import(name="settingId")
     private @Nullable Output<String> settingId;
 
-    /**
-     * @return ID of the service setting.
-     * 
-     */
     public Optional<Output<String>> settingId() {
         return Optional.ofNullable(this.settingId);
     }
 
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Import(name="settingValue")
     private @Nullable Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Optional<Output<String>> settingValue() {
         return Optional.ofNullable(this.settingValue);
     }
 
-    /**
-     * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -102,86 +70,38 @@ public final class ServiceSettingState extends com.pulumi.resources.ResourceArgs
             $ = new ServiceSettingState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param settingId ID of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(@Nullable Output<String> settingId) {
             $.settingId = settingId;
             return this;
         }
 
-        /**
-         * @param settingId ID of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(String settingId) {
             return settingId(Output.of(settingId));
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(@Nullable Output<String> settingValue) {
             $.settingValue = settingValue;
             return this;
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(String settingValue) {
             return settingValue(Output.of(settingValue));
         }
 
-        /**
-         * @param status Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

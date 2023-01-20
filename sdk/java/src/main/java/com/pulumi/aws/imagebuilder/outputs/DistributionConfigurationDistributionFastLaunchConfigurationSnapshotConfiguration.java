@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
-    /**
-     * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     private @Nullable Integer targetResourceCount;
 
     private DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration() {}
-    /**
-     * @return The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-     * 
-     */
     public Optional<Integer> targetResourceCount() {
         return Optional.ofNullable(this.targetResourceCount);
     }

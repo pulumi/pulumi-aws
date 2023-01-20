@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination {
-    /**
-     * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-     * 
-     */
     private String addressDefinition;
 
     private RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination() {}
-    /**
-     * @return An IP address or a block of IP addresses in CIDR notation. AWS Network Firewall supports all address ranges for IPv4.
-     * 
-     */
     public String addressDefinition() {
         return this.addressDefinition;
     }

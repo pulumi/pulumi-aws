@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleRuleLabel {
-    /**
-     * @return The label string.
-     * 
-     */
     private String name;
 
     private RuleGroupRuleRuleLabel() {}
-    /**
-     * @return The label string.
-     * 
-     */
     public String name() {
         return this.name;
     }

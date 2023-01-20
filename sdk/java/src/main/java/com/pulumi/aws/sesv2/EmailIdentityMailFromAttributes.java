@@ -14,98 +14,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import com.pulumi.aws.sesv2.EmailIdentityMailFromAttributes;
- * import com.pulumi.aws.sesv2.EmailIdentityMailFromAttributesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
- *             .build());
- * 
- *         var exampleEmailIdentityMailFromAttributes = new EmailIdentityMailFromAttributes(&#34;exampleEmailIdentityMailFromAttributes&#34;, EmailIdentityMailFromAttributesArgs.builder()        
- *             .emailIdentity(exampleEmailIdentity.emailIdentity())
- *             .behaviorOnMxFailure(&#34;REJECT_MESSAGE&#34;)
- *             .mailFromDomain(exampleEmailIdentity.emailIdentity().applyValue(emailIdentity -&gt; String.format(&#34;subdomain.%s&#34;, emailIdentity)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SESv2 (Simple Email V2) Email Identity Mail From Attributes can be imported using the `email_identity`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes")
 public class EmailIdentityMailFromAttributes extends com.pulumi.resources.CustomResource {
-    /**
-     * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     @Export(name="behaviorOnMxFailure", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> behaviorOnMxFailure;
 
-    /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     public Output<Optional<String>> behaviorOnMxFailure() {
         return Codegen.optional(this.behaviorOnMxFailure);
     }
-    /**
-     * The verified email identity.
-     * 
-     */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
-    /**
-     * @return The verified email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
-    /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-     * 
-     */
     @Export(name="mailFromDomain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mailFromDomain;
 
-    /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-     * 
-     */
     public Output<Optional<String>> mailFromDomain() {
         return Codegen.optional(this.mailFromDomain);
     }

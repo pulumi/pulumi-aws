@@ -13,69 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Enables the IPAM Service and promotes a delegated administrator.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccount;
- * import com.pulumi.aws.ec2.VpcIpamOrganizationAdminAccountArgs;
- * import com.pulumi.aws.Provider;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var delegated = AwsFunctions.getCallerIdentity();
- * 
- *         var example = new VpcIpamOrganizationAdminAccount(&#34;example&#34;, VpcIpamOrganizationAdminAccountArgs.builder()        
- *             .delegatedAdminAccountId(delegated.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .build());
- * 
- *         var ipamDelegateAccount = new Provider(&#34;ipamDelegateAccount&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IPAMs can be imported using the `delegate account id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount")
 public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * The Organizations ARN for the delegate account.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Organizations ARN for the delegate account.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -85,45 +27,21 @@ public class VpcIpamOrganizationAdminAccount extends com.pulumi.resources.Custom
     public Output<String> delegatedAdminAccountId() {
         return this.delegatedAdminAccountId;
     }
-    /**
-     * The Organizations email for the delegate account.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return The Organizations email for the delegate account.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * The Organizations name for the delegate account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The Organizations name for the delegate account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The AWS service principal.
-     * 
-     */
     @Export(name="servicePrincipal", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipal;
 
-    /**
-     * @return The AWS service principal.
-     * 
-     */
     public Output<String> servicePrincipal() {
         return this.servicePrincipal;
     }

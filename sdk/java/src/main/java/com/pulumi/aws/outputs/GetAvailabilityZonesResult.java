@@ -24,16 +24,8 @@ public final class GetAvailabilityZonesResult {
      * 
      */
     private String id;
-    /**
-     * @return List of the Availability Zone names available to the account.
-     * 
-     */
     private List<String> names;
     private @Nullable String state;
-    /**
-     * @return List of the Availability Zone IDs available to the account.
-     * 
-     */
     private List<String> zoneIds;
 
     private GetAvailabilityZonesResult() {}
@@ -59,20 +51,12 @@ public final class GetAvailabilityZonesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of the Availability Zone names available to the account.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
-    /**
-     * @return List of the Availability Zone IDs available to the account.
-     * 
-     */
     public List<String> zoneIds() {
         return this.zoneIds;
     }

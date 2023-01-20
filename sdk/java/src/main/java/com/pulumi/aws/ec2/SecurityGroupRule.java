@@ -17,363 +17,77 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a security group rule resource. Represents a single `ingress` or
- * `egress` group rule, which can be added to external Security Groups.
- * 
- * &gt; **NOTE on Security Groups and Security Group Rules:** This provider currently
- * provides both a standalone Security Group Rule resource (one or many `ingress` or
- * `egress` rules), and a Security Group resource with `ingress` and `egress` rules
- * defined in-line. At this time you cannot use a Security Group with in-line rules
- * in conjunction with any Security Group Rule resources. Doing so will cause
- * a conflict of rule settings and will overwrite rules.
- * 
- * &gt; **NOTE:** Setting `protocol = &#34;all&#34;` or `protocol = -1` with `from_port` and `to_port` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
- * 
- * &gt; **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
- * 
- * ## Example Usage
- * 
- * Basic usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.SecurityGroupRule;
- * import com.pulumi.aws.ec2.SecurityGroupRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SecurityGroupRule(&#34;example&#34;, SecurityGroupRuleArgs.builder()        
- *             .type(&#34;ingress&#34;)
- *             .fromPort(0)
- *             .toPort(65535)
- *             .protocol(&#34;tcp&#34;)
- *             .cidrBlocks(aws_vpc.example().cidr_block())
- *             .ipv6CidrBlocks(aws_vpc.example().ipv6_cidr_block())
- *             .securityGroupId(&#34;sg-123456&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Usage With Prefix List IDs
- * 
- * Prefix Lists are either managed by AWS internally, or created by the customer using a
- * Managed Prefix List resource. Prefix Lists provided by
- * AWS are associated with a prefix list name, or service name, that is linked to a specific region.
- * 
- * Prefix list IDs are exported on VPC Endpoints, so you can use this format:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.VpcEndpoint;
- * import com.pulumi.aws.ec2.SecurityGroupRule;
- * import com.pulumi.aws.ec2.SecurityGroupRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myEndpoint = new VpcEndpoint(&#34;myEndpoint&#34;);
- * 
- *         var allowAll = new SecurityGroupRule(&#34;allowAll&#34;, SecurityGroupRuleArgs.builder()        
- *             .type(&#34;egress&#34;)
- *             .toPort(0)
- *             .protocol(&#34;-1&#34;)
- *             .prefixListIds(myEndpoint.prefixListId())
- *             .fromPort(0)
- *             .securityGroupId(&#34;sg-123456&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * You can also find a specific Prefix List using the `aws.ec2.getPrefixList`
- * or `ec2_managed_prefix_list` data sources:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
- * import com.pulumi.aws.ec2.SecurityGroupRule;
- * import com.pulumi.aws.ec2.SecurityGroupRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getRegion();
- * 
- *         final var s3 = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
- *             .name(String.format(&#34;com.amazonaws.%s.s3&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
- *             .build());
- * 
- *         var s3GatewayEgress = new SecurityGroupRule(&#34;s3GatewayEgress&#34;, SecurityGroupRuleArgs.builder()        
- *             .description(&#34;S3 Gateway Egress&#34;)
- *             .type(&#34;egress&#34;)
- *             .securityGroupId(&#34;sg-123456&#34;)
- *             .fromPort(443)
- *             .toPort(443)
- *             .protocol(&#34;tcp&#34;)
- *             .prefixListIds(s3.applyValue(getPrefixListResult -&gt; getPrefixListResult.id()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Security Group Rules can be imported using the `security_group_id`, `type`, `protocol`, `from_port`, `to_port`, and source(s)/destination(s) (e.g., `cidr_block`) separated by underscores (`_`). All parts are required. Not all rule permissions (e.g., not all of a rule&#39;s CIDR blocks) need to be imported for this provider to manage rule permissions. However, importing some of a rule&#39;s permissions but not others, and then making changes to the rule will result in the creation of an additional rule to capture the updated permissions. Rule permissions that were not imported are left intact in the original rule. Import an ingress rule in security group `sg-6e616f6d69` for TCP port 8000 with an IPv4 destination CIDR of `10.0.3.0/24`console
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6e616f6d69_ingress_tcp_8000_8000_10.0.3.0/24
- * ```
- * 
- *  Import a rule with various IPv4 and IPv6 source CIDR blocksconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-4973616163_ingress_tcp_100_121_10.1.0.0/16_2001:db8::/48_10.2.0.0/16_2002:db8::/48
- * ```
- * 
- *  Import a rule, applicable to all ports, with a protocol other than TCP/UDP/ICMP/ICMPV6/ALL, e.g., Multicast Transport Protocol (MTP), using the IANA protocol number, e.g., 92. console
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress sg-6777656e646f6c796e_ingress_92_0_65536_10.0.3.0/24_10.0.4.0/24
- * ```
- * 
- *  Import a default any/any egress rule to 0.0.0.0/0console
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule default_egress sg-6777656e646f6c796e_egress_all_0_0_0.0.0.0/0
- * ```
- * 
- *  Import an egress rule with a prefix list ID destinationconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule egress sg-62726f6479_egress_tcp_8000_8000_pl-6469726b
- * ```
- * 
- *  Import a rule applicable to all protocols and ports with a security group sourceconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule ingress_rule sg-7472697374616e_ingress_all_0_65536_sg-6176657279
- * ```
- * 
- *  Import a rule that has itself and an IPv6 CIDR block as sourcesconsole
- * 
- * ```sh
- *  $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/securityGroupRule:SecurityGroupRule")
 public class SecurityGroupRule extends com.pulumi.resources.CustomResource {
-    /**
-     * List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-     * 
-     */
     @Export(name="cidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> cidrBlocks;
 
-    /**
-     * @return List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-     * 
-     */
     public Output<Optional<List<String>>> cidrBlocks() {
         return Codegen.optional(this.cidrBlocks);
     }
-    /**
-     * Description of the rule.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the rule.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Start port (or ICMP type number if protocol is &#34;icmp&#34; or &#34;icmpv6&#34;).
-     * 
-     */
     @Export(name="fromPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> fromPort;
 
-    /**
-     * @return Start port (or ICMP type number if protocol is &#34;icmp&#34; or &#34;icmpv6&#34;).
-     * 
-     */
     public Output<Integer> fromPort() {
         return this.fromPort;
     }
-    /**
-     * List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-     * 
-     */
     @Export(name="ipv6CidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> ipv6CidrBlocks;
 
-    /**
-     * @return List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
-     * 
-     */
     public Output<Optional<List<String>>> ipv6CidrBlocks() {
         return Codegen.optional(this.ipv6CidrBlocks);
     }
-    /**
-     * List of Prefix List IDs.
-     * 
-     */
     @Export(name="prefixListIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> prefixListIds;
 
-    /**
-     * @return List of Prefix List IDs.
-     * 
-     */
     public Output<Optional<List<String>>> prefixListIds() {
         return Codegen.optional(this.prefixListIds);
     }
-    /**
-     * Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
-    /**
-     * @return Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
-    /**
-     * Security group to apply this rule to.
-     * 
-     */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
-    /**
-     * @return Security group to apply this rule to.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
-    /**
-     * If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-     * 
-     */
     @Export(name="securityGroupRuleId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupRuleId;
 
-    /**
-     * @return If the `aws.ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
-     * 
-     */
     public Output<String> securityGroupRuleId() {
         return this.securityGroupRuleId;
     }
-    /**
-     * Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-     * 
-     */
     @Export(name="self", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> self;
 
-    /**
-     * @return Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
-     * 
-     */
     public Output<Optional<Boolean>> self() {
         return Codegen.optional(this.self);
     }
-    /**
-     * Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-     * 
-     */
     @Export(name="sourceSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> sourceSecurityGroupId;
 
-    /**
-     * @return Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
-     * 
-     */
     public Output<String> sourceSecurityGroupId() {
         return this.sourceSecurityGroupId;
     }
-    /**
-     * End port (or ICMP code if protocol is &#34;icmp&#34;).
-     * 
-     */
     @Export(name="toPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> toPort;
 
-    /**
-     * @return End port (or ICMP code if protocol is &#34;icmp&#34;).
-     * 
-     */
     public Output<Integer> toPort() {
         return this.toPort;
     }
-    /**
-     * Type of rule being created. Valid options are `ingress` (inbound)
-     * or `egress` (outbound).
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of rule being created. Valid options are `ingress` (inbound)
-     * or `egress` (outbound).
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

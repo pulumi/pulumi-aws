@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerS3Target {
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     private @Nullable String dlqEventQueueArn;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     private @Nullable String eventQueueArn;
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     private @Nullable List<String> exclusions;
-    /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     private String path;
-    /**
-     * @return Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-     * 
-     */
     private @Nullable Integer sampleSize;
 
     private CrawlerS3Target() {}
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     public Optional<String> eventQueueArn() {
         return Optional.ofNullable(this.eventQueueArn);
     }
-    /**
-     * @return A list of glob patterns used to exclude from the crawl.
-     * 
-     */
     public List<String> exclusions() {
         return this.exclusions == null ? List.of() : this.exclusions;
     }
-    /**
-     * @return The path of the Amazon DocumentDB or MongoDB target (database/collection).
-     * 
-     */
     public String path() {
         return this.path;
     }
-    /**
-     * @return Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
-     * 
-     */
     public Optional<Integer> sampleSize() {
         return Optional.ofNullable(this.sampleSize);
     }

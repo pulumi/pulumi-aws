@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainCognitoOptions {
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return ID of the Cognito Identity Pool to use.
-     * 
-     */
     private String identityPoolId;
-    /**
-     * @return ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     private String roleArn;
-    /**
-     * @return ID of the Cognito User Pool to use.
-     * 
-     */
     private String userPoolId;
 
     private DomainCognitoOptions() {}
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return ID of the Cognito Identity Pool to use.
-     * 
-     */
     public String identityPoolId() {
         return this.identityPoolId;
     }
-    /**
-     * @return ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }
-    /**
-     * @return ID of the Cognito User Pool to use.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }

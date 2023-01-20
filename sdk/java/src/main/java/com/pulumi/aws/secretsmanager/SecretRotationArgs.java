@@ -14,47 +14,23 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final SecretRotationArgs Empty = new SecretRotationArgs();
 
-    /**
-     * Specifies the ARN of the Lambda function that can rotate the secret.
-     * 
-     */
     @Import(name="rotationLambdaArn", required=true)
     private Output<String> rotationLambdaArn;
 
-    /**
-     * @return Specifies the ARN of the Lambda function that can rotate the secret.
-     * 
-     */
     public Output<String> rotationLambdaArn() {
         return this.rotationLambdaArn;
     }
 
-    /**
-     * A structure that defines the rotation configuration for this secret. Defined below.
-     * 
-     */
     @Import(name="rotationRules", required=true)
     private Output<SecretRotationRotationRulesArgs> rotationRules;
 
-    /**
-     * @return A structure that defines the rotation configuration for this secret. Defined below.
-     * 
-     */
     public Output<SecretRotationRotationRulesArgs> rotationRules() {
         return this.rotationRules;
     }
 
-    /**
-     * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     @Import(name="secretId", required=true)
     private Output<String> secretId;
 
-    /**
-     * @return Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-     * 
-     */
     public Output<String> secretId() {
         return this.secretId;
     }
@@ -85,65 +61,29 @@ public final class SecretRotationArgs extends com.pulumi.resources.ResourceArgs 
             $ = new SecretRotationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationLambdaArn(Output<String> rotationLambdaArn) {
             $.rotationLambdaArn = rotationLambdaArn;
             return this;
         }
 
-        /**
-         * @param rotationLambdaArn Specifies the ARN of the Lambda function that can rotate the secret.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationLambdaArn(String rotationLambdaArn) {
             return rotationLambdaArn(Output.of(rotationLambdaArn));
         }
 
-        /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationRules(Output<SecretRotationRotationRulesArgs> rotationRules) {
             $.rotationRules = rotationRules;
             return this;
         }
 
-        /**
-         * @param rotationRules A structure that defines the rotation configuration for this secret. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rotationRules(SecretRotationRotationRulesArgs rotationRules) {
             return rotationRules(Output.of(rotationRules));
         }
 
-        /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(Output<String> secretId) {
             $.secretId = secretId;
             return this;
         }
 
-        /**
-         * @param secretId Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secretId(String secretId) {
             return secretId(Output.of(secretId));
         }

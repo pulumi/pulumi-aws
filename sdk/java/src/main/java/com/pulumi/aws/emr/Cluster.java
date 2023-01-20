@@ -27,714 +27,17 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic MapReduce Cluster, a web service that makes it easy to process large amounts of data efficiently. See [Amazon Elastic MapReduce Documentation](https://aws.amazon.com/documentation/elastic-mapreduce/) for more information.
- * 
- * To configure [Instance Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for [task nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-task), see the `aws.emr.InstanceGroup` resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterBootstrapActionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
- *             .releaseLabel(&#34;emr-4.6.0&#34;)
- *             .applications(&#34;Spark&#34;)
- *             .additionalInfo(&#34;&#34;&#34;
- * {
- *   &#34;instanceAwsClientConfiguration&#34;: {
- *     &#34;proxyPort&#34;: 8099,
- *     &#34;proxyHost&#34;: &#34;myproxy.example.com&#34;
- *   }
- * }
- *             &#34;&#34;&#34;)
- *             .terminationProtection(false)
- *             .keepJobFlowAliveWhenNoSteps(true)
- *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(aws_subnet.main().id())
- *                 .emrManagedMasterSecurityGroup(aws_security_group.sg().id())
- *                 .emrManagedSlaveSecurityGroup(aws_security_group.sg().id())
- *                 .instanceProfile(aws_iam_instance_profile.emr_profile().arn())
- *                 .build())
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
- *                 .instanceCount(1)
- *                 .ebsConfigs(ClusterCoreInstanceGroupEbsConfigArgs.builder()
- *                     .size(&#34;40&#34;)
- *                     .type(&#34;gp2&#34;)
- *                     .volumesPerInstance(1)
- *                     .build())
- *                 .bidPrice(&#34;0.30&#34;)
- *                 .autoscalingPolicy(&#34;&#34;&#34;
- * {
- * &#34;Constraints&#34;: {
- *   &#34;MinCapacity&#34;: 1,
- *   &#34;MaxCapacity&#34;: 2
- * },
- * &#34;Rules&#34;: [
- *   {
- *     &#34;Name&#34;: &#34;ScaleOutMemoryPercentage&#34;,
- *     &#34;Description&#34;: &#34;Scale out if YARNMemoryAvailablePercentage is less than 15&#34;,
- *     &#34;Action&#34;: {
- *       &#34;SimpleScalingPolicyConfiguration&#34;: {
- *         &#34;AdjustmentType&#34;: &#34;CHANGE_IN_CAPACITY&#34;,
- *         &#34;ScalingAdjustment&#34;: 1,
- *         &#34;CoolDown&#34;: 300
- *       }
- *     },
- *     &#34;Trigger&#34;: {
- *       &#34;CloudWatchAlarmDefinition&#34;: {
- *         &#34;ComparisonOperator&#34;: &#34;LESS_THAN&#34;,
- *         &#34;EvaluationPeriods&#34;: 1,
- *         &#34;MetricName&#34;: &#34;YARNMemoryAvailablePercentage&#34;,
- *         &#34;Namespace&#34;: &#34;AWS/ElasticMapReduce&#34;,
- *         &#34;Period&#34;: 300,
- *         &#34;Statistic&#34;: &#34;AVERAGE&#34;,
- *         &#34;Threshold&#34;: 15.0,
- *         &#34;Unit&#34;: &#34;PERCENT&#34;
- *       }
- *     }
- *   }
- * ]
- * }
- *                 &#34;&#34;&#34;)
- *                 .build())
- *             .ebsRootVolumeSize(100)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;role&#34;, &#34;rolename&#34;),
- *                 Map.entry(&#34;env&#34;, &#34;env&#34;)
- *             ))
- *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
- *                 .path(&#34;s3://elasticmapreduce/bootstrap-actions/run-if&#34;)
- *                 .name(&#34;runif&#34;)
- *                 .args(                
- *                     &#34;instance.isMaster=true&#34;,
- *                     &#34;echo running on master node&#34;)
- *                 .build())
- *             .configurationsJson(&#34;&#34;&#34;
- *   [
- *     {
- *       &#34;Classification&#34;: &#34;hadoop-env&#34;,
- *       &#34;Configurations&#34;: [
- *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
- *           }
- *         }
- *       ],
- *       &#34;Properties&#34;: {}
- *     },
- *     {
- *       &#34;Classification&#34;: &#34;spark-env&#34;,
- *       &#34;Configurations&#34;: [
- *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
- *           }
- *         }
- *       ],
- *       &#34;Properties&#34;: {}
- *     }
- *   ]
- *             &#34;&#34;&#34;)
- *             .serviceRole(aws_iam_role.iam_emr_service_role().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * The `aws.emr.Cluster` resource typically requires two IAM roles, one for the EMR Cluster to use as a service, and another to place on your Cluster Instances to interact with AWS from those instances. The suggested role policy template for the EMR service is `AmazonElasticMapReduceRole`, and `AmazonElasticMapReduceforEC2Role` for the EC2 profile. See the [Getting Started](https://docs.aws.amazon.com/ElasticMapReduce/latest/ManagementGuide/emr-gs-launch-sample-cluster.html) guide for more information on these IAM roles.
- * ### Instance Fleet
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs;
- * import com.pulumi.aws.emr.InstanceFleet;
- * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .masterInstanceFleet(ClusterMasterInstanceFleetArgs.builder()
- *                 .instanceTypeConfigs(ClusterMasterInstanceFleetInstanceTypeConfigArgs.builder()
- *                     .instanceType(&#34;m4.xlarge&#34;)
- *                     .build())
- *                 .targetOnDemandCapacity(1)
- *                 .build())
- *             .coreInstanceFleet(ClusterCoreInstanceFleetArgs.builder()
- *                 .instanceTypeConfigs(                
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(80)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m3.xlarge&#34;)
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m4.xlarge&#34;)
- *                         .weightedCapacity(1)
- *                         .build(),
- *                     ClusterCoreInstanceFleetInstanceTypeConfigArgs.builder()
- *                         .bidPriceAsPercentageOfOnDemandPrice(100)
- *                         .ebsConfigs(ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                             .size(100)
- *                             .type(&#34;gp2&#34;)
- *                             .volumesPerInstance(1)
- *                             .build())
- *                         .instanceType(&#34;m4.2xlarge&#34;)
- *                         .weightedCapacity(2)
- *                         .build())
- *                 .launchSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsArgs.builder()
- *                     .spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                         .allocationStrategy(&#34;capacity-optimized&#34;)
- *                         .blockDurationMinutes(0)
- *                         .timeoutAction(&#34;SWITCH_TO_ON_DEMAND&#34;)
- *                         .timeoutDurationMinutes(10)
- *                         .build())
- *                     .build())
- *                 .name(&#34;core fleet&#34;)
- *                 .targetOnDemandCapacity(2)
- *                 .targetSpotCapacity(2)
- *                 .build())
- *             .build());
- * 
- *         var task = new InstanceFleet(&#34;task&#34;, InstanceFleetArgs.builder()        
- *             .clusterId(example.id())
- *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.xlarge&#34;)
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type(&#34;gp2&#34;)
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType(&#34;m4.2xlarge&#34;)
- *                     .weightedCapacity(2)
- *                     .build())
- *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
- *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
- *                     .allocationStrategy(&#34;capacity-optimized&#34;)
- *                     .blockDurationMinutes(0)
- *                     .timeoutAction(&#34;TERMINATE_CLUSTER&#34;)
- *                     .timeoutDurationMinutes(10)
- *                     .build())
- *                 .build())
- *             .targetOnDemandCapacity(1)
- *             .targetSpotCapacity(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Enable Debug Logging
- * 
- * [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterStepArgs;
- * import com.pulumi.aws.emr.inputs.ClusterStepHadoopJarStepArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .steps(ClusterStepArgs.builder()
- *                 .actionOnFailure(&#34;TERMINATE_CLUSTER&#34;)
- *                 .name(&#34;Setup Hadoop Debugging&#34;)
- *                 .hadoopJarStep(ClusterStepHadoopJarStepArgs.builder()
- *                     .jar(&#34;command-runner.jar&#34;)
- *                     .args(&#34;state-pusher-script&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Multiple Node Master Instance Group
- * 
- * Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .mapPublicIpOnLaunch(true)
- *             .build());
- * 
- *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .releaseLabel(&#34;emr-5.24.1&#34;)
- *             .terminationProtection(true)
- *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(exampleSubnet.id())
- *                 .build())
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceCount(3)
- *                 .build())
- *             .coreInstanceGroup()
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Bootable Cluster
- * 
- * **NOTE:** This configuration demonstrates a minimal configuration needed to boot an example EMR Cluster. It is not meant to display best practices. As with all examples, use at your own risk.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.Subnet;
- * import com.pulumi.aws.ec2.SubnetArgs;
- * import com.pulumi.aws.ec2.SecurityGroup;
- * import com.pulumi.aws.ec2.SecurityGroupArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
- * import com.pulumi.aws.ec2.inputs.SecurityGroupEgressArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.InstanceProfile;
- * import com.pulumi.aws.iam.InstanceProfileArgs;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterEc2AttributesArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterBootstrapActionArgs;
- * import com.pulumi.aws.ec2.InternetGateway;
- * import com.pulumi.aws.ec2.InternetGatewayArgs;
- * import com.pulumi.aws.ec2.RouteTable;
- * import com.pulumi.aws.ec2.RouteTableArgs;
- * import com.pulumi.aws.ec2.inputs.RouteTableRouteArgs;
- * import com.pulumi.aws.ec2.MainRouteTableAssociation;
- * import com.pulumi.aws.ec2.MainRouteTableAssociationArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mainVpc = new Vpc(&#34;mainVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;168.31.0.0/16&#34;)
- *             .enableDnsHostnames(true)
- *             .tags(Map.of(&#34;name&#34;, &#34;emr_test&#34;))
- *             .build());
- * 
- *         var mainSubnet = new Subnet(&#34;mainSubnet&#34;, SubnetArgs.builder()        
- *             .vpcId(mainVpc.id())
- *             .cidrBlock(&#34;168.31.0.0/20&#34;)
- *             .tags(Map.of(&#34;name&#34;, &#34;emr_test&#34;))
- *             .build());
- * 
- *         var allowAccess = new SecurityGroup(&#34;allowAccess&#34;, SecurityGroupArgs.builder()        
- *             .description(&#34;Allow inbound traffic&#34;)
- *             .vpcId(mainVpc.id())
- *             .ingress(SecurityGroupIngressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(mainVpc.cidrBlock())
- *                 .build())
- *             .egress(SecurityGroupEgressArgs.builder()
- *                 .fromPort(0)
- *                 .toPort(0)
- *                 .protocol(&#34;-1&#34;)
- *                 .cidrBlocks(&#34;0.0.0.0/0&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;name&#34;, &#34;emr_test&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(mainSubnet)
- *                 .build());
- * 
- *         var iamEmrServiceRole = new Role(&#34;iamEmrServiceRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2008-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;elasticmapreduce.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var iamEmrProfileRole = new Role(&#34;iamEmrProfileRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2008-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;ec2.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var emrProfile = new InstanceProfile(&#34;emrProfile&#34;, InstanceProfileArgs.builder()        
- *             .role(iamEmrProfileRole.name())
- *             .build());
- * 
- *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
- *             .releaseLabel(&#34;emr-4.6.0&#34;)
- *             .applications(&#34;Spark&#34;)
- *             .ec2Attributes(ClusterEc2AttributesArgs.builder()
- *                 .subnetId(mainSubnet.id())
- *                 .emrManagedMasterSecurityGroup(allowAccess.id())
- *                 .emrManagedSlaveSecurityGroup(allowAccess.id())
- *                 .instanceProfile(emrProfile.arn())
- *                 .build())
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m5.xlarge&#34;)
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceCount(1)
- *                 .instanceType(&#34;m5.xlarge&#34;)
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;role&#34;, &#34;rolename&#34;),
- *                 Map.entry(&#34;dns_zone&#34;, &#34;env_zone&#34;),
- *                 Map.entry(&#34;env&#34;, &#34;env&#34;),
- *                 Map.entry(&#34;name&#34;, &#34;name-env&#34;)
- *             ))
- *             .bootstrapActions(ClusterBootstrapActionArgs.builder()
- *                 .path(&#34;s3://elasticmapreduce/bootstrap-actions/run-if&#34;)
- *                 .name(&#34;runif&#34;)
- *                 .args(                
- *                     &#34;instance.isMaster=true&#34;,
- *                     &#34;echo running on master node&#34;)
- *                 .build())
- *             .configurationsJson(&#34;&#34;&#34;
- *   [
- *     {
- *       &#34;Classification&#34;: &#34;hadoop-env&#34;,
- *       &#34;Configurations&#34;: [
- *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
- *           }
- *         }
- *       ],
- *       &#34;Properties&#34;: {}
- *     },
- *     {
- *       &#34;Classification&#34;: &#34;spark-env&#34;,
- *       &#34;Configurations&#34;: [
- *         {
- *           &#34;Classification&#34;: &#34;export&#34;,
- *           &#34;Properties&#34;: {
- *             &#34;JAVA_HOME&#34;: &#34;/usr/lib/jvm/java-1.8.0&#34;
- *           }
- *         }
- *       ],
- *       &#34;Properties&#34;: {}
- *     }
- *   ]
- *             &#34;&#34;&#34;)
- *             .serviceRole(iamEmrServiceRole.arn())
- *             .build());
- * 
- *         var gw = new InternetGateway(&#34;gw&#34;, InternetGatewayArgs.builder()        
- *             .vpcId(mainVpc.id())
- *             .build());
- * 
- *         var routeTable = new RouteTable(&#34;routeTable&#34;, RouteTableArgs.builder()        
- *             .vpcId(mainVpc.id())
- *             .routes(RouteTableRouteArgs.builder()
- *                 .cidrBlock(&#34;0.0.0.0/0&#34;)
- *                 .gatewayId(gw.id())
- *                 .build())
- *             .build());
- * 
- *         var mainRouteTableAssociation = new MainRouteTableAssociation(&#34;mainRouteTableAssociation&#34;, MainRouteTableAssociationArgs.builder()        
- *             .vpcId(mainVpc.id())
- *             .routeTableId(routeTable.id())
- *             .build());
- * 
- *         var iamEmrServicePolicy = new RolePolicy(&#34;iamEmrServicePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(iamEmrServiceRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [{
- *         &#34;Effect&#34;: &#34;Allow&#34;,
- *         &#34;Resource&#34;: &#34;*&#34;,
- *         &#34;Action&#34;: [
- *             &#34;ec2:AuthorizeSecurityGroupEgress&#34;,
- *             &#34;ec2:AuthorizeSecurityGroupIngress&#34;,
- *             &#34;ec2:CancelSpotInstanceRequests&#34;,
- *             &#34;ec2:CreateNetworkInterface&#34;,
- *             &#34;ec2:CreateSecurityGroup&#34;,
- *             &#34;ec2:CreateTags&#34;,
- *             &#34;ec2:DeleteNetworkInterface&#34;,
- *             &#34;ec2:DeleteSecurityGroup&#34;,
- *             &#34;ec2:DeleteTags&#34;,
- *             &#34;ec2:DescribeAvailabilityZones&#34;,
- *             &#34;ec2:DescribeAccountAttributes&#34;,
- *             &#34;ec2:DescribeDhcpOptions&#34;,
- *             &#34;ec2:DescribeInstanceStatus&#34;,
- *             &#34;ec2:DescribeInstances&#34;,
- *             &#34;ec2:DescribeKeyPairs&#34;,
- *             &#34;ec2:DescribeNetworkAcls&#34;,
- *             &#34;ec2:DescribeNetworkInterfaces&#34;,
- *             &#34;ec2:DescribePrefixLists&#34;,
- *             &#34;ec2:DescribeRouteTables&#34;,
- *             &#34;ec2:DescribeSecurityGroups&#34;,
- *             &#34;ec2:DescribeSpotInstanceRequests&#34;,
- *             &#34;ec2:DescribeSpotPriceHistory&#34;,
- *             &#34;ec2:DescribeSubnets&#34;,
- *             &#34;ec2:DescribeVpcAttribute&#34;,
- *             &#34;ec2:DescribeVpcEndpoints&#34;,
- *             &#34;ec2:DescribeVpcEndpointServices&#34;,
- *             &#34;ec2:DescribeVpcs&#34;,
- *             &#34;ec2:DetachNetworkInterface&#34;,
- *             &#34;ec2:ModifyImageAttribute&#34;,
- *             &#34;ec2:ModifyInstanceAttribute&#34;,
- *             &#34;ec2:RequestSpotInstances&#34;,
- *             &#34;ec2:RevokeSecurityGroupEgress&#34;,
- *             &#34;ec2:RunInstances&#34;,
- *             &#34;ec2:TerminateInstances&#34;,
- *             &#34;ec2:DeleteVolume&#34;,
- *             &#34;ec2:DescribeVolumeStatus&#34;,
- *             &#34;ec2:DescribeVolumes&#34;,
- *             &#34;ec2:DetachVolume&#34;,
- *             &#34;iam:GetRole&#34;,
- *             &#34;iam:GetRolePolicy&#34;,
- *             &#34;iam:ListInstanceProfiles&#34;,
- *             &#34;iam:ListRolePolicies&#34;,
- *             &#34;iam:PassRole&#34;,
- *             &#34;s3:CreateBucket&#34;,
- *             &#34;s3:Get*&#34;,
- *             &#34;s3:List*&#34;,
- *             &#34;sdb:BatchPutAttributes&#34;,
- *             &#34;sdb:Select&#34;,
- *             &#34;sqs:CreateQueue&#34;,
- *             &#34;sqs:Delete*&#34;,
- *             &#34;sqs:GetQueue*&#34;,
- *             &#34;sqs:PurgeQueue&#34;,
- *             &#34;sqs:ReceiveMessage&#34;
- *         ]
- *     }]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var iamEmrProfilePolicy = new RolePolicy(&#34;iamEmrProfilePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(iamEmrProfileRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [{
- *         &#34;Effect&#34;: &#34;Allow&#34;,
- *         &#34;Resource&#34;: &#34;*&#34;,
- *         &#34;Action&#34;: [
- *             &#34;cloudwatch:*&#34;,
- *             &#34;dynamodb:*&#34;,
- *             &#34;ec2:Describe*&#34;,
- *             &#34;elasticmapreduce:Describe*&#34;,
- *             &#34;elasticmapreduce:ListBootstrapActions&#34;,
- *             &#34;elasticmapreduce:ListClusters&#34;,
- *             &#34;elasticmapreduce:ListInstanceGroups&#34;,
- *             &#34;elasticmapreduce:ListInstances&#34;,
- *             &#34;elasticmapreduce:ListSteps&#34;,
- *             &#34;kinesis:CreateStream&#34;,
- *             &#34;kinesis:DeleteStream&#34;,
- *             &#34;kinesis:DescribeStream&#34;,
- *             &#34;kinesis:GetRecords&#34;,
- *             &#34;kinesis:GetShardIterator&#34;,
- *             &#34;kinesis:MergeShards&#34;,
- *             &#34;kinesis:PutRecord&#34;,
- *             &#34;kinesis:SplitShard&#34;,
- *             &#34;rds:Describe*&#34;,
- *             &#34;s3:*&#34;,
- *             &#34;sdb:*&#34;,
- *             &#34;sns:*&#34;,
- *             &#34;sqs:*&#34;
- *         ]
- *     }]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EMR clusters can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
- * ```
- * 
- *  Since the API does not return the actual values for Kerberos configurations, environments with those configurations will need to use the
- * 
- * `ignore_changes` option available to all resources to prevent perpetual differences, e.g., terraform resource &#34;aws_emr_cluster&#34; &#34;example&#34; {
- * 
- * # ... other configuration ...
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [kerberos_attributes]
- * 
- *  } }
- * 
- */
 @ResourceType(type="aws:emr/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
-    /**
-     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
-     * 
-     */
     @Export(name="additionalInfo", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> additionalInfo;
 
-    /**
-     * @return JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
-     * 
-     */
     public Output<Optional<String>> additionalInfo() {
         return Codegen.optional(this.additionalInfo);
     }
-    /**
-     * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-     * 
-     */
     @Export(name="applications", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> applications;
 
-    /**
-     * @return A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-     * 
-     */
     public Output<Optional<List<String>>> applications() {
         return Codegen.optional(this.applications);
     }
@@ -744,45 +47,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
-     * 
-     */
     @Export(name="autoTerminationPolicy", refs={ClusterAutoTerminationPolicy.class}, tree="[0]")
     private Output</* @Nullable */ ClusterAutoTerminationPolicy> autoTerminationPolicy;
 
-    /**
-     * @return An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
-     * 
-     */
     public Output<Optional<ClusterAutoTerminationPolicy>> autoTerminationPolicy() {
         return Codegen.optional(this.autoTerminationPolicy);
     }
-    /**
-     * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-     * 
-     */
     @Export(name="autoscalingRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoscalingRole;
 
-    /**
-     * @return IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-     * 
-     */
     public Output<Optional<String>> autoscalingRole() {
         return Codegen.optional(this.autoscalingRole);
     }
-    /**
-     * Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-     * 
-     */
     @Export(name="bootstrapActions", refs={List.class,ClusterBootstrapAction.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ClusterBootstrapAction>> bootstrapActions;
 
-    /**
-     * @return Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-     * 
-     */
     public Output<Optional<List<ClusterBootstrapAction>>> bootstrapActions() {
         return Codegen.optional(this.bootstrapActions);
     }
@@ -792,367 +71,159 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<String> clusterState() {
         return this.clusterState;
     }
-    /**
-     * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-     * 
-     */
     @Export(name="configurations", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurations;
 
-    /**
-     * @return Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-     * 
-     */
     public Output<Optional<String>> configurations() {
         return Codegen.optional(this.configurations);
     }
-    /**
-     * JSON string for supplying list of configurations for the EMR cluster.
-     * 
-     */
     @Export(name="configurationsJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationsJson;
 
-    /**
-     * @return JSON string for supplying list of configurations for the EMR cluster.
-     * 
-     */
     public Output<Optional<String>> configurationsJson() {
         return Codegen.optional(this.configurationsJson);
     }
-    /**
-     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
-     * 
-     */
     @Export(name="coreInstanceFleet", refs={ClusterCoreInstanceFleet.class}, tree="[0]")
     private Output<ClusterCoreInstanceFleet> coreInstanceFleet;
 
-    /**
-     * @return Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
-     * 
-     */
     public Output<ClusterCoreInstanceFleet> coreInstanceFleet() {
         return this.coreInstanceFleet;
     }
-    /**
-     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
-     * 
-     */
     @Export(name="coreInstanceGroup", refs={ClusterCoreInstanceGroup.class}, tree="[0]")
     private Output<ClusterCoreInstanceGroup> coreInstanceGroup;
 
-    /**
-     * @return Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
-     * 
-     */
     public Output<ClusterCoreInstanceGroup> coreInstanceGroup() {
         return this.coreInstanceGroup;
     }
-    /**
-     * Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-     * 
-     */
     @Export(name="customAmiId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customAmiId;
 
-    /**
-     * @return Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-     * 
-     */
     public Output<Optional<String>> customAmiId() {
         return Codegen.optional(this.customAmiId);
     }
-    /**
-     * Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-     * 
-     */
     @Export(name="ebsRootVolumeSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ebsRootVolumeSize;
 
-    /**
-     * @return Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-     * 
-     */
     public Output<Optional<Integer>> ebsRootVolumeSize() {
         return Codegen.optional(this.ebsRootVolumeSize);
     }
-    /**
-     * Attributes for the EC2 instances running the job flow. See below.
-     * 
-     */
     @Export(name="ec2Attributes", refs={ClusterEc2Attributes.class}, tree="[0]")
     private Output</* @Nullable */ ClusterEc2Attributes> ec2Attributes;
 
-    /**
-     * @return Attributes for the EC2 instances running the job flow. See below.
-     * 
-     */
     public Output<Optional<ClusterEc2Attributes>> ec2Attributes() {
         return Codegen.optional(this.ec2Attributes);
     }
-    /**
-     * Switch on/off run cluster with no steps or when all steps are complete (default is on)
-     * 
-     */
     @Export(name="keepJobFlowAliveWhenNoSteps", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> keepJobFlowAliveWhenNoSteps;
 
-    /**
-     * @return Switch on/off run cluster with no steps or when all steps are complete (default is on)
-     * 
-     */
     public Output<Boolean> keepJobFlowAliveWhenNoSteps() {
         return this.keepJobFlowAliveWhenNoSteps;
     }
-    /**
-     * Kerberos configuration for the cluster. See below.
-     * 
-     */
     @Export(name="kerberosAttributes", refs={ClusterKerberosAttributes.class}, tree="[0]")
     private Output</* @Nullable */ ClusterKerberosAttributes> kerberosAttributes;
 
-    /**
-     * @return Kerberos configuration for the cluster. See below.
-     * 
-     */
     public Output<Optional<ClusterKerberosAttributes>> kerberosAttributes() {
         return Codegen.optional(this.kerberosAttributes);
     }
-    /**
-     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-     * 
-     */
     @Export(name="listStepsStates", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> listStepsStates;
 
-    /**
-     * @return List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-     * 
-     */
     public Output<Optional<List<String>>> listStepsStates() {
         return Codegen.optional(this.listStepsStates);
     }
-    /**
-     * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-     * 
-     */
     @Export(name="logEncryptionKmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logEncryptionKmsKeyId;
 
-    /**
-     * @return AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-     * 
-     */
     public Output<Optional<String>> logEncryptionKmsKeyId() {
         return Codegen.optional(this.logEncryptionKmsKeyId);
     }
-    /**
-     * S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
-     * 
-     */
     @Export(name="logUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> logUri;
 
-    /**
-     * @return S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
-     * 
-     */
     public Output<Optional<String>> logUri() {
         return Codegen.optional(this.logUri);
     }
-    /**
-     * Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
-     * 
-     */
     @Export(name="masterInstanceFleet", refs={ClusterMasterInstanceFleet.class}, tree="[0]")
     private Output<ClusterMasterInstanceFleet> masterInstanceFleet;
 
-    /**
-     * @return Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
-     * 
-     */
     public Output<ClusterMasterInstanceFleet> masterInstanceFleet() {
         return this.masterInstanceFleet;
     }
-    /**
-     * Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-     * 
-     */
     @Export(name="masterInstanceGroup", refs={ClusterMasterInstanceGroup.class}, tree="[0]")
     private Output<ClusterMasterInstanceGroup> masterInstanceGroup;
 
-    /**
-     * @return Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-     * 
-     */
     public Output<ClusterMasterInstanceGroup> masterInstanceGroup() {
         return this.masterInstanceGroup;
     }
-    /**
-     * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
-     * 
-     */
     @Export(name="masterPublicDns", refs={String.class}, tree="[0]")
     private Output<String> masterPublicDns;
 
-    /**
-     * @return The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
-     * 
-     */
     public Output<String> masterPublicDns() {
         return this.masterPublicDns;
     }
-    /**
-     * Name of the step.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the step.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Release label for the Amazon EMR release.
-     * 
-     */
     @Export(name="releaseLabel", refs={String.class}, tree="[0]")
     private Output<String> releaseLabel;
 
-    /**
-     * @return Release label for the Amazon EMR release.
-     * 
-     */
     public Output<String> releaseLabel() {
         return this.releaseLabel;
     }
-    /**
-     * Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-     * 
-     */
     @Export(name="scaleDownBehavior", refs={String.class}, tree="[0]")
     private Output<String> scaleDownBehavior;
 
-    /**
-     * @return Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-     * 
-     */
     public Output<String> scaleDownBehavior() {
         return this.scaleDownBehavior;
     }
-    /**
-     * Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
-     * 
-     */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
-    /**
-     * @return Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
-     * 
-     */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
     }
-    /**
-     * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
-     * 
-     */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
-    /**
-     * @return IAM role that will be assumed by the Amazon EMR service to access AWS resources.
-     * 
-     */
     public Output<String> serviceRole() {
         return this.serviceRole;
     }
-    /**
-     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-     * 
-     */
     @Export(name="stepConcurrencyLevel", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> stepConcurrencyLevel;
 
-    /**
-     * @return Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-     * 
-     */
     public Output<Optional<Integer>> stepConcurrencyLevel() {
         return Codegen.optional(this.stepConcurrencyLevel);
     }
-    /**
-     * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
-     * 
-     */
     @Export(name="steps", refs={List.class,ClusterStep.class}, tree="[0,1]")
     private Output<List<ClusterStep>> steps;
 
-    /**
-     * @return List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
-     * 
-     */
     public Output<List<ClusterStep>> steps() {
         return this.steps;
     }
-    /**
-     * list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-     * 
-     */
     @Export(name="terminationProtection", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> terminationProtection;
 
-    /**
-     * @return Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-     * 
-     */
     public Output<Boolean> terminationProtection() {
         return this.terminationProtection;
     }
-    /**
-     * Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
-     * 
-     */
     @Export(name="visibleToAllUsers", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> visibleToAllUsers;
 
-    /**
-     * @return Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
-     * 
-     */
     public Output<Optional<Boolean>> visibleToAllUsers() {
         return Codegen.optional(this.visibleToAllUsers);
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PipelineThumbnailConfigPermission {
-    /**
-     * @return The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-     * 
-     */
     private @Nullable List<String> accesses;
-    /**
-     * @return The AWS user or group that you want to have access to thumbnail files.
-     * 
-     */
     private @Nullable String grantee;
-    /**
-     * @return Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-     * 
-     */
     private @Nullable String granteeType;
 
     private PipelineThumbnailConfigPermission() {}
-    /**
-     * @return The permission that you want to give to the AWS user that you specified in `thumbnail_config_permissions.grantee`. Valid values are `Read`, `ReadAcp`, `WriteAcp` or `FullControl`.
-     * 
-     */
     public List<String> accesses() {
         return this.accesses == null ? List.of() : this.accesses;
     }
-    /**
-     * @return The AWS user or group that you want to have access to thumbnail files.
-     * 
-     */
     public Optional<String> grantee() {
         return Optional.ofNullable(this.grantee);
     }
-    /**
-     * @return Specify the type of value that appears in the `thumbnail_config_permissions.grantee` object. Valid values are `Canonical`, `Email` or `Group`.
-     * 
-     */
     public Optional<String> granteeType() {
         return Optional.ofNullable(this.granteeType);
     }

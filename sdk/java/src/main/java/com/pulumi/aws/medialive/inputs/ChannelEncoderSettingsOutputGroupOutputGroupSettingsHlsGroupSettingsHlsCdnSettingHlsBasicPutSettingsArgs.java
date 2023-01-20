@@ -15,17 +15,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs();
 
-    /**
-     * Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     @Import(name="connectionRetryInterval")
     private @Nullable Output<Integer> connectionRetryInterval;
 
-    /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     public Optional<Output<Integer>> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
@@ -37,32 +29,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
         return Optional.ofNullable(this.filecacheDuration);
     }
 
-    /**
-     * Number of retry attempts.
-     * 
-     */
     @Import(name="numRetries")
     private @Nullable Output<Integer> numRetries;
 
-    /**
-     * @return Number of retry attempts.
-     * 
-     */
     public Optional<Output<Integer>> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }
 
-    /**
-     * Number of seconds to wait until a restart is initiated.
-     * 
-     */
     @Import(name="restartDelay")
     private @Nullable Output<Integer> restartDelay;
 
-    /**
-     * @return Number of seconds to wait until a restart is initiated.
-     * 
-     */
     public Optional<Output<Integer>> restartDelay() {
         return Optional.ofNullable(this.restartDelay);
     }
@@ -94,23 +70,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionRetryInterval(@Nullable Output<Integer> connectionRetryInterval) {
             $.connectionRetryInterval = connectionRetryInterval;
             return this;
         }
 
-        /**
-         * @param connectionRetryInterval Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionRetryInterval(Integer connectionRetryInterval) {
             return connectionRetryInterval(Output.of(connectionRetryInterval));
         }
@@ -124,44 +88,20 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
             return filecacheDuration(Output.of(filecacheDuration));
         }
 
-        /**
-         * @param numRetries Number of retry attempts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numRetries(@Nullable Output<Integer> numRetries) {
             $.numRetries = numRetries;
             return this;
         }
 
-        /**
-         * @param numRetries Number of retry attempts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numRetries(Integer numRetries) {
             return numRetries(Output.of(numRetries));
         }
 
-        /**
-         * @param restartDelay Number of seconds to wait until a restart is initiated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restartDelay(@Nullable Output<Integer> restartDelay) {
             $.restartDelay = restartDelay;
             return this;
         }
 
-        /**
-         * @param restartDelay Number of seconds to wait until a restart is initiated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restartDelay(Integer restartDelay) {
             return restartDelay(Output.of(restartDelay));
         }

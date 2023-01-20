@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationExportConfigurationS3Destination {
-    /**
-     * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The object key for the bucket in which Amazon Macie exports the data classification results.
-     * 
-     */
     private @Nullable String keyPrefix;
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     private String kmsKeyArn;
 
     private ClassificationExportConfigurationS3Destination() {}
-    /**
-     * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The object key for the bucket in which Amazon Macie exports the data classification results.
-     * 
-     */
     public Optional<String> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }

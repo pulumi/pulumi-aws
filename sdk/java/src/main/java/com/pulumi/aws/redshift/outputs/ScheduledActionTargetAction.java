@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScheduledActionTargetAction {
-    /**
-     * @return An action that runs a `PauseCluster` API operation. Documented below.
-     * 
-     */
     private @Nullable ScheduledActionTargetActionPauseCluster pauseCluster;
-    /**
-     * @return An action that runs a `ResizeCluster` API operation. Documented below.
-     * 
-     */
     private @Nullable ScheduledActionTargetActionResizeCluster resizeCluster;
-    /**
-     * @return An action that runs a `ResumeCluster` API operation. Documented below.
-     * 
-     */
     private @Nullable ScheduledActionTargetActionResumeCluster resumeCluster;
 
     private ScheduledActionTargetAction() {}
-    /**
-     * @return An action that runs a `PauseCluster` API operation. Documented below.
-     * 
-     */
     public Optional<ScheduledActionTargetActionPauseCluster> pauseCluster() {
         return Optional.ofNullable(this.pauseCluster);
     }
-    /**
-     * @return An action that runs a `ResizeCluster` API operation. Documented below.
-     * 
-     */
     public Optional<ScheduledActionTargetActionResizeCluster> resizeCluster() {
         return Optional.ofNullable(this.resizeCluster);
     }
-    /**
-     * @return An action that runs a `ResumeCluster` API operation. Documented below.
-     * 
-     */
     public Optional<ScheduledActionTargetActionResumeCluster> resumeCluster() {
         return Optional.ofNullable(this.resumeCluster);
     }

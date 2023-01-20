@@ -15,32 +15,16 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
 
     public static final GetComputeEnvironmentPlainArgs Empty = new GetComputeEnvironmentPlainArgs();
 
-    /**
-     * Name of the Batch Compute Environment
-     * 
-     */
     @Import(name="computeEnvironmentName", required=true)
     private String computeEnvironmentName;
 
-    /**
-     * @return Name of the Batch Compute Environment
-     * 
-     */
     public String computeEnvironmentName() {
         return this.computeEnvironmentName;
     }
 
-    /**
-     * Key-value map of resource tags
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetComputeEnvironmentPlainArgs extends com.pulumi.resources.I
             $ = new GetComputeEnvironmentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
-         * 
-         * @return builder
-         * 
-         */
         public Builder computeEnvironmentName(String computeEnvironmentName) {
             $.computeEnvironmentName = computeEnvironmentName;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

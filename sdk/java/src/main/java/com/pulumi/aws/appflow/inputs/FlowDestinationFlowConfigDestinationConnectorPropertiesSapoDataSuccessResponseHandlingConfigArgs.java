@@ -15,32 +15,16 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs();
 
-    /**
-     * Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
@@ -70,44 +54,20 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDa
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }

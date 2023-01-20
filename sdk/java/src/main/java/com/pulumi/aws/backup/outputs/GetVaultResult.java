@@ -11,38 +11,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVaultResult {
-    /**
-     * @return ARN of the vault.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Server-side encryption key that is used to protect your backups.
-     * 
-     */
     private String kmsKeyArn;
     private String name;
-    /**
-     * @return Number of recovery points that are stored in a backup vault.
-     * 
-     */
     private Integer recoveryPoints;
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetVaultResult() {}
-    /**
-     * @return ARN of the vault.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -53,27 +33,15 @@ public final class GetVaultResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Server-side encryption key that is used to protect your backups.
-     * 
-     */
     public String kmsKeyArn() {
         return this.kmsKeyArn;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Number of recovery points that are stored in a backup vault.
-     * 
-     */
     public Integer recoveryPoints() {
         return this.recoveryPoints;
     }
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

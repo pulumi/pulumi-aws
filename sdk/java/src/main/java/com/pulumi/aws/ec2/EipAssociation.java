@@ -15,171 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS EIP Association as a top level resource, to associate and
- * disassociate Elastic IPs from AWS Instances and Network Interfaces.
- * 
- * &gt; **NOTE:** Do not use this resource to associate an EIP to `aws.lb.LoadBalancer` or `aws.ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
- * 
- * &gt; **NOTE:** `aws.ec2.EipAssociation` is useful in scenarios where EIPs are either
- * pre-existing or distributed to customers or users and therefore cannot be changed.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.ec2.EipAssociation;
- * import com.pulumi.aws.ec2.EipAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(&#34;ami-21f78e11&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .instanceType(&#34;t2.micro&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
- *             .build());
- * 
- *         var example = new Eip(&#34;example&#34;, EipArgs.builder()        
- *             .vpc(true)
- *             .build());
- * 
- *         var eipAssoc = new EipAssociation(&#34;eipAssoc&#34;, EipAssociationArgs.builder()        
- *             .instanceId(web.id())
- *             .allocationId(example.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EIP Assocations can be imported using their association ID.
- * 
- * ```sh
- *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/eipAssociation:EipAssociation")
 public class EipAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The allocation ID. This is required for EC2-VPC.
-     * 
-     */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output<String> allocationId;
 
-    /**
-     * @return The allocation ID. This is required for EC2-VPC.
-     * 
-     */
     public Output<String> allocationId() {
         return this.allocationId;
     }
-    /**
-     * Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
-     * 
-     */
     @Export(name="allowReassociation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowReassociation;
 
-    /**
-     * @return Whether to allow an Elastic IP to
-     * be re-associated. Defaults to `true` in VPC.
-     * 
-     */
     public Output<Optional<Boolean>> allowReassociation() {
         return Codegen.optional(this.allowReassociation);
     }
-    /**
-     * The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return The ID of the instance. This is required for
-     * EC2-Classic. For EC2-VPC, you can specify either the instance ID or the
-     * network interface ID, but not both. The operation fails if you specify an
-     * instance ID unless exactly one network interface is attached.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return The ID of the network interface. If the
-     * instance has more than one network interface, you must specify a network
-     * interface ID.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
-     * 
-     */
     @Export(name="privateIpAddress", refs={String.class}, tree="[0]")
     private Output<String> privateIpAddress;
 
-    /**
-     * @return The primary or secondary private IP address
-     * to associate with the Elastic IP address. If no private IP address is
-     * specified, the Elastic IP address is associated with the primary private IP
-     * address.
-     * 
-     */
     public Output<String> privateIpAddress() {
         return this.privateIpAddress;
     }
-    /**
-     * The Elastic IP address. This is required for EC2-Classic.
-     * 
-     */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
-    /**
-     * @return The Elastic IP address. This is required for EC2-Classic.
-     * 
-     */
     public Output<String> publicIp() {
         return this.publicIp;
     }

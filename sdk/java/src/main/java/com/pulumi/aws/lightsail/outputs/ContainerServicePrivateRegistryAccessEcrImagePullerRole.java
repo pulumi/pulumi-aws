@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerServicePrivateRegistryAccessEcrImagePullerRole {
-    /**
-     * @return A Boolean value that indicates whether to activate the role. The default is `false`.
-     * 
-     */
     private @Nullable Boolean isActive;
     private @Nullable String principalArn;
 
     private ContainerServicePrivateRegistryAccessEcrImagePullerRole() {}
-    /**
-     * @return A Boolean value that indicates whether to activate the role. The default is `false`.
-     * 
-     */
     public Optional<Boolean> isActive() {
         return Optional.ofNullable(this.isActive);
     }

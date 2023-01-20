@@ -18,47 +18,23 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersArgs ext
 
     public static final EventConnectionAuthParametersOauthOauthHttpParametersArgs Empty = new EventConnectionAuthParametersOauthOauthHttpParametersArgs();
 
-    /**
-     * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     @Import(name="bodies")
     private @Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs>> bodies;
 
-    /**
-     * @return Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     public Optional<Output<List<EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs>>> bodies() {
         return Optional.ofNullable(this.bodies);
     }
 
-    /**
-     * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs>> headers;
 
-    /**
-     * @return Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     public Optional<Output<List<EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     @Import(name="queryStrings")
     private @Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs>> queryStrings;
 
-    /**
-     * @return Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-     * 
-     */
     public Optional<Output<List<EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs>>> queryStrings() {
         return Optional.ofNullable(this.queryStrings);
     }
@@ -89,95 +65,41 @@ public final class EventConnectionAuthParametersOauthOauthHttpParametersArgs ext
             $ = new EventConnectionAuthParametersOauthOauthHttpParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bodies Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bodies(@Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs>> bodies) {
             $.bodies = bodies;
             return this;
         }
 
-        /**
-         * @param bodies Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bodies(List<EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs> bodies) {
             return bodies(Output.of(bodies));
         }
 
-        /**
-         * @param bodies Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder bodies(EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs... bodies) {
             return bodies(List.of(bodies));
         }
 
-        /**
-         * @param headers Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param queryStrings Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStrings(@Nullable Output<List<EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs>> queryStrings) {
             $.queryStrings = queryStrings;
             return this;
         }
 
-        /**
-         * @param queryStrings Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStrings(List<EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs> queryStrings) {
             return queryStrings(Output.of(queryStrings));
         }
 
-        /**
-         * @param queryStrings Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryStrings(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs... queryStrings) {
             return queryStrings(List.of(queryStrings));
         }

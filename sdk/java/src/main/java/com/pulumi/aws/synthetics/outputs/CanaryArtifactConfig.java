@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanaryArtifactConfig {
-    /**
-     * @return Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
-     * 
-     */
     private @Nullable CanaryArtifactConfigS3Encryption s3Encryption;
 
     private CanaryArtifactConfig() {}
-    /**
-     * @return Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
-     * 
-     */
     public Optional<CanaryArtifactConfigS3Encryption> s3Encryption() {
         return Optional.ofNullable(this.s3Encryption);
     }

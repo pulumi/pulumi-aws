@@ -14,19 +14,9 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetHostedZoneIdPlainArgs Empty = new GetHostedZoneIdPlainArgs();
 
-    /**
-     * Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
-     * 
-     */
     @Import(name="region")
     private @Nullable String region;
 
-    /**
-     * @return Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -55,13 +45,6 @@ public final class GetHostedZoneIdPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetHostedZoneIdPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param region Name of the region whose AWS ELB HostedZoneId is desired.
-         * Defaults to the region from the AWS provider configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

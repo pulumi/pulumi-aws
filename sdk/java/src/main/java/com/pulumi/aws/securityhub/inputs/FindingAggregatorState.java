@@ -16,32 +16,16 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
 
     public static final FindingAggregatorState Empty = new FindingAggregatorState();
 
-    /**
-     * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-     * 
-     */
     @Import(name="linkingMode")
     private @Nullable Output<String> linkingMode;
 
-    /**
-     * @return Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-     * 
-     */
     public Optional<Output<String>> linkingMode() {
         return Optional.ofNullable(this.linkingMode);
     }
 
-    /**
-     * List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-     * 
-     */
     @Import(name="specifiedRegions")
     private @Nullable Output<List<String>> specifiedRegions;
 
-    /**
-     * @return List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-     * 
-     */
     public Optional<Output<List<String>>> specifiedRegions() {
         return Optional.ofNullable(this.specifiedRegions);
     }
@@ -71,54 +55,24 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
             $ = new FindingAggregatorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param linkingMode Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkingMode(@Nullable Output<String> linkingMode) {
             $.linkingMode = linkingMode;
             return this;
         }
 
-        /**
-         * @param linkingMode Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkingMode(String linkingMode) {
             return linkingMode(Output.of(linkingMode));
         }
 
-        /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder specifiedRegions(@Nullable Output<List<String>> specifiedRegions) {
             $.specifiedRegions = specifiedRegions;
             return this;
         }
 
-        /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder specifiedRegions(List<String> specifiedRegions) {
             return specifiedRegions(Output.of(specifiedRegions));
         }
 
-        /**
-         * @param specifiedRegions List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder specifiedRegions(String... specifiedRegions) {
             return specifiedRegions(List.of(specifiedRegions));
         }

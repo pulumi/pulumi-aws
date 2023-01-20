@@ -16,47 +16,23 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
 
     public static final ClusterSnapshotCopyArgs Empty = new ClusterSnapshotCopyArgs();
 
-    /**
-     * The destination region that you want to copy snapshots to.
-     * 
-     */
     @Import(name="destinationRegion", required=true)
     private Output<String> destinationRegion;
 
-    /**
-     * @return The destination region that you want to copy snapshots to.
-     * 
-     */
     public Output<String> destinationRegion() {
         return this.destinationRegion;
     }
 
-    /**
-     * The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     @Import(name="grantName")
     private @Nullable Output<String> grantName;
 
-    /**
-     * @return The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     public Optional<Output<String>> grantName() {
         return Optional.ofNullable(this.grantName);
     }
 
-    /**
-     * The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-     * 
-     */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
-    /**
-     * @return The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-     * 
-     */
     public Optional<Output<Integer>> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }
@@ -87,65 +63,29 @@ public final class ClusterSnapshotCopyArgs extends com.pulumi.resources.Resource
             $ = new ClusterSnapshotCopyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationRegion The destination region that you want to copy snapshots to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(Output<String> destinationRegion) {
             $.destinationRegion = destinationRegion;
             return this;
         }
 
-        /**
-         * @param destinationRegion The destination region that you want to copy snapshots to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationRegion(String destinationRegion) {
             return destinationRegion(Output.of(destinationRegion));
         }
 
-        /**
-         * @param grantName The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantName(@Nullable Output<String> grantName) {
             $.grantName = grantName;
             return this;
         }
 
-        /**
-         * @param grantName The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantName(String grantName) {
             return grantName(Output.of(grantName));
         }
 
-        /**
-         * @param retentionPeriod The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(@Nullable Output<Integer> retentionPeriod) {
             $.retentionPeriod = retentionPeriod;
             return this;
         }
 
-        /**
-         * @param retentionPeriod The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPeriod(Integer retentionPeriod) {
             return retentionPeriod(Output.of(retentionPeriod));
         }

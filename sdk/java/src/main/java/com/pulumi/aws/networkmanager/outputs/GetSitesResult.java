@@ -18,10 +18,6 @@ public final class GetSitesResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the sites.
-     * 
-     */
     private List<String> ids;
     private @Nullable Map<String,String> tags;
 
@@ -36,10 +32,6 @@ public final class GetSitesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the sites.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

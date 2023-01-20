@@ -19,534 +19,143 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Cognito User Pool Client resource.
- * 
- * ## Example Usage
- * ### Create a basic user pool client
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
- * 
- *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(pool.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Create a user pool client with no SRP authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
- * 
- *         var client = new UserPoolClient(&#34;client&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(pool.id())
- *             .generateSecret(true)
- *             .explicitAuthFlows(&#34;ADMIN_NO_SRP_AUTH&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Create a user pool client with pinpoint analytics
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import com.pulumi.aws.cognito.inputs.UserPoolClientAnalyticsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var testUserPool = new UserPool(&#34;testUserPool&#34;);
- * 
- *         var testApp = new App(&#34;testApp&#34;);
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;cognito-idp.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(testRole.id())
- *             .policy(testApp.applicationId().applyValue(applicationId -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;mobiletargeting:UpdateEndpoint&#34;,
- *         &#34;mobiletargeting:PutItems&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;arn:aws:mobiletargeting:*:%s:apps/%s*&#34;
- *     }
- *   ]
- * }
- * &#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),applicationId)))
- *             .build());
- * 
- *         var testUserPoolClient = new UserPoolClient(&#34;testUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(testUserPool.id())
- *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
- *                 .applicationId(testApp.applicationId())
- *                 .externalId(&#34;some_id&#34;)
- *                 .roleArn(testRole.arn())
- *                 .userDataShared(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Create a user pool client with Cognito as the identity provider
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cognito.UserPool;
- * import com.pulumi.aws.cognito.UserPoolClient;
- * import com.pulumi.aws.cognito.UserPoolClientArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var pool = new UserPool(&#34;pool&#34;);
- * 
- *         var userpoolClient = new UserPoolClient(&#34;userpoolClient&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(pool.id())
- *             .callbackUrls(&#34;https://example.com&#34;)
- *             .allowedOauthFlowsUserPoolClient(true)
- *             .allowedOauthFlows(            
- *                 &#34;code&#34;,
- *                 &#34;implicit&#34;)
- *             .allowedOauthScopes(            
- *                 &#34;email&#34;,
- *                 &#34;openid&#34;)
- *             .supportedIdentityProviders(&#34;COGNITO&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/userPoolClient:UserPoolClient")
 public class UserPoolClient extends com.pulumi.resources.CustomResource {
-    /**
-     * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
-     * 
-     */
     @Export(name="accessTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> accessTokenValidity;
 
-    /**
-     * @return Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
-     * 
-     */
     public Output<Optional<Integer>> accessTokenValidity() {
         return Codegen.optional(this.accessTokenValidity);
     }
-    /**
-     * List of allowed OAuth flows (code, implicit, client_credentials).
-     * 
-     */
     @Export(name="allowedOauthFlows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedOauthFlows;
 
-    /**
-     * @return List of allowed OAuth flows (code, implicit, client_credentials).
-     * 
-     */
     public Output<Optional<List<String>>> allowedOauthFlows() {
         return Codegen.optional(this.allowedOauthFlows);
     }
-    /**
-     * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-     * 
-     */
     @Export(name="allowedOauthFlowsUserPoolClient", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowedOauthFlowsUserPoolClient;
 
-    /**
-     * @return Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
-     * 
-     */
     public Output<Optional<Boolean>> allowedOauthFlowsUserPoolClient() {
         return Codegen.optional(this.allowedOauthFlowsUserPoolClient);
     }
-    /**
-     * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-     * 
-     */
     @Export(name="allowedOauthScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedOauthScopes;
 
-    /**
-     * @return List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
-     * 
-     */
     public Output<Optional<List<String>>> allowedOauthScopes() {
         return Codegen.optional(this.allowedOauthScopes);
     }
-    /**
-     * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-     * 
-     */
     @Export(name="analyticsConfiguration", refs={UserPoolClientAnalyticsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolClientAnalyticsConfiguration> analyticsConfiguration;
 
-    /**
-     * @return Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
-     * 
-     */
     public Output<Optional<UserPoolClientAnalyticsConfiguration>> analyticsConfiguration() {
         return Codegen.optional(this.analyticsConfiguration);
     }
-    /**
-     * Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-     * 
-     */
     @Export(name="authSessionValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> authSessionValidity;
 
-    /**
-     * @return Amazon Cognito creates a session token for each API request in an authentication flow. AuthSessionValidity is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires. Valid values between `3` and `15`. Default value is `3`.
-     * 
-     */
     public Output<Optional<Integer>> authSessionValidity() {
         return Codegen.optional(this.authSessionValidity);
     }
-    /**
-     * List of allowed callback URLs for the identity providers.
-     * 
-     */
     @Export(name="callbackUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> callbackUrls;
 
-    /**
-     * @return List of allowed callback URLs for the identity providers.
-     * 
-     */
     public Output<List<String>> callbackUrls() {
         return this.callbackUrls;
     }
-    /**
-     * Client secret of the user pool client.
-     * 
-     */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
-    /**
-     * @return Client secret of the user pool client.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * Default redirect URI. Must be in the list of callback URLs.
-     * 
-     */
     @Export(name="defaultRedirectUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRedirectUri;
 
-    /**
-     * @return Default redirect URI. Must be in the list of callback URLs.
-     * 
-     */
     public Output<Optional<String>> defaultRedirectUri() {
         return Codegen.optional(this.defaultRedirectUri);
     }
-    /**
-     * Activates the propagation of additional user context data.
-     * 
-     */
     @Export(name="enablePropagateAdditionalUserContextData", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePropagateAdditionalUserContextData;
 
-    /**
-     * @return Activates the propagation of additional user context data.
-     * 
-     */
     public Output<Optional<Boolean>> enablePropagateAdditionalUserContextData() {
         return Codegen.optional(this.enablePropagateAdditionalUserContextData);
     }
-    /**
-     * Enables or disables token revocation.
-     * 
-     */
     @Export(name="enableTokenRevocation", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableTokenRevocation;
 
-    /**
-     * @return Enables or disables token revocation.
-     * 
-     */
     public Output<Boolean> enableTokenRevocation() {
         return this.enableTokenRevocation;
     }
-    /**
-     * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-     * 
-     */
     @Export(name="explicitAuthFlows", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> explicitAuthFlows;
 
-    /**
-     * @return List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
-     * 
-     */
     public Output<Optional<List<String>>> explicitAuthFlows() {
         return Codegen.optional(this.explicitAuthFlows);
     }
-    /**
-     * Should an application secret be generated.
-     * 
-     */
     @Export(name="generateSecret", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> generateSecret;
 
-    /**
-     * @return Should an application secret be generated.
-     * 
-     */
     public Output<Optional<Boolean>> generateSecret() {
         return Codegen.optional(this.generateSecret);
     }
-    /**
-     * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
-     * 
-     */
     @Export(name="idTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idTokenValidity;
 
-    /**
-     * @return Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `token_validity_units`.
-     * 
-     */
     public Output<Optional<Integer>> idTokenValidity() {
         return Codegen.optional(this.idTokenValidity);
     }
-    /**
-     * List of allowed logout URLs for the identity providers.
-     * 
-     */
     @Export(name="logoutUrls", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> logoutUrls;
 
-    /**
-     * @return List of allowed logout URLs for the identity providers.
-     * 
-     */
     public Output<List<String>> logoutUrls() {
         return this.logoutUrls;
     }
-    /**
-     * Name of the application client.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the application client.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-     * 
-     */
     @Export(name="preventUserExistenceErrors", refs={String.class}, tree="[0]")
     private Output<String> preventUserExistenceErrors;
 
-    /**
-     * @return Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
-     * 
-     */
     public Output<String> preventUserExistenceErrors() {
         return this.preventUserExistenceErrors;
     }
-    /**
-     * List of user pool attributes the application client can read from.
-     * 
-     */
     @Export(name="readAttributes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> readAttributes;
 
-    /**
-     * @return List of user pool attributes the application client can read from.
-     * 
-     */
     public Output<Optional<List<String>>> readAttributes() {
         return Codegen.optional(this.readAttributes);
     }
-    /**
-     * Time limit in days refresh tokens are valid for.
-     * 
-     */
     @Export(name="refreshTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> refreshTokenValidity;
 
-    /**
-     * @return Time limit in days refresh tokens are valid for.
-     * 
-     */
     public Output<Optional<Integer>> refreshTokenValidity() {
         return Codegen.optional(this.refreshTokenValidity);
     }
-    /**
-     * List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
-     * 
-     */
     @Export(name="supportedIdentityProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> supportedIdentityProviders;
 
-    /**
-     * @return List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
-     * 
-     */
     public Output<Optional<List<String>>> supportedIdentityProviders() {
         return Codegen.optional(this.supportedIdentityProviders);
     }
-    /**
-     * Configuration block for units in which the validity times are represented in. Detailed below.
-     * 
-     */
     @Export(name="tokenValidityUnits", refs={UserPoolClientTokenValidityUnits.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolClientTokenValidityUnits> tokenValidityUnits;
 
-    /**
-     * @return Configuration block for units in which the validity times are represented in. Detailed below.
-     * 
-     */
     public Output<Optional<UserPoolClientTokenValidityUnits>> tokenValidityUnits() {
         return Codegen.optional(this.tokenValidityUnits);
     }
-    /**
-     * User pool the client belongs to.
-     * 
-     */
     @Export(name="userPoolId", refs={String.class}, tree="[0]")
     private Output<String> userPoolId;
 
-    /**
-     * @return User pool the client belongs to.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
-    /**
-     * List of user pool attributes the application client can write to.
-     * 
-     */
     @Export(name="writeAttributes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> writeAttributes;
 
-    /**
-     * @return List of user pool attributes the application client can write to.
-     * 
-     */
     public Output<Optional<List<String>>> writeAttributes() {
         return Codegen.optional(this.writeAttributes);
     }

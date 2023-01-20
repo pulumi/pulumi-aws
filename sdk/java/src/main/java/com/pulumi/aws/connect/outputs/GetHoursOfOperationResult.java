@@ -12,86 +12,38 @@ import java.util.Objects;
 
 @CustomType
 public final class GetHoursOfOperationResult {
-    /**
-     * @return ARN of the Hours of Operation.
-     * 
-     */
     private String arn;
-    /**
-     * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
-     * 
-     */
     private List<GetHoursOfOperationConfig> configs;
-    /**
-     * @return Description of the Hours of Operation.
-     * 
-     */
     private String description;
     /**
-     * @return (**Deprecated**) ARN of the Hours of Operation.
-     * 
      * @deprecated
      * use &#39;arn&#39; attribute instead
      * 
      */
     @Deprecated /* use 'arn' attribute instead */
     private String hoursOfOperationArn;
-    /**
-     * @return The identifier for the hours of operation.
-     * 
-     */
     private String hoursOfOperationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     private String instanceId;
-    /**
-     * @return Name of the Hours of Operation.
-     * 
-     */
     private String name;
-    /**
-     * @return Map of tags to assign to the Hours of Operation.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Time zone of the Hours of Operation.
-     * 
-     */
     private String timeZone;
 
     private GetHoursOfOperationResult() {}
-    /**
-     * @return ARN of the Hours of Operation.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below. Config blocks are documented below.
-     * 
-     */
     public List<GetHoursOfOperationConfig> configs() {
         return this.configs;
     }
-    /**
-     * @return Description of the Hours of Operation.
-     * 
-     */
     public String description() {
         return this.description;
     }
     /**
-     * @return (**Deprecated**) ARN of the Hours of Operation.
-     * 
      * @deprecated
      * use &#39;arn&#39; attribute instead
      * 
@@ -100,10 +52,6 @@ public final class GetHoursOfOperationResult {
     public String hoursOfOperationArn() {
         return this.hoursOfOperationArn;
     }
-    /**
-     * @return The identifier for the hours of operation.
-     * 
-     */
     public String hoursOfOperationId() {
         return this.hoursOfOperationId;
     }
@@ -114,31 +62,15 @@ public final class GetHoursOfOperationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
-    /**
-     * @return Name of the Hours of Operation.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of tags to assign to the Hours of Operation.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Time zone of the Hours of Operation.
-     * 
-     */
     public String timeZone() {
         return this.timeZone;
     }

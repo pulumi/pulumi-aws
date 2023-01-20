@@ -16,32 +16,16 @@ public final class GetImageRecipesPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetImageRecipesPlainArgs Empty = new GetImageRecipesPlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetImageRecipesFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetImageRecipesFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     * 
-     */
     @Import(name="owner")
     private @Nullable String owner;
 
-    /**
-     * @return Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
@@ -71,33 +55,15 @@ public final class GetImageRecipesPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetImageRecipesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetImageRecipesFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetImageRecipesFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param owner Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
             return this;

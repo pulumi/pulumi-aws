@@ -15,32 +15,16 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetClusterPlainArgs Empty = new GetClusterPlainArgs();
 
-    /**
-     * Group identifier.
-     * 
-     */
     @Import(name="clusterId", required=true)
     private String clusterId;
 
-    /**
-     * @return Group identifier.
-     * 
-     */
     public String clusterId() {
         return this.clusterId;
     }
 
-    /**
-     * Tags assigned to the resource
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetClusterPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetClusterPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterId Group identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterId(String clusterId) {
             $.clusterId = clusterId;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -15,47 +15,23 @@ public final class ApplicationSslConfigurationArgs extends com.pulumi.resources.
 
     public static final ApplicationSslConfigurationArgs Empty = new ApplicationSslConfigurationArgs();
 
-    /**
-     * The contents of the certificate&#39;s domain.crt file.
-     * 
-     */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
-    /**
-     * @return The contents of the certificate&#39;s domain.crt file.
-     * 
-     */
     public Output<String> certificate() {
         return this.certificate;
     }
 
-    /**
-     * Can be used to specify an intermediate certificate authority key or client authentication.
-     * 
-     */
     @Import(name="chain")
     private @Nullable Output<String> chain;
 
-    /**
-     * @return Can be used to specify an intermediate certificate authority key or client authentication.
-     * 
-     */
     public Optional<Output<String>> chain() {
         return Optional.ofNullable(this.chain);
     }
 
-    /**
-     * The private key; the contents of the certificate&#39;s domain.key file.
-     * 
-     */
     @Import(name="privateKey", required=true)
     private Output<String> privateKey;
 
-    /**
-     * @return The private key; the contents of the certificate&#39;s domain.key file.
-     * 
-     */
     public Output<String> privateKey() {
         return this.privateKey;
     }
@@ -86,65 +62,29 @@ public final class ApplicationSslConfigurationArgs extends com.pulumi.resources.
             $ = new ApplicationSslConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate The contents of the certificate&#39;s domain.crt file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(Output<String> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate The contents of the certificate&#39;s domain.crt file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(String certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param chain Can be used to specify an intermediate certificate authority key or client authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chain(@Nullable Output<String> chain) {
             $.chain = chain;
             return this;
         }
 
-        /**
-         * @param chain Can be used to specify an intermediate certificate authority key or client authentication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder chain(String chain) {
             return chain(Output.of(chain));
         }
 
-        /**
-         * @param privateKey The private key; the contents of the certificate&#39;s domain.key file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(Output<String> privateKey) {
             $.privateKey = privateKey;
             return this;
         }
 
-        /**
-         * @param privateKey The private key; the contents of the certificate&#39;s domain.key file.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
         }

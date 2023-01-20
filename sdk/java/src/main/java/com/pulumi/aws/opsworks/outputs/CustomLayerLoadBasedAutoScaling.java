@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomLayerLoadBasedAutoScaling {
-    /**
-     * @return The downscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     private @Nullable CustomLayerLoadBasedAutoScalingDownscaling downscaling;
-    /**
-     * @return Whether load-based auto scaling is enabled for the layer.
-     * 
-     */
     private @Nullable Boolean enable;
-    /**
-     * @return The upscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     private @Nullable CustomLayerLoadBasedAutoScalingUpscaling upscaling;
 
     private CustomLayerLoadBasedAutoScaling() {}
-    /**
-     * @return The downscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     public Optional<CustomLayerLoadBasedAutoScalingDownscaling> downscaling() {
         return Optional.ofNullable(this.downscaling);
     }
-    /**
-     * @return Whether load-based auto scaling is enabled for the layer.
-     * 
-     */
     public Optional<Boolean> enable() {
         return Optional.ofNullable(this.enable);
     }
-    /**
-     * @return The upscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     public Optional<CustomLayerLoadBasedAutoScalingUpscaling> upscaling() {
         return Optional.ofNullable(this.upscaling);
     }

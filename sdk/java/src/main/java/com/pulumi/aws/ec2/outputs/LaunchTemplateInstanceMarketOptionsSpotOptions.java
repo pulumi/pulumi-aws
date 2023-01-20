@@ -12,67 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateInstanceMarketOptionsSpotOptions {
-    /**
-     * @return The required duration in minutes. This value must be a multiple of 60.
-     * 
-     */
     private @Nullable Integer blockDurationMinutes;
-    /**
-     * @return The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-     * `stop`, or `terminate`. (Default: `terminate`).
-     * 
-     */
     private @Nullable String instanceInterruptionBehavior;
-    /**
-     * @return The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-     * 
-     */
     private @Nullable String maxPrice;
-    /**
-     * @return The Spot Instance request type. Can be `one-time`, or `persistent`.
-     * 
-     */
     private @Nullable String spotInstanceType;
-    /**
-     * @return The end date of the request.
-     * 
-     */
     private @Nullable String validUntil;
 
     private LaunchTemplateInstanceMarketOptionsSpotOptions() {}
-    /**
-     * @return The required duration in minutes. This value must be a multiple of 60.
-     * 
-     */
     public Optional<Integer> blockDurationMinutes() {
         return Optional.ofNullable(this.blockDurationMinutes);
     }
-    /**
-     * @return The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-     * `stop`, or `terminate`. (Default: `terminate`).
-     * 
-     */
     public Optional<String> instanceInterruptionBehavior() {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
-    /**
-     * @return The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-     * 
-     */
     public Optional<String> maxPrice() {
         return Optional.ofNullable(this.maxPrice);
     }
-    /**
-     * @return The Spot Instance request type. Can be `one-time`, or `persistent`.
-     * 
-     */
     public Optional<String> spotInstanceType() {
         return Optional.ofNullable(this.spotInstanceType);
     }
-    /**
-     * @return The end date of the request.
-     * 
-     */
     public Optional<String> validUntil() {
         return Optional.ofNullable(this.validUntil);
     }

@@ -13,17 +13,9 @@ public final class GetBrokerNodesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBrokerNodesArgs Empty = new GetBrokerNodesArgs();
 
-    /**
-     * ARN of the cluster the nodes belong to.
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
-    /**
-     * @return ARN of the cluster the nodes belong to.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
@@ -52,23 +44,11 @@ public final class GetBrokerNodesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBrokerNodesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the cluster the nodes belong to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn ARN of the cluster the nodes belong to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }

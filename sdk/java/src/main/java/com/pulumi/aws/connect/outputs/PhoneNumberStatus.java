@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PhoneNumberStatus {
-    /**
-     * @return The status message.
-     * 
-     */
     private @Nullable String message;
-    /**
-     * @return The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     private @Nullable String status;
 
     private PhoneNumberStatus() {}
-    /**
-     * @return The status message.
-     * 
-     */
     public Optional<String> message() {
         return Optional.ofNullable(this.message);
     }
-    /**
-     * @return The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestMetadataOptions {
-    /**
-     * @return Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
-     * 
-     */
     private @Nullable String httpEndpoint;
-    /**
-     * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
-     * 
-     */
     private @Nullable Integer httpPutResponseHopLimit;
-    /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
-     * 
-     */
     private @Nullable String httpTokens;
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
-     * 
-     */
     private @Nullable String instanceMetadataTags;
 
     private SpotInstanceRequestMetadataOptions() {}
-    /**
-     * @return Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
-     * 
-     */
     public Optional<String> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
-    /**
-     * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
-     * 
-     */
     public Optional<Integer> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
-    /**
-     * @return Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
-     * 
-     */
     public Optional<String> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
-    /**
-     * @return Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
-     * 
-     */
     public Optional<String> instanceMetadataTags() {
         return Optional.ofNullable(this.instanceMetadataTags);
     }

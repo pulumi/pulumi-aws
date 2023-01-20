@@ -13,71 +13,31 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationProfileResult {
     private String applicationId;
-    /**
-     * @return ARN of the Configuration Profile.
-     * 
-     */
     private String arn;
     private String configurationProfileId;
-    /**
-     * @return Description of the Configuration Profile.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Location URI of the Configuration Profile.
-     * 
-     */
     private String locationUri;
-    /**
-     * @return Name of the Configuration Profile.
-     * 
-     */
     private String name;
-    /**
-     * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
-     * 
-     */
     private String retrievalRoleArn;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-     * 
-     */
     private String type;
-    /**
-     * @return Nested list of methods for validating the configuration.
-     * 
-     */
     private List<GetConfigurationProfileValidator> validators;
 
     private GetConfigurationProfileResult() {}
     public String applicationId() {
         return this.applicationId;
     }
-    /**
-     * @return ARN of the Configuration Profile.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String configurationProfileId() {
         return this.configurationProfileId;
     }
-    /**
-     * @return Description of the Configuration Profile.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -88,45 +48,21 @@ public final class GetConfigurationProfileResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Location URI of the Configuration Profile.
-     * 
-     */
     public String locationUri() {
         return this.locationUri;
     }
-    /**
-     * @return Name of the Configuration Profile.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return ARN of an IAM role with permission to access the configuration at the specified location_uri.
-     * 
-     */
     public String retrievalRoleArn() {
         return this.retrievalRoleArn;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Type of validator. Valid values: JSON_SCHEMA and LAMBDA.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return Nested list of methods for validating the configuration.
-     * 
-     */
     public List<GetConfigurationProfileValidator> validators() {
         return this.validators;
     }

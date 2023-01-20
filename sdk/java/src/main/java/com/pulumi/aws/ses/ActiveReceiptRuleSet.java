@@ -13,67 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to designate the active SES receipt rule set
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ActiveReceiptRuleSet;
- * import com.pulumi.aws.ses.ActiveReceiptRuleSetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new ActiveReceiptRuleSet(&#34;main&#34;, ActiveReceiptRuleSetArgs.builder()        
- *             .ruleSetName(&#34;primary-rules&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")
 public class ActiveReceiptRuleSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The SES receipt rule set ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The SES receipt rule set ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the rule set
-     * 
-     */
     @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
-    /**
-     * @return The name of the rule set
-     * 
-     */
     public Output<String> ruleSetName() {
         return this.ruleSetName;
     }

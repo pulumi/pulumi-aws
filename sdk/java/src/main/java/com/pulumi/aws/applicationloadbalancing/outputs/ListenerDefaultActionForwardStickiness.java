@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultActionForwardStickiness {
-    /**
-     * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-     * 
-     */
     private Integer duration;
-    /**
-     * @return Whether target group stickiness is enabled. Default is `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private ListenerDefaultActionForwardStickiness() {}
-    /**
-     * @return Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-     * 
-     */
     public Integer duration() {
         return this.duration;
     }
-    /**
-     * @return Whether target group stickiness is enabled. Default is `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

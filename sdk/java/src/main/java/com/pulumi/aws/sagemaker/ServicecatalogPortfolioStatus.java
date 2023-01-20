@@ -13,63 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
- * 
- * ## Example Usage
- * 
- * Usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.ServicecatalogPortfolioStatus;
- * import com.pulumi.aws.sagemaker.ServicecatalogPortfolioStatusArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ServicecatalogPortfolioStatus(&#34;example&#34;, ServicecatalogPortfolioStatusArgs.builder()        
- *             .status(&#34;Enabled&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Models can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus")
 public class ServicecatalogPortfolioStatus extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

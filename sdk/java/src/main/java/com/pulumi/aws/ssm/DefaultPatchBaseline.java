@@ -13,123 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for registering an AWS Systems Manager Default Patch Baseline.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.PatchBaseline;
- * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.DefaultPatchBaseline;
- * import com.pulumi.aws.ssm.DefaultPatchBaselineArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePatchBaseline = new PatchBaseline(&#34;examplePatchBaseline&#34;, PatchBaselineArgs.builder()        
- *             .approvedPatches(&#34;KB123456&#34;)
- *             .build());
- * 
- *         var exampleDefaultPatchBaseline = new DefaultPatchBaseline(&#34;exampleDefaultPatchBaseline&#34;, DefaultPatchBaselineArgs.builder()        
- *             .baselineId(examplePatchBaseline.id())
- *             .operatingSystem(examplePatchBaseline.operatingSystem())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * The Systems Manager Default Patch Baseline can be imported using the patch baseline ID, patch baseline ARN, or the operating system value, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
- * ```
- * 
- * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
- * ```
- * 
- * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/defaultPatchBaseline:DefaultPatchBaseline")
 public class DefaultPatchBaseline extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
-    /**
-     * @return ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     public Output<String> baselineId() {
         return this.baselineId;
     }
-    /**
-     * The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
-    /**
-     * @return The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     public Output<String> operatingSystem() {
         return this.operatingSystem;
     }

@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTrackerAssociationsResult {
-    /**
-     * @return List of geofence collection ARNs associated to the tracker resource.
-     * 
-     */
     private List<String> consumerArns;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -23,10 +19,6 @@ public final class GetTrackerAssociationsResult {
     private String trackerName;
 
     private GetTrackerAssociationsResult() {}
-    /**
-     * @return List of geofence collection ARNs associated to the tracker resource.
-     * 
-     */
     public List<String> consumerArns() {
         return this.consumerArns;
     }

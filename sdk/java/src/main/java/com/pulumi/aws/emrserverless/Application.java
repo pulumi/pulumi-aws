@@ -21,295 +21,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EMR Serverless Application.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrserverless.Application;
- * import com.pulumi.aws.emrserverless.ApplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Initial Capacity Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrserverless.Application;
- * import com.pulumi.aws.emrserverless.ApplicationArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .initialCapacities(ApplicationInitialCapacityArgs.builder()
- *                 .initialCapacityConfig(ApplicationInitialCapacityInitialCapacityConfigArgs.builder()
- *                     .workerConfiguration(ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs.builder()
- *                         .cpu(&#34;2 vCPU&#34;)
- *                         .memory(&#34;10 GB&#34;)
- *                         .build())
- *                     .workerCount(1)
- *                     .build())
- *                 .initialCapacityType(&#34;HiveDriver&#34;)
- *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Maximum Capacity Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrserverless.Application;
- * import com.pulumi.aws.emrserverless.ApplicationArgs;
- * import com.pulumi.aws.emrserverless.inputs.ApplicationMaximumCapacityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
- *             .maximumCapacity(ApplicationMaximumCapacityArgs.builder()
- *                 .cpu(&#34;2 vCPU&#34;)
- *                 .memory(&#34;10 GB&#34;)
- *                 .build())
- *             .releaseLabel(&#34;emr-6.6.0&#34;)
- *             .type(&#34;hive&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EMR Severless applications can be imported using the `id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
- * ```
- * 
- */
 @ResourceType(type="aws:emrserverless/application:Application")
 public class Application extends com.pulumi.resources.CustomResource {
-    /**
-     * The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-     * 
-     */
     @Export(name="architecture", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> architecture;
 
-    /**
-     * @return The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
-     * 
-     */
     public Output<Optional<String>> architecture() {
         return Codegen.optional(this.architecture);
     }
-    /**
-     * ARN of the cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The configuration for an application to automatically start on job submission.
-     * 
-     */
     @Export(name="autoStartConfiguration", refs={ApplicationAutoStartConfiguration.class}, tree="[0]")
     private Output<ApplicationAutoStartConfiguration> autoStartConfiguration;
 
-    /**
-     * @return The configuration for an application to automatically start on job submission.
-     * 
-     */
     public Output<ApplicationAutoStartConfiguration> autoStartConfiguration() {
         return this.autoStartConfiguration;
     }
-    /**
-     * The configuration for an application to automatically stop after a certain amount of time being idle.
-     * 
-     */
     @Export(name="autoStopConfiguration", refs={ApplicationAutoStopConfiguration.class}, tree="[0]")
     private Output<ApplicationAutoStopConfiguration> autoStopConfiguration;
 
-    /**
-     * @return The configuration for an application to automatically stop after a certain amount of time being idle.
-     * 
-     */
     public Output<ApplicationAutoStopConfiguration> autoStopConfiguration() {
         return this.autoStopConfiguration;
     }
-    /**
-     * The capacity to initialize when the application is created.
-     * 
-     */
     @Export(name="initialCapacities", refs={List.class,ApplicationInitialCapacity.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApplicationInitialCapacity>> initialCapacities;
 
-    /**
-     * @return The capacity to initialize when the application is created.
-     * 
-     */
     public Output<Optional<List<ApplicationInitialCapacity>>> initialCapacities() {
         return Codegen.optional(this.initialCapacities);
     }
-    /**
-     * The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-     * 
-     */
     @Export(name="maximumCapacity", refs={ApplicationMaximumCapacity.class}, tree="[0]")
     private Output<ApplicationMaximumCapacity> maximumCapacity;
 
-    /**
-     * @return The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
-     * 
-     */
     public Output<ApplicationMaximumCapacity> maximumCapacity() {
         return this.maximumCapacity;
     }
-    /**
-     * The name of the application.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the application.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The network configuration for customer VPC connectivity.
-     * 
-     */
     @Export(name="networkConfiguration", refs={ApplicationNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ApplicationNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return The network configuration for customer VPC connectivity.
-     * 
-     */
     public Output<Optional<ApplicationNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
-    /**
-     * The EMR release version associated with the application.
-     * 
-     */
     @Export(name="releaseLabel", refs={String.class}, tree="[0]")
     private Output<String> releaseLabel;
 
-    /**
-     * @return The EMR release version associated with the application.
-     * 
-     */
     public Output<String> releaseLabel() {
         return this.releaseLabel;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of application you want to start, such as `spark` or `hive`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of application you want to start, such as `spark` or `hive`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

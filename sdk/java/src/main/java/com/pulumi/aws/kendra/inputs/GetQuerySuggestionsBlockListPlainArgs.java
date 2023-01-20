@@ -15,47 +15,23 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
 
     public static final GetQuerySuggestionsBlockListPlainArgs Empty = new GetQuerySuggestionsBlockListPlainArgs();
 
-    /**
-     * Identifier of the index that contains the block list.
-     * 
-     */
     @Import(name="indexId", required=true)
     private String indexId;
 
-    /**
-     * @return Identifier of the index that contains the block list.
-     * 
-     */
     public String indexId() {
         return this.indexId;
     }
 
-    /**
-     * Identifier of the block list.
-     * 
-     */
     @Import(name="querySuggestionsBlockListId", required=true)
     private String querySuggestionsBlockListId;
 
-    /**
-     * @return Identifier of the block list.
-     * 
-     */
     public String querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
 
-    /**
-     * Metadata that helps organize the block list you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that helps organize the block list you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -86,34 +62,16 @@ public final class GetQuerySuggestionsBlockListPlainArgs extends com.pulumi.reso
             $ = new GetQuerySuggestionsBlockListPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param querySuggestionsBlockListId Identifier of the block list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder querySuggestionsBlockListId(String querySuggestionsBlockListId) {
             $.querySuggestionsBlockListId = querySuggestionsBlockListId;
             return this;
         }
 
-        /**
-         * @param tags Metadata that helps organize the block list you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

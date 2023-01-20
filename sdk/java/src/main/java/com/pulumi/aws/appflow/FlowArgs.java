@@ -21,122 +21,58 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FlowArgs Empty = new FlowArgs();
 
-    /**
-     * Description of the flow you want to create.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the flow you want to create.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
-     * 
-     */
     @Import(name="destinationFlowConfigs", required=true)
     private Output<List<FlowDestinationFlowConfigArgs>> destinationFlowConfigs;
 
-    /**
-     * @return A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
-     * 
-     */
     public Output<List<FlowDestinationFlowConfigArgs>> destinationFlowConfigs() {
         return this.destinationFlowConfigs;
     }
 
-    /**
-     * ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-     * 
-     */
     @Import(name="kmsArn")
     private @Nullable Output<String> kmsArn;
 
-    /**
-     * @return ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-     * 
-     */
     public Optional<Output<String>> kmsArn() {
         return Optional.ofNullable(this.kmsArn);
     }
 
-    /**
-     * Name of the flow.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the flow.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-     * 
-     */
     @Import(name="sourceFlowConfig", required=true)
     private Output<FlowSourceFlowConfigArgs> sourceFlowConfig;
 
-    /**
-     * @return The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-     * 
-     */
     public Output<FlowSourceFlowConfigArgs> sourceFlowConfig() {
         return this.sourceFlowConfig;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A Task that Amazon AppFlow performs while transferring the data in the flow run.
-     * 
-     */
     @Import(name="tasks", required=true)
     private Output<List<FlowTaskArgs>> tasks;
 
-    /**
-     * @return A Task that Amazon AppFlow performs while transferring the data in the flow run.
-     * 
-     */
     public Output<List<FlowTaskArgs>> tasks() {
         return this.tasks;
     }
 
-    /**
-     * A Trigger that determine how and when the flow runs.
-     * 
-     */
     @Import(name="triggerConfig", required=true)
     private Output<FlowTriggerConfigArgs> triggerConfig;
 
-    /**
-     * @return A Trigger that determine how and when the flow runs.
-     * 
-     */
     public Output<FlowTriggerConfigArgs> triggerConfig() {
         return this.triggerConfig;
     }
@@ -172,190 +108,82 @@ public final class FlowArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FlowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the flow you want to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the flow you want to create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationFlowConfigs(Output<List<FlowDestinationFlowConfigArgs>> destinationFlowConfigs) {
             $.destinationFlowConfigs = destinationFlowConfigs;
             return this;
         }
 
-        /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationFlowConfigs(List<FlowDestinationFlowConfigArgs> destinationFlowConfigs) {
             return destinationFlowConfigs(Output.of(destinationFlowConfigs));
         }
 
-        /**
-         * @param destinationFlowConfigs A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationFlowConfigs(FlowDestinationFlowConfigArgs... destinationFlowConfigs) {
             return destinationFlowConfigs(List.of(destinationFlowConfigs));
         }
 
-        /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsArn(@Nullable Output<String> kmsArn) {
             $.kmsArn = kmsArn;
             return this;
         }
 
-        /**
-         * @param kmsArn ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don&#39;t provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsArn(String kmsArn) {
             return kmsArn(Output.of(kmsArn));
         }
 
-        /**
-         * @param name Name of the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the flow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param sourceFlowConfig The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFlowConfig(Output<FlowSourceFlowConfigArgs> sourceFlowConfig) {
             $.sourceFlowConfig = sourceFlowConfig;
             return this;
         }
 
-        /**
-         * @param sourceFlowConfig The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFlowConfig(FlowSourceFlowConfigArgs sourceFlowConfig) {
             return sourceFlowConfig(Output.of(sourceFlowConfig));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tasks(Output<List<FlowTaskArgs>> tasks) {
             $.tasks = tasks;
             return this;
         }
 
-        /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tasks(List<FlowTaskArgs> tasks) {
             return tasks(Output.of(tasks));
         }
 
-        /**
-         * @param tasks A Task that Amazon AppFlow performs while transferring the data in the flow run.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tasks(FlowTaskArgs... tasks) {
             return tasks(List.of(tasks));
         }
 
-        /**
-         * @param triggerConfig A Trigger that determine how and when the flow runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggerConfig(Output<FlowTriggerConfigArgs> triggerConfig) {
             $.triggerConfig = triggerConfig;
             return this;
         }
 
-        /**
-         * @param triggerConfig A Trigger that determine how and when the flow runs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggerConfig(FlowTriggerConfigArgs triggerConfig) {
             return triggerConfig(Output.of(triggerConfig));
         }

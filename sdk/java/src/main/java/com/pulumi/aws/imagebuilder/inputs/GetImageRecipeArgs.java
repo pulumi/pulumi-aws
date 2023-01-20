@@ -16,32 +16,16 @@ public final class GetImageRecipeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImageRecipeArgs Empty = new GetImageRecipeArgs();
 
-    /**
-     * ARN of the image recipe.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return ARN of the image recipe.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * Key-value map of resource tags for the image recipe.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the image recipe.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetImageRecipeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImageRecipeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the image recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the image recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the image recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the image recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,30 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelector {
-    /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
-     * 
-     */
     private @Nullable String languageCode;
-    /**
-     * @return The name of the video description.
-     * 
-     */
     private String name;
     private @Nullable ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsCaptionSelector() {}
-    /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
-     * 
-     */
     public Optional<String> languageCode() {
         return Optional.ofNullable(this.languageCode);
     }
-    /**
-     * @return The name of the video description.
-     * 
-     */
     public String name() {
         return this.name;
     }

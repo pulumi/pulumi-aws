@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InventorySchedule {
-    /**
-     * @return Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
-     * 
-     */
     private String frequency;
 
     private InventorySchedule() {}
-    /**
-     * @return Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
-     * 
-     */
     public String frequency() {
         return this.frequency;
     }

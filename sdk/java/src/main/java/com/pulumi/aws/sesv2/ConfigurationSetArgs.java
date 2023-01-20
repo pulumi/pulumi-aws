@@ -21,107 +21,51 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
 
     public static final ConfigurationSetArgs Empty = new ConfigurationSetArgs();
 
-    /**
-     * The name of the configuration set.
-     * 
-     */
     @Import(name="configurationSetName", required=true)
     private Output<String> configurationSetName;
 
-    /**
-     * @return The name of the configuration set.
-     * 
-     */
     public Output<String> configurationSetName() {
         return this.configurationSetName;
     }
 
-    /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-     * 
-     */
     @Import(name="deliveryOptions")
     private @Nullable Output<ConfigurationSetDeliveryOptionsArgs> deliveryOptions;
 
-    /**
-     * @return An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-     * 
-     */
     public Optional<Output<ConfigurationSetDeliveryOptionsArgs>> deliveryOptions() {
         return Optional.ofNullable(this.deliveryOptions);
     }
 
-    /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-     * 
-     */
     @Import(name="reputationOptions")
     private @Nullable Output<ConfigurationSetReputationOptionsArgs> reputationOptions;
 
-    /**
-     * @return An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-     * 
-     */
     public Optional<Output<ConfigurationSetReputationOptionsArgs>> reputationOptions() {
         return Optional.ofNullable(this.reputationOptions);
     }
 
-    /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-     * 
-     */
     @Import(name="sendingOptions")
     private @Nullable Output<ConfigurationSetSendingOptionsArgs> sendingOptions;
 
-    /**
-     * @return An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-     * 
-     */
     public Optional<Output<ConfigurationSetSendingOptionsArgs>> sendingOptions() {
         return Optional.ofNullable(this.sendingOptions);
     }
 
-    /**
-     * An object that contains information about the suppression list preferences for your account.
-     * 
-     */
     @Import(name="suppressionOptions")
     private @Nullable Output<ConfigurationSetSuppressionOptionsArgs> suppressionOptions;
 
-    /**
-     * @return An object that contains information about the suppression list preferences for your account.
-     * 
-     */
     public Optional<Output<ConfigurationSetSuppressionOptionsArgs>> suppressionOptions() {
         return Optional.ofNullable(this.suppressionOptions);
     }
 
-    /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
-     * 
-     */
     @Import(name="trackingOptions")
     private @Nullable Output<ConfigurationSetTrackingOptionsArgs> trackingOptions;
 
-    /**
-     * @return An object that defines the open and click tracking options for emails that you send using the configuration set.
-     * 
-     */
     public Optional<Output<ConfigurationSetTrackingOptionsArgs>> trackingOptions() {
         return Optional.ofNullable(this.trackingOptions);
     }
@@ -156,149 +100,65 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
             $ = new ConfigurationSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param configurationSetName The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(Output<String> configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
-        /**
-         * @param configurationSetName The name of the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
         }
 
-        /**
-         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryOptions(@Nullable Output<ConfigurationSetDeliveryOptionsArgs> deliveryOptions) {
             $.deliveryOptions = deliveryOptions;
             return this;
         }
 
-        /**
-         * @param deliveryOptions An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deliveryOptions(ConfigurationSetDeliveryOptionsArgs deliveryOptions) {
             return deliveryOptions(Output.of(deliveryOptions));
         }
 
-        /**
-         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reputationOptions(@Nullable Output<ConfigurationSetReputationOptionsArgs> reputationOptions) {
             $.reputationOptions = reputationOptions;
             return this;
         }
 
-        /**
-         * @param reputationOptions An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reputationOptions(ConfigurationSetReputationOptionsArgs reputationOptions) {
             return reputationOptions(Output.of(reputationOptions));
         }
 
-        /**
-         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingOptions(@Nullable Output<ConfigurationSetSendingOptionsArgs> sendingOptions) {
             $.sendingOptions = sendingOptions;
             return this;
         }
 
-        /**
-         * @param sendingOptions An object that defines whether or not Amazon SES can send email that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingOptions(ConfigurationSetSendingOptionsArgs sendingOptions) {
             return sendingOptions(Output.of(sendingOptions));
         }
 
-        /**
-         * @param suppressionOptions An object that contains information about the suppression list preferences for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressionOptions(@Nullable Output<ConfigurationSetSuppressionOptionsArgs> suppressionOptions) {
             $.suppressionOptions = suppressionOptions;
             return this;
         }
 
-        /**
-         * @param suppressionOptions An object that contains information about the suppression list preferences for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suppressionOptions(ConfigurationSetSuppressionOptionsArgs suppressionOptions) {
             return suppressionOptions(Output.of(suppressionOptions));
         }
 
-        /**
-         * @param tags A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingOptions(@Nullable Output<ConfigurationSetTrackingOptionsArgs> trackingOptions) {
             $.trackingOptions = trackingOptions;
             return this;
         }
 
-        /**
-         * @param trackingOptions An object that defines the open and click tracking options for emails that you send using the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackingOptions(ConfigurationSetTrackingOptionsArgs trackingOptions) {
             return trackingOptions(Output.of(trackingOptions));
         }

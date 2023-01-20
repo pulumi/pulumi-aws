@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class NfsFileShareNfsFileShareDefaults {
-    /**
-     * @return The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-     * 
-     */
     private @Nullable String directoryMode;
-    /**
-     * @return The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-     * 
-     */
     private @Nullable String fileMode;
-    /**
-     * @return The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     private @Nullable String groupId;
-    /**
-     * @return The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     private @Nullable String ownerId;
 
     private NfsFileShareNfsFileShareDefaults() {}
-    /**
-     * @return The Unix directory mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0777&#34;`.
-     * 
-     */
     public Optional<String> directoryMode() {
         return Optional.ofNullable(this.directoryMode);
     }
-    /**
-     * @return The Unix file mode in the string form &#34;nnnn&#34;. Defaults to `&#34;0666&#34;`.
-     * 
-     */
     public Optional<String> fileMode() {
         return Optional.ofNullable(this.fileMode);
     }
-    /**
-     * @return The default group ID for the file share (unless the files have another group ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     public Optional<String> groupId() {
         return Optional.ofNullable(this.groupId);
     }
-    /**
-     * @return The default owner ID for the file share (unless the files have another owner ID specified). Defaults to `65534` (`nfsnobody`). Valid values: `0` through `4294967294`.
-     * 
-     */
     public Optional<String> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }

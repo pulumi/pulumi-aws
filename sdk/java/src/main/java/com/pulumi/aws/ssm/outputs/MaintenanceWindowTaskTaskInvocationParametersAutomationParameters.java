@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
-    /**
-     * @return The version of an Automation document to use during task execution.
-     * 
-     */
     private @Nullable String documentVersion;
-    /**
-     * @return The parameters for the RUN_COMMAND task execution. Documented below.
-     * 
-     */
     private @Nullable List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters;
 
     private MaintenanceWindowTaskTaskInvocationParametersAutomationParameters() {}
-    /**
-     * @return The version of an Automation document to use during task execution.
-     * 
-     */
     public Optional<String> documentVersion() {
         return Optional.ofNullable(this.documentVersion);
     }
-    /**
-     * @return The parameters for the RUN_COMMAND task execution. Documented below.
-     * 
-     */
     public List<MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter> parameters() {
         return this.parameters == null ? List.of() : this.parameters;
     }

@@ -17,107 +17,51 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AppArgs Empty = new AppArgs();
 
-    /**
-     * The name of the app.
-     * 
-     */
     @Import(name="appName", required=true)
     private Output<String> appName;
 
-    /**
-     * @return The name of the app.
-     * 
-     */
     public Output<String> appName() {
         return this.appName;
     }
 
-    /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-     * 
-     */
     @Import(name="appType", required=true)
     private Output<String> appType;
 
-    /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-     * 
-     */
     public Output<String> appType() {
         return this.appType;
     }
 
-    /**
-     * The domain ID.
-     * 
-     */
     @Import(name="domainId", required=true)
     private Output<String> domainId;
 
-    /**
-     * @return The domain ID.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
 
-    /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-     * 
-     */
     @Import(name="resourceSpec")
     private @Nullable Output<AppResourceSpecArgs> resourceSpec;
 
-    /**
-     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-     * 
-     */
     public Optional<Output<AppResourceSpecArgs>> resourceSpec() {
         return Optional.ofNullable(this.resourceSpec);
     }
 
-    /**
-     * The name of the space. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     @Import(name="spaceName")
     private @Nullable Output<String> spaceName;
 
-    /**
-     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     public Optional<Output<String>> spaceName() {
         return Optional.ofNullable(this.spaceName);
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The user profile name. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     @Import(name="userProfileName")
     private @Nullable Output<String> userProfileName;
 
-    /**
-     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     public Optional<Output<String>> userProfileName() {
         return Optional.ofNullable(this.userProfileName);
     }
@@ -152,149 +96,65 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AppArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appName The name of the app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appName(Output<String> appName) {
             $.appName = appName;
             return this;
         }
 
-        /**
-         * @param appName The name of the app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appName(String appName) {
             return appName(Output.of(appName));
         }
 
-        /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appType(Output<String> appType) {
             $.appType = appType;
             return this;
         }
 
-        /**
-         * @param appType The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appType(String appType) {
             return appType(Output.of(appType));
         }
 
-        /**
-         * @param domainId The domain ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(Output<String> domainId) {
             $.domainId = domainId;
             return this;
         }
 
-        /**
-         * @param domainId The domain ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
         }
 
-        /**
-         * @param resourceSpec The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSpec(@Nullable Output<AppResourceSpecArgs> resourceSpec) {
             $.resourceSpec = resourceSpec;
             return this;
         }
 
-        /**
-         * @param resourceSpec The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceSpec(AppResourceSpecArgs resourceSpec) {
             return resourceSpec(Output.of(resourceSpec));
         }
 
-        /**
-         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(@Nullable Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
-        /**
-         * @param spaceName The name of the space. At least on of `user_profile_name` or `space_name` required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userProfileName(@Nullable Output<String> userProfileName) {
             $.userProfileName = userProfileName;
             return this;
         }
 
-        /**
-         * @param userProfileName The user profile name. At least on of `user_profile_name` or `space_name` required.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userProfileName(String userProfileName) {
             return userProfileName(Output.of(userProfileName));
         }

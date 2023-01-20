@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelDestinationSetting {
-    /**
-     * @return Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     private @Nullable String passwordParam;
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     private @Nullable String streamName;
-    /**
-     * @return A URL specifying a destination.
-     * 
-     */
     private @Nullable String url;
-    /**
-     * @return . Username to be used.
-     * 
-     */
     private @Nullable String username;
 
     private ChannelDestinationSetting() {}
-    /**
-     * @return Key used to extract the password from EC2 Parameter store.
-     * 
-     */
     public Optional<String> passwordParam() {
         return Optional.ofNullable(this.passwordParam);
     }
-    /**
-     * @return Stream name RTMP destinations (URLs of type rtmp://)
-     * 
-     */
     public Optional<String> streamName() {
         return Optional.ofNullable(this.streamName);
     }
-    /**
-     * @return A URL specifying a destination.
-     * 
-     */
     public Optional<String> url() {
         return Optional.ofNullable(this.url);
     }
-    /**
-     * @return . Username to be used.
-     * 
-     */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
     }

@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSingular {
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSingular() {}
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public String object() {
         return this.object;
     }

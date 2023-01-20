@@ -12,17 +12,9 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs();
 
-    /**
-     * Name of the CloudWatch Log Group to send findings to.
-     * 
-     */
     @Import(name="logGroup", required=true)
     private String logGroup;
 
-    /**
-     * @return Name of the CloudWatch Log Group to send findings to.
-     * 
-     */
     public String logGroup() {
         return this.logGroup;
     }
@@ -51,12 +43,6 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroup Name of the CloudWatch Log Group to send findings to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroup(String logGroup) {
             $.logGroup = logGroup;
             return this;

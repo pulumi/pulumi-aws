@@ -15,62 +15,30 @@ public final class GetTrafficPolicyDocumentRuleSecondary extends com.pulumi.reso
 
     public static final GetTrafficPolicyDocumentRuleSecondary Empty = new GetTrafficPolicyDocumentRuleSecondary();
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable String endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Boolean evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Boolean> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable String healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable String ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<String> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
@@ -102,45 +70,21 @@ public final class GetTrafficPolicyDocumentRuleSecondary extends com.pulumi.reso
             $ = new GetTrafficPolicyDocumentRuleSecondary(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable String endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Boolean evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable String healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable String ruleReference) {
             $.ruleReference = ruleReference;
             return this;

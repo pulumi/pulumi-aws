@@ -22,99 +22,49 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
 
     public static final BucketLifecycleConfigurationV2RuleArgs Empty = new BucketLifecycleConfigurationV2RuleArgs();
 
-    /**
-     * Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
-     * 
-     */
     @Import(name="abortIncompleteMultipartUpload")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs> abortIncompleteMultipartUpload;
 
-    /**
-     * @return Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs>> abortIncompleteMultipartUpload() {
         return Optional.ofNullable(this.abortIncompleteMultipartUpload);
     }
 
-    /**
-     * Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
-     * 
-     */
     @Import(name="expiration")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleExpirationArgs> expiration;
 
-    /**
-     * @return Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationV2RuleExpirationArgs>> expiration() {
         return Optional.ofNullable(this.expiration);
     }
 
-    /**
-     * Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
-     * 
-     */
     @Import(name="filter")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleFilterArgs> filter;
 
-    /**
-     * @return Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationV2RuleFilterArgs>> filter() {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Unique identifier for the rule. The value cannot be longer than 255 characters.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
 
-    /**
-     * Configuration block that specifies when noncurrent object versions expire documented below.
-     * 
-     */
     @Import(name="noncurrentVersionExpiration")
     private @Nullable Output<BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs> noncurrentVersionExpiration;
 
-    /**
-     * @return Configuration block that specifies when noncurrent object versions expire documented below.
-     * 
-     */
     public Optional<Output<BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs>> noncurrentVersionExpiration() {
         return Optional.ofNullable(this.noncurrentVersionExpiration);
     }
 
-    /**
-     * Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-     * 
-     */
     @Import(name="noncurrentVersionTransitions")
     private @Nullable Output<List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions;
 
-    /**
-     * @return Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-     * 
-     */
     public Optional<Output<List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>>> noncurrentVersionTransitions() {
         return Optional.ofNullable(this.noncurrentVersionTransitions);
     }
 
     /**
-     * **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-     * 
      * @deprecated
      * Use filter instead
      * 
@@ -124,8 +74,6 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
     private @Nullable Output<String> prefix;
 
     /**
-     * @return **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-     * 
      * @deprecated
      * Use filter instead
      * 
@@ -135,32 +83,16 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
-     * 
-     */
     @Import(name="transitions")
     private @Nullable Output<List<BucketLifecycleConfigurationV2RuleTransitionArgs>> transitions;
 
-    /**
-     * @return Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
-     * 
-     */
     public Optional<Output<List<BucketLifecycleConfigurationV2RuleTransitionArgs>>> transitions() {
         return Optional.ofNullable(this.transitions);
     }
@@ -197,145 +129,65 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
             $ = new BucketLifecycleConfigurationV2RuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param abortIncompleteMultipartUpload Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder abortIncompleteMultipartUpload(@Nullable Output<BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs> abortIncompleteMultipartUpload) {
             $.abortIncompleteMultipartUpload = abortIncompleteMultipartUpload;
             return this;
         }
 
-        /**
-         * @param abortIncompleteMultipartUpload Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder abortIncompleteMultipartUpload(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs abortIncompleteMultipartUpload) {
             return abortIncompleteMultipartUpload(Output.of(abortIncompleteMultipartUpload));
         }
 
-        /**
-         * @param expiration Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(@Nullable Output<BucketLifecycleConfigurationV2RuleExpirationArgs> expiration) {
             $.expiration = expiration;
             return this;
         }
 
-        /**
-         * @param expiration Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expiration(BucketLifecycleConfigurationV2RuleExpirationArgs expiration) {
             return expiration(Output.of(expiration));
         }
 
-        /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(@Nullable Output<BucketLifecycleConfigurationV2RuleFilterArgs> filter) {
             $.filter = filter;
             return this;
         }
 
-        /**
-         * @param filter Configuration block used to identify objects that a Lifecycle Rule applies to documented below. If not specified, the `rule` will default to using `prefix`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filter(BucketLifecycleConfigurationV2RuleFilterArgs filter) {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param id Unique identifier for the rule. The value cannot be longer than 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Unique identifier for the rule. The value cannot be longer than 255 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param noncurrentVersionExpiration Configuration block that specifies when noncurrent object versions expire documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentVersionExpiration(@Nullable Output<BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs> noncurrentVersionExpiration) {
             $.noncurrentVersionExpiration = noncurrentVersionExpiration;
             return this;
         }
 
-        /**
-         * @param noncurrentVersionExpiration Configuration block that specifies when noncurrent object versions expire documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentVersionExpiration(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs noncurrentVersionExpiration) {
             return noncurrentVersionExpiration(Output.of(noncurrentVersionExpiration));
         }
 
-        /**
-         * @param noncurrentVersionTransitions Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentVersionTransitions(@Nullable Output<List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs>> noncurrentVersionTransitions) {
             $.noncurrentVersionTransitions = noncurrentVersionTransitions;
             return this;
         }
 
-        /**
-         * @param noncurrentVersionTransitions Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentVersionTransitions(List<BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs> noncurrentVersionTransitions) {
             return noncurrentVersionTransitions(Output.of(noncurrentVersionTransitions));
         }
 
-        /**
-         * @param noncurrentVersionTransitions Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder noncurrentVersionTransitions(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs... noncurrentVersionTransitions) {
             return noncurrentVersionTransitions(List.of(noncurrentVersionTransitions));
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -349,8 +201,6 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param prefix **DEPRECATED** Use `filter` instead. This has been deprecated by Amazon S3. Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`&#34;&#34;`) if `filter` is not specified.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -362,54 +212,24 @@ public final class BucketLifecycleConfigurationV2RuleArgs extends com.pulumi.res
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param status Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param transitions Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(@Nullable Output<List<BucketLifecycleConfigurationV2RuleTransitionArgs>> transitions) {
             $.transitions = transitions;
             return this;
         }
 
-        /**
-         * @param transitions Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(List<BucketLifecycleConfigurationV2RuleTransitionArgs> transitions) {
             return transitions(Output.of(transitions));
         }
 
-        /**
-         * @param transitions Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitions(BucketLifecycleConfigurationV2RuleTransitionArgs... transitions) {
             return transitions(List.of(transitions));
         }

@@ -13,17 +13,9 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs
 
     public static final BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs Empty = new BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs();
 
-    /**
-     * Time in minutes. Valid values: `15`.
-     * 
-     */
     @Import(name="minutes", required=true)
     private Output<Integer> minutes;
 
-    /**
-     * @return Time in minutes. Valid values: `15`.
-     * 
-     */
     public Output<Integer> minutes() {
         return this.minutes;
     }
@@ -52,23 +44,11 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs
             $ = new BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param minutes Time in minutes. Valid values: `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minutes(Output<Integer> minutes) {
             $.minutes = minutes;
             return this;
         }
 
-        /**
-         * @param minutes Time in minutes. Valid values: `15`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minutes(Integer minutes) {
             return minutes(Output.of(minutes));
         }

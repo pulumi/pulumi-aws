@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfigurationActions {
-    /**
-     * @return Action to take for a high risk. See action block below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction highAction;
-    /**
-     * @return Action to take for a low risk. See action block below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction lowAction;
-    /**
-     * @return Action to take for a medium risk. See action block below.
-     * 
-     */
     private @Nullable RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction mediumAction;
 
     private RiskConfigurationAccountTakeoverRiskConfigurationActions() {}
-    /**
-     * @return Action to take for a high risk. See action block below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction> highAction() {
         return Optional.ofNullable(this.highAction);
     }
-    /**
-     * @return Action to take for a low risk. See action block below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction> lowAction() {
         return Optional.ofNullable(this.lowAction);
     }
-    /**
-     * @return Action to take for a medium risk. See action block below.
-     * 
-     */
     public Optional<RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction> mediumAction() {
         return Optional.ofNullable(this.mediumAction);
     }

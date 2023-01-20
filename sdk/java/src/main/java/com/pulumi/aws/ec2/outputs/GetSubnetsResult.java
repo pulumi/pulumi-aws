@@ -19,10 +19,6 @@ public final class GetSubnetsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the subnet ids found.
-     * 
-     */
     private List<String> ids;
     private Map<String,String> tags;
 
@@ -37,10 +33,6 @@ public final class GetSubnetsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the subnet ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

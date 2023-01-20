@@ -19,11 +19,6 @@ public final class GetEbsVolumesResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of all the EBS Volume IDs found. This data source will fail if
-     * no volumes match the provided criteria.
-     * 
-     */
     private List<String> ids;
     private @Nullable Map<String,String> tags;
 
@@ -38,11 +33,6 @@ public final class GetEbsVolumesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of all the EBS Volume IDs found. This data source will fail if
-     * no volumes match the provided criteria.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

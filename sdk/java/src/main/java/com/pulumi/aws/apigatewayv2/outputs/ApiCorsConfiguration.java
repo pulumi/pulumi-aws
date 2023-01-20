@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApiCorsConfiguration {
-    /**
-     * @return Whether credentials are included in the CORS request.
-     * 
-     */
     private @Nullable Boolean allowCredentials;
-    /**
-     * @return Set of allowed HTTP headers.
-     * 
-     */
     private @Nullable List<String> allowHeaders;
-    /**
-     * @return Set of allowed HTTP methods.
-     * 
-     */
     private @Nullable List<String> allowMethods;
-    /**
-     * @return Set of allowed origins.
-     * 
-     */
     private @Nullable List<String> allowOrigins;
-    /**
-     * @return Set of exposed HTTP headers.
-     * 
-     */
     private @Nullable List<String> exposeHeaders;
-    /**
-     * @return Number of seconds that the browser should cache preflight request results.
-     * 
-     */
     private @Nullable Integer maxAge;
 
     private ApiCorsConfiguration() {}
-    /**
-     * @return Whether credentials are included in the CORS request.
-     * 
-     */
     public Optional<Boolean> allowCredentials() {
         return Optional.ofNullable(this.allowCredentials);
     }
-    /**
-     * @return Set of allowed HTTP headers.
-     * 
-     */
     public List<String> allowHeaders() {
         return this.allowHeaders == null ? List.of() : this.allowHeaders;
     }
-    /**
-     * @return Set of allowed HTTP methods.
-     * 
-     */
     public List<String> allowMethods() {
         return this.allowMethods == null ? List.of() : this.allowMethods;
     }
-    /**
-     * @return Set of allowed origins.
-     * 
-     */
     public List<String> allowOrigins() {
         return this.allowOrigins == null ? List.of() : this.allowOrigins;
     }
-    /**
-     * @return Set of exposed HTTP headers.
-     * 
-     */
     public List<String> exposeHeaders() {
         return this.exposeHeaders == null ? List.of() : this.exposeHeaders;
     }
-    /**
-     * @return Number of seconds that the browser should cache preflight request results.
-     * 
-     */
     public Optional<Integer> maxAge() {
         return Optional.ofNullable(this.maxAge);
     }

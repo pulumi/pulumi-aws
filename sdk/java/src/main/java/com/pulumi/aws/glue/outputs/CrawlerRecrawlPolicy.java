@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerRecrawlPolicy {
-    /**
-     * @return Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-     * 
-     */
     private @Nullable String recrawlBehavior;
 
     private CrawlerRecrawlPolicy() {}
-    /**
-     * @return Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-     * 
-     */
     public Optional<String> recrawlBehavior() {
         return Optional.ofNullable(this.recrawlBehavior);
     }

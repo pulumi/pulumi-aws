@@ -23,397 +23,107 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Lex Intent resource. For more information see
- * [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
- * 
- * ## Example Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lex.Intent;
- * import com.pulumi.aws.lex.IntentArgs;
- * import com.pulumi.aws.lex.inputs.IntentConfirmationPromptArgs;
- * import com.pulumi.aws.lex.inputs.IntentFulfillmentActivityArgs;
- * import com.pulumi.aws.lex.inputs.IntentRejectionStatementArgs;
- * import com.pulumi.aws.lex.inputs.IntentSlotArgs;
- * import com.pulumi.aws.lex.inputs.IntentSlotValueElicitationPromptArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var orderFlowersIntent = new Intent(&#34;orderFlowersIntent&#34;, IntentArgs.builder()        
- *             .confirmationPrompt(IntentConfirmationPromptArgs.builder()
- *                 .maxAttempts(2)
- *                 .messages(IntentConfirmationPromptMessageArgs.builder()
- *                     .content(&#34;Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
- *             .createVersion(false)
- *             .description(&#34;Intent to order a bouquet of flowers for pick up&#34;)
- *             .fulfillmentActivity(IntentFulfillmentActivityArgs.builder()
- *                 .type(&#34;ReturnIntent&#34;)
- *                 .build())
- *             .name(&#34;OrderFlowers&#34;)
- *             .rejectionStatement(IntentRejectionStatementArgs.builder()
- *                 .messages(IntentRejectionStatementMessageArgs.builder()
- *                     .content(&#34;Okay, I will not place your order.&#34;)
- *                     .contentType(&#34;PlainText&#34;)
- *                     .build())
- *                 .build())
- *             .sampleUtterances(            
- *                 &#34;I would like to order some flowers&#34;,
- *                 &#34;I would like to pick up flowers&#34;)
- *             .slots(            
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The type of flowers to pick up&#34;)
- *                     .name(&#34;FlowerType&#34;)
- *                     .priority(1)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;FlowerTypes&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build(),
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The date to pick up the flowers&#34;)
- *                     .name(&#34;PickupDate&#34;)
- *                     .priority(2)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;AMAZON.DATE&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build(),
- *                 IntentSlotArgs.builder()
- *                     .description(&#34;The time to pick up the flowers&#34;)
- *                     .name(&#34;PickupTime&#34;)
- *                     .priority(3)
- *                     .sampleUtterances(&#34;I would like to order {FlowerType}&#34;)
- *                     .slotConstraint(&#34;Required&#34;)
- *                     .slotType(&#34;AMAZON.TIME&#34;)
- *                     .slotTypeVersion(&#34;$LATEST&#34;)
- *                     .valueElicitationPrompt(IntentSlotValueElicitationPromptArgs.builder()
- *                         .maxAttempts(2)
- *                         .message(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Intents can be imported using their name.
- * 
- * ```sh
- *  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
- * ```
- * 
- */
 @ResourceType(type="aws:lex/intent:Intent")
 public class Intent extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Lex intent.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Lex intent.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Checksum identifying the version of the intent that was created. The checksum is not
-     * included as an argument because the resource will add it automatically when updating the intent.
-     * 
-     */
     @Export(name="checksum", refs={String.class}, tree="[0]")
     private Output<String> checksum;
 
-    /**
-     * @return Checksum identifying the version of the intent that was created. The checksum is not
-     * included as an argument because the resource will add it automatically when updating the intent.
-     * 
-     */
     public Output<String> checksum() {
         return this.checksum;
     }
-    /**
-     * The statement that you want Amazon Lex to convey to the user
-     * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-     * you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-     * application, you can&#39;t specify this element. The `follow_up_prompt` and `conclusion_statement` are
-     * mutually exclusive. You can specify only one. Attributes are documented under statement.
-     * 
-     */
     @Export(name="conclusionStatement", refs={IntentConclusionStatement.class}, tree="[0]")
     private Output</* @Nullable */ IntentConclusionStatement> conclusionStatement;
 
-    /**
-     * @return The statement that you want Amazon Lex to convey to the user
-     * after the intent is successfully fulfilled by the Lambda function. This element is relevant only if
-     * you provide a Lambda function in the `fulfillment_activity`. If you return the intent to the client
-     * application, you can&#39;t specify this element. The `follow_up_prompt` and `conclusion_statement` are
-     * mutually exclusive. You can specify only one. Attributes are documented under statement.
-     * 
-     */
     public Output<Optional<IntentConclusionStatement>> conclusionStatement() {
         return Codegen.optional(this.conclusionStatement);
     }
-    /**
-     * Prompts the user to confirm the intent. This question should
-     * have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-     * or neither. Attributes are documented under prompt.
-     * 
-     */
     @Export(name="confirmationPrompt", refs={IntentConfirmationPrompt.class}, tree="[0]")
     private Output</* @Nullable */ IntentConfirmationPrompt> confirmationPrompt;
 
-    /**
-     * @return Prompts the user to confirm the intent. This question should
-     * have a yes or no answer. You you must provide both the `rejection_statement` and `confirmation_prompt`,
-     * or neither. Attributes are documented under prompt.
-     * 
-     */
     public Output<Optional<IntentConfirmationPrompt>> confirmationPrompt() {
         return Codegen.optional(this.confirmationPrompt);
     }
-    /**
-     * Determines if a new slot type version is created when the initial
-     * resource is created and on each update. Defaults to `false`.
-     * 
-     */
     @Export(name="createVersion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createVersion;
 
-    /**
-     * @return Determines if a new slot type version is created when the initial
-     * resource is created and on each update. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> createVersion() {
         return Codegen.optional(this.createVersion);
     }
-    /**
-     * The date when the intent version was created.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return The date when the intent version was created.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * A description of the bot. Must be less than or equal to 200 characters in length.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the bot. Must be less than or equal to 200 characters in length.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Specifies a Lambda function to invoke for each user input. You can
-     * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-     * 
-     */
     @Export(name="dialogCodeHook", refs={IntentDialogCodeHook.class}, tree="[0]")
     private Output</* @Nullable */ IntentDialogCodeHook> dialogCodeHook;
 
-    /**
-     * @return Specifies a Lambda function to invoke for each user input. You can
-     * invoke this Lambda function to personalize user interaction. Attributes are documented under code_hook.
-     * 
-     */
     public Output<Optional<IntentDialogCodeHook>> dialogCodeHook() {
         return Codegen.optional(this.dialogCodeHook);
     }
-    /**
-     * Amazon Lex uses this prompt to solicit additional activity after
-     * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-     * user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-     * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-     * 
-     */
     @Export(name="followUpPrompt", refs={IntentFollowUpPrompt.class}, tree="[0]")
     private Output</* @Nullable */ IntentFollowUpPrompt> followUpPrompt;
 
-    /**
-     * @return Amazon Lex uses this prompt to solicit additional activity after
-     * fulfilling an intent. For example, after the OrderPizza intent is fulfilled, you might prompt the
-     * user to order a drink. The `follow_up_prompt` field and the `conclusion_statement` field are mutually
-     * exclusive. You can specify only one. Attributes are documented under follow_up_prompt.
-     * 
-     */
     public Output<Optional<IntentFollowUpPrompt>> followUpPrompt() {
         return Codegen.optional(this.followUpPrompt);
     }
-    /**
-     * Describes how the intent is fulfilled. For example, after a
-     * user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-     * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-     * 
-     */
     @Export(name="fulfillmentActivity", refs={IntentFulfillmentActivity.class}, tree="[0]")
     private Output<IntentFulfillmentActivity> fulfillmentActivity;
 
-    /**
-     * @return Describes how the intent is fulfilled. For example, after a
-     * user provides all of the information for a pizza order, `fulfillment_activity` defines how the bot
-     * places an order with a local pizza store. Attributes are documented under fulfillment_activity.
-     * 
-     */
     public Output<IntentFulfillmentActivity> fulfillmentActivity() {
         return this.fulfillmentActivity;
     }
-    /**
-     * The date when the $LATEST version of this intent was updated.
-     * 
-     */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
-    /**
-     * @return The date when the $LATEST version of this intent was updated.
-     * 
-     */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A unique identifier for the built-in intent to base this
-     * intent on. To find the signature for an intent, see
-     * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-     * in the Alexa Skills Kit.
-     * 
-     */
     @Export(name="parentIntentSignature", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentIntentSignature;
 
-    /**
-     * @return A unique identifier for the built-in intent to base this
-     * intent on. To find the signature for an intent, see
-     * [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
-     * in the Alexa Skills Kit.
-     * 
-     */
     public Output<Optional<String>> parentIntentSignature() {
         return Codegen.optional(this.parentIntentSignature);
     }
-    /**
-     * If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
-     * 
-     */
     @Export(name="rejectionStatement", refs={IntentRejectionStatement.class}, tree="[0]")
     private Output</* @Nullable */ IntentRejectionStatement> rejectionStatement;
 
-    /**
-     * @return If the user answers &#34;no&#34; to the question defined in the prompt field,
-     * Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
-     * documented below under statement.
-     * 
-     */
     public Output<Optional<IntentRejectionStatement>> rejectionStatement() {
         return Codegen.optional(this.rejectionStatement);
     }
-    /**
-     * If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-     * 
-     */
     @Export(name="sampleUtterances", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sampleUtterances;
 
-    /**
-     * @return If you know a specific pattern with which users might respond to
-     * an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
-     * is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
-     * 
-     */
     public Output<Optional<List<String>>> sampleUtterances() {
         return Codegen.optional(this.sampleUtterances);
     }
-    /**
-     * An list of intent slots. At runtime, Amazon Lex elicits required slot values
-     * from the user using prompts defined in the slots. Attributes are documented under slot.
-     * 
-     */
     @Export(name="slots", refs={List.class,IntentSlot.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IntentSlot>> slots;
 
-    /**
-     * @return An list of intent slots. At runtime, Amazon Lex elicits required slot values
-     * from the user using prompts defined in the slots. Attributes are documented under slot.
-     * 
-     */
     public Output<Optional<List<IntentSlot>>> slots() {
         return Codegen.optional(this.slots);
     }
-    /**
-     * The version of the bot.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The version of the bot.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

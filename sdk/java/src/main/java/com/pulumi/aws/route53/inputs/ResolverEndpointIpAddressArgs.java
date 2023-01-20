@@ -15,17 +15,9 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
 
     public static final ResolverEndpointIpAddressArgs Empty = new ResolverEndpointIpAddressArgs();
 
-    /**
-     * The IP address in the subnet that you want to use for DNS queries.
-     * 
-     */
     @Import(name="ip")
     private @Nullable Output<String> ip;
 
-    /**
-     * @return The IP address in the subnet that you want to use for DNS queries.
-     * 
-     */
     public Optional<Output<String>> ip() {
         return Optional.ofNullable(this.ip);
     }
@@ -37,17 +29,9 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.ipId);
     }
 
-    /**
-     * The ID of the subnet that contains the IP address.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet that contains the IP address.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -78,23 +62,11 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
             $ = new ResolverEndpointIpAddressArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ip The IP address in the subnet that you want to use for DNS queries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ip(@Nullable Output<String> ip) {
             $.ip = ip;
             return this;
         }
 
-        /**
-         * @param ip The IP address in the subnet that you want to use for DNS queries.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ip(String ip) {
             return ip(Output.of(ip));
         }
@@ -108,23 +80,11 @@ public final class ResolverEndpointIpAddressArgs extends com.pulumi.resources.Re
             return ipId(Output.of(ipId));
         }
 
-        /**
-         * @param subnetId The ID of the subnet that contains the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet that contains the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

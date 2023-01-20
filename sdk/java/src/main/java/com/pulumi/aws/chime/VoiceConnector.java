@@ -15,104 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new VoiceConnector(&#34;test&#34;, VoiceConnectorArgs.builder()        
- *             .awsRegion(&#34;us-east-1&#34;)
- *             .requireEncryption(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Configuration Recorder can be imported using the name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnector:VoiceConnector")
 public class VoiceConnector extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsRegion;
 
-    /**
-     * @return The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     public Output<Optional<String>> awsRegion() {
         return Codegen.optional(this.awsRegion);
     }
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="outboundHostName", refs={String.class}, tree="[0]")
     private Output<String> outboundHostName;
 
-    /**
-     * @return The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<String> outboundHostName() {
         return this.outboundHostName;
     }
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     */
     @Export(name="requireEncryption", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> requireEncryption;
 
-    /**
-     * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     */
     public Output<Boolean> requireEncryption() {
         return this.requireEncryption;
     }

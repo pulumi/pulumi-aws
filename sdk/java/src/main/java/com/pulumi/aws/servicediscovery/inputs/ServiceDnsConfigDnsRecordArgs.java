@@ -14,32 +14,16 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
 
     public static final ServiceDnsConfigDnsRecordArgs Empty = new ServiceDnsConfigDnsRecordArgs();
 
-    /**
-     * The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     @Import(name="ttl", required=true)
     private Output<Integer> ttl;
 
-    /**
-     * @return The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-     * 
-     */
     public Output<Integer> ttl() {
         return this.ttl;
     }
 
-    /**
-     * The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -69,44 +53,20 @@ public final class ServiceDnsConfigDnsRecordArgs extends com.pulumi.resources.Re
             $ = new ServiceDnsConfigDnsRecordArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ttl The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
-        /**
-         * @param ttl The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }
 
-        /**
-         * @param type The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

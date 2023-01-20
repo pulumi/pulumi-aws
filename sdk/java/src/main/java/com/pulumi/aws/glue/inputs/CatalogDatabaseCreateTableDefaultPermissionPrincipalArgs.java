@@ -15,17 +15,9 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs exte
 
     public static final CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs Empty = new CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs();
 
-    /**
-     * An identifier for the Lake Formation principal.
-     * 
-     */
     @Import(name="dataLakePrincipalIdentifier")
     private @Nullable Output<String> dataLakePrincipalIdentifier;
 
-    /**
-     * @return An identifier for the Lake Formation principal.
-     * 
-     */
     public Optional<Output<String>> dataLakePrincipalIdentifier() {
         return Optional.ofNullable(this.dataLakePrincipalIdentifier);
     }
@@ -54,23 +46,11 @@ public final class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs exte
             $ = new CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dataLakePrincipalIdentifier An identifier for the Lake Formation principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataLakePrincipalIdentifier(@Nullable Output<String> dataLakePrincipalIdentifier) {
             $.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
             return this;
         }
 
-        /**
-         * @param dataLakePrincipalIdentifier An identifier for the Lake Formation principal.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataLakePrincipalIdentifier(String dataLakePrincipalIdentifier) {
             return dataLakePrincipalIdentifier(Output.of(dataLakePrincipalIdentifier));
         }

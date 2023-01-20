@@ -14,113 +14,35 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an OpsWorks permission resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opsworks.Permission;
- * import com.pulumi.aws.opsworks.PermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myStackPermission = new Permission(&#34;myStackPermission&#34;, PermissionArgs.builder()        
- *             .allowSsh(true)
- *             .allowSudo(true)
- *             .level(&#34;iam_only&#34;)
- *             .userArn(aws_iam_user.user().arn())
- *             .stackId(aws_opsworks_stack.stack().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:opsworks/permission:Permission")
 public class Permission extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether the user is allowed to use SSH to communicate with the instance
-     * 
-     */
     @Export(name="allowSsh", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowSsh;
 
-    /**
-     * @return Whether the user is allowed to use SSH to communicate with the instance
-     * 
-     */
     public Output<Boolean> allowSsh() {
         return this.allowSsh;
     }
-    /**
-     * Whether the user is allowed to use sudo to elevate privileges
-     * 
-     */
     @Export(name="allowSudo", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowSudo;
 
-    /**
-     * @return Whether the user is allowed to use sudo to elevate privileges
-     * 
-     */
     public Output<Boolean> allowSudo() {
         return this.allowSudo;
     }
-    /**
-     * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
-     * 
-     */
     @Export(name="level", refs={String.class}, tree="[0]")
     private Output<String> level;
 
-    /**
-     * @return The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iam_only`
-     * 
-     */
     public Output<String> level() {
         return this.level;
     }
-    /**
-     * The stack to set the permissions for
-     * 
-     */
     @Export(name="stackId", refs={String.class}, tree="[0]")
     private Output<String> stackId;
 
-    /**
-     * @return The stack to set the permissions for
-     * 
-     */
     public Output<String> stackId() {
         return this.stackId;
     }
-    /**
-     * The user&#39;s IAM ARN to set permissions for
-     * 
-     */
     @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
-    /**
-     * @return The user&#39;s IAM ARN to set permissions for
-     * 
-     */
     public Output<String> userArn() {
         return this.userArn;
     }

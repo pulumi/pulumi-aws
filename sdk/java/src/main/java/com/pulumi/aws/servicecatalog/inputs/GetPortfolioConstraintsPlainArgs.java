@@ -14,47 +14,23 @@ public final class GetPortfolioConstraintsPlainArgs extends com.pulumi.resources
 
     public static final GetPortfolioConstraintsPlainArgs Empty = new GetPortfolioConstraintsPlainArgs();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable String acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<String> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Import(name="portfolioId", required=true)
     private String portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public String portfolioId() {
         return this.portfolioId;
     }
 
-    /**
-     * Product identifier.
-     * 
-     */
     @Import(name="productId")
     private @Nullable String productId;
 
-    /**
-     * @return Product identifier.
-     * 
-     */
     public Optional<String> productId() {
         return Optional.ofNullable(this.productId);
     }
@@ -85,34 +61,16 @@ public final class GetPortfolioConstraintsPlainArgs extends com.pulumi.resources
             $ = new GetPortfolioConstraintsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable String acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(String portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
-        /**
-         * @param productId Product identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productId(@Nullable String productId) {
             $.productId = productId;
             return this;

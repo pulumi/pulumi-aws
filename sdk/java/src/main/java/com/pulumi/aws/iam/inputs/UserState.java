@@ -17,126 +17,66 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
     public static final UserState Empty = new UserState();
 
-    /**
-     * The ARN assigned by AWS for this user.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN assigned by AWS for this user.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
     /**
-     * When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+     * Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
      * 
      */
     @Import(name="forceDestroy")
     private @Nullable Output<Boolean> forceDestroy;
 
     /**
-     * @return When destroying this user, destroy even if it
-     * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-     * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+     * @return Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
      * 
      */
     public Optional<Output<Boolean>> forceDestroy() {
         return Optional.ofNullable(this.forceDestroy);
     }
 
-    /**
-     * The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Path in which to create the user.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return Path in which to create the user.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * The ARN of the policy that is used to set the permissions boundary for the user.
-     * 
-     */
     @Import(name="permissionsBoundary")
     private @Nullable Output<String> permissionsBoundary;
 
-    /**
-     * @return The ARN of the policy that is used to set the permissions boundary for the user.
-     * 
-     */
     public Optional<Output<String>> permissionsBoundary() {
         return Optional.ofNullable(this.permissionsBoundary);
     }
 
-    /**
-     * Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * The [unique ID][1] assigned by AWS.
-     * 
-     */
     @Import(name="uniqueId")
     private @Nullable Output<String> uniqueId;
 
-    /**
-     * @return The [unique ID][1] assigned by AWS.
-     * 
-     */
     public Optional<Output<String>> uniqueId() {
         return Optional.ofNullable(this.uniqueId);
     }
@@ -172,31 +112,17 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
             $ = new UserState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN assigned by AWS for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN assigned by AWS for this user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
         /**
-         * @param forceDestroy When destroying this user, destroy even if it
-         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-         * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+         * @param forceDestroy Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
          * 
          * @return builder
          * 
@@ -207,9 +133,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param forceDestroy When destroying this user, destroy even if it
-         * has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
-         * a user with non-provider-managed access keys and login profile will fail to be destroyed.
+         * @param forceDestroy Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
          * 
          * @return builder
          * 
@@ -218,128 +142,56 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
             return forceDestroy(Output.of(forceDestroy));
         }
 
-        /**
-         * @param name The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The user&#39;s name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both &#34;TESTUSER&#34; and &#34;testuser&#34;.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param path Path in which to create the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Path in which to create the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param permissionsBoundary The ARN of the policy that is used to set the permissions boundary for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionsBoundary(@Nullable Output<String> permissionsBoundary) {
             $.permissionsBoundary = permissionsBoundary;
             return this;
         }
 
-        /**
-         * @param permissionsBoundary The ARN of the policy that is used to set the permissions boundary for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionsBoundary(String permissionsBoundary) {
             return permissionsBoundary(Output.of(permissionsBoundary));
         }
 
-        /**
-         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param uniqueId The [unique ID][1] assigned by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueId(@Nullable Output<String> uniqueId) {
             $.uniqueId = uniqueId;
             return this;
         }
 
-        /**
-         * @param uniqueId The [unique ID][1] assigned by AWS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uniqueId(String uniqueId) {
             return uniqueId(Output.of(uniqueId));
         }

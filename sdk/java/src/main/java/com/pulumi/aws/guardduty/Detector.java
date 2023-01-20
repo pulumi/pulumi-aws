@@ -17,173 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a GuardDuty detector.
- * 
- * &gt; **NOTE:** Deleting this resource is equivalent to &#34;disabling&#34; GuardDuty for an AWS region, which removes all existing findings. You can set the `enable` attribute to `false` to instead &#34;suspend&#34; monitoring and feedback reporting while keeping existing data. See the [Suspending or Disabling Amazon GuardDuty documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_suspend-disable.html) for more information.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesKubernetesAuditLogsArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs;
- * import com.pulumi.aws.guardduty.inputs.DetectorDatasourcesS3LogsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDetector = new Detector(&#34;myDetector&#34;, DetectorArgs.builder()        
- *             .datasources(DetectorDatasourcesArgs.builder()
- *                 .kubernetes(DetectorDatasourcesKubernetesArgs.builder()
- *                     .auditLogs(DetectorDatasourcesKubernetesAuditLogsArgs.builder()
- *                         .enable(false)
- *                         .build())
- *                     .build())
- *                 .malwareProtection(DetectorDatasourcesMalwareProtectionArgs.builder()
- *                     .scanEc2InstanceWithFindings(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs.builder()
- *                         .ebsVolumes(DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs.builder()
- *                             .enable(true)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
- *                     .enable(true)
- *                     .build())
- *                 .build())
- *             .enable(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GuardDuty detectors can be imported using the detector ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
- * ```
- * 
- */
 @ResourceType(type="aws:guardduty/detector:Detector")
 public class Detector extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID of the GuardDuty detector
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return The AWS account ID of the GuardDuty detector
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty detector
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
-     * 
-     */
     @Export(name="datasources", refs={DetectorDatasources.class}, tree="[0]")
     private Output<DetectorDatasources> datasources;
 
-    /**
-     * @return Describes which data sources will be enabled for the detector. See Data Sources below for more details.
-     * 
-     */
     public Output<DetectorDatasources> datasources() {
         return this.datasources;
     }
-    /**
-     * If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
-    /**
-     * @return If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-     * Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enable() {
         return Codegen.optional(this.enable);
     }
-    /**
-     * Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     * 
-     */
     @Export(name="findingPublishingFrequency", refs={String.class}, tree="[0]")
     private Output<String> findingPublishingFrequency;
 
-    /**
-     * @return Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-     * 
-     */
     public Output<String> findingPublishingFrequency() {
         return this.findingPublishingFrequency;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -16,62 +16,30 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
 
     public static final BucketAclV2Args Empty = new BucketAclV2Args();
 
-    /**
-     * A configuration block that sets the ACL permissions for an object per grantee documented below.
-     * 
-     */
     @Import(name="accessControlPolicy")
     private @Nullable Output<BucketAclV2AccessControlPolicyArgs> accessControlPolicy;
 
-    /**
-     * @return A configuration block that sets the ACL permissions for an object per grantee documented below.
-     * 
-     */
     public Optional<Output<BucketAclV2AccessControlPolicyArgs>> accessControlPolicy() {
         return Optional.ofNullable(this.accessControlPolicy);
     }
 
-    /**
-     * The canned ACL to apply to the bucket.
-     * 
-     */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
-    /**
-     * @return The canned ACL to apply to the bucket.
-     * 
-     */
     public Optional<Output<String>> acl() {
         return Optional.ofNullable(this.acl);
     }
 
-    /**
-     * The name of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return The account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -103,86 +71,38 @@ public final class BucketAclV2Args extends com.pulumi.resources.ResourceArgs {
             $ = new BucketAclV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessControlPolicy A configuration block that sets the ACL permissions for an object per grantee documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlPolicy(@Nullable Output<BucketAclV2AccessControlPolicyArgs> accessControlPolicy) {
             $.accessControlPolicy = accessControlPolicy;
             return this;
         }
 
-        /**
-         * @param accessControlPolicy A configuration block that sets the ACL permissions for an object per grantee documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessControlPolicy(BucketAclV2AccessControlPolicyArgs accessControlPolicy) {
             return accessControlPolicy(Output.of(accessControlPolicy));
         }
 
-        /**
-         * @param acl The canned ACL to apply to the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acl(@Nullable Output<String> acl) {
             $.acl = acl;
             return this;
         }
 
-        /**
-         * @param acl The canned ACL to apply to the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acl(String acl) {
             return acl(Output.of(acl));
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

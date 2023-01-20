@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GameServerGroupLaunchTemplate {
-    /**
-     * @return A unique identifier for an existing EC2 launch template.
-     * 
-     */
     private @Nullable String id;
-    /**
-     * @return A readable identifier for an existing EC2 launch template.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The version of the EC2 launch template to use. If none is set, the default is the first version created.
-     * 
-     */
     private @Nullable String version;
 
     private GameServerGroupLaunchTemplate() {}
-    /**
-     * @return A unique identifier for an existing EC2 launch template.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return A readable identifier for an existing EC2 launch template.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The version of the EC2 launch template to use. If none is set, the default is the first version created.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

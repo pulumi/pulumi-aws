@@ -15,17 +15,9 @@ public final class GetDetectorArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDetectorArgs Empty = new GetDetectorArgs();
 
-    /**
-     * ID of the detector.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the detector.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -54,23 +46,11 @@ public final class GetDetectorArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDetectorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the detector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

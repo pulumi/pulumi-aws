@@ -13,17 +13,9 @@ public final class DelegatedAdminAccountArgs extends com.pulumi.resources.Resour
 
     public static final DelegatedAdminAccountArgs Empty = new DelegatedAdminAccountArgs();
 
-    /**
-     * Account to enable as delegated admin account.
-     * 
-     */
     @Import(name="accountId", required=true)
     private Output<String> accountId;
 
-    /**
-     * @return Account to enable as delegated admin account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
@@ -52,23 +44,11 @@ public final class DelegatedAdminAccountArgs extends com.pulumi.resources.Resour
             $ = new DelegatedAdminAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId Account to enable as delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId Account to enable as delegated admin account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

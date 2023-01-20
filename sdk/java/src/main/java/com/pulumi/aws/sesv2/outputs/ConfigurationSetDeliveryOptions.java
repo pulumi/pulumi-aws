@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetDeliveryOptions {
-    /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     private @Nullable String sendingPoolName;
-    /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     private @Nullable String tlsPolicy;
 
     private ConfigurationSetDeliveryOptions() {}
-    /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     public Optional<String> sendingPoolName() {
         return Optional.ofNullable(this.sendingPoolName);
     }
-    /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     public Optional<String> tlsPolicy() {
         return Optional.ofNullable(this.tlsPolicy);
     }

@@ -13,17 +13,9 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
 
     public static final GetResolverFirewallRuleGroupAssociationArgs Empty = new GetResolverFirewallRuleGroupAssociationArgs();
 
-    /**
-     * The identifier for the association.
-     * 
-     */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private Output<String> firewallRuleGroupAssociationId;
 
-    /**
-     * @return The identifier for the association.
-     * 
-     */
     public Output<String> firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
     }
@@ -52,23 +44,11 @@ public final class GetResolverFirewallRuleGroupAssociationArgs extends com.pulum
             $ = new GetResolverFirewallRuleGroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallRuleGroupAssociationId The identifier for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupAssociationId(Output<String> firewallRuleGroupAssociationId) {
             $.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
             return this;
         }
 
-        /**
-         * @param firewallRuleGroupAssociationId The identifier for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
             return firewallRuleGroupAssociationId(Output.of(firewallRuleGroupAssociationId));
         }

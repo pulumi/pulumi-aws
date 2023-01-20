@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpec {
-    /**
-     * @return Specification of a gRPC gateway route.
-     * 
-     */
     private @Nullable GatewayRouteSpecGrpcRoute grpcRoute;
-    /**
-     * @return Specification of an HTTP/2 gateway route.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttp2Route http2Route;
-    /**
-     * @return Specification of an HTTP gateway route.
-     * 
-     */
     private @Nullable GatewayRouteSpecHttpRoute httpRoute;
 
     private GatewayRouteSpec() {}
-    /**
-     * @return Specification of a gRPC gateway route.
-     * 
-     */
     public Optional<GatewayRouteSpecGrpcRoute> grpcRoute() {
         return Optional.ofNullable(this.grpcRoute);
     }
-    /**
-     * @return Specification of an HTTP/2 gateway route.
-     * 
-     */
     public Optional<GatewayRouteSpecHttp2Route> http2Route() {
         return Optional.ofNullable(this.http2Route);
     }
-    /**
-     * @return Specification of an HTTP gateway route.
-     * 
-     */
     public Optional<GatewayRouteSpecHttpRoute> httpRoute() {
         return Optional.ofNullable(this.httpRoute);
     }

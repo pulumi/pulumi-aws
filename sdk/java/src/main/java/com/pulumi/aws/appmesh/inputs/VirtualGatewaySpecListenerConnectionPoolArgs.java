@@ -17,47 +17,23 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
 
     public static final VirtualGatewaySpecListenerConnectionPoolArgs Empty = new VirtualGatewaySpecListenerConnectionPoolArgs();
 
-    /**
-     * Connection pool information for gRPC listeners.
-     * 
-     */
     @Import(name="grpc")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolGrpcArgs> grpc;
 
-    /**
-     * @return Connection pool information for gRPC listeners.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolGrpcArgs>> grpc() {
         return Optional.ofNullable(this.grpc);
     }
 
-    /**
-     * Connection pool information for HTTP listeners.
-     * 
-     */
     @Import(name="http")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttpArgs> http;
 
-    /**
-     * @return Connection pool information for HTTP listeners.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolHttpArgs>> http() {
         return Optional.ofNullable(this.http);
     }
 
-    /**
-     * Connection pool information for HTTP2 listeners.
-     * 
-     */
     @Import(name="http2")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttp2Args> http2;
 
-    /**
-     * @return Connection pool information for HTTP2 listeners.
-     * 
-     */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolHttp2Args>> http2() {
         return Optional.ofNullable(this.http2);
     }
@@ -88,65 +64,29 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
             $ = new VirtualGatewaySpecListenerConnectionPoolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grpc Connection pool information for gRPC listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grpc(@Nullable Output<VirtualGatewaySpecListenerConnectionPoolGrpcArgs> grpc) {
             $.grpc = grpc;
             return this;
         }
 
-        /**
-         * @param grpc Connection pool information for gRPC listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grpc(VirtualGatewaySpecListenerConnectionPoolGrpcArgs grpc) {
             return grpc(Output.of(grpc));
         }
 
-        /**
-         * @param http Connection pool information for HTTP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http(@Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttpArgs> http) {
             $.http = http;
             return this;
         }
 
-        /**
-         * @param http Connection pool information for HTTP listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http(VirtualGatewaySpecListenerConnectionPoolHttpArgs http) {
             return http(Output.of(http));
         }
 
-        /**
-         * @param http2 Connection pool information for HTTP2 listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http2(@Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttp2Args> http2) {
             $.http2 = http2;
             return this;
         }
 
-        /**
-         * @param http2 Connection pool information for HTTP2 listeners.
-         * 
-         * @return builder
-         * 
-         */
         public Builder http2(VirtualGatewaySpecListenerConnectionPoolHttp2Args http2) {
             return http2(Output.of(http2));
         }

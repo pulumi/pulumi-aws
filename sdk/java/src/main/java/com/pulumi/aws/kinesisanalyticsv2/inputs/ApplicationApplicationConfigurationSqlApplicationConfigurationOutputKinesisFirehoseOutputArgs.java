@@ -13,17 +13,9 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs();
 
-    /**
-     * The ARN of the destination delivery stream to write to.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the destination delivery stream to write to.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -52,23 +44,11 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceArn The ARN of the destination delivery stream to write to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ARN of the destination delivery stream to write to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

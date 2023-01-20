@@ -13,17 +13,9 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
 
     public static final VirtualGatewaySpecLoggingAccessLogFileArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileArgs();
 
-    /**
-     * File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Import(name="path", required=true)
     private Output<String> path;
 
-    /**
-     * @return File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> path() {
         return this.path;
     }
@@ -52,23 +44,11 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
             $ = new VirtualGatewaySpecLoggingAccessLogFileArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }

@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InputDestination {
-    /**
-     * @return A unique name for the location the RTMP stream is being pushed to.
-     * 
-     */
     private String streamName;
 
     private InputDestination() {}
-    /**
-     * @return A unique name for the location the RTMP stream is being pushed to.
-     * 
-     */
     public String streamName() {
         return this.streamName;
     }

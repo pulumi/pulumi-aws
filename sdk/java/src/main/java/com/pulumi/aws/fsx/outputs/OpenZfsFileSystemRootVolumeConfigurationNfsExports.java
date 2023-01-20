@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class OpenZfsFileSystemRootVolumeConfigurationNfsExports {
-    /**
-     * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
-     * 
-     */
     private List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations;
 
     private OpenZfsFileSystemRootVolumeConfigurationNfsExports() {}
-    /**
-     * @return - A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
-     * 
-     */
     public List<OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration> clientConfigurations() {
         return this.clientConfigurations;
     }

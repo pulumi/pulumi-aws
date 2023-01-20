@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DistributionOriginGroupMember {
-    /**
-     * @return The unique identifier of the member origin
-     * 
-     */
     private String originId;
 
     private DistributionOriginGroupMember() {}
-    /**
-     * @return The unique identifier of the member origin
-     * 
-     */
     public String originId() {
         return this.originId;
     }

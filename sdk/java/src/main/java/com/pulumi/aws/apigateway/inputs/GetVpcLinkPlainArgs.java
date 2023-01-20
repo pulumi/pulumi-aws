@@ -15,34 +15,16 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcLinkPlainArgs Empty = new GetVpcLinkPlainArgs();
 
-    /**
-     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Key-value map of resource tags
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,24 +54,11 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcLinkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-         * If multiple API Gateway VPC Links are found with this name, an error will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

@@ -17,47 +17,23 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
 
     public static final ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs Empty = new ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs();
 
-    /**
-     * Describes an application&#39;s checkpointing configuration.
-     * 
-     */
     @Import(name="checkpointConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs> checkpointConfiguration;
 
-    /**
-     * @return Describes an application&#39;s checkpointing configuration.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs>> checkpointConfiguration() {
         return Optional.ofNullable(this.checkpointConfiguration);
     }
 
-    /**
-     * Describes configuration parameters for CloudWatch logging for an application.
-     * 
-     */
     @Import(name="monitoringConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs> monitoringConfiguration;
 
-    /**
-     * @return Describes configuration parameters for CloudWatch logging for an application.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs>> monitoringConfiguration() {
         return Optional.ofNullable(this.monitoringConfiguration);
     }
 
-    /**
-     * Describes parameters for how an application executes multiple tasks simultaneously.
-     * 
-     */
     @Import(name="parallelismConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs> parallelismConfiguration;
 
-    /**
-     * @return Describes parameters for how an application executes multiple tasks simultaneously.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs>> parallelismConfiguration() {
         return Optional.ofNullable(this.parallelismConfiguration);
     }
@@ -88,65 +64,29 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
             $ = new ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param checkpointConfiguration Describes an application&#39;s checkpointing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder checkpointConfiguration(@Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs> checkpointConfiguration) {
             $.checkpointConfiguration = checkpointConfiguration;
             return this;
         }
 
-        /**
-         * @param checkpointConfiguration Describes an application&#39;s checkpointing configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder checkpointConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs checkpointConfiguration) {
             return checkpointConfiguration(Output.of(checkpointConfiguration));
         }
 
-        /**
-         * @param monitoringConfiguration Describes configuration parameters for CloudWatch logging for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringConfiguration(@Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs> monitoringConfiguration) {
             $.monitoringConfiguration = monitoringConfiguration;
             return this;
         }
 
-        /**
-         * @param monitoringConfiguration Describes configuration parameters for CloudWatch logging for an application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitoringConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs monitoringConfiguration) {
             return monitoringConfiguration(Output.of(monitoringConfiguration));
         }
 
-        /**
-         * @param parallelismConfiguration Describes parameters for how an application executes multiple tasks simultaneously.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismConfiguration(@Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs> parallelismConfiguration) {
             $.parallelismConfiguration = parallelismConfiguration;
             return this;
         }
 
-        /**
-         * @param parallelismConfiguration Describes parameters for how an application executes multiple tasks simultaneously.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parallelismConfiguration(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs parallelismConfiguration) {
             return parallelismConfiguration(Output.of(parallelismConfiguration));
         }

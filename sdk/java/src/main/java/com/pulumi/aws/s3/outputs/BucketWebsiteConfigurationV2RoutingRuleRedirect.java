@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketWebsiteConfigurationV2RoutingRuleRedirect {
-    /**
-     * @return The host name to use in the redirect request.
-     * 
-     */
     private @Nullable String hostName;
-    /**
-     * @return The HTTP redirect code to use on the response.
-     * 
-     */
     private @Nullable String httpRedirectCode;
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     private @Nullable String protocol;
-    /**
-     * @return The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-     * 
-     */
     private @Nullable String replaceKeyPrefixWith;
-    /**
-     * @return The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-     * 
-     */
     private @Nullable String replaceKeyWith;
 
     private BucketWebsiteConfigurationV2RoutingRuleRedirect() {}
-    /**
-     * @return The host name to use in the redirect request.
-     * 
-     */
     public Optional<String> hostName() {
         return Optional.ofNullable(this.hostName);
     }
-    /**
-     * @return The HTTP redirect code to use on the response.
-     * 
-     */
     public Optional<String> httpRedirectCode() {
         return Optional.ofNullable(this.httpRedirectCode);
     }
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
-    /**
-     * @return The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-     * 
-     */
     public Optional<String> replaceKeyPrefixWith() {
         return Optional.ofNullable(this.replaceKeyPrefixWith);
     }
-    /**
-     * @return The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-     * 
-     */
     public Optional<String> replaceKeyWith() {
         return Optional.ofNullable(this.replaceKeyWith);
     }

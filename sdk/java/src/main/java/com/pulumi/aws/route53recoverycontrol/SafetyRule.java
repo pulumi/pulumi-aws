@@ -17,218 +17,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Safety Rule
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.SafetyRule;
- * import com.pulumi.aws.route53recoverycontrol.SafetyRuleArgs;
- * import com.pulumi.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
- *             .assertedControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
- *             .waitPeriodMs(5000)
- *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
- *                 .inverted(false)
- *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.SafetyRule;
- * import com.pulumi.aws.route53recoverycontrol.SafetyRuleArgs;
- * import com.pulumi.aws.route53recoverycontrol.inputs.SafetyRuleRuleConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SafetyRule(&#34;example&#34;, SafetyRuleArgs.builder()        
- *             .controlPanelArn(&#34;arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8&#34;)
- *             .waitPeriodMs(5000)
- *             .gatingControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .targetControls(aws_route53recoverycontrolconfig_routing_control.example().arn())
- *             .ruleConfig(SafetyRuleRuleConfigArgs.builder()
- *                 .inverted(false)
- *                 .threshold(1)
- *                 .type(&#34;ATLEAST&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:route53recoverycontrol/safetyRule:SafetyRule myrule arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8/safetyrule/3bacc77003364c0f
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoverycontrol/safetyRule:SafetyRule")
 public class SafetyRule extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the safety rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the safety rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-     * 
-     */
     @Export(name="assertedControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> assertedControls;
 
-    /**
-     * @return Routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed.
-     * 
-     */
     public Output<Optional<List<String>>> assertedControls() {
         return Codegen.optional(this.assertedControls);
     }
-    /**
-     * ARN of the control panel in which this safety rule will reside.
-     * 
-     */
     @Export(name="controlPanelArn", refs={String.class}, tree="[0]")
     private Output<String> controlPanelArn;
 
-    /**
-     * @return ARN of the control panel in which this safety rule will reside.
-     * 
-     */
     public Output<String> controlPanelArn() {
         return this.controlPanelArn;
     }
-    /**
-     * Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-     * 
-     */
     @Export(name="gatingControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> gatingControls;
 
-    /**
-     * @return Gating controls for the new gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
-     * 
-     */
     public Output<Optional<List<String>>> gatingControls() {
         return Codegen.optional(this.gatingControls);
     }
-    /**
-     * Name describing the safety rule.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name describing the safety rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Configuration block for safety rule criteria. See below.
-     * 
-     */
     @Export(name="ruleConfig", refs={SafetyRuleRuleConfig.class}, tree="[0]")
     private Output<SafetyRuleRuleConfig> ruleConfig;
 
-    /**
-     * @return Configuration block for safety rule criteria. See below.
-     * 
-     */
     public Output<SafetyRuleRuleConfig> ruleConfig() {
         return this.ruleConfig;
     }
-    /**
-     * Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the safety rule. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
-     * 
-     */
     @Export(name="targetControls", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> targetControls;
 
-    /**
-     * @return Routing controls that can only be set or unset if the specified `rule_config` evaluates to true for the specified `gating_controls`.
-     * 
-     */
     public Output<Optional<List<String>>> targetControls() {
         return Codegen.optional(this.targetControls);
     }
-    /**
-     * Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-     * 
-     */
     @Export(name="waitPeriodMs", refs={Integer.class}, tree="[0]")
     private Output<Integer> waitPeriodMs;
 
-    /**
-     * @return Evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail.
-     * 
-     */
     public Output<Integer> waitPeriodMs() {
         return this.waitPeriodMs;
     }

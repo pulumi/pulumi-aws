@@ -15,47 +15,23 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
 
     public static final ManagedPrefixListEntryArgs Empty = new ManagedPrefixListEntryArgs();
 
-    /**
-     * CIDR block of this entry.
-     * 
-     */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
-    /**
-     * @return CIDR block of this entry.
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
 
-    /**
-     * Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * CIDR block of this entry.
-     * 
-     */
     @Import(name="prefixListId", required=true)
     private Output<String> prefixListId;
 
-    /**
-     * @return CIDR block of this entry.
-     * 
-     */
     public Output<String> prefixListId() {
         return this.prefixListId;
     }
@@ -86,65 +62,29 @@ public final class ManagedPrefixListEntryArgs extends com.pulumi.resources.Resou
             $ = new ManagedPrefixListEntryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidr CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(Output<String> cidr) {
             $.cidr = cidr;
             return this;
         }
 
-        /**
-         * @param cidr CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidr(String cidr) {
             return cidr(Output.of(cidr));
         }
 
-        /**
-         * @param description Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of this entry. Due to API limitations, updating only the description of an entry requires recreating the entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param prefixListId CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListId(Output<String> prefixListId) {
             $.prefixListId = prefixListId;
             return this;
         }
 
-        /**
-         * @param prefixListId CIDR block of this entry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefixListId(String prefixListId) {
             return prefixListId(Output.of(prefixListId));
         }

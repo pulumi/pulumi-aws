@@ -16,32 +16,16 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
 
     public static final RouteSpecHttp2RouteTimeoutArgs Empty = new RouteSpecHttp2RouteTimeoutArgs();
 
-    /**
-     * Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-     * 
-     */
     @Import(name="idle")
     private @Nullable Output<RouteSpecHttp2RouteTimeoutIdleArgs> idle;
 
-    /**
-     * @return Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-     * 
-     */
     public Optional<Output<RouteSpecHttp2RouteTimeoutIdleArgs>> idle() {
         return Optional.ofNullable(this.idle);
     }
 
-    /**
-     * Per request timeout.
-     * 
-     */
     @Import(name="perRequest")
     private @Nullable Output<RouteSpecHttp2RouteTimeoutPerRequestArgs> perRequest;
 
-    /**
-     * @return Per request timeout.
-     * 
-     */
     public Optional<Output<RouteSpecHttp2RouteTimeoutPerRequestArgs>> perRequest() {
         return Optional.ofNullable(this.perRequest);
     }
@@ -71,44 +55,20 @@ public final class RouteSpecHttp2RouteTimeoutArgs extends com.pulumi.resources.R
             $ = new RouteSpecHttp2RouteTimeoutArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idle(@Nullable Output<RouteSpecHttp2RouteTimeoutIdleArgs> idle) {
             $.idle = idle;
             return this;
         }
 
-        /**
-         * @param idle Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idle(RouteSpecHttp2RouteTimeoutIdleArgs idle) {
             return idle(Output.of(idle));
         }
 
-        /**
-         * @param perRequest Per request timeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perRequest(@Nullable Output<RouteSpecHttp2RouteTimeoutPerRequestArgs> perRequest) {
             $.perRequest = perRequest;
             return this;
         }
 
-        /**
-         * @param perRequest Per request timeout.
-         * 
-         * @return builder
-         * 
-         */
         public Builder perRequest(RouteSpecHttp2RouteTimeoutPerRequestArgs perRequest) {
             return perRequest(Output.of(perRequest));
         }

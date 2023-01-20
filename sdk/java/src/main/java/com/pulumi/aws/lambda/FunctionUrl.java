@@ -15,167 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
- * 
- * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.FunctionUrl;
- * import com.pulumi.aws.lambda.FunctionUrlArgs;
- * import com.pulumi.aws.lambda.inputs.FunctionUrlCorsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testLatest = new FunctionUrl(&#34;testLatest&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
- *             .authorizationType(&#34;NONE&#34;)
- *             .build());
- * 
- *         var testLive = new FunctionUrl(&#34;testLive&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.test().function_name())
- *             .qualifier(&#34;my_alias&#34;)
- *             .authorizationType(&#34;AWS_IAM&#34;)
- *             .cors(FunctionUrlCorsArgs.builder()
- *                 .allowCredentials(true)
- *                 .allowOrigins(&#34;*&#34;)
- *                 .allowMethods(&#34;*&#34;)
- *                 .allowHeaders(                
- *                     &#34;date&#34;,
- *                     &#34;keep-alive&#34;)
- *                 .exposeHeaders(                
- *                     &#34;keep-alive&#34;,
- *                     &#34;date&#34;)
- *                 .maxAge(86400)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/functionUrl:FunctionUrl")
 public class FunctionUrl extends com.pulumi.resources.CustomResource {
-    /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
-    /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     @Export(name="cors", refs={FunctionUrlCors.class}, tree="[0]")
     private Output</* @Nullable */ FunctionUrlCors> cors;
 
-    /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     public Output<Optional<FunctionUrlCors>> cors() {
         return Codegen.optional(this.cors);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the function.
-     * 
-     */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
-    /**
-     * The name (or ARN) of the Lambda function.
-     * 
-     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
-    /**
-     * @return The name (or ARN) of the Lambda function.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
-    /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     @Export(name="functionUrl", refs={String.class}, tree="[0]")
     private Output<String> functionUrl;
 
-    /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     public Output<String> functionUrl() {
         return this.functionUrl;
     }
-    /**
-     * The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
-    /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
-    /**
-     * A generated ID for the endpoint.
-     * 
-     */
     @Export(name="urlId", refs={String.class}, tree="[0]")
     private Output<String> urlId;
 
-    /**
-     * @return A generated ID for the endpoint.
-     * 
-     */
     public Output<String> urlId() {
         return this.urlId;
     }

@@ -15,137 +15,65 @@ public final class DelegatedAdministratorState extends com.pulumi.resources.Reso
 
     public static final DelegatedAdministratorState Empty = new DelegatedAdministratorState();
 
-    /**
-     * The account ID number of the member account in the organization to register as a delegated administrator.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The account ID number of the member account in the organization to register as a delegated administrator.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The date when the account was made a delegated administrator.
-     * 
-     */
     @Import(name="delegationEnabledDate")
     private @Nullable Output<String> delegationEnabledDate;
 
-    /**
-     * @return The date when the account was made a delegated administrator.
-     * 
-     */
     public Optional<Output<String>> delegationEnabledDate() {
         return Optional.ofNullable(this.delegationEnabledDate);
     }
 
-    /**
-     * The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     @Import(name="email")
     private @Nullable Output<String> email;
 
-    /**
-     * @return The email address that is associated with the delegated administrator&#39;s AWS account.
-     * 
-     */
     public Optional<Output<String>> email() {
         return Optional.ofNullable(this.email);
     }
 
-    /**
-     * The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     @Import(name="joinedMethod")
     private @Nullable Output<String> joinedMethod;
 
-    /**
-     * @return The method by which the delegated administrator&#39;s account joined the organization.
-     * 
-     */
     public Optional<Output<String>> joinedMethod() {
         return Optional.ofNullable(this.joinedMethod);
     }
 
-    /**
-     * The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     @Import(name="joinedTimestamp")
     private @Nullable Output<String> joinedTimestamp;
 
-    /**
-     * @return The date when the delegated administrator&#39;s account became a part of the organization.
-     * 
-     */
     public Optional<Output<String>> joinedTimestamp() {
         return Optional.ofNullable(this.joinedTimestamp);
     }
 
-    /**
-     * The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The friendly name of the delegated administrator&#39;s account.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     * 
-     */
     @Import(name="servicePrincipal")
     private @Nullable Output<String> servicePrincipal;
 
-    /**
-     * @return The service principal of the AWS service for which you want to make the member account a delegated administrator.
-     * 
-     */
     public Optional<Output<String>> servicePrincipal() {
         return Optional.ofNullable(this.servicePrincipal);
     }
 
-    /**
-     * The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status of the delegated administrator&#39;s account in the organization.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -182,191 +110,83 @@ public final class DelegatedAdministratorState extends com.pulumi.resources.Reso
             $ = new DelegatedAdministratorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The account ID number of the member account in the organization to register as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The account ID number of the member account in the organization to register as a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param delegationEnabledDate The date when the account was made a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegationEnabledDate(@Nullable Output<String> delegationEnabledDate) {
             $.delegationEnabledDate = delegationEnabledDate;
             return this;
         }
 
-        /**
-         * @param delegationEnabledDate The date when the account was made a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder delegationEnabledDate(String delegationEnabledDate) {
             return delegationEnabledDate(Output.of(delegationEnabledDate));
         }
 
-        /**
-         * @param email The email address that is associated with the delegated administrator&#39;s AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(@Nullable Output<String> email) {
             $.email = email;
             return this;
         }
 
-        /**
-         * @param email The email address that is associated with the delegated administrator&#39;s AWS account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder email(String email) {
             return email(Output.of(email));
         }
 
-        /**
-         * @param joinedMethod The method by which the delegated administrator&#39;s account joined the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedMethod(@Nullable Output<String> joinedMethod) {
             $.joinedMethod = joinedMethod;
             return this;
         }
 
-        /**
-         * @param joinedMethod The method by which the delegated administrator&#39;s account joined the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedMethod(String joinedMethod) {
             return joinedMethod(Output.of(joinedMethod));
         }
 
-        /**
-         * @param joinedTimestamp The date when the delegated administrator&#39;s account became a part of the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedTimestamp(@Nullable Output<String> joinedTimestamp) {
             $.joinedTimestamp = joinedTimestamp;
             return this;
         }
 
-        /**
-         * @param joinedTimestamp The date when the delegated administrator&#39;s account became a part of the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder joinedTimestamp(String joinedTimestamp) {
             return joinedTimestamp(Output.of(joinedTimestamp));
         }
 
-        /**
-         * @param name The friendly name of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The friendly name of the delegated administrator&#39;s account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param servicePrincipal The service principal of the AWS service for which you want to make the member account a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(@Nullable Output<String> servicePrincipal) {
             $.servicePrincipal = servicePrincipal;
             return this;
         }
 
-        /**
-         * @param servicePrincipal The service principal of the AWS service for which you want to make the member account a delegated administrator.
-         * 
-         * @return builder
-         * 
-         */
         public Builder servicePrincipal(String servicePrincipal) {
             return servicePrincipal(Output.of(servicePrincipal));
         }
 
-        /**
-         * @param status The status of the delegated administrator&#39;s account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the delegated administrator&#39;s account in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

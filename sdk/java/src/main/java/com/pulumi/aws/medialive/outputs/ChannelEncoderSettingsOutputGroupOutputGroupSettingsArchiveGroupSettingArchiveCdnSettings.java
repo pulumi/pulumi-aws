@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings {
-    /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings archiveS3Settings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings() {}
-    /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings> archiveS3Settings() {
         return Optional.ofNullable(this.archiveS3Settings);
     }

@@ -15,167 +15,53 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
- * 
- * For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.LayerVersionPermission;
- * import com.pulumi.aws.lambda.LayerVersionPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lambdaLayerPermission = new LayerVersionPermission(&#34;lambdaLayerPermission&#34;, LayerVersionPermissionArgs.builder()        
- *             .action(&#34;lambda:GetLayerVersion&#34;)
- *             .layerName(&#34;arn:aws:lambda:us-west-2:123456654321:layer:test_layer1&#34;)
- *             .principal(&#34;111111111111&#34;)
- *             .statementId(&#34;dev-account&#34;)
- *             .versionNumber(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Lambda Layer Permissions can be imported using `layer_name` and `version_number`, separated by a comma (`,`).
- * 
- * ```sh
- *  $ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
- * ```
- * 
- *  [1]https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#permissions-resource-xaccountlayer
- * 
- */
 @ResourceType(type="aws:lambda/layerVersionPermission:LayerVersionPermission")
 public class LayerVersionPermission extends com.pulumi.resources.CustomResource {
-    /**
-     * Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return Action, which will be allowed. `lambda:GetLayerVersion` value is suggested by AWS documantation.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * The name or ARN of the Lambda Layer, which you want to grant access to.
-     * 
-     */
     @Export(name="layerName", refs={String.class}, tree="[0]")
     private Output<String> layerName;
 
-    /**
-     * @return The name or ARN of the Lambda Layer, which you want to grant access to.
-     * 
-     */
     public Output<String> layerName() {
         return this.layerName;
     }
-    /**
-     * An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
-     * 
-     */
     @Export(name="organizationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationId;
 
-    /**
-     * @return An identifier of AWS Organization, which should be able to use your Lambda Layer. `principal` should be equal to `*` if `organization_id` provided.
-     * 
-     */
     public Output<Optional<String>> organizationId() {
         return Codegen.optional(this.organizationId);
     }
-    /**
-     * Full Lambda Layer Permission policy.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Full Lambda Layer Permission policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return AWS account ID which should be able to use your Lambda Layer. `*` can be used here, if you want to share your Lambda Layer widely.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * A unique identifier for the current revision of the policy.
-     * 
-     */
     @Export(name="revisionId", refs={String.class}, tree="[0]")
     private Output<String> revisionId;
 
-    /**
-     * @return A unique identifier for the current revision of the policy.
-     * 
-     */
     public Output<String> revisionId() {
         return this.revisionId;
     }
-    /**
-     * The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-     * 
-     */
     @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
-    /**
-     * @return The name of Lambda Layer Permission, for example `dev-account` - human readable note about what is this permission for.
-     * 
-     */
     public Output<String> statementId() {
         return this.statementId;
     }
-    /**
-     * Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-     * 
-     */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
-    /**
-     * @return Version of Lambda Layer, which you want to grant access to. Note: permissions only apply to a single version of a layer.
-     * 
-     */
     public Output<Integer> versionNumber() {
         return this.versionNumber;
     }

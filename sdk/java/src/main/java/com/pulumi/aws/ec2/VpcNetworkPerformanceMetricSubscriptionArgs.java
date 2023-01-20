@@ -15,62 +15,30 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
 
     public static final VpcNetworkPerformanceMetricSubscriptionArgs Empty = new VpcNetworkPerformanceMetricSubscriptionArgs();
 
-    /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
-    /**
-     * @return The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
 
-    /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-     * 
-     */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
-    /**
-     * @return The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-     * 
-     */
     public Optional<Output<String>> metric() {
         return Optional.ofNullable(this.metric);
     }
 
-    /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-     * 
-     */
     @Import(name="statistic")
     private @Nullable Output<String> statistic;
 
-    /**
-     * @return The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-     * 
-     */
     public Optional<Output<String>> statistic() {
         return Optional.ofNullable(this.statistic);
     }
@@ -102,86 +70,38 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
             $ = new VpcNetworkPerformanceMetricSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<String> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(String destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param metric The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(@Nullable Output<String> metric) {
             $.metric = metric;
             return this;
         }
 
-        /**
-         * @param metric The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metric(String metric) {
             return metric(Output.of(metric));
         }
 
-        /**
-         * @param source The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param statistic The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(@Nullable Output<String> statistic) {
             $.statistic = statistic;
             return this;
         }
 
-        /**
-         * @param statistic The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(String statistic) {
             return statistic(Output.of(statistic));
         }

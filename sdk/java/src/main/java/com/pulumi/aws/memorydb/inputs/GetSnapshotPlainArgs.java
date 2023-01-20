@@ -15,32 +15,16 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSnapshotPlainArgs Empty = new GetSnapshotPlainArgs();
 
-    /**
-     * Name of the snapshot.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the snapshot.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Map of tags assigned to the snapshot.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the snapshot.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSnapshotPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

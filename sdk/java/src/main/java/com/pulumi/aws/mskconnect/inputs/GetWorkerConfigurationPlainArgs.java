@@ -12,17 +12,9 @@ public final class GetWorkerConfigurationPlainArgs extends com.pulumi.resources.
 
     public static final GetWorkerConfigurationPlainArgs Empty = new GetWorkerConfigurationPlainArgs();
 
-    /**
-     * Name of the worker configuration.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the worker configuration.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -51,12 +43,6 @@ public final class GetWorkerConfigurationPlainArgs extends com.pulumi.resources.
             $ = new GetWorkerConfigurationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

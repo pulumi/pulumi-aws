@@ -16,92 +16,44 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final EmailChannelArgs Empty = new EmailChannelArgs();
 
-    /**
-     * The application ID.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-     * 
-     */
     @Import(name="configurationSet")
     private @Nullable Output<String> configurationSet;
 
-    /**
-     * @return The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-     * 
-     */
     public Optional<Output<String>> configurationSet() {
         return Optional.ofNullable(this.configurationSet);
     }
 
-    /**
-     * Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether the channel is enabled or disabled. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-     * 
-     */
     @Import(name="fromAddress", required=true)
     private Output<String> fromAddress;
 
-    /**
-     * @return The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-     * 
-     */
     public Output<String> fromAddress() {
         return this.fromAddress;
     }
 
-    /**
-     * The ARN of an identity verified with SES.
-     * 
-     */
     @Import(name="identity", required=true)
     private Output<String> identity;
 
-    /**
-     * @return The ARN of an identity verified with SES.
-     * 
-     */
     public Output<String> identity() {
         return this.identity;
     }
 
-    /**
-     * The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -135,128 +87,56 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new EmailChannelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId The application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param configurationSet The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSet(@Nullable Output<String> configurationSet) {
             $.configurationSet = configurationSet;
             return this;
         }
 
-        /**
-         * @param configurationSet The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSet(String configurationSet) {
             return configurationSet(Output.of(configurationSet));
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether the channel is enabled or disabled. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromAddress(Output<String> fromAddress) {
             $.fromAddress = fromAddress;
             return this;
         }
 
-        /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromAddress(String fromAddress) {
             return fromAddress(Output.of(fromAddress));
         }
 
-        /**
-         * @param identity The ARN of an identity verified with SES.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(Output<String> identity) {
             $.identity = identity;
             return this;
         }
 
-        /**
-         * @param identity The ARN of an identity verified with SES.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identity(String identity) {
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param roleArn The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

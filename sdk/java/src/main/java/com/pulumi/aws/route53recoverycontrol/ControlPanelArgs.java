@@ -15,32 +15,16 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ControlPanelArgs Empty = new ControlPanelArgs();
 
-    /**
-     * ARN of the cluster in which this control panel will reside.
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private Output<String> clusterArn;
 
-    /**
-     * @return ARN of the cluster in which this control panel will reside.
-     * 
-     */
     public Output<String> clusterArn() {
         return this.clusterArn;
     }
 
-    /**
-     * Name describing the control panel.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name describing the control panel.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class ControlPanelArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ControlPanelArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the cluster in which this control panel will reside.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(Output<String> clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param clusterArn ARN of the cluster in which this control panel will reside.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             return clusterArn(Output.of(clusterArn));
         }
 
-        /**
-         * @param name Name describing the control panel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name describing the control panel.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

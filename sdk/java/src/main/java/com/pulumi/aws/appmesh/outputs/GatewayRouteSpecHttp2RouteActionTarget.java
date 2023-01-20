@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GatewayRouteSpecHttp2RouteActionTarget {
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     private GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
 
     private GatewayRouteSpecHttp2RouteActionTarget() {}
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     public GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService() {
         return this.virtualService;
     }

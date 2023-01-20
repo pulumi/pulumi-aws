@@ -13,32 +13,16 @@ public final class GetPromptArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPromptArgs Empty = new GetPromptArgs();
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Returns information on a specific Prompt by name
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Returns information on a specific Prompt by name
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -68,44 +52,20 @@ public final class GetPromptArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPromptArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }
 
-        /**
-         * @param name Returns information on a specific Prompt by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Returns information on a specific Prompt by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
-    /**
-     * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     private @Nullable String deleteOnTermination;
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     private @Nullable String encrypted;
-    /**
-     * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Identifier of the EC2 Volume Snapshot.
-     * 
-     */
     private @Nullable String snapshotId;
-    /**
-     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
-     * 
-     */
     private @Nullable Integer throughput;
-    /**
-     * @return Size of the volume, in GiB.
-     * 
-     */
     private @Nullable Integer volumeSize;
-    /**
-     * @return Type of the volume. For example, `gp2` or `io2`.
-     * 
-     */
     private @Nullable String volumeType;
 
     private ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs() {}
-    /**
-     * @return Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     public Optional<String> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-     * 
-     */
     public Optional<String> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
-    /**
-     * @return Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Identifier of the EC2 Volume Snapshot.
-     * 
-     */
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
-    /**
-     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
-     * 
-     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
-    /**
-     * @return Size of the volume, in GiB.
-     * 
-     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
-    /**
-     * @return Type of the volume. For example, `gp2` or `io2`.
-     * 
-     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

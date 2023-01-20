@@ -13,17 +13,9 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
 
     public static final FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs Empty = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs();
 
-    /**
-     * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     @Import(name="ruleOrder", required=true)
     private Output<String> ruleOrder;
 
-    /**
-     * @return Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-     * 
-     */
     public Output<String> ruleOrder() {
         return this.ruleOrder;
     }
@@ -52,23 +44,11 @@ public final class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs extends
             $ = new FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ruleOrder Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(Output<String> ruleOrder) {
             $.ruleOrder = ruleOrder;
             return this;
         }
 
-        /**
-         * @param ruleOrder Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleOrder(String ruleOrder) {
             return ruleOrder(Output.of(ruleOrder));
         }

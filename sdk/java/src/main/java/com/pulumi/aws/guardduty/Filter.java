@@ -17,198 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a GuardDuty filter.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Filter;
- * import com.pulumi.aws.guardduty.FilterArgs;
- * import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myFilter = new Filter(&#34;myFilter&#34;, FilterArgs.builder()        
- *             .action(&#34;ARCHIVE&#34;)
- *             .detectorId(aws_guardduty_detector.example().id())
- *             .rank(1)
- *             .findingCriteria(FilterFindingCriteriaArgs.builder()
- *                 .criterions(                
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;region&#34;)
- *                         .equals(&#34;eu-west-1&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;service.additionalInfo.threatListName&#34;)
- *                         .notEquals(                        
- *                             &#34;some-threat&#34;,
- *                             &#34;another-threat&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;updatedAt&#34;)
- *                         .greaterThan(&#34;2020-01-01T00:00:00Z&#34;)
- *                         .lessThan(&#34;2020-02-01T00:00:00Z&#34;)
- *                         .build(),
- *                     FilterFindingCriteriaCriterionArgs.builder()
- *                         .field(&#34;severity&#34;)
- *                         .greaterThanOrEqual(&#34;4&#34;)
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GuardDuty filters can be imported using the detector ID and filter&#39;s name separated by a colon, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:guardduty/filter:Filter MyFilter 00b00fd5aecc0ab60a708659477e9617:MyFilter
- * ```
- * 
- */
 @ResourceType(type="aws:guardduty/filter:Filter")
 public class Filter extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return Specifies the action that is to be applied to the findings that match the filter. Can be one of `ARCHIVE` or `NOOP`.
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * The ARN of the GuardDuty filter.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the GuardDuty filter.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the filter.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the filter.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * ID of a GuardDuty detector, attached to your account.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return ID of a GuardDuty detector, attached to your account.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-     * 
-     */
     @Export(name="findingCriteria", refs={FilterFindingCriteria.class}, tree="[0]")
     private Output<FilterFindingCriteria> findingCriteria;
 
-    /**
-     * @return Represents the criteria to be used in the filter for querying findings. Contains one or more `criterion` blocks, documented below.
-     * 
-     */
     public Output<FilterFindingCriteria> findingCriteria() {
         return this.findingCriteria;
     }
-    /**
-     * The name of your filter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of your filter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-     * 
-     */
     @Export(name="rank", refs={Integer.class}, tree="[0]")
     private Output<Integer> rank;
 
-    /**
-     * @return Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings.
-     * 
-     */
     public Output<Integer> rank() {
         return this.rank;
     }
-    /**
-     * The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return The tags that you want to add to the Filter resource. A tag consists of a key and a value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

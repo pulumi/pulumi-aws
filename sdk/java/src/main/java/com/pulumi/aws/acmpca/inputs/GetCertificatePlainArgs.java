@@ -12,32 +12,16 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetCertificatePlainArgs Empty = new GetCertificatePlainArgs();
 
-    /**
-     * ARN of the certificate issued by the private certificate authority.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the certificate issued by the private certificate authority.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * ARN of the certificate authority.
-     * 
-     */
     @Import(name="certificateAuthorityArn", required=true)
     private String certificateAuthorityArn;
 
-    /**
-     * @return ARN of the certificate authority.
-     * 
-     */
     public String certificateAuthorityArn() {
         return this.certificateAuthorityArn;
     }
@@ -67,23 +51,11 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetCertificatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the certificate issued by the private certificate authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param certificateAuthorityArn ARN of the certificate authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateAuthorityArn(String certificateAuthorityArn) {
             $.certificateAuthorityArn = certificateAuthorityArn;
             return this;

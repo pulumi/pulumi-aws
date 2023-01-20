@@ -22,122 +22,58 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
 
     public static final DomainDefaultUserSettingsArgs Empty = new DomainDefaultUserSettingsArgs();
 
-    /**
-     * The Canvas app settings. See Canvas App Settings below.
-     * 
-     */
     @Import(name="canvasAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsArgs> canvasAppSettings;
 
-    /**
-     * @return The Canvas app settings. See Canvas App Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsArgs>> canvasAppSettings() {
         return Optional.ofNullable(this.canvasAppSettings);
     }
 
-    /**
-     * The execution role ARN for the user.
-     * 
-     */
     @Import(name="executionRole", required=true)
     private Output<String> executionRole;
 
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     public Output<String> executionRole() {
         return this.executionRole;
     }
 
-    /**
-     * The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     @Import(name="jupyterServerAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings;
 
-    /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsJupyterServerAppSettingsArgs>> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
 
-    /**
-     * The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     @Import(name="kernelGatewayAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings;
 
-    /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsKernelGatewayAppSettingsArgs>> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
 
-    /**
-     * The RSession app settings. See RSession App Settings below.
-     * 
-     */
     @Import(name="rSessionAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsArgs> rSessionAppSettings;
 
-    /**
-     * @return The RSession app settings. See RSession App Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsRSessionAppSettingsArgs>> rSessionAppSettings() {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
 
-    /**
-     * A list of security group IDs that will be attached to the user.
-     * 
-     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
-    /**
-     * @return A list of security group IDs that will be attached to the user.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
-    /**
-     * The sharing settings. See Sharing Settings below.
-     * 
-     */
     @Import(name="sharingSettings")
     private @Nullable Output<DomainDefaultUserSettingsSharingSettingsArgs> sharingSettings;
 
-    /**
-     * @return The sharing settings. See Sharing Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsSharingSettingsArgs>> sharingSettings() {
         return Optional.ofNullable(this.sharingSettings);
     }
 
-    /**
-     * The TensorBoard app settings. See TensorBoard App Settings below.
-     * 
-     */
     @Import(name="tensorBoardAppSettings")
     private @Nullable Output<DomainDefaultUserSettingsTensorBoardAppSettingsArgs> tensorBoardAppSettings;
 
-    /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultUserSettingsTensorBoardAppSettingsArgs>> tensorBoardAppSettings() {
         return Optional.ofNullable(this.tensorBoardAppSettings);
     }
@@ -173,180 +109,78 @@ public final class DomainDefaultUserSettingsArgs extends com.pulumi.resources.Re
             $ = new DomainDefaultUserSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canvasAppSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsArgs> canvasAppSettings) {
             $.canvasAppSettings = canvasAppSettings;
             return this;
         }
 
-        /**
-         * @param canvasAppSettings The Canvas app settings. See Canvas App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder canvasAppSettings(DomainDefaultUserSettingsCanvasAppSettingsArgs canvasAppSettings) {
             return canvasAppSettings(Output.of(canvasAppSettings));
         }
 
-        /**
-         * @param executionRole The execution role ARN for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRole(Output<String> executionRole) {
             $.executionRole = executionRole;
             return this;
         }
 
-        /**
-         * @param executionRole The execution role ARN for the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionRole(String executionRole) {
             return executionRole(Output.of(executionRole));
         }
 
-        /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterServerAppSettings(@Nullable Output<DomainDefaultUserSettingsJupyterServerAppSettingsArgs> jupyterServerAppSettings) {
             $.jupyterServerAppSettings = jupyterServerAppSettings;
             return this;
         }
 
-        /**
-         * @param jupyterServerAppSettings The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jupyterServerAppSettings(DomainDefaultUserSettingsJupyterServerAppSettingsArgs jupyterServerAppSettings) {
             return jupyterServerAppSettings(Output.of(jupyterServerAppSettings));
         }
 
-        /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayAppSettings(@Nullable Output<DomainDefaultUserSettingsKernelGatewayAppSettingsArgs> kernelGatewayAppSettings) {
             $.kernelGatewayAppSettings = kernelGatewayAppSettings;
             return this;
         }
 
-        /**
-         * @param kernelGatewayAppSettings The kernel gateway app settings. See Kernel Gateway App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs kernelGatewayAppSettings) {
             return kernelGatewayAppSettings(Output.of(kernelGatewayAppSettings));
         }
 
-        /**
-         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rSessionAppSettings(@Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsArgs> rSessionAppSettings) {
             $.rSessionAppSettings = rSessionAppSettings;
             return this;
         }
 
-        /**
-         * @param rSessionAppSettings The RSession app settings. See RSession App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rSessionAppSettings(DomainDefaultUserSettingsRSessionAppSettingsArgs rSessionAppSettings) {
             return rSessionAppSettings(Output.of(rSessionAppSettings));
         }
 
-        /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
-        /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
-        /**
-         * @param securityGroups A list of security group IDs that will be attached to the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
-        /**
-         * @param sharingSettings The sharing settings. See Sharing Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharingSettings(@Nullable Output<DomainDefaultUserSettingsSharingSettingsArgs> sharingSettings) {
             $.sharingSettings = sharingSettings;
             return this;
         }
 
-        /**
-         * @param sharingSettings The sharing settings. See Sharing Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharingSettings(DomainDefaultUserSettingsSharingSettingsArgs sharingSettings) {
             return sharingSettings(Output.of(sharingSettings));
         }
 
-        /**
-         * @param tensorBoardAppSettings The TensorBoard app settings. See TensorBoard App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tensorBoardAppSettings(@Nullable Output<DomainDefaultUserSettingsTensorBoardAppSettingsArgs> tensorBoardAppSettings) {
             $.tensorBoardAppSettings = tensorBoardAppSettings;
             return this;
         }
 
-        /**
-         * @param tensorBoardAppSettings The TensorBoard app settings. See TensorBoard App Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tensorBoardAppSettings(DomainDefaultUserSettingsTensorBoardAppSettingsArgs tensorBoardAppSettings) {
             return tensorBoardAppSettings(Output.of(tensorBoardAppSettings));
         }

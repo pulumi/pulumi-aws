@@ -16,36 +16,16 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
 
     public static final DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs Empty = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs();
 
-    /**
-     * The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<String> action;
 
-    /**
-     * @return The action to take on instances in the original environment after a successful blue/green deployment.
-     * * `TERMINATE`: Instances are terminated after a specified wait time.
-     * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-     * 
-     */
     public Optional<Output<String>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-     * 
-     */
     @Import(name="terminationWaitTimeInMinutes")
     private @Nullable Output<Integer> terminationWaitTimeInMinutes;
 
-    /**
-     * @return The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-     * 
-     */
     public Optional<Output<Integer>> terminationWaitTimeInMinutes() {
         return Optional.ofNullable(this.terminationWaitTimeInMinutes);
     }
@@ -75,48 +55,20 @@ public final class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstance
             $ = new DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action The action to take on instances in the original environment after a successful blue/green deployment.
-         * * `TERMINATE`: Instances are terminated after a specified wait time.
-         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<String> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action The action to take on instances in the original environment after a successful blue/green deployment.
-         * * `TERMINATE`: Instances are terminated after a specified wait time.
-         * * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(String action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param terminationWaitTimeInMinutes The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationWaitTimeInMinutes(@Nullable Output<Integer> terminationWaitTimeInMinutes) {
             $.terminationWaitTimeInMinutes = terminationWaitTimeInMinutes;
             return this;
         }
 
-        /**
-         * @param terminationWaitTimeInMinutes The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder terminationWaitTimeInMinutes(Integer terminationWaitTimeInMinutes) {
             return terminationWaitTimeInMinutes(Output.of(terminationWaitTimeInMinutes));
         }

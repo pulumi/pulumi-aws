@@ -22,6 +22,7 @@ public final class GetLoadBalancerResult {
     private String desyncMitigationMode;
     private String dnsName;
     private Boolean dropInvalidHeaderFields;
+    private Boolean enableCrossZoneLoadBalancing;
     private Boolean enableDeletionProtection;
     private Boolean enableHttp2;
     private Boolean enableWafFailOpen;
@@ -64,6 +65,9 @@ public final class GetLoadBalancerResult {
     }
     public Boolean dropInvalidHeaderFields() {
         return this.dropInvalidHeaderFields;
+    }
+    public Boolean enableCrossZoneLoadBalancing() {
+        return this.enableCrossZoneLoadBalancing;
     }
     public Boolean enableDeletionProtection() {
         return this.enableDeletionProtection;
@@ -134,6 +138,7 @@ public final class GetLoadBalancerResult {
         private String desyncMitigationMode;
         private String dnsName;
         private Boolean dropInvalidHeaderFields;
+        private Boolean enableCrossZoneLoadBalancing;
         private Boolean enableDeletionProtection;
         private Boolean enableHttp2;
         private Boolean enableWafFailOpen;
@@ -160,6 +165,7 @@ public final class GetLoadBalancerResult {
     	      this.desyncMitigationMode = defaults.desyncMitigationMode;
     	      this.dnsName = defaults.dnsName;
     	      this.dropInvalidHeaderFields = defaults.dropInvalidHeaderFields;
+    	      this.enableCrossZoneLoadBalancing = defaults.enableCrossZoneLoadBalancing;
     	      this.enableDeletionProtection = defaults.enableDeletionProtection;
     	      this.enableHttp2 = defaults.enableHttp2;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
@@ -211,6 +217,11 @@ public final class GetLoadBalancerResult {
         @CustomType.Setter
         public Builder dropInvalidHeaderFields(Boolean dropInvalidHeaderFields) {
             this.dropInvalidHeaderFields = Objects.requireNonNull(dropInvalidHeaderFields);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enableCrossZoneLoadBalancing(Boolean enableCrossZoneLoadBalancing) {
+            this.enableCrossZoneLoadBalancing = Objects.requireNonNull(enableCrossZoneLoadBalancing);
             return this;
         }
         @CustomType.Setter
@@ -311,6 +322,7 @@ public final class GetLoadBalancerResult {
             o.desyncMitigationMode = desyncMitigationMode;
             o.dnsName = dnsName;
             o.dropInvalidHeaderFields = dropInvalidHeaderFields;
+            o.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             o.enableDeletionProtection = enableDeletionProtection;
             o.enableHttp2 = enableHttp2;
             o.enableWafFailOpen = enableWafFailOpen;

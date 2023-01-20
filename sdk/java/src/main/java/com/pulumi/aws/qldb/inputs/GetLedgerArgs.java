@@ -16,17 +16,9 @@ public final class GetLedgerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLedgerArgs Empty = new GetLedgerArgs();
 
-    /**
-     * Friendly name of the ledger to match.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Friendly name of the ledger to match.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -63,23 +55,11 @@ public final class GetLedgerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetLedgerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Friendly name of the ledger to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name of the ledger to match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

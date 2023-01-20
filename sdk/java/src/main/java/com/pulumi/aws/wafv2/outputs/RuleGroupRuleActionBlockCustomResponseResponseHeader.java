@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleActionBlockCustomResponseResponseHeader {
-    /**
-     * @return The label string.
-     * 
-     */
     private String name;
-    /**
-     * @return The value of the custom header.
-     * 
-     */
     private String value;
 
     private RuleGroupRuleActionBlockCustomResponseResponseHeader() {}
-    /**
-     * @return The label string.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The value of the custom header.
-     * 
-     */
     public String value() {
         return this.value;
     }

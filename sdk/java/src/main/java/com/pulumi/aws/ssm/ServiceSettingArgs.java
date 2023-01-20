@@ -13,32 +13,16 @@ public final class ServiceSettingArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ServiceSettingArgs Empty = new ServiceSettingArgs();
 
-    /**
-     * ID of the service setting.
-     * 
-     */
     @Import(name="settingId", required=true)
     private Output<String> settingId;
 
-    /**
-     * @return ID of the service setting.
-     * 
-     */
     public Output<String> settingId() {
         return this.settingId;
     }
 
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Import(name="settingValue", required=true)
     private Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Output<String> settingValue() {
         return this.settingValue;
     }
@@ -68,44 +52,20 @@ public final class ServiceSettingArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ServiceSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param settingId ID of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(Output<String> settingId) {
             $.settingId = settingId;
             return this;
         }
 
-        /**
-         * @param settingId ID of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingId(String settingId) {
             return settingId(Output.of(settingId));
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(Output<String> settingValue) {
             $.settingValue = settingValue;
             return this;
         }
 
-        /**
-         * @param settingValue Value of the service setting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settingValue(String settingValue) {
             return settingValue(Output.of(settingValue));
         }

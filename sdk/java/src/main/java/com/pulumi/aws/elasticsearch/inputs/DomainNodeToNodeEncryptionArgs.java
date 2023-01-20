@@ -13,17 +13,9 @@ public final class DomainNodeToNodeEncryptionArgs extends com.pulumi.resources.R
 
     public static final DomainNodeToNodeEncryptionArgs Empty = new DomainNodeToNodeEncryptionArgs();
 
-    /**
-     * Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
@@ -52,23 +44,11 @@ public final class DomainNodeToNodeEncryptionArgs extends com.pulumi.resources.R
             $ = new DomainNodeToNodeEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

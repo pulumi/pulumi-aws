@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
-    /**
-     * @return The number of in-application streams to create.
-     * 
-     */
     private @Nullable Integer count;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism() {}
-    /**
-     * @return The number of in-application streams to create.
-     * 
-     */
     public Optional<Integer> count() {
         return Optional.ofNullable(this.count);
     }

@@ -21,77 +21,37 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainArgs Empty = new DomainArgs();
 
-    /**
-     * Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-     * 
-     */
     @Import(name="appNetworkAccessType")
     private @Nullable Output<String> appNetworkAccessType;
 
-    /**
-     * @return Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-     * 
-     */
     public Optional<Output<String>> appNetworkAccessType() {
         return Optional.ofNullable(this.appNetworkAccessType);
     }
 
-    /**
-     * The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
-     * 
-     */
     @Import(name="appSecurityGroupManagement")
     private @Nullable Output<String> appSecurityGroupManagement;
 
-    /**
-     * @return The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
-     * 
-     */
     public Optional<Output<String>> appSecurityGroupManagement() {
         return Optional.ofNullable(this.appSecurityGroupManagement);
     }
 
-    /**
-     * The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-     * 
-     */
     @Import(name="authMode", required=true)
     private Output<String> authMode;
 
-    /**
-     * @return The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-     * 
-     */
     public Output<String> authMode() {
         return this.authMode;
     }
 
-    /**
-     * The default space settings. See Default Space Settings below.
-     * 
-     */
     @Import(name="defaultSpaceSettings")
     private @Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings;
 
-    /**
-     * @return The default space settings. See Default Space Settings below.
-     * 
-     */
     public Optional<Output<DomainDefaultSpaceSettingsArgs>> defaultSpaceSettings() {
         return Optional.ofNullable(this.defaultSpaceSettings);
     }
 
-    /**
-     * The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
-     * 
-     */
     @Import(name="defaultUserSettings", required=true)
     private Output<DomainDefaultUserSettingsArgs> defaultUserSettings;
 
-    /**
-     * @return The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
-     * 
-     */
     public Output<DomainDefaultUserSettingsArgs> defaultUserSettings() {
         return this.defaultUserSettings;
     }
@@ -103,92 +63,44 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         return this.domainName;
     }
 
-    /**
-     * The domain&#39;s settings.
-     * 
-     */
     @Import(name="domainSettings")
     private @Nullable Output<DomainDomainSettingsArgs> domainSettings;
 
-    /**
-     * @return The domain&#39;s settings.
-     * 
-     */
     public Optional<Output<DomainDomainSettingsArgs>> domainSettings() {
         return Optional.ofNullable(this.domainSettings);
     }
 
-    /**
-     * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-     * 
-     */
     @Import(name="retentionPolicy")
     private @Nullable Output<DomainRetentionPolicyArgs> retentionPolicy;
 
-    /**
-     * @return The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-     * 
-     */
     public Optional<Output<DomainRetentionPolicyArgs>> retentionPolicy() {
         return Optional.ofNullable(this.retentionPolicy);
     }
 
-    /**
-     * The VPC subnets that Studio uses for communication.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return The VPC subnets that Studio uses for communication.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -228,107 +140,47 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DomainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param appNetworkAccessType Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appNetworkAccessType(@Nullable Output<String> appNetworkAccessType) {
             $.appNetworkAccessType = appNetworkAccessType;
             return this;
         }
 
-        /**
-         * @param appNetworkAccessType Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appNetworkAccessType(String appNetworkAccessType) {
             return appNetworkAccessType(Output.of(appNetworkAccessType));
         }
 
-        /**
-         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appSecurityGroupManagement(@Nullable Output<String> appSecurityGroupManagement) {
             $.appSecurityGroupManagement = appSecurityGroupManagement;
             return this;
         }
 
-        /**
-         * @param appSecurityGroupManagement The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.* `domain_settings` - (Optional) The domain settings. See Domain Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder appSecurityGroupManagement(String appSecurityGroupManagement) {
             return appSecurityGroupManagement(Output.of(appSecurityGroupManagement));
         }
 
-        /**
-         * @param authMode The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authMode(Output<String> authMode) {
             $.authMode = authMode;
             return this;
         }
 
-        /**
-         * @param authMode The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authMode(String authMode) {
             return authMode(Output.of(authMode));
         }
 
-        /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSpaceSettings(@Nullable Output<DomainDefaultSpaceSettingsArgs> defaultSpaceSettings) {
             $.defaultSpaceSettings = defaultSpaceSettings;
             return this;
         }
 
-        /**
-         * @param defaultSpaceSettings The default space settings. See Default Space Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultSpaceSettings(DomainDefaultSpaceSettingsArgs defaultSpaceSettings) {
             return defaultSpaceSettings(Output.of(defaultSpaceSettings));
         }
 
-        /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultUserSettings(Output<DomainDefaultUserSettingsArgs> defaultUserSettings) {
             $.defaultUserSettings = defaultUserSettings;
             return this;
         }
 
-        /**
-         * @param defaultUserSettings The default user settings. See Default User Settings below.* `domain_name` - (Required) The domain name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultUserSettings(DomainDefaultUserSettingsArgs defaultUserSettings) {
             return defaultUserSettings(Output.of(defaultUserSettings));
         }
@@ -342,138 +194,60 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param domainSettings The domain&#39;s settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainSettings(@Nullable Output<DomainDomainSettingsArgs> domainSettings) {
             $.domainSettings = domainSettings;
             return this;
         }
 
-        /**
-         * @param domainSettings The domain&#39;s settings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainSettings(DomainDomainSettingsArgs domainSettings) {
             return domainSettings(Output.of(domainSettings));
         }
 
-        /**
-         * @param kmsKeyId The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPolicy(@Nullable Output<DomainRetentionPolicyArgs> retentionPolicy) {
             $.retentionPolicy = retentionPolicy;
             return this;
         }
 
-        /**
-         * @param retentionPolicy The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retentionPolicy(DomainRetentionPolicyArgs retentionPolicy) {
             return retentionPolicy(Output.of(retentionPolicy));
         }
 
-        /**
-         * @param subnetIds The VPC subnets that Studio uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The VPC subnets that Studio uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The VPC subnets that Studio uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementNotStatementStatementAndStatement {
-    /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     private List<RuleGroupRuleStatementNotStatementStatementAndStatementStatement> statements;
 
     private RuleGroupRuleStatementNotStatementStatementAndStatement() {}
-    /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public List<RuleGroupRuleStatementNotStatementStatementAndStatementStatement> statements() {
         return this.statements;
     }

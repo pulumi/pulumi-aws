@@ -16,62 +16,30 @@ public final class RoleAliasState extends com.pulumi.resources.ResourceArgs {
 
     public static final RoleAliasState Empty = new RoleAliasState();
 
-    /**
-     * The name of the role alias.
-     * 
-     */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
-    /**
-     * @return The name of the role alias.
-     * 
-     */
     public Optional<Output<String>> alias() {
         return Optional.ofNullable(this.alias);
     }
 
-    /**
-     * The ARN assigned by AWS to this role alias.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN assigned by AWS to this role alias.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     @Import(name="credentialDuration")
     private @Nullable Output<Integer> credentialDuration;
 
-    /**
-     * @return The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     public Optional<Output<Integer>> credentialDuration() {
         return Optional.ofNullable(this.credentialDuration);
     }
 
-    /**
-     * The identity of the role to which the alias refers.
-     * 
-     */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
-    /**
-     * @return The identity of the role to which the alias refers.
-     * 
-     */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -103,86 +71,38 @@ public final class RoleAliasState extends com.pulumi.resources.ResourceArgs {
             $ = new RoleAliasState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alias The name of the role alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(@Nullable Output<String> alias) {
             $.alias = alias;
             return this;
         }
 
-        /**
-         * @param alias The name of the role alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alias(String alias) {
             return alias(Output.of(alias));
         }
 
-        /**
-         * @param arn The ARN assigned by AWS to this role alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN assigned by AWS to this role alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param credentialDuration The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialDuration(@Nullable Output<Integer> credentialDuration) {
             $.credentialDuration = credentialDuration;
             return this;
         }
 
-        /**
-         * @param credentialDuration The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentialDuration(Integer credentialDuration) {
             return credentialDuration(Output.of(credentialDuration));
         }
 
-        /**
-         * @param roleArn The identity of the role to which the alias refers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The identity of the role to which the alias refers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

@@ -13,81 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Adds permission to create volumes off of a given EBS Snapshot.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ebs.Volume;
- * import com.pulumi.aws.ebs.VolumeArgs;
- * import com.pulumi.aws.ebs.Snapshot;
- * import com.pulumi.aws.ebs.SnapshotArgs;
- * import com.pulumi.aws.ec2.SnapshotCreateVolumePermission;
- * import com.pulumi.aws.ec2.SnapshotCreateVolumePermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .size(40)
- *             .build());
- * 
- *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .volumeId(example.id())
- *             .build());
- * 
- *         var examplePerm = new SnapshotCreateVolumePermission(&#34;examplePerm&#34;, SnapshotCreateVolumePermissionArgs.builder()        
- *             .snapshotId(exampleSnapshot.id())
- *             .accountId(&#34;12345678&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission")
 public class SnapshotCreateVolumePermission extends com.pulumi.resources.CustomResource {
-    /**
-     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot&#39;s owner
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * A snapshot ID
-     * 
-     */
     @Export(name="snapshotId", refs={String.class}, tree="[0]")
     private Output<String> snapshotId;
 
-    /**
-     * @return A snapshot ID
-     * 
-     */
     public Output<String> snapshotId() {
         return this.snapshotId;
     }

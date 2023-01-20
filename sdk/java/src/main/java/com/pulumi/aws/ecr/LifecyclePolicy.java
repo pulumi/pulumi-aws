@@ -13,167 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an ECR repository lifecycle policy.
- * 
- * &gt; **NOTE:** Only one `aws.ecr.LifecyclePolicy` resource can be used with the same ECR repository. To apply multiple rules, they must be combined in the `policy` JSON.
- * 
- * &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
- * 
- * ## Example Usage
- * ### Policy on untagged image
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.Repository;
- * import com.pulumi.aws.ecr.LifecyclePolicy;
- * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
- * 
- *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
- *             .repository(foo.name())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;rules&#34;: [
- *         {
- *             &#34;rulePriority&#34;: 1,
- *             &#34;description&#34;: &#34;Expire images older than 14 days&#34;,
- *             &#34;selection&#34;: {
- *                 &#34;tagStatus&#34;: &#34;untagged&#34;,
- *                 &#34;countType&#34;: &#34;sinceImagePushed&#34;,
- *                 &#34;countUnit&#34;: &#34;days&#34;,
- *                 &#34;countNumber&#34;: 14
- *             },
- *             &#34;action&#34;: {
- *                 &#34;type&#34;: &#34;expire&#34;
- *             }
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Policy on tagged image
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecr.Repository;
- * import com.pulumi.aws.ecr.LifecyclePolicy;
- * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new Repository(&#34;foo&#34;);
- * 
- *         var foopolicy = new LifecyclePolicy(&#34;foopolicy&#34;, LifecyclePolicyArgs.builder()        
- *             .repository(foo.name())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;rules&#34;: [
- *         {
- *             &#34;rulePriority&#34;: 1,
- *             &#34;description&#34;: &#34;Keep last 30 images&#34;,
- *             &#34;selection&#34;: {
- *                 &#34;tagStatus&#34;: &#34;tagged&#34;,
- *                 &#34;tagPrefixList&#34;: [&#34;v&#34;],
- *                 &#34;countType&#34;: &#34;imageCountMoreThan&#34;,
- *                 &#34;countNumber&#34;: 30
- *             },
- *             &#34;action&#34;: {
- *                 &#34;type&#34;: &#34;expire&#34;
- *             }
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
- * ```
- * 
- */
 @ResourceType(type="aws:ecr/lifecyclePolicy:LifecyclePolicy")
 public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * Name of the repository to apply the policy.
-     * 
-     */
     @Export(name="repository", refs={String.class}, tree="[0]")
     private Output<String> repository;
 
-    /**
-     * @return Name of the repository to apply the policy.
-     * 
-     */
     public Output<String> repository() {
         return this.repository;
     }

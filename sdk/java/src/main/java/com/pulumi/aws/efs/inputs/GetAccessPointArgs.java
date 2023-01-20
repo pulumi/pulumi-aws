@@ -16,32 +16,16 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccessPointArgs Empty = new GetAccessPointArgs();
 
-    /**
-     * ID that identifies the file system.
-     * 
-     */
     @Import(name="accessPointId", required=true)
     private Output<String> accessPointId;
 
-    /**
-     * @return ID that identifies the file system.
-     * 
-     */
     public Output<String> accessPointId() {
         return this.accessPointId;
     }
 
-    /**
-     * Key-value mapping of resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetAccessPointArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointId ID that identifies the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(Output<String> accessPointId) {
             $.accessPointId = accessPointId;
             return this;
         }
 
-        /**
-         * @param accessPointId ID that identifies the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(String accessPointId) {
             return accessPointId(Output.of(accessPointId));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

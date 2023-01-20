@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassifierGrokClassifier {
-    /**
-     * @return An identifier of the data format that the classifier matches.
-     * 
-     */
     private String classification;
-    /**
-     * @return Custom grok patterns used by this classifier.
-     * 
-     */
     private @Nullable String customPatterns;
-    /**
-     * @return The grok pattern used by this classifier.
-     * 
-     */
     private String grokPattern;
 
     private ClassifierGrokClassifier() {}
-    /**
-     * @return An identifier of the data format that the classifier matches.
-     * 
-     */
     public String classification() {
         return this.classification;
     }
-    /**
-     * @return Custom grok patterns used by this classifier.
-     * 
-     */
     public Optional<String> customPatterns() {
         return Optional.ofNullable(this.customPatterns);
     }
-    /**
-     * @return The grok pattern used by this classifier.
-     * 
-     */
     public String grokPattern() {
         return this.grokPattern;
     }

@@ -12,17 +12,9 @@ public final class GetApprovalRuleTemplatePlainArgs extends com.pulumi.resources
 
     public static final GetApprovalRuleTemplatePlainArgs Empty = new GetApprovalRuleTemplatePlainArgs();
 
-    /**
-     * Name for the approval rule template. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name for the approval rule template. This needs to be less than 100 characters.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -51,12 +43,6 @@ public final class GetApprovalRuleTemplatePlainArgs extends com.pulumi.resources
             $ = new GetApprovalRuleTemplatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name for the approval rule template. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

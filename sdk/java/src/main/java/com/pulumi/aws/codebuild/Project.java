@@ -29,618 +29,167 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the &#34;rebuild every time a code change is pushed&#34; option in the CodeBuild web console).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.codebuild.Project;
- * import com.pulumi.aws.codebuild.ProjectArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectArtifactsArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectCacheArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigCloudwatchLogsArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigS3LogsArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectSourceArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectSourceGitSubmodulesConfigArgs;
- * import com.pulumi.aws.codebuild.inputs.ProjectVpcConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleBucketAclV2 = new BucketAclV2(&#34;exampleBucketAclV2&#34;, BucketAclV2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .acl(&#34;private&#34;)
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;codebuild.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.name())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
- *                 var exampleBucketV2Arn = values.t1;
- *                 var exampleBucketV2Arn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;*&#34;
- *       ],
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogGroup&#34;,
- *         &#34;logs:CreateLogStream&#34;,
- *         &#34;logs:PutLogEvents&#34;
- *       ]
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;ec2:CreateNetworkInterface&#34;,
- *         &#34;ec2:DescribeDhcpOptions&#34;,
- *         &#34;ec2:DescribeNetworkInterfaces&#34;,
- *         &#34;ec2:DeleteNetworkInterface&#34;,
- *         &#34;ec2:DescribeSubnets&#34;,
- *         &#34;ec2:DescribeSecurityGroups&#34;,
- *         &#34;ec2:DescribeVpcs&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;*&#34;
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;ec2:CreateNetworkInterfacePermission&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;arn:aws:ec2:us-east-1:123456789012:network-interface/*&#34;
- *       ],
- *       &#34;Condition&#34;: {
- *         &#34;StringEquals&#34;: {
- *           &#34;ec2:Subnet&#34;: [
- *             &#34;%s&#34;,
- *             &#34;%s&#34;
- *           ],
- *           &#34;ec2:AuthorizedService&#34;: &#34;codebuild.amazonaws.com&#34;
- *         }
- *       }
- *     },
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;s3:*&#34;
- *       ],
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;,
- *         &#34;%s/*&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, aws_subnet.example1().arn(),aws_subnet.example2().arn(),exampleBucketV2Arn,exampleBucketV2Arn1);
- *             }))
- *             .build());
- * 
- *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .description(&#34;test_codebuild_project&#34;)
- *             .buildTimeout(&#34;5&#34;)
- *             .serviceRole(exampleRole.arn())
- *             .artifacts(ProjectArtifactsArgs.builder()
- *                 .type(&#34;NO_ARTIFACTS&#34;)
- *                 .build())
- *             .cache(ProjectCacheArgs.builder()
- *                 .type(&#34;S3&#34;)
- *                 .location(exampleBucketV2.bucket())
- *                 .build())
- *             .environment(ProjectEnvironmentArgs.builder()
- *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
- *                 .type(&#34;LINUX_CONTAINER&#34;)
- *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
- *                 .environmentVariables(                
- *                     ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                         .name(&#34;SOME_KEY1&#34;)
- *                         .value(&#34;SOME_VALUE1&#34;)
- *                         .build(),
- *                     ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                         .name(&#34;SOME_KEY2&#34;)
- *                         .value(&#34;SOME_VALUE2&#34;)
- *                         .type(&#34;PARAMETER_STORE&#34;)
- *                         .build())
- *                 .build())
- *             .logsConfig(ProjectLogsConfigArgs.builder()
- *                 .cloudwatchLogs(ProjectLogsConfigCloudwatchLogsArgs.builder()
- *                     .groupName(&#34;log-group&#34;)
- *                     .streamName(&#34;log-stream&#34;)
- *                     .build())
- *                 .s3Logs(ProjectLogsConfigS3LogsArgs.builder()
- *                     .status(&#34;ENABLED&#34;)
- *                     .location(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;%s/build-log&#34;, id)))
- *                     .build())
- *                 .build())
- *             .source(ProjectSourceArgs.builder()
- *                 .type(&#34;GITHUB&#34;)
- *                 .location(&#34;https://github.com/mitchellh/packer.git&#34;)
- *                 .gitCloneDepth(1)
- *                 .gitSubmodulesConfig(ProjectSourceGitSubmodulesConfigArgs.builder()
- *                     .fetchSubmodules(true)
- *                     .build())
- *                 .build())
- *             .sourceVersion(&#34;master&#34;)
- *             .vpcConfig(ProjectVpcConfigArgs.builder()
- *                 .vpcId(aws_vpc.example().id())
- *                 .subnets(                
- *                     aws_subnet.example1().id(),
- *                     aws_subnet.example2().id())
- *                 .securityGroupIds(                
- *                     aws_security_group.example1().id(),
- *                     aws_security_group.example2().id())
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
- *             .build());
- * 
- *         var project_with_cache = new Project(&#34;project-with-cache&#34;, ProjectArgs.builder()        
- *             .description(&#34;test_codebuild_project_cache&#34;)
- *             .buildTimeout(&#34;5&#34;)
- *             .queuedTimeout(&#34;5&#34;)
- *             .serviceRole(exampleRole.arn())
- *             .artifacts(ProjectArtifactsArgs.builder()
- *                 .type(&#34;NO_ARTIFACTS&#34;)
- *                 .build())
- *             .cache(ProjectCacheArgs.builder()
- *                 .type(&#34;LOCAL&#34;)
- *                 .modes(                
- *                     &#34;LOCAL_DOCKER_LAYER_CACHE&#34;,
- *                     &#34;LOCAL_SOURCE_CACHE&#34;)
- *                 .build())
- *             .environment(ProjectEnvironmentArgs.builder()
- *                 .computeType(&#34;BUILD_GENERAL1_SMALL&#34;)
- *                 .image(&#34;aws/codebuild/standard:1.0&#34;)
- *                 .type(&#34;LINUX_CONTAINER&#34;)
- *                 .imagePullCredentialsType(&#34;CODEBUILD&#34;)
- *                 .environmentVariables(ProjectEnvironmentEnvironmentVariableArgs.builder()
- *                     .name(&#34;SOME_KEY1&#34;)
- *                     .value(&#34;SOME_VALUE1&#34;)
- *                     .build())
- *                 .build())
- *             .source(ProjectSourceArgs.builder()
- *                 .type(&#34;GITHUB&#34;)
- *                 .location(&#34;https://github.com/mitchellh/packer.git&#34;)
- *                 .gitCloneDepth(1)
- *                 .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Test&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CodeBuild Project can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:codebuild/project:Project name project-name
- * ```
- * 
- */
 @ResourceType(type="aws:codebuild/project:Project")
 public class Project extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the CodeBuild project.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the CodeBuild project.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="artifacts", refs={ProjectArtifacts.class}, tree="[0]")
     private Output<ProjectArtifacts> artifacts;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<ProjectArtifacts> artifacts() {
         return this.artifacts;
     }
-    /**
-     * Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-     * 
-     */
     @Export(name="badgeEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> badgeEnabled;
 
-    /**
-     * @return Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
-     * 
-     */
     public Output<Optional<Boolean>> badgeEnabled() {
         return Codegen.optional(this.badgeEnabled);
     }
-    /**
-     * URL of the build badge when `badge_enabled` is enabled.
-     * 
-     */
     @Export(name="badgeUrl", refs={String.class}, tree="[0]")
     private Output<String> badgeUrl;
 
-    /**
-     * @return URL of the build badge when `badge_enabled` is enabled.
-     * 
-     */
     public Output<String> badgeUrl() {
         return this.badgeUrl;
     }
-    /**
-     * Defines the batch build options for the project.
-     * 
-     */
     @Export(name="buildBatchConfig", refs={ProjectBuildBatchConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectBuildBatchConfig> buildBatchConfig;
 
-    /**
-     * @return Defines the batch build options for the project.
-     * 
-     */
     public Output<Optional<ProjectBuildBatchConfig>> buildBatchConfig() {
         return Codegen.optional(this.buildBatchConfig);
     }
-    /**
-     * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-     * 
-     */
     @Export(name="buildTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> buildTimeout;
 
-    /**
-     * @return Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
-     * 
-     */
     public Output<Optional<Integer>> buildTimeout() {
         return Codegen.optional(this.buildTimeout);
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="cache", refs={ProjectCache.class}, tree="[0]")
     private Output</* @Nullable */ ProjectCache> cache;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<ProjectCache>> cache() {
         return Codegen.optional(this.cache);
     }
-    /**
-     * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-     * 
-     */
     @Export(name="concurrentBuildLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> concurrentBuildLimit;
 
-    /**
-     * @return Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
-     * 
-     */
     public Output<Optional<Integer>> concurrentBuildLimit() {
         return Codegen.optional(this.concurrentBuildLimit);
     }
-    /**
-     * Short description of the project.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Short description of the project.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
-     * 
-     */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
     private Output<String> encryptionKey;
 
-    /**
-     * @return AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project&#39;s build output artifacts.
-     * 
-     */
     public Output<String> encryptionKey() {
         return this.encryptionKey;
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="environment", refs={ProjectEnvironment.class}, tree="[0]")
     private Output<ProjectEnvironment> environment;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<ProjectEnvironment> environment() {
         return this.environment;
     }
-    /**
-     * A set of file system locations to mount inside the build. File system locations are documented below.
-     * 
-     */
     @Export(name="fileSystemLocations", refs={List.class,ProjectFileSystemLocation.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectFileSystemLocation>> fileSystemLocations;
 
-    /**
-     * @return A set of file system locations to mount inside the build. File system locations are documented below.
-     * 
-     */
     public Output<Optional<List<ProjectFileSystemLocation>>> fileSystemLocations() {
         return Codegen.optional(this.fileSystemLocations);
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="logsConfig", refs={ProjectLogsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectLogsConfig> logsConfig;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<ProjectLogsConfig>> logsConfig() {
         return Codegen.optional(this.logsConfig);
     }
-    /**
-     * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-     * 
-     */
     @Export(name="projectVisibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectVisibility;
 
-    /**
-     * @return Specifies the visibility of the project&#39;s builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
-     * 
-     */
     public Output<Optional<String>> projectVisibility() {
         return Codegen.optional(this.projectVisibility);
     }
-    /**
-     * The project identifier used with the public build APIs.
-     * 
-     */
     @Export(name="publicProjectAlias", refs={String.class}, tree="[0]")
     private Output<String> publicProjectAlias;
 
-    /**
-     * @return The project identifier used with the public build APIs.
-     * 
-     */
     public Output<String> publicProjectAlias() {
         return this.publicProjectAlias;
     }
-    /**
-     * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-     * 
-     */
     @Export(name="queuedTimeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queuedTimeout;
 
-    /**
-     * @return Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
-     * 
-     */
     public Output<Optional<Integer>> queuedTimeout() {
         return Codegen.optional(this.queuedTimeout);
     }
-    /**
-     * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
-     * 
-     */
     @Export(name="resourceAccessRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceAccessRole;
 
-    /**
-     * @return The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project&#39;s builds.
-     * 
-     */
     public Output<Optional<String>> resourceAccessRole() {
         return Codegen.optional(this.resourceAccessRole);
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="secondaryArtifacts", refs={List.class,ProjectSecondaryArtifact.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondaryArtifact>> secondaryArtifacts;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<List<ProjectSecondaryArtifact>>> secondaryArtifacts() {
         return Codegen.optional(this.secondaryArtifacts);
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="secondarySourceVersions", refs={List.class,ProjectSecondarySourceVersion.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondarySourceVersion>> secondarySourceVersions;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<List<ProjectSecondarySourceVersion>>> secondarySourceVersions() {
         return Codegen.optional(this.secondarySourceVersions);
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="secondarySources", refs={List.class,ProjectSecondarySource.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ProjectSecondarySource>> secondarySources;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<List<ProjectSecondarySource>>> secondarySources() {
         return Codegen.optional(this.secondarySources);
     }
-    /**
-     * Specifies the service role ARN for the batch build project.
-     * 
-     */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
-    /**
-     * @return Specifies the service role ARN for the batch build project.
-     * 
-     */
     public Output<String> serviceRole() {
         return this.serviceRole;
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="source", refs={ProjectSource.class}, tree="[0]")
     private Output<ProjectSource> source;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<ProjectSource> source() {
         return this.source;
     }
-    /**
-     * The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-     * 
-     */
     @Export(name="sourceVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceVersion;
 
-    /**
-     * @return The source version for the corresponding source identifier. See [AWS docs](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html#CodeBuild-Type-ProjectSourceVersion-sourceVersion) for more details.
-     * 
-     */
     public Output<Optional<String>> sourceVersion() {
         return Codegen.optional(this.sourceVersion);
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Export(name="vpcConfig", refs={ProjectVpcConfig.class}, tree="[0]")
     private Output</* @Nullable */ ProjectVpcConfig> vpcConfig;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Output<Optional<ProjectVpcConfig>> vpcConfig() {
         return Codegen.optional(this.vpcConfig);
     }

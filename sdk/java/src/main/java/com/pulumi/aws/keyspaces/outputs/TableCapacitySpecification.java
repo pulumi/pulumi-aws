@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableCapacitySpecification {
-    /**
-     * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
-     * 
-     */
     private @Nullable Integer readCapacityUnits;
-    /**
-     * @return The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-     * 
-     */
     private @Nullable String throughputMode;
-    /**
-     * @return The throughput capacity specified for write operations defined in write capacity units (WCUs).
-     * 
-     */
     private @Nullable Integer writeCapacityUnits;
 
     private TableCapacitySpecification() {}
-    /**
-     * @return The throughput capacity specified for read operations defined in read capacity units (RCUs).
-     * 
-     */
     public Optional<Integer> readCapacityUnits() {
         return Optional.ofNullable(this.readCapacityUnits);
     }
-    /**
-     * @return The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-     * 
-     */
     public Optional<String> throughputMode() {
         return Optional.ofNullable(this.throughputMode);
     }
-    /**
-     * @return The throughput capacity specified for write operations defined in write capacity units (WCUs).
-     * 
-     */
     public Optional<Integer> writeCapacityUnits() {
         return Optional.ofNullable(this.writeCapacityUnits);
     }

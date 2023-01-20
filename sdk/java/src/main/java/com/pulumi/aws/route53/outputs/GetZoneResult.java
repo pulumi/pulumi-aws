@@ -15,76 +15,32 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetZoneResult {
-    /**
-     * @return ARN of the Hosted Zone.
-     * 
-     */
     private String arn;
-    /**
-     * @return Caller Reference of the Hosted Zone.
-     * 
-     */
     private String callerReference;
-    /**
-     * @return Comment field of the Hosted Zone.
-     * 
-     */
     private String comment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-     * 
-     */
     private String linkedServiceDescription;
-    /**
-     * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-     * 
-     */
     private String linkedServicePrincipal;
     private String name;
-    /**
-     * @return List of DNS name servers for the Hosted Zone.
-     * 
-     */
     private List<String> nameServers;
-    /**
-     * @return The Route 53 name server that created the SOA record.
-     * 
-     */
     private String primaryNameServer;
     private @Nullable Boolean privateZone;
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
     private Integer resourceRecordSetCount;
     private Map<String,String> tags;
     private String vpcId;
     private String zoneId;
 
     private GetZoneResult() {}
-    /**
-     * @return ARN of the Hosted Zone.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Caller Reference of the Hosted Zone.
-     * 
-     */
     public String callerReference() {
         return this.callerReference;
     }
-    /**
-     * @return Comment field of the Hosted Zone.
-     * 
-     */
     public String comment() {
         return this.comment;
     }
@@ -95,44 +51,24 @@ public final class GetZoneResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
-     * 
-     */
     public String linkedServiceDescription() {
         return this.linkedServiceDescription;
     }
-    /**
-     * @return The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
-     * 
-     */
     public String linkedServicePrincipal() {
         return this.linkedServicePrincipal;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return List of DNS name servers for the Hosted Zone.
-     * 
-     */
     public List<String> nameServers() {
         return this.nameServers;
     }
-    /**
-     * @return The Route 53 name server that created the SOA record.
-     * 
-     */
     public String primaryNameServer() {
         return this.primaryNameServer;
     }
     public Optional<Boolean> privateZone() {
         return Optional.ofNullable(this.privateZone);
     }
-    /**
-     * @return The number of Record Set in the Hosted Zone.
-     * 
-     */
     public Integer resourceRecordSetCount() {
         return this.resourceRecordSetCount;
     }

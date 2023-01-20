@@ -15,17 +15,9 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
 
     public static final ClusterConfigurationArgs Empty = new ClusterConfigurationArgs();
 
-    /**
-     * The details of the execute command configuration. Detailed below.
-     * 
-     */
     @Import(name="executeCommandConfiguration")
     private @Nullable Output<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration;
 
-    /**
-     * @return The details of the execute command configuration. Detailed below.
-     * 
-     */
     public Optional<Output<ClusterConfigurationExecuteCommandConfigurationArgs>> executeCommandConfiguration() {
         return Optional.ofNullable(this.executeCommandConfiguration);
     }
@@ -54,23 +46,11 @@ public final class ClusterConfigurationArgs extends com.pulumi.resources.Resourc
             $ = new ClusterConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param executeCommandConfiguration The details of the execute command configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executeCommandConfiguration(@Nullable Output<ClusterConfigurationExecuteCommandConfigurationArgs> executeCommandConfiguration) {
             $.executeCommandConfiguration = executeCommandConfiguration;
             return this;
         }
 
-        /**
-         * @param executeCommandConfiguration The details of the execute command configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executeCommandConfiguration(ClusterConfigurationExecuteCommandConfigurationArgs executeCommandConfiguration) {
             return executeCommandConfiguration(Output.of(executeCommandConfiguration));
         }

@@ -14,164 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
- * 
- * &gt; **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Deployment;
- * import com.pulumi.aws.apigateway.DeploymentArgs;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
- *             .body(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
- *                     jsonProperty(&#34;info&#34;, jsonObject(
- *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
- *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
- *                     )),
- *                     jsonProperty(&#34;paths&#34;, jsonObject(
- *                         jsonProperty(&#34;/path1&#34;, jsonObject(
- *                             jsonProperty(&#34;get&#34;, jsonObject(
- *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
- *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
- *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
- *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
- *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
- *                                 ))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
- *             .build());
- * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
- *             .stageName(&#34;example&#34;)
- *             .build());
- * 
- *         var all = new MethodSettings(&#34;all&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .stageName(exampleStage.stageName())
- *             .methodPath(&#34;*{@literal /}*&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;ERROR&#34;)
- *                 .build())
- *             .build());
- * 
- *         var pathSpecific = new MethodSettings(&#34;pathSpecific&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .stageName(exampleStage.stageName())
- *             .methodPath(&#34;path1/GET&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/methodSettings:MethodSettings")
 public class MethodSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*{@literal /}*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     @Export(name="methodPath", refs={String.class}, tree="[0]")
     private Output<String> methodPath;
 
-    /**
-     * @return Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*{@literal /}*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, &#34;/&#34;)`).
-     * 
-     */
     public Output<String> methodPath() {
         return this.methodPath;
     }
-    /**
-     * ID of the REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Settings block, see below.
-     * 
-     */
     @Export(name="settings", refs={MethodSettingsSettings.class}, tree="[0]")
     private Output<MethodSettingsSettings> settings;
 
-    /**
-     * @return Settings block, see below.
-     * 
-     */
     public Output<MethodSettingsSettings> settings() {
         return this.settings;
     }
-    /**
-     * Name of the stage
-     * 
-     */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output<String> stageName;
 
-    /**
-     * @return Name of the stage
-     * 
-     */
     public Output<String> stageName() {
         return this.stageName;
     }

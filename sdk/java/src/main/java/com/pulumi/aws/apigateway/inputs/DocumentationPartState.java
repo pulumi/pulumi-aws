@@ -16,47 +16,23 @@ public final class DocumentationPartState extends com.pulumi.resources.ResourceA
 
     public static final DocumentationPartState Empty = new DocumentationPartState();
 
-    /**
-     * Location of the targeted API entity of the to-be-created documentation part. See below.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<DocumentationPartLocationArgs> location;
 
-    /**
-     * @return Location of the targeted API entity of the to-be-created documentation part. See below.
-     * 
-     */
     public Optional<Output<DocumentationPartLocationArgs>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<String> properties;
 
-    /**
-     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-     * 
-     */
     public Optional<Output<String>> properties() {
         return Optional.ofNullable(this.properties);
     }
 
-    /**
-     * ID of the associated Rest API
-     * 
-     */
     @Import(name="restApiId")
     private @Nullable Output<String> restApiId;
 
-    /**
-     * @return ID of the associated Rest API
-     * 
-     */
     public Optional<Output<String>> restApiId() {
         return Optional.ofNullable(this.restApiId);
     }
@@ -87,65 +63,29 @@ public final class DocumentationPartState extends com.pulumi.resources.ResourceA
             $ = new DocumentationPartState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param location Location of the targeted API entity of the to-be-created documentation part. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<DocumentationPartLocationArgs> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Location of the targeted API entity of the to-be-created documentation part. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(DocumentationPartLocationArgs location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param properties Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<String> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(String properties) {
             return properties(Output.of(properties));
         }
 
-        /**
-         * @param restApiId ID of the associated Rest API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(@Nullable Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the associated Rest API
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }

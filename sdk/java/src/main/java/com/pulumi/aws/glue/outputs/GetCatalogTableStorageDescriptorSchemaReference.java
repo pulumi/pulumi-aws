@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableStorageDescriptorSchemaReference {
-    /**
-     * @return Configuration block that contains schema identity fields. See `schema_id` below.
-     * 
-     */
     private List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds;
-    /**
-     * @return Unique ID assigned to a version of the schema.
-     * 
-     */
     private String schemaVersionId;
-    /**
-     * @return Version number of the schema.
-     * 
-     */
     private Integer schemaVersionNumber;
 
     private GetCatalogTableStorageDescriptorSchemaReference() {}
-    /**
-     * @return Configuration block that contains schema identity fields. See `schema_id` below.
-     * 
-     */
     public List<GetCatalogTableStorageDescriptorSchemaReferenceSchemaId> schemaIds() {
         return this.schemaIds;
     }
-    /**
-     * @return Unique ID assigned to a version of the schema.
-     * 
-     */
     public String schemaVersionId() {
         return this.schemaVersionId;
     }
-    /**
-     * @return Version number of the schema.
-     * 
-     */
     public Integer schemaVersionNumber() {
         return this.schemaVersionNumber;
     }

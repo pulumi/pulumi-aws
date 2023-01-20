@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationService {
-    /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-     * 
-     */
     private List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases;
-    /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     private @Nullable String discoveryName;
-    /**
-     * @return The port number for the Service Connect proxy to listen on.
-     * 
-     */
     private @Nullable Integer ingressPortOverride;
-    /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     private String portName;
 
     private ServiceServiceConnectConfigurationService() {}
-    /**
-     * @return The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
-     * 
-     */
     public List<ServiceServiceConnectConfigurationServiceClientAlias> clientAliases() {
         return this.clientAliases;
     }
-    /**
-     * @return The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
-     * 
-     */
     public Optional<String> discoveryName() {
         return Optional.ofNullable(this.discoveryName);
     }
-    /**
-     * @return The port number for the Service Connect proxy to listen on.
-     * 
-     */
     public Optional<Integer> ingressPortOverride() {
         return Optional.ofNullable(this.ingressPortOverride);
     }
-    /**
-     * @return The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-     * 
-     */
     public String portName() {
         return this.portName;
     }

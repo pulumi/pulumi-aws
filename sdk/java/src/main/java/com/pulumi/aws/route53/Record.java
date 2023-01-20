@@ -22,421 +22,95 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route53 record resource.
- * 
- * ## Example Usage
- * ### Simple routing policy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
- *             .name(&#34;www.example.com&#34;)
- *             .type(&#34;A&#34;)
- *             .ttl(300)
- *             .records(aws_eip.lb().public_ip())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Weighted routing policy
- * 
- * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordWeightedRoutingPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var www_dev = new Record(&#34;www-dev&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
- *             .name(&#34;www&#34;)
- *             .type(&#34;CNAME&#34;)
- *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(10)
- *                 .build())
- *             .setIdentifier(&#34;dev&#34;)
- *             .records(&#34;dev.example.com&#34;)
- *             .build());
- * 
- *         var www_live = new Record(&#34;www-live&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
- *             .name(&#34;www&#34;)
- *             .type(&#34;CNAME&#34;)
- *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(90)
- *                 .build())
- *             .setIdentifier(&#34;live&#34;)
- *             .records(&#34;live.example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Alias record
- * 
- * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
- * to understand differences between alias and non-alias records.
- * 
- * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
- * you cannot change this, therefore `ttl` has to be omitted in alias records.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elb.LoadBalancer;
- * import com.pulumi.aws.elb.LoadBalancerArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new LoadBalancer(&#34;main&#34;, LoadBalancerArgs.builder()        
- *             .availabilityZones(&#34;us-east-1c&#34;)
- *             .listeners(LoadBalancerListenerArgs.builder()
- *                 .instancePort(80)
- *                 .instanceProtocol(&#34;http&#34;)
- *                 .lbPort(80)
- *                 .lbProtocol(&#34;http&#34;)
- *                 .build())
- *             .build());
- * 
- *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
- *             .zoneId(aws_route53_zone.primary().zone_id())
- *             .name(&#34;example.com&#34;)
- *             .type(&#34;A&#34;)
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(main.dnsName())
- *                 .zoneId(main.zoneId())
- *                 .evaluateTargetHealth(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### NS and SOA Record Management
- * 
- * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allow_overwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.Zone;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleZone = new Zone(&#34;exampleZone&#34;);
- * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .allowOverwrite(true)
- *             .name(&#34;test.example.com&#34;)
- *             .ttl(172800)
- *             .type(&#34;NS&#34;)
- *             .zoneId(exampleZone.zoneId())
- *             .records(            
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[0]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[1]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[2]),
- *                 exampleZone.nameServers().applyValue(nameServers -&gt; nameServers[3]))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Route53 Records can be imported using ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`)E.g.,
- * 
- * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
- * ```
- * 
- *  If the record also contains a set identifier, it should be appended
- * 
- * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
- * ```
- * 
- */
 @ResourceType(type="aws:route53/record:Record")
 public class Record extends com.pulumi.resources.CustomResource {
-    /**
-     * An alias block. Conflicts with `ttl` &amp; `records`.
-     * Documented below.
-     * 
-     */
     @Export(name="aliases", refs={List.class,RecordAlias.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordAlias>> aliases;
 
-    /**
-     * @return An alias block. Conflicts with `ttl` &amp; `records`.
-     * Documented below.
-     * 
-     */
     public Output<Optional<List<RecordAlias>>> aliases() {
         return Codegen.optional(this.aliases);
     }
-    /**
-     * Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-     * 
-     */
     @Export(name="allowOverwrite", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> allowOverwrite;
 
-    /**
-     * @return Allow creation of this record to overwrite an existing record, if any. This does not affect the ability to update the record using this provider and does not prevent other resources within this provider or manual Route 53 changes outside this provider from overwriting this record. `false` by default. This configuration is not recommended for most environments.
-     * 
-     */
     public Output<Boolean> allowOverwrite() {
         return this.allowOverwrite;
     }
-    /**
-     * A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     @Export(name="failoverRoutingPolicies", refs={List.class,RecordFailoverRoutingPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordFailoverRoutingPolicy>> failoverRoutingPolicies;
 
-    /**
-     * @return A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     public Output<Optional<List<RecordFailoverRoutingPolicy>>> failoverRoutingPolicies() {
         return Codegen.optional(this.failoverRoutingPolicies);
     }
-    /**
-     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-     * 
-     */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
-    /**
-     * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
-     * 
-     */
     public Output<String> fqdn() {
         return this.fqdn;
     }
-    /**
-     * A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     @Export(name="geolocationRoutingPolicies", refs={List.class,RecordGeolocationRoutingPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordGeolocationRoutingPolicy>> geolocationRoutingPolicies;
 
-    /**
-     * @return A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     public Output<Optional<List<RecordGeolocationRoutingPolicy>>> geolocationRoutingPolicies() {
         return Codegen.optional(this.geolocationRoutingPolicies);
     }
-    /**
-     * The health check the record should be associated with.
-     * 
-     */
     @Export(name="healthCheckId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> healthCheckId;
 
-    /**
-     * @return The health check the record should be associated with.
-     * 
-     */
     public Output<Optional<String>> healthCheckId() {
         return Codegen.optional(this.healthCheckId);
     }
-    /**
-     * A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     @Export(name="latencyRoutingPolicies", refs={List.class,RecordLatencyRoutingPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordLatencyRoutingPolicy>> latencyRoutingPolicies;
 
-    /**
-     * @return A block indicating a routing policy based on the latency between the requestor and an AWS region. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     public Output<Optional<List<RecordLatencyRoutingPolicy>>> latencyRoutingPolicies() {
         return Codegen.optional(this.latencyRoutingPolicies);
     }
-    /**
-     * Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-     * 
-     */
     @Export(name="multivalueAnswerRoutingPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multivalueAnswerRoutingPolicy;
 
-    /**
-     * @return Set to `true` to indicate a multivalue answer routing policy. Conflicts with any other routing policy.
-     * 
-     */
     public Output<Optional<Boolean>> multivalueAnswerRoutingPolicy() {
         return Codegen.optional(this.multivalueAnswerRoutingPolicy);
     }
-    /**
-     * DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return DNS domain name for a CloudFront distribution, S3 bucket, ELB, or another resource record set in this hosted zone.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
-     * 
-     */
     @Export(name="records", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> records;
 
-    /**
-     * @return A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add `\&#34;\&#34;` inside the provider configuration string (e.g., `&#34;first255characters\&#34;\&#34;morecharacters&#34;`).
-     * 
-     */
     public Output<Optional<List<String>>> records() {
         return Codegen.optional(this.records);
     }
-    /**
-     * Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-     * 
-     */
     @Export(name="setIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> setIdentifier;
 
-    /**
-     * @return Unique identifier to differentiate records with routing policies from one another. Required if using `failover`, `geolocation`, `latency`, `multivalue_answer`, or `weighted` routing policies documented below.
-     * 
-     */
     public Output<Optional<String>> setIdentifier() {
         return Codegen.optional(this.setIdentifier);
     }
-    /**
-     * The TTL of the record.
-     * 
-     */
     @Export(name="ttl", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ttl;
 
-    /**
-     * @return The TTL of the record.
-     * 
-     */
     public Output<Optional<Integer>> ttl() {
         return Codegen.optional(this.ttl);
     }
-    /**
-     * `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return `PRIMARY` or `SECONDARY`. A `PRIMARY` record will be served if its healthcheck is passing, otherwise the `SECONDARY` will be served. See http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-configuring-options.html#dns-failover-failover-rrsets
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     @Export(name="weightedRoutingPolicies", refs={List.class,RecordWeightedRoutingPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RecordWeightedRoutingPolicy>> weightedRoutingPolicies;
 
-    /**
-     * @return A block indicating a weighted routing policy. Conflicts with any other routing policy. Documented below.
-     * 
-     */
     public Output<Optional<List<RecordWeightedRoutingPolicy>>> weightedRoutingPolicies() {
         return Codegen.optional(this.weightedRoutingPolicies);
     }
-    /**
-     * Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-     * 
-     */
     @Export(name="zoneId", refs={String.class}, tree="[0]")
     private Output<String> zoneId;
 
-    /**
-     * @return Hosted zone ID for a CloudFront distribution, S3 bucket, ELB, or Route 53 hosted zone. See `resource_elb.zone_id` for example.
-     * 
-     */
     public Output<String> zoneId() {
         return this.zoneId;
     }

@@ -15,32 +15,16 @@ public final class AuthenticationProfileState extends com.pulumi.resources.Resou
 
     public static final AuthenticationProfileState Empty = new AuthenticationProfileState();
 
-    /**
-     * The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     @Import(name="authenticationProfileContent")
     private @Nullable Output<String> authenticationProfileContent;
 
-    /**
-     * @return The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-     * 
-     */
     public Optional<Output<String>> authenticationProfileContent() {
         return Optional.ofNullable(this.authenticationProfileContent);
     }
 
-    /**
-     * The name of the authentication profile.
-     * 
-     */
     @Import(name="authenticationProfileName")
     private @Nullable Output<String> authenticationProfileName;
 
-    /**
-     * @return The name of the authentication profile.
-     * 
-     */
     public Optional<Output<String>> authenticationProfileName() {
         return Optional.ofNullable(this.authenticationProfileName);
     }
@@ -70,44 +54,20 @@ public final class AuthenticationProfileState extends com.pulumi.resources.Resou
             $ = new AuthenticationProfileState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticationProfileContent The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileContent(@Nullable Output<String> authenticationProfileContent) {
             $.authenticationProfileContent = authenticationProfileContent;
             return this;
         }
 
-        /**
-         * @param authenticationProfileContent The content of the authentication profile in JSON format. The maximum length of the JSON string is determined by a quota for your account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileContent(String authenticationProfileContent) {
             return authenticationProfileContent(Output.of(authenticationProfileContent));
         }
 
-        /**
-         * @param authenticationProfileName The name of the authentication profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileName(@Nullable Output<String> authenticationProfileName) {
             $.authenticationProfileName = authenticationProfileName;
             return this;
         }
 
-        /**
-         * @param authenticationProfileName The name of the authentication profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticationProfileName(String authenticationProfileName) {
             return authenticationProfileName(Output.of(authenticationProfileName));
         }

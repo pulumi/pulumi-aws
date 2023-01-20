@@ -16,10 +16,6 @@ import javax.annotation.Nullable;
 public final class GetResolverFirewallRulesResult {
     private @Nullable String action;
     private String firewallRuleGroupId;
-    /**
-     * @return List with information about the firewall rules. See details below.
-     * 
-     */
     private List<GetResolverFirewallRulesFirewallRule> firewallRules;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -35,10 +31,6 @@ public final class GetResolverFirewallRulesResult {
     public String firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
-    /**
-     * @return List with information about the firewall rules. See details below.
-     * 
-     */
     public List<GetResolverFirewallRulesFirewallRule> firewallRules() {
         return this.firewallRules;
     }

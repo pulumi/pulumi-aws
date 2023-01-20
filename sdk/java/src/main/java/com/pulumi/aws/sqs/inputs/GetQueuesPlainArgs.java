@@ -14,17 +14,9 @@ public final class GetQueuesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetQueuesPlainArgs Empty = new GetQueuesPlainArgs();
 
-    /**
-     * A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     * 
-     */
     @Import(name="queueNamePrefix")
     private @Nullable String queueNamePrefix;
 
-    /**
-     * @return A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-     * 
-     */
     public Optional<String> queueNamePrefix() {
         return Optional.ofNullable(this.queueNamePrefix);
     }
@@ -53,12 +45,6 @@ public final class GetQueuesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetQueuesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queueNamePrefix A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueNamePrefix(@Nullable String queueNamePrefix) {
             $.queueNamePrefix = queueNamePrefix;
             return this;

@@ -15,32 +15,16 @@ public final class ContributorInsightsArgs extends com.pulumi.resources.Resource
 
     public static final ContributorInsightsArgs Empty = new ContributorInsightsArgs();
 
-    /**
-     * The global secondary index name
-     * 
-     */
     @Import(name="indexName")
     private @Nullable Output<String> indexName;
 
-    /**
-     * @return The global secondary index name
-     * 
-     */
     public Optional<Output<String>> indexName() {
         return Optional.ofNullable(this.indexName);
     }
 
-    /**
-     * The name of the table to enable contributor insights
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the table to enable contributor insights
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -70,44 +54,20 @@ public final class ContributorInsightsArgs extends com.pulumi.resources.Resource
             $ = new ContributorInsightsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexName The global secondary index name
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(@Nullable Output<String> indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param indexName The global secondary index name
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
         }
 
-        /**
-         * @param tableName The name of the table to enable contributor insights
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the table to enable contributor insights
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

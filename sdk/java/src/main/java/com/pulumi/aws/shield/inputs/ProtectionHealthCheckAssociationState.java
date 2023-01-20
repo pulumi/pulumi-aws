@@ -15,32 +15,16 @@ public final class ProtectionHealthCheckAssociationState extends com.pulumi.reso
 
     public static final ProtectionHealthCheckAssociationState Empty = new ProtectionHealthCheckAssociationState();
 
-    /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     @Import(name="healthCheckArn")
     private @Nullable Output<String> healthCheckArn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-     * 
-     */
     public Optional<Output<String>> healthCheckArn() {
         return Optional.ofNullable(this.healthCheckArn);
     }
 
-    /**
-     * The ID of the protected resource.
-     * 
-     */
     @Import(name="shieldProtectionId")
     private @Nullable Output<String> shieldProtectionId;
 
-    /**
-     * @return The ID of the protected resource.
-     * 
-     */
     public Optional<Output<String>> shieldProtectionId() {
         return Optional.ofNullable(this.shieldProtectionId);
     }
@@ -70,44 +54,20 @@ public final class ProtectionHealthCheckAssociationState extends com.pulumi.reso
             $ = new ProtectionHealthCheckAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckArn(@Nullable Output<String> healthCheckArn) {
             $.healthCheckArn = healthCheckArn;
             return this;
         }
 
-        /**
-         * @param healthCheckArn The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheckArn(String healthCheckArn) {
             return healthCheckArn(Output.of(healthCheckArn));
         }
 
-        /**
-         * @param shieldProtectionId The ID of the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shieldProtectionId(@Nullable Output<String> shieldProtectionId) {
             $.shieldProtectionId = shieldProtectionId;
             return this;
         }
 
-        /**
-         * @param shieldProtectionId The ID of the protected resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder shieldProtectionId(String shieldProtectionId) {
             return shieldProtectionId(Output.of(shieldProtectionId));
         }

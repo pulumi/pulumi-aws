@@ -16,68 +16,30 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
 
     public static final AppCookieStickinessPolicyState Empty = new AppCookieStickinessPolicyState();
 
-    /**
-     * Application cookie whose lifetime the ELB&#39;s cookie should follow.
-     * 
-     */
     @Import(name="cookieName")
     private @Nullable Output<String> cookieName;
 
-    /**
-     * @return Application cookie whose lifetime the ELB&#39;s cookie should follow.
-     * 
-     */
     public Optional<Output<String>> cookieName() {
         return Optional.ofNullable(this.cookieName);
     }
 
-    /**
-     * Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     @Import(name="lbPort")
     private @Nullable Output<Integer> lbPort;
 
-    /**
-     * @return Load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     public Optional<Output<Integer>> lbPort() {
         return Optional.ofNullable(this.lbPort);
     }
 
-    /**
-     * Name of load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
-    /**
-     * @return Name of load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Optional<Output<String>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
 
-    /**
-     * Name of the stickiness policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the stickiness policy.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -109,92 +71,38 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
             $ = new AppCookieStickinessPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cookieName Application cookie whose lifetime the ELB&#39;s cookie should follow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieName(@Nullable Output<String> cookieName) {
             $.cookieName = cookieName;
             return this;
         }
 
-        /**
-         * @param cookieName Application cookie whose lifetime the ELB&#39;s cookie should follow.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieName(String cookieName) {
             return cookieName(Output.of(cookieName));
         }
 
-        /**
-         * @param lbPort Load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(@Nullable Output<Integer> lbPort) {
             $.lbPort = lbPort;
             return this;
         }
 
-        /**
-         * @param lbPort Load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(Integer lbPort) {
             return lbPort(Output.of(lbPort));
         }
 
-        /**
-         * @param loadBalancer Name of load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(@Nullable Output<String> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
-        /**
-         * @param loadBalancer Name of load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }
 
-        /**
-         * @param name Name of the stickiness policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the stickiness policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -10,43 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GroupTag {
-    /**
-     * @return Key
-     * 
-     */
     private String key;
-    /**
-     * @return Enables propagation of the tag to
-     * Amazon EC2 instances launched via this ASG
-     * 
-     */
     private Boolean propagateAtLaunch;
-    /**
-     * @return Value
-     * 
-     */
     private String value;
 
     private GroupTag() {}
-    /**
-     * @return Key
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Enables propagation of the tag to
-     * Amazon EC2 instances launched via this ASG
-     * 
-     */
     public Boolean propagateAtLaunch() {
         return this.propagateAtLaunch;
     }
-    /**
-     * @return Value
-     * 
-     */
     public String value() {
         return this.value;
     }

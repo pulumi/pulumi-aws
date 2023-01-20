@@ -19,259 +19,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Image Builder Image.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.imagebuilder.Image;
- * import com.pulumi.aws.imagebuilder.ImageArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
- *             .distributionConfigurationArn(aws_imagebuilder_distribution_configuration.example().arn())
- *             .imageRecipeArn(aws_imagebuilder_image_recipe.example().arn())
- *             .infrastructureConfigurationArn(aws_imagebuilder_infrastructure_configuration.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
- * ```
- * 
- */
 @ResourceType(type="aws:imagebuilder/image:Image")
 public class Image extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the image.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the image.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * - Amazon Resource Name (ARN) of the container recipe.
-     * 
-     */
     @Export(name="containerRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerRecipeArn;
 
-    /**
-     * @return - Amazon Resource Name (ARN) of the container recipe.
-     * 
-     */
     public Output<Optional<String>> containerRecipeArn() {
         return Codegen.optional(this.containerRecipeArn);
     }
-    /**
-     * Date the image was created.
-     * 
-     */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
-    /**
-     * @return Date the image was created.
-     * 
-     */
     public Output<String> dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-     * 
-     */
     @Export(name="distributionConfigurationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> distributionConfigurationArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-     * 
-     */
     public Output<Optional<String>> distributionConfigurationArn() {
         return Codegen.optional(this.distributionConfigurationArn);
     }
-    /**
-     * Whether additional information about the image being created is collected. Defaults to `true`.
-     * 
-     */
     @Export(name="enhancedImageMetadataEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedImageMetadataEnabled;
 
-    /**
-     * @return Whether additional information about the image being created is collected. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enhancedImageMetadataEnabled() {
         return Codegen.optional(this.enhancedImageMetadataEnabled);
     }
-    /**
-     * Amazon Resource Name (ARN) of the image recipe.
-     * 
-     */
     @Export(name="imageRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageRecipeArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
-     * 
-     */
     public Output<Optional<String>> imageRecipeArn() {
         return Codegen.optional(this.imageRecipeArn);
     }
-    /**
-     * Configuration block with image tests configuration. Detailed below.
-     * 
-     */
     @Export(name="imageTestsConfiguration", refs={ImageImageTestsConfiguration.class}, tree="[0]")
     private Output<ImageImageTestsConfiguration> imageTestsConfiguration;
 
-    /**
-     * @return Configuration block with image tests configuration. Detailed below.
-     * 
-     */
     public Output<ImageImageTestsConfiguration> imageTestsConfiguration() {
         return this.imageTestsConfiguration;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-     * 
-     */
     @Export(name="infrastructureConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> infrastructureConfigurationArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-     * 
-     */
     public Output<String> infrastructureConfigurationArn() {
         return this.infrastructureConfigurationArn;
     }
-    /**
-     * Name of the AMI.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Operating System version of the image.
-     * 
-     */
     @Export(name="osVersion", refs={String.class}, tree="[0]")
     private Output<String> osVersion;
 
-    /**
-     * @return Operating System version of the image.
-     * 
-     */
     public Output<String> osVersion() {
         return this.osVersion;
     }
-    /**
-     * List of objects with resources created by the image.
-     * 
-     */
     @Export(name="outputResources", refs={List.class,ImageOutputResource.class}, tree="[0,1]")
     private Output<List<ImageOutputResource>> outputResources;
 
-    /**
-     * @return List of objects with resources created by the image.
-     * 
-     */
     public Output<List<ImageOutputResource>> outputResources() {
         return this.outputResources;
     }
-    /**
-     * Platform of the image.
-     * 
-     */
     @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
-    /**
-     * @return Platform of the image.
-     * 
-     */
     public Output<String> platform() {
         return this.platform;
     }
-    /**
-     * Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Version of the image.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Version of the image.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

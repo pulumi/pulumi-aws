@@ -17,47 +17,23 @@ public final class CatalogTableStorageDescriptorSkewedInfoArgs extends com.pulum
 
     public static final CatalogTableStorageDescriptorSkewedInfoArgs Empty = new CatalogTableStorageDescriptorSkewedInfoArgs();
 
-    /**
-     * List of names of columns that contain skewed values.
-     * 
-     */
     @Import(name="skewedColumnNames")
     private @Nullable Output<List<String>> skewedColumnNames;
 
-    /**
-     * @return List of names of columns that contain skewed values.
-     * 
-     */
     public Optional<Output<List<String>>> skewedColumnNames() {
         return Optional.ofNullable(this.skewedColumnNames);
     }
 
-    /**
-     * List of values that appear so frequently as to be considered skewed.
-     * 
-     */
     @Import(name="skewedColumnValueLocationMaps")
     private @Nullable Output<Map<String,String>> skewedColumnValueLocationMaps;
 
-    /**
-     * @return List of values that appear so frequently as to be considered skewed.
-     * 
-     */
     public Optional<Output<Map<String,String>>> skewedColumnValueLocationMaps() {
         return Optional.ofNullable(this.skewedColumnValueLocationMaps);
     }
 
-    /**
-     * Map of skewed values to the columns that contain them.
-     * 
-     */
     @Import(name="skewedColumnValues")
     private @Nullable Output<List<String>> skewedColumnValues;
 
-    /**
-     * @return Map of skewed values to the columns that contain them.
-     * 
-     */
     public Optional<Output<List<String>>> skewedColumnValues() {
         return Optional.ofNullable(this.skewedColumnValues);
     }
@@ -88,85 +64,37 @@ public final class CatalogTableStorageDescriptorSkewedInfoArgs extends com.pulum
             $ = new CatalogTableStorageDescriptorSkewedInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param skewedColumnNames List of names of columns that contain skewed values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnNames(@Nullable Output<List<String>> skewedColumnNames) {
             $.skewedColumnNames = skewedColumnNames;
             return this;
         }
 
-        /**
-         * @param skewedColumnNames List of names of columns that contain skewed values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnNames(List<String> skewedColumnNames) {
             return skewedColumnNames(Output.of(skewedColumnNames));
         }
 
-        /**
-         * @param skewedColumnNames List of names of columns that contain skewed values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnNames(String... skewedColumnNames) {
             return skewedColumnNames(List.of(skewedColumnNames));
         }
 
-        /**
-         * @param skewedColumnValueLocationMaps List of values that appear so frequently as to be considered skewed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnValueLocationMaps(@Nullable Output<Map<String,String>> skewedColumnValueLocationMaps) {
             $.skewedColumnValueLocationMaps = skewedColumnValueLocationMaps;
             return this;
         }
 
-        /**
-         * @param skewedColumnValueLocationMaps List of values that appear so frequently as to be considered skewed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnValueLocationMaps(Map<String,String> skewedColumnValueLocationMaps) {
             return skewedColumnValueLocationMaps(Output.of(skewedColumnValueLocationMaps));
         }
 
-        /**
-         * @param skewedColumnValues Map of skewed values to the columns that contain them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnValues(@Nullable Output<List<String>> skewedColumnValues) {
             $.skewedColumnValues = skewedColumnValues;
             return this;
         }
 
-        /**
-         * @param skewedColumnValues Map of skewed values to the columns that contain them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnValues(List<String> skewedColumnValues) {
             return skewedColumnValues(Output.of(skewedColumnValues));
         }
 
-        /**
-         * @param skewedColumnValues Map of skewed values to the columns that contain them.
-         * 
-         * @return builder
-         * 
-         */
         public Builder skewedColumnValues(String... skewedColumnValues) {
             return skewedColumnValues(List.of(skewedColumnValues));
         }

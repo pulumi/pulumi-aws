@@ -17,178 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Route 53 Resolver endpoint resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53.ResolverEndpoint;
- * import com.pulumi.aws.route53.ResolverEndpointArgs;
- * import com.pulumi.aws.route53.inputs.ResolverEndpointIpAddressArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new ResolverEndpoint(&#34;foo&#34;, ResolverEndpointArgs.builder()        
- *             .direction(&#34;INBOUND&#34;)
- *             .securityGroupIds(            
- *                 aws_security_group.sg1().id(),
- *                 aws_security_group.sg2().id())
- *             .ipAddresses(            
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn1().id())
- *                     .build(),
- *                 ResolverEndpointIpAddressArgs.builder()
- *                     .subnetId(aws_subnet.sn2().id())
- *                     .ip(&#34;10.0.64.4&#34;)
- *                     .build())
- *             .tags(Map.of(&#34;Environment&#34;, &#34;Prod&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- *  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
- * ```
- * 
- */
 @ResourceType(type="aws:route53/resolverEndpoint:ResolverEndpoint")
 public class ResolverEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Route 53 Resolver endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Route 53 Resolver endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
-     * 
-     */
     @Export(name="direction", refs={String.class}, tree="[0]")
     private Output<String> direction;
 
-    /**
-     * @return The direction of DNS queries to or from the Route 53 Resolver endpoint.
-     * Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
-     * or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
-     * 
-     */
     public Output<String> direction() {
         return this.direction;
     }
-    /**
-     * The ID of the VPC that you want to create the resolver endpoint in.
-     * 
-     */
     @Export(name="hostVpcId", refs={String.class}, tree="[0]")
     private Output<String> hostVpcId;
 
-    /**
-     * @return The ID of the VPC that you want to create the resolver endpoint in.
-     * 
-     */
     public Output<String> hostVpcId() {
         return this.hostVpcId;
     }
-    /**
-     * The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-     * 
-     */
     @Export(name="ipAddresses", refs={List.class,ResolverEndpointIpAddress.class}, tree="[0,1]")
     private Output<List<ResolverEndpointIpAddress>> ipAddresses;
 
-    /**
-     * @return The subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
-     * to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
-     * 
-     */
     public Output<List<ResolverEndpointIpAddress>> ipAddresses() {
         return this.ipAddresses;
     }
-    /**
-     * The friendly name of the Route 53 Resolver endpoint.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The friendly name of the Route 53 Resolver endpoint.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of one or more security groups that you want to use to control access to this VPC.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return The ID of one or more security groups that you want to use to control access to this VPC.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

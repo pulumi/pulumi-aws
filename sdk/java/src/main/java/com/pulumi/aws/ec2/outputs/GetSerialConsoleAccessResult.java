@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSerialConsoleAccessResult {
-    /**
-     * @return Whether or not serial console access is enabled. Returns as `true` or `false`.
-     * 
-     */
     private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,10 +18,6 @@ public final class GetSerialConsoleAccessResult {
     private String id;
 
     private GetSerialConsoleAccessResult() {}
-    /**
-     * @return Whether or not serial console access is enabled. Returns as `true` or `false`.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }

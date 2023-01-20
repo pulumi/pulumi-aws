@@ -13,17 +13,9 @@ public final class ChannelCdiInputSpecificationArgs extends com.pulumi.resources
 
     public static final ChannelCdiInputSpecificationArgs Empty = new ChannelCdiInputSpecificationArgs();
 
-    /**
-     * - Maximum CDI input resolution.
-     * 
-     */
     @Import(name="resolution", required=true)
     private Output<String> resolution;
 
-    /**
-     * @return - Maximum CDI input resolution.
-     * 
-     */
     public Output<String> resolution() {
         return this.resolution;
     }
@@ -52,23 +44,11 @@ public final class ChannelCdiInputSpecificationArgs extends com.pulumi.resources
             $ = new ChannelCdiInputSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resolution - Maximum CDI input resolution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolution(Output<String> resolution) {
             $.resolution = resolution;
             return this;
         }
 
-        /**
-         * @param resolution - Maximum CDI input resolution.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolution(String resolution) {
             return resolution(Output.of(resolution));
         }

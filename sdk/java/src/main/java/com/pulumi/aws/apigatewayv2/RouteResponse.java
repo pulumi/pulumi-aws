@@ -15,121 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 route response.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.RouteResponse;
- * import com.pulumi.aws.apigatewayv2.RouteResponseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RouteResponse(&#34;example&#34;, RouteResponseArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .routeId(aws_apigatewayv2_route.example().id())
- *             .routeResponseKey(&#34;$default&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_apigatewayv2_route_response` can be imported by using the API identifier, route identifier and route response identifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/routeResponse:RouteResponse")
 public class RouteResponse extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     @Export(name="modelSelectionExpression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> modelSelectionExpression;
 
-    /**
-     * @return The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-     * 
-     */
     public Output<Optional<String>> modelSelectionExpression() {
         return Codegen.optional(this.modelSelectionExpression);
     }
-    /**
-     * Response models for the route response.
-     * 
-     */
     @Export(name="responseModels", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> responseModels;
 
-    /**
-     * @return Response models for the route response.
-     * 
-     */
     public Output<Optional<Map<String,String>>> responseModels() {
         return Codegen.optional(this.responseModels);
     }
-    /**
-     * Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     @Export(name="routeId", refs={String.class}, tree="[0]")
     private Output<String> routeId;
 
-    /**
-     * @return Identifier of the `aws.apigatewayv2.Route`.
-     * 
-     */
     public Output<String> routeId() {
         return this.routeId;
     }
-    /**
-     * Route response key.
-     * 
-     */
     @Export(name="routeResponseKey", refs={String.class}, tree="[0]")
     private Output<String> routeResponseKey;
 
-    /**
-     * @return Route response key.
-     * 
-     */
     public Output<String> routeResponseKey() {
         return this.routeResponseKey;
     }

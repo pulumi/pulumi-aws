@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBillingServiceAccountResult {
-    /**
-     * @return ARN of the AWS billing service account.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,10 +17,6 @@ public final class GetBillingServiceAccountResult {
     private String id;
 
     private GetBillingServiceAccountResult() {}
-    /**
-     * @return ARN of the AWS billing service account.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

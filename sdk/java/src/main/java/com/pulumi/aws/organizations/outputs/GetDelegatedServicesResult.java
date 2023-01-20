@@ -12,10 +12,6 @@ import java.util.Objects;
 @CustomType
 public final class GetDelegatedServicesResult {
     private String accountId;
-    /**
-     * @return Services for which the account is a delegated administrator, which have the following attributes:
-     * 
-     */
     private List<GetDelegatedServicesDelegatedService> delegatedServices;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,10 +23,6 @@ public final class GetDelegatedServicesResult {
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return Services for which the account is a delegated administrator, which have the following attributes:
-     * 
-     */
     public List<GetDelegatedServicesDelegatedService> delegatedServices() {
         return this.delegatedServices;
     }

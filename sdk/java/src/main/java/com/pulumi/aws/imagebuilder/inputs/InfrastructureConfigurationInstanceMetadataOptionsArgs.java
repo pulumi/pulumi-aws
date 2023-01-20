@@ -16,32 +16,16 @@ public final class InfrastructureConfigurationInstanceMetadataOptionsArgs extend
 
     public static final InfrastructureConfigurationInstanceMetadataOptionsArgs Empty = new InfrastructureConfigurationInstanceMetadataOptionsArgs();
 
-    /**
-     * The number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     @Import(name="httpPutResponseHopLimit")
     private @Nullable Output<Integer> httpPutResponseHopLimit;
 
-    /**
-     * @return The number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     public Optional<Output<Integer>> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
 
-    /**
-     * Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-     * 
-     */
     @Import(name="httpTokens")
     private @Nullable Output<String> httpTokens;
 
-    /**
-     * @return Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-     * 
-     */
     public Optional<Output<String>> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }
@@ -71,44 +55,20 @@ public final class InfrastructureConfigurationInstanceMetadataOptionsArgs extend
             $ = new InfrastructureConfigurationInstanceMetadataOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param httpPutResponseHopLimit The number of hops that an instance can traverse to reach its destonation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(@Nullable Output<Integer> httpPutResponseHopLimit) {
             $.httpPutResponseHopLimit = httpPutResponseHopLimit;
             return this;
         }
 
-        /**
-         * @param httpPutResponseHopLimit The number of hops that an instance can traverse to reach its destonation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpPutResponseHopLimit(Integer httpPutResponseHopLimit) {
             return httpPutResponseHopLimit(Output.of(httpPutResponseHopLimit));
         }
 
-        /**
-         * @param httpTokens Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(@Nullable Output<String> httpTokens) {
             $.httpTokens = httpTokens;
             return this;
         }
 
-        /**
-         * @param httpTokens Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpTokens(String httpTokens) {
             return httpTokens(Output.of(httpTokens));
         }

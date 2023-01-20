@@ -13,17 +13,9 @@ public final class GetUserHierarchyStructureArgs extends com.pulumi.resources.In
 
     public static final GetUserHierarchyStructureArgs Empty = new GetUserHierarchyStructureArgs();
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
@@ -52,23 +44,11 @@ public final class GetUserHierarchyStructureArgs extends com.pulumi.resources.In
             $ = new GetUserHierarchyStructureArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(Output<String> instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             return instanceId(Output.of(instanceId));
         }

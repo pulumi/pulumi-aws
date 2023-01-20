@@ -15,154 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a Lambda function alias. Creates an alias that points to the specified Lambda function version.
- * 
- * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
- * For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.Alias;
- * import com.pulumi.aws.lambda.AliasArgs;
- * import com.pulumi.aws.lambda.inputs.AliasRoutingConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testLambdaAlias = new Alias(&#34;testLambdaAlias&#34;, AliasArgs.builder()        
- *             .description(&#34;a sample description&#34;)
- *             .functionName(aws_lambda_function.lambda_function_test().arn())
- *             .functionVersion(&#34;1&#34;)
- *             .routingConfig(AliasRoutingConfigArgs.builder()
- *                 .additionalVersionWeights(Map.of(&#34;2&#34;, 0.5))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/alias:Alias")
 public class Alias extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) identifying your Lambda function alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) identifying your Lambda function alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the alias.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the alias.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Lambda Function name or ARN.
-     * 
-     */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
-    /**
-     * @return Lambda Function name or ARN.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
-    /**
-     * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-     * 
-     */
     @Export(name="functionVersion", refs={String.class}, tree="[0]")
     private Output<String> functionVersion;
 
-    /**
-     * @return Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
-     * 
-     */
     public Output<String> functionVersion() {
         return this.functionVersion;
     }
-    /**
-     * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
-     * 
-     */
     @Export(name="invokeArn", refs={String.class}, tree="[0]")
     private Output<String> invokeArn;
 
-    /**
-     * @return The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`&#39;s `uri`
-     * 
-     */
     public Output<String> invokeArn() {
         return this.invokeArn;
     }
-    /**
-     * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The Lambda alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     @Export(name="routingConfig", refs={AliasRoutingConfig.class}, tree="[0]")
     private Output</* @Nullable */ AliasRoutingConfig> routingConfig;
 
-    /**
-     * @return The Lambda alias&#39; route configuration settings. Fields documented below
-     * 
-     */
     public Output<Optional<AliasRoutingConfig>> routingConfig() {
         return Codegen.optional(this.routingConfig);
     }

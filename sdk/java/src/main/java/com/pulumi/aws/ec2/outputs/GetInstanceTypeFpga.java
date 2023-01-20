@@ -12,10 +12,6 @@ import java.util.Objects;
 public final class GetInstanceTypeFpga {
     private Integer count;
     private String manufacturer;
-    /**
-     * @return Size of the instance memory, in MiB.
-     * 
-     */
     private Integer memorySize;
     private String name;
 
@@ -26,10 +22,6 @@ public final class GetInstanceTypeFpga {
     public String manufacturer() {
         return this.manufacturer;
     }
-    /**
-     * @return Size of the instance memory, in MiB.
-     * 
-     */
     public Integer memorySize() {
         return this.memorySize;
     }

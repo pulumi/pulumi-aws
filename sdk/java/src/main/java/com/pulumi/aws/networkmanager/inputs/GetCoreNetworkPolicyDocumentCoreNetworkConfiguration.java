@@ -17,62 +17,30 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration extends 
 
     public static final GetCoreNetworkPolicyDocumentCoreNetworkConfiguration Empty = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration();
 
-    /**
-     * List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-     * 
-     */
     @Import(name="asnRanges", required=true)
     private List<String> asnRanges;
 
-    /**
-     * @return List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-     * 
-     */
     public List<String> asnRanges() {
         return this.asnRanges;
     }
 
-    /**
-     * A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-     * 
-     */
     @Import(name="edgeLocations", required=true)
     private List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
 
-    /**
-     * @return A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations() {
         return this.edgeLocations;
     }
 
-    /**
-     * The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
-     * 
-     */
     @Import(name="insideCidrBlocks")
     private @Nullable List<String> insideCidrBlocks;
 
-    /**
-     * @return The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
-     * 
-     */
     public Optional<List<String>> insideCidrBlocks() {
         return Optional.ofNullable(this.insideCidrBlocks);
     }
 
-    /**
-     * Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-     * 
-     */
     @Import(name="vpnEcmpSupport")
     private @Nullable Boolean vpnEcmpSupport;
 
-    /**
-     * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-     * 
-     */
     public Optional<Boolean> vpnEcmpSupport() {
         return Optional.ofNullable(this.vpnEcmpSupport);
     }
@@ -104,75 +72,33 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration extends 
             $ = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param asnRanges List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnRanges(List<String> asnRanges) {
             $.asnRanges = asnRanges;
             return this;
         }
 
-        /**
-         * @param asnRanges List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `&#34;64512-65534&#34;`. No other ASN ranges can be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder asnRanges(String... asnRanges) {
             return asnRanges(List.of(asnRanges));
         }
 
-        /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations) {
             $.edgeLocations = edgeLocations;
             return this;
         }
 
-        /**
-         * @param edgeLocations A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation... edgeLocations) {
             return edgeLocations(List.of(edgeLocations));
         }
 
-        /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(@Nullable List<String> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
-        /**
-         * @param insideCidrBlocks The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
 
-        /**
-         * @param vpnEcmpSupport Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnEcmpSupport(@Nullable Boolean vpnEcmpSupport) {
             $.vpnEcmpSupport = vpnEcmpSupport;
             return this;

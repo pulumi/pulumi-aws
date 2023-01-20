@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIpamPreviewNextCidrResult {
-    /**
-     * @return Previewed CIDR from the pool.
-     * 
-     */
     private String cidr;
     private @Nullable List<String> disallowedCidrs;
     /**
@@ -28,10 +24,6 @@ public final class GetIpamPreviewNextCidrResult {
     private @Nullable Integer netmaskLength;
 
     private GetIpamPreviewNextCidrResult() {}
-    /**
-     * @return Previewed CIDR from the pool.
-     * 
-     */
     public String cidr() {
         return this.cidr;
     }

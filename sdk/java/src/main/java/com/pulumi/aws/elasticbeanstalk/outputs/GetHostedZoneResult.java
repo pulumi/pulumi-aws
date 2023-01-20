@@ -16,10 +16,6 @@ public final class GetHostedZoneResult {
      * 
      */
     private String id;
-    /**
-     * @return Region of the hosted zone.
-     * 
-     */
     private @Nullable String region;
 
     private GetHostedZoneResult() {}
@@ -30,10 +26,6 @@ public final class GetHostedZoneResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Region of the hosted zone.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

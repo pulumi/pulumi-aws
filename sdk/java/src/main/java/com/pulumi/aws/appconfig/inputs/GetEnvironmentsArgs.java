@@ -13,17 +13,9 @@ public final class GetEnvironmentsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetEnvironmentsArgs Empty = new GetEnvironmentsArgs();
 
-    /**
-     * ID of the AppConfig Application.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return ID of the AppConfig Application.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
@@ -52,23 +44,11 @@ public final class GetEnvironmentsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetEnvironmentsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the AppConfig Application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId ID of the AppConfig Application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }

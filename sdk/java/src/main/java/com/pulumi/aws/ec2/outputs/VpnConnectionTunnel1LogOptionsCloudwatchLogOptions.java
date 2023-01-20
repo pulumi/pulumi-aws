@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptions {
-    /**
-     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
-     * 
-     */
     private @Nullable Boolean logEnabled;
-    /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
-     * 
-     */
     private @Nullable String logGroupArn;
-    /**
-     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
-     * 
-     */
     private @Nullable String logOutputFormat;
 
     private VpnConnectionTunnel1LogOptionsCloudwatchLogOptions() {}
-    /**
-     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
-     * 
-     */
     public Optional<Boolean> logEnabled() {
         return Optional.ofNullable(this.logEnabled);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
-     * 
-     */
     public Optional<String> logGroupArn() {
         return Optional.ofNullable(this.logGroupArn);
     }
-    /**
-     * @return Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
-     * 
-     */
     public Optional<String> logOutputFormat() {
         return Optional.ofNullable(this.logOutputFormat);
     }

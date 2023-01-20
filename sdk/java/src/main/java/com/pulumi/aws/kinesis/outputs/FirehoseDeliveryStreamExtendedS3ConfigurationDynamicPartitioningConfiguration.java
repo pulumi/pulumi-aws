@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
-    /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-     * 
-     */
     private @Nullable Integer retryDuration;
 
     private FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration() {}
-    /**
-     * @return Enables or disables [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Total amount of seconds Firehose spends on retries. Valid values between 0 and 7200. Default is 300.
-     * 
-     */
     public Optional<Integer> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }

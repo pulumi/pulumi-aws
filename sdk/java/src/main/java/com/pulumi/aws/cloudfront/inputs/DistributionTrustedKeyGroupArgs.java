@@ -17,32 +17,16 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
 
     public static final DistributionTrustedKeyGroupArgs Empty = new DistributionTrustedKeyGroupArgs();
 
-    /**
-     * A flag that specifies whether Origin Shield is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return A flag that specifies whether Origin Shield is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * List of nested attributes for each trusted signer
-     * 
-     */
     @Import(name="items")
     private @Nullable Output<List<DistributionTrustedKeyGroupItemArgs>> items;
 
-    /**
-     * @return List of nested attributes for each trusted signer
-     * 
-     */
     public Optional<Output<List<DistributionTrustedKeyGroupItemArgs>>> items() {
         return Optional.ofNullable(this.items);
     }
@@ -72,54 +56,24 @@ public final class DistributionTrustedKeyGroupArgs extends com.pulumi.resources.
             $ = new DistributionTrustedKeyGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled A flag that specifies whether Origin Shield is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param items List of nested attributes for each trusted signer
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(@Nullable Output<List<DistributionTrustedKeyGroupItemArgs>> items) {
             $.items = items;
             return this;
         }
 
-        /**
-         * @param items List of nested attributes for each trusted signer
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(List<DistributionTrustedKeyGroupItemArgs> items) {
             return items(Output.of(items));
         }
 
-        /**
-         * @param items List of nested attributes for each trusted signer
-         * 
-         * @return builder
-         * 
-         */
         public Builder items(DistributionTrustedKeyGroupItemArgs... items) {
             return items(List.of(items));
         }

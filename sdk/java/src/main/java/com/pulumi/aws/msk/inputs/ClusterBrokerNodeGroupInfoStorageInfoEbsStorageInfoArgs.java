@@ -16,32 +16,16 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
 
     public static final ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs Empty = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs();
 
-    /**
-     * A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-     * 
-     */
     @Import(name="provisionedThroughput")
     private @Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs> provisionedThroughput;
 
-    /**
-     * @return A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-     * 
-     */
     public Optional<Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs>> provisionedThroughput() {
         return Optional.ofNullable(this.provisionedThroughput);
     }
 
-    /**
-     * The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-     * 
-     */
     @Import(name="volumeSize")
     private @Nullable Output<Integer> volumeSize;
 
-    /**
-     * @return The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-     * 
-     */
     public Optional<Output<Integer>> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
@@ -71,44 +55,20 @@ public final class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs exten
             $ = new ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(@Nullable Output<ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs> provisionedThroughput) {
             $.provisionedThroughput = provisionedThroughput;
             return this;
         }
 
-        /**
-         * @param provisionedThroughput A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedThroughput(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs provisionedThroughput) {
             return provisionedThroughput(Output.of(provisionedThroughput));
         }
 
-        /**
-         * @param volumeSize The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSize(@Nullable Output<Integer> volumeSize) {
             $.volumeSize = volumeSize;
             return this;
         }
 
-        /**
-         * @param volumeSize The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder volumeSize(Integer volumeSize) {
             return volumeSize(Output.of(volumeSize));
         }

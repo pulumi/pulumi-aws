@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings {
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination;
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings frameCaptureCdnSettings;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings() {}
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination destination() {
         return this.destination;
     }

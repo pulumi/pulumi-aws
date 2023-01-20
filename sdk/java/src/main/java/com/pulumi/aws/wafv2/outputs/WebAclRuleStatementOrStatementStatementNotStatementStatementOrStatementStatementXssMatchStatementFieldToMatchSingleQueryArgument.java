@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
-    /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     private String name;
 
     private WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument() {}
-    /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     public String name() {
         return this.name;
     }

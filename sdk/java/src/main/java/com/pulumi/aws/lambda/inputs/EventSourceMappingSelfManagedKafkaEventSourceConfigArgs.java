@@ -15,17 +15,9 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs exten
 
     public static final EventSourceMappingSelfManagedKafkaEventSourceConfigArgs Empty = new EventSourceMappingSelfManagedKafkaEventSourceConfigArgs();
 
-    /**
-     * A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-     * 
-     */
     @Import(name="consumerGroupId")
     private @Nullable Output<String> consumerGroupId;
 
-    /**
-     * @return A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-     * 
-     */
     public Optional<Output<String>> consumerGroupId() {
         return Optional.ofNullable(this.consumerGroupId);
     }
@@ -54,23 +46,11 @@ public final class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs exten
             $ = new EventSourceMappingSelfManagedKafkaEventSourceConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param consumerGroupId A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(@Nullable Output<String> consumerGroupId) {
             $.consumerGroupId = consumerGroupId;
             return this;
         }
 
-        /**
-         * @param consumerGroupId A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder consumerGroupId(String consumerGroupId) {
             return consumerGroupId(Output.of(consumerGroupId));
         }

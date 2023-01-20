@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
-    /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
-     * 
-     */
     private String predefinedMetricType;
-    /**
-     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
-     * 
-     */
     private String resourceLabel;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification() {}
-    /**
-     * @return Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
-     * 
-     */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
-    /**
-     * @return Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
-     * 
-     */
     public String resourceLabel() {
         return this.resourceLabel;
     }

@@ -15,159 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
- * 
- * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- * 
- * &gt; **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
- * 
- * ## Example Usage
- * ### Account Access
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventPermission;
- * import com.pulumi.aws.cloudwatch.EventPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var devAccountAccess = new EventPermission(&#34;devAccountAccess&#34;, EventPermissionArgs.builder()        
- *             .principal(&#34;123456789012&#34;)
- *             .statementId(&#34;DevAccountAccess&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Access
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventPermission;
- * import com.pulumi.aws.cloudwatch.EventPermissionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventPermissionConditionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var organizationAccess = new EventPermission(&#34;organizationAccess&#34;, EventPermissionArgs.builder()        
- *             .principal(&#34;*&#34;)
- *             .statementId(&#34;OrganizationAccess&#34;)
- *             .condition(EventPermissionConditionArgs.builder()
- *                 .key(&#34;aws:PrincipalOrgID&#34;)
- *                 .type(&#34;StringEquals&#34;)
- *                 .value(aws_organizations_organization.example().id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EventBridge permissions can be imported using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/eventPermission:EventPermission")
 public class EventPermission extends com.pulumi.resources.CustomResource {
-    /**
-     * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> action;
 
-    /**
-     * @return The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-     * 
-     */
     public Output<Optional<String>> action() {
         return Codegen.optional(this.action);
     }
-    /**
-     * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-     * 
-     */
     @Export(name="condition", refs={EventPermissionCondition.class}, tree="[0]")
     private Output</* @Nullable */ EventPermissionCondition> condition;
 
-    /**
-     * @return Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-     * 
-     */
     public Output<Optional<EventPermissionCondition>> condition() {
         return Codegen.optional(this.condition);
     }
-    /**
-     * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-     * 
-     */
     @Export(name="eventBusName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventBusName;
 
-    /**
-     * @return The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
-     * 
-     */
     public Output<Optional<String>> eventBusName() {
         return Codegen.optional(this.eventBusName);
     }
-    /**
-     * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * An identifier string for the external account that you are granting permissions to.
-     * 
-     */
     @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
-    /**
-     * @return An identifier string for the external account that you are granting permissions to.
-     * 
-     */
     public Output<String> statementId() {
         return this.statementId;
     }

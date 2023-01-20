@@ -16,47 +16,23 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
 
     public static final LocalGatewayRouteTableVpcAssociationArgs Empty = new LocalGatewayRouteTableVpcAssociationArgs();
 
-    /**
-     * Identifier of EC2 Local Gateway Route Table.
-     * 
-     */
     @Import(name="localGatewayRouteTableId", required=true)
     private Output<String> localGatewayRouteTableId;
 
-    /**
-     * @return Identifier of EC2 Local Gateway Route Table.
-     * 
-     */
     public Output<String> localGatewayRouteTableId() {
         return this.localGatewayRouteTableId;
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of EC2 VPC.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return Identifier of EC2 VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -87,65 +63,29 @@ public final class LocalGatewayRouteTableVpcAssociationArgs extends com.pulumi.r
             $ = new LocalGatewayRouteTableVpcAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param localGatewayRouteTableId Identifier of EC2 Local Gateway Route Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayRouteTableId(Output<String> localGatewayRouteTableId) {
             $.localGatewayRouteTableId = localGatewayRouteTableId;
             return this;
         }
 
-        /**
-         * @param localGatewayRouteTableId Identifier of EC2 Local Gateway Route Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder localGatewayRouteTableId(String localGatewayRouteTableId) {
             return localGatewayRouteTableId(Output.of(localGatewayRouteTableId));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId Identifier of EC2 VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId Identifier of EC2 VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

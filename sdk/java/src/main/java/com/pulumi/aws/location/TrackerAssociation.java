@@ -13,88 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Location Tracker Association.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.location.GeofenceCollection;
- * import com.pulumi.aws.location.GeofenceCollectionArgs;
- * import com.pulumi.aws.location.Tracker;
- * import com.pulumi.aws.location.TrackerArgs;
- * import com.pulumi.aws.location.TrackerAssociation;
- * import com.pulumi.aws.location.TrackerAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGeofenceCollection = new GeofenceCollection(&#34;exampleGeofenceCollection&#34;, GeofenceCollectionArgs.builder()        
- *             .collectionName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleTracker = new Tracker(&#34;exampleTracker&#34;, TrackerArgs.builder()        
- *             .trackerName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleTrackerAssociation = new TrackerAssociation(&#34;exampleTrackerAssociation&#34;, TrackerAssociationArgs.builder()        
- *             .consumerArn(exampleGeofenceCollection.collectionArn())
- *             .trackerName(exampleTracker.trackerName())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Location Tracker Association can be imported using the `tracker_name|consumer_arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example &#34;tracker_name|consumer_arn&#34;
- * ```
- * 
- */
 @ResourceType(type="aws:location/trackerAssociation:TrackerAssociation")
 public class TrackerAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     @Export(name="consumerArn", refs={String.class}, tree="[0]")
     private Output<String> consumerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection to be associated to tracker resource. Used when you need to specify a resource across all AWS.
-     * 
-     */
     public Output<String> consumerArn() {
         return this.consumerArn;
     }
-    /**
-     * The name of the tracker resource to be associated with a geofence collection.
-     * 
-     */
     @Export(name="trackerName", refs={String.class}, tree="[0]")
     private Output<String> trackerName;
 
-    /**
-     * @return The name of the tracker resource to be associated with a geofence collection.
-     * 
-     */
     public Output<String> trackerName() {
         return this.trackerName;
     }

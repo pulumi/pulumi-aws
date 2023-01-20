@@ -14,49 +14,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an individual Autoscaling Group (ASG) tag. This resource should only be used in cases where ASGs are created outside the provider (e.g., ASGs implicitly created by EKS Node Groups).
- * 
- * &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.autoscaling.Group` and `aws.autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `aws.autoscaling.Group` resource will try to remove the tag being added by the `aws.autoscaling.Tag` resource.
- * 
- * &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
- * 
- * ## Import
- * 
- * `aws_autoscaling_group_tag` can be imported by using the ASG name and key, separated by a comma (`,`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
- * ```
- * 
- */
 @ResourceType(type="aws:autoscaling/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Autoscaling Group to apply the tag to.
-     * 
-     */
     @Export(name="autoscalingGroupName", refs={String.class}, tree="[0]")
     private Output<String> autoscalingGroupName;
 
-    /**
-     * @return Name of the Autoscaling Group to apply the tag to.
-     * 
-     */
     public Output<String> autoscalingGroupName() {
         return this.autoscalingGroupName;
     }
-    /**
-     * Tag to create. The `tag` block is documented below.
-     * 
-     */
     @Export(name="tag", refs={TagTag.class}, tree="[0]")
     private Output<TagTag> tag;
 
-    /**
-     * @return Tag to create. The `tag` block is documented below.
-     * 
-     */
     public Output<TagTag> tag() {
         return this.tag;
     }

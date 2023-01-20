@@ -14,17 +14,9 @@ public final class GetDataLakeSettingsPlainArgs extends com.pulumi.resources.Inv
 
     public static final GetDataLakeSettingsPlainArgs Empty = new GetDataLakeSettingsPlainArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable String catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
@@ -53,12 +45,6 @@ public final class GetDataLakeSettingsPlainArgs extends com.pulumi.resources.Inv
             $ = new GetDataLakeSettingsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, the account ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable String catalogId) {
             $.catalogId = catalogId;
             return this;

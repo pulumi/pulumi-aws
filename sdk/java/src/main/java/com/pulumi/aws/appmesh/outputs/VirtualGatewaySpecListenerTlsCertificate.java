@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualGatewaySpecListenerTlsCertificate {
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerTlsCertificateAcm acm;
-    /**
-     * @return Local file certificate.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerTlsCertificateFile file;
-    /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     private @Nullable VirtualGatewaySpecListenerTlsCertificateSds sds;
 
     private VirtualGatewaySpecListenerTlsCertificate() {}
-    /**
-     * @return An AWS Certificate Manager (ACM) certificate.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerTlsCertificateAcm> acm() {
         return Optional.ofNullable(this.acm);
     }
-    /**
-     * @return Local file certificate.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerTlsCertificateFile> file() {
         return Optional.ofNullable(this.file);
     }
-    /**
-     * @return A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<VirtualGatewaySpecListenerTlsCertificateSds> sds() {
         return Optional.ofNullable(this.sds);
     }

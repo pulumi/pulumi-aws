@@ -14,103 +14,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
- * the `notifications` map to a [Notification Configuration](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html) inside Amazon Web
- * Services, and are applied to each AutoScaling Group you supply.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.autoscaling.Group;
- * import com.pulumi.aws.autoscaling.Notification;
- * import com.pulumi.aws.autoscaling.NotificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Topic(&#34;example&#34;);
- * 
- *         var bar = new Group(&#34;bar&#34;);
- * 
- *         var foo = new Group(&#34;foo&#34;);
- * 
- *         var exampleNotifications = new Notification(&#34;exampleNotifications&#34;, NotificationArgs.builder()        
- *             .groupNames(            
- *                 bar.name(),
- *                 foo.name())
- *             .notifications(            
- *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH_ERROR&#34;,
- *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE_ERROR&#34;)
- *             .topicArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:autoscaling/notification:Notification")
 public class Notification extends com.pulumi.resources.CustomResource {
-    /**
-     * List of AutoScaling Group Names
-     * 
-     */
     @Export(name="groupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> groupNames;
 
-    /**
-     * @return List of AutoScaling Group Names
-     * 
-     */
     public Output<List<String>> groupNames() {
         return this.groupNames;
     }
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     @Export(name="notifications", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> notifications;
 
-    /**
-     * @return List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     public Output<List<String>> notifications() {
         return this.notifications;
     }
-    /**
-     * Topic ARN for notifications to be sent through
-     * 
-     */
     @Export(name="topicArn", refs={String.class}, tree="[0]")
     private Output<String> topicArn;
 
-    /**
-     * @return Topic ARN for notifications to be sent through
-     * 
-     */
     public Output<String> topicArn() {
         return this.topicArn;
     }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ImageBuilderAccessEndpoint {
-    /**
-     * @return Type of interface endpoint.
-     * 
-     */
     private String endpointType;
-    /**
-     * @return Identifier (ID) of the VPC in which the interface endpoint is used.
-     * 
-     */
     private @Nullable String vpceId;
 
     private ImageBuilderAccessEndpoint() {}
-    /**
-     * @return Type of interface endpoint.
-     * 
-     */
     public String endpointType() {
         return this.endpointType;
     }
-    /**
-     * @return Identifier (ID) of the VPC in which the interface endpoint is used.
-     * 
-     */
     public Optional<String> vpceId() {
         return Optional.ofNullable(this.vpceId);
     }

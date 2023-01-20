@@ -16,32 +16,16 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundaryArgs extends 
 
     public static final PermissionsBoundaryAttachmentPermissionsBoundaryArgs Empty = new PermissionsBoundaryAttachmentPermissionsBoundaryArgs();
 
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     @Import(name="customerManagedPolicyReference")
     private @Nullable Output<PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference;
 
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     public Optional<Output<PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs>> customerManagedPolicyReference() {
         return Optional.ofNullable(this.customerManagedPolicyReference);
     }
 
-    /**
-     * AWS-managed IAM policy ARN to use as the permissions boundary.
-     * 
-     */
     @Import(name="managedPolicyArn")
     private @Nullable Output<String> managedPolicyArn;
 
-    /**
-     * @return AWS-managed IAM policy ARN to use as the permissions boundary.
-     * 
-     */
     public Optional<Output<String>> managedPolicyArn() {
         return Optional.ofNullable(this.managedPolicyArn);
     }
@@ -71,44 +55,20 @@ public final class PermissionsBoundaryAttachmentPermissionsBoundaryArgs extends 
             $ = new PermissionsBoundaryAttachmentPermissionsBoundaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerManagedPolicyReference Specifies the name and path of a customer managed policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedPolicyReference(@Nullable Output<PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs> customerManagedPolicyReference) {
             $.customerManagedPolicyReference = customerManagedPolicyReference;
             return this;
         }
 
-        /**
-         * @param customerManagedPolicyReference Specifies the name and path of a customer managed policy. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerManagedPolicyReference(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs customerManagedPolicyReference) {
             return customerManagedPolicyReference(Output.of(customerManagedPolicyReference));
         }
 
-        /**
-         * @param managedPolicyArn AWS-managed IAM policy ARN to use as the permissions boundary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyArn(@Nullable Output<String> managedPolicyArn) {
             $.managedPolicyArn = managedPolicyArn;
             return this;
         }
 
-        /**
-         * @param managedPolicyArn AWS-managed IAM policy ARN to use as the permissions boundary.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managedPolicyArn(String managedPolicyArn) {
             return managedPolicyArn(Output.of(managedPolicyArn));
         }

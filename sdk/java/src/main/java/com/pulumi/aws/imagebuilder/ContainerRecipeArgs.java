@@ -20,197 +20,93 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ContainerRecipeArgs Empty = new ContainerRecipeArgs();
 
-    /**
-     * Ordered configuration block(s) with components for the container recipe. Detailed below.
-     * 
-     */
     @Import(name="components", required=true)
     private Output<List<ContainerRecipeComponentArgs>> components;
 
-    /**
-     * @return Ordered configuration block(s) with components for the container recipe. Detailed below.
-     * 
-     */
     public Output<List<ContainerRecipeComponentArgs>> components() {
         return this.components;
     }
 
-    /**
-     * The type of the container to create. Valid values: `DOCKER`.
-     * 
-     */
     @Import(name="containerType", required=true)
     private Output<String> containerType;
 
-    /**
-     * @return The type of the container to create. Valid values: `DOCKER`.
-     * 
-     */
     public Output<String> containerType() {
         return this.containerType;
     }
 
-    /**
-     * The description of the container recipe.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the container recipe.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The Dockerfile template used to build the image as an inline data blob.
-     * 
-     */
     @Import(name="dockerfileTemplateData")
     private @Nullable Output<String> dockerfileTemplateData;
 
-    /**
-     * @return The Dockerfile template used to build the image as an inline data blob.
-     * 
-     */
     public Optional<Output<String>> dockerfileTemplateData() {
         return Optional.ofNullable(this.dockerfileTemplateData);
     }
 
-    /**
-     * The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-     * 
-     */
     @Import(name="dockerfileTemplateUri")
     private @Nullable Output<String> dockerfileTemplateUri;
 
-    /**
-     * @return The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-     * 
-     */
     public Optional<Output<String>> dockerfileTemplateUri() {
         return Optional.ofNullable(this.dockerfileTemplateUri);
     }
 
-    /**
-     * Configuration block used to configure an instance for building and testing container images. Detailed below.
-     * 
-     */
     @Import(name="instanceConfiguration")
     private @Nullable Output<ContainerRecipeInstanceConfigurationArgs> instanceConfiguration;
 
-    /**
-     * @return Configuration block used to configure an instance for building and testing container images. Detailed below.
-     * 
-     */
     public Optional<Output<ContainerRecipeInstanceConfigurationArgs>> instanceConfiguration() {
         return Optional.ofNullable(this.instanceConfiguration);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * The name of the component parameter.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the component parameter.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The base image for the container recipe.
-     * 
-     */
     @Import(name="parentImage", required=true)
     private Output<String> parentImage;
 
-    /**
-     * @return The base image for the container recipe.
-     * 
-     */
     public Output<String> parentImage() {
         return this.parentImage;
     }
 
-    /**
-     * Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The destination repository for the container image. Detailed below.
-     * 
-     */
     @Import(name="targetRepository", required=true)
     private Output<ContainerRecipeTargetRepositoryArgs> targetRepository;
 
-    /**
-     * @return The destination repository for the container image. Detailed below.
-     * 
-     */
     public Output<ContainerRecipeTargetRepositoryArgs> targetRepository() {
         return this.targetRepository;
     }
 
-    /**
-     * Version of the container recipe.
-     * 
-     */
     @Import(name="version", required=true)
     private Output<String> version;
 
-    /**
-     * @return Version of the container recipe.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
 
-    /**
-     * The working directory to be used during build and test workflows.
-     * 
-     */
     @Import(name="workingDirectory")
     private @Nullable Output<String> workingDirectory;
 
-    /**
-     * @return The working directory to be used during build and test workflows.
-     * 
-     */
     public Optional<Output<String>> workingDirectory() {
         return Optional.ofNullable(this.workingDirectory);
     }
@@ -251,285 +147,123 @@ public final class ContainerRecipeArgs extends com.pulumi.resources.ResourceArgs
             $ = new ContainerRecipeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param components Ordered configuration block(s) with components for the container recipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder components(Output<List<ContainerRecipeComponentArgs>> components) {
             $.components = components;
             return this;
         }
 
-        /**
-         * @param components Ordered configuration block(s) with components for the container recipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder components(List<ContainerRecipeComponentArgs> components) {
             return components(Output.of(components));
         }
 
-        /**
-         * @param components Ordered configuration block(s) with components for the container recipe. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder components(ContainerRecipeComponentArgs... components) {
             return components(List.of(components));
         }
 
-        /**
-         * @param containerType The type of the container to create. Valid values: `DOCKER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerType(Output<String> containerType) {
             $.containerType = containerType;
             return this;
         }
 
-        /**
-         * @param containerType The type of the container to create. Valid values: `DOCKER`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerType(String containerType) {
             return containerType(Output.of(containerType));
         }
 
-        /**
-         * @param description The description of the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param dockerfileTemplateData The Dockerfile template used to build the image as an inline data blob.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerfileTemplateData(@Nullable Output<String> dockerfileTemplateData) {
             $.dockerfileTemplateData = dockerfileTemplateData;
             return this;
         }
 
-        /**
-         * @param dockerfileTemplateData The Dockerfile template used to build the image as an inline data blob.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerfileTemplateData(String dockerfileTemplateData) {
             return dockerfileTemplateData(Output.of(dockerfileTemplateData));
         }
 
-        /**
-         * @param dockerfileTemplateUri The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerfileTemplateUri(@Nullable Output<String> dockerfileTemplateUri) {
             $.dockerfileTemplateUri = dockerfileTemplateUri;
             return this;
         }
 
-        /**
-         * @param dockerfileTemplateUri The Amazon S3 URI for the Dockerfile that will be used to build the container image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerfileTemplateUri(String dockerfileTemplateUri) {
             return dockerfileTemplateUri(Output.of(dockerfileTemplateUri));
         }
 
-        /**
-         * @param instanceConfiguration Configuration block used to configure an instance for building and testing container images. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceConfiguration(@Nullable Output<ContainerRecipeInstanceConfigurationArgs> instanceConfiguration) {
             $.instanceConfiguration = instanceConfiguration;
             return this;
         }
 
-        /**
-         * @param instanceConfiguration Configuration block used to configure an instance for building and testing container images. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceConfiguration(ContainerRecipeInstanceConfigurationArgs instanceConfiguration) {
             return instanceConfiguration(Output.of(instanceConfiguration));
         }
 
-        /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param name The name of the component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the component parameter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parentImage The base image for the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentImage(Output<String> parentImage) {
             $.parentImage = parentImage;
             return this;
         }
 
-        /**
-         * @param parentImage The base image for the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parentImage(String parentImage) {
             return parentImage(Output.of(parentImage));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param targetRepository The destination repository for the container image. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRepository(Output<ContainerRecipeTargetRepositoryArgs> targetRepository) {
             $.targetRepository = targetRepository;
             return this;
         }
 
-        /**
-         * @param targetRepository The destination repository for the container image. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetRepository(ContainerRecipeTargetRepositoryArgs targetRepository) {
             return targetRepository(Output.of(targetRepository));
         }
 
-        /**
-         * @param version Version of the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the container recipe.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }
 
-        /**
-         * @param workingDirectory The working directory to be used during build and test workflows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workingDirectory(@Nullable Output<String> workingDirectory) {
             $.workingDirectory = workingDirectory;
             return this;
         }
 
-        /**
-         * @param workingDirectory The working directory to be used during build and test workflows.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workingDirectory(String workingDirectory) {
             return workingDirectory(Output.of(workingDirectory));
         }

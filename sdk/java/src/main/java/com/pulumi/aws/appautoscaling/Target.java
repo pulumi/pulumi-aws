@@ -14,270 +14,41 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `aws.appautoscaling.Policy` resource.
- * 
- * &gt; **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `aws.iam.ServiceLinkedRole` resource.
- * 
- * ## Example Usage
- * ### DynamoDB Table Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(100)
- *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s&#34;, aws_dynamodb_table.example().name()))
- *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### DynamoDB Index Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dynamodbIndexReadTarget = new Target(&#34;dynamodbIndexReadTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(100)
- *             .minCapacity(5)
- *             .resourceId(String.format(&#34;table/%s/index/%s&#34;, aws_dynamodb_table.example().name(),var_.index_name()))
- *             .scalableDimension(&#34;dynamodb:index:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### ECS Service Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ecsTarget = new Target(&#34;ecsTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(4)
- *             .minCapacity(1)
- *             .resourceId(String.format(&#34;service/%s/%s&#34;, aws_ecs_cluster.example().name(),aws_ecs_service.example().name()))
- *             .scalableDimension(&#34;ecs:service:DesiredCount&#34;)
- *             .serviceNamespace(&#34;ecs&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Aurora Read Replica Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var replicas = new Target(&#34;replicas&#34;, TargetArgs.builder()        
- *             .maxCapacity(15)
- *             .minCapacity(1)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .serviceNamespace(&#34;rds&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### MSK / Kafka Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(8)
- *             .minCapacity(1)
- *             .resourceId(aws_msk_cluster.example().arn())
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
- *             .serviceNamespace(&#34;kafka&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Application AutoScaling Target can be imported using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`.
- * 
- * ```sh
- *  $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
- * ```
- * 
- */
 @ResourceType(type="aws:appautoscaling/target:Target")
 public class Target extends com.pulumi.resources.CustomResource {
-    /**
-     * Max capacity of the scalable target.
-     * 
-     */
     @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCapacity;
 
-    /**
-     * @return Max capacity of the scalable target.
-     * 
-     */
     public Output<Integer> maxCapacity() {
         return this.maxCapacity;
     }
-    /**
-     * Min capacity of the scalable target.
-     * 
-     */
     @Export(name="minCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> minCapacity;
 
-    /**
-     * @return Min capacity of the scalable target.
-     * 
-     */
     public Output<Integer> minCapacity() {
         return this.minCapacity;
     }
-    /**
-     * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
-    /**
-     * ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return ARN of the IAM role that allows Application AutoScaling to modify your scalable target on your behalf. This defaults to an IAM Service-Linked Role for most services and custom IAM Roles are ignored by the API for those namespaces. See the [AWS Application Auto Scaling documentation](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) for more information about how this service interacts with IAM.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     @Export(name="scalableDimension", refs={String.class}, tree="[0]")
     private Output<String> scalableDimension;
 
-    /**
-     * @return Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     public Output<String> scalableDimension() {
         return this.scalableDimension;
     }
-    /**
-     * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     @Export(name="serviceNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceNamespace;
 
-    /**
-     * @return AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html#API_RegisterScalableTarget_RequestParameters)
-     * 
-     */
     public Output<String> serviceNamespace() {
         return this.serviceNamespace;
     }

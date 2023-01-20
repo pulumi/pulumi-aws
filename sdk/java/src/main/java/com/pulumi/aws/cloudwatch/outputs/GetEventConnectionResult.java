@@ -9,44 +9,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventConnectionResult {
-    /**
-     * @return ARN (Amazon Resource Name) for the connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     private String authorizationType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the connection.
-     * 
-     */
     private String name;
-    /**
-     * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     private String secretArn;
 
     private GetEventConnectionResult() {}
-    /**
-     * @return ARN (Amazon Resource Name) for the connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Type of authorization to use to connect. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     public String authorizationType() {
         return this.authorizationType;
     }
@@ -57,17 +33,9 @@ public final class GetEventConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the connection.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return ARN (Amazon Resource Name) for the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     public String secretArn() {
         return this.secretArn;
     }

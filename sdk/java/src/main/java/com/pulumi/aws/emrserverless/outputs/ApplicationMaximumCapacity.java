@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationMaximumCapacity {
-    /**
-     * @return The CPU requirements for every worker instance of the worker type.
-     * 
-     */
     private String cpu;
-    /**
-     * @return The disk requirements for every worker instance of the worker type.
-     * 
-     */
     private @Nullable String disk;
-    /**
-     * @return The memory requirements for every worker instance of the worker type.
-     * 
-     */
     private String memory;
 
     private ApplicationMaximumCapacity() {}
-    /**
-     * @return The CPU requirements for every worker instance of the worker type.
-     * 
-     */
     public String cpu() {
         return this.cpu;
     }
-    /**
-     * @return The disk requirements for every worker instance of the worker type.
-     * 
-     */
     public Optional<String> disk() {
         return Optional.ofNullable(this.disk);
     }
-    /**
-     * @return The memory requirements for every worker instance of the worker type.
-     * 
-     */
     public String memory() {
         return this.memory;
     }

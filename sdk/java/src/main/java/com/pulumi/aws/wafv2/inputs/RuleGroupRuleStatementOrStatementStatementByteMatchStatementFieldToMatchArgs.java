@@ -25,152 +25,72 @@ public final class RuleGroupRuleStatementOrStatementStatementByteMatchStatementF
 
     public static final RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchArgs Empty = new RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchArgs();
 
-    /**
-     * Inspect all query arguments.
-     * 
-     */
     @Import(name="allQueryArguments")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments;
 
-    /**
-     * @return Inspect all query arguments.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs>> allQueryArguments() {
         return Optional.ofNullable(this.allQueryArguments);
     }
 
-    /**
-     * Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     @Import(name="body")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyArgs> body;
 
-    /**
-     * @return Inspect the request body, which immediately follows the request headers.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyArgs>> body() {
         return Optional.ofNullable(this.body);
     }
 
-    /**
-     * Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     @Import(name="cookies")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs> cookies;
 
-    /**
-     * @return Inspect the cookies in the web request. See Cookies below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs>> cookies() {
         return Optional.ofNullable(this.cookies);
     }
 
-    /**
-     * Inspect the request headers. See Headers below for details.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<List<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>> headers;
 
-    /**
-     * @return Inspect the request headers. See Headers below for details.
-     * 
-     */
     public Optional<Output<List<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
-    /**
-     * Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     @Import(name="jsonBody")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyArgs> jsonBody;
 
-    /**
-     * @return Inspect the request body as JSON. See JSON Body for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyArgs>> jsonBody() {
         return Optional.ofNullable(this.jsonBody);
     }
 
-    /**
-     * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     @Import(name="method")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodArgs> method;
 
-    /**
-     * @return Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodArgs>> method() {
         return Optional.ofNullable(this.method);
     }
 
-    /**
-     * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     @Import(name="queryString")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringArgs> queryString;
 
-    /**
-     * @return Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringArgs>> queryString() {
         return Optional.ofNullable(this.queryString);
     }
 
-    /**
-     * Inspect a single header. See Single Header below for details.
-     * 
-     */
     @Import(name="singleHeader")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderArgs> singleHeader;
 
-    /**
-     * @return Inspect a single header. See Single Header below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderArgs>> singleHeader() {
         return Optional.ofNullable(this.singleHeader);
     }
 
-    /**
-     * Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     @Import(name="singleQueryArgument")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument;
 
-    /**
-     * @return Inspect a single query argument. See Single Query Argument below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs>> singleQueryArgument() {
         return Optional.ofNullable(this.singleQueryArgument);
     }
 
-    /**
-     * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     @Import(name="uriPath")
     private @Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathArgs> uriPath;
 
-    /**
-     * @return Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathArgs>> uriPath() {
         return Optional.ofNullable(this.uriPath);
     }
@@ -208,222 +128,96 @@ public final class RuleGroupRuleStatementOrStatementStatementByteMatchStatementF
             $ = new RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allQueryArguments Inspect all query arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allQueryArguments(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs> allQueryArguments) {
             $.allQueryArguments = allQueryArguments;
             return this;
         }
 
-        /**
-         * @param allQueryArguments Inspect all query arguments.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allQueryArguments(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs allQueryArguments) {
             return allQueryArguments(Output.of(allQueryArguments));
         }
 
-        /**
-         * @param body Inspect the request body, which immediately follows the request headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyArgs> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body Inspect the request body, which immediately follows the request headers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchBodyArgs body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookies(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs> cookies) {
             $.cookies = cookies;
             return this;
         }
 
-        /**
-         * @param cookies Inspect the cookies in the web request. See Cookies below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookies(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchCookiesArgs cookies) {
             return cookies(Output.of(cookies));
         }
 
-        /**
-         * @param headers Inspect the request headers. See Headers below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<List<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Inspect the request headers. See Headers below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(List<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
-        /**
-         * @param headers Inspect the request headers. See Headers below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
-        /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonBody(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyArgs> jsonBody) {
             $.jsonBody = jsonBody;
             return this;
         }
 
-        /**
-         * @param jsonBody Inspect the request body as JSON. See JSON Body for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonBody(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchJsonBodyArgs jsonBody) {
             return jsonBody(Output.of(jsonBody));
         }
 
-        /**
-         * @param method Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodArgs> method) {
             $.method = method;
             return this;
         }
 
-        /**
-         * @param method Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchMethodArgs method) {
             return method(Output.of(method));
         }
 
-        /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringArgs> queryString) {
             $.queryString = queryString;
             return this;
         }
 
-        /**
-         * @param queryString Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queryString(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchQueryStringArgs queryString) {
             return queryString(Output.of(queryString));
         }
 
-        /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeader(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderArgs> singleHeader) {
             $.singleHeader = singleHeader;
             return this;
         }
 
-        /**
-         * @param singleHeader Inspect a single header. See Single Header below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleHeader(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeaderArgs singleHeader) {
             return singleHeader(Output.of(singleHeader));
         }
 
-        /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleQueryArgument(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs> singleQueryArgument) {
             $.singleQueryArgument = singleQueryArgument;
             return this;
         }
 
-        /**
-         * @param singleQueryArgument Inspect a single query argument. See Single Query Argument below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder singleQueryArgument(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs singleQueryArgument) {
             return singleQueryArgument(Output.of(singleQueryArgument));
         }
 
-        /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uriPath(@Nullable Output<RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathArgs> uriPath) {
             $.uriPath = uriPath;
             return this;
         }
 
-        /**
-         * @param uriPath Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uriPath(RuleGroupRuleStatementOrStatementStatementByteMatchStatementFieldToMatchUriPathArgs uriPath) {
             return uriPath(Output.of(uriPath));
         }

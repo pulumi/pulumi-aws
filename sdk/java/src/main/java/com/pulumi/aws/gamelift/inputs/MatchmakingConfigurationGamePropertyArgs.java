@@ -13,32 +13,16 @@ public final class MatchmakingConfigurationGamePropertyArgs extends com.pulumi.r
 
     public static final MatchmakingConfigurationGamePropertyArgs Empty = new MatchmakingConfigurationGamePropertyArgs();
 
-    /**
-     * A game property key
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return A game property key
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * A game property value.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return A game property value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -68,44 +52,20 @@ public final class MatchmakingConfigurationGamePropertyArgs extends com.pulumi.r
             $ = new MatchmakingConfigurationGamePropertyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key A game property key
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key A game property key
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value A game property value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value A game property value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

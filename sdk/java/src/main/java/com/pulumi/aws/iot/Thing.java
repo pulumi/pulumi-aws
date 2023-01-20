@@ -16,131 +16,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates and manages an AWS IoT Thing.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Thing;
- * import com.pulumi.aws.iot.ThingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Thing(&#34;example&#34;, ThingArgs.builder()        
- *             .attributes(Map.of(&#34;First&#34;, &#34;examplevalue&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IOT Things can be imported using the name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:iot/thing:Thing example example
- * ```
- * 
- */
 @ResourceType(type="aws:iot/thing:Thing")
 public class Thing extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the thing.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the thing.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Map of attributes of the thing.
-     * 
-     */
     @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> attributes;
 
-    /**
-     * @return Map of attributes of the thing.
-     * 
-     */
     public Output<Optional<Map<String,String>>> attributes() {
         return Codegen.optional(this.attributes);
     }
-    /**
-     * The default client ID.
-     * 
-     */
     @Export(name="defaultClientId", refs={String.class}, tree="[0]")
     private Output<String> defaultClientId;
 
-    /**
-     * @return The default client ID.
-     * 
-     */
     public Output<String> defaultClientId() {
         return this.defaultClientId;
     }
-    /**
-     * The name of the thing.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The thing type name.
-     * 
-     */
     @Export(name="thingTypeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> thingTypeName;
 
-    /**
-     * @return The thing type name.
-     * 
-     */
     public Output<Optional<String>> thingTypeName() {
         return Codegen.optional(this.thingTypeName);
     }
-    /**
-     * The current version of the thing record in the registry.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The current version of the thing record in the registry.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

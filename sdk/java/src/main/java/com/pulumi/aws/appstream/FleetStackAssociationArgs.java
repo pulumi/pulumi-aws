@@ -13,32 +13,16 @@ public final class FleetStackAssociationArgs extends com.pulumi.resources.Resour
 
     public static final FleetStackAssociationArgs Empty = new FleetStackAssociationArgs();
 
-    /**
-     * Name of the fleet.
-     * 
-     */
     @Import(name="fleetName", required=true)
     private Output<String> fleetName;
 
-    /**
-     * @return Name of the fleet.
-     * 
-     */
     public Output<String> fleetName() {
         return this.fleetName;
     }
 
-    /**
-     * Name of the stack.
-     * 
-     */
     @Import(name="stackName", required=true)
     private Output<String> stackName;
 
-    /**
-     * @return Name of the stack.
-     * 
-     */
     public Output<String> stackName() {
         return this.stackName;
     }
@@ -68,44 +52,20 @@ public final class FleetStackAssociationArgs extends com.pulumi.resources.Resour
             $ = new FleetStackAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fleetName Name of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetName(Output<String> fleetName) {
             $.fleetName = fleetName;
             return this;
         }
 
-        /**
-         * @param fleetName Name of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetName(String fleetName) {
             return fleetName(Output.of(fleetName));
         }
 
-        /**
-         * @param stackName Name of the stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackName(Output<String> stackName) {
             $.stackName = stackName;
             return this;
         }
 
-        /**
-         * @param stackName Name of the stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stackName(String stackName) {
             return stackName(Output.of(stackName));
         }

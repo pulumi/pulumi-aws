@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointClientConnectOptions {
-    /**
-     * @return Indicates whether connection logging is enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-     * 
-     */
     private @Nullable String lambdaFunctionArn;
 
     private EndpointClientConnectOptions() {}
-    /**
-     * @return Indicates whether connection logging is enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
-     * 
-     */
     public Optional<String> lambdaFunctionArn() {
         return Optional.ofNullable(this.lambdaFunctionArn);
     }

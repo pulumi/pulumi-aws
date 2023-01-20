@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
-    /**
-     * @return Password that corresponds to the user name.
-     * 
-     */
     private String password;
-    /**
-     * @return Name of the user.
-     * 
-     */
     private String username;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials() {}
-    /**
-     * @return Password that corresponds to the user name.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Name of the user.
-     * 
-     */
     public String username() {
         return this.username;
     }

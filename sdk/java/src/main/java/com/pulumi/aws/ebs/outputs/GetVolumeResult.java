@@ -16,20 +16,8 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVolumeResult {
-    /**
-     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-     * 
-     */
     private String arn;
-    /**
-     * @return AZ where the EBS volume exists.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Whether the disk is encrypted.
-     * 
-     */
     private Boolean encrypted;
     private @Nullable List<GetVolumeFilter> filters;
     /**
@@ -37,77 +25,25 @@ public final class GetVolumeResult {
      * 
      */
     private String id;
-    /**
-     * @return Amount of IOPS for the disk.
-     * 
-     */
     private Integer iops;
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     private String kmsKeyId;
     private @Nullable Boolean mostRecent;
-    /**
-     * @return (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
-     * 
-     */
     private Boolean multiAttachEnabled;
-    /**
-     * @return ARN of the Outpost.
-     * 
-     */
     private String outpostArn;
-    /**
-     * @return Size of the drive in GiBs.
-     * 
-     */
     private Integer size;
-    /**
-     * @return Snapshot_id the EBS volume is based off.
-     * 
-     */
     private String snapshotId;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Throughput that the volume supports, in MiB/s.
-     * 
-     */
     private Integer throughput;
-    /**
-     * @return Volume ID (e.g., vol-59fcb34e).
-     * 
-     */
     private String volumeId;
-    /**
-     * @return Type of EBS volume.
-     * 
-     */
     private String volumeType;
 
     private GetVolumeResult() {}
-    /**
-     * @return Volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return AZ where the EBS volume exists.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Whether the disk is encrypted.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
@@ -121,76 +57,36 @@ public final class GetVolumeResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Amount of IOPS for the disk.
-     * 
-     */
     public Integer iops() {
         return this.iops;
     }
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
-    /**
-     * @return (Optional) Specifies whether Amazon EBS Multi-Attach is enabled.
-     * 
-     */
     public Boolean multiAttachEnabled() {
         return this.multiAttachEnabled;
     }
-    /**
-     * @return ARN of the Outpost.
-     * 
-     */
     public String outpostArn() {
         return this.outpostArn;
     }
-    /**
-     * @return Size of the drive in GiBs.
-     * 
-     */
     public Integer size() {
         return this.size;
     }
-    /**
-     * @return Snapshot_id the EBS volume is based off.
-     * 
-     */
     public String snapshotId() {
         return this.snapshotId;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Throughput that the volume supports, in MiB/s.
-     * 
-     */
     public Integer throughput() {
         return this.throughput;
     }
-    /**
-     * @return Volume ID (e.g., vol-59fcb34e).
-     * 
-     */
     public String volumeId() {
         return this.volumeId;
     }
-    /**
-     * @return Type of EBS volume.
-     * 
-     */
     public String volumeType() {
         return this.volumeType;
     }

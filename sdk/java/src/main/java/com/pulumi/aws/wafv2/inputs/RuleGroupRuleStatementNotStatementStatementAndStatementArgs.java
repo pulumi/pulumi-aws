@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementNotStatementStatementAndStatementArgs e
 
     public static final RuleGroupRuleStatementNotStatementStatementAndStatementArgs Empty = new RuleGroupRuleStatementNotStatementStatementAndStatementArgs();
 
-    /**
-     * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs>> statements;
 
-    /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class RuleGroupRuleStatementNotStatementStatementAndStatementArgs e
             $ = new RuleGroupRuleStatementNotStatementStatementAndStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

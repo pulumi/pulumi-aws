@@ -16,106 +16,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regex Match Set Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.RegexPatternSet;
- * import com.pulumi.aws.waf.RegexPatternSetArgs;
- * import com.pulumi.aws.waf.RegexMatchSet;
- * import com.pulumi.aws.waf.RegexMatchSetArgs;
- * import com.pulumi.aws.waf.inputs.RegexMatchSetRegexMatchTupleArgs;
- * import com.pulumi.aws.waf.inputs.RegexMatchSetRegexMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRegexPatternSet = new RegexPatternSet(&#34;exampleRegexPatternSet&#34;, RegexPatternSetArgs.builder()        
- *             .regexPatternStrings(            
- *                 &#34;one&#34;,
- *                 &#34;two&#34;)
- *             .build());
- * 
- *         var exampleRegexMatchSet = new RegexMatchSet(&#34;exampleRegexMatchSet&#34;, RegexMatchSetArgs.builder()        
- *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
- *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;User-Agent&#34;)
- *                     .type(&#34;HEADER&#34;)
- *                     .build())
- *                 .regexPatternSetId(exampleRegexPatternSet.id())
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Regex Match Set can be imported using their ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:waf/regexMatchSet:RegexMatchSet")
 public class RegexMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN)
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN)
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description of the Regex Match Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Regex Match Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
-     * 
-     */
     @Export(name="regexMatchTuples", refs={List.class,RegexMatchSetRegexMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RegexMatchSetRegexMatchTuple>> regexMatchTuples;
 
-    /**
-     * @return The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
-     * 
-     */
     public Output<Optional<List<RegexMatchSetRegexMatchTuple>>> regexMatchTuples() {
         return Codegen.optional(this.regexMatchTuples);
     }

@@ -13,17 +13,9 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
 
     public static final GetResolverFirewallRuleGroupArgs Empty = new GetResolverFirewallRuleGroupArgs();
 
-    /**
-     * The ID of the rule group.
-     * 
-     */
     @Import(name="firewallRuleGroupId", required=true)
     private Output<String> firewallRuleGroupId;
 
-    /**
-     * @return The ID of the rule group.
-     * 
-     */
     public Output<String> firewallRuleGroupId() {
         return this.firewallRuleGroupId;
     }
@@ -52,23 +44,11 @@ public final class GetResolverFirewallRuleGroupArgs extends com.pulumi.resources
             $ = new GetResolverFirewallRuleGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallRuleGroupId The ID of the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupId(Output<String> firewallRuleGroupId) {
             $.firewallRuleGroupId = firewallRuleGroupId;
             return this;
         }
 
-        /**
-         * @param firewallRuleGroupId The ID of the rule group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupId(String firewallRuleGroupId) {
             return firewallRuleGroupId(Output.of(firewallRuleGroupId));
         }

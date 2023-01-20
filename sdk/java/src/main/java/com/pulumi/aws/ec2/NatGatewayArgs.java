@@ -16,77 +16,37 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NatGatewayArgs Empty = new NatGatewayArgs();
 
-    /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-     * 
-     */
     @Import(name="allocationId")
     private @Nullable Output<String> allocationId;
 
-    /**
-     * @return The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-     * 
-     */
     public Optional<Output<String>> allocationId() {
         return Optional.ofNullable(this.allocationId);
     }
 
-    /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-     * 
-     */
     @Import(name="connectivityType")
     private @Nullable Output<String> connectivityType;
 
-    /**
-     * @return Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-     * 
-     */
     public Optional<Output<String>> connectivityType() {
         return Optional.ofNullable(this.connectivityType);
     }
 
-    /**
-     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-     * 
-     */
     @Import(name="privateIp")
     private @Nullable Output<String> privateIp;
 
-    /**
-     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-     * 
-     */
     public Optional<Output<String>> privateIp() {
         return Optional.ofNullable(this.privateIp);
     }
 
-    /**
-     * The Subnet ID of the subnet in which to place the gateway.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The Subnet ID of the subnet in which to place the gateway.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -119,107 +79,47 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NatGatewayArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(@Nullable Output<String> allocationId) {
             $.allocationId = allocationId;
             return this;
         }
 
-        /**
-         * @param allocationId The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationId(String allocationId) {
             return allocationId(Output.of(allocationId));
         }
 
-        /**
-         * @param connectivityType Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectivityType(@Nullable Output<String> connectivityType) {
             $.connectivityType = connectivityType;
             return this;
         }
 
-        /**
-         * @param connectivityType Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectivityType(String connectivityType) {
             return connectivityType(Output.of(connectivityType));
         }
 
-        /**
-         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIp(@Nullable Output<String> privateIp) {
             $.privateIp = privateIp;
             return this;
         }
 
-        /**
-         * @param privateIp The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateIp(String privateIp) {
             return privateIp(Output.of(privateIp));
         }
 
-        /**
-         * @param subnetId The Subnet ID of the subnet in which to place the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The Subnet ID of the subnet in which to place the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

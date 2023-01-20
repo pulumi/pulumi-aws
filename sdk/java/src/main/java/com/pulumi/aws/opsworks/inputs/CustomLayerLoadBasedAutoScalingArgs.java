@@ -17,47 +17,23 @@ public final class CustomLayerLoadBasedAutoScalingArgs extends com.pulumi.resour
 
     public static final CustomLayerLoadBasedAutoScalingArgs Empty = new CustomLayerLoadBasedAutoScalingArgs();
 
-    /**
-     * The downscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     @Import(name="downscaling")
     private @Nullable Output<CustomLayerLoadBasedAutoScalingDownscalingArgs> downscaling;
 
-    /**
-     * @return The downscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     public Optional<Output<CustomLayerLoadBasedAutoScalingDownscalingArgs>> downscaling() {
         return Optional.ofNullable(this.downscaling);
     }
 
-    /**
-     * Whether load-based auto scaling is enabled for the layer.
-     * 
-     */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
-    /**
-     * @return Whether load-based auto scaling is enabled for the layer.
-     * 
-     */
     public Optional<Output<Boolean>> enable() {
         return Optional.ofNullable(this.enable);
     }
 
-    /**
-     * The upscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     @Import(name="upscaling")
     private @Nullable Output<CustomLayerLoadBasedAutoScalingUpscalingArgs> upscaling;
 
-    /**
-     * @return The upscaling settings, as defined below, used for load-based autoscaling
-     * 
-     */
     public Optional<Output<CustomLayerLoadBasedAutoScalingUpscalingArgs>> upscaling() {
         return Optional.ofNullable(this.upscaling);
     }
@@ -88,65 +64,29 @@ public final class CustomLayerLoadBasedAutoScalingArgs extends com.pulumi.resour
             $ = new CustomLayerLoadBasedAutoScalingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param downscaling The downscaling settings, as defined below, used for load-based autoscaling
-         * 
-         * @return builder
-         * 
-         */
         public Builder downscaling(@Nullable Output<CustomLayerLoadBasedAutoScalingDownscalingArgs> downscaling) {
             $.downscaling = downscaling;
             return this;
         }
 
-        /**
-         * @param downscaling The downscaling settings, as defined below, used for load-based autoscaling
-         * 
-         * @return builder
-         * 
-         */
         public Builder downscaling(CustomLayerLoadBasedAutoScalingDownscalingArgs downscaling) {
             return downscaling(Output.of(downscaling));
         }
 
-        /**
-         * @param enable Whether load-based auto scaling is enabled for the layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(@Nullable Output<Boolean> enable) {
             $.enable = enable;
             return this;
         }
 
-        /**
-         * @param enable Whether load-based auto scaling is enabled for the layer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enable(Boolean enable) {
             return enable(Output.of(enable));
         }
 
-        /**
-         * @param upscaling The upscaling settings, as defined below, used for load-based autoscaling
-         * 
-         * @return builder
-         * 
-         */
         public Builder upscaling(@Nullable Output<CustomLayerLoadBasedAutoScalingUpscalingArgs> upscaling) {
             $.upscaling = upscaling;
             return this;
         }
 
-        /**
-         * @param upscaling The upscaling settings, as defined below, used for load-based autoscaling
-         * 
-         * @return builder
-         * 
-         */
         public Builder upscaling(CustomLayerLoadBasedAutoScalingUpscalingArgs upscaling) {
             return upscaling(Output.of(upscaling));
         }

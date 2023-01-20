@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination {
-    /**
-     * @return Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose firehose;
-    /**
-     * @return Configures S3 as a findings destination.
-     * 
-     */
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 s3;
 
     private GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination() {}
-    /**
-     * @return Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
-    /**
-     * @return Configures S3 as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3> s3() {
         return Optional.ofNullable(this.s3);
     }

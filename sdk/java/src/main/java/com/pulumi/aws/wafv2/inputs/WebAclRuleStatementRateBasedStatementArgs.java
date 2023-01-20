@@ -18,62 +18,30 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
 
     public static final WebAclRuleStatementRateBasedStatementArgs Empty = new WebAclRuleStatementRateBasedStatementArgs();
 
-    /**
-     * Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     @Import(name="aggregateKeyType")
     private @Nullable Output<String> aggregateKeyType;
 
-    /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     public Optional<Output<String>> aggregateKeyType() {
         return Optional.ofNullable(this.aggregateKeyType);
     }
 
-    /**
-     * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     @Import(name="forwardedIpConfig")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs> forwardedIpConfig;
 
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs>> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
 
-    /**
-     * Limit on requests per 5-minute period for a single originating IP address.
-     * 
-     */
     @Import(name="limit", required=true)
     private Output<Integer> limit;
 
-    /**
-     * @return Limit on requests per 5-minute period for a single originating IP address.
-     * 
-     */
     public Output<Integer> limit() {
         return this.limit;
     }
 
-    /**
-     * Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-     * 
-     */
     @Import(name="scopeDownStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement;
 
-    /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs>> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }
@@ -105,86 +73,38 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
             $ = new WebAclRuleStatementRateBasedStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregateKeyType(@Nullable Output<String> aggregateKeyType) {
             $.aggregateKeyType = aggregateKeyType;
             return this;
         }
 
-        /**
-         * @param aggregateKeyType Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aggregateKeyType(String aggregateKeyType) {
             return aggregateKeyType(Output.of(aggregateKeyType));
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(@Nullable Output<WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs> forwardedIpConfig) {
             $.forwardedIpConfig = forwardedIpConfig;
             return this;
         }
 
-        /**
-         * @param forwardedIpConfig Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forwardedIpConfig(WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs forwardedIpConfig) {
             return forwardedIpConfig(Output.of(forwardedIpConfig));
         }
 
-        /**
-         * @param limit Limit on requests per 5-minute period for a single originating IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(Output<Integer> limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param limit Limit on requests per 5-minute period for a single originating IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(Integer limit) {
             return limit(Output.of(limit));
         }
 
-        /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeDownStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementArgs> scopeDownStatement) {
             $.scopeDownStatement = scopeDownStatement;
             return this;
         }
 
-        /**
-         * @param scopeDownStatement Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scopeDownStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementArgs scopeDownStatement) {
             return scopeDownStatement(Output.of(scopeDownStatement));
         }

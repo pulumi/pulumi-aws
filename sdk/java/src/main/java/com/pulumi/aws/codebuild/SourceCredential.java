@@ -15,154 +15,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeBuild Source Credentials Resource.
- * 
- * &gt; **NOTE:**
- * [Codebuild only allows a single credential per given server type in a given region](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_codebuild.GitHubSourceCredentials.html). Therefore, when you define `aws.codebuild.SourceCredential`, `aws.codebuild.Project` resource defined in the same module will use it.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codebuild.SourceCredential;
- * import com.pulumi.aws.codebuild.SourceCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SourceCredential(&#34;example&#34;, SourceCredentialArgs.builder()        
- *             .authType(&#34;PERSONAL_ACCESS_TOKEN&#34;)
- *             .serverType(&#34;GITHUB&#34;)
- *             .token(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Bitbucket Server Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.codebuild.SourceCredential;
- * import com.pulumi.aws.codebuild.SourceCredentialArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SourceCredential(&#34;example&#34;, SourceCredentialArgs.builder()        
- *             .authType(&#34;BASIC_AUTH&#34;)
- *             .serverType(&#34;BITBUCKET&#34;)
- *             .token(&#34;example&#34;)
- *             .userName(&#34;test-user&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CodeBuild Source Credential can be imported using the CodeBuild Source Credential arn, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
- * ```
- * 
- */
 @ResourceType(type="aws:codebuild/sourceCredential:SourceCredential")
 public class SourceCredential extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of Source Credential.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of Source Credential.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-     * 
-     */
     @Export(name="authType", refs={String.class}, tree="[0]")
     private Output<String> authType;
 
-    /**
-     * @return The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-     * 
-     */
     public Output<String> authType() {
         return this.authType;
     }
-    /**
-     * The source provider used for this project.
-     * 
-     */
     @Export(name="serverType", refs={String.class}, tree="[0]")
     private Output<String> serverType;
 
-    /**
-     * @return The source provider used for this project.
-     * 
-     */
     public Output<String> serverType() {
         return this.serverType;
     }
-    /**
-     * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-     * 
-     */
     @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
-    /**
-     * @return For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-     * 
-     */
     public Output<String> token() {
         return this.token;
     }
-    /**
-     * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userName;
 
-    /**
-     * @return The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-     * 
-     */
     public Output<Optional<String>> userName() {
         return Codegen.optional(this.userName);
     }

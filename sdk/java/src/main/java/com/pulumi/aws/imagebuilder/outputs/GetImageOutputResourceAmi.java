@@ -9,65 +9,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageOutputResourceAmi {
-    /**
-     * @return Account identifier of the AMI.
-     * 
-     */
     private String accountId;
-    /**
-     * @return Description of the AMI.
-     * 
-     */
     private String description;
-    /**
-     * @return Identifier of the AMI.
-     * 
-     */
     private String image;
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     private String name;
-    /**
-     * @return Region of the AMI.
-     * 
-     */
     private String region;
 
     private GetImageOutputResourceAmi() {}
-    /**
-     * @return Account identifier of the AMI.
-     * 
-     */
     public String accountId() {
         return this.accountId;
     }
-    /**
-     * @return Description of the AMI.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Identifier of the AMI.
-     * 
-     */
     public String image() {
         return this.image;
     }
-    /**
-     * @return Name of the AMI.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Region of the AMI.
-     * 
-     */
     public String region() {
         return this.region;
     }

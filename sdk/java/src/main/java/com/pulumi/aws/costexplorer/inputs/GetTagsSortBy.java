@@ -14,32 +14,16 @@ public final class GetTagsSortBy extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsSortBy Empty = new GetTagsSortBy();
 
-    /**
-     * key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     @Import(name="key")
     private @Nullable String key;
 
-    /**
-     * @return key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     @Import(name="sortOrder")
     private @Nullable String sortOrder;
 
-    /**
-     * @return order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-     * 
-     */
     public Optional<String> sortOrder() {
         return Optional.ofNullable(this.sortOrder);
     }
@@ -69,23 +53,11 @@ public final class GetTagsSortBy extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsSortBy(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key key that&#39;s used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param sortOrder order that&#39;s used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sortOrder(@Nullable String sortOrder) {
             $.sortOrder = sortOrder;
             return this;

@@ -15,32 +15,16 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetDedicatedIpPoolPlainArgs Empty = new GetDedicatedIpPoolPlainArgs();
 
-    /**
-     * Name of the dedicated IP pool.
-     * 
-     */
     @Import(name="poolName", required=true)
     private String poolName;
 
-    /**
-     * @return Name of the dedicated IP pool.
-     * 
-     */
     public String poolName() {
         return this.poolName;
     }
 
-    /**
-     * A map of tags attached to the pool.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return A map of tags attached to the pool.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetDedicatedIpPoolPlainArgs extends com.pulumi.resources.Invo
             $ = new GetDedicatedIpPoolPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param poolName Name of the dedicated IP pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder poolName(String poolName) {
             $.poolName = poolName;
             return this;
         }
 
-        /**
-         * @param tags A map of tags attached to the pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

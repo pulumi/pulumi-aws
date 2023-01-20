@@ -16,36 +16,16 @@ public final class ProxyProtocolPolicyState extends com.pulumi.resources.Resourc
 
     public static final ProxyProtocolPolicyState Empty = new ProxyProtocolPolicyState();
 
-    /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     * 
-     */
     @Import(name="instancePorts")
     private @Nullable Output<List<String>> instancePorts;
 
-    /**
-     * @return List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
-     * 
-     */
     public Optional<Output<List<String>>> instancePorts() {
         return Optional.ofNullable(this.instancePorts);
     }
 
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Optional<Output<String>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
@@ -75,59 +55,24 @@ public final class ProxyProtocolPolicyState extends com.pulumi.resources.Resourc
             $ = new ProxyProtocolPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePorts(@Nullable Output<List<String>> instancePorts) {
             $.instancePorts = instancePorts;
             return this;
         }
 
-        /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePorts(List<String> instancePorts) {
             return instancePorts(Output.of(instancePorts));
         }
 
-        /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instancePorts(String... instancePorts) {
             return instancePorts(List.of(instancePorts));
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(@Nullable Output<String> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }

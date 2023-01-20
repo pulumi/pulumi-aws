@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class EndpointConfigurationDataCaptureConfigCaptureOption {
-    /**
-     * @return Specifies the data to be captured. Should be one of `Input` or `Output`.
-     * 
-     */
     private String captureMode;
 
     private EndpointConfigurationDataCaptureConfigCaptureOption() {}
-    /**
-     * @return Specifies the data to be captured. Should be one of `Input` or `Output`.
-     * 
-     */
     public String captureMode() {
         return this.captureMode;
     }

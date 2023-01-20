@@ -15,32 +15,16 @@ public final class BucketV2VersioningArgs extends com.pulumi.resources.ResourceA
 
     public static final BucketV2VersioningArgs Empty = new BucketV2VersioningArgs();
 
-    /**
-     * Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-     * 
-     */
     @Import(name="mfaDelete")
     private @Nullable Output<Boolean> mfaDelete;
 
-    /**
-     * @return Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-     * 
-     */
     public Optional<Output<Boolean>> mfaDelete() {
         return Optional.ofNullable(this.mfaDelete);
     }
@@ -70,44 +54,20 @@ public final class BucketV2VersioningArgs extends com.pulumi.resources.ResourceA
             $ = new BucketV2VersioningArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param mfaDelete Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaDelete(@Nullable Output<Boolean> mfaDelete) {
             $.mfaDelete = mfaDelete;
             return this;
         }
 
-        /**
-         * @param mfaDelete Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
-         * 
-         * @return builder
-         * 
-         */
         public Builder mfaDelete(Boolean mfaDelete) {
             return mfaDelete(Output.of(mfaDelete));
         }

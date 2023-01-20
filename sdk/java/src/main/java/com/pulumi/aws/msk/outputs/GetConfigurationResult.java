@@ -11,50 +11,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfigurationResult {
-    /**
-     * @return ARN of the configuration.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the configuration.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return List of Apache Kafka versions which can use this configuration.
-     * 
-     */
     private List<String> kafkaVersions;
-    /**
-     * @return Latest revision of the configuration.
-     * 
-     */
     private Integer latestRevision;
     private String name;
-    /**
-     * @return Contents of the server.properties file.
-     * 
-     */
     private String serverProperties;
 
     private GetConfigurationResult() {}
-    /**
-     * @return ARN of the configuration.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the configuration.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -65,27 +37,15 @@ public final class GetConfigurationResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of Apache Kafka versions which can use this configuration.
-     * 
-     */
     public List<String> kafkaVersions() {
         return this.kafkaVersions;
     }
-    /**
-     * @return Latest revision of the configuration.
-     * 
-     */
     public Integer latestRevision() {
         return this.latestRevision;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Contents of the server.properties file.
-     * 
-     */
     public String serverProperties() {
         return this.serverProperties;
     }

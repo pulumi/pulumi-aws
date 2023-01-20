@@ -14,61 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
- * 
- * &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- * 
- * ## Import
- * 
- * SSO Managed Policy Attachments can be imported using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment")
 public class CustomerManagedPolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     @Export(name="customerManagedPolicyReference", refs={CustomerManagedPolicyAttachmentCustomerManagedPolicyReference.class}, tree="[0]")
     private Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference;
 
-    /**
-     * @return Specifies the name and path of a customer managed policy. See below.
-     * 
-     */
     public Output<CustomerManagedPolicyAttachmentCustomerManagedPolicyReference> customerManagedPolicyReference() {
         return this.customerManagedPolicyReference;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }

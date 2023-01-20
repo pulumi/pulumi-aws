@@ -17,32 +17,16 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsArgs extends com.
 
     public static final ClusterCoreInstanceFleetLaunchSpecificationsArgs Empty = new ClusterCoreInstanceFleetLaunchSpecificationsArgs();
 
-    /**
-     * Configuration block for on demand instances launch specifications.
-     * 
-     */
     @Import(name="onDemandSpecifications")
     private @Nullable Output<List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>> onDemandSpecifications;
 
-    /**
-     * @return Configuration block for on demand instances launch specifications.
-     * 
-     */
     public Optional<Output<List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>>> onDemandSpecifications() {
         return Optional.ofNullable(this.onDemandSpecifications);
     }
 
-    /**
-     * Configuration block for spot instances launch specifications.
-     * 
-     */
     @Import(name="spotSpecifications")
     private @Nullable Output<List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs>> spotSpecifications;
 
-    /**
-     * @return Configuration block for spot instances launch specifications.
-     * 
-     */
     public Optional<Output<List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs>>> spotSpecifications() {
         return Optional.ofNullable(this.spotSpecifications);
     }
@@ -72,64 +56,28 @@ public final class ClusterCoreInstanceFleetLaunchSpecificationsArgs extends com.
             $ = new ClusterCoreInstanceFleetLaunchSpecificationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(@Nullable Output<List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs>> onDemandSpecifications) {
             $.onDemandSpecifications = onDemandSpecifications;
             return this;
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(List<ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs> onDemandSpecifications) {
             return onDemandSpecifications(Output.of(onDemandSpecifications));
         }
 
-        /**
-         * @param onDemandSpecifications Configuration block for on demand instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDemandSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs... onDemandSpecifications) {
             return onDemandSpecifications(List.of(onDemandSpecifications));
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(@Nullable Output<List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs>> spotSpecifications) {
             $.spotSpecifications = spotSpecifications;
             return this;
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(List<ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs> spotSpecifications) {
             return spotSpecifications(Output.of(spotSpecifications));
         }
 
-        /**
-         * @param spotSpecifications Configuration block for spot instances launch specifications.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotSpecifications(ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs... spotSpecifications) {
             return spotSpecifications(List.of(spotSpecifications));
         }

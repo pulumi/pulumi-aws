@@ -19,197 +19,93 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
 
     public static final FirehoseDeliveryStreamElasticsearchConfigurationArgs Empty = new FirehoseDeliveryStreamElasticsearchConfigurationArgs();
 
-    /**
-     * Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-     * 
-     */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
-    /**
-     * @return Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-     * 
-     */
     public Optional<Output<Integer>> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
 
-    /**
-     * Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     @Import(name="bufferingSize")
     private @Nullable Output<Integer> bufferingSize;
 
-    /**
-     * @return Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-     * 
-     */
     public Optional<Output<Integer>> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
 
-    /**
-     * The CloudWatch Logging Options for the delivery stream. More details are given below
-     * 
-     */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
-    /**
-     * @return The CloudWatch Logging Options for the delivery stream. More details are given below
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
 
-    /**
-     * The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
-     * 
-     */
     @Import(name="clusterEndpoint")
     private @Nullable Output<String> clusterEndpoint;
 
-    /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
-     * 
-     */
     public Optional<Output<String>> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
     }
 
-    /**
-     * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
-     * 
-     */
     @Import(name="domainArn")
     private @Nullable Output<String> domainArn;
 
-    /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
-     * 
-     */
     public Optional<Output<String>> domainArn() {
         return Optional.ofNullable(this.domainArn);
     }
 
-    /**
-     * The Elasticsearch index name.
-     * 
-     */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
-    /**
-     * @return The Elasticsearch index name.
-     * 
-     */
     public Output<String> indexName() {
         return this.indexName;
     }
 
-    /**
-     * The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-     * 
-     */
     @Import(name="indexRotationPeriod")
     private @Nullable Output<String> indexRotationPeriod;
 
-    /**
-     * @return The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-     * 
-     */
     public Optional<Output<String>> indexRotationPeriod() {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
 
-    /**
-     * The data processing configuration.  More details are given below.
-     * 
-     */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs> processingConfiguration;
 
-    /**
-     * @return The data processing configuration.  More details are given below.
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs>> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
 
-    /**
-     * After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     @Import(name="retryDuration")
     private @Nullable Output<Integer> retryDuration;
 
-    /**
-     * @return After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-     * 
-     */
     public Optional<Output<Integer>> retryDuration() {
         return Optional.ofNullable(this.retryDuration);
     }
 
-    /**
-     * The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
-    /**
-     * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-     * 
-     */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
-    /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-     * 
-     */
     public Optional<Output<String>> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
 
-    /**
-     * The Elasticsearch type name with maximum length of 100 characters.
-     * 
-     */
     @Import(name="typeName")
     private @Nullable Output<String> typeName;
 
-    /**
-     * @return The Elasticsearch type name with maximum length of 100 characters.
-     * 
-     */
     public Optional<Output<String>> typeName() {
         return Optional.ofNullable(this.typeName);
     }
 
-    /**
-     * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
-     * 
-     */
     @Import(name="vpcConfig")
     private @Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs> vpcConfig;
 
-    /**
-     * @return The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
-     * 
-     */
     public Optional<Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs>> vpcConfig() {
         return Optional.ofNullable(this.vpcConfig);
     }
@@ -250,275 +146,119 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationArgs extends 
             $ = new FirehoseDeliveryStreamElasticsearchConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
             $.bufferingInterval = bufferingInterval;
             return this;
         }
 
-        /**
-         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds between 60 to 900, before delivering it to the destination.  The default value is 300s.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferingInterval(Integer bufferingInterval) {
             return bufferingInterval(Output.of(bufferingInterval));
         }
 
-        /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
             $.bufferingSize = bufferingSize;
             return this;
         }
 
-        /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bufferingSize(Integer bufferingSize) {
             return bufferingSize(Output.of(bufferingSize));
         }
 
-        /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLoggingOptions(@Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions) {
             $.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
 
-        /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLoggingOptions(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions) {
             return cloudwatchLoggingOptions(Output.of(cloudwatchLoggingOptions));
         }
 
-        /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoint(@Nullable Output<String> clusterEndpoint) {
             $.clusterEndpoint = clusterEndpoint;
             return this;
         }
 
-        /**
-         * @param clusterEndpoint The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoint(String clusterEndpoint) {
             return clusterEndpoint(Output.of(clusterEndpoint));
         }
 
-        /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(@Nullable Output<String> domainArn) {
             $.domainArn = domainArn;
             return this;
         }
 
-        /**
-         * @param domainArn The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `cluster_endpoint`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainArn(String domainArn) {
             return domainArn(Output.of(domainArn));
         }
 
-        /**
-         * @param indexName The Elasticsearch index name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(Output<String> indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param indexName The Elasticsearch index name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
         }
 
-        /**
-         * @param indexRotationPeriod The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexRotationPeriod(@Nullable Output<String> indexRotationPeriod) {
             $.indexRotationPeriod = indexRotationPeriod;
             return this;
         }
 
-        /**
-         * @param indexRotationPeriod The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexRotationPeriod(String indexRotationPeriod) {
             return indexRotationPeriod(Output.of(indexRotationPeriod));
         }
 
-        /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(@Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs> processingConfiguration) {
             $.processingConfiguration = processingConfiguration;
             return this;
         }
 
-        /**
-         * @param processingConfiguration The data processing configuration.  More details are given below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder processingConfiguration(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs processingConfiguration) {
             return processingConfiguration(Output.of(processingConfiguration));
         }
 
-        /**
-         * @param retryDuration After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryDuration(@Nullable Output<Integer> retryDuration) {
             $.retryDuration = retryDuration;
             return this;
         }
 
-        /**
-         * @param retryDuration After an initial failure to deliver to Amazon Elasticsearch, the total amount of time, in seconds between 0 to 7200, during which Firehose re-attempts delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryDuration(Integer retryDuration) {
             return retryDuration(Output.of(retryDuration));
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
-        /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupMode(@Nullable Output<String> s3BackupMode) {
             $.s3BackupMode = s3BackupMode;
             return this;
         }
 
-        /**
-         * @param s3BackupMode Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3BackupMode(String s3BackupMode) {
             return s3BackupMode(Output.of(s3BackupMode));
         }
 
-        /**
-         * @param typeName The Elasticsearch type name with maximum length of 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeName(@Nullable Output<String> typeName) {
             $.typeName = typeName;
             return this;
         }
 
-        /**
-         * @param typeName The Elasticsearch type name with maximum length of 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder typeName(String typeName) {
             return typeName(Output.of(typeName));
         }
 
-        /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(@Nullable Output<FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs> vpcConfig) {
             $.vpcConfig = vpcConfig;
             return this;
         }
 
-        /**
-         * @param vpcConfig The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConfig(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs vpcConfig) {
             return vpcConfig(Output.of(vpcConfig));
         }

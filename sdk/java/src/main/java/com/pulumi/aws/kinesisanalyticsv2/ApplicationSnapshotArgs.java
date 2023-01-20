@@ -13,32 +13,16 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
 
     public static final ApplicationSnapshotArgs Empty = new ApplicationSnapshotArgs();
 
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     @Import(name="applicationName", required=true)
     private Output<String> applicationName;
 
-    /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     public Output<String> applicationName() {
         return this.applicationName;
     }
 
-    /**
-     * The name of the application snapshot.
-     * 
-     */
     @Import(name="snapshotName", required=true)
     private Output<String> snapshotName;
 
-    /**
-     * @return The name of the application snapshot.
-     * 
-     */
     public Output<String> snapshotName() {
         return this.snapshotName;
     }
@@ -68,44 +52,20 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
             $ = new ApplicationSnapshotArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationName(Output<String> applicationName) {
             $.applicationName = applicationName;
             return this;
         }
 
-        /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationName(String applicationName) {
             return applicationName(Output.of(applicationName));
         }
 
-        /**
-         * @param snapshotName The name of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(Output<String> snapshotName) {
             $.snapshotName = snapshotName;
             return this;
         }
 
-        /**
-         * @param snapshotName The name of the application snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotName(String snapshotName) {
             return snapshotName(Output.of(snapshotName));
         }

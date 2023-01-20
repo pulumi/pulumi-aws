@@ -17,47 +17,23 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
 
     public static final BucketLifecycleConfigurationV2Args Empty = new BucketLifecycleConfigurationV2Args();
 
-    /**
-     * The name of the source S3 bucket you want Amazon S3 to monitor.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the source S3 bucket you want Amazon S3 to monitor.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * List of configuration blocks describing the rules managing the replication documented below.
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules;
 
-    /**
-     * @return List of configuration blocks describing the rules managing the replication documented below.
-     * 
-     */
     public Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules() {
         return this.rules;
     }
@@ -88,75 +64,33 @@ public final class BucketLifecycleConfigurationV2Args extends com.pulumi.resourc
             $ = new BucketLifecycleConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the source S3 bucket you want Amazon S3 to monitor.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<BucketLifecycleConfigurationV2RuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<BucketLifecycleConfigurationV2RuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules List of configuration blocks describing the rules managing the replication documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(BucketLifecycleConfigurationV2RuleArgs... rules) {
             return rules(List.of(rules));
         }

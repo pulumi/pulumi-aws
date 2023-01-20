@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleActionCaptcha {
-    /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
-     * 
-     */
     private @Nullable WebAclRuleActionCaptchaCustomRequestHandling customRequestHandling;
 
     private WebAclRuleActionCaptcha() {}
-    /**
-     * @return Defines custom handling for the web request. See Custom Request Handling below for details.
-     * 
-     */
     public Optional<WebAclRuleActionCaptchaCustomRequestHandling> customRequestHandling() {
         return Optional.ofNullable(this.customRequestHandling);
     }

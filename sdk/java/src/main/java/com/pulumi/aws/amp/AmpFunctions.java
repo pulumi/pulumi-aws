@@ -14,155 +14,15 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class AmpFunctions {
-    /**
-     * Provides an Amazon Managed Prometheus workspace data source.
-     * 
-     * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
         return getWorkspace(args, InvokeOptions.Empty);
     }
-    /**
-     * Provides an Amazon Managed Prometheus workspace data source.
-     * 
-     * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
         return getWorkspacePlain(args, InvokeOptions.Empty);
     }
-    /**
-     * Provides an Amazon Managed Prometheus workspace data source.
-     * 
-     * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:amp/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }
-    /**
-     * Provides an Amazon Managed Prometheus workspace data source.
-     * 
-     * ## Example Usage
-     * ### Basic configuration
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.amp.AmpFunctions;
-     * import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getWorkspace(GetWorkspaceArgs.builder()
-     *             .workspaceId(&#34;ws-41det8a1-2c67-6a1a-9381-9b83d3d78ef7&#34;)
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
-     * 
-     */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:amp/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
     }

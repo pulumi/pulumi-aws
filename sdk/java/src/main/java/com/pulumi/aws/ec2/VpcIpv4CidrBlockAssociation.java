@@ -15,113 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to associate additional IPv4 CIDR blocks with a VPC.
- * 
- * When a VPC is created, a primary IPv4 CIDR block for the VPC must be specified.
- * The `aws.ec2.VpcIpv4CidrBlockAssociation` resource allows further IPv4 CIDR blocks to be added to the VPC.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.ec2.VpcIpv4CidrBlockAssociation;
- * import com.pulumi.aws.ec2.VpcIpv4CidrBlockAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .build());
- * 
- *         var secondaryCidr = new VpcIpv4CidrBlockAssociation(&#34;secondaryCidr&#34;, VpcIpv4CidrBlockAssociationArgs.builder()        
- *             .vpcId(main.id())
- *             .cidrBlock(&#34;172.2.0.0/16&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_vpc_ipv4_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation")
 public class VpcIpv4CidrBlockAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-     * 
-     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
-    /**
-     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
-     * 
-     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
-    /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-     * 
-     */
     @Export(name="ipv4IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv4IpamPoolId;
 
-    /**
-     * @return The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
-     * 
-     */
     public Output<Optional<String>> ipv4IpamPoolId() {
         return Codegen.optional(this.ipv4IpamPoolId);
     }
-    /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-     * 
-     */
     @Export(name="ipv4NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv4NetmaskLength;
 
-    /**
-     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-     * 
-     */
     public Output<Optional<Integer>> ipv4NetmaskLength() {
         return Codegen.optional(this.ipv4NetmaskLength);
     }
-    /**
-     * The ID of the VPC to make the association with.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC to make the association with.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

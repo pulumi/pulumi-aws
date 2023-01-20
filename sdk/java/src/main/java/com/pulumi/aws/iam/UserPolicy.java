@@ -14,125 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM policy attached to a user.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.iam.UserArgs;
- * import com.pulumi.aws.iam.UserPolicy;
- * import com.pulumi.aws.iam.UserPolicyArgs;
- * import com.pulumi.aws.iam.AccessKey;
- * import com.pulumi.aws.iam.AccessKeyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lbUser = new User(&#34;lbUser&#34;, UserArgs.builder()        
- *             .path(&#34;/system/&#34;)
- *             .build());
- * 
- *         var lbRo = new UserPolicy(&#34;lbRo&#34;, UserPolicyArgs.builder()        
- *             .user(lbUser.name())
- *             .policy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, jsonArray(&#34;ec2:Describe*&#34;)),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Resource&#34;, &#34;*&#34;)
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var lbAccessKey = new AccessKey(&#34;lbAccessKey&#34;, AccessKeyArgs.builder()        
- *             .user(lbUser.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
- * ```
- * 
- */
 @ResourceType(type="aws:iam/userPolicy:UserPolicy")
 public class UserPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the policy. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the policy. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<Optional<String>> namePrefix() {
         return Codegen.optional(this.namePrefix);
     }
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * IAM user to which to attach this policy.
-     * 
-     */
     @Export(name="user", refs={String.class}, tree="[0]")
     private Output<String> user;
 
-    /**
-     * @return IAM user to which to attach this policy.
-     * 
-     */
     public Output<String> user() {
         return this.user;
     }

@@ -16,32 +16,16 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
 
     public static final DataSourceConfigurationArgs Empty = new DataSourceConfigurationArgs();
 
-    /**
-     * A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-     * 
-     */
     @Import(name="s3Configuration")
     private @Nullable Output<DataSourceConfigurationS3ConfigurationArgs> s3Configuration;
 
-    /**
-     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceConfigurationS3ConfigurationArgs>> s3Configuration() {
         return Optional.ofNullable(this.s3Configuration);
     }
 
-    /**
-     * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-     * 
-     */
     @Import(name="webCrawlerConfiguration")
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration;
 
-    /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-     * 
-     */
     public Optional<Output<DataSourceConfigurationWebCrawlerConfigurationArgs>> webCrawlerConfiguration() {
         return Optional.ofNullable(this.webCrawlerConfiguration);
     }
@@ -71,44 +55,20 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
             $ = new DataSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Configuration A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(@Nullable Output<DataSourceConfigurationS3ConfigurationArgs> s3Configuration) {
             $.s3Configuration = s3Configuration;
             return this;
         }
 
-        /**
-         * @param s3Configuration A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Configuration(DataSourceConfigurationS3ConfigurationArgs s3Configuration) {
             return s3Configuration(Output.of(s3Configuration));
         }
 
-        /**
-         * @param webCrawlerConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webCrawlerConfiguration(@Nullable Output<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration) {
             $.webCrawlerConfiguration = webCrawlerConfiguration;
             return this;
         }
 
-        /**
-         * @param webCrawlerConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs webCrawlerConfiguration) {
             return webCrawlerConfiguration(Output.of(webCrawlerConfiguration));
         }

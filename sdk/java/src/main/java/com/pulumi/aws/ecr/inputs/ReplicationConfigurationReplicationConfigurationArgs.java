@@ -14,17 +14,9 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
 
     public static final ReplicationConfigurationReplicationConfigurationArgs Empty = new ReplicationConfigurationReplicationConfigurationArgs();
 
-    /**
-     * The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-     * 
-     */
     @Import(name="rules", required=true)
     private Output<List<ReplicationConfigurationReplicationConfigurationRuleArgs>> rules;
 
-    /**
-     * @return The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-     * 
-     */
     public Output<List<ReplicationConfigurationReplicationConfigurationRuleArgs>> rules() {
         return this.rules;
     }
@@ -53,33 +45,15 @@ public final class ReplicationConfigurationReplicationConfigurationArgs extends 
             $ = new ReplicationConfigurationReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(Output<List<ReplicationConfigurationReplicationConfigurationRuleArgs>> rules) {
             $.rules = rules;
             return this;
         }
 
-        /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(List<ReplicationConfigurationReplicationConfigurationRuleArgs> rules) {
             return rules(Output.of(rules));
         }
 
-        /**
-         * @param rules The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder rules(ReplicationConfigurationReplicationConfigurationRuleArgs... rules) {
             return rules(List.of(rules));
         }

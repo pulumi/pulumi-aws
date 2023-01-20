@@ -15,32 +15,16 @@ public final class SpotDatafeedSubscriptionArgs extends com.pulumi.resources.Res
 
     public static final SpotDatafeedSubscriptionArgs Empty = new SpotDatafeedSubscriptionArgs();
 
-    /**
-     * The Amazon S3 bucket in which to store the Spot instance data feed.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The Amazon S3 bucket in which to store the Spot instance data feed.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * Path of folder inside bucket to place spot pricing data.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Path of folder inside bucket to place spot pricing data.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -70,44 +54,20 @@ public final class SpotDatafeedSubscriptionArgs extends com.pulumi.resources.Res
             $ = new SpotDatafeedSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The Amazon S3 bucket in which to store the Spot instance data feed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The Amazon S3 bucket in which to store the Spot instance data feed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param prefix Path of folder inside bucket to place spot pricing data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Path of folder inside bucket to place spot pricing data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

@@ -15,32 +15,16 @@ public final class GetReportPlanPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetReportPlanPlainArgs Empty = new GetReportPlanPlainArgs();
 
-    /**
-     * Backup report plan name.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Backup report plan name.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the report plans you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetReportPlanPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetReportPlanPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Backup report plan name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the report plans you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

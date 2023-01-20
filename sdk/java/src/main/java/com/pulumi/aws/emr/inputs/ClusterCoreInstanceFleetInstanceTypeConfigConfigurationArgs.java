@@ -17,32 +17,16 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs e
 
     public static final ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs Empty = new ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs();
 
-    /**
-     * Classification within a configuration.
-     * 
-     */
     @Import(name="classification")
     private @Nullable Output<String> classification;
 
-    /**
-     * @return Classification within a configuration.
-     * 
-     */
     public Optional<Output<String>> classification() {
         return Optional.ofNullable(this.classification);
     }
 
-    /**
-     * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-     * 
-     */
     @Import(name="properties")
     private @Nullable Output<Map<String,Object>> properties;
 
-    /**
-     * @return Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-     * 
-     */
     public Optional<Output<Map<String,Object>>> properties() {
         return Optional.ofNullable(this.properties);
     }
@@ -72,44 +56,20 @@ public final class ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs e
             $ = new ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param classification Classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(@Nullable Output<String> classification) {
             $.classification = classification;
             return this;
         }
 
-        /**
-         * @param classification Classification within a configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder classification(String classification) {
             return classification(Output.of(classification));
         }
 
-        /**
-         * @param properties Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(@Nullable Output<Map<String,Object>> properties) {
             $.properties = properties;
             return this;
         }
 
-        /**
-         * @param properties Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder properties(Map<String,Object> properties) {
             return properties(Output.of(properties));
         }

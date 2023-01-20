@@ -17,32 +17,16 @@ public final class GetPipelineDefinitionArgs extends com.pulumi.resources.Invoke
 
     public static final GetPipelineDefinitionArgs Empty = new GetPipelineDefinitionArgs();
 
-    /**
-     * Parameter values used in the pipeline definition. See below
-     * 
-     */
     @Import(name="parameterValues")
     private @Nullable Output<List<GetPipelineDefinitionParameterValueArgs>> parameterValues;
 
-    /**
-     * @return Parameter values used in the pipeline definition. See below
-     * 
-     */
     public Optional<Output<List<GetPipelineDefinitionParameterValueArgs>>> parameterValues() {
         return Optional.ofNullable(this.parameterValues);
     }
 
-    /**
-     * ID of the pipeline.
-     * 
-     */
     @Import(name="pipelineId", required=true)
     private Output<String> pipelineId;
 
-    /**
-     * @return ID of the pipeline.
-     * 
-     */
     public Output<String> pipelineId() {
         return this.pipelineId;
     }
@@ -72,54 +56,24 @@ public final class GetPipelineDefinitionArgs extends com.pulumi.resources.Invoke
             $ = new GetPipelineDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterValues Parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(@Nullable Output<List<GetPipelineDefinitionParameterValueArgs>> parameterValues) {
             $.parameterValues = parameterValues;
             return this;
         }
 
-        /**
-         * @param parameterValues Parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(List<GetPipelineDefinitionParameterValueArgs> parameterValues) {
             return parameterValues(Output.of(parameterValues));
         }
 
-        /**
-         * @param parameterValues Parameter values used in the pipeline definition. See below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValues(GetPipelineDefinitionParameterValueArgs... parameterValues) {
             return parameterValues(List.of(parameterValues));
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(Output<String> pipelineId) {
             $.pipelineId = pipelineId;
             return this;
         }
 
-        /**
-         * @param pipelineId ID of the pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pipelineId(String pipelineId) {
             return pipelineId(Output.of(pipelineId));
         }

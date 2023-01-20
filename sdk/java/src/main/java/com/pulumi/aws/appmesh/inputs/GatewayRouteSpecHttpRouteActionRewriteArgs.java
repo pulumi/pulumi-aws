@@ -16,32 +16,16 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
 
     public static final GatewayRouteSpecHttpRouteActionRewriteArgs Empty = new GatewayRouteSpecHttpRouteActionRewriteArgs();
 
-    /**
-     * Host name to rewrite.
-     * 
-     */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname;
 
-    /**
-     * @return Host name to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs>> hostname() {
         return Optional.ofNullable(this.hostname);
     }
 
-    /**
-     * Specified beginning characters to rewrite.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix;
 
-    /**
-     * @return Specified beginning characters to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -71,44 +55,20 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
             $ = new GatewayRouteSpecHttpRouteActionRewriteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(@Nullable Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname) {
             $.hostname = hostname;
             return this;
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(GatewayRouteSpecHttpRouteActionRewriteHostnameArgs hostname) {
             return hostname(Output.of(hostname));
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(GatewayRouteSpecHttpRouteActionRewritePrefixArgs prefix) {
             return prefix(Output.of(prefix));
         }

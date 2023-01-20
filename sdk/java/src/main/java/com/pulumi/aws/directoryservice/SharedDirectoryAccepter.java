@@ -13,133 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Accepts a shared directory in a consumer account.
- * 
- * &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directoryservice.SharedDirectory;
- * import com.pulumi.aws.directoryservice.SharedDirectoryArgs;
- * import com.pulumi.aws.directoryservice.inputs.SharedDirectoryTargetArgs;
- * import com.pulumi.aws.directoryservice.SharedDirectoryAccepter;
- * import com.pulumi.aws.directoryservice.SharedDirectoryAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleSharedDirectory = new SharedDirectory(&#34;exampleSharedDirectory&#34;, SharedDirectoryArgs.builder()        
- *             .directoryId(aws_directory_service_directory.example().id())
- *             .notes(&#34;example&#34;)
- *             .target(SharedDirectoryTargetArgs.builder()
- *                 .id(data.aws_caller_identity().receiver().account_id())
- *                 .build())
- *             .build());
- * 
- *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter(&#34;exampleSharedDirectoryAccepter&#34;, SharedDirectoryAccepterArgs.builder()        
- *             .sharedDirectoryId(exampleSharedDirectory.sharedDirectoryId())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Directory Service Shared Directories can be imported using the shared directory ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
- * ```
- * 
- */
 @ResourceType(type="aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter")
 public class SharedDirectoryAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     * 
-     */
     @Export(name="method", refs={String.class}, tree="[0]")
     private Output<String> method;
 
-    /**
-     * @return Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     * 
-     */
     public Output<String> method() {
         return this.method;
     }
-    /**
-     * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     * 
-     */
     @Export(name="notes", refs={String.class}, tree="[0]")
     private Output<String> notes;
 
-    /**
-     * @return Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     * 
-     */
     public Output<String> notes() {
         return this.notes;
     }
-    /**
-     * Account identifier of the directory owner.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return Account identifier of the directory owner.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     * 
-     */
     @Export(name="ownerDirectoryId", refs={String.class}, tree="[0]")
     private Output<String> ownerDirectoryId;
 
-    /**
-     * @return Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     * 
-     */
     public Output<String> ownerDirectoryId() {
         return this.ownerDirectoryId;
     }
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     @Export(name="sharedDirectoryId", refs={String.class}, tree="[0]")
     private Output<String> sharedDirectoryId;
 
-    /**
-     * @return Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     public Output<String> sharedDirectoryId() {
         return this.sharedDirectoryId;
     }

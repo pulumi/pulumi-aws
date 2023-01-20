@@ -13,68 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
- * 
- * Your AWS account has an AWS-managed default CMK that is used for encrypting an EBS volume when no CMK is specified in the API call that creates the volume.
- * By using the `aws.ebs.DefaultKmsKey` resource, you can specify a customer-managed CMK to use in place of the AWS-managed default CMK.
- * 
- * &gt; **NOTE:** Creating an `aws.ebs.DefaultKmsKey` resource does not enable default EBS encryption. Use the `aws.ebs.EncryptionByDefault` to enable default EBS encryption.
- * 
- * &gt; **NOTE:** Destroying this resource will reset the default CMK to the account&#39;s AWS-managed default CMK for EBS.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ebs.DefaultKmsKey;
- * import com.pulumi.aws.ebs.DefaultKmsKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DefaultKmsKey(&#34;example&#34;, DefaultKmsKeyArgs.builder()        
- *             .keyArn(aws_kms_key.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
- * ```
- * 
- */
 @ResourceType(type="aws:ebs/defaultKmsKey:DefaultKmsKey")
 public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-     * 
-     */
     @Export(name="keyArn", refs={String.class}, tree="[0]")
     private Output<String> keyArn;
 
-    /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-     * 
-     */
     public Output<String> keyArn() {
         return this.keyArn;
     }

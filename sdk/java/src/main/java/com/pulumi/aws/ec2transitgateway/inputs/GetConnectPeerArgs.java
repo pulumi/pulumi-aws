@@ -18,47 +18,23 @@ public final class GetConnectPeerArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetConnectPeerArgs Empty = new GetConnectPeerArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetConnectPeerFilterArgs>> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetConnectPeerFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Connect Peer
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect Peer
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of the EC2 Transit Gateway Connect Peer.
-     * 
-     */
     @Import(name="transitGatewayConnectPeerId")
     private @Nullable Output<String> transitGatewayConnectPeerId;
 
-    /**
-     * @return Identifier of the EC2 Transit Gateway Connect Peer.
-     * 
-     */
     public Optional<Output<String>> transitGatewayConnectPeerId() {
         return Optional.ofNullable(this.transitGatewayConnectPeerId);
     }
@@ -89,75 +65,33 @@ public final class GetConnectPeerArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetConnectPeerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetConnectPeerFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetConnectPeerFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetConnectPeerFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Connect Peer
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayConnectPeerId Identifier of the EC2 Transit Gateway Connect Peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayConnectPeerId(@Nullable Output<String> transitGatewayConnectPeerId) {
             $.transitGatewayConnectPeerId = transitGatewayConnectPeerId;
             return this;
         }
 
-        /**
-         * @param transitGatewayConnectPeerId Identifier of the EC2 Transit Gateway Connect Peer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayConnectPeerId(String transitGatewayConnectPeerId) {
             return transitGatewayConnectPeerId(Output.of(transitGatewayConnectPeerId));
         }

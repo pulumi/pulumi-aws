@@ -18,107 +18,51 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FleetArgs Empty = new FleetArgs();
 
-    /**
-     * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
-     * 
-     */
     @Import(name="auditStreamArn")
     private @Nullable Output<String> auditStreamArn;
 
-    /**
-     * @return The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
-     * 
-     */
     public Optional<Output<String>> auditStreamArn() {
         return Optional.ofNullable(this.auditStreamArn);
     }
 
-    /**
-     * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-     * 
-     */
     @Import(name="deviceCaCertificate")
     private @Nullable Output<String> deviceCaCertificate;
 
-    /**
-     * @return The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-     * 
-     */
     public Optional<Output<String>> deviceCaCertificate() {
         return Optional.ofNullable(this.deviceCaCertificate);
     }
 
-    /**
-     * The name of the fleet.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
-    /**
-     * @return The name of the fleet.
-     * 
-     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-     * 
-     */
     @Import(name="identityProvider")
     private @Nullable Output<FleetIdentityProviderArgs> identityProvider;
 
-    /**
-     * @return Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-     * 
-     */
     public Optional<Output<FleetIdentityProviderArgs>> identityProvider() {
         return Optional.ofNullable(this.identityProvider);
     }
 
-    /**
-     * A region-unique name for the AMI.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A region-unique name for the AMI.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-     * 
-     */
     @Import(name="network")
     private @Nullable Output<FleetNetworkArgs> network;
 
-    /**
-     * @return Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-     * 
-     */
     public Optional<Output<FleetNetworkArgs>> network() {
         return Optional.ofNullable(this.network);
     }
 
-    /**
-     * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-     * 
-     */
     @Import(name="optimizeForEndUserLocation")
     private @Nullable Output<Boolean> optimizeForEndUserLocation;
 
-    /**
-     * @return The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> optimizeForEndUserLocation() {
         return Optional.ofNullable(this.optimizeForEndUserLocation);
     }
@@ -153,149 +97,65 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FleetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param auditStreamArn The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditStreamArn(@Nullable Output<String> auditStreamArn) {
             $.auditStreamArn = auditStreamArn;
             return this;
         }
 
-        /**
-         * @param auditStreamArn The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `&#34;AmazonWorkLink-&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder auditStreamArn(String auditStreamArn) {
             return auditStreamArn(Output.of(auditStreamArn));
         }
 
-        /**
-         * @param deviceCaCertificate The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceCaCertificate(@Nullable Output<String> deviceCaCertificate) {
             $.deviceCaCertificate = deviceCaCertificate;
             return this;
         }
 
-        /**
-         * @param deviceCaCertificate The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceCaCertificate(String deviceCaCertificate) {
             return deviceCaCertificate(Output.of(deviceCaCertificate));
         }
 
-        /**
-         * @param displayName The name of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName The name of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param identityProvider Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProvider(@Nullable Output<FleetIdentityProviderArgs> identityProvider) {
             $.identityProvider = identityProvider;
             return this;
         }
 
-        /**
-         * @param identityProvider Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProvider(FleetIdentityProviderArgs identityProvider) {
             return identityProvider(Output.of(identityProvider));
         }
 
-        /**
-         * @param name A region-unique name for the AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A region-unique name for the AMI.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param network Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder network(@Nullable Output<FleetNetworkArgs> network) {
             $.network = network;
             return this;
         }
 
-        /**
-         * @param network Provide this to allow manage the company network configuration for the fleet. Fields documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder network(FleetNetworkArgs network) {
             return network(Output.of(network));
         }
 
-        /**
-         * @param optimizeForEndUserLocation The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizeForEndUserLocation(@Nullable Output<Boolean> optimizeForEndUserLocation) {
             $.optimizeForEndUserLocation = optimizeForEndUserLocation;
             return this;
         }
 
-        /**
-         * @param optimizeForEndUserLocation The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optimizeForEndUserLocation(Boolean optimizeForEndUserLocation) {
             return optimizeForEndUserLocation(Output.of(optimizeForEndUserLocation));
         }

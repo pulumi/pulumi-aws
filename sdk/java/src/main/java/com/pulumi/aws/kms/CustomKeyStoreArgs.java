@@ -13,62 +13,30 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final CustomKeyStoreArgs Empty = new CustomKeyStoreArgs();
 
-    /**
-     * Cluster ID of CloudHSM.
-     * 
-     */
     @Import(name="cloudHsmClusterId", required=true)
     private Output<String> cloudHsmClusterId;
 
-    /**
-     * @return Cluster ID of CloudHSM.
-     * 
-     */
     public Output<String> cloudHsmClusterId() {
         return this.cloudHsmClusterId;
     }
 
-    /**
-     * Unique name for Custom Key Store.
-     * 
-     */
     @Import(name="customKeyStoreName", required=true)
     private Output<String> customKeyStoreName;
 
-    /**
-     * @return Unique name for Custom Key Store.
-     * 
-     */
     public Output<String> customKeyStoreName() {
         return this.customKeyStoreName;
     }
 
-    /**
-     * Password for `kmsuser` on CloudHSM.
-     * 
-     */
     @Import(name="keyStorePassword", required=true)
     private Output<String> keyStorePassword;
 
-    /**
-     * @return Password for `kmsuser` on CloudHSM.
-     * 
-     */
     public Output<String> keyStorePassword() {
         return this.keyStorePassword;
     }
 
-    /**
-     * Customer certificate used for signing on CloudHSM.
-     * 
-     */
     @Import(name="trustAnchorCertificate", required=true)
     private Output<String> trustAnchorCertificate;
 
-    /**
-     * @return Customer certificate used for signing on CloudHSM.
-     * 
-     */
     public Output<String> trustAnchorCertificate() {
         return this.trustAnchorCertificate;
     }
@@ -100,86 +68,38 @@ public final class CustomKeyStoreArgs extends com.pulumi.resources.ResourceArgs 
             $ = new CustomKeyStoreArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudHsmClusterId Cluster ID of CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudHsmClusterId(Output<String> cloudHsmClusterId) {
             $.cloudHsmClusterId = cloudHsmClusterId;
             return this;
         }
 
-        /**
-         * @param cloudHsmClusterId Cluster ID of CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudHsmClusterId(String cloudHsmClusterId) {
             return cloudHsmClusterId(Output.of(cloudHsmClusterId));
         }
 
-        /**
-         * @param customKeyStoreName Unique name for Custom Key Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(Output<String> customKeyStoreName) {
             $.customKeyStoreName = customKeyStoreName;
             return this;
         }
 
-        /**
-         * @param customKeyStoreName Unique name for Custom Key Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customKeyStoreName(String customKeyStoreName) {
             return customKeyStoreName(Output.of(customKeyStoreName));
         }
 
-        /**
-         * @param keyStorePassword Password for `kmsuser` on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyStorePassword(Output<String> keyStorePassword) {
             $.keyStorePassword = keyStorePassword;
             return this;
         }
 
-        /**
-         * @param keyStorePassword Password for `kmsuser` on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyStorePassword(String keyStorePassword) {
             return keyStorePassword(Output.of(keyStorePassword));
         }
 
-        /**
-         * @param trustAnchorCertificate Customer certificate used for signing on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustAnchorCertificate(Output<String> trustAnchorCertificate) {
             $.trustAnchorCertificate = trustAnchorCertificate;
             return this;
         }
 
-        /**
-         * @param trustAnchorCertificate Customer certificate used for signing on CloudHSM.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trustAnchorCertificate(String trustAnchorCertificate) {
             return trustAnchorCertificate(Output.of(trustAnchorCertificate));
         }

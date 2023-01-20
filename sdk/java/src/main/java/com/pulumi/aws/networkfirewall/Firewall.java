@@ -20,252 +20,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Firewall Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.Firewall;
- * import com.pulumi.aws.networkfirewall.FirewallArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Firewall(&#34;example&#34;, FirewallArgs.builder()        
- *             .firewallPolicyArn(aws_networkfirewall_firewall_policy.example().arn())
- *             .vpcId(aws_vpc.example().id())
- *             .subnetMappings(FirewallSubnetMappingArgs.builder()
- *                 .subnetId(aws_subnet.example().id())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Network Firewall Firewalls can be imported using their `ARN`.
- * 
- * ```sh
- *  $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/firewall:Firewall")
 public class Firewall extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-     * 
-     */
     @Export(name="deleteProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deleteProtection() {
         return Codegen.optional(this.deleteProtection);
     }
-    /**
-     * A friendly description of the firewall.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A friendly description of the firewall.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={FirewallEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirewallEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     public Output<Optional<FirewallEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
-     * 
-     */
     @Export(name="firewallPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> firewallPolicyArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
-     * 
-     */
     public Output<String> firewallPolicyArn() {
         return this.firewallPolicyArn;
     }
-    /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-     * 
-     */
     @Export(name="firewallPolicyChangeProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> firewallPolicyChangeProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> firewallPolicyChangeProtection() {
         return Codegen.optional(this.firewallPolicyChangeProtection);
     }
-    /**
-     * Nested list of information about the current status of the firewall.
-     * 
-     */
     @Export(name="firewallStatuses", refs={List.class,FirewallFirewallStatus.class}, tree="[0,1]")
     private Output<List<FirewallFirewallStatus>> firewallStatuses;
 
-    /**
-     * @return Nested list of information about the current status of the firewall.
-     * 
-     */
     public Output<List<FirewallFirewallStatus>> firewallStatuses() {
         return this.firewallStatuses;
     }
-    /**
-     * A friendly name of the firewall.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the firewall.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-     * 
-     */
     @Export(name="subnetChangeProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> subnetChangeProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> subnetChangeProtection() {
         return Codegen.optional(this.subnetChangeProtection);
     }
-    /**
-     * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-     * 
-     */
     @Export(name="subnetMappings", refs={List.class,FirewallSubnetMapping.class}, tree="[0,1]")
     private Output<List<FirewallSubnetMapping>> subnetMappings;
 
-    /**
-     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-     * 
-     */
     public Output<List<FirewallSubnetMapping>> subnetMappings() {
         return this.subnetMappings;
     }
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A string token used when updating a firewall.
-     * 
-     */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
-    /**
-     * @return A string token used when updating a firewall.
-     * 
-     */
     public Output<String> updateToken() {
         return this.updateToken;
     }
-    /**
-     * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

@@ -13,99 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Allows you to set a policy of an SQS Queue
- * while referencing ARN of the queue within the policy.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueuePolicy;
- * import com.pulumi.aws.sqs.QueuePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var queue = new Queue(&#34;queue&#34;);
- * 
- *         var test = new QueuePolicy(&#34;test&#34;, QueuePolicyArgs.builder()        
- *             .queueUrl(queue.id())
- *             .policy(queue.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;sqspolicy&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;First&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: &#34;*&#34;,
- *       &#34;Action&#34;: &#34;sqs:SendMessage&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;ArnEquals&#34;: {
- *           &#34;aws:SourceArn&#34;: &#34;%s&#34;
- *         }
- *       }
- *     }
- *   ]
- * }
- * &#34;, arn,aws_sns_topic.example().arn())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SQS Queue Policies can be imported using the queue URL, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
- * ```
- * 
- */
 @ResourceType(type="aws:sqs/queuePolicy:QueuePolicy")
 public class QueuePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The JSON policy for the SQS queue.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The JSON policy for the SQS queue.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     @Export(name="queueUrl", refs={String.class}, tree="[0]")
     private Output<String> queueUrl;
 
-    /**
-     * @return The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }

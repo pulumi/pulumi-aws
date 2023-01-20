@@ -17,47 +17,23 @@ public final class GetMulticastDomainPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetMulticastDomainPlainArgs Empty = new GetMulticastDomainPlainArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetMulticastDomainFilter> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     public Optional<List<GetMulticastDomainFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     @Import(name="transitGatewayMulticastDomainId")
     private @Nullable String transitGatewayMulticastDomainId;
 
-    /**
-     * @return Identifier of the EC2 Transit Gateway Multicast Domain.
-     * 
-     */
     public Optional<String> transitGatewayMulticastDomainId() {
         return Optional.ofNullable(this.transitGatewayMulticastDomainId);
     }
@@ -88,44 +64,20 @@ public final class GetMulticastDomainPlainArgs extends com.pulumi.resources.Invo
             $ = new GetMulticastDomainPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetMulticastDomainFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetMulticastDomainFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Multicast Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param transitGatewayMulticastDomainId Identifier of the EC2 Transit Gateway Multicast Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayMulticastDomainId(@Nullable String transitGatewayMulticastDomainId) {
             $.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
             return this;

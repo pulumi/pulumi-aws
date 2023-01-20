@@ -16,59 +16,23 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIpRangesArgs Empty = new GetIpRangesArgs();
 
-    /**
-     * Filter IP ranges by regions (or include all regions, if
-     * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g., `eu-central-1`)
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
-    /**
-     * @return Filter IP ranges by regions (or include all regions, if
-     * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g., `eu-central-1`)
-     * 
-     */
     public Optional<Output<List<String>>> regions() {
         return Optional.ofNullable(this.regions);
     }
 
-    /**
-     * Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-     * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-     * [`service` attribute][2] documentation for other possible values.
-     * 
-     */
     @Import(name="services", required=true)
     private Output<List<String>> services;
 
-    /**
-     * @return Filter IP ranges by services. Valid items are `amazon`
-     * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-     * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-     * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-     * [`service` attribute][2] documentation for other possible values.
-     * 
-     */
     public Output<List<String>> services() {
         return this.services;
     }
 
-    /**
-     * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-     * 
-     */
     @Import(name="url")
     private @Nullable Output<String> url;
 
-    /**
-     * @return Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-     * 
-     */
     public Optional<Output<String>> url() {
         return Optional.ofNullable(this.url);
     }
@@ -99,103 +63,37 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIpRangesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param regions Filter IP ranges by regions (or include all regions, if
-         * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-         * (e.g., `eu-central-1`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions Filter IP ranges by regions (or include all regions, if
-         * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-         * (e.g., `eu-central-1`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions Filter IP ranges by regions (or include all regions, if
-         * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-         * (e.g., `eu-central-1`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }
 
-        /**
-         * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-         * [`service` attribute][2] documentation for other possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(Output<List<String>> services) {
             $.services = services;
             return this;
         }
 
-        /**
-         * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-         * [`service` attribute][2] documentation for other possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(List<String> services) {
             return services(Output.of(services));
         }
 
-        /**
-         * @param services Filter IP ranges by services. Valid items are `amazon`
-         * (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
-         * `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
-         * `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-         * [`service` attribute][2] documentation for other possible values.
-         * 
-         * @return builder
-         * 
-         */
         public Builder services(String... services) {
             return services(List.of(services));
         }
 
-        /**
-         * @param url Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(@Nullable Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

@@ -16,47 +16,23 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
 
     public static final GraphState Empty = new GraphState();
 
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-     * 
-     */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-     * 
-     */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
-    /**
-     * ARN of the Detective Graph.
-     * 
-     */
     @Import(name="graphArn")
     private @Nullable Output<String> graphArn;
 
-    /**
-     * @return ARN of the Detective Graph.
-     * 
-     */
     public Optional<Output<String>> graphArn() {
         return Optional.ofNullable(this.graphArn);
     }
 
-    /**
-     * A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -95,65 +71,29 @@ public final class GraphState extends com.pulumi.resources.ResourceArgs {
             $ = new GraphState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(@Nullable Output<String> createdTime) {
             $.createdTime = createdTime;
             return this;
         }
 
-        /**
-         * @param createdTime Date and time, in UTC and extended RFC 3339 format, when the Amazon Detective Graph was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdTime(String createdTime) {
             return createdTime(Output.of(createdTime));
         }
 
-        /**
-         * @param graphArn ARN of the Detective Graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(@Nullable Output<String> graphArn) {
             $.graphArn = graphArn;
             return this;
         }
 
-        /**
-         * @param graphArn ARN of the Detective Graph.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(String graphArn) {
             return graphArn(Output.of(graphArn));
         }
 
-        /**
-         * @param tags A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

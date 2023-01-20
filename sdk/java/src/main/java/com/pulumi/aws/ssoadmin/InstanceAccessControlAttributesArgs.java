@@ -15,32 +15,16 @@ public final class InstanceAccessControlAttributesArgs extends com.pulumi.resour
 
     public static final InstanceAccessControlAttributesArgs Empty = new InstanceAccessControlAttributesArgs();
 
-    /**
-     * See AccessControlAttribute for more details.
-     * 
-     */
     @Import(name="attributes", required=true)
     private Output<List<InstanceAccessControlAttributesAttributeArgs>> attributes;
 
-    /**
-     * @return See AccessControlAttribute for more details.
-     * 
-     */
     public Output<List<InstanceAccessControlAttributesAttributeArgs>> attributes() {
         return this.attributes;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
-     * 
-     */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
@@ -70,54 +54,24 @@ public final class InstanceAccessControlAttributesArgs extends com.pulumi.resour
             $ = new InstanceAccessControlAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes See AccessControlAttribute for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(Output<List<InstanceAccessControlAttributesAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes See AccessControlAttribute for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<InstanceAccessControlAttributesAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes See AccessControlAttribute for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(InstanceAccessControlAttributesAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }

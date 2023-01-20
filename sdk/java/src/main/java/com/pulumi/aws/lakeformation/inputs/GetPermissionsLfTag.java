@@ -13,47 +13,23 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPermissionsLfTag Empty = new GetPermissionsLfTag();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId", required=true)
     private String catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
 
-    /**
-     * Key-name of an LF-Tag.
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Key-name of an LF-Tag.
-     * 
-     */
     public String key() {
         return this.key;
     }
 
-    /**
-     * List of possible values of an LF-Tag.
-     * 
-     */
     @Import(name="values", required=true)
     private List<String> values;
 
-    /**
-     * @return List of possible values of an LF-Tag.
-     * 
-     */
     public List<String> values() {
         return this.values;
     }
@@ -84,45 +60,21 @@ public final class GetPermissionsLfTag extends com.pulumi.resources.InvokeArgs {
             $ = new GetPermissionsLfTag(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param key Key-name of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values List of possible values of an LF-Tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

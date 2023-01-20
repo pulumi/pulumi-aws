@@ -14,291 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
- * 
- * ## Example Usage
- * ### Filter by AWS account ID
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Insight;
- * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .awsAccountIds(                
- *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;1234567890&#34;)
- *                         .build(),
- *                     InsightFiltersAwsAccountIdArgs.builder()
- *                         .comparison(&#34;EQUALS&#34;)
- *                         .value(&#34;09876543210&#34;)
- *                         .build())
- *                 .build())
- *             .groupByAttribute(&#34;AwsAccountId&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Filter by date range
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Insight;
- * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .createdAts(InsightFiltersCreatedAtArgs.builder()
- *                     .dateRange(InsightFiltersCreatedAtDateRangeArgs.builder()
- *                         .unit(&#34;DAYS&#34;)
- *                         .value(5)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .groupByAttribute(&#34;CreatedAt&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Filter by destination IPv4 address
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Insight;
- * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .networkDestinationIpv4s(InsightFiltersNetworkDestinationIpv4Args.builder()
- *                     .cidr(&#34;10.0.0.0/16&#34;)
- *                     .build())
- *                 .build())
- *             .groupByAttribute(&#34;NetworkDestinationIpV4&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Filter by finding&#39;s confidence
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Insight;
- * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .confidences(InsightFiltersConfidenceArgs.builder()
- *                     .gte(&#34;80&#34;)
- *                     .build())
- *                 .build())
- *             .groupByAttribute(&#34;Confidence&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Filter by resource tags
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.Insight;
- * import com.pulumi.aws.securityhub.InsightArgs;
- * import com.pulumi.aws.securityhub.inputs.InsightFiltersArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleInsight = new Insight(&#34;exampleInsight&#34;, InsightArgs.builder()        
- *             .filters(InsightFiltersArgs.builder()
- *                 .resourceTags(InsightFiltersResourceTagArgs.builder()
- *                     .comparison(&#34;EQUALS&#34;)
- *                     .key(&#34;Environment&#34;)
- *                     .value(&#34;Production&#34;)
- *                     .build())
- *                 .build())
- *             .groupByAttribute(&#34;ResourceTags&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Security Hub insights can be imported using the ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/insight:Insight")
 public class Insight extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the insight.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the insight.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-     * 
-     */
     @Export(name="filters", refs={InsightFilters.class}, tree="[0]")
     private Output<InsightFilters> filters;
 
-    /**
-     * @return A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-     * 
-     */
     public Output<InsightFilters> filters() {
         return this.filters;
     }
-    /**
-     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-     * 
-     */
     @Export(name="groupByAttribute", refs={String.class}, tree="[0]")
     private Output<String> groupByAttribute;
 
-    /**
-     * @return The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
-     * 
-     */
     public Output<String> groupByAttribute() {
         return this.groupByAttribute;
     }
-    /**
-     * The name of the custom insight.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the custom insight.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

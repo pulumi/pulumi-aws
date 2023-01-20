@@ -16,457 +16,95 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
- * 
- * &gt; **NOTE:** If the SNS topic and SQS queue are in different AWS regions, the `aws.sns.TopicSubscription` must use an AWS provider that is in the same region as the SNS topic. If the `aws.sns.TopicSubscription` uses a provider with a different region than the SNS topic, this provider will fail to create the subscription.
- * 
- * &gt; **NOTE:** Setup of cross-account subscriptions from SNS topics to SQS queues requires the provider to have access to BOTH accounts.
- * 
- * &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts but the same region, the `aws.sns.TopicSubscription` must use the AWS provider for the account with the SQS queue. If `aws.sns.TopicSubscription` uses a Provider with a different account than the SQS queue, this provider creates the subscription but does not keep state and tries to re-create the subscription at every `apply`.
- * 
- * &gt; **NOTE:** If an SNS topic and SQS queue are in different AWS accounts and different AWS regions, the subscription needs to be initiated from the account with the SQS queue but in the region of the SNS topic.
- * 
- * &gt; **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
- * 
- * ## Example Usage
- * 
- * You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.TopicSubscription;
- * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
- *             .endpoint(&#34;arn:aws:sqs:us-west-2:432981146916:queue-too&#34;)
- *             .protocol(&#34;sqs&#34;)
- *             .topic(&#34;arn:aws:sns:us-west-2:432981146916:user-updates-topic&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sns.TopicSubscription;
- * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var userUpdates = new Topic(&#34;userUpdates&#34;);
- * 
- *         var userUpdatesQueue = new Queue(&#34;userUpdatesQueue&#34;);
- * 
- *         var userUpdatesSqsTarget = new TopicSubscription(&#34;userUpdatesSqsTarget&#34;, TopicSubscriptionArgs.builder()        
- *             .topic(userUpdates.arn())
- *             .protocol(&#34;sqs&#34;)
- *             .endpoint(userUpdatesQueue.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.inputs.ProviderAssumeRoleArgs;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.sns.TopicArgs;
- * import com.pulumi.aws.sqs.Queue;
- * import com.pulumi.aws.sqs.QueueArgs;
- * import com.pulumi.aws.sns.TopicSubscription;
- * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var sns = config.get(&#34;sns&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         final var sqs = config.get(&#34;sqs&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         final var sns-topic-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(&#34;__default_policy_ID&#34;)
- *             .statements(            
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:SetTopicAttributes&#34;,
- *                         &#34;SNS:RemovePermission&#34;,
- *                         &#34;SNS:Publish&#34;,
- *                         &#34;SNS:ListSubscriptionsByTopic&#34;,
- *                         &#34;SNS:GetTopicAttributes&#34;,
- *                         &#34;SNS:DeleteTopic&#34;,
- *                         &#34;SNS:AddPermission&#34;)
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringEquals&#34;)
- *                         .variable(&#34;AWS:SourceOwner&#34;)
- *                         .values(sns.account-id())
- *                         .build())
- *                     .effect(&#34;Allow&#34;)
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
- *                         .build())
- *                     .resources(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
- *                     .sid(&#34;__default_statement_ID&#34;)
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
- *                     .actions(                    
- *                         &#34;SNS:Subscribe&#34;,
- *                         &#34;SNS:Receive&#34;)
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test(&#34;StringLike&#34;)
- *                         .variable(&#34;SNS:Endpoint&#34;)
- *                         .values(String.format(&#34;arn:aws:sqs:%s:%s:%s&#34;, sqs.region(),sqs.account-id(),sqs.name()))
- *                         .build())
- *                     .effect(&#34;Allow&#34;)
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type(&#34;AWS&#34;)
- *                         .identifiers(&#34;*&#34;)
- *                         .build())
- *                     .resources(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
- *                     .sid(&#34;__console_sub_0&#34;)
- *                     .build())
- *             .build());
- * 
- *         final var sqs-queue-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .policyId(String.format(&#34;arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy&#34;, sqs.region(),sqs.account-id(),sqs.name()))
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid(&#34;example-sns-topic&#34;)
- *                 .effect(&#34;Allow&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;*&#34;)
- *                     .build())
- *                 .actions(&#34;SQS:SendMessage&#34;)
- *                 .resources(String.format(&#34;arn:aws:sqs:%s:%s:%s&#34;, sqs.region(),sqs.account-id(),sqs.name()))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test(&#34;ArnEquals&#34;)
- *                     .variable(&#34;aws:SourceArn&#34;)
- *                     .values(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var awsSns = new Provider(&#34;awsSns&#34;, ProviderArgs.builder()        
- *             .region(sns.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sns.account-id(),sns.role-name()))
- *                 .sessionName(String.format(&#34;sns-%s&#34;, sns.region()))
- *                 .build())
- *             .build());
- * 
- *         var awsSqs = new Provider(&#34;awsSqs&#34;, ProviderArgs.builder()        
- *             .region(sqs.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
- *                 .sessionName(String.format(&#34;sqs-%s&#34;, sqs.region()))
- *                 .build())
- *             .build());
- * 
- *         var sns2sqs = new Provider(&#34;sns2sqs&#34;, ProviderArgs.builder()        
- *             .region(sns.region())
- *             .assumeRole(ProviderAssumeRoleArgs.builder()
- *                 .roleArn(String.format(&#34;arn:aws:iam::%s:role/%s&#34;, sqs.account-id(),sqs.role-name()))
- *                 .sessionName(String.format(&#34;sns2sqs-%s&#34;, sns.region()))
- *                 .build())
- *             .build());
- * 
- *         var sns_topicTopic = new Topic(&#34;sns-topicTopic&#34;, TopicArgs.builder()        
- *             .displayName(sns.display_name())
- *             .policy(sns_topic_policy.json())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns&#34;)
- *                 .build());
- * 
- *         var sqs_queue = new Queue(&#34;sqs-queue&#34;, QueueArgs.builder()        
- *             .policy(sqs_queue_policy.json())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sqs&#34;)
- *                 .build());
- * 
- *         var sns_topicTopicSubscription = new TopicSubscription(&#34;sns-topicTopicSubscription&#34;, TopicSubscriptionArgs.builder()        
- *             .topic(sns_topicTopic.arn())
- *             .protocol(&#34;sqs&#34;)
- *             .endpoint(sqs_queue.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.sns2sqs&#34;)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
- * ```
- * 
- */
 @ResourceType(type="aws:sns/topicSubscription:TopicSubscription")
 public class TopicSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the subscription.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the subscription.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
-     * 
-     */
     @Export(name="confirmationTimeoutInMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> confirmationTimeoutInMinutes;
 
-    /**
-     * @return Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
-     * 
-     */
     public Output<Optional<Integer>> confirmationTimeoutInMinutes() {
         return Codegen.optional(this.confirmationTimeoutInMinutes);
     }
-    /**
-     * Whether the subscription confirmation request was authenticated.
-     * 
-     */
     @Export(name="confirmationWasAuthenticated", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> confirmationWasAuthenticated;
 
-    /**
-     * @return Whether the subscription confirmation request was authenticated.
-     * 
-     */
     public Output<Boolean> confirmationWasAuthenticated() {
         return this.confirmationWasAuthenticated;
     }
-    /**
-     * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-     * 
-     */
     @Export(name="deliveryPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryPolicy;
 
-    /**
-     * @return JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-     * 
-     */
     public Output<Optional<String>> deliveryPolicy() {
         return Codegen.optional(this.deliveryPolicy);
     }
-    /**
-     * Endpoint to send data to. The contents vary with the protocol. See details below.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return Endpoint to send data to. The contents vary with the protocol. See details below.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
-     * 
-     */
     @Export(name="endpointAutoConfirms", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> endpointAutoConfirms;
 
-    /**
-     * @return Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> endpointAutoConfirms() {
         return Codegen.optional(this.endpointAutoConfirms);
     }
-    /**
-     * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-     * 
-     */
     @Export(name="filterPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filterPolicy;
 
-    /**
-     * @return JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-     * 
-     */
     public Output<Optional<String>> filterPolicy() {
         return Codegen.optional(this.filterPolicy);
     }
-    /**
-     * Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
-     * 
-     */
     @Export(name="filterPolicyScope", refs={String.class}, tree="[0]")
     private Output<String> filterPolicyScope;
 
-    /**
-     * @return Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
-     * 
-     */
     public Output<String> filterPolicyScope() {
         return this.filterPolicyScope;
     }
-    /**
-     * AWS account ID of the subscription&#39;s owner.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return AWS account ID of the subscription&#39;s owner.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Whether the subscription has not been confirmed.
-     * 
-     */
     @Export(name="pendingConfirmation", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pendingConfirmation;
 
-    /**
-     * @return Whether the subscription has not been confirmed.
-     * 
-     */
     public Output<Boolean> pendingConfirmation() {
         return this.pendingConfirmation;
     }
-    /**
-     * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
-    /**
-     * @return Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
-    /**
-     * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
-     * 
-     */
     @Export(name="rawMessageDelivery", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rawMessageDelivery;
 
-    /**
-     * @return Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> rawMessageDelivery() {
         return Codegen.optional(this.rawMessageDelivery);
     }
-    /**
-     * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
-     * 
-     */
     @Export(name="redrivePolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> redrivePolicy;
 
-    /**
-     * @return JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
-     * 
-     */
     public Output<Optional<String>> redrivePolicy() {
         return Codegen.optional(this.redrivePolicy);
     }
-    /**
-     * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-     * 
-     */
     @Export(name="subscriptionRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subscriptionRoleArn;
 
-    /**
-     * @return ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-     * 
-     */
     public Output<Optional<String>> subscriptionRoleArn() {
         return Codegen.optional(this.subscriptionRoleArn);
     }
-    /**
-     * ARN of the SNS topic to subscribe to.
-     * 
-     */
     @Export(name="topic", refs={String.class}, tree="[0]")
     private Output<String> topic;
 
-    /**
-     * @return ARN of the SNS topic to subscribe to.
-     * 
-     */
     public Output<String> topic() {
         return this.topic;
     }

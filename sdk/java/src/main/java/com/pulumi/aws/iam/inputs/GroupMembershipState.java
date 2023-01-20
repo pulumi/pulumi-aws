@@ -16,47 +16,23 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
 
     public static final GroupMembershipState Empty = new GroupMembershipState();
 
-    /**
-     * The IAM Group name to attach the list of `users` to
-     * 
-     */
     @Import(name="group")
     private @Nullable Output<String> group;
 
-    /**
-     * @return The IAM Group name to attach the list of `users` to
-     * 
-     */
     public Optional<Output<String>> group() {
         return Optional.ofNullable(this.group);
     }
 
-    /**
-     * The name to identify the Group Membership
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name to identify the Group Membership
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A list of IAM User names to associate with the Group
-     * 
-     */
     @Import(name="users")
     private @Nullable Output<List<String>> users;
 
-    /**
-     * @return A list of IAM User names to associate with the Group
-     * 
-     */
     public Optional<Output<List<String>>> users() {
         return Optional.ofNullable(this.users);
     }
@@ -87,75 +63,33 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
             $ = new GroupMembershipState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param group The IAM Group name to attach the list of `users` to
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(@Nullable Output<String> group) {
             $.group = group;
             return this;
         }
 
-        /**
-         * @param group The IAM Group name to attach the list of `users` to
-         * 
-         * @return builder
-         * 
-         */
         public Builder group(String group) {
             return group(Output.of(group));
         }
 
-        /**
-         * @param name The name to identify the Group Membership
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name to identify the Group Membership
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param users A list of IAM User names to associate with the Group
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(@Nullable Output<List<String>> users) {
             $.users = users;
             return this;
         }
 
-        /**
-         * @param users A list of IAM User names to associate with the Group
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(List<String> users) {
             return users(Output.of(users));
         }
 
-        /**
-         * @param users A list of IAM User names to associate with the Group
-         * 
-         * @return builder
-         * 
-         */
         public Builder users(String... users) {
             return users(List.of(users));
         }

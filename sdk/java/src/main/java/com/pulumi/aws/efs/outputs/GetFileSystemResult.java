@@ -14,31 +14,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFileSystemResult {
-    /**
-     * @return Amazon Resource Name of the file system.
-     * 
-     */
     private String arn;
-    /**
-     * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return The Availability Zone name in which the file system&#39;s One Zone storage classes exist.
-     * 
-     */
     private String availabilityZoneName;
     private String creationToken;
-    /**
-     * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-     * 
-     */
     private String dnsName;
-    /**
-     * @return Whether EFS is encrypted.
-     * 
-     */
     private Boolean encrypted;
     private String fileSystemId;
     /**
@@ -46,75 +26,30 @@ public final class GetFileSystemResult {
      * 
      */
     private String id;
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     private String kmsKeyId;
-    /**
-     * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-     * 
-     */
     private GetFileSystemLifecyclePolicy lifecyclePolicy;
-    /**
-     * @return File system performance mode.
-     * 
-     */
     private String performanceMode;
-    /**
-     * @return The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A map of tags to assign to the file system.
-     * 
-     */
     private Double provisionedThroughputInMibps;
-    /**
-     * @return Current byte count used by the file system.
-     * 
-     */
     private Integer sizeInBytes;
     private Map<String,String> tags;
-    /**
-     * @return Throughput mode for the file system.
-     * 
-     */
     private String throughputMode;
 
     private GetFileSystemResult() {}
-    /**
-     * @return Amazon Resource Name of the file system.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return The identifier of the Availability Zone in which the file system&#39;s One Zone storage classes exist.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return The Availability Zone name in which the file system&#39;s One Zone storage classes exist.
-     * 
-     */
     public String availabilityZoneName() {
         return this.availabilityZoneName;
     }
     public String creationToken() {
         return this.creationToken;
     }
-    /**
-     * @return DNS name for the filesystem per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return Whether EFS is encrypted.
-     * 
-     */
     public Boolean encrypted() {
         return this.encrypted;
     }
@@ -128,49 +63,24 @@ public final class GetFileSystemResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN for the KMS encryption key.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * @return File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-     * 
-     */
     public GetFileSystemLifecyclePolicy lifecyclePolicy() {
         return this.lifecyclePolicy;
     }
-    /**
-     * @return File system performance mode.
-     * 
-     */
     public String performanceMode() {
         return this.performanceMode;
     }
-    /**
-     * @return The throughput, measured in MiB/s, that you want to provision for the file system.
-     * * `tags` -A map of tags to assign to the file system.
-     * 
-     */
     public Double provisionedThroughputInMibps() {
         return this.provisionedThroughputInMibps;
     }
-    /**
-     * @return Current byte count used by the file system.
-     * 
-     */
     public Integer sizeInBytes() {
         return this.sizeInBytes;
     }
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Throughput mode for the file system.
-     * 
-     */
     public String throughputMode() {
         return this.throughputMode;
     }

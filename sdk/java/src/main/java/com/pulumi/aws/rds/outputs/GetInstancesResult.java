@@ -18,15 +18,7 @@ public final class GetInstancesResult {
      * 
      */
     private String id;
-    /**
-     * @return ARNs of the matched RDS instances.
-     * 
-     */
     private List<String> instanceArns;
-    /**
-     * @return Identifiers of the matched RDS instances.
-     * 
-     */
     private List<String> instanceIdentifiers;
 
     private GetInstancesResult() {}
@@ -40,17 +32,9 @@ public final class GetInstancesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARNs of the matched RDS instances.
-     * 
-     */
     public List<String> instanceArns() {
         return this.instanceArns;
     }
-    /**
-     * @return Identifiers of the matched RDS instances.
-     * 
-     */
     public List<String> instanceIdentifiers() {
         return this.instanceIdentifiers;
     }

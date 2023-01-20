@@ -17,107 +17,51 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
 
     public static final SpaceState Empty = new SpaceState();
 
-    /**
-     * The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The ID of the associated Domain.
-     * 
-     */
     @Import(name="domainId")
     private @Nullable Output<String> domainId;
 
-    /**
-     * @return The ID of the associated Domain.
-     * 
-     */
     public Optional<Output<String>> domainId() {
         return Optional.ofNullable(this.domainId);
     }
 
-    /**
-     * The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     @Import(name="homeEfsFileSystemUid")
     private @Nullable Output<String> homeEfsFileSystemUid;
 
-    /**
-     * @return The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     public Optional<Output<String>> homeEfsFileSystemUid() {
         return Optional.ofNullable(this.homeEfsFileSystemUid);
     }
 
-    /**
-     * The name of the space.
-     * 
-     */
     @Import(name="spaceName")
     private @Nullable Output<String> spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public Optional<Output<String>> spaceName() {
         return Optional.ofNullable(this.spaceName);
     }
 
-    /**
-     * A collection of space settings. See Space Settings below.
-     * 
-     */
     @Import(name="spaceSettings")
     private @Nullable Output<SpaceSpaceSettingsArgs> spaceSettings;
 
-    /**
-     * @return A collection of space settings. See Space Settings below.
-     * 
-     */
     public Optional<Output<SpaceSpaceSettingsArgs>> spaceSettings() {
         return Optional.ofNullable(this.spaceSettings);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -152,149 +96,65 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
             $ = new SpaceState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The space&#39;s Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The space&#39;s Amazon Resource Name (ARN).
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param domainId The ID of the associated Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(@Nullable Output<String> domainId) {
             $.domainId = domainId;
             return this;
         }
 
-        /**
-         * @param domainId The ID of the associated Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainId(String domainId) {
             return domainId(Output.of(domainId));
         }
 
-        /**
-         * @param homeEfsFileSystemUid The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homeEfsFileSystemUid(@Nullable Output<String> homeEfsFileSystemUid) {
             $.homeEfsFileSystemUid = homeEfsFileSystemUid;
             return this;
         }
 
-        /**
-         * @param homeEfsFileSystemUid The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homeEfsFileSystemUid(String homeEfsFileSystemUid) {
             return homeEfsFileSystemUid(Output.of(homeEfsFileSystemUid));
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(@Nullable Output<String> spaceName) {
             $.spaceName = spaceName;
             return this;
         }
 
-        /**
-         * @param spaceName The name of the space.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceName(String spaceName) {
             return spaceName(Output.of(spaceName));
         }
 
-        /**
-         * @param spaceSettings A collection of space settings. See Space Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceSettings(@Nullable Output<SpaceSpaceSettingsArgs> spaceSettings) {
             $.spaceSettings = spaceSettings;
             return this;
         }
 
-        /**
-         * @param spaceSettings A collection of space settings. See Space Settings below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spaceSettings(SpaceSpaceSettingsArgs spaceSettings) {
             return spaceSettings(Output.of(spaceSettings));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -18,10 +18,6 @@ public final class GetSnapshotIdsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of EBS snapshot IDs, sorted by creation time in descending order.
-     * 
-     */
     private List<String> ids;
     private @Nullable List<String> owners;
     private @Nullable List<String> restorableByUserIds;
@@ -37,10 +33,6 @@ public final class GetSnapshotIdsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of EBS snapshot IDs, sorted by creation time in descending order.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

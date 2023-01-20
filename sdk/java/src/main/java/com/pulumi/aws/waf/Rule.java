@@ -17,150 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Rule Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.IpSet;
- * import com.pulumi.aws.waf.IpSetArgs;
- * import com.pulumi.aws.waf.inputs.IpSetIpSetDescriptorArgs;
- * import com.pulumi.aws.waf.Rule;
- * import com.pulumi.aws.waf.RuleArgs;
- * import com.pulumi.aws.waf.inputs.RulePredicateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
- *                 .build())
- *             .build());
- * 
- *         var wafrule = new Rule(&#34;wafrule&#34;, RuleArgs.builder()        
- *             .metricName(&#34;tfWAFRule&#34;)
- *             .predicates(RulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF rules can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:waf/rule:Rule")
 public class Rule extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the WAF rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can&#39;t contain whitespace.
-     * 
-     */
     @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
-    /**
-     * @return The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can&#39;t contain whitespace.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
-    /**
-     * The name or description of the rule.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The objects to include in a rule (documented below).
-     * 
-     */
     @Export(name="predicates", refs={List.class,RulePredicate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RulePredicate>> predicates;
 
-    /**
-     * @return The objects to include in a rule (documented below).
-     * 
-     */
     public Output<Optional<List<RulePredicate>>> predicates() {
         return Codegen.optional(this.predicates);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

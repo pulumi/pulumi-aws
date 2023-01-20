@@ -15,97 +15,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Managed Scaling policy for EMR Cluster. With Amazon EMR versions 5.30.0 and later (except for Amazon EMR 6.0.0), you can enable EMR managed scaling to automatically increase or decrease the number of instances or units in your cluster based on workload. See [Using EMR Managed Scaling in Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-scaling.html) for more information.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emr.Cluster;
- * import com.pulumi.aws.emr.ClusterArgs;
- * import com.pulumi.aws.emr.inputs.ClusterMasterInstanceGroupArgs;
- * import com.pulumi.aws.emr.inputs.ClusterCoreInstanceGroupArgs;
- * import com.pulumi.aws.emr.ManagedScalingPolicy;
- * import com.pulumi.aws.emr.ManagedScalingPolicyArgs;
- * import com.pulumi.aws.emr.inputs.ManagedScalingPolicyComputeLimitArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sample = new Cluster(&#34;sample&#34;, ClusterArgs.builder()        
- *             .releaseLabel(&#34;emr-5.30.0&#34;)
- *             .masterInstanceGroup(ClusterMasterInstanceGroupArgs.builder()
- *                 .instanceType(&#34;m4.large&#34;)
- *                 .build())
- *             .coreInstanceGroup(ClusterCoreInstanceGroupArgs.builder()
- *                 .instanceType(&#34;c4.large&#34;)
- *                 .build())
- *             .build());
- * 
- *         var samplepolicy = new ManagedScalingPolicy(&#34;samplepolicy&#34;, ManagedScalingPolicyArgs.builder()        
- *             .clusterId(sample.id())
- *             .computeLimits(ManagedScalingPolicyComputeLimitArgs.builder()
- *                 .unitType(&#34;Instances&#34;)
- *                 .minimumCapacityUnits(2)
- *                 .maximumCapacityUnits(10)
- *                 .maximumOndemandCapacityUnits(2)
- *                 .maximumCoreCapacityUnits(10)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EMR Managed Scaling Policies can be imported via the EMR Cluster identifier, e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
- * ```
- * 
- */
 @ResourceType(type="aws:emr/managedScalingPolicy:ManagedScalingPolicy")
 public class ManagedScalingPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the EMR cluster
-     * 
-     */
     @Export(name="clusterId", refs={String.class}, tree="[0]")
     private Output<String> clusterId;
 
-    /**
-     * @return ID of the EMR cluster
-     * 
-     */
     public Output<String> clusterId() {
         return this.clusterId;
     }
-    /**
-     * Configuration block with compute limit settings. Described below.
-     * 
-     */
     @Export(name="computeLimits", refs={List.class,ManagedScalingPolicyComputeLimit.class}, tree="[0,1]")
     private Output<List<ManagedScalingPolicyComputeLimit>> computeLimits;
 
-    /**
-     * @return Configuration block with compute limit settings. Described below.
-     * 
-     */
     public Output<List<ManagedScalingPolicyComputeLimit>> computeLimits() {
         return this.computeLimits;
     }

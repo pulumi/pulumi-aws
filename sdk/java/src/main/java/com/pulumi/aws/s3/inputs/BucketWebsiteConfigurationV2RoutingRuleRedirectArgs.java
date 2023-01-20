@@ -15,77 +15,37 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
 
     public static final BucketWebsiteConfigurationV2RoutingRuleRedirectArgs Empty = new BucketWebsiteConfigurationV2RoutingRuleRedirectArgs();
 
-    /**
-     * The host name to use in the redirect request.
-     * 
-     */
     @Import(name="hostName")
     private @Nullable Output<String> hostName;
 
-    /**
-     * @return The host name to use in the redirect request.
-     * 
-     */
     public Optional<Output<String>> hostName() {
         return Optional.ofNullable(this.hostName);
     }
 
-    /**
-     * The HTTP redirect code to use on the response.
-     * 
-     */
     @Import(name="httpRedirectCode")
     private @Nullable Output<String> httpRedirectCode;
 
-    /**
-     * @return The HTTP redirect code to use on the response.
-     * 
-     */
     public Optional<Output<String>> httpRedirectCode() {
         return Optional.ofNullable(this.httpRedirectCode);
     }
 
-    /**
-     * Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
-    /**
-     * The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-     * 
-     */
     @Import(name="replaceKeyPrefixWith")
     private @Nullable Output<String> replaceKeyPrefixWith;
 
-    /**
-     * @return The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-     * 
-     */
     public Optional<Output<String>> replaceKeyPrefixWith() {
         return Optional.ofNullable(this.replaceKeyPrefixWith);
     }
 
-    /**
-     * The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-     * 
-     */
     @Import(name="replaceKeyWith")
     private @Nullable Output<String> replaceKeyWith;
 
-    /**
-     * @return The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-     * 
-     */
     public Optional<Output<String>> replaceKeyWith() {
         return Optional.ofNullable(this.replaceKeyWith);
     }
@@ -118,107 +78,47 @@ public final class BucketWebsiteConfigurationV2RoutingRuleRedirectArgs extends c
             $ = new BucketWebsiteConfigurationV2RoutingRuleRedirectArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostName The host name to use in the redirect request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostName(@Nullable Output<String> hostName) {
             $.hostName = hostName;
             return this;
         }
 
-        /**
-         * @param hostName The host name to use in the redirect request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostName(String hostName) {
             return hostName(Output.of(hostName));
         }
 
-        /**
-         * @param httpRedirectCode The HTTP redirect code to use on the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpRedirectCode(@Nullable Output<String> httpRedirectCode) {
             $.httpRedirectCode = httpRedirectCode;
             return this;
         }
 
-        /**
-         * @param httpRedirectCode The HTTP redirect code to use on the response.
-         * 
-         * @return builder
-         * 
-         */
         public Builder httpRedirectCode(String httpRedirectCode) {
             return httpRedirectCode(Output.of(httpRedirectCode));
         }
 
-        /**
-         * @param protocol Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol to use when redirecting requests. The default is the protocol that is used in the original request. Valid values: `http`, `https`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param replaceKeyPrefixWith The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceKeyPrefixWith(@Nullable Output<String> replaceKeyPrefixWith) {
             $.replaceKeyPrefixWith = replaceKeyPrefixWith;
             return this;
         }
 
-        /**
-         * @param replaceKeyPrefixWith The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix `docs/` (objects in the `docs/` folder) to `documents/`, you can set a `condition` block with `key_prefix_equals` set to `docs/` and in the `redirect` set `replace_key_prefix_with` to `/documents`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceKeyPrefixWith(String replaceKeyPrefixWith) {
             return replaceKeyPrefixWith(Output.of(replaceKeyPrefixWith));
         }
 
-        /**
-         * @param replaceKeyWith The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceKeyWith(@Nullable Output<String> replaceKeyWith) {
             $.replaceKeyWith = replaceKeyWith;
             return this;
         }
 
-        /**
-         * @param replaceKeyWith The specific object key to use in the redirect request. For example, redirect request to `error.html`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replaceKeyWith(String replaceKeyWith) {
             return replaceKeyWith(Output.of(replaceKeyWith));
         }

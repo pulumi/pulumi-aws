@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
-    /**
-     * @return Bucket name of the customer S3 bucket.
-     * 
-     */
     private @Nullable String bucketName;
-    /**
-     * @return Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-     * 
-     */
     private @Nullable String encryptionOption;
-    /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Object key prefix for the customer S3 location.
-     * 
-     */
     private @Nullable String objectKeyPrefix;
 
     private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration() {}
-    /**
-     * @return Bucket name of the customer S3 bucket.
-     * 
-     */
     public Optional<String> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
-    /**
-     * @return Encryption option for the customer s3 location. Options are S3 server side encryption with an S3-managed key or KMS managed key. Valid values are `SSE_KMS` and `SSE_S3`.
-     * 
-     */
     public Optional<String> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
-    /**
-     * @return KMS key arn for the customer s3 location when encrypting with a KMS managed key.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Object key prefix for the customer S3 location.
-     * 
-     */
     public Optional<String> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }

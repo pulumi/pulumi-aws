@@ -16,32 +16,16 @@ public final class LaunchTemplateInstanceMarketOptionsArgs extends com.pulumi.re
 
     public static final LaunchTemplateInstanceMarketOptionsArgs Empty = new LaunchTemplateInstanceMarketOptionsArgs();
 
-    /**
-     * The market type. Can be `spot`.
-     * 
-     */
     @Import(name="marketType")
     private @Nullable Output<String> marketType;
 
-    /**
-     * @return The market type. Can be `spot`.
-     * 
-     */
     public Optional<Output<String>> marketType() {
         return Optional.ofNullable(this.marketType);
     }
 
-    /**
-     * The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-     * 
-     */
     @Import(name="spotOptions")
     private @Nullable Output<LaunchTemplateInstanceMarketOptionsSpotOptionsArgs> spotOptions;
 
-    /**
-     * @return The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-     * 
-     */
     public Optional<Output<LaunchTemplateInstanceMarketOptionsSpotOptionsArgs>> spotOptions() {
         return Optional.ofNullable(this.spotOptions);
     }
@@ -71,44 +55,20 @@ public final class LaunchTemplateInstanceMarketOptionsArgs extends com.pulumi.re
             $ = new LaunchTemplateInstanceMarketOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param marketType The market type. Can be `spot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketType(@Nullable Output<String> marketType) {
             $.marketType = marketType;
             return this;
         }
 
-        /**
-         * @param marketType The market type. Can be `spot`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder marketType(String marketType) {
             return marketType(Output.of(marketType));
         }
 
-        /**
-         * @param spotOptions The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotOptions(@Nullable Output<LaunchTemplateInstanceMarketOptionsSpotOptionsArgs> spotOptions) {
             $.spotOptions = spotOptions;
             return this;
         }
 
-        /**
-         * @param spotOptions The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotOptions(LaunchTemplateInstanceMarketOptionsSpotOptionsArgs spotOptions) {
             return spotOptions(Output.of(spotOptions));
         }

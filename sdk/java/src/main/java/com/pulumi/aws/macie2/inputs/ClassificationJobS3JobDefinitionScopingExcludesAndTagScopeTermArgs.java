@@ -17,62 +17,30 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
 
     public static final ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs Empty = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs();
 
-    /**
-     * The operator to use in the condition.
-     * 
-     */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
-    /**
-     * @return The operator to use in the condition.
-     * 
-     */
     public Optional<Output<String>> comparator() {
         return Optional.ofNullable(this.comparator);
     }
 
-    /**
-     * The tag key to use in the condition. The only valid value is `TAG`.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The tag key to use in the condition. The only valid value is `TAG`.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * The tag keys or tag key and value pairs to use in the condition.
-     * 
-     */
     @Import(name="tagValues")
     private @Nullable Output<List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs>> tagValues;
 
-    /**
-     * @return The tag keys or tag key and value pairs to use in the condition.
-     * 
-     */
     public Optional<Output<List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs>>> tagValues() {
         return Optional.ofNullable(this.tagValues);
     }
 
-    /**
-     * The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<String> target;
 
-    /**
-     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-     * 
-     */
     public Optional<Output<String>> target() {
         return Optional.ofNullable(this.target);
     }
@@ -104,96 +72,42 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTer
             $ = new ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparator The operator to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(@Nullable Output<String> comparator) {
             $.comparator = comparator;
             return this;
         }
 
-        /**
-         * @param comparator The operator to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(String comparator) {
             return comparator(Output.of(comparator));
         }
 
-        /**
-         * @param key The tag key to use in the condition. The only valid value is `TAG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The tag key to use in the condition. The only valid value is `TAG`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(@Nullable Output<List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs>> tagValues) {
             $.tagValues = tagValues;
             return this;
         }
 
-        /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(List<ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs> tagValues) {
             return tagValues(Output.of(tagValues));
         }
 
-        /**
-         * @param tagValues The tag keys or tag key and value pairs to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagValues(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs... tagValues) {
             return tagValues(List.of(tagValues));
         }
 
-        /**
-         * @param target The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

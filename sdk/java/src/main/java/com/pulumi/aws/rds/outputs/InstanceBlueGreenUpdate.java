@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceBlueGreenUpdate {
-    /**
-     * @return Enables low-downtime updates when `true`.
-     * Default is `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private InstanceBlueGreenUpdate() {}
-    /**
-     * @return Enables low-downtime updates when `true`.
-     * Default is `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

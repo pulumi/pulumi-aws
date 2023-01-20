@@ -17,47 +17,23 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
 
     public static final LoggingConfigurationArgs Empty = new LoggingConfigurationArgs();
 
-    /**
-     * Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     * 
-     */
     @Import(name="destinationConfiguration")
     private @Nullable Output<LoggingConfigurationDestinationConfigurationArgs> destinationConfiguration;
 
-    /**
-     * @return Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-     * 
-     */
     public Optional<Output<LoggingConfigurationDestinationConfigurationArgs>> destinationConfiguration() {
         return Optional.ofNullable(this.destinationConfiguration);
     }
 
-    /**
-     * Logging Configuration name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Logging Configuration name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,65 +64,29 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
             $ = new LoggingConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationConfiguration Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfiguration(@Nullable Output<LoggingConfigurationDestinationConfigurationArgs> destinationConfiguration) {
             $.destinationConfiguration = destinationConfiguration;
             return this;
         }
 
-        /**
-         * @param destinationConfiguration Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationConfiguration(LoggingConfigurationDestinationConfigurationArgs destinationConfiguration) {
             return destinationConfiguration(Output.of(destinationConfiguration));
         }
 
-        /**
-         * @param name Logging Configuration name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Logging Configuration name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

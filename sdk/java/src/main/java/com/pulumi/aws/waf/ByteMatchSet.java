@@ -16,89 +16,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Byte Match Set Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.waf.ByteMatchSet;
- * import com.pulumi.aws.waf.ByteMatchSetArgs;
- * import com.pulumi.aws.waf.inputs.ByteMatchSetByteMatchTupleArgs;
- * import com.pulumi.aws.waf.inputs.ByteMatchSetByteMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var byteSet = new ByteMatchSet(&#34;byteSet&#34;, ByteMatchSetArgs.builder()        
- *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
- *                     .data(&#34;referer&#34;)
- *                     .type(&#34;HEADER&#34;)
- *                     .build())
- *                 .positionalConstraint(&#34;CONTAINS&#34;)
- *                 .targetString(&#34;badrefer1&#34;)
- *                 .textTransformation(&#34;NONE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Byte Match Set can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:waf/byteMatchSet:ByteMatchSet")
 public class ByteMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     * 
-     */
     @Export(name="byteMatchTuples", refs={List.class,ByteMatchSetByteMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ByteMatchSetByteMatchTuple>> byteMatchTuples;
 
-    /**
-     * @return Specifies the bytes (typically a string that corresponds
-     * with ASCII characters) that you want to search for in web requests,
-     * the location in requests that you want to search, and other settings.
-     * 
-     */
     public Output<Optional<List<ByteMatchSetByteMatchTuple>>> byteMatchTuples() {
         return Codegen.optional(this.byteMatchTuples);
     }
-    /**
-     * The name or description of the Byte Match Set.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the Byte Match Set.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

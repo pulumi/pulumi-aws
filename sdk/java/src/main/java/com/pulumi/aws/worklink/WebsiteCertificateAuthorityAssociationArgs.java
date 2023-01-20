@@ -15,47 +15,23 @@ public final class WebsiteCertificateAuthorityAssociationArgs extends com.pulumi
 
     public static final WebsiteCertificateAuthorityAssociationArgs Empty = new WebsiteCertificateAuthorityAssociationArgs();
 
-    /**
-     * The root certificate of the Certificate Authority.
-     * 
-     */
     @Import(name="certificate", required=true)
     private Output<String> certificate;
 
-    /**
-     * @return The root certificate of the Certificate Authority.
-     * 
-     */
     public Output<String> certificate() {
         return this.certificate;
     }
 
-    /**
-     * The certificate name to display.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
-    /**
-     * @return The certificate name to display.
-     * 
-     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
-    /**
-     * The ARN of the fleet.
-     * 
-     */
     @Import(name="fleetArn", required=true)
     private Output<String> fleetArn;
 
-    /**
-     * @return The ARN of the fleet.
-     * 
-     */
     public Output<String> fleetArn() {
         return this.fleetArn;
     }
@@ -86,65 +62,29 @@ public final class WebsiteCertificateAuthorityAssociationArgs extends com.pulumi
             $ = new WebsiteCertificateAuthorityAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificate The root certificate of the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(Output<String> certificate) {
             $.certificate = certificate;
             return this;
         }
 
-        /**
-         * @param certificate The root certificate of the Certificate Authority.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificate(String certificate) {
             return certificate(Output.of(certificate));
         }
 
-        /**
-         * @param displayName The certificate name to display.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName The certificate name to display.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
-        /**
-         * @param fleetArn The ARN of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetArn(Output<String> fleetArn) {
             $.fleetArn = fleetArn;
             return this;
         }
 
-        /**
-         * @param fleetArn The ARN of the fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fleetArn(String fleetArn) {
             return fleetArn(Output.of(fleetArn));
         }

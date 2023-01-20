@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode() {}
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public String object() {
         return this.object;
     }

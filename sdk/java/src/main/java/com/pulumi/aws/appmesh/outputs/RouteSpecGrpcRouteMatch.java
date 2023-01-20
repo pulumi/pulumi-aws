@@ -13,55 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecGrpcRouteMatch {
-    /**
-     * @return Data to match from the gRPC request.
-     * 
-     */
     private @Nullable List<RouteSpecGrpcRouteMatchMetadata> metadatas;
-    /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
-     * 
-     */
     private @Nullable String methodName;
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     private @Nullable String serviceName;
 
     private RouteSpecGrpcRouteMatch() {}
-    /**
-     * @return Data to match from the gRPC request.
-     * 
-     */
     public List<RouteSpecGrpcRouteMatchMetadata> metadatas() {
         return this.metadatas == null ? List.of() : this.metadatas;
     }
-    /**
-     * @return Method name to match from the request. If you specify a name, you must also specify a `service_name`.
-     * 
-     */
     public Optional<String> methodName() {
         return Optional.ofNullable(this.methodName);
     }
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Fully qualified domain name for the service to match from the request.
-     * 
-     */
     public Optional<String> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }

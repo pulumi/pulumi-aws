@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation {
-    /**
-     * @return Specifies the S3 bucket for the customer input file.
-     * 
-     */
     private @Nullable String bucket;
-    /**
-     * @return The name assigned to the tag that you create.
-     * 
-     */
     private @Nullable String key;
 
     private WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation() {}
-    /**
-     * @return Specifies the S3 bucket for the customer input file.
-     * 
-     */
     public Optional<String> bucket() {
         return Optional.ofNullable(this.bucket);
     }
-    /**
-     * @return The name assigned to the tag that you create.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }

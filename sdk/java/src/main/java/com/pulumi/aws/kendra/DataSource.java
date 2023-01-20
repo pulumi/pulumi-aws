@@ -17,838 +17,107 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Kendra Data Source.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .description(&#34;example&#34;)
- *             .languageCode(&#34;en&#34;)
- *             .type(&#34;CUSTOM&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### S3 Connector
- * ### With Schedule
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .schedule(&#34;cron(9 10 1 * ? *)&#34;)
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Access Control List
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .accessControlListConfiguration(DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs.builder()
- *                         .keyPath(String.format(&#34;s3://%s/path-1&#34;, aws_s3_bucket.example().id()))
- *                         .build())
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Documents Metadata Configuration
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationS3ConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;S3&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .s3Configuration(DataSourceConfigurationS3ConfigurationArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .s3Prefix(&#34;example&#34;)
- *                     .exclusionPatterns(&#34;example&#34;)
- *                     .inclusionPatterns(&#34;hello&#34;)
- *                     .inclusionPrefixes(&#34;world&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Web Crawler Connector
- * ### With Seed URLs
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Site Maps
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .siteMapsConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs.builder()
- *                             .siteMaps(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Web Crawler Mode
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .webCrawlerMode(&#34;SUBDOMAINS&#34;)
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Authentication Configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .authenticationConfiguration(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs.builder()
- *                         .basicAuthentications(DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs.builder()
- *                             .credentials(aws_secretsmanager_secret.example().arn())
- *                             .host(&#34;a.example.com&#34;)
- *                             .port(&#34;443&#34;)
- *                             .build())
- *                         .build())
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_secretsmanager_secret_version.example())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### With Crawl Depth
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .crawlDepth(3)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Max Links Per Page
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .maxLinksPerPage(100)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Max Urls Per Minute Crawl Rate
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .maxUrlsPerMinuteCrawlRate(300)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Proxy Configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .proxyConfiguration(DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs.builder()
- *                         .credentials(aws_secretsmanager_secret.example().arn())
- *                         .host(&#34;a.example.com&#34;)
- *                         .port(&#34;443&#34;)
- *                         .build())
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_secretsmanager_secret_version.example())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### With URL Exclusion and Inclusion Patterns
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.DataSource;
- * import com.pulumi.aws.kendra.DataSourceArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
- * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataSource(&#34;example&#34;, DataSourceArgs.builder()        
- *             .indexId(aws_kendra_index.example().id())
- *             .type(&#34;WEBCRAWLER&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .configuration(DataSourceConfigurationArgs.builder()
- *                 .webCrawlerConfiguration(DataSourceConfigurationWebCrawlerConfigurationArgs.builder()
- *                     .urlExclusionPatterns(&#34;example&#34;)
- *                     .urlInclusionPatterns(&#34;hello&#34;)
- *                     .urls(DataSourceConfigurationWebCrawlerConfigurationUrlsArgs.builder()
- *                         .seedUrlConfiguration(DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs.builder()
- *                             .seedUrls(&#34;REPLACE_WITH_YOUR_URL&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Kendra Data Source can be imported using the unique identifiers of the data_source and index separated by a slash (`/`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
- * ```
- * 
- */
 @ResourceType(type="aws:kendra/dataSource:DataSource")
 public class DataSource extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Data Source.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Data Source.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
-     * 
-     */
     @Export(name="configuration", refs={DataSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceConfiguration> configuration;
 
-    /**
-     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` argument when the `type` parameter is set to `CUSTOM`. Detailed below.
-     * 
-     */
     public Output<Optional<DataSourceConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * The Unix timestamp of when the Data Source was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The Unix timestamp of when the Data Source was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-     * 
-     */
     @Export(name="customDocumentEnrichmentConfiguration", refs={DataSourceCustomDocumentEnrichmentConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCustomDocumentEnrichmentConfiguration> customDocumentEnrichmentConfiguration;
 
-    /**
-     * @return A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
-     * 
-     */
     public Output<Optional<DataSourceCustomDocumentEnrichmentConfiguration>> customDocumentEnrichmentConfiguration() {
         return Codegen.optional(this.customDocumentEnrichmentConfiguration);
     }
-    /**
-     * The unique identifiers of the Data Source.
-     * 
-     */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
-    /**
-     * @return The unique identifiers of the Data Source.
-     * 
-     */
     public Output<String> dataSourceId() {
         return this.dataSourceId;
     }
-    /**
-     * A description for the Data Source connector.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description for the Data Source connector.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
-     * 
-     */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
-    /**
-     * @return When the Status field value is `FAILED`, the ErrorMessage field contains a description of the error that caused the Data Source to fail.
-     * 
-     */
     public Output<String> errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * The identifier of the index for your Amazon Kendra data_source.
-     * 
-     */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
-    /**
-     * @return The identifier of the index for your Amazon Kendra data_source.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
-    /**
-     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
-    /**
-     * @return The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
-     * 
-     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
-    /**
-     * A name for your Data Source connector.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for your Data Source connector.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can&#39;t specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can&#39;t specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
-    /**
-     * Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don&#39;t set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-     * 
-     */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
-    /**
-     * @return Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don&#39;t set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
-     * 
-     */
     public Output<Optional<String>> schedule() {
         return Codegen.optional(this.schedule);
     }
-    /**
-     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `error_message` field contains the reason that the Data Source failed.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The Unix timestamp of when the Data Source was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return The Unix timestamp of when the Data Source was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }

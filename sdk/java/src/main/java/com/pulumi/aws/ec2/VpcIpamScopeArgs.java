@@ -16,47 +16,23 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcIpamScopeArgs Empty = new VpcIpamScopeArgs();
 
-    /**
-     * A description for the scope you&#39;re creating.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A description for the scope you&#39;re creating.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     @Import(name="ipamId", required=true)
     private Output<String> ipamId;
 
-    /**
-     * @return The ID of the IPAM for which you&#39;re creating this scope.
-     * 
-     */
     public Output<String> ipamId() {
         return this.ipamId;
     }
 
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,65 +63,29 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
             $ = new VpcIpamScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description A description for the scope you&#39;re creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A description for the scope you&#39;re creating.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(Output<String> ipamId) {
             $.ipamId = ipamId;
             return this;
         }
 
-        /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ipamId(String ipamId) {
             return ipamId(Output.of(ipamId));
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

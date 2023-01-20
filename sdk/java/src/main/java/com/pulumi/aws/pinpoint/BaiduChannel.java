@@ -16,108 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint Baidu Channel resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.BaiduChannel;
- * import com.pulumi.aws.pinpoint.BaiduChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
- * 
- *         var channel = new BaiduChannel(&#34;channel&#34;, BaiduChannelArgs.builder()        
- *             .applicationId(app.applicationId())
- *             .apiKey(&#34;&#34;)
- *             .secretKey(&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/baiduChannel:BaiduChannel")
 public class BaiduChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * Platform credential API key from Baidu.
-     * 
-     */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output<String> apiKey;
 
-    /**
-     * @return Platform credential API key from Baidu.
-     * 
-     */
     public Output<String> apiKey() {
         return this.apiKey;
     }
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Platform credential Secret key from Baidu.
-     * 
-     */
     @Export(name="secretKey", refs={String.class}, tree="[0]")
     private Output<String> secretKey;
 
-    /**
-     * @return Platform credential Secret key from Baidu.
-     * 
-     */
     public Output<String> secretKey() {
         return this.secretKey;
     }

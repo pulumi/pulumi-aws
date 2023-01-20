@@ -15,62 +15,30 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
 
     public static final FleetComputeCapacityArgs Empty = new FleetComputeCapacityArgs();
 
-    /**
-     * Number of currently available instances that can be used to stream sessions.
-     * 
-     */
     @Import(name="available")
     private @Nullable Output<Integer> available;
 
-    /**
-     * @return Number of currently available instances that can be used to stream sessions.
-     * 
-     */
     public Optional<Output<Integer>> available() {
         return Optional.ofNullable(this.available);
     }
 
-    /**
-     * Desired number of streaming instances.
-     * 
-     */
     @Import(name="desiredInstances", required=true)
     private Output<Integer> desiredInstances;
 
-    /**
-     * @return Desired number of streaming instances.
-     * 
-     */
     public Output<Integer> desiredInstances() {
         return this.desiredInstances;
     }
 
-    /**
-     * Number of instances in use for streaming.
-     * 
-     */
     @Import(name="inUse")
     private @Nullable Output<Integer> inUse;
 
-    /**
-     * @return Number of instances in use for streaming.
-     * 
-     */
     public Optional<Output<Integer>> inUse() {
         return Optional.ofNullable(this.inUse);
     }
 
-    /**
-     * Total number of simultaneous streaming instances that are running.
-     * 
-     */
     @Import(name="running")
     private @Nullable Output<Integer> running;
 
-    /**
-     * @return Total number of simultaneous streaming instances that are running.
-     * 
-     */
     public Optional<Output<Integer>> running() {
         return Optional.ofNullable(this.running);
     }
@@ -102,86 +70,38 @@ public final class FleetComputeCapacityArgs extends com.pulumi.resources.Resourc
             $ = new FleetComputeCapacityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param available Number of currently available instances that can be used to stream sessions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder available(@Nullable Output<Integer> available) {
             $.available = available;
             return this;
         }
 
-        /**
-         * @param available Number of currently available instances that can be used to stream sessions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder available(Integer available) {
             return available(Output.of(available));
         }
 
-        /**
-         * @param desiredInstances Desired number of streaming instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredInstances(Output<Integer> desiredInstances) {
             $.desiredInstances = desiredInstances;
             return this;
         }
 
-        /**
-         * @param desiredInstances Desired number of streaming instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder desiredInstances(Integer desiredInstances) {
             return desiredInstances(Output.of(desiredInstances));
         }
 
-        /**
-         * @param inUse Number of instances in use for streaming.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inUse(@Nullable Output<Integer> inUse) {
             $.inUse = inUse;
             return this;
         }
 
-        /**
-         * @param inUse Number of instances in use for streaming.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inUse(Integer inUse) {
             return inUse(Output.of(inUse));
         }
 
-        /**
-         * @param running Total number of simultaneous streaming instances that are running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder running(@Nullable Output<Integer> running) {
             $.running = running;
             return this;
         }
 
-        /**
-         * @param running Total number of simultaneous streaming instances that are running.
-         * 
-         * @return builder
-         * 
-         */
         public Builder running(Integer running) {
             return running(Output.of(running));
         }

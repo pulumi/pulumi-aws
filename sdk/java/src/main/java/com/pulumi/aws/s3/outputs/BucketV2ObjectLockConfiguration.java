@@ -14,8 +14,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketV2ObjectLockConfiguration {
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-     * 
      * @deprecated
      * Use the top-level parameter object_lock_enabled instead
      * 
@@ -23,8 +21,6 @@ public final class BucketV2ObjectLockConfiguration {
     @Deprecated /* Use the top-level parameter object_lock_enabled instead */
     private @Nullable String objectLockEnabled;
     /**
-     * @return The Object Lock rule in place for this bucket (documented below).
-     * 
      * @deprecated
      * Use the aws_s3_bucket_object_lock_configuration resource instead
      * 
@@ -34,8 +30,6 @@ public final class BucketV2ObjectLockConfiguration {
 
     private BucketV2ObjectLockConfiguration() {}
     /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
-     * 
      * @deprecated
      * Use the top-level parameter object_lock_enabled instead
      * 
@@ -45,8 +39,6 @@ public final class BucketV2ObjectLockConfiguration {
         return Optional.ofNullable(this.objectLockEnabled);
     }
     /**
-     * @return The Object Lock rule in place for this bucket (documented below).
-     * 
      * @deprecated
      * Use the aws_s3_bucket_object_lock_configuration resource instead
      * 

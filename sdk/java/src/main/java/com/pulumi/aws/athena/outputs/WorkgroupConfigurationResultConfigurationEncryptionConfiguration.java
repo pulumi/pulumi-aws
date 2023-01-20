@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
-    /**
-     * @return Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-     * 
-     */
     private @Nullable String encryptionOption;
-    /**
-     * @return For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-     * 
-     */
     private @Nullable String kmsKeyArn;
 
     private WorkgroupConfigurationResultConfigurationEncryptionConfiguration() {}
-    /**
-     * @return Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup&#39;s setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-     * 
-     */
     public Optional<String> encryptionOption() {
         return Optional.ofNullable(this.encryptionOption);
     }
-    /**
-     * @return For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }

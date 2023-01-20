@@ -15,47 +15,23 @@ public final class VpcAssociationAuthorizationState extends com.pulumi.resources
 
     public static final VpcAssociationAuthorizationState Empty = new VpcAssociationAuthorizationState();
 
-    /**
-     * The VPC to authorize for association with the private hosted zone.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The VPC to authorize for association with the private hosted zone.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
 
-    /**
-     * The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     @Import(name="vpcRegion")
     private @Nullable Output<String> vpcRegion;
 
-    /**
-     * @return The VPC&#39;s region. Defaults to the region of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> vpcRegion() {
         return Optional.ofNullable(this.vpcRegion);
     }
 
-    /**
-     * The ID of the private hosted zone that you want to authorize associating a VPC with.
-     * 
-     */
     @Import(name="zoneId")
     private @Nullable Output<String> zoneId;
 
-    /**
-     * @return The ID of the private hosted zone that you want to authorize associating a VPC with.
-     * 
-     */
     public Optional<Output<String>> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -86,65 +62,29 @@ public final class VpcAssociationAuthorizationState extends com.pulumi.resources
             $ = new VpcAssociationAuthorizationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcId The VPC to authorize for association with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The VPC to authorize for association with the private hosted zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(@Nullable Output<String> vpcRegion) {
             $.vpcRegion = vpcRegion;
             return this;
         }
 
-        /**
-         * @param vpcRegion The VPC&#39;s region. Defaults to the region of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcRegion(String vpcRegion) {
             return vpcRegion(Output.of(vpcRegion));
         }
 
-        /**
-         * @param zoneId The ID of the private hosted zone that you want to authorize associating a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(@Nullable Output<String> zoneId) {
             $.zoneId = zoneId;
             return this;
         }
 
-        /**
-         * @param zoneId The ID of the private hosted zone that you want to authorize associating a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(String zoneId) {
             return zoneId(Output.of(zoneId));
         }

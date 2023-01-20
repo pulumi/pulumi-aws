@@ -13,143 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES domain identity resource
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.DomainIdentity;
- * import com.pulumi.aws.ses.DomainIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Route53 Record
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.DomainIdentity;
- * import com.pulumi.aws.ses.DomainIdentityArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DomainIdentity(&#34;example&#34;, DomainIdentityArgs.builder()        
- *             .domain(&#34;example.com&#34;)
- *             .build());
- * 
- *         var exampleAmazonsesVerificationRecord = new Record(&#34;exampleAmazonsesVerificationRecord&#34;, RecordArgs.builder()        
- *             .zoneId(&#34;ABCDEFGHIJ123&#34;)
- *             .name(&#34;_amazonses.example.com&#34;)
- *             .type(&#34;TXT&#34;)
- *             .ttl(&#34;600&#34;)
- *             .records(example.verificationToken())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SES domain identities can be imported using the domain name.
- * 
- * ```sh
- *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:ses/domainIdentity:DomainIdentity")
 public class DomainIdentity extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the domain identity.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the domain identity.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The domain name to assign to SES
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
-    /**
-     * @return The domain name to assign to SES
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
-    /**
-     * A code which when added to the domain as a TXT record
-     * will signal to SES that the owner of the domain has authorised SES to act on
-     * their behalf. The domain identity will be in state &#34;verification pending&#34;
-     * until this is done. See the With Route53 Record example
-     * for how this might be achieved when the domain is hosted in Route 53 and
-     * managed by this provider.  Find out more about verifying domains in Amazon
-     * SES in the [AWS SES
-     * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-     * 
-     */
     @Export(name="verificationToken", refs={String.class}, tree="[0]")
     private Output<String> verificationToken;
 
-    /**
-     * @return A code which when added to the domain as a TXT record
-     * will signal to SES that the owner of the domain has authorised SES to act on
-     * their behalf. The domain identity will be in state &#34;verification pending&#34;
-     * until this is done. See the With Route53 Record example
-     * for how this might be achieved when the domain is hosted in Route 53 and
-     * managed by this provider.  Find out more about verifying domains in Amazon
-     * SES in the [AWS SES
-     * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
-     * 
-     */
     public Output<String> verificationToken() {
         return this.verificationToken;
     }

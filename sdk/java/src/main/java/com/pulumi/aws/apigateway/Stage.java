@@ -18,401 +18,113 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Deployment;
- * import com.pulumi.aws.apigateway.DeploymentArgs;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.aws.apigateway.MethodSettings;
- * import com.pulumi.aws.apigateway.MethodSettingsArgs;
- * import com.pulumi.aws.apigateway.inputs.MethodSettingsSettingsArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;, RestApiArgs.builder()        
- *             .body(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.1&#34;),
- *                     jsonProperty(&#34;info&#34;, jsonObject(
- *                         jsonProperty(&#34;title&#34;, &#34;example&#34;),
- *                         jsonProperty(&#34;version&#34;, &#34;1.0&#34;)
- *                     )),
- *                     jsonProperty(&#34;paths&#34;, jsonObject(
- *                         jsonProperty(&#34;/path1&#34;, jsonObject(
- *                             jsonProperty(&#34;get&#34;, jsonObject(
- *                                 jsonProperty(&#34;x-amazon-apigateway-integration&#34;, jsonObject(
- *                                     jsonProperty(&#34;httpMethod&#34;, &#34;GET&#34;),
- *                                     jsonProperty(&#34;payloadFormatVersion&#34;, &#34;1.0&#34;),
- *                                     jsonProperty(&#34;type&#34;, &#34;HTTP_PROXY&#34;),
- *                                     jsonProperty(&#34;uri&#34;, &#34;https://ip-ranges.amazonaws.com/ip-ranges.json&#34;)
- *                                 ))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
- *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
- *             .build());
- * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .deployment(exampleDeployment.id())
- *             .restApi(exampleRestApi.id())
- *             .stageName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleMethodSettings = new MethodSettings(&#34;exampleMethodSettings&#34;, MethodSettingsArgs.builder()        
- *             .restApi(exampleRestApi.id())
- *             .stageName(exampleStage.stageName())
- *             .methodPath(&#34;*{@literal /}*&#34;)
- *             .settings(MethodSettingsSettingsArgs.builder()
- *                 .metricsEnabled(true)
- *                 .loggingLevel(&#34;INFO&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Managing the API Logging CloudWatch Log Group
- * 
- * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.
- * 
- * &gt; The below configuration uses [`dependsOn`](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson) to prevent ordering issues with API Gateway automatically creating the log group first and a variable for naming consistency. Other ordering and naming methodologies may be more appropriate for your environment.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.apigateway.Stage;
- * import com.pulumi.aws.apigateway.StageArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var stageName = config.get(&#34;stageName&#34;).orElse(&#34;example&#34;);
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
- * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(7)
- *             .build());
- * 
- *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
- *             .stageName(stageName)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleLogGroup)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
-    /**
-     * Enables access logs for the API stage. See Access Log Settings below.
-     * 
-     */
     @Export(name="accessLogSettings", refs={StageAccessLogSettings.class}, tree="[0]")
     private Output</* @Nullable */ StageAccessLogSettings> accessLogSettings;
 
-    /**
-     * @return Enables access logs for the API stage. See Access Log Settings below.
-     * 
-     */
     public Output<Optional<StageAccessLogSettings>> accessLogSettings() {
         return Codegen.optional(this.accessLogSettings);
     }
-    /**
-     * ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether a cache cluster is enabled for the stage
-     * 
-     */
     @Export(name="cacheClusterEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> cacheClusterEnabled;
 
-    /**
-     * @return Whether a cache cluster is enabled for the stage
-     * 
-     */
     public Output<Optional<Boolean>> cacheClusterEnabled() {
         return Codegen.optional(this.cacheClusterEnabled);
     }
-    /**
-     * Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-     * 
-     */
     @Export(name="cacheClusterSize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cacheClusterSize;
 
-    /**
-     * @return Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-     * 
-     */
     public Output<Optional<String>> cacheClusterSize() {
         return Codegen.optional(this.cacheClusterSize);
     }
-    /**
-     * Configuration settings of a canary deployment. See Canary Settings below.
-     * 
-     */
     @Export(name="canarySettings", refs={StageCanarySettings.class}, tree="[0]")
     private Output</* @Nullable */ StageCanarySettings> canarySettings;
 
-    /**
-     * @return Configuration settings of a canary deployment. See Canary Settings below.
-     * 
-     */
     public Output<Optional<StageCanarySettings>> canarySettings() {
         return Codegen.optional(this.canarySettings);
     }
-    /**
-     * Identifier of a client certificate for the stage.
-     * 
-     */
     @Export(name="clientCertificateId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateId;
 
-    /**
-     * @return Identifier of a client certificate for the stage.
-     * 
-     */
     public Output<Optional<String>> clientCertificateId() {
         return Codegen.optional(this.clientCertificateId);
     }
-    /**
-     * ID of the deployment that the stage points to
-     * 
-     */
     @Export(name="deployment", refs={String.class}, tree="[0]")
     private Output<String> deployment;
 
-    /**
-     * @return ID of the deployment that the stage points to
-     * 
-     */
     public Output<String> deployment() {
         return this.deployment;
     }
-    /**
-     * Description of the stage.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the stage.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Version of the associated API documentation
-     * 
-     */
     @Export(name="documentationVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> documentationVersion;
 
-    /**
-     * @return Version of the associated API documentation
-     * 
-     */
     public Output<Optional<String>> documentationVersion() {
         return Codegen.optional(this.documentationVersion);
     }
-    /**
-     * Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-     * 
-     */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
-    /**
-     * @return Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-     * 
-     */
     public Output<String> executionArn() {
         return this.executionArn;
     }
-    /**
-     * URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     * 
-     */
     @Export(name="invokeUrl", refs={String.class}, tree="[0]")
     private Output<String> invokeUrl;
 
-    /**
-     * @return URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     * 
-     */
     public Output<String> invokeUrl() {
         return this.invokeUrl;
     }
-    /**
-     * ID of the associated REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the associated REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Name of the stage
-     * 
-     */
     @Export(name="stageName", refs={String.class}, tree="[0]")
     private Output<String> stageName;
 
-    /**
-     * @return Name of the stage
-     * 
-     */
     public Output<String> stageName() {
         return this.stageName;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Map that defines the stage variables
-     * 
-     */
     @Export(name="variables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> variables;
 
-    /**
-     * @return Map that defines the stage variables
-     * 
-     */
     public Output<Optional<Map<String,String>>> variables() {
         return Codegen.optional(this.variables);
     }
-    /**
-     * ARN of the WebAcl associated with the Stage.
-     * 
-     */
     @Export(name="webAclArn", refs={String.class}, tree="[0]")
     private Output<String> webAclArn;
 
-    /**
-     * @return ARN of the WebAcl associated with the Stage.
-     * 
-     */
     public Output<String> webAclArn() {
         return this.webAclArn;
     }
-    /**
-     * Whether active tracing with X-ray is enabled. Defaults to `false`.
-     * 
-     */
     @Export(name="xrayTracingEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayTracingEnabled;
 
-    /**
-     * @return Whether active tracing with X-ray is enabled. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> xrayTracingEnabled() {
         return Codegen.optional(this.xrayTracingEnabled);
     }

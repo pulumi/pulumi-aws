@@ -18,49 +18,23 @@ public final class GetSubnetIdsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSubnetIdsArgs Empty = new GetSubnetIdsArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetSubnetIdsFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<Output<List<GetSubnetIdsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired subnets.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired subnets.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * VPC ID that you want to filter from.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return VPC ID that you want to filter from.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -91,77 +65,33 @@ public final class GetSubnetIdsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSubnetIdsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetSubnetIdsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetSubnetIdsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSubnetIdsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired subnets.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId VPC ID that you want to filter from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId VPC ID that you want to filter from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

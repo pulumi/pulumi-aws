@@ -15,32 +15,16 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
 
     public static final GetMultiRegionAccessPointArgs Empty = new GetMultiRegionAccessPointArgs();
 
-    /**
-     * The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The name of the Multi-Region Access Point.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the Multi-Region Access Point.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -70,44 +54,20 @@ public final class GetMultiRegionAccessPointArgs extends com.pulumi.resources.In
             $ = new GetMultiRegionAccessPointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param name The name of the Multi-Region Access Point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Multi-Region Access Point.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

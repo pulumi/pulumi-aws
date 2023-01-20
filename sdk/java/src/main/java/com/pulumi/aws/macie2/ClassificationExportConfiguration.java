@@ -14,72 +14,11 @@ import com.pulumi.core.internal.Codegen;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Macie Classification Export Configuration](https://docs.aws.amazon.com/macie/latest/APIReference/classification-export-configuration.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.macie2.Account;
- * import com.pulumi.aws.macie2.ClassificationExportConfiguration;
- * import com.pulumi.aws.macie2.ClassificationExportConfigurationArgs;
- * import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
- * 
- *         var exampleClassificationExportConfiguration = new ClassificationExportConfiguration(&#34;exampleClassificationExportConfiguration&#34;, ClassificationExportConfigurationArgs.builder()        
- *             .s3Destination(ClassificationExportConfigurationS3DestinationArgs.builder()
- *                 .bucketName(aws_s3_bucket.example().bucket())
- *                 .keyPrefix(&#34;exampleprefix/&#34;)
- *                 .kmsKeyArn(aws_kms_key.example().arn())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_macie2_classification_export_configuration` can be imported using the account ID and region, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
- * ```
- * 
- */
 @ResourceType(type="aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")
 public class ClassificationExportConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     * 
-     */
     @Export(name="s3Destination", refs={ClassificationExportConfigurationS3Destination.class}, tree="[0]")
     private Output</* @Nullable */ ClassificationExportConfigurationS3Destination> s3Destination;
 
-    /**
-     * @return Configuration block for a S3 Destination. Defined below
-     * 
-     */
     public Output<Optional<ClassificationExportConfigurationS3Destination>> s3Destination() {
         return Codegen.optional(this.s3Destination);
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterSnapshotCopy {
-    /**
-     * @return The destination region that you want to copy snapshots to.
-     * 
-     */
     private String destinationRegion;
-    /**
-     * @return The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     private @Nullable String grantName;
-    /**
-     * @return The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-     * 
-     */
     private @Nullable Integer retentionPeriod;
 
     private ClusterSnapshotCopy() {}
-    /**
-     * @return The destination region that you want to copy snapshots to.
-     * 
-     */
     public String destinationRegion() {
         return this.destinationRegion;
     }
-    /**
-     * @return The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-     * 
-     */
     public Optional<String> grantName() {
         return Optional.ofNullable(this.grantName);
     }
-    /**
-     * @return The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
-     * 
-     */
     public Optional<Integer> retentionPeriod() {
         return Optional.ofNullable(this.retentionPeriod);
     }

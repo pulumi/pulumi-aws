@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeatureVariationValue {
-    /**
-     * @return If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-     * 
-     */
     private @Nullable String boolValue;
-    /**
-     * @return If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-     * 
-     */
     private @Nullable String doubleValue;
-    /**
-     * @return If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-     * 
-     */
     private @Nullable String longValue;
-    /**
-     * @return If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-     * 
-     */
     private @Nullable String stringValue;
 
     private FeatureVariationValue() {}
-    /**
-     * @return If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-     * 
-     */
     public Optional<String> boolValue() {
         return Optional.ofNullable(this.boolValue);
     }
-    /**
-     * @return If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-     * 
-     */
     public Optional<String> doubleValue() {
         return Optional.ofNullable(this.doubleValue);
     }
-    /**
-     * @return If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-     * 
-     */
     public Optional<String> longValue() {
         return Optional.ofNullable(this.longValue);
     }
-    /**
-     * @return If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-     * 
-     */
     public Optional<String> stringValue() {
         return Optional.ofNullable(this.stringValue);
     }

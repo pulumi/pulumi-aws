@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRegexPatternSetResult {
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the set that helps with identification.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,25 +19,13 @@ public final class GetRegexPatternSetResult {
      */
     private String id;
     private String name;
-    /**
-     * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
-     * 
-     */
     private List<GetRegexPatternSetRegularExpression> regularExpressions;
     private String scope;
 
     private GetRegexPatternSetResult() {}
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the set that helps with identification.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -59,10 +39,6 @@ public final class GetRegexPatternSetResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
-     * 
-     */
     public List<GetRegexPatternSetRegularExpression> regularExpressions() {
         return this.regularExpressions;
     }

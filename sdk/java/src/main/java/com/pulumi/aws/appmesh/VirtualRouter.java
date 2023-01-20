@@ -16,210 +16,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS App Mesh virtual router resource.
- * 
- * ## Breaking Changes
- * 
- * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws.appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- * 
- * * Remove service `service_names` from the `spec` argument.
- * AWS has created a `aws.appmesh.VirtualService` resource for each of service names.
- * These resource can be imported using `import`.
- * 
- * * Add a `listener` configuration block to the `spec` argument.
- * 
- * The state associated with existing resources will automatically be migrated.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appmesh.VirtualRouter;
- * import com.pulumi.aws.appmesh.VirtualRouterArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerArgs;
- * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerPortMappingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var serviceb = new VirtualRouter(&#34;serviceb&#34;, VirtualRouterArgs.builder()        
- *             .meshName(aws_appmesh_mesh.simple().id())
- *             .spec(VirtualRouterSpecArgs.builder()
- *                 .listener(VirtualRouterSpecListenerArgs.builder()
- *                     .portMapping(VirtualRouterSpecListenerPortMappingArgs.builder()
- *                         .port(8080)
- *                         .protocol(&#34;http&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * App Mesh virtual routers can be imported using `mesh_name` together with the virtual router&#39;s `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
- * ```
- * 
- */
 @ResourceType(type="aws:appmesh/virtualRouter:VirtualRouter")
 public class VirtualRouter extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the virtual router.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the virtual router.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Creation date of the virtual router.
-     * 
-     */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
-    /**
-     * @return Creation date of the virtual router.
-     * 
-     */
     public Output<String> createdDate() {
         return this.createdDate;
     }
-    /**
-     * Last update date of the virtual router.
-     * 
-     */
     @Export(name="lastUpdatedDate", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedDate;
 
-    /**
-     * @return Last update date of the virtual router.
-     * 
-     */
     public Output<String> lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Export(name="meshName", refs={String.class}, tree="[0]")
     private Output<String> meshName;
 
-    /**
-     * @return Name of the service mesh in which to create the virtual router. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> meshName() {
         return this.meshName;
     }
-    /**
-     * AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     @Export(name="meshOwner", refs={String.class}, tree="[0]")
     private Output<String> meshOwner;
 
-    /**
-     * @return AWS account ID of the service mesh&#39;s owner. Defaults to the account ID the AWS provider is currently connected to.
-     * 
-     */
     public Output<String> meshOwner() {
         return this.meshOwner;
     }
-    /**
-     * Name to use for the virtual router. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name to use for the virtual router. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Resource owner&#39;s AWS account ID.
-     * 
-     */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
     private Output<String> resourceOwner;
 
-    /**
-     * @return Resource owner&#39;s AWS account ID.
-     * 
-     */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
-    /**
-     * Virtual router specification to apply.
-     * 
-     */
     @Export(name="spec", refs={VirtualRouterSpec.class}, tree="[0]")
     private Output<VirtualRouterSpec> spec;
 
-    /**
-     * @return Virtual router specification to apply.
-     * 
-     */
     public Output<VirtualRouterSpec> spec() {
         return this.spec;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -15,202 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manage cross-region replication of automated backups to a different AWS Region. Documentation for cross-region automated backup replication can be found at:
- * 
- * * [Replicating automated backups to another AWS Region](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html)
- * 
- * &gt; **Note:** This resource has to be created in the destination region.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplication;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .retentionPeriod(14)
- *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Encrypting the automated backup with KMS
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplication;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplicationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new InstanceAutomatedBackupsReplication(&#34;default&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .kmsKeyId(&#34;arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012&#34;)
- *             .sourceDbInstanceArn(&#34;arn:aws:rds:us-west-2:123456789012:db:mydatabase&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Example including a RDS DB instance
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.rds.Instance;
- * import com.pulumi.aws.rds.InstanceArgs;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplication;
- * import com.pulumi.aws.rds.InstanceAutomatedBackupsReplicationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var replica = new Provider(&#34;replica&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var defaultInstance = new Instance(&#34;defaultInstance&#34;, InstanceArgs.builder()        
- *             .allocatedStorage(10)
- *             .identifier(&#34;mydb&#34;)
- *             .engine(&#34;postgres&#34;)
- *             .engineVersion(&#34;13.4&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .name(&#34;mydb&#34;)
- *             .username(&#34;masterusername&#34;)
- *             .password(&#34;mustbeeightcharacters&#34;)
- *             .backupRetentionPeriod(7)
- *             .storageEncrypted(true)
- *             .skipFinalSnapshot(true)
- *             .build());
- * 
- *         var defaultKey = new Key(&#34;defaultKey&#34;, KeyArgs.builder()        
- *             .description(&#34;Encryption key for automated backups&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
- *                 .build());
- * 
- *         var defaultInstanceAutomatedBackupsReplication = new InstanceAutomatedBackupsReplication(&#34;defaultInstanceAutomatedBackupsReplication&#34;, InstanceAutomatedBackupsReplicationArgs.builder()        
- *             .sourceDbInstanceArn(defaultInstance.arn())
- *             .kmsKeyId(defaultKey.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;aws.replica&#34;)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * RDS instance automated backups replication can be imported using the `arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
- * ```
- * 
- */
 @ResourceType(type="aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication")
 public class InstanceAutomatedBackupsReplication extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
-     * 
-     */
     @Export(name="preSignedUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preSignedUrl;
 
-    /**
-     * @return A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
-     * 
-     */
     public Output<Optional<String>> preSignedUrl() {
         return Codegen.optional(this.preSignedUrl);
     }
-    /**
-     * The retention period for the replicated automated backups, defaults to `7`.
-     * 
-     */
     @Export(name="retentionPeriod", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionPeriod;
 
-    /**
-     * @return The retention period for the replicated automated backups, defaults to `7`.
-     * 
-     */
     public Output<Optional<Integer>> retentionPeriod() {
         return Codegen.optional(this.retentionPeriod);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
-     * 
-     */
     @Export(name="sourceDbInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> sourceDbInstanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
-     * 
-     */
     public Output<String> sourceDbInstanceArn() {
         return this.sourceDbInstanceArn;
     }

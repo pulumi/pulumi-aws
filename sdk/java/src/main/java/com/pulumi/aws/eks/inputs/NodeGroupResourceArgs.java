@@ -17,32 +17,16 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
 
     public static final NodeGroupResourceArgs Empty = new NodeGroupResourceArgs();
 
-    /**
-     * List of objects containing information about AutoScaling Groups.
-     * 
-     */
     @Import(name="autoscalingGroups")
     private @Nullable Output<List<NodeGroupResourceAutoscalingGroupArgs>> autoscalingGroups;
 
-    /**
-     * @return List of objects containing information about AutoScaling Groups.
-     * 
-     */
     public Optional<Output<List<NodeGroupResourceAutoscalingGroupArgs>>> autoscalingGroups() {
         return Optional.ofNullable(this.autoscalingGroups);
     }
 
-    /**
-     * Identifier of the remote access EC2 Security Group.
-     * 
-     */
     @Import(name="remoteAccessSecurityGroupId")
     private @Nullable Output<String> remoteAccessSecurityGroupId;
 
-    /**
-     * @return Identifier of the remote access EC2 Security Group.
-     * 
-     */
     public Optional<Output<String>> remoteAccessSecurityGroupId() {
         return Optional.ofNullable(this.remoteAccessSecurityGroupId);
     }
@@ -72,54 +56,24 @@ public final class NodeGroupResourceArgs extends com.pulumi.resources.ResourceAr
             $ = new NodeGroupResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroups(@Nullable Output<List<NodeGroupResourceAutoscalingGroupArgs>> autoscalingGroups) {
             $.autoscalingGroups = autoscalingGroups;
             return this;
         }
 
-        /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroups(List<NodeGroupResourceAutoscalingGroupArgs> autoscalingGroups) {
             return autoscalingGroups(Output.of(autoscalingGroups));
         }
 
-        /**
-         * @param autoscalingGroups List of objects containing information about AutoScaling Groups.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscalingGroups(NodeGroupResourceAutoscalingGroupArgs... autoscalingGroups) {
             return autoscalingGroups(List.of(autoscalingGroups));
         }
 
-        /**
-         * @param remoteAccessSecurityGroupId Identifier of the remote access EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteAccessSecurityGroupId(@Nullable Output<String> remoteAccessSecurityGroupId) {
             $.remoteAccessSecurityGroupId = remoteAccessSecurityGroupId;
             return this;
         }
 
-        /**
-         * @param remoteAccessSecurityGroupId Identifier of the remote access EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder remoteAccessSecurityGroupId(String remoteAccessSecurityGroupId) {
             return remoteAccessSecurityGroupId(Output.of(remoteAccessSecurityGroupId));
         }

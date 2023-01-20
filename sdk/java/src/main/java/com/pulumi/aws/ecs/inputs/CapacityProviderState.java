@@ -17,77 +17,37 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
 
     public static final CapacityProviderState Empty = new CapacityProviderState();
 
-    /**
-     * ARN that identifies the capacity provider.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN that identifies the capacity provider.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Configuration block for the provider for the ECS auto scaling group. Detailed below.
-     * 
-     */
     @Import(name="autoScalingGroupProvider")
     private @Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider;
 
-    /**
-     * @return Configuration block for the provider for the ECS auto scaling group. Detailed below.
-     * 
-     */
     public Optional<Output<CapacityProviderAutoScalingGroupProviderArgs>> autoScalingGroupProvider() {
         return Optional.ofNullable(this.autoScalingGroupProvider);
     }
 
-    /**
-     * Name of the capacity provider.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the capacity provider.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -120,107 +80,47 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
             $ = new CapacityProviderState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN that identifies the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN that identifies the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupProvider(@Nullable Output<CapacityProviderAutoScalingGroupProviderArgs> autoScalingGroupProvider) {
             $.autoScalingGroupProvider = autoScalingGroupProvider;
             return this;
         }
 
-        /**
-         * @param autoScalingGroupProvider Configuration block for the provider for the ECS auto scaling group. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingGroupProvider(CapacityProviderAutoScalingGroupProviderArgs autoScalingGroupProvider) {
             return autoScalingGroupProvider(Output.of(autoScalingGroupProvider));
         }
 
-        /**
-         * @param name Name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the capacity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -15,32 +15,16 @@ public final class ExperimentTemplateStopConditionArgs extends com.pulumi.resour
 
     public static final ExperimentTemplateStopConditionArgs Empty = new ExperimentTemplateStopConditionArgs();
 
-    /**
-     * Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<String> source;
 
-    /**
-     * @return Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
 
-    /**
-     * Tag value.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -70,44 +54,20 @@ public final class ExperimentTemplateStopConditionArgs extends com.pulumi.resour
             $ = new ExperimentTemplateStopConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param source Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param value Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Tag value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

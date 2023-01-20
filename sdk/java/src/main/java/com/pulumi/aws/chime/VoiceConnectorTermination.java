@@ -17,143 +17,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Enable Termination settings to control outbound calling from your SIP infrastructure.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.chime.VoiceConnector;
- * import com.pulumi.aws.chime.VoiceConnectorArgs;
- * import com.pulumi.aws.chime.VoiceConnectorTermination;
- * import com.pulumi.aws.chime.VoiceConnectorTerminationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var defaultVoiceConnector = new VoiceConnector(&#34;defaultVoiceConnector&#34;, VoiceConnectorArgs.builder()        
- *             .requireEncryption(true)
- *             .build());
- * 
- *         var defaultVoiceConnectorTermination = new VoiceConnectorTermination(&#34;defaultVoiceConnectorTermination&#34;, VoiceConnectorTerminationArgs.builder()        
- *             .disabled(false)
- *             .cpsLimit(1)
- *             .cidrAllowLists(&#34;50.35.78.96/31&#34;)
- *             .callingRegions(            
- *                 &#34;US&#34;,
- *                 &#34;CA&#34;)
- *             .voiceConnectorId(defaultVoiceConnector.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Chime Voice Connector Termination can be imported using the `voice_connector_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
- * ```
- * 
- */
 @ResourceType(type="aws:chime/voiceConnectorTermination:VoiceConnectorTermination")
 public class VoiceConnectorTermination extends com.pulumi.resources.CustomResource {
-    /**
-     * The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-     * 
-     */
     @Export(name="callingRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> callingRegions;
 
-    /**
-     * @return The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-     * 
-     */
     public Output<List<String>> callingRegions() {
         return this.callingRegions;
     }
-    /**
-     * The IP addresses allowed to make calls, in CIDR format.
-     * 
-     */
     @Export(name="cidrAllowLists", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> cidrAllowLists;
 
-    /**
-     * @return The IP addresses allowed to make calls, in CIDR format.
-     * 
-     */
     public Output<List<String>> cidrAllowLists() {
         return this.cidrAllowLists;
     }
-    /**
-     * The limit on calls per second. Max value based on account service quota. Default value of `1`.
-     * 
-     */
     @Export(name="cpsLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> cpsLimit;
 
-    /**
-     * @return The limit on calls per second. Max value based on account service quota. Default value of `1`.
-     * 
-     */
     public Output<Optional<Integer>> cpsLimit() {
         return Codegen.optional(this.cpsLimit);
     }
-    /**
-     * The default caller ID phone number.
-     * 
-     */
     @Export(name="defaultPhoneNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultPhoneNumber;
 
-    /**
-     * @return The default caller ID phone number.
-     * 
-     */
     public Output<Optional<String>> defaultPhoneNumber() {
         return Codegen.optional(this.defaultPhoneNumber);
     }
-    /**
-     * When termination settings are disabled, outbound calls can not be made.
-     * 
-     */
     @Export(name="disabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disabled;
 
-    /**
-     * @return When termination settings are disabled, outbound calls can not be made.
-     * 
-     */
     public Output<Optional<Boolean>> disabled() {
         return Codegen.optional(this.disabled);
     }
-    /**
-     * The Amazon Chime Voice Connector ID.
-     * 
-     */
     @Export(name="voiceConnectorId", refs={String.class}, tree="[0]")
     private Output<String> voiceConnectorId;
 
-    /**
-     * @return The Amazon Chime Voice Connector ID.
-     * 
-     */
     public Output<String> voiceConnectorId() {
         return this.voiceConnectorId;
     }

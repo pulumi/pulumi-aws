@@ -11,29 +11,13 @@ import java.util.Objects;
 
 @CustomType
 public final class PipelineStage {
-    /**
-     * @return The action(s) to include in the stage. Defined as an `action` block below
-     * 
-     */
     private List<PipelineStageAction> actions;
-    /**
-     * @return The name of the stage.
-     * 
-     */
     private String name;
 
     private PipelineStage() {}
-    /**
-     * @return The action(s) to include in the stage. Defined as an `action` block below
-     * 
-     */
     public List<PipelineStageAction> actions() {
         return this.actions;
     }
-    /**
-     * @return The name of the stage.
-     * 
-     */
     public String name() {
         return this.name;
     }

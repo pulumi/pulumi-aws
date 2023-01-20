@@ -17,158 +17,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
- * 
- * &gt; **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
- * 
- * ## Example Usage
- * ### Data Lake Admins
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(            
- *                 aws_iam_user.test().arn(),
- *                 aws_iam_role.test().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Create Default Permissions
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lakeformation.DataLakeSettings;
- * import com.pulumi.aws.lakeformation.DataLakeSettingsArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs;
- * import com.pulumi.aws.lakeformation.inputs.DataLakeSettingsCreateTableDefaultPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataLakeSettings(&#34;example&#34;, DataLakeSettingsArgs.builder()        
- *             .admins(            
- *                 aws_iam_user.test().arn(),
- *                 aws_iam_role.test().arn())
- *             .createDatabaseDefaultPermissions(DataLakeSettingsCreateDatabaseDefaultPermissionArgs.builder()
- *                 .permissions(                
- *                     &#34;SELECT&#34;,
- *                     &#34;ALTER&#34;,
- *                     &#34;DROP&#34;)
- *                 .principal(aws_iam_user.test().arn())
- *                 .build())
- *             .createTableDefaultPermissions(DataLakeSettingsCreateTableDefaultPermissionArgs.builder()
- *                 .permissions(&#34;ALL&#34;)
- *                 .principal(aws_iam_role.test().arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:lakeformation/dataLakeSettings:DataLakeSettings")
 public class DataLakeSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     @Export(name="admins", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> admins;
 
-    /**
-     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-     * 
-     */
     public Output<List<String>> admins() {
         return this.admins;
     }
-    /**
-     * Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, the account ID.
-     * 
-     */
     public Output<Optional<String>> catalogId() {
         return Codegen.optional(this.catalogId);
     }
-    /**
-     * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     @Export(name="createDatabaseDefaultPermissions", refs={List.class,DataLakeSettingsCreateDatabaseDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions;
 
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-     * 
-     */
     public Output<List<DataLakeSettingsCreateDatabaseDefaultPermission>> createDatabaseDefaultPermissions() {
         return this.createDatabaseDefaultPermissions;
     }
-    /**
-     * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     @Export(name="createTableDefaultPermissions", refs={List.class,DataLakeSettingsCreateTableDefaultPermission.class}, tree="[0,1]")
     private Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions;
 
-    /**
-     * @return Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-     * 
-     */
     public Output<List<DataLakeSettingsCreateTableDefaultPermission>> createTableDefaultPermissions() {
         return this.createTableDefaultPermissions;
     }
-    /**
-     * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     */
     @Export(name="trustedResourceOwners", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> trustedResourceOwners;
 
-    /**
-     * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
-     * 
-     */
     public Output<List<String>> trustedResourceOwners() {
         return this.trustedResourceOwners;
     }

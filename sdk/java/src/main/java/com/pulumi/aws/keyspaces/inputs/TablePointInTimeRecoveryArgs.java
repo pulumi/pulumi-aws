@@ -15,17 +15,9 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
 
     public static final TablePointInTimeRecoveryArgs Empty = new TablePointInTimeRecoveryArgs();
 
-    /**
-     * Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -54,23 +46,11 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
             $ = new TablePointInTimeRecoveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

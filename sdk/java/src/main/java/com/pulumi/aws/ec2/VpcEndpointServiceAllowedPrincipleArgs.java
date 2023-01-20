@@ -13,32 +13,16 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
 
     public static final VpcEndpointServiceAllowedPrincipleArgs Empty = new VpcEndpointServiceAllowedPrincipleArgs();
 
-    /**
-     * The ARN of the principal to allow permissions.
-     * 
-     */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
 
-    /**
-     * @return The ARN of the principal to allow permissions.
-     * 
-     */
     public Output<String> principalArn() {
         return this.principalArn;
     }
 
-    /**
-     * The ID of the VPC endpoint service to allow permission.
-     * 
-     */
     @Import(name="vpcEndpointServiceId", required=true)
     private Output<String> vpcEndpointServiceId;
 
-    /**
-     * @return The ID of the VPC endpoint service to allow permission.
-     * 
-     */
     public Output<String> vpcEndpointServiceId() {
         return this.vpcEndpointServiceId;
     }
@@ -68,44 +52,20 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
             $ = new VpcEndpointServiceAllowedPrincipleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principalArn The ARN of the principal to allow permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(Output<String> principalArn) {
             $.principalArn = principalArn;
             return this;
         }
 
-        /**
-         * @param principalArn The ARN of the principal to allow permissions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principalArn(String principalArn) {
             return principalArn(Output.of(principalArn));
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(Output<String> vpcEndpointServiceId) {
             $.vpcEndpointServiceId = vpcEndpointServiceId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointServiceId(String vpcEndpointServiceId) {
             return vpcEndpointServiceId(Output.of(vpcEndpointServiceId));
         }

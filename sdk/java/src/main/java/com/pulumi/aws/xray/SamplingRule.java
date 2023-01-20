@@ -17,268 +17,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates and manages an AWS XRay Sampling Rule.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.xray.SamplingRule;
- * import com.pulumi.aws.xray.SamplingRuleArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new SamplingRule(&#34;example&#34;, SamplingRuleArgs.builder()        
- *             .attributes(Map.of(&#34;Hello&#34;, &#34;Tris&#34;))
- *             .fixedRate(0.05)
- *             .host(&#34;*&#34;)
- *             .httpMethod(&#34;*&#34;)
- *             .priority(10000)
- *             .reservoirSize(1)
- *             .resourceArn(&#34;*&#34;)
- *             .ruleName(&#34;example&#34;)
- *             .serviceName(&#34;*&#34;)
- *             .serviceType(&#34;*&#34;)
- *             .urlPath(&#34;*&#34;)
- *             .version(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * XRay Sampling Rules can be imported using the name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:xray/samplingRule:SamplingRule example example
- * ```
- * 
- */
 @ResourceType(type="aws:xray/samplingRule:SamplingRule")
 public class SamplingRule extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the sampling rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the sampling rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Matches attributes derived from the request.
-     * 
-     */
     @Export(name="attributes", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> attributes;
 
-    /**
-     * @return Matches attributes derived from the request.
-     * 
-     */
     public Output<Optional<Map<String,String>>> attributes() {
         return Codegen.optional(this.attributes);
     }
-    /**
-     * The percentage of matching requests to instrument, after the reservoir is exhausted.
-     * 
-     */
     @Export(name="fixedRate", refs={Double.class}, tree="[0]")
     private Output<Double> fixedRate;
 
-    /**
-     * @return The percentage of matching requests to instrument, after the reservoir is exhausted.
-     * 
-     */
     public Output<Double> fixedRate() {
         return this.fixedRate;
     }
-    /**
-     * Matches the hostname from a request URL.
-     * 
-     */
     @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
-    /**
-     * @return Matches the hostname from a request URL.
-     * 
-     */
     public Output<String> host() {
         return this.host;
     }
-    /**
-     * Matches the HTTP method of a request.
-     * 
-     */
     @Export(name="httpMethod", refs={String.class}, tree="[0]")
     private Output<String> httpMethod;
 
-    /**
-     * @return Matches the HTTP method of a request.
-     * 
-     */
     public Output<String> httpMethod() {
         return this.httpMethod;
     }
-    /**
-     * The priority of the sampling rule.
-     * 
-     */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
     private Output<Integer> priority;
 
-    /**
-     * @return The priority of the sampling rule.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
-    /**
-     * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-     * 
-     */
     @Export(name="reservoirSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> reservoirSize;
 
-    /**
-     * @return A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-     * 
-     */
     public Output<Integer> reservoirSize() {
         return this.reservoirSize;
     }
-    /**
-     * Matches the ARN of the AWS resource on which the service runs.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Matches the ARN of the AWS resource on which the service runs.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * The name of the sampling rule.
-     * 
-     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ruleName;
 
-    /**
-     * @return The name of the sampling rule.
-     * 
-     */
     public Output<Optional<String>> ruleName() {
         return Codegen.optional(this.ruleName);
     }
-    /**
-     * Matches the `name` that the service uses to identify itself in segments.
-     * 
-     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
-    /**
-     * @return Matches the `name` that the service uses to identify itself in segments.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
-    /**
-     * Matches the `origin` that the service uses to identify its type in segments.
-     * 
-     */
     @Export(name="serviceType", refs={String.class}, tree="[0]")
     private Output<String> serviceType;
 
-    /**
-     * @return Matches the `origin` that the service uses to identify its type in segments.
-     * 
-     */
     public Output<String> serviceType() {
         return this.serviceType;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Matches the path from a request URL.
-     * 
-     */
     @Export(name="urlPath", refs={String.class}, tree="[0]")
     private Output<String> urlPath;
 
-    /**
-     * @return Matches the path from a request URL.
-     * 
-     */
     public Output<String> urlPath() {
         return this.urlPath;
     }
-    /**
-     * The version of the sampling rule format (`1` )
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The version of the sampling rule format (`1` )
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

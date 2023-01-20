@@ -15,32 +15,16 @@ public final class SigningJobSignedObjectS3Args extends com.pulumi.resources.Res
 
     public static final SigningJobSignedObjectS3Args Empty = new SigningJobSignedObjectS3Args();
 
-    /**
-     * Name of the S3 bucket.
-     * 
-     */
     @Import(name="bucket")
     private @Nullable Output<String> bucket;
 
-    /**
-     * @return Name of the S3 bucket.
-     * 
-     */
     public Optional<Output<String>> bucket() {
         return Optional.ofNullable(this.bucket);
     }
 
-    /**
-     * Key name of the object that contains your unsigned code.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return Key name of the object that contains your unsigned code.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
@@ -70,44 +54,20 @@ public final class SigningJobSignedObjectS3Args extends com.pulumi.resources.Res
             $ = new SigningJobSignedObjectS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(@Nullable Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Name of the S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param key Key name of the object that contains your unsigned code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Key name of the object that contains your unsigned code.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

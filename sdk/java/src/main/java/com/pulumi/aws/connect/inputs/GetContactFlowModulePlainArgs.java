@@ -15,62 +15,30 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
 
     public static final GetContactFlowModulePlainArgs Empty = new GetContactFlowModulePlainArgs();
 
-    /**
-     * Returns information on a specific Contact Flow Module by contact flow module id
-     * 
-     */
     @Import(name="contactFlowModuleId")
     private @Nullable String contactFlowModuleId;
 
-    /**
-     * @return Returns information on a specific Contact Flow Module by contact flow module id
-     * 
-     */
     public Optional<String> contactFlowModuleId() {
         return Optional.ofNullable(this.contactFlowModuleId);
     }
 
-    /**
-     * Reference to the hosting Amazon Connect Instance
-     * 
-     */
     @Import(name="instanceId", required=true)
     private String instanceId;
 
-    /**
-     * @return Reference to the hosting Amazon Connect Instance
-     * 
-     */
     public String instanceId() {
         return this.instanceId;
     }
 
-    /**
-     * Returns information on a specific Contact Flow Module by name
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Returns information on a specific Contact Flow Module by name
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Map of tags to assign to the Contact Flow Module.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags to assign to the Contact Flow Module.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -102,45 +70,21 @@ public final class GetContactFlowModulePlainArgs extends com.pulumi.resources.In
             $ = new GetContactFlowModulePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contactFlowModuleId Returns information on a specific Contact Flow Module by contact flow module id
-         * 
-         * @return builder
-         * 
-         */
         public Builder contactFlowModuleId(@Nullable String contactFlowModuleId) {
             $.contactFlowModuleId = contactFlowModuleId;
             return this;
         }
 
-        /**
-         * @param instanceId Reference to the hosting Amazon Connect Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param name Returns information on a specific Contact Flow Module by name
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the Contact Flow Module.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

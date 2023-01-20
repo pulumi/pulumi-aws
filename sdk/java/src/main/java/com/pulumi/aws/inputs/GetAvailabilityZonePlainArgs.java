@@ -17,77 +17,37 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
 
     public static final GetAvailabilityZonePlainArgs Empty = new GetAvailabilityZonePlainArgs();
 
-    /**
-     * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-     * 
-     */
     @Import(name="allAvailabilityZones")
     private @Nullable Boolean allAvailabilityZones;
 
-    /**
-     * @return Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-     * 
-     */
     public Optional<Boolean> allAvailabilityZones() {
         return Optional.ofNullable(this.allAvailabilityZones);
     }
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetAvailabilityZoneFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetAvailabilityZoneFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Zone ID of the availability zone to select.
-     * 
-     */
     @Import(name="zoneId")
     private @Nullable String zoneId;
 
-    /**
-     * @return Zone ID of the availability zone to select.
-     * 
-     */
     public Optional<String> zoneId() {
         return Optional.ofNullable(this.zoneId);
     }
@@ -120,66 +80,30 @@ public final class GetAvailabilityZonePlainArgs extends com.pulumi.resources.Inv
             $ = new GetAvailabilityZonePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allAvailabilityZones Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allAvailabilityZones(@Nullable Boolean allAvailabilityZones) {
             $.allAvailabilityZones = allAvailabilityZones;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetAvailabilityZoneFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetAvailabilityZoneFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param name Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param state Specific availability zone state to require. May be any of `&#34;available&#34;`, `&#34;information&#34;` or `&#34;impaired&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param zoneId Zone ID of the availability zone to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder zoneId(@Nullable String zoneId) {
             $.zoneId = zoneId;
             return this;

@@ -13,32 +13,16 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final UserGroupAssociationArgs Empty = new UserGroupAssociationArgs();
 
-    /**
-     * ID of the user group.
-     * 
-     */
     @Import(name="userGroupId", required=true)
     private Output<String> userGroupId;
 
-    /**
-     * @return ID of the user group.
-     * 
-     */
     public Output<String> userGroupId() {
         return this.userGroupId;
     }
 
-    /**
-     * ID of the user to associated with the user group.
-     * 
-     */
     @Import(name="userId", required=true)
     private Output<String> userId;
 
-    /**
-     * @return ID of the user to associated with the user group.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }
@@ -68,44 +52,20 @@ public final class UserGroupAssociationArgs extends com.pulumi.resources.Resourc
             $ = new UserGroupAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param userGroupId ID of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupId(Output<String> userGroupId) {
             $.userGroupId = userGroupId;
             return this;
         }
 
-        /**
-         * @param userGroupId ID of the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userGroupId(String userGroupId) {
             return userGroupId(Output.of(userGroupId));
         }
 
-        /**
-         * @param userId ID of the user to associated with the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId ID of the user to associated with the user group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

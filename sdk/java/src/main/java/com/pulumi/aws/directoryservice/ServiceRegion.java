@@ -17,102 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a replicated Region and directory for Multi-Region replication.
- * Multi-Region replication is only supported for the Enterprise Edition of AWS Managed Microsoft AD.
- * 
- * ## Import
- * 
- * Replicated Regions can be imported using directory ID,Region name e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
- * ```
- * 
- */
 @ResourceType(type="aws:directoryservice/serviceRegion:ServiceRegion")
 public class ServiceRegion extends com.pulumi.resources.CustomResource {
-    /**
-     * The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-     * 
-     */
     @Export(name="desiredNumberOfDomainControllers", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredNumberOfDomainControllers;
 
-    /**
-     * @return The number of domain controllers desired in the replicated directory. Minimum value of `2`.
-     * 
-     */
     public Output<Integer> desiredNumberOfDomainControllers() {
         return this.desiredNumberOfDomainControllers;
     }
-    /**
-     * The identifier of the directory to which you want to add Region replication.
-     * 
-     */
     @Export(name="directoryId", refs={String.class}, tree="[0]")
     private Output<String> directoryId;
 
-    /**
-     * @return The identifier of the directory to which you want to add Region replication.
-     * 
-     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
-    /**
-     * The name of the Region where you want to add domain controllers for replication.
-     * 
-     */
     @Export(name="regionName", refs={String.class}, tree="[0]")
     private Output<String> regionName;
 
-    /**
-     * @return The name of the Region where you want to add domain controllers for replication.
-     * 
-     */
     public Output<String> regionName() {
         return this.regionName;
     }
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * VPC information in the replicated Region. Detailed below.
-     * 
-     */
     @Export(name="vpcSettings", refs={ServiceRegionVpcSettings.class}, tree="[0]")
     private Output<ServiceRegionVpcSettings> vpcSettings;
 
-    /**
-     * @return VPC information in the replicated Region. Detailed below.
-     * 
-     */
     public Output<ServiceRegionVpcSettings> vpcSettings() {
         return this.vpcSettings;
     }

@@ -16,32 +16,16 @@ public final class RecorderStatusState extends com.pulumi.resources.ResourceArgs
 
     public static final RecorderStatusState Empty = new RecorderStatusState();
 
-    /**
-     * Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     @Import(name="isEnabled")
     private @Nullable Output<Boolean> isEnabled;
 
-    /**
-     * @return Whether the configuration recorder should be enabled or disabled.
-     * 
-     */
     public Optional<Output<Boolean>> isEnabled() {
         return Optional.ofNullable(this.isEnabled);
     }
 
-    /**
-     * The name of the recorder
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the recorder
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -71,44 +55,20 @@ public final class RecorderStatusState extends com.pulumi.resources.ResourceArgs
             $ = new RecorderStatusState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isEnabled Whether the configuration recorder should be enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEnabled(@Nullable Output<Boolean> isEnabled) {
             $.isEnabled = isEnabled;
             return this;
         }
 
-        /**
-         * @param isEnabled Whether the configuration recorder should be enabled or disabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isEnabled(Boolean isEnabled) {
             return isEnabled(Output.of(isEnabled));
         }
 
-        /**
-         * @param name The name of the recorder
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the recorder
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

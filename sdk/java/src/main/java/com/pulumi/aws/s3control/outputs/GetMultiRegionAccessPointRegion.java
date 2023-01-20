@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMultiRegionAccessPointRegion {
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     private String bucket;
-    /**
-     * @return The name of the region.
-     * 
-     */
     private String region;
 
     private GetMultiRegionAccessPointRegion() {}
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
-    /**
-     * @return The name of the region.
-     * 
-     */
     public String region() {
         return this.region;
     }

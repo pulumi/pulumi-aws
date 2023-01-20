@@ -15,77 +15,37 @@ public final class SubnetCidrReservationState extends com.pulumi.resources.Resou
 
     public static final SubnetCidrReservationState Empty = new SubnetCidrReservationState();
 
-    /**
-     * The CIDR block for the reservation.
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return The CIDR block for the reservation.
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
 
-    /**
-     * A brief description of the reservation.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A brief description of the reservation.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * ID of the AWS account that owns this CIDR reservation.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return ID of the AWS account that owns this CIDR reservation.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * The type of reservation to create. Valid values: `explicit`, `prefix`
-     * 
-     */
     @Import(name="reservationType")
     private @Nullable Output<String> reservationType;
 
-    /**
-     * @return The type of reservation to create. Valid values: `explicit`, `prefix`
-     * 
-     */
     public Optional<Output<String>> reservationType() {
         return Optional.ofNullable(this.reservationType);
     }
 
-    /**
-     * The ID of the subnet to create the reservation for.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to create the reservation for.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -118,107 +78,47 @@ public final class SubnetCidrReservationState extends com.pulumi.resources.Resou
             $ = new SubnetCidrReservationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cidrBlock The CIDR block for the reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock The CIDR block for the reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
-        /**
-         * @param description A brief description of the reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A brief description of the reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param ownerId ID of the AWS account that owns this CIDR reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId ID of the AWS account that owns this CIDR reservation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param reservationType The type of reservation to create. Valid values: `explicit`, `prefix`
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservationType(@Nullable Output<String> reservationType) {
             $.reservationType = reservationType;
             return this;
         }
 
-        /**
-         * @param reservationType The type of reservation to create. Valid values: `explicit`, `prefix`
-         * 
-         * @return builder
-         * 
-         */
         public Builder reservationType(String reservationType) {
             return reservationType(Output.of(reservationType));
         }
 
-        /**
-         * @param subnetId The ID of the subnet to create the reservation for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet to create the reservation for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

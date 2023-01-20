@@ -15,32 +15,16 @@ public final class ProductSubscriptionState extends com.pulumi.resources.Resourc
 
     public static final ProductSubscriptionState Empty = new ProductSubscriptionState();
 
-    /**
-     * The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The ARN of the product that generates findings that you want to import into Security Hub - see below.
-     * 
-     */
     @Import(name="productArn")
     private @Nullable Output<String> productArn;
 
-    /**
-     * @return The ARN of the product that generates findings that you want to import into Security Hub - see below.
-     * 
-     */
     public Optional<Output<String>> productArn() {
         return Optional.ofNullable(this.productArn);
     }
@@ -70,44 +54,20 @@ public final class ProductSubscriptionState extends com.pulumi.resources.Resourc
             $ = new ProductSubscriptionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param productArn The ARN of the product that generates findings that you want to import into Security Hub - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productArn(@Nullable Output<String> productArn) {
             $.productArn = productArn;
             return this;
         }
 
-        /**
-         * @param productArn The ARN of the product that generates findings that you want to import into Security Hub - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productArn(String productArn) {
             return productArn(Output.of(productArn));
         }

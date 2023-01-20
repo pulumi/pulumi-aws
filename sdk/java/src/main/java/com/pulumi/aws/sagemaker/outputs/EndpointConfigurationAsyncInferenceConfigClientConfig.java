@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationAsyncInferenceConfigClientConfig {
-    /**
-     * @return The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
-     * 
-     */
     private @Nullable Integer maxConcurrentInvocationsPerInstance;
 
     private EndpointConfigurationAsyncInferenceConfigClientConfig() {}
-    /**
-     * @return The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
-     * 
-     */
     public Optional<Integer> maxConcurrentInvocationsPerInstance() {
         return Optional.ofNullable(this.maxConcurrentInvocationsPerInstance);
     }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentGroupEc2TagSet {
-    /**
-     * @return Tag filters associated with the deployment group. See the AWS docs for details.
-     * 
-     */
     private @Nullable List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters;
 
     private DeploymentGroupEc2TagSet() {}
-    /**
-     * @return Tag filters associated with the deployment group. See the AWS docs for details.
-     * 
-     */
     public List<DeploymentGroupEc2TagSetEc2TagFilter> ec2TagFilters() {
         return this.ec2TagFilters == null ? List.of() : this.ec2TagFilters;
     }

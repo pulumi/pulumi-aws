@@ -13,17 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs ex
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs();
 
-    /**
-     * Object specified in the Veeva flow source.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
@@ -52,23 +44,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs ex
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

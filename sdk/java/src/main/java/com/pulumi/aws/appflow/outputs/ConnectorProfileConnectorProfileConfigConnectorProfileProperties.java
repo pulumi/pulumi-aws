@@ -28,221 +28,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude amplitude;
-    /**
-     * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector customConnector;
-    /**
-     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog datadog;
-    /**
-     * @return The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace dynatrace;
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics googleAnalytics;
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode honeycode;
-    /**
-     * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus inforNexus;
-    /**
-     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo marketo;
-    /**
-     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift redshift;
-    /**
-     * @return The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce salesforce;
-    /**
-     * @return The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData sapoData;
-    /**
-     * @return The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow serviceNow;
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular singular;
-    /**
-     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack slack;
-    /**
-     * @return The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake snowflake;
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro trendmicro;
-    /**
-     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva veeva;
-    /**
-     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk zendesk;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileProperties() {}
-    /**
-     * @return The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude> amplitude() {
         return Optional.ofNullable(this.amplitude);
     }
-    /**
-     * @return The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
-    /**
-     * @return Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog> datadog() {
         return Optional.ofNullable(this.datadog);
     }
-    /**
-     * @return The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace> dynatrace() {
         return Optional.ofNullable(this.dynatrace);
     }
-    /**
-     * @return The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics> googleAnalytics() {
         return Optional.ofNullable(this.googleAnalytics);
     }
-    /**
-     * @return The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode> honeycode() {
         return Optional.ofNullable(this.honeycode);
     }
-    /**
-     * @return The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus> inforNexus() {
         return Optional.ofNullable(this.inforNexus);
     }
-    /**
-     * @return Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
-    /**
-     * @return Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
-    /**
-     * @return The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
-    /**
-     * @return The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow> serviceNow() {
         return Optional.ofNullable(this.serviceNow);
     }
-    /**
-     * @return Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular> singular() {
         return Optional.ofNullable(this.singular);
     }
-    /**
-     * @return Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack> slack() {
         return Optional.ofNullable(this.slack);
     }
-    /**
-     * @return The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
-    /**
-     * @return The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro> trendmicro() {
         return Optional.ofNullable(this.trendmicro);
     }
-    /**
-     * @return Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva> veeva() {
         return Optional.ofNullable(this.veeva);
     }
-    /**
-     * @return Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }

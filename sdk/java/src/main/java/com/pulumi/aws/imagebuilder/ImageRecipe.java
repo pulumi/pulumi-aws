@@ -19,281 +19,95 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Image Builder Image Recipe.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.imagebuilder.ImageRecipe;
- * import com.pulumi.aws.imagebuilder.ImageRecipeArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingEbsArgs;
- * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeComponentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ImageRecipe(&#34;example&#34;, ImageRecipeArgs.builder()        
- *             .blockDeviceMappings(ImageRecipeBlockDeviceMappingArgs.builder()
- *                 .deviceName(&#34;/dev/xvdb&#34;)
- *                 .ebs(ImageRecipeBlockDeviceMappingEbsArgs.builder()
- *                     .deleteOnTermination(true)
- *                     .volumeSize(100)
- *                     .volumeType(&#34;gp2&#34;)
- *                     .build())
- *                 .build())
- *             .components(ImageRecipeComponentArgs.builder()
- *                 .componentArn(aws_imagebuilder_component.example().arn())
- *                 .parameters(                
- *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter1&#34;)
- *                         .value(&#34;Value1&#34;)
- *                         .build(),
- *                     ImageRecipeComponentParameterArgs.builder()
- *                         .name(&#34;Parameter2&#34;)
- *                         .value(&#34;Value2&#34;)
- *                         .build())
- *                 .build())
- *             .parentImage(String.format(&#34;arn:%s:imagebuilder:%s:aws:image/amazon-linux-2-x86/x.x.x&#34;, data.aws_partition().current().partition(),data.aws_region().current().name()))
- *             .version(&#34;1.0.0&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_imagebuilder_image_recipe` resources can be imported by using the Amazon Resource Name (ARN), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
- * ```
- * 
- */
 @ResourceType(type="aws:imagebuilder/imageRecipe:ImageRecipe")
 public class ImageRecipe extends com.pulumi.resources.CustomResource {
-    /**
-     * (Required) Amazon Resource Name (ARN) of the image recipe.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return (Required) Amazon Resource Name (ARN) of the image recipe.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block(s) with block device mappings for the image recipe. Detailed below.
-     * 
-     */
     @Export(name="blockDeviceMappings", refs={List.class,ImageRecipeBlockDeviceMapping.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ImageRecipeBlockDeviceMapping>> blockDeviceMappings;
 
-    /**
-     * @return Configuration block(s) with block device mappings for the image recipe. Detailed below.
-     * 
-     */
     public Output<Optional<List<ImageRecipeBlockDeviceMapping>>> blockDeviceMappings() {
         return Codegen.optional(this.blockDeviceMappings);
     }
-    /**
-     * Ordered configuration block(s) with components for the image recipe. Detailed below.
-     * 
-     */
     @Export(name="components", refs={List.class,ImageRecipeComponent.class}, tree="[0,1]")
     private Output<List<ImageRecipeComponent>> components;
 
-    /**
-     * @return Ordered configuration block(s) with components for the image recipe. Detailed below.
-     * 
-     */
     public Output<List<ImageRecipeComponent>> components() {
         return this.components;
     }
-    /**
-     * Date the image recipe was created.
-     * 
-     */
     @Export(name="dateCreated", refs={String.class}, tree="[0]")
     private Output<String> dateCreated;
 
-    /**
-     * @return Date the image recipe was created.
-     * 
-     */
     public Output<String> dateCreated() {
         return this.dateCreated;
     }
-    /**
-     * Description of the image recipe.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the image recipe.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the component parameter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the component parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Owner of the image recipe.
-     * 
-     */
     @Export(name="owner", refs={String.class}, tree="[0]")
     private Output<String> owner;
 
-    /**
-     * @return Owner of the image recipe.
-     * 
-     */
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
-     * 
-     */
     @Export(name="parentImage", refs={String.class}, tree="[0]")
     private Output<String> parentImage;
 
-    /**
-     * @return The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
-     * 
-     */
     public Output<String> parentImage() {
         return this.parentImage;
     }
-    /**
-     * Platform of the image recipe.
-     * 
-     */
     @Export(name="platform", refs={String.class}, tree="[0]")
     private Output<String> platform;
 
-    /**
-     * @return Platform of the image recipe.
-     * 
-     */
     public Output<String> platform() {
         return this.platform;
     }
-    /**
-     * Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-     * 
-     */
     @Export(name="systemsManagerAgent", refs={ImageRecipeSystemsManagerAgent.class}, tree="[0]")
     private Output<ImageRecipeSystemsManagerAgent> systemsManagerAgent;
 
-    /**
-     * @return Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
-     * 
-     */
     public Output<ImageRecipeSystemsManagerAgent> systemsManagerAgent() {
         return this.systemsManagerAgent;
     }
-    /**
-     * Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the image recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-     * 
-     */
     @Export(name="userDataBase64", refs={String.class}, tree="[0]")
     private Output<String> userDataBase64;
 
-    /**
-     * @return Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
-     * 
-     */
     public Output<String> userDataBase64() {
         return this.userDataBase64;
     }
-    /**
-     * The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The semantic version of the image recipe, which specifies the version in the following format, with numeric values in each position to indicate a specific version: major.minor.patch. For example: 1.0.0.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * The working directory to be used during build and test workflows.
-     * 
-     */
     @Export(name="workingDirectory", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workingDirectory;
 
-    /**
-     * @return The working directory to be used during build and test workflows.
-     * 
-     */
     public Output<Optional<String>> workingDirectory() {
         return Codegen.optional(this.workingDirectory);
     }

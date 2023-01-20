@@ -23,47 +23,23 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.agentVersion);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Device.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The device to register with SageMaker Edge Manager. See Device details below.
-     * 
-     */
     @Import(name="device")
     private @Nullable Output<DeviceDeviceArgs> device;
 
-    /**
-     * @return The device to register with SageMaker Edge Manager. See Device details below.
-     * 
-     */
     public Optional<Output<DeviceDeviceArgs>> device() {
         return Optional.ofNullable(this.device);
     }
 
-    /**
-     * The name of the Device Fleet.
-     * 
-     */
     @Import(name="deviceFleetName")
     private @Nullable Output<String> deviceFleetName;
 
-    /**
-     * @return The name of the Device Fleet.
-     * 
-     */
     public Optional<Output<String>> deviceFleetName() {
         return Optional.ofNullable(this.deviceFleetName);
     }
@@ -104,65 +80,29 @@ public final class DeviceState extends com.pulumi.resources.ResourceArgs {
             return agentVersion(Output.of(agentVersion));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param device The device to register with SageMaker Edge Manager. See Device details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder device(@Nullable Output<DeviceDeviceArgs> device) {
             $.device = device;
             return this;
         }
 
-        /**
-         * @param device The device to register with SageMaker Edge Manager. See Device details below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder device(DeviceDeviceArgs device) {
             return device(Output.of(device));
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(@Nullable Output<String> deviceFleetName) {
             $.deviceFleetName = deviceFleetName;
             return this;
         }
 
-        /**
-         * @param deviceFleetName The name of the Device Fleet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceFleetName(String deviceFleetName) {
             return deviceFleetName(Output.of(deviceFleetName));
         }

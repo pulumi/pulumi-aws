@@ -17,94 +17,44 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetVpcEndpointPlainArgs Empty = new GetVpcEndpointPlainArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetVpcEndpointFilter> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<List<GetVpcEndpointFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return ID of the specific VPC Endpoint to retrieve.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable String serviceName;
 
-    /**
-     * @return Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-     * 
-     */
     public Optional<String> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * State of the specific VPC Endpoint to retrieve.
-     * 
-     */
     @Import(name="state")
     private @Nullable String state;
 
-    /**
-     * @return State of the specific VPC Endpoint to retrieve.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * ID of the VPC in which the specific VPC Endpoint is used.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable String vpcId;
 
-    /**
-     * @return ID of the VPC in which the specific VPC Endpoint is used.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -138,78 +88,35 @@ public final class GetVpcEndpointPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetVpcEndpointPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetVpcEndpointFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcEndpointFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param id ID of the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param serviceName Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable String serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param state State of the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable String state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the specific VPC Endpoint to retrieve.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param vpcId ID of the VPC in which the specific VPC Endpoint is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable String vpcId) {
             $.vpcId = vpcId;
             return this;

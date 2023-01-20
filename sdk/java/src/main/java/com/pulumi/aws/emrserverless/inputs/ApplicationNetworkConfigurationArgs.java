@@ -16,32 +16,16 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
 
     public static final ApplicationNetworkConfigurationArgs Empty = new ApplicationNetworkConfigurationArgs();
 
-    /**
-     * The array of security group Ids for customer VPC connectivity.
-     * 
-     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
-    /**
-     * @return The array of security group Ids for customer VPC connectivity.
-     * 
-     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
-    /**
-     * The array of subnet Ids for customer VPC connectivity.
-     * 
-     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
-    /**
-     * @return The array of subnet Ids for customer VPC connectivity.
-     * 
-     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
@@ -71,64 +55,28 @@ public final class ApplicationNetworkConfigurationArgs extends com.pulumi.resour
             $ = new ApplicationNetworkConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
-        /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
-        /**
-         * @param securityGroupIds The array of security group Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
-        /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds The array of subnet Ids for customer VPC connectivity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

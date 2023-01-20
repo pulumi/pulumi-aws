@@ -12,31 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketReplicationConfigurationRuleFilter {
-    /**
-     * @return Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return A map of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private BucketReplicationConfigurationRuleFilter() {}
-    /**
-     * @return Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return A map of tags that identifies subset of objects to which the rule applies.
-     * The rule applies only to objects having all the tags in its tagset.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

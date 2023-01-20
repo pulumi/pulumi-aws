@@ -16,62 +16,30 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
 
     public static final VoiceConnectorState Empty = new VoiceConnectorState();
 
-    /**
-     * The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
-    /**
-     * @return The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-     * 
-     */
     public Optional<Output<String>> awsRegion() {
         return Optional.ofNullable(this.awsRegion);
     }
 
-    /**
-     * The name of the Amazon Chime Voice Connector.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     @Import(name="outboundHostName")
     private @Nullable Output<String> outboundHostName;
 
-    /**
-     * @return The outbound host name for the Amazon Chime Voice Connector.
-     * 
-     */
     public Optional<Output<String>> outboundHostName() {
         return Optional.ofNullable(this.outboundHostName);
     }
 
-    /**
-     * When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     */
     @Import(name="requireEncryption")
     private @Nullable Output<Boolean> requireEncryption;
 
-    /**
-     * @return When enabled, requires encryption for the Amazon Chime Voice Connector.
-     * 
-     */
     public Optional<Output<Boolean>> requireEncryption() {
         return Optional.ofNullable(this.requireEncryption);
     }
@@ -103,86 +71,38 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
             $ = new VoiceConnectorState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsRegion The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(@Nullable Output<String> awsRegion) {
             $.awsRegion = awsRegion;
             return this;
         }
 
-        /**
-         * @param awsRegion The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsRegion(String awsRegion) {
             return awsRegion(Output.of(awsRegion));
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param outboundHostName The outbound host name for the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundHostName(@Nullable Output<String> outboundHostName) {
             $.outboundHostName = outboundHostName;
             return this;
         }
 
-        /**
-         * @param outboundHostName The outbound host name for the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundHostName(String outboundHostName) {
             return outboundHostName(Output.of(outboundHostName));
         }
 
-        /**
-         * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEncryption(@Nullable Output<Boolean> requireEncryption) {
             $.requireEncryption = requireEncryption;
             return this;
         }
 
-        /**
-         * @param requireEncryption When enabled, requires encryption for the Amazon Chime Voice Connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder requireEncryption(Boolean requireEncryption) {
             return requireEncryption(Output.of(requireEncryption));
         }

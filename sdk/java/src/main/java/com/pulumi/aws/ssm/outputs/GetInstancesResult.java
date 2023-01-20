@@ -18,10 +18,6 @@ public final class GetInstancesResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of instance IDs of the matched SSM managed instances.
-     * 
-     */
     private List<String> ids;
 
     private GetInstancesResult() {}
@@ -35,10 +31,6 @@ public final class GetInstancesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of instance IDs of the matched SSM managed instances.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

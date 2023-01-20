@@ -15,105 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an API Gateway Request Validator.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RequestValidator;
- * import com.pulumi.aws.apigateway.RequestValidatorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RequestValidator(&#34;example&#34;, RequestValidatorArgs.builder()        
- *             .restApi(aws_api_gateway_rest_api.example().id())
- *             .validateRequestBody(true)
- *             .validateRequestParameters(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/requestValidator:RequestValidator")
 public class RequestValidator extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the request validator
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the request validator
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ID of the associated Rest API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the associated Rest API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Boolean whether to validate request body. Defaults to `false`.
-     * 
-     */
     @Export(name="validateRequestBody", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validateRequestBody;
 
-    /**
-     * @return Boolean whether to validate request body. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> validateRequestBody() {
         return Codegen.optional(this.validateRequestBody);
     }
-    /**
-     * Boolean whether to validate request parameters. Defaults to `false`.
-     * 
-     */
     @Export(name="validateRequestParameters", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validateRequestParameters;
 
-    /**
-     * @return Boolean whether to validate request parameters. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> validateRequestParameters() {
         return Codegen.optional(this.validateRequestParameters);
     }

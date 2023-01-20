@@ -16,17 +16,9 @@ public final class GetInstanceTypesArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetInstanceTypesArgs Empty = new GetInstanceTypesArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetInstanceTypesFilterArgs>> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetInstanceTypesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -55,33 +47,15 @@ public final class GetInstanceTypesArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetInstanceTypesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetInstanceTypesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetInstanceTypesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetInstanceTypesFilterArgs... filters) {
             return filters(List.of(filters));
         }

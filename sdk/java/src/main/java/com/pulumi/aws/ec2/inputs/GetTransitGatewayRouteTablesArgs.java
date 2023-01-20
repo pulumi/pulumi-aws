@@ -18,34 +18,16 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
 
     public static final GetTransitGatewayRouteTablesArgs Empty = new GetTransitGatewayRouteTablesArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetTransitGatewayRouteTablesFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<Output<List<GetTransitGatewayRouteTablesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired transit gateway route table.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Mapping of tags, each pair of which must exactly match
-     * a pair on the desired transit gateway route table.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -75,56 +57,24 @@ public final class GetTransitGatewayRouteTablesArgs extends com.pulumi.resources
             $ = new GetTransitGatewayRouteTablesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetTransitGatewayRouteTablesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetTransitGatewayRouteTablesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetTransitGatewayRouteTablesFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired transit gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Mapping of tags, each pair of which must exactly match
-         * a pair on the desired transit gateway route table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

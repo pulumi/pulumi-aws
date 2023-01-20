@@ -15,32 +15,16 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
 
     public static final BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs Empty = new BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs();
 
-    /**
-     * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
-     * 
-     */
     @Import(name="kmsMasterKeyId")
     private @Nullable Output<String> kmsMasterKeyId;
 
-    /**
-     * @return The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
-     * 
-     */
     public Optional<Output<String>> kmsMasterKeyId() {
         return Optional.ofNullable(this.kmsMasterKeyId);
     }
 
-    /**
-     * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-     * 
-     */
     @Import(name="sseAlgorithm", required=true)
     private Output<String> sseAlgorithm;
 
-    /**
-     * @return The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-     * 
-     */
     public Output<String> sseAlgorithm() {
         return this.sseAlgorithm;
     }
@@ -70,44 +54,20 @@ public final class BucketServerSideEncryptionConfigurationRuleApplyServerSideEnc
             $ = new BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsMasterKeyId The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsMasterKeyId(@Nullable Output<String> kmsMasterKeyId) {
             $.kmsMasterKeyId = kmsMasterKeyId;
             return this;
         }
 
-        /**
-         * @param kmsMasterKeyId The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sse_algorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sse_algorithm` is `aws:kms`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsMasterKeyId(String kmsMasterKeyId) {
             return kmsMasterKeyId(Output.of(kmsMasterKeyId));
         }
 
-        /**
-         * @param sseAlgorithm The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(Output<String> sseAlgorithm) {
             $.sseAlgorithm = sseAlgorithm;
             return this;
         }
 
-        /**
-         * @param sseAlgorithm The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseAlgorithm(String sseAlgorithm) {
             return sseAlgorithm(Output.of(sseAlgorithm));
         }

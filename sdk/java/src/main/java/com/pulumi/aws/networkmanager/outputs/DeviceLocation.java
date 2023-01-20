@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeviceLocation {
-    /**
-     * @return The physical address.
-     * 
-     */
     private @Nullable String address;
-    /**
-     * @return The latitude.
-     * 
-     */
     private @Nullable String latitude;
-    /**
-     * @return The longitude.
-     * 
-     */
     private @Nullable String longitude;
 
     private DeviceLocation() {}
-    /**
-     * @return The physical address.
-     * 
-     */
     public Optional<String> address() {
         return Optional.ofNullable(this.address);
     }
-    /**
-     * @return The latitude.
-     * 
-     */
     public Optional<String> latitude() {
         return Optional.ofNullable(this.latitude);
     }
-    /**
-     * @return The longitude.
-     * 
-     */
     public Optional<String> longitude() {
         return Optional.ofNullable(this.longitude);
     }

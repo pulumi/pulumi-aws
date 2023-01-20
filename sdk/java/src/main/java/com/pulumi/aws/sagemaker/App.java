@@ -16,177 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker App resource.
- * 
- * ## Example Usage
- * ### Basic usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.App;
- * import com.pulumi.aws.sagemaker.AppArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new App(&#34;example&#34;, AppArgs.builder()        
- *             .domainId(aws_sagemaker_domain.example().id())
- *             .userProfileName(aws_sagemaker_user_profile.example().user_profile_name())
- *             .appName(&#34;example&#34;)
- *             .appType(&#34;JupyterServer&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SageMaker Apps can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/app:App")
 public class App extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the app.
-     * 
-     */
     @Export(name="appName", refs={String.class}, tree="[0]")
     private Output<String> appName;
 
-    /**
-     * @return The name of the app.
-     * 
-     */
     public Output<String> appName() {
         return this.appName;
     }
-    /**
-     * The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-     * 
-     */
     @Export(name="appType", refs={String.class}, tree="[0]")
     private Output<String> appType;
 
-    /**
-     * @return The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
-     * 
-     */
     public Output<String> appType() {
         return this.appType;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the app.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the app.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The domain ID.
-     * 
-     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
-    /**
-     * @return The domain ID.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
-    /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-     * 
-     */
     @Export(name="resourceSpec", refs={AppResourceSpec.class}, tree="[0]")
     private Output<AppResourceSpec> resourceSpec;
 
-    /**
-     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-     * 
-     */
     public Output<AppResourceSpec> resourceSpec() {
         return this.resourceSpec;
     }
-    /**
-     * The name of the space. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     @Export(name="spaceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> spaceName;
 
-    /**
-     * @return The name of the space. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     public Output<Optional<String>> spaceName() {
         return Codegen.optional(this.spaceName);
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The user profile name. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     @Export(name="userProfileName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userProfileName;
 
-    /**
-     * @return The user profile name. At least on of `user_profile_name` or `space_name` required.
-     * 
-     */
     public Output<Optional<String>> userProfileName() {
         return Codegen.optional(this.userProfileName);
     }

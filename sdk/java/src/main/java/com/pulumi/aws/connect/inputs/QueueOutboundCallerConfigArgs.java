@@ -15,47 +15,23 @@ public final class QueueOutboundCallerConfigArgs extends com.pulumi.resources.Re
 
     public static final QueueOutboundCallerConfigArgs Empty = new QueueOutboundCallerConfigArgs();
 
-    /**
-     * Specifies the caller ID name.
-     * 
-     */
     @Import(name="outboundCallerIdName")
     private @Nullable Output<String> outboundCallerIdName;
 
-    /**
-     * @return Specifies the caller ID name.
-     * 
-     */
     public Optional<Output<String>> outboundCallerIdName() {
         return Optional.ofNullable(this.outboundCallerIdName);
     }
 
-    /**
-     * Specifies the caller ID number.
-     * 
-     */
     @Import(name="outboundCallerIdNumberId")
     private @Nullable Output<String> outboundCallerIdNumberId;
 
-    /**
-     * @return Specifies the caller ID number.
-     * 
-     */
     public Optional<Output<String>> outboundCallerIdNumberId() {
         return Optional.ofNullable(this.outboundCallerIdNumberId);
     }
 
-    /**
-     * Specifies outbound whisper flow to be used during an outbound call.
-     * 
-     */
     @Import(name="outboundFlowId")
     private @Nullable Output<String> outboundFlowId;
 
-    /**
-     * @return Specifies outbound whisper flow to be used during an outbound call.
-     * 
-     */
     public Optional<Output<String>> outboundFlowId() {
         return Optional.ofNullable(this.outboundFlowId);
     }
@@ -86,65 +62,29 @@ public final class QueueOutboundCallerConfigArgs extends com.pulumi.resources.Re
             $ = new QueueOutboundCallerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param outboundCallerIdName Specifies the caller ID name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundCallerIdName(@Nullable Output<String> outboundCallerIdName) {
             $.outboundCallerIdName = outboundCallerIdName;
             return this;
         }
 
-        /**
-         * @param outboundCallerIdName Specifies the caller ID name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundCallerIdName(String outboundCallerIdName) {
             return outboundCallerIdName(Output.of(outboundCallerIdName));
         }
 
-        /**
-         * @param outboundCallerIdNumberId Specifies the caller ID number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundCallerIdNumberId(@Nullable Output<String> outboundCallerIdNumberId) {
             $.outboundCallerIdNumberId = outboundCallerIdNumberId;
             return this;
         }
 
-        /**
-         * @param outboundCallerIdNumberId Specifies the caller ID number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundCallerIdNumberId(String outboundCallerIdNumberId) {
             return outboundCallerIdNumberId(Output.of(outboundCallerIdNumberId));
         }
 
-        /**
-         * @param outboundFlowId Specifies outbound whisper flow to be used during an outbound call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundFlowId(@Nullable Output<String> outboundFlowId) {
             $.outboundFlowId = outboundFlowId;
             return this;
         }
 
-        /**
-         * @param outboundFlowId Specifies outbound whisper flow to be used during an outbound call.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outboundFlowId(String outboundFlowId) {
             return outboundFlowId(Output.of(outboundFlowId));
         }

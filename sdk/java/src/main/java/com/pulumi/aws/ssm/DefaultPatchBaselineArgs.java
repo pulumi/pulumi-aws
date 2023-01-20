@@ -13,64 +13,16 @@ public final class DefaultPatchBaselineArgs extends com.pulumi.resources.Resourc
 
     public static final DefaultPatchBaselineArgs Empty = new DefaultPatchBaselineArgs();
 
-    /**
-     * ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     @Import(name="baselineId", required=true)
     private Output<String> baselineId;
 
-    /**
-     * @return ID of the patch baseline.
-     * Can be an ID or an ARN.
-     * When specifying an AWS-provided patch baseline, must be the ARN.
-     * 
-     */
     public Output<String> baselineId() {
         return this.baselineId;
     }
 
-    /**
-     * The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     @Import(name="operatingSystem", required=true)
     private Output<String> operatingSystem;
 
-    /**
-     * @return The operating system the patch baseline applies to.
-     * Valid values are
-     * `AMAZON_LINUX`,
-     * `AMAZON_LINUX_2`,
-     * `AMAZON_LINUX_2022`,
-     * `CENTOS`,
-     * `DEBIAN`,
-     * `MACOS`,
-     * `ORACLE_LINUX`,
-     * `RASPBIAN`,
-     * `REDHAT_ENTERPRISE_LINUX`,
-     * `ROCKY_LINUX`,
-     * `SUSE`,
-     * `UBUNTU`, and
-     * `WINDOWS`.
-     * 
-     */
     public Output<String> operatingSystem() {
         return this.operatingSystem;
     }
@@ -100,76 +52,20 @@ public final class DefaultPatchBaselineArgs extends com.pulumi.resources.Resourc
             $ = new DefaultPatchBaselineArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param baselineId ID of the patch baseline.
-         * Can be an ID or an ARN.
-         * When specifying an AWS-provided patch baseline, must be the ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineId(Output<String> baselineId) {
             $.baselineId = baselineId;
             return this;
         }
 
-        /**
-         * @param baselineId ID of the patch baseline.
-         * Can be an ID or an ARN.
-         * When specifying an AWS-provided patch baseline, must be the ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder baselineId(String baselineId) {
             return baselineId(Output.of(baselineId));
         }
 
-        /**
-         * @param operatingSystem The operating system the patch baseline applies to.
-         * Valid values are
-         * `AMAZON_LINUX`,
-         * `AMAZON_LINUX_2`,
-         * `AMAZON_LINUX_2022`,
-         * `CENTOS`,
-         * `DEBIAN`,
-         * `MACOS`,
-         * `ORACLE_LINUX`,
-         * `RASPBIAN`,
-         * `REDHAT_ENTERPRISE_LINUX`,
-         * `ROCKY_LINUX`,
-         * `SUSE`,
-         * `UBUNTU`, and
-         * `WINDOWS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operatingSystem(Output<String> operatingSystem) {
             $.operatingSystem = operatingSystem;
             return this;
         }
 
-        /**
-         * @param operatingSystem The operating system the patch baseline applies to.
-         * Valid values are
-         * `AMAZON_LINUX`,
-         * `AMAZON_LINUX_2`,
-         * `AMAZON_LINUX_2022`,
-         * `CENTOS`,
-         * `DEBIAN`,
-         * `MACOS`,
-         * `ORACLE_LINUX`,
-         * `RASPBIAN`,
-         * `REDHAT_ENTERPRISE_LINUX`,
-         * `ROCKY_LINUX`,
-         * `SUSE`,
-         * `UBUNTU`, and
-         * `WINDOWS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder operatingSystem(String operatingSystem) {
             return operatingSystem(Output.of(operatingSystem));
         }

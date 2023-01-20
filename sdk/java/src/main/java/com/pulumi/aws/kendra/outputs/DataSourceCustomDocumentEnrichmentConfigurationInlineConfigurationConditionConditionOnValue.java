@@ -13,42 +13,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
-    /**
-     * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-     * 
-     */
     private @Nullable String dateValue;
-    /**
-     * @return A long integer value.
-     * 
-     */
     private @Nullable Integer longValue;
-    /**
-     * @return A list of strings.
-     * 
-     */
     private @Nullable List<String> stringListValues;
     private @Nullable String stringValue;
 
     private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue() {}
-    /**
-     * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
-     * 
-     */
     public Optional<String> dateValue() {
         return Optional.ofNullable(this.dateValue);
     }
-    /**
-     * @return A long integer value.
-     * 
-     */
     public Optional<Integer> longValue() {
         return Optional.ofNullable(this.longValue);
     }
-    /**
-     * @return A list of strings.
-     * 
-     */
     public List<String> stringListValues() {
         return this.stringListValues == null ? List.of() : this.stringListValues;
     }

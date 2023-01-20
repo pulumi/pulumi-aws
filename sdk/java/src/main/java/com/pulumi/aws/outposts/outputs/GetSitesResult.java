@@ -15,10 +15,6 @@ public final class GetSitesResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of Outposts Site identifiers.
-     * 
-     */
     private List<String> ids;
 
     private GetSitesResult() {}
@@ -29,10 +25,6 @@ public final class GetSitesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of Outposts Site identifiers.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

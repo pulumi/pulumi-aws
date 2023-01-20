@@ -16,77 +16,37 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
 
     public static final InvocationState Empty = new InvocationState();
 
-    /**
-     * Name of the lambda function.
-     * 
-     */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
-    /**
-     * @return Name of the lambda function.
-     * 
-     */
     public Optional<Output<String>> functionName() {
         return Optional.ofNullable(this.functionName);
     }
 
-    /**
-     * JSON payload to the lambda function.
-     * 
-     */
     @Import(name="input")
     private @Nullable Output<String> input;
 
-    /**
-     * @return JSON payload to the lambda function.
-     * 
-     */
     public Optional<Output<String>> input() {
         return Optional.ofNullable(this.input);
     }
 
-    /**
-     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * String result of the lambda function invocation.
-     * 
-     */
     @Import(name="result")
     private @Nullable Output<String> result;
 
-    /**
-     * @return String result of the lambda function invocation.
-     * 
-     */
     public Optional<Output<String>> result() {
         return Optional.ofNullable(this.result);
     }
 
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-     * 
-     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -119,107 +79,47 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
             $ = new InvocationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name of the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(@Nullable Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name of the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param input JSON payload to the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder input(@Nullable Output<String> input) {
             $.input = input;
             return this;
         }
 
-        /**
-         * @param input JSON payload to the lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder input(String input) {
             return input(Output.of(input));
         }
 
-        /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }
 
-        /**
-         * @param result String result of the lambda function invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(@Nullable Output<String> result) {
             $.result = result;
             return this;
         }
 
-        /**
-         * @param result String result of the lambda function invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder result(String result) {
             return result(Output.of(result));
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }

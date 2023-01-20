@@ -13,143 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CodeArtifact Domains Permissions Policy Resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.codeartifact.Domain;
- * import com.pulumi.aws.codeartifact.DomainArgs;
- * import com.pulumi.aws.codeartifact.DomainPermissions;
- * import com.pulumi.aws.codeartifact.DomainPermissionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .description(&#34;domain key&#34;)
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .domain(&#34;example&#34;)
- *             .encryptionKey(exampleKey.arn())
- *             .build());
- * 
- *         var test = new DomainPermissions(&#34;test&#34;, DomainPermissionsArgs.builder()        
- *             .domain(exampleDomain.domain())
- *             .policyDocument(exampleDomain.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Action&#34;: &#34;codeartifact:CreateRepository&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Resource&#34;: &#34;%s&#34;
- *         }
- *     ]
- * }
- * &#34;, arn)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CodeArtifact Domain Permissions Policies can be imported using the CodeArtifact Domain ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
- * ```
- * 
- */
 @ResourceType(type="aws:codeartifact/domainPermissions:DomainPermissions")
 public class DomainPermissions extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the domain on which to set the resource policy.
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
-    /**
-     * @return The name of the domain on which to set the resource policy.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
-    /**
-     * The account number of the AWS account that owns the domain.
-     * 
-     */
     @Export(name="domainOwner", refs={String.class}, tree="[0]")
     private Output<String> domainOwner;
 
-    /**
-     * @return The account number of the AWS account that owns the domain.
-     * 
-     */
     public Output<String> domainOwner() {
         return this.domainOwner;
     }
-    /**
-     * A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return A JSON policy string to be set as the access control resource policy on the provided domain.
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }
-    /**
-     * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     @Export(name="policyRevision", refs={String.class}, tree="[0]")
     private Output<String> policyRevision;
 
-    /**
-     * @return The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain&#39;s resource policy.
-     * 
-     */
     public Output<String> policyRevision() {
         return this.policyRevision;
     }
-    /**
-     * The ARN of the resource associated with the resource policy.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the resource associated with the resource policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

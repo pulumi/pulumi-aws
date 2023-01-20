@@ -15,17 +15,9 @@ public final class MemberAccountAssociationState extends com.pulumi.resources.Re
 
     public static final MemberAccountAssociationState Empty = new MemberAccountAssociationState();
 
-    /**
-     * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-     * 
-     */
     @Import(name="memberAccountId")
     private @Nullable Output<String> memberAccountId;
 
-    /**
-     * @return The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-     * 
-     */
     public Optional<Output<String>> memberAccountId() {
         return Optional.ofNullable(this.memberAccountId);
     }
@@ -54,23 +46,11 @@ public final class MemberAccountAssociationState extends com.pulumi.resources.Re
             $ = new MemberAccountAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param memberAccountId The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberAccountId(@Nullable Output<String> memberAccountId) {
             $.memberAccountId = memberAccountId;
             return this;
         }
 
-        /**
-         * @param memberAccountId The ID of the AWS account that you want to associate with Amazon Macie as a member account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder memberAccountId(String memberAccountId) {
             return memberAccountId(Output.of(memberAccountId));
         }

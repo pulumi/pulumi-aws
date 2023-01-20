@@ -16,34 +16,16 @@ public final class CertificateAuthorityRevocationConfigurationArgs extends com.p
 
     public static final CertificateAuthorityRevocationConfigurationArgs Empty = new CertificateAuthorityRevocationConfigurationArgs();
 
-    /**
-     * Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-     * 
-     */
     @Import(name="crlConfiguration")
     private @Nullable Output<CertificateAuthorityRevocationConfigurationCrlConfigurationArgs> crlConfiguration;
 
-    /**
-     * @return Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-     * 
-     */
     public Optional<Output<CertificateAuthorityRevocationConfigurationCrlConfigurationArgs>> crlConfiguration() {
         return Optional.ofNullable(this.crlConfiguration);
     }
 
-    /**
-     * Nested argument containing configuration of
-     * the custom OCSP responder endpoint. Defined below.
-     * 
-     */
     @Import(name="ocspConfiguration")
     private @Nullable Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs> ocspConfiguration;
 
-    /**
-     * @return Nested argument containing configuration of
-     * the custom OCSP responder endpoint. Defined below.
-     * 
-     */
     public Optional<Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs>> ocspConfiguration() {
         return Optional.ofNullable(this.ocspConfiguration);
     }
@@ -73,46 +55,20 @@ public final class CertificateAuthorityRevocationConfigurationArgs extends com.p
             $ = new CertificateAuthorityRevocationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param crlConfiguration Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crlConfiguration(@Nullable Output<CertificateAuthorityRevocationConfigurationCrlConfigurationArgs> crlConfiguration) {
             $.crlConfiguration = crlConfiguration;
             return this;
         }
 
-        /**
-         * @param crlConfiguration Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder crlConfiguration(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs crlConfiguration) {
             return crlConfiguration(Output.of(crlConfiguration));
         }
 
-        /**
-         * @param ocspConfiguration Nested argument containing configuration of
-         * the custom OCSP responder endpoint. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocspConfiguration(@Nullable Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs> ocspConfiguration) {
             $.ocspConfiguration = ocspConfiguration;
             return this;
         }
 
-        /**
-         * @param ocspConfiguration Nested argument containing configuration of
-         * the custom OCSP responder endpoint. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ocspConfiguration(CertificateAuthorityRevocationConfigurationOcspConfigurationArgs ocspConfiguration) {
             return ocspConfiguration(Output.of(ocspConfiguration));
         }

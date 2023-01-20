@@ -13,10 +13,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAttachmentResult {
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     private String arn;
     private @Nullable List<GetAttachmentFilter> filters;
     /**
@@ -24,48 +20,16 @@ public final class GetAttachmentResult {
      * 
      */
     private String id;
-    /**
-     * @return ID of the resource.
-     * 
-     */
     private String resourceId;
-    /**
-     * @return ID of the AWS account that owns the resource.
-     * 
-     */
     private String resourceOwnerId;
-    /**
-     * @return Resource type.
-     * 
-     */
     private String resourceType;
-    /**
-     * @return Attachment state.
-     * 
-     */
     private String state;
-    /**
-     * @return Key-value tags for the attachment.
-     * 
-     */
     private Map<String,String> tags;
     private String transitGatewayAttachmentId;
-    /**
-     * @return ID of the transit gateway.
-     * 
-     */
     private String transitGatewayId;
-    /**
-     * @return The ID of the AWS account that owns the transit gateway.
-     * 
-     */
     private String transitGatewayOwnerId;
 
     private GetAttachmentResult() {}
-    /**
-     * @return ARN of the attachment.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -79,55 +43,27 @@ public final class GetAttachmentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the resource.
-     * 
-     */
     public String resourceId() {
         return this.resourceId;
     }
-    /**
-     * @return ID of the AWS account that owns the resource.
-     * 
-     */
     public String resourceOwnerId() {
         return this.resourceOwnerId;
     }
-    /**
-     * @return Resource type.
-     * 
-     */
     public String resourceType() {
         return this.resourceType;
     }
-    /**
-     * @return Attachment state.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Key-value tags for the attachment.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public String transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
-    /**
-     * @return ID of the transit gateway.
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * @return The ID of the AWS account that owns the transit gateway.
-     * 
-     */
     public String transitGatewayOwnerId() {
         return this.transitGatewayOwnerId;
     }

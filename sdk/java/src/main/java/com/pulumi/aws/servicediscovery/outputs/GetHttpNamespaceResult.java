@@ -10,20 +10,8 @@ import java.util.Objects;
 
 @CustomType
 public final class GetHttpNamespaceResult {
-    /**
-     * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description that you specify for the namespace when you create it.
-     * 
-     */
     private String description;
-    /**
-     * @return Name of an HTTP namespace.
-     * 
-     */
     private String httpName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -31,31 +19,15 @@ public final class GetHttpNamespaceResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetHttpNamespaceResult() {}
-    /**
-     * @return ARN that Amazon Route 53 assigns to the namespace when you create it.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description that you specify for the namespace when you create it.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Name of an HTTP namespace.
-     * 
-     */
     public String httpName() {
         return this.httpName;
     }
@@ -69,10 +41,6 @@ public final class GetHttpNamespaceResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -17,328 +17,59 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Application AutoScaling Policy resource.
- * 
- * ## Example Usage
- * ### DynamoDB Table Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import com.pulumi.aws.appautoscaling.Policy;
- * import com.pulumi.aws.appautoscaling.PolicyArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dynamodbTableReadTarget = new Target(&#34;dynamodbTableReadTarget&#34;, TargetArgs.builder()        
- *             .maxCapacity(100)
- *             .minCapacity(5)
- *             .resourceId(&#34;table/tableName&#34;)
- *             .scalableDimension(&#34;dynamodb:table:ReadCapacityUnits&#34;)
- *             .serviceNamespace(&#34;dynamodb&#34;)
- *             .build());
- * 
- *         var dynamodbTableReadPolicy = new Policy(&#34;dynamodbTableReadPolicy&#34;, PolicyArgs.builder()        
- *             .policyType(&#34;TargetTrackingScaling&#34;)
- *             .resourceId(dynamodbTableReadTarget.resourceId())
- *             .scalableDimension(dynamodbTableReadTarget.scalableDimension())
- *             .serviceNamespace(dynamodbTableReadTarget.serviceNamespace())
- *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
- *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;DynamoDBReadCapacityUtilization&#34;)
- *                     .build())
- *                 .targetValue(70)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Preserve desired count when updating an autoscaled ECS Service
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ecsService = new Service(&#34;ecsService&#34;, ServiceArgs.builder()        
- *             .cluster(&#34;clusterName&#34;)
- *             .taskDefinition(&#34;taskDefinitionFamily:1&#34;)
- *             .desiredCount(2)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Aurora Read Replica Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import com.pulumi.aws.appautoscaling.Policy;
- * import com.pulumi.aws.appautoscaling.PolicyArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var replicasTarget = new Target(&#34;replicasTarget&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;rds&#34;)
- *             .scalableDimension(&#34;rds:cluster:ReadReplicaCount&#34;)
- *             .resourceId(String.format(&#34;cluster:%s&#34;, aws_rds_cluster.example().id()))
- *             .minCapacity(1)
- *             .maxCapacity(15)
- *             .build());
- * 
- *         var replicasPolicy = new Policy(&#34;replicasPolicy&#34;, PolicyArgs.builder()        
- *             .serviceNamespace(replicasTarget.serviceNamespace())
- *             .scalableDimension(replicasTarget.scalableDimension())
- *             .resourceId(replicasTarget.resourceId())
- *             .policyType(&#34;TargetTrackingScaling&#34;)
- *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
- *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;RDSReaderAverageCPUUtilization&#34;)
- *                     .build())
- *                 .targetValue(75)
- *                 .scaleInCooldown(300)
- *                 .scaleOutCooldown(300)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### MSK / Kafka Autoscaling
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appautoscaling.Target;
- * import com.pulumi.aws.appautoscaling.TargetArgs;
- * import com.pulumi.aws.appautoscaling.Policy;
- * import com.pulumi.aws.appautoscaling.PolicyArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationArgs;
- * import com.pulumi.aws.appautoscaling.inputs.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mskTarget = new Target(&#34;mskTarget&#34;, TargetArgs.builder()        
- *             .serviceNamespace(&#34;kafka&#34;)
- *             .scalableDimension(&#34;kafka:broker-storage:VolumeSize&#34;)
- *             .resourceId(aws_msk_cluster.example().arn())
- *             .minCapacity(1)
- *             .maxCapacity(8)
- *             .build());
- * 
- *         var targets = new Policy(&#34;targets&#34;, PolicyArgs.builder()        
- *             .serviceNamespace(mskTarget.serviceNamespace())
- *             .scalableDimension(mskTarget.scalableDimension())
- *             .resourceId(mskTarget.resourceId())
- *             .policyType(&#34;TargetTrackingScaling&#34;)
- *             .targetTrackingScalingPolicyConfiguration(PolicyTargetTrackingScalingPolicyConfigurationArgs.builder()
- *                 .predefinedMetricSpecification(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs.builder()
- *                     .predefinedMetricType(&#34;KafkaBrokerStorageUtilization&#34;)
- *                     .build())
- *                 .targetValue(55)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Application AutoScaling Policy can be imported using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`.
- * 
- * ```sh
- *  $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
- * ```
- * 
- */
 @ResourceType(type="aws:appautoscaling/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
-    /**
-     * List of CloudWatch alarm ARNs associated with the scaling policy.
-     * 
-     */
     @Export(name="alarmArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> alarmArns;
 
-    /**
-     * @return List of CloudWatch alarm ARNs associated with the scaling policy.
-     * 
-     */
     public Output<List<String>> alarmArns() {
         return this.alarmArns;
     }
-    /**
-     * ARN assigned by AWS to the scaling policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN assigned by AWS to the scaling policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the policy. Must be between 1 and 255 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the policy. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
-     * 
-     */
     @Export(name="policyType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyType;
 
-    /**
-     * @return Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
-     * 
-     */
     public Output<Optional<String>> policyType() {
         return Codegen.optional(this.policyType);
     }
-    /**
-     * Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
-    /**
-     * Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     @Export(name="scalableDimension", refs={String.class}, tree="[0]")
     private Output<String> scalableDimension;
 
-    /**
-     * @return Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     public Output<String> scalableDimension() {
         return this.scalableDimension;
     }
-    /**
-     * AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     @Export(name="serviceNamespace", refs={String.class}, tree="[0]")
     private Output<String> serviceNamespace;
 
-    /**
-     * @return AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-     * 
-     */
     public Output<String> serviceNamespace() {
         return this.serviceNamespace;
     }
-    /**
-     * Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
-     * 
-     */
     @Export(name="stepScalingPolicyConfiguration", refs={PolicyStepScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyStepScalingPolicyConfiguration> stepScalingPolicyConfiguration;
 
-    /**
-     * @return Step scaling policy configuration, requires `policy_type = &#34;StepScaling&#34;` (default). See supported fields below.
-     * 
-     */
     public Output<Optional<PolicyStepScalingPolicyConfiguration>> stepScalingPolicyConfiguration() {
         return Codegen.optional(this.stepScalingPolicyConfiguration);
     }
-    /**
-     * Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
-     * 
-     */
     @Export(name="targetTrackingScalingPolicyConfiguration", refs={PolicyTargetTrackingScalingPolicyConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ PolicyTargetTrackingScalingPolicyConfiguration> targetTrackingScalingPolicyConfiguration;
 
-    /**
-     * @return Target tracking policy, requires `policy_type = &#34;TargetTrackingScaling&#34;`. See supported fields below.
-     * 
-     */
     public Output<Optional<PolicyTargetTrackingScalingPolicyConfiguration>> targetTrackingScalingPolicyConfiguration() {
         return Codegen.optional(this.targetTrackingScalingPolicyConfiguration);
     }

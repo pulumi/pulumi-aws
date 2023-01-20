@@ -16,32 +16,16 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
 
     public static final VirtualNodeSpecListenerTlsValidationTrustArgs Empty = new VirtualNodeSpecListenerTlsValidationTrustArgs();
 
-    /**
-     * TLS validation context trust for a local file certificate.
-     * 
-     */
     @Import(name="file")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationTrustFileArgs> file;
 
-    /**
-     * @return TLS validation context trust for a local file certificate.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationTrustFileArgs>> file() {
         return Optional.ofNullable(this.file);
     }
 
-    /**
-     * TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     @Import(name="sds")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationTrustSdsArgs> sds;
 
-    /**
-     * @return TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationTrustSdsArgs>> sds() {
         return Optional.ofNullable(this.sds);
     }
@@ -71,44 +55,20 @@ public final class VirtualNodeSpecListenerTlsValidationTrustArgs extends com.pul
             $ = new VirtualNodeSpecListenerTlsValidationTrustArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(@Nullable Output<VirtualNodeSpecListenerTlsValidationTrustFileArgs> file) {
             $.file = file;
             return this;
         }
 
-        /**
-         * @param file TLS validation context trust for a local file certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder file(VirtualNodeSpecListenerTlsValidationTrustFileArgs file) {
             return file(Output.of(file));
         }
 
-        /**
-         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sds(@Nullable Output<VirtualNodeSpecListenerTlsValidationTrustSdsArgs> sds) {
             $.sds = sds;
             return this;
         }
 
-        /**
-         * @param sds TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sds(VirtualNodeSpecListenerTlsValidationTrustSdsArgs sds) {
             return sds(Output.of(sds));
         }

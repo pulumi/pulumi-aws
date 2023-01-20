@@ -15,62 +15,30 @@ public final class CustomActionTypeSettingsArgs extends com.pulumi.resources.Res
 
     public static final CustomActionTypeSettingsArgs Empty = new CustomActionTypeSettingsArgs();
 
-    /**
-     * The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-     * 
-     */
     @Import(name="entityUrlTemplate")
     private @Nullable Output<String> entityUrlTemplate;
 
-    /**
-     * @return The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-     * 
-     */
     public Optional<Output<String>> entityUrlTemplate() {
         return Optional.ofNullable(this.entityUrlTemplate);
     }
 
-    /**
-     * The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-     * 
-     */
     @Import(name="executionUrlTemplate")
     private @Nullable Output<String> executionUrlTemplate;
 
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-     * 
-     */
     public Optional<Output<String>> executionUrlTemplate() {
         return Optional.ofNullable(this.executionUrlTemplate);
     }
 
-    /**
-     * The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-     * 
-     */
     @Import(name="revisionUrlTemplate")
     private @Nullable Output<String> revisionUrlTemplate;
 
-    /**
-     * @return The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-     * 
-     */
     public Optional<Output<String>> revisionUrlTemplate() {
         return Optional.ofNullable(this.revisionUrlTemplate);
     }
 
-    /**
-     * The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-     * 
-     */
     @Import(name="thirdPartyConfigurationUrl")
     private @Nullable Output<String> thirdPartyConfigurationUrl;
 
-    /**
-     * @return The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-     * 
-     */
     public Optional<Output<String>> thirdPartyConfigurationUrl() {
         return Optional.ofNullable(this.thirdPartyConfigurationUrl);
     }
@@ -102,86 +70,38 @@ public final class CustomActionTypeSettingsArgs extends com.pulumi.resources.Res
             $ = new CustomActionTypeSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param entityUrlTemplate The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityUrlTemplate(@Nullable Output<String> entityUrlTemplate) {
             $.entityUrlTemplate = entityUrlTemplate;
             return this;
         }
 
-        /**
-         * @param entityUrlTemplate The URL returned to the AWS CodePipeline console that provides a deep link to the resources of the external system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder entityUrlTemplate(String entityUrlTemplate) {
             return entityUrlTemplate(Output.of(entityUrlTemplate));
         }
 
-        /**
-         * @param executionUrlTemplate The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionUrlTemplate(@Nullable Output<String> executionUrlTemplate) {
             $.executionUrlTemplate = executionUrlTemplate;
             return this;
         }
 
-        /**
-         * @param executionUrlTemplate The URL returned to the AWS CodePipeline console that contains a link to the top-level landing page for the external system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder executionUrlTemplate(String executionUrlTemplate) {
             return executionUrlTemplate(Output.of(executionUrlTemplate));
         }
 
-        /**
-         * @param revisionUrlTemplate The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionUrlTemplate(@Nullable Output<String> revisionUrlTemplate) {
             $.revisionUrlTemplate = revisionUrlTemplate;
             return this;
         }
 
-        /**
-         * @param revisionUrlTemplate The URL returned to the AWS CodePipeline console that contains a link to the page where customers can update or change the configuration of the external action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revisionUrlTemplate(String revisionUrlTemplate) {
             return revisionUrlTemplate(Output.of(revisionUrlTemplate));
         }
 
-        /**
-         * @param thirdPartyConfigurationUrl The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thirdPartyConfigurationUrl(@Nullable Output<String> thirdPartyConfigurationUrl) {
             $.thirdPartyConfigurationUrl = thirdPartyConfigurationUrl;
             return this;
         }
 
-        /**
-         * @param thirdPartyConfigurationUrl The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thirdPartyConfigurationUrl(String thirdPartyConfigurationUrl) {
             return thirdPartyConfigurationUrl(Output.of(thirdPartyConfigurationUrl));
         }

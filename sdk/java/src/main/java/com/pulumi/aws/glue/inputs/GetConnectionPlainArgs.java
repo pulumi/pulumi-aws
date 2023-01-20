@@ -15,34 +15,16 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
-    /**
-     * Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return Concatenation of the catalog ID and connection name. For example, if your account ID is
-     * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-     * 
-     */
     public String id() {
         return this.id;
     }
 
-    /**
-     * Tags assigned to the resource
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -72,24 +54,11 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetConnectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Concatenation of the catalog ID and connection name. For example, if your account ID is
-         * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

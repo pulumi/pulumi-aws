@@ -18,68 +18,30 @@ public final class SslNegotiationPolicyState extends com.pulumi.resources.Resour
 
     public static final SslNegotiationPolicyState Empty = new SslNegotiationPolicyState();
 
-    /**
-     * An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     @Import(name="attributes")
     private @Nullable Output<List<SslNegotiationPolicyAttributeArgs>> attributes;
 
-    /**
-     * @return An SSL Negotiation policy attribute. Each has two properties:
-     * 
-     */
     public Optional<Output<List<SslNegotiationPolicyAttributeArgs>>> attributes() {
         return Optional.ofNullable(this.attributes);
     }
 
-    /**
-     * The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     @Import(name="lbPort")
     private @Nullable Output<Integer> lbPort;
 
-    /**
-     * @return The load balancer port to which the policy
-     * should be applied. This must be an active listener on the load
-     * balancer.
-     * 
-     */
     public Optional<Output<Integer>> lbPort() {
         return Optional.ofNullable(this.lbPort);
     }
 
-    /**
-     * The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     @Import(name="loadBalancer")
     private @Nullable Output<String> loadBalancer;
 
-    /**
-     * @return The load balancer to which the policy
-     * should be attached.
-     * 
-     */
     public Optional<Output<String>> loadBalancer() {
         return Optional.ofNullable(this.loadBalancer);
     }
 
-    /**
-     * The name of the attribute
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the attribute
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -111,102 +73,42 @@ public final class SslNegotiationPolicyState extends com.pulumi.resources.Resour
             $ = new SslNegotiationPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(@Nullable Output<List<SslNegotiationPolicyAttributeArgs>> attributes) {
             $.attributes = attributes;
             return this;
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(List<SslNegotiationPolicyAttributeArgs> attributes) {
             return attributes(Output.of(attributes));
         }
 
-        /**
-         * @param attributes An SSL Negotiation policy attribute. Each has two properties:
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributes(SslNegotiationPolicyAttributeArgs... attributes) {
             return attributes(List.of(attributes));
         }
 
-        /**
-         * @param lbPort The load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(@Nullable Output<Integer> lbPort) {
             $.lbPort = lbPort;
             return this;
         }
 
-        /**
-         * @param lbPort The load balancer port to which the policy
-         * should be applied. This must be an active listener on the load
-         * balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbPort(Integer lbPort) {
             return lbPort(Output.of(lbPort));
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(@Nullable Output<String> loadBalancer) {
             $.loadBalancer = loadBalancer;
             return this;
         }
 
-        /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loadBalancer(String loadBalancer) {
             return loadBalancer(Output.of(loadBalancer));
         }
 
-        /**
-         * @param name The name of the attribute
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the attribute
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

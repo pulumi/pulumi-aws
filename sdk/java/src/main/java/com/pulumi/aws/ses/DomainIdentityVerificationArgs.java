@@ -13,17 +13,9 @@ public final class DomainIdentityVerificationArgs extends com.pulumi.resources.R
 
     public static final DomainIdentityVerificationArgs Empty = new DomainIdentityVerificationArgs();
 
-    /**
-     * The domain name of the SES domain identity to verify.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return The domain name of the SES domain identity to verify.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
@@ -52,23 +44,11 @@ public final class DomainIdentityVerificationArgs extends com.pulumi.resources.R
             $ = new DomainIdentityVerificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain The domain name of the SES domain identity to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The domain name of the SES domain identity to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

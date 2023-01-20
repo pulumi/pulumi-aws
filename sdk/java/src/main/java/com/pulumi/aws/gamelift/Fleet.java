@@ -20,182 +20,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a GameLift Fleet resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.gamelift.Fleet;
- * import com.pulumi.aws.gamelift.FleetArgs;
- * import com.pulumi.aws.gamelift.inputs.FleetRuntimeConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Fleet(&#34;example&#34;, FleetArgs.builder()        
- *             .buildId(aws_gamelift_build.example().id())
- *             .ec2InstanceType(&#34;t2.micro&#34;)
- *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
- *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
- *                     .concurrentExecutions(1)
- *                     .launchPath(&#34;C:\\game\\GomokuServer.exe&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GameLift Fleets can be imported using the ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:gamelift/fleet:Fleet")
 public class Fleet extends com.pulumi.resources.CustomResource {
-    /**
-     * Fleet ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Fleet ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Build ARN.
-     * 
-     */
     @Export(name="buildArn", refs={String.class}, tree="[0]")
     private Output<String> buildArn;
 
-    /**
-     * @return Build ARN.
-     * 
-     */
     public Output<String> buildArn() {
         return this.buildArn;
     }
-    /**
-     * ID of the GameLift Build to be deployed on the fleet.
-     * 
-     */
     @Export(name="buildId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> buildId;
 
-    /**
-     * @return ID of the GameLift Build to be deployed on the fleet.
-     * 
-     */
     public Output<Optional<String>> buildId() {
         return Codegen.optional(this.buildId);
     }
-    /**
-     * Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-     * 
-     */
     @Export(name="certificateConfiguration", refs={FleetCertificateConfiguration.class}, tree="[0]")
     private Output<FleetCertificateConfiguration> certificateConfiguration;
 
-    /**
-     * @return Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-     * 
-     */
     public Output<FleetCertificateConfiguration> certificateConfiguration() {
         return this.certificateConfiguration;
     }
-    /**
-     * Human-readable description of the fleet.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Human-readable description of the fleet.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-     * 
-     */
     @Export(name="ec2InboundPermissions", refs={List.class,FleetEc2InboundPermission.class}, tree="[0,1]")
     private Output<List<FleetEc2InboundPermission>> ec2InboundPermissions;
 
-    /**
-     * @return Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-     * 
-     */
     public Output<List<FleetEc2InboundPermission>> ec2InboundPermissions() {
         return this.ec2InboundPermissions;
     }
-    /**
-     * Name of an EC2 instance typeE.g., `t2.micro`
-     * 
-     */
     @Export(name="ec2InstanceType", refs={String.class}, tree="[0]")
     private Output<String> ec2InstanceType;
 
-    /**
-     * @return Name of an EC2 instance typeE.g., `t2.micro`
-     * 
-     */
     public Output<String> ec2InstanceType() {
         return this.ec2InstanceType;
     }
-    /**
-     * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-     * 
-     */
     @Export(name="fleetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fleetType;
 
-    /**
-     * @return Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-     * 
-     */
     public Output<Optional<String>> fleetType() {
         return Codegen.optional(this.fleetType);
     }
-    /**
-     * ARN of an IAM role that instances in the fleet can assume.
-     * 
-     */
     @Export(name="instanceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceRoleArn;
 
-    /**
-     * @return ARN of an IAM role that instances in the fleet can assume.
-     * 
-     */
     public Output<Optional<String>> instanceRoleArn() {
         return Codegen.optional(this.instanceRoleArn);
     }
@@ -205,143 +82,63 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     public Output<List<String>> logPaths() {
         return this.logPaths;
     }
-    /**
-     * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-     * 
-     */
     @Export(name="metricGroups", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> metricGroups;
 
-    /**
-     * @return List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-     * 
-     */
     public Output<List<String>> metricGroups() {
         return this.metricGroups;
     }
-    /**
-     * The name of the fleet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the fleet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-     * 
-     */
     @Export(name="newGameSessionProtectionPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> newGameSessionProtectionPolicy;
 
-    /**
-     * @return Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-     * 
-     */
     public Output<Optional<String>> newGameSessionProtectionPolicy() {
         return Codegen.optional(this.newGameSessionProtectionPolicy);
     }
-    /**
-     * Operating system of the fleet&#39;s computing resources.
-     * 
-     */
     @Export(name="operatingSystem", refs={String.class}, tree="[0]")
     private Output<String> operatingSystem;
 
-    /**
-     * @return Operating system of the fleet&#39;s computing resources.
-     * 
-     */
     public Output<String> operatingSystem() {
         return this.operatingSystem;
     }
-    /**
-     * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-     * 
-     */
     @Export(name="resourceCreationLimitPolicy", refs={FleetResourceCreationLimitPolicy.class}, tree="[0]")
     private Output</* @Nullable */ FleetResourceCreationLimitPolicy> resourceCreationLimitPolicy;
 
-    /**
-     * @return Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-     * 
-     */
     public Output<Optional<FleetResourceCreationLimitPolicy>> resourceCreationLimitPolicy() {
         return Codegen.optional(this.resourceCreationLimitPolicy);
     }
-    /**
-     * Instructions for launching server processes on each instance in the fleet. See below.
-     * 
-     */
     @Export(name="runtimeConfiguration", refs={FleetRuntimeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FleetRuntimeConfiguration> runtimeConfiguration;
 
-    /**
-     * @return Instructions for launching server processes on each instance in the fleet. See below.
-     * 
-     */
     public Output<Optional<FleetRuntimeConfiguration>> runtimeConfiguration() {
         return Codegen.optional(this.runtimeConfiguration);
     }
-    /**
-     * Script ARN.
-     * 
-     */
     @Export(name="scriptArn", refs={String.class}, tree="[0]")
     private Output<String> scriptArn;
 
-    /**
-     * @return Script ARN.
-     * 
-     */
     public Output<String> scriptArn() {
         return this.scriptArn;
     }
-    /**
-     * ID of the GameLift Script to be deployed on the fleet.
-     * 
-     */
     @Export(name="scriptId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scriptId;
 
-    /**
-     * @return ID of the GameLift Script to be deployed on the fleet.
-     * 
-     */
     public Output<Optional<String>> scriptId() {
         return Codegen.optional(this.scriptId);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

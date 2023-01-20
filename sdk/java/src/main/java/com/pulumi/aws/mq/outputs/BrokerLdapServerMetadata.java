@@ -13,137 +13,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BrokerLdapServerMetadata {
-    /**
-     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
-     * 
-     */
     private @Nullable List<String> hosts;
-    /**
-     * @return Fully qualified name of the directory to search for a user’s groups.
-     * 
-     */
     private @Nullable String roleBase;
-    /**
-     * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-     * 
-     */
     private @Nullable String roleName;
-    /**
-     * @return Search criteria for groups.
-     * 
-     */
     private @Nullable String roleSearchMatching;
-    /**
-     * @return Whether the directory search scope is the entire sub-tree.
-     * 
-     */
     private @Nullable Boolean roleSearchSubtree;
-    /**
-     * @return Service account password.
-     * 
-     */
     private @Nullable String serviceAccountPassword;
-    /**
-     * @return Service account username.
-     * 
-     */
     private @Nullable String serviceAccountUsername;
-    /**
-     * @return Fully qualified name of the directory where you want to search for users.
-     * 
-     */
     private @Nullable String userBase;
-    /**
-     * @return Specifies the name of the LDAP attribute for the user group membership.
-     * 
-     */
     private @Nullable String userRoleName;
-    /**
-     * @return Search criteria for users.
-     * 
-     */
     private @Nullable String userSearchMatching;
-    /**
-     * @return Whether the directory search scope is the entire sub-tree.
-     * 
-     */
     private @Nullable Boolean userSearchSubtree;
 
     private BrokerLdapServerMetadata() {}
-    /**
-     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
-     * 
-     */
     public List<String> hosts() {
         return this.hosts == null ? List.of() : this.hosts;
     }
-    /**
-     * @return Fully qualified name of the directory to search for a user’s groups.
-     * 
-     */
     public Optional<String> roleBase() {
         return Optional.ofNullable(this.roleBase);
     }
-    /**
-     * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
-     * 
-     */
     public Optional<String> roleName() {
         return Optional.ofNullable(this.roleName);
     }
-    /**
-     * @return Search criteria for groups.
-     * 
-     */
     public Optional<String> roleSearchMatching() {
         return Optional.ofNullable(this.roleSearchMatching);
     }
-    /**
-     * @return Whether the directory search scope is the entire sub-tree.
-     * 
-     */
     public Optional<Boolean> roleSearchSubtree() {
         return Optional.ofNullable(this.roleSearchSubtree);
     }
-    /**
-     * @return Service account password.
-     * 
-     */
     public Optional<String> serviceAccountPassword() {
         return Optional.ofNullable(this.serviceAccountPassword);
     }
-    /**
-     * @return Service account username.
-     * 
-     */
     public Optional<String> serviceAccountUsername() {
         return Optional.ofNullable(this.serviceAccountUsername);
     }
-    /**
-     * @return Fully qualified name of the directory where you want to search for users.
-     * 
-     */
     public Optional<String> userBase() {
         return Optional.ofNullable(this.userBase);
     }
-    /**
-     * @return Specifies the name of the LDAP attribute for the user group membership.
-     * 
-     */
     public Optional<String> userRoleName() {
         return Optional.ofNullable(this.userRoleName);
     }
-    /**
-     * @return Search criteria for users.
-     * 
-     */
     public Optional<String> userSearchMatching() {
         return Optional.ofNullable(this.userSearchMatching);
     }
-    /**
-     * @return Whether the directory search scope is the entire sub-tree.
-     * 
-     */
     public Optional<Boolean> userSearchSubtree() {
         return Optional.ofNullable(this.userSearchSubtree);
     }

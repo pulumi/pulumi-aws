@@ -15,32 +15,16 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
 
     public static final RemediationConfigurationExecutionControlsSsmControlsArgs Empty = new RemediationConfigurationExecutionControlsSsmControlsArgs();
 
-    /**
-     * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-     * 
-     */
     @Import(name="concurrentExecutionRatePercentage")
     private @Nullable Output<Integer> concurrentExecutionRatePercentage;
 
-    /**
-     * @return Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-     * 
-     */
     public Optional<Output<Integer>> concurrentExecutionRatePercentage() {
         return Optional.ofNullable(this.concurrentExecutionRatePercentage);
     }
 
-    /**
-     * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
-     * 
-     */
     @Import(name="errorPercentage")
     private @Nullable Output<Integer> errorPercentage;
 
-    /**
-     * @return Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
-     * 
-     */
     public Optional<Output<Integer>> errorPercentage() {
         return Optional.ofNullable(this.errorPercentage);
     }
@@ -70,44 +54,20 @@ public final class RemediationConfigurationExecutionControlsSsmControlsArgs exte
             $ = new RemediationConfigurationExecutionControlsSsmControlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrentExecutionRatePercentage(@Nullable Output<Integer> concurrentExecutionRatePercentage) {
             $.concurrentExecutionRatePercentage = concurrentExecutionRatePercentage;
             return this;
         }
 
-        /**
-         * @param concurrentExecutionRatePercentage Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-         * 
-         * @return builder
-         * 
-         */
         public Builder concurrentExecutionRatePercentage(Integer concurrentExecutionRatePercentage) {
             return concurrentExecutionRatePercentage(Output.of(concurrentExecutionRatePercentage));
         }
 
-        /**
-         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorPercentage(@Nullable Output<Integer> errorPercentage) {
             $.errorPercentage = errorPercentage;
             return this;
         }
 
-        /**
-         * @param errorPercentage Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorPercentage(Integer errorPercentage) {
             return errorPercentage(Output.of(errorPercentage));
         }

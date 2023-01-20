@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTagsFilterOr {
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     private @Nullable GetTagsFilterOrCostCategory costCategory;
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     private @Nullable GetTagsFilterOrDimension dimension;
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     private @Nullable GetTagsFilterOrTags tags;
 
     private GetTagsFilterOr() {}
-    /**
-     * @return Configuration block for the filter that&#39;s based on `CostCategory` values. See below.
-     * 
-     */
     public Optional<GetTagsFilterOrCostCategory> costCategory() {
         return Optional.ofNullable(this.costCategory);
     }
-    /**
-     * @return Configuration block for the specific `Dimension` to use for `Expression`. See below.
-     * 
-     */
     public Optional<GetTagsFilterOrDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     public Optional<GetTagsFilterOrTags> tags() {
         return Optional.ofNullable(this.tags);
     }

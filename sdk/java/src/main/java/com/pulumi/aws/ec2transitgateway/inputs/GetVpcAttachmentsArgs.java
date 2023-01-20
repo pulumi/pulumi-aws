@@ -16,17 +16,9 @@ public final class GetVpcAttachmentsArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetVpcAttachmentsArgs Empty = new GetVpcAttachmentsArgs();
 
-    /**
-     * One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcAttachmentsFilterArgs>> filters;
 
-    /**
-     * @return One or more configuration blocks containing name-values filters. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetVpcAttachmentsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -55,33 +47,15 @@ public final class GetVpcAttachmentsArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetVpcAttachmentsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpcAttachmentsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpcAttachmentsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more configuration blocks containing name-values filters. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcAttachmentsFilterArgs... filters) {
             return filters(List.of(filters));
         }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestPrivateDnsNameOptions {
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-     * 
-     */
     private @Nullable Boolean enableResourceNameDnsARecord;
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-     * 
-     */
     private @Nullable Boolean enableResourceNameDnsAaaaRecord;
-    /**
-     * @return Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
-     * 
-     */
     private @Nullable String hostnameType;
 
     private SpotInstanceRequestPrivateDnsNameOptions() {}
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
-     * 
-     */
     public Optional<Boolean> enableResourceNameDnsARecord() {
         return Optional.ofNullable(this.enableResourceNameDnsARecord);
     }
-    /**
-     * @return Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
-     * 
-     */
     public Optional<Boolean> enableResourceNameDnsAaaaRecord() {
         return Optional.ofNullable(this.enableResourceNameDnsAaaaRecord);
     }
-    /**
-     * @return Type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
-     * 
-     */
     public Optional<String> hostnameType() {
         return Optional.ofNullable(this.hostnameType);
     }

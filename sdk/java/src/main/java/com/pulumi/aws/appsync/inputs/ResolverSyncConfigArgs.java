@@ -16,47 +16,23 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
 
     public static final ResolverSyncConfigArgs Empty = new ResolverSyncConfigArgs();
 
-    /**
-     * Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-     * 
-     */
     @Import(name="conflictDetection")
     private @Nullable Output<String> conflictDetection;
 
-    /**
-     * @return Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-     * 
-     */
     public Optional<Output<String>> conflictDetection() {
         return Optional.ofNullable(this.conflictDetection);
     }
 
-    /**
-     * Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-     * 
-     */
     @Import(name="conflictHandler")
     private @Nullable Output<String> conflictHandler;
 
-    /**
-     * @return Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-     * 
-     */
     public Optional<Output<String>> conflictHandler() {
         return Optional.ofNullable(this.conflictHandler);
     }
 
-    /**
-     * Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-     * 
-     */
     @Import(name="lambdaConflictHandlerConfig")
     private @Nullable Output<ResolverSyncConfigLambdaConflictHandlerConfigArgs> lambdaConflictHandlerConfig;
 
-    /**
-     * @return Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-     * 
-     */
     public Optional<Output<ResolverSyncConfigLambdaConflictHandlerConfigArgs>> lambdaConflictHandlerConfig() {
         return Optional.ofNullable(this.lambdaConflictHandlerConfig);
     }
@@ -87,65 +63,29 @@ public final class ResolverSyncConfigArgs extends com.pulumi.resources.ResourceA
             $ = new ResolverSyncConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param conflictDetection Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictDetection(@Nullable Output<String> conflictDetection) {
             $.conflictDetection = conflictDetection;
             return this;
         }
 
-        /**
-         * @param conflictDetection Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictDetection(String conflictDetection) {
             return conflictDetection(Output.of(conflictDetection));
         }
 
-        /**
-         * @param conflictHandler Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictHandler(@Nullable Output<String> conflictHandler) {
             $.conflictHandler = conflictHandler;
             return this;
         }
 
-        /**
-         * @param conflictHandler Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder conflictHandler(String conflictHandler) {
             return conflictHandler(Output.of(conflictHandler));
         }
 
-        /**
-         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConflictHandlerConfig(@Nullable Output<ResolverSyncConfigLambdaConflictHandlerConfigArgs> lambdaConflictHandlerConfig) {
             $.lambdaConflictHandlerConfig = lambdaConflictHandlerConfig;
             return this;
         }
 
-        /**
-         * @param lambdaConflictHandlerConfig Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConflictHandlerConfig(ResolverSyncConfigLambdaConflictHandlerConfigArgs lambdaConflictHandlerConfig) {
             return lambdaConflictHandlerConfig(Output.of(lambdaConflictHandlerConfig));
         }

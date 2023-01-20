@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MLTransformSchema {
-    /**
-     * @return The type of data in the column.
-     * 
-     */
     private @Nullable String dataType;
-    /**
-     * @return The name you assign to this ML Transform. It must be unique in your account.
-     * 
-     */
     private @Nullable String name;
 
     private MLTransformSchema() {}
-    /**
-     * @return The type of data in the column.
-     * 
-     */
     public Optional<String> dataType() {
         return Optional.ofNullable(this.dataType);
     }
-    /**
-     * @return The name you assign to this ML Transform. It must be unique in your account.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

@@ -15,32 +15,16 @@ public final class RolePolicyAttachmentState extends com.pulumi.resources.Resour
 
     public static final RolePolicyAttachmentState Empty = new RolePolicyAttachmentState();
 
-    /**
-     * The ARN of the policy you want to apply
-     * 
-     */
     @Import(name="policyArn")
     private @Nullable Output<String> policyArn;
 
-    /**
-     * @return The ARN of the policy you want to apply
-     * 
-     */
     public Optional<Output<String>> policyArn() {
         return Optional.ofNullable(this.policyArn);
     }
 
-    /**
-     * The name of the IAM role to which the policy should be applied
-     * 
-     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
-    /**
-     * @return The name of the IAM role to which the policy should be applied
-     * 
-     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
@@ -70,44 +54,20 @@ public final class RolePolicyAttachmentState extends com.pulumi.resources.Resour
             $ = new RolePolicyAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policyArn The ARN of the policy you want to apply
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(@Nullable Output<String> policyArn) {
             $.policyArn = policyArn;
             return this;
         }
 
-        /**
-         * @param policyArn The ARN of the policy you want to apply
-         * 
-         * @return builder
-         * 
-         */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
         }
 
-        /**
-         * @param role The name of the IAM role to which the policy should be applied
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role The name of the IAM role to which the policy should be applied
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }

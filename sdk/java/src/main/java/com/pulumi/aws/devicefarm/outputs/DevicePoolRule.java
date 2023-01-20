@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DevicePoolRule {
-    /**
-     * @return The rule&#39;s stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
-     * 
-     */
     private @Nullable String attribute;
-    /**
-     * @return Specifies how Device Farm compares the rule&#39;s attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-     * 
-     */
     private @Nullable String operator;
-    /**
-     * @return The rule&#39;s value.
-     * 
-     */
     private @Nullable String value;
 
     private DevicePoolRule() {}
-    /**
-     * @return The rule&#39;s stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
-     * 
-     */
     public Optional<String> attribute() {
         return Optional.ofNullable(this.attribute);
     }
-    /**
-     * @return Specifies how Device Farm compares the rule&#39;s attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-     * 
-     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
-    /**
-     * @return The rule&#39;s value.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

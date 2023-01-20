@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class LaunchTemplateLicenseSpecification {
-    /**
-     * @return ARN of the license configuration.
-     * 
-     */
     private String licenseConfigurationArn;
 
     private LaunchTemplateLicenseSpecification() {}
-    /**
-     * @return ARN of the license configuration.
-     * 
-     */
     public String licenseConfigurationArn() {
         return this.licenseConfigurationArn;
     }

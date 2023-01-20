@@ -17,199 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AWS Config Configuration Aggregator
- * 
- * ## Example Usage
- * ### Account Based Aggregation
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.ConfigurationAggregator;
- * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
- * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorAccountAggregationSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var account = new ConfigurationAggregator(&#34;account&#34;, ConfigurationAggregatorArgs.builder()        
- *             .accountAggregationSource(ConfigurationAggregatorAccountAggregationSourceArgs.builder()
- *                 .accountIds(&#34;123456789012&#34;)
- *                 .regions(&#34;us-west-2&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Based Aggregation
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.cfg.ConfigurationAggregator;
- * import com.pulumi.aws.cfg.ConfigurationAggregatorArgs;
- * import com.pulumi.aws.cfg.inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var organizationRole = new Role(&#34;organizationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;config.amazonaws.com&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var organizationRolePolicyAttachment = new RolePolicyAttachment(&#34;organizationRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(organizationRole.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations&#34;)
- *             .build());
- * 
- *         var organizationConfigurationAggregator = new ConfigurationAggregator(&#34;organizationConfigurationAggregator&#34;, ConfigurationAggregatorArgs.builder()        
- *             .organizationAggregationSource(ConfigurationAggregatorOrganizationAggregationSourceArgs.builder()
- *                 .allRegions(true)
- *                 .roleArn(organizationRole.arn())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(organizationRolePolicyAttachment)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Configuration Aggregators can be imported using the name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/configurationAggregator:ConfigurationAggregator")
 public class ConfigurationAggregator extends com.pulumi.resources.CustomResource {
-    /**
-     * The account(s) to aggregate config data from as documented below.
-     * 
-     */
     @Export(name="accountAggregationSource", refs={ConfigurationAggregatorAccountAggregationSource.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationAggregatorAccountAggregationSource> accountAggregationSource;
 
-    /**
-     * @return The account(s) to aggregate config data from as documented below.
-     * 
-     */
     public Output<Optional<ConfigurationAggregatorAccountAggregationSource>> accountAggregationSource() {
         return Codegen.optional(this.accountAggregationSource);
     }
-    /**
-     * The ARN of the aggregator
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the aggregator
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the configuration aggregator.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the configuration aggregator.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The organization to aggregate config data from as documented below.
-     * 
-     */
     @Export(name="organizationAggregationSource", refs={ConfigurationAggregatorOrganizationAggregationSource.class}, tree="[0]")
     private Output</* @Nullable */ ConfigurationAggregatorOrganizationAggregationSource> organizationAggregationSource;
 
-    /**
-     * @return The organization to aggregate config data from as documented below.
-     * 
-     */
     public Output<Optional<ConfigurationAggregatorOrganizationAggregationSource>> organizationAggregationSource() {
         return Codegen.optional(this.organizationAggregationSource);
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

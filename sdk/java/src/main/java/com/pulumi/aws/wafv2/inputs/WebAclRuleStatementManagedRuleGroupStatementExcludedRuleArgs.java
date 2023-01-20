@@ -13,17 +13,9 @@ public final class WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs 
 
     public static final WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs();
 
-    /**
-     * Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -52,23 +44,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs 
             $ = new WebAclRuleStatementManagedRuleGroupStatementExcludedRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

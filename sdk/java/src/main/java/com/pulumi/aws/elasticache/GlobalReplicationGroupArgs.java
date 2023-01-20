@@ -17,148 +17,58 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
 
     public static final GlobalReplicationGroupArgs Empty = new GlobalReplicationGroupArgs();
 
-    /**
-     * Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
-     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-     * 
-     */
     @Import(name="automaticFailoverEnabled")
     private @Nullable Output<Boolean> automaticFailoverEnabled;
 
-    /**
-     * @return Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
-     * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-     * 
-     */
     public Optional<Output<Boolean>> automaticFailoverEnabled() {
         return Optional.ofNullable(this.automaticFailoverEnabled);
     }
 
-    /**
-     * The instance class used.
-     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
-     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-     * 
-     */
     @Import(name="cacheNodeType")
     private @Nullable Output<String> cacheNodeType;
 
-    /**
-     * @return The instance class used.
-     * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
-     * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-     * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-     * 
-     */
     public Optional<Output<String>> cacheNodeType() {
         return Optional.ofNullable(this.cacheNodeType);
     }
 
-    /**
-     * Redis version to use for the Global Replication Group.
-     * When creating, by default the Global Replication Group inherits the version of the primary replication group.
-     * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
-     * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * 
-     */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
-    /**
-     * @return Redis version to use for the Global Replication Group.
-     * When creating, by default the Global Replication Group inherits the version of the primary replication group.
-     * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
-     * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * 
-     */
     public Optional<Output<String>> engineVersion() {
         return Optional.ofNullable(this.engineVersion);
     }
 
-    /**
-     * A user-created description for the global replication group.
-     * 
-     */
     @Import(name="globalReplicationGroupDescription")
     private @Nullable Output<String> globalReplicationGroupDescription;
 
-    /**
-     * @return A user-created description for the global replication group.
-     * 
-     */
     public Optional<Output<String>> globalReplicationGroupDescription() {
         return Optional.ofNullable(this.globalReplicationGroupDescription);
     }
 
-    /**
-     * The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
-     * 
-     */
     @Import(name="globalReplicationGroupIdSuffix", required=true)
     private Output<String> globalReplicationGroupIdSuffix;
 
-    /**
-     * @return The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
-     * 
-     */
     public Output<String> globalReplicationGroupIdSuffix() {
         return this.globalReplicationGroupIdSuffix;
     }
 
-    /**
-     * The number of node groups (shards) on the global replication group.
-     * 
-     */
     @Import(name="numNodeGroups")
     private @Nullable Output<Integer> numNodeGroups;
 
-    /**
-     * @return The number of node groups (shards) on the global replication group.
-     * 
-     */
     public Optional<Output<Integer>> numNodeGroups() {
         return Optional.ofNullable(this.numNodeGroups);
     }
 
-    /**
-     * An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
-     * 
-     */
     @Import(name="parameterGroupName")
     private @Nullable Output<String> parameterGroupName;
 
-    /**
-     * @return An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
-     * 
-     */
     public Optional<Output<String>> parameterGroupName() {
         return Optional.ofNullable(this.parameterGroupName);
     }
 
-    /**
-     * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
-     * 
-     */
     @Import(name="primaryReplicationGroupId", required=true)
     private Output<String> primaryReplicationGroupId;
 
-    /**
-     * @return The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
-     * 
-     */
     public Output<String> primaryReplicationGroupId() {
         return this.primaryReplicationGroupId;
     }
@@ -194,196 +104,74 @@ public final class GlobalReplicationGroupArgs extends com.pulumi.resources.Resou
             $ = new GlobalReplicationGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param automaticFailoverEnabled Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
-         * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticFailoverEnabled(@Nullable Output<Boolean> automaticFailoverEnabled) {
             $.automaticFailoverEnabled = automaticFailoverEnabled;
             return this;
         }
 
-        /**
-         * @param automaticFailoverEnabled Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
-         * When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder automaticFailoverEnabled(Boolean automaticFailoverEnabled) {
             return automaticFailoverEnabled(Output.of(automaticFailoverEnabled));
         }
 
-        /**
-         * @param cacheNodeType The instance class used.
-         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
-         * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheNodeType(@Nullable Output<String> cacheNodeType) {
             $.cacheNodeType = cacheNodeType;
             return this;
         }
 
-        /**
-         * @param cacheNodeType The instance class used.
-         * See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
-         * and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
-         * When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cacheNodeType(String cacheNodeType) {
             return cacheNodeType(Output.of(cacheNodeType));
         }
 
-        /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
-         * When creating, by default the Global Replication Group inherits the version of the primary replication group.
-         * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
-         * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-         * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(@Nullable Output<String> engineVersion) {
             $.engineVersion = engineVersion;
             return this;
         }
 
-        /**
-         * @param engineVersion Redis version to use for the Global Replication Group.
-         * When creating, by default the Global Replication Group inherits the version of the primary replication group.
-         * If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
-         * Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
-         * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-         * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-         * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engineVersion(String engineVersion) {
             return engineVersion(Output.of(engineVersion));
         }
 
-        /**
-         * @param globalReplicationGroupDescription A user-created description for the global replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalReplicationGroupDescription(@Nullable Output<String> globalReplicationGroupDescription) {
             $.globalReplicationGroupDescription = globalReplicationGroupDescription;
             return this;
         }
 
-        /**
-         * @param globalReplicationGroupDescription A user-created description for the global replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalReplicationGroupDescription(String globalReplicationGroupDescription) {
             return globalReplicationGroupDescription(Output.of(globalReplicationGroupDescription));
         }
 
-        /**
-         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalReplicationGroupIdSuffix(Output<String> globalReplicationGroupIdSuffix) {
             $.globalReplicationGroupIdSuffix = globalReplicationGroupIdSuffix;
             return this;
         }
 
-        /**
-         * @param globalReplicationGroupIdSuffix The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalReplicationGroupIdSuffix(String globalReplicationGroupIdSuffix) {
             return globalReplicationGroupIdSuffix(Output.of(globalReplicationGroupIdSuffix));
         }
 
-        /**
-         * @param numNodeGroups The number of node groups (shards) on the global replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numNodeGroups(@Nullable Output<Integer> numNodeGroups) {
             $.numNodeGroups = numNodeGroups;
             return this;
         }
 
-        /**
-         * @param numNodeGroups The number of node groups (shards) on the global replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder numNodeGroups(Integer numNodeGroups) {
             return numNodeGroups(Output.of(numNodeGroups));
         }
 
-        /**
-         * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
-         * Specifying without a major version upgrade will fail.
-         * Note that ElastiCache creates a copy of this parameter group for each member replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterGroupName(@Nullable Output<String> parameterGroupName) {
             $.parameterGroupName = parameterGroupName;
             return this;
         }
 
-        /**
-         * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
-         * Specifying without a major version upgrade will fail.
-         * Note that ElastiCache creates a copy of this parameter group for each member replication group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterGroupName(String parameterGroupName) {
             return parameterGroupName(Output.of(parameterGroupName));
         }
 
-        /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryReplicationGroupId(Output<String> primaryReplicationGroupId) {
             $.primaryReplicationGroupId = primaryReplicationGroupId;
             return this;
         }
 
-        /**
-         * @param primaryReplicationGroupId The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primaryReplicationGroupId(String primaryReplicationGroupId) {
             return primaryReplicationGroupId(Output.of(primaryReplicationGroupId));
         }

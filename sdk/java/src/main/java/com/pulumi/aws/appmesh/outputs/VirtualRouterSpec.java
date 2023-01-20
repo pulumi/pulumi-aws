@@ -9,19 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class VirtualRouterSpec {
-    /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
-     * 
-     */
     private VirtualRouterSpecListener listener;
 
     private VirtualRouterSpec() {}
-    /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
-     * 
-     */
     public VirtualRouterSpecListener listener() {
         return this.listener;
     }

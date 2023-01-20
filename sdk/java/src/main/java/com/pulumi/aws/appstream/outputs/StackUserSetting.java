@@ -9,33 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class StackUserSetting {
-    /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
-     * 
-     */
     private String action;
-    /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     private String permission;
 
     private StackUserSetting() {}
-    /**
-     * @return Action that is enabled or disabled.
-     * Valid values are `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, or `DOMAIN_SMART_CARD_SIGNIN`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return Whether the action is enabled or disabled.
-     * Valid values are `ENABLED` or `DISABLED`.
-     * 
-     */
     public String permission() {
         return this.permission;
     }

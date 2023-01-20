@@ -15,47 +15,23 @@ public final class RepositoryPolicyState extends com.pulumi.resources.ResourceAr
 
     public static final RepositoryPolicyState Empty = new RepositoryPolicyState();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the repository to apply the policy.
-     * 
-     */
     @Import(name="repository")
     private @Nullable Output<String> repository;
 
-    /**
-     * @return Name of the repository to apply the policy.
-     * 
-     */
     public Optional<Output<String>> repository() {
         return Optional.ofNullable(this.repository);
     }
@@ -86,65 +62,29 @@ public final class RepositoryPolicyState extends com.pulumi.resources.ResourceAr
             $ = new RepositoryPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param registryId The registry ID where the repository was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId The registry ID where the repository was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }
 
-        /**
-         * @param repository Name of the repository to apply the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(@Nullable Output<String> repository) {
             $.repository = repository;
             return this;
         }
 
-        /**
-         * @param repository Name of the repository to apply the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repository(String repository) {
             return repository(Output.of(repository));
         }

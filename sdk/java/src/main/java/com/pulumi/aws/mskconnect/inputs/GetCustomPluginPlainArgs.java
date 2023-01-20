@@ -12,17 +12,9 @@ public final class GetCustomPluginPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetCustomPluginPlainArgs Empty = new GetCustomPluginPlainArgs();
 
-    /**
-     * Name of the custom plugin.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the custom plugin.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -51,12 +43,6 @@ public final class GetCustomPluginPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetCustomPluginPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the custom plugin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

@@ -21,442 +21,125 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue Job resource.
- * 
- * &gt; Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
- * 
- * ## Example Usage
- * ### Python Job
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Job;
- * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.py&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Scala Job
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Job;
- * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .scriptLocation(String.format(&#34;s3://%s/example.scala&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
- *             .defaultArguments(Map.of(&#34;--job-language&#34;, &#34;scala&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Streaming Job
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Job;
- * import com.pulumi.aws.glue.JobArgs;
- * import com.pulumi.aws.glue.inputs.JobCommandArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Job(&#34;example&#34;, JobArgs.builder()        
- *             .roleArn(aws_iam_role.example().arn())
- *             .command(JobCommandArgs.builder()
- *                 .name(&#34;gluestreaming&#34;)
- *                 .scriptLocation(String.format(&#34;s3://%s/example.script&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Enabling CloudWatch Logs and Metrics
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.glue.Job;
- * import com.pulumi.aws.glue.JobArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;, LogGroupArgs.builder()        
- *             .retentionInDays(14)
- *             .build());
- * 
- *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .defaultArguments(Map.ofEntries(
- *                 Map.entry(&#34;--continuous-log-logGroup&#34;, exampleLogGroup.name()),
- *                 Map.entry(&#34;--enable-continuous-cloudwatch-log&#34;, &#34;true&#34;),
- *                 Map.entry(&#34;--enable-continuous-log-filter&#34;, &#34;true&#34;),
- *                 Map.entry(&#34;--enable-metrics&#34;, &#34;&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue Jobs can be imported using `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:glue/job:Job MyJob MyJob
- * ```
- * 
- */
 @ResourceType(type="aws:glue/job:Job")
 public class Job extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of Glue Job
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of Glue Job
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The command of the job. Defined below.
-     * 
-     */
     @Export(name="command", refs={JobCommand.class}, tree="[0]")
     private Output<JobCommand> command;
 
-    /**
-     * @return The command of the job. Defined below.
-     * 
-     */
     public Output<JobCommand> command() {
         return this.command;
     }
-    /**
-     * The list of connections used for this job.
-     * 
-     */
     @Export(name="connections", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> connections;
 
-    /**
-     * @return The list of connections used for this job.
-     * 
-     */
     public Output<Optional<List<String>>> connections() {
         return Codegen.optional(this.connections);
     }
-    /**
-     * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-     * 
-     */
     @Export(name="defaultArguments", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> defaultArguments;
 
-    /**
-     * @return The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
-     * 
-     */
     public Output<Optional<Map<String,String>>> defaultArguments() {
         return Codegen.optional(this.defaultArguments);
     }
-    /**
-     * Description of the job.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the job.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-     * 
-     */
     @Export(name="executionClass", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionClass;
 
-    /**
-     * @return Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
-     * 
-     */
     public Output<Optional<String>> executionClass() {
         return Codegen.optional(this.executionClass);
     }
-    /**
-     * Execution property of the job. Defined below.
-     * 
-     */
     @Export(name="executionProperty", refs={JobExecutionProperty.class}, tree="[0]")
     private Output<JobExecutionProperty> executionProperty;
 
-    /**
-     * @return Execution property of the job. Defined below.
-     * 
-     */
     public Output<JobExecutionProperty> executionProperty() {
         return this.executionProperty;
     }
-    /**
-     * The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-     * 
-     */
     @Export(name="glueVersion", refs={String.class}, tree="[0]")
     private Output<String> glueVersion;
 
-    /**
-     * @return The version of glue to use, for example &#34;1.0&#34;. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-     * 
-     */
     public Output<String> glueVersion() {
         return this.glueVersion;
     }
-    /**
-     * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
-     * 
-     */
     @Export(name="maxCapacity", refs={Double.class}, tree="[0]")
     private Output<Double> maxCapacity;
 
-    /**
-     * @return The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
-     * 
-     */
     public Output<Double> maxCapacity() {
         return this.maxCapacity;
     }
-    /**
-     * The maximum number of times to retry this job if it fails.
-     * 
-     */
     @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
-    /**
-     * @return The maximum number of times to retry this job if it fails.
-     * 
-     */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
     }
-    /**
-     * The name you assign to this job. It must be unique in your account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name you assign to this job. It must be unique in your account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Non-overridable arguments for this job, specified as name-value pairs.
-     * 
-     */
     @Export(name="nonOverridableArguments", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> nonOverridableArguments;
 
-    /**
-     * @return Non-overridable arguments for this job, specified as name-value pairs.
-     * 
-     */
     public Output<Optional<Map<String,String>>> nonOverridableArguments() {
         return Codegen.optional(this.nonOverridableArguments);
     }
-    /**
-     * Notification property of the job. Defined below.
-     * 
-     */
     @Export(name="notificationProperty", refs={JobNotificationProperty.class}, tree="[0]")
     private Output<JobNotificationProperty> notificationProperty;
 
-    /**
-     * @return Notification property of the job. Defined below.
-     * 
-     */
     public Output<JobNotificationProperty> notificationProperty() {
         return this.notificationProperty;
     }
-    /**
-     * The number of workers of a defined workerType that are allocated when a job runs.
-     * 
-     */
     @Export(name="numberOfWorkers", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> numberOfWorkers;
 
-    /**
-     * @return The number of workers of a defined workerType that are allocated when a job runs.
-     * 
-     */
     public Output<Optional<Integer>> numberOfWorkers() {
         return Codegen.optional(this.numberOfWorkers);
     }
-    /**
-     * The ARN of the IAM role associated with this job.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the IAM role associated with this job.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * The name of the Security Configuration to be associated with the job.
-     * 
-     */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
-    /**
-     * @return The name of the Security Configuration to be associated with the job.
-     * 
-     */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
-     * 
-     */
     @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> timeout;
 
-    /**
-     * @return The job timeout in minutes. The default is 2880 minutes (48 hours) for `glueetl` and `pythonshell` jobs, and null (unlimited) for `gluestreaming` jobs.
-     * 
-     */
     public Output<Integer> timeout() {
         return this.timeout;
     }
-    /**
-     * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
-     * 
-     */
     @Export(name="workerType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workerType;
 
-    /**
-     * @return The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
-     * 
-     */
     public Output<Optional<String>> workerType() {
         return Codegen.optional(this.workerType);
     }

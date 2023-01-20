@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling {
-    /**
-     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     private List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling() {}
-    /**
-     * @return The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
-     * 
-     */
     public List<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader> insertHeaders() {
         return this.insertHeaders;
     }

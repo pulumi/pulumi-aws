@@ -15,190 +15,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.DedicatedHost;
- * import com.pulumi.aws.ec2.DedicatedHostArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new DedicatedHost(&#34;test&#34;, DedicatedHostArgs.builder()        
- *             .autoPlacement(&#34;on&#34;)
- *             .availabilityZone(&#34;us-west-2a&#34;)
- *             .hostRecovery(&#34;on&#34;)
- *             .instanceType(&#34;c5.18xlarge&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Hosts can be imported using the host `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/dedicatedHost:DedicatedHost")
 public class DedicatedHost extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the Dedicated Host.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the Dedicated Host.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-     * 
-     */
     @Export(name="autoPlacement", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoPlacement;
 
-    /**
-     * @return Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
-     * 
-     */
     public Output<Optional<String>> autoPlacement() {
         return Codegen.optional(this.autoPlacement);
     }
-    /**
-     * The Availability Zone in which to allocate the Dedicated Host.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return The Availability Zone in which to allocate the Dedicated Host.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-     * 
-     */
     @Export(name="hostRecovery", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostRecovery;
 
-    /**
-     * @return Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
-     * 
-     */
     public Output<Optional<String>> hostRecovery() {
         return Codegen.optional(this.hostRecovery);
     }
-    /**
-     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-     * 
-     */
     @Export(name="instanceFamily", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceFamily;
 
-    /**
-     * @return Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
-     * 
-     */
     public Output<Optional<String>> instanceFamily() {
         return Codegen.optional(this.instanceFamily);
     }
-    /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-     * 
-     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceType;
 
-    /**
-     * @return Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
-     * 
-     */
     public Output<Optional<String>> instanceType() {
         return Codegen.optional(this.instanceType);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-     * 
-     */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
-     * 
-     */
     public Output<Optional<String>> outpostArn() {
         return Codegen.optional(this.outpostArn);
     }
-    /**
-     * The ID of the AWS account that owns the Dedicated Host.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The ID of the AWS account that owns the Dedicated Host.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -13,34 +13,16 @@ public final class DistributionDefaultCacheBehaviorFunctionAssociationArgs exten
 
     public static final DistributionDefaultCacheBehaviorFunctionAssociationArgs Empty = new DistributionDefaultCacheBehaviorFunctionAssociationArgs();
 
-    /**
-     * The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
-     * 
-     */
     @Import(name="eventType", required=true)
     private Output<String> eventType;
 
-    /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
-     * 
-     */
     public Output<String> eventType() {
         return this.eventType;
     }
 
-    /**
-     * ARN of the Cloudfront function.
-     * 
-     */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
-    /**
-     * @return ARN of the Cloudfront function.
-     * 
-     */
     public Output<String> functionArn() {
         return this.functionArn;
     }
@@ -70,46 +52,20 @@ public final class DistributionDefaultCacheBehaviorFunctionAssociationArgs exten
             $ = new DistributionDefaultCacheBehaviorFunctionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(Output<String> eventType) {
             $.eventType = eventType;
             return this;
         }
 
-        /**
-         * @param eventType The specific event to trigger this function.
-         * Valid values: `viewer-request` or `viewer-response`
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventType(String eventType) {
             return eventType(Output.of(eventType));
         }
 
-        /**
-         * @param functionArn ARN of the Cloudfront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn ARN of the Cloudfront function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }

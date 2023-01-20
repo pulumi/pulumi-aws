@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationEnvironment {
-    /**
-     * @return Variable name.
-     * 
-     */
     private String key;
-    /**
-     * @return Set visibility of the variable value to `true` or `false`.
-     * 
-     */
     private @Nullable Boolean secure;
-    /**
-     * @return Variable value.
-     * 
-     */
     private String value;
 
     private ApplicationEnvironment() {}
-    /**
-     * @return Variable name.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Set visibility of the variable value to `true` or `false`.
-     * 
-     */
     public Optional<Boolean> secure() {
         return Optional.ofNullable(this.secure);
     }
-    /**
-     * @return Variable value.
-     * 
-     */
     public String value() {
         return this.value;
     }

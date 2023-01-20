@@ -16,233 +16,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue Schema resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Schema;
- * import com.pulumi.aws.glue.SchemaArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Schema(&#34;example&#34;, SchemaArgs.builder()        
- *             .schemaName(&#34;example&#34;)
- *             .registryArn(aws_glue_registry.test().arn())
- *             .dataFormat(&#34;AVRO&#34;)
- *             .compatibility(&#34;NONE&#34;)
- *             .schemaDefinition(&#34;{\&#34;type\&#34;: \&#34;record\&#34;, \&#34;name\&#34;: \&#34;r1\&#34;, \&#34;fields\&#34;: [ {\&#34;name\&#34;: \&#34;f1\&#34;, \&#34;type\&#34;: \&#34;int\&#34;}, {\&#34;name\&#34;: \&#34;f2\&#34;, \&#34;type\&#34;: \&#34;string\&#34;} ]}&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue Registries can be imported using `arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
- * ```
- * 
- */
 @ResourceType(type="aws:glue/schema:Schema")
 public class Schema extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the schema.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the schema.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     * 
-     */
     @Export(name="compatibility", refs={String.class}, tree="[0]")
     private Output<String> compatibility;
 
-    /**
-     * @return The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
-     * 
-     */
     public Output<String> compatibility() {
         return this.compatibility;
     }
-    /**
-     * The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     * 
-     */
     @Export(name="dataFormat", refs={String.class}, tree="[0]")
     private Output<String> dataFormat;
 
-    /**
-     * @return The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
-     * 
-     */
     public Output<String> dataFormat() {
         return this.dataFormat;
     }
-    /**
-     * A description of the schema.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the schema.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The latest version of the schema associated with the returned schema definition.
-     * 
-     */
     @Export(name="latestSchemaVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> latestSchemaVersion;
 
-    /**
-     * @return The latest version of the schema associated with the returned schema definition.
-     * 
-     */
     public Output<Integer> latestSchemaVersion() {
         return this.latestSchemaVersion;
     }
-    /**
-     * The next version of the schema associated with the returned schema definition.
-     * 
-     */
     @Export(name="nextSchemaVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> nextSchemaVersion;
 
-    /**
-     * @return The next version of the schema associated with the returned schema definition.
-     * 
-     */
     public Output<Integer> nextSchemaVersion() {
         return this.nextSchemaVersion;
     }
-    /**
-     * The ARN of the Glue Registry to create the schema in.
-     * 
-     */
     @Export(name="registryArn", refs={String.class}, tree="[0]")
     private Output<String> registryArn;
 
-    /**
-     * @return The ARN of the Glue Registry to create the schema in.
-     * 
-     */
     public Output<String> registryArn() {
         return this.registryArn;
     }
-    /**
-     * The name of the Glue Registry.
-     * 
-     */
     @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
-    /**
-     * @return The name of the Glue Registry.
-     * 
-     */
     public Output<String> registryName() {
         return this.registryName;
     }
-    /**
-     * The version number of the checkpoint (the last time the compatibility mode was changed).
-     * 
-     */
     @Export(name="schemaCheckpoint", refs={Integer.class}, tree="[0]")
     private Output<Integer> schemaCheckpoint;
 
-    /**
-     * @return The version number of the checkpoint (the last time the compatibility mode was changed).
-     * 
-     */
     public Output<Integer> schemaCheckpoint() {
         return this.schemaCheckpoint;
     }
-    /**
-     * The schema definition using the `data_format` setting for `schema_name`.
-     * 
-     */
     @Export(name="schemaDefinition", refs={String.class}, tree="[0]")
     private Output<String> schemaDefinition;
 
-    /**
-     * @return The schema definition using the `data_format` setting for `schema_name`.
-     * 
-     */
     public Output<String> schemaDefinition() {
         return this.schemaDefinition;
     }
-    /**
-     * The Name of the schema.
-     * 
-     */
     @Export(name="schemaName", refs={String.class}, tree="[0]")
     private Output<String> schemaName;
 
-    /**
-     * @return The Name of the schema.
-     * 
-     */
     public Output<String> schemaName() {
         return this.schemaName;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -15,47 +15,23 @@ public final class MulticastDomainAssociationState extends com.pulumi.resources.
 
     public static final MulticastDomainAssociationState Empty = new MulticastDomainAssociationState();
 
-    /**
-     * The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the subnet to associate with the transit gateway multicast domain.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
 
-    /**
-     * The ID of the transit gateway attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId")
     private @Nullable Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return The ID of the transit gateway attachment.
-     * 
-     */
     public Optional<Output<String>> transitGatewayAttachmentId() {
         return Optional.ofNullable(this.transitGatewayAttachmentId);
     }
 
-    /**
-     * The ID of the transit gateway multicast domain.
-     * 
-     */
     @Import(name="transitGatewayMulticastDomainId")
     private @Nullable Output<String> transitGatewayMulticastDomainId;
 
-    /**
-     * @return The ID of the transit gateway multicast domain.
-     * 
-     */
     public Optional<Output<String>> transitGatewayMulticastDomainId() {
         return Optional.ofNullable(this.transitGatewayMulticastDomainId);
     }
@@ -86,65 +62,29 @@ public final class MulticastDomainAssociationState extends com.pulumi.resources.
             $ = new MulticastDomainAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the subnet to associate with the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the transit gateway attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayMulticastDomainId The ID of the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayMulticastDomainId(@Nullable Output<String> transitGatewayMulticastDomainId) {
             $.transitGatewayMulticastDomainId = transitGatewayMulticastDomainId;
             return this;
         }
 
-        /**
-         * @param transitGatewayMulticastDomainId The ID of the transit gateway multicast domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayMulticastDomainId(String transitGatewayMulticastDomainId) {
             return transitGatewayMulticastDomainId(Output.of(transitGatewayMulticastDomainId));
         }

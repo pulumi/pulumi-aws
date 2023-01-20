@@ -20,395 +20,57 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an ElastiCache Replication Group resource.
- * 
- * For working with a [Memcached cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/WhatIs.html) or a
- * [single-node Redis instance (Cluster Mode Disabled)](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/WhatIs.html),
- * see the `aws.elasticache.Cluster` resource.
- * 
- * &gt; **Note:** When you change an attribute, such as `engine_version`, by
- * default the ElastiCache API applies it in the next maintenance window. Because
- * of this, this provider may report a difference in its planning phase because the
- * actual modification has not yet taken place. You can use the
- * `apply_immediately` flag to instruct the service to apply the change
- * immediately. Using `apply_immediately` can result in a brief downtime as
- * servers reboots.
- * See the AWS Documentation on
- * [Modifying an ElastiCache Cache Cluster](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Modify.html)
- * for more information.
- * 
- * &gt; **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
- * 
- * &gt; **Note:** Be aware of the terminology collision around &#34;cluster&#34; for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a [&#34;Cluster Mode Disabled [Redis] Cluster&#34;](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With &#34;Cluster Mode Enabled&#34;, the data will be stored in shards (called &#34;node groups&#34;). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with &#34;.cluster.on&#34;, for example `default.redis6.x.cluster.on`.
- * 
- * ## Example Usage
- * ### Redis Cluster Mode Disabled
- * 
- * To create a single shard primary with single read replica:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ReplicationGroup;
- * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
- *             .automaticFailoverEnabled(true)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
- *             .numCacheClusters(2)
- *             .parameterGroupName(&#34;default.redis3.2&#34;)
- *             .port(6379)
- *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * You have two options for adjusting the number of replicas:
- * 
- * * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
- * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ReplicationGroup;
- * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import com.pulumi.aws.elasticache.Cluster;
- * import com.pulumi.aws.elasticache.ClusterArgs;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ReplicationGroup(&#34;example&#34;, ReplicationGroupArgs.builder()        
- *             .automaticFailoverEnabled(true)
- *             .preferredCacheClusterAzs(            
- *                 &#34;us-west-2a&#34;,
- *                 &#34;us-west-2b&#34;)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.m4.large&#34;)
- *             .numCacheClusters(2)
- *             .parameterGroupName(&#34;default.redis3.2&#34;)
- *             .port(6379)
- *             .build());
- * 
- *         for (var i = 0; i &lt; (1 == true); i++) {
- *             new Cluster(&#34;replica-&#34; + i, ClusterArgs.builder()            
- *                 .replicationGroupId(example.id())
- *                 .build());
- * 
- *         
- * }
- *     }
- * }
- * ```
- * ### Redis Cluster Mode Enabled
- * 
- * To create two shards with a primary and a single read replica each:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ReplicationGroup;
- * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var baz = new ReplicationGroup(&#34;baz&#34;, ReplicationGroupArgs.builder()        
- *             .automaticFailoverEnabled(true)
- *             .description(&#34;example description&#34;)
- *             .nodeType(&#34;cache.t2.small&#34;)
- *             .numNodeGroups(2)
- *             .parameterGroupName(&#34;default.redis3.2.cluster.on&#34;)
- *             .port(6379)
- *             .replicasPerNodeGroup(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Redis Log Delivery configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ReplicationGroup;
- * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import com.pulumi.aws.elasticache.inputs.ReplicationGroupLogDeliveryConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ReplicationGroup(&#34;test&#34;, ReplicationGroupArgs.builder()        
- *             .description(&#34;test description&#34;)
- *             .nodeType(&#34;cache.t3.small&#34;)
- *             .port(6379)
- *             .applyImmediately(true)
- *             .autoMinorVersionUpgrade(false)
- *             .maintenanceWindow(&#34;tue:06:30-tue:07:30&#34;)
- *             .snapshotWindow(&#34;01:00-02:00&#34;)
- *             .logDeliveryConfigurations(            
- *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_cloudwatch_log_group.example().name())
- *                     .destinationType(&#34;cloudwatch-logs&#34;)
- *                     .logFormat(&#34;text&#34;)
- *                     .logType(&#34;slow-log&#34;)
- *                     .build(),
- *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
- *                     .destination(aws_kinesis_firehose_delivery_stream.example().name())
- *                     .destinationType(&#34;kinesis-firehose&#34;)
- *                     .logFormat(&#34;json&#34;)
- *                     .logType(&#34;engine-log&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * &gt; **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
- * 
- * &gt; **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
- * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
- * for full details on using Replication Groups.
- * ### Creating a secondary replication group for a global replication group
- * 
- * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.ReplicationGroup;
- * import com.pulumi.aws.elasticache.ReplicationGroupArgs;
- * import com.pulumi.aws.elasticache.GlobalReplicationGroup;
- * import com.pulumi.aws.elasticache.GlobalReplicationGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary = new ReplicationGroup(&#34;primary&#34;, ReplicationGroupArgs.builder()        
- *             .description(&#34;primary replication group&#34;)
- *             .engine(&#34;redis&#34;)
- *             .engineVersion(&#34;5.0.6&#34;)
- *             .nodeType(&#34;cache.m5.large&#34;)
- *             .numCacheClusters(1)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
- * 
- *         var example = new GlobalReplicationGroup(&#34;example&#34;, GlobalReplicationGroupArgs.builder()        
- *             .globalReplicationGroupIdSuffix(&#34;example&#34;)
- *             .primaryReplicationGroupId(primary.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.other_region())
- *                 .build());
- * 
- *         var secondary = new ReplicationGroup(&#34;secondary&#34;, ReplicationGroupArgs.builder()        
- *             .description(&#34;secondary replication group&#34;)
- *             .globalReplicationGroupId(example.globalReplicationGroupId())
- *             .numCacheClusters(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/replicationGroup:ReplicationGroup")
 public class ReplicationGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-     * 
-     */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
-    /**
-     * @return Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-     * 
-     */
     public Output<Boolean> applyImmediately() {
         return this.applyImmediately;
     }
-    /**
-     * ARN of the created ElastiCache Replication Group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the created ElastiCache Replication Group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Whether to enable encryption at rest.
-     * 
-     */
     @Export(name="atRestEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> atRestEncryptionEnabled;
 
-    /**
-     * @return Whether to enable encryption at rest.
-     * 
-     */
     public Output<Boolean> atRestEncryptionEnabled() {
         return this.atRestEncryptionEnabled;
     }
-    /**
-     * Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-     * 
-     */
     @Export(name="authToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authToken;
 
-    /**
-     * @return Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-     * 
-     */
     public Output<Optional<String>> authToken() {
         return Codegen.optional(this.authToken);
     }
-    /**
-     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `&#34;redis&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
-     * 
-     */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autoMinorVersionUpgrade;
 
-    /**
-     * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
-     * Only supported for engine type `&#34;redis&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
-     * 
-     */
     public Output<Boolean> autoMinorVersionUpgrade() {
         return this.autoMinorVersionUpgrade;
     }
-    /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-     * 
-     */
     @Export(name="automaticFailoverEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticFailoverEnabled;
 
-    /**
-     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> automaticFailoverEnabled() {
         return Codegen.optional(this.automaticFailoverEnabled);
     }
-    /**
-     * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> availabilityZones;
 
-    /**
-     * @return List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is not considered.
-     * 
-     */
     public Output<Optional<List<String>>> availabilityZones() {
         return Codegen.optional(this.availabilityZones);
     }
-    /**
-     * Indicates if cluster mode is enabled.
-     * 
-     */
     @Export(name="clusterEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clusterEnabled;
 
-    /**
-     * @return Indicates if cluster mode is enabled.
-     * 
-     */
     public Output<Boolean> clusterEnabled() {
         return this.clusterEnabled;
     }
     /**
-     * Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
      * @deprecated
      * Use num_node_groups and replicas_per_node_group instead
      * 
@@ -417,262 +79,112 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     @Export(name="clusterMode", refs={ReplicationGroupClusterMode.class}, tree="[0]")
     private Output<ReplicationGroupClusterMode> clusterMode;
 
-    /**
-     * @return Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     */
     public Output<ReplicationGroupClusterMode> clusterMode() {
         return this.clusterMode;
     }
-    /**
-     * Address of the replication group configuration endpoint when cluster mode is enabled.
-     * 
-     */
     @Export(name="configurationEndpointAddress", refs={String.class}, tree="[0]")
     private Output<String> configurationEndpointAddress;
 
-    /**
-     * @return Address of the replication group configuration endpoint when cluster mode is enabled.
-     * 
-     */
     public Output<String> configurationEndpointAddress() {
         return this.configurationEndpointAddress;
     }
-    /**
-     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-     * 
-     */
     @Export(name="dataTieringEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> dataTieringEnabled;
 
-    /**
-     * @return Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-     * 
-     */
     public Output<Boolean> dataTieringEnabled() {
         return this.dataTieringEnabled;
     }
-    /**
-     * User-created description for the replication group. Must not be empty.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return User-created description for the replication group. Must not be empty.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
-    /**
-     * @return Name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
-     * 
-     */
     public Output<Optional<String>> engine() {
         return Codegen.optional(this.engine);
     }
-    /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Version number of the cache engine to be used for the cache clusters in this replication group.
-     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
-     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
-     * Otherwise, specify the full version desired, e.g., `5.0.6`.
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-     * 
-     */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
     private Output<String> engineVersionActual;
 
-    /**
-     * @return Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-     * 
-     */
     public Output<String> engineVersionActual() {
         return this.engineVersionActual;
     }
-    /**
-     * The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-     * 
-     */
     @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
-    /**
-     * @return The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-     * 
-     */
     public Output<Optional<String>> finalSnapshotIdentifier() {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
-    /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
-     * 
-     */
     @Export(name="globalReplicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> globalReplicationGroupId;
 
-    /**
-     * @return The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter (or the `num_node_groups` parameter of the deprecated `cluster_mode` block) cannot be set.
-     * 
-     */
     public Output<String> globalReplicationGroupId() {
         return this.globalReplicationGroupId;
     }
-    /**
-     * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
-    /**
-     * @return The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-     * 
-     */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
-    /**
-     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-     * 
-     */
     @Export(name="logDeliveryConfigurations", refs={List.class,ReplicationGroupLogDeliveryConfiguration.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ReplicationGroupLogDeliveryConfiguration>> logDeliveryConfigurations;
 
-    /**
-     * @return Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-     * 
-     */
     public Output<Optional<List<ReplicationGroupLogDeliveryConfiguration>>> logDeliveryConfigurations() {
         return Codegen.optional(this.logDeliveryConfigurations);
     }
-    /**
-     * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-     * 
-     */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> maintenanceWindow;
 
-    /**
-     * @return Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-     * 
-     */
     public Output<String> maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * Identifiers of all the nodes that are part of this replication group.
-     * 
-     */
     @Export(name="memberClusters", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> memberClusters;
 
-    /**
-     * @return Identifiers of all the nodes that are part of this replication group.
-     * 
-     */
     public Output<List<String>> memberClusters() {
         return this.memberClusters;
     }
-    /**
-     * Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-     * 
-     */
     @Export(name="multiAzEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> multiAzEnabled;
 
-    /**
-     * @return Specifies whether to enable Multi-AZ Support for the replication group. If `true`, `automatic_failover_enabled` must also be enabled. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> multiAzEnabled() {
         return Codegen.optional(this.multiAzEnabled);
     }
-    /**
-     * Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-     * 
-     */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
     private Output<String> nodeType;
 
-    /**
-     * @return Instance class to be used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). Required unless `global_replication_group_id` is set. Cannot be set if `global_replication_group_id` is set.
-     * 
-     */
     public Output<String> nodeType() {
         return this.nodeType;
     }
-    /**
-     * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     * 
-     */
     @Export(name="notificationTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTopicArn;
 
-    /**
-     * @return ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     * 
-     */
     public Output<Optional<String>> notificationTopicArn() {
         return Codegen.optional(this.notificationTopicArn);
     }
-    /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     */
     @Export(name="numCacheClusters", refs={Integer.class}, tree="[0]")
     private Output<Integer> numCacheClusters;
 
-    /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_node_groups`, the deprecated`number_cache_clusters`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     */
     public Output<Integer> numCacheClusters() {
         return this.numCacheClusters;
     }
-    /**
-     * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-     * 
-     */
     @Export(name="numNodeGroups", refs={Integer.class}, tree="[0]")
     private Output<Integer> numNodeGroups;
 
-    /**
-     * @return Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
-     * 
-     */
     public Output<Integer> numNodeGroups() {
         return this.numNodeGroups;
     }
     /**
-     * Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
      * @deprecated
      * Use num_cache_clusters instead
      * 
@@ -681,100 +193,46 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     @Export(name="numberCacheClusters", refs={Integer.class}, tree="[0]")
     private Output<Integer> numberCacheClusters;
 
-    /**
-     * @return Number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. Conflicts with `num_cache_clusters`, `num_node_groups`, or the deprecated `cluster_mode`. Defaults to `1`.
-     * 
-     */
     public Output<Integer> numberCacheClusters() {
         return this.numberCacheClusters;
     }
-    /**
-     * Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
-    /**
-     * @return Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable &#34;cluster mode&#34;, i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-     * 
-     */
     public Output<String> parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
-    /**
-     * @return Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-     * 
-     */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
-    /**
-     * List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-     * 
-     */
     @Export(name="preferredCacheClusterAzs", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> preferredCacheClusterAzs;
 
-    /**
-     * @return List of EC2 availability zones in which the replication group&#39;s cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-     * 
-     */
     public Output<Optional<List<String>>> preferredCacheClusterAzs() {
         return Codegen.optional(this.preferredCacheClusterAzs);
     }
-    /**
-     * (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-     * 
-     */
     @Export(name="primaryEndpointAddress", refs={String.class}, tree="[0]")
     private Output<String> primaryEndpointAddress;
 
-    /**
-     * @return (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-     * 
-     */
     public Output<String> primaryEndpointAddress() {
         return this.primaryEndpointAddress;
     }
-    /**
-     * (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-     * 
-     */
     @Export(name="readerEndpointAddress", refs={String.class}, tree="[0]")
     private Output<String> readerEndpointAddress;
 
-    /**
-     * @return (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-     * 
-     */
     public Output<String> readerEndpointAddress() {
         return this.readerEndpointAddress;
     }
-    /**
-     * Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-     * 
-     */
     @Export(name="replicasPerNodeGroup", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicasPerNodeGroup;
 
-    /**
-     * @return Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
-     * 
-     */
     public Output<Integer> replicasPerNodeGroup() {
         return this.replicasPerNodeGroup;
     }
     /**
-     * User-created description for the replication group. Must not be empty.
-     * 
      * @deprecated
      * Use description instead
      * 
@@ -783,178 +241,78 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     @Export(name="replicationGroupDescription", refs={String.class}, tree="[0]")
     private Output<String> replicationGroupDescription;
 
-    /**
-     * @return User-created description for the replication group. Must not be empty.
-     * 
-     */
     public Output<String> replicationGroupDescription() {
         return this.replicationGroupDescription;
     }
-    /**
-     * Replication group identifier. This parameter is stored as a lowercase string.
-     * 
-     */
     @Export(name="replicationGroupId", refs={String.class}, tree="[0]")
     private Output<String> replicationGroupId;
 
-    /**
-     * @return Replication group identifier. This parameter is stored as a lowercase string.
-     * 
-     */
     public Output<String> replicationGroupId() {
         return this.replicationGroupId;
     }
-    /**
-     * One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return One or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * List of cache security group names to associate with this replication group.
-     * 
-     */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupNames;
 
-    /**
-     * @return List of cache security group names to associate with this replication group.
-     * 
-     */
     public Output<List<String>> securityGroupNames() {
         return this.securityGroupNames;
     }
-    /**
-     * List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-     * 
-     */
     @Export(name="snapshotArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> snapshotArns;
 
-    /**
-     * @return List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-     * 
-     */
     public Output<Optional<List<String>>> snapshotArns() {
         return Codegen.optional(this.snapshotArns);
     }
-    /**
-     * Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-     * 
-     */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> snapshotName;
 
-    /**
-     * @return Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-     * 
-     */
     public Output<Optional<String>> snapshotName() {
         return Codegen.optional(this.snapshotName);
     }
-    /**
-     * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-     * 
-     */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> snapshotRetentionLimit;
 
-    /**
-     * @return Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-     * 
-     */
     public Output<Optional<Integer>> snapshotRetentionLimit() {
         return Codegen.optional(this.snapshotRetentionLimit);
     }
-    /**
-     * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-     * 
-     */
     @Export(name="snapshotWindow", refs={String.class}, tree="[0]")
     private Output<String> snapshotWindow;
 
-    /**
-     * @return Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-     * 
-     */
     public Output<String> snapshotWindow() {
         return this.snapshotWindow;
     }
-    /**
-     * Name of the cache subnet group to be used for the replication group.
-     * 
-     */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
-    /**
-     * @return Name of the cache subnet group to be used for the replication group.
-     * 
-     */
     public Output<String> subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Whether to enable encryption in transit.
-     * 
-     */
     @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> transitEncryptionEnabled;
 
-    /**
-     * @return Whether to enable encryption in transit.
-     * 
-     */
     public Output<Boolean> transitEncryptionEnabled() {
         return this.transitEncryptionEnabled;
     }
-    /**
-     * User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-     * 
-     */
     @Export(name="userGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> userGroupIds;
 
-    /**
-     * @return User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-     * 
-     */
     public Output<Optional<List<String>>> userGroupIds() {
         return Codegen.optional(this.userGroupIds);
     }

@@ -15,110 +15,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppSync API Key.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.ApiKey;
- * import com.pulumi.aws.appsync.ApiKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .build());
- * 
- *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
- *             .expires(&#34;2018-05-03T04:00:00Z&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/apiKey:ApiKey")
 public class ApiKey extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the associated AppSync API
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return ID of the associated AppSync API
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * API key description. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return API key description. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     * 
-     */
     @Export(name="expires", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expires;
 
-    /**
-     * @return RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-     * 
-     */
     public Output<Optional<String>> expires() {
         return Codegen.optional(this.expires);
     }
-    /**
-     * API key
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return API key
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }

@@ -13,93 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associates a link to a device.
- * A device can be associated to multiple links and a link can be associated to multiple devices.
- * The device and link must be in the same global network and the same site.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkmanager.LinkAssociation;
- * import com.pulumi.aws.networkmanager.LinkAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LinkAssociation(&#34;example&#34;, LinkAssociationArgs.builder()        
- *             .globalNetworkId(aws_networkmanager_global_network.example().id())
- *             .linkId(aws_networkmanager_link.example().id())
- *             .deviceId(aws_networkmanager_device.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_networkmanager_link_association` can be imported using the global network ID, link ID and device ID, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
- * ```
- * 
- */
 @ResourceType(type="aws:networkmanager/linkAssociation:LinkAssociation")
 public class LinkAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the device.
-     * 
-     */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
-    /**
-     * @return The ID of the device.
-     * 
-     */
     public Output<String> deviceId() {
         return this.deviceId;
     }
-    /**
-     * The ID of the global network.
-     * 
-     */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
-    /**
-     * @return The ID of the global network.
-     * 
-     */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
-    /**
-     * The ID of the link.
-     * 
-     */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output<String> linkId;
 
-    /**
-     * @return The ID of the link.
-     * 
-     */
     public Output<String> linkId() {
         return this.linkId;
     }

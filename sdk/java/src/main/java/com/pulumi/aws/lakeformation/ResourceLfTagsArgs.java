@@ -20,77 +20,37 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final ResourceLfTagsArgs Empty = new ResourceLfTagsArgs();
 
-    /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public Optional<Output<String>> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
 
-    /**
-     * Configuration block for a database resource. See below.
-     * 
-     */
     @Import(name="database")
     private @Nullable Output<ResourceLfTagsDatabaseArgs> database;
 
-    /**
-     * @return Configuration block for a database resource. See below.
-     * 
-     */
     public Optional<Output<ResourceLfTagsDatabaseArgs>> database() {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * Set of LF-tags to attach to the resource. See below.
-     * 
-     */
     @Import(name="lfTags", required=true)
     private Output<List<ResourceLfTagsLfTagArgs>> lfTags;
 
-    /**
-     * @return Set of LF-tags to attach to the resource. See below.
-     * 
-     */
     public Output<List<ResourceLfTagsLfTagArgs>> lfTags() {
         return this.lfTags;
     }
 
-    /**
-     * Configuration block for a table resource. See below.
-     * 
-     */
     @Import(name="table")
     private @Nullable Output<ResourceLfTagsTableArgs> table;
 
-    /**
-     * @return Configuration block for a table resource. See below.
-     * 
-     */
     public Optional<Output<ResourceLfTagsTableArgs>> table() {
         return Optional.ofNullable(this.table);
     }
 
-    /**
-     * Configuration block for a table with columns resource. See below.
-     * 
-     */
     @Import(name="tableWithColumns")
     private @Nullable Output<ResourceLfTagsTableWithColumnsArgs> tableWithColumns;
 
-    /**
-     * @return Configuration block for a table with columns resource. See below.
-     * 
-     */
     public Optional<Output<ResourceLfTagsTableWithColumnsArgs>> tableWithColumns() {
         return Optional.ofNullable(this.tableWithColumns);
     }
@@ -123,117 +83,51 @@ public final class ResourceLfTagsArgs extends com.pulumi.resources.ResourceArgs 
             $ = new ResourceLfTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(@Nullable Output<String> catalogId) {
             $.catalogId = catalogId;
             return this;
         }
 
-        /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
-         * 
-         * @return builder
-         * 
-         */
         public Builder catalogId(String catalogId) {
             return catalogId(Output.of(catalogId));
         }
 
-        /**
-         * @param database Configuration block for a database resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(@Nullable Output<ResourceLfTagsDatabaseArgs> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database Configuration block for a database resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(ResourceLfTagsDatabaseArgs database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(Output<List<ResourceLfTagsLfTagArgs>> lfTags) {
             $.lfTags = lfTags;
             return this;
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(List<ResourceLfTagsLfTagArgs> lfTags) {
             return lfTags(Output.of(lfTags));
         }
 
-        /**
-         * @param lfTags Set of LF-tags to attach to the resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lfTags(ResourceLfTagsLfTagArgs... lfTags) {
             return lfTags(List.of(lfTags));
         }
 
-        /**
-         * @param table Configuration block for a table resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder table(@Nullable Output<ResourceLfTagsTableArgs> table) {
             $.table = table;
             return this;
         }
 
-        /**
-         * @param table Configuration block for a table resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder table(ResourceLfTagsTableArgs table) {
             return table(Output.of(table));
         }
 
-        /**
-         * @param tableWithColumns Configuration block for a table with columns resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableWithColumns(@Nullable Output<ResourceLfTagsTableWithColumnsArgs> tableWithColumns) {
             $.tableWithColumns = tableWithColumns;
             return this;
         }
 
-        /**
-         * @param tableWithColumns Configuration block for a table with columns resource. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableWithColumns(ResourceLfTagsTableWithColumnsArgs tableWithColumns) {
             return tableWithColumns(Output.of(tableWithColumns));
         }

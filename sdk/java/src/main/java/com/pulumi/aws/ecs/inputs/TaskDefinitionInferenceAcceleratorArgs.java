@@ -13,32 +13,16 @@ public final class TaskDefinitionInferenceAcceleratorArgs extends com.pulumi.res
 
     public static final TaskDefinitionInferenceAcceleratorArgs Empty = new TaskDefinitionInferenceAcceleratorArgs();
 
-    /**
-     * Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-     * 
-     */
     @Import(name="deviceName", required=true)
     private Output<String> deviceName;
 
-    /**
-     * @return Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-     * 
-     */
     public Output<String> deviceName() {
         return this.deviceName;
     }
 
-    /**
-     * Elastic Inference accelerator type to use.
-     * 
-     */
     @Import(name="deviceType", required=true)
     private Output<String> deviceType;
 
-    /**
-     * @return Elastic Inference accelerator type to use.
-     * 
-     */
     public Output<String> deviceType() {
         return this.deviceType;
     }
@@ -68,44 +52,20 @@ public final class TaskDefinitionInferenceAcceleratorArgs extends com.pulumi.res
             $ = new TaskDefinitionInferenceAcceleratorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deviceName Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceName(Output<String> deviceName) {
             $.deviceName = deviceName;
             return this;
         }
 
-        /**
-         * @param deviceName Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceName(String deviceName) {
             return deviceName(Output.of(deviceName));
         }
 
-        /**
-         * @param deviceType Elastic Inference accelerator type to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceType(Output<String> deviceType) {
             $.deviceType = deviceType;
             return this;
         }
 
-        /**
-         * @param deviceType Elastic Inference accelerator type to use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceType(String deviceType) {
             return deviceType(Output.of(deviceType));
         }

@@ -13,17 +13,9 @@ public final class GetControlsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetControlsArgs Empty = new GetControlsArgs();
 
-    /**
-     * The ARN of the organizational unit.
-     * 
-     */
     @Import(name="targetIdentifier", required=true)
     private Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the organizational unit.
-     * 
-     */
     public Output<String> targetIdentifier() {
         return this.targetIdentifier;
     }
@@ -52,23 +44,11 @@ public final class GetControlsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetControlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(Output<String> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(String targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

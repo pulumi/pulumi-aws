@@ -15,17 +15,9 @@ public final class ClusterAutoTerminationPolicyArgs extends com.pulumi.resources
 
     public static final ClusterAutoTerminationPolicyArgs Empty = new ClusterAutoTerminationPolicyArgs();
 
-    /**
-     * Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-     * 
-     */
     @Import(name="idleTimeout")
     private @Nullable Output<Integer> idleTimeout;
 
-    /**
-     * @return Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-     * 
-     */
     public Optional<Output<Integer>> idleTimeout() {
         return Optional.ofNullable(this.idleTimeout);
     }
@@ -54,23 +46,11 @@ public final class ClusterAutoTerminationPolicyArgs extends com.pulumi.resources
             $ = new ClusterAutoTerminationPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param idleTimeout Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeout(@Nullable Output<Integer> idleTimeout) {
             $.idleTimeout = idleTimeout;
             return this;
         }
 
-        /**
-         * @param idleTimeout Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder idleTimeout(Integer idleTimeout) {
             return idleTimeout(Output.of(idleTimeout));
         }

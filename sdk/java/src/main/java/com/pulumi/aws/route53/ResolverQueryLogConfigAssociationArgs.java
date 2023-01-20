@@ -13,32 +13,16 @@ public final class ResolverQueryLogConfigAssociationArgs extends com.pulumi.reso
 
     public static final ResolverQueryLogConfigAssociationArgs Empty = new ResolverQueryLogConfigAssociationArgs();
 
-    /**
-     * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     * 
-     */
     @Import(name="resolverQueryLogConfigId", required=true)
     private Output<String> resolverQueryLogConfigId;
 
-    /**
-     * @return The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-     * 
-     */
     public Output<String> resolverQueryLogConfigId() {
         return this.resolverQueryLogConfigId;
     }
 
-    /**
-     * The ID of a VPC that you want this query logging configuration to log queries for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of a VPC that you want this query logging configuration to log queries for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
@@ -68,44 +52,20 @@ public final class ResolverQueryLogConfigAssociationArgs extends com.pulumi.reso
             $ = new ResolverQueryLogConfigAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resolverQueryLogConfigId The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverQueryLogConfigId(Output<String> resolverQueryLogConfigId) {
             $.resolverQueryLogConfigId = resolverQueryLogConfigId;
             return this;
         }
 
-        /**
-         * @param resolverQueryLogConfigId The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resolverQueryLogConfigId(String resolverQueryLogConfigId) {
             return resolverQueryLogConfigId(Output.of(resolverQueryLogConfigId));
         }
 
-        /**
-         * @param resourceId The ID of a VPC that you want this query logging configuration to log queries for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of a VPC that you want this query logging configuration to log queries for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }

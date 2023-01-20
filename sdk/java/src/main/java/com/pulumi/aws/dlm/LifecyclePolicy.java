@@ -16,308 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
- * 
- * ## Example Usage
- * ### Basic
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.dlm.LifecyclePolicy;
- * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
- * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var dlmLifecycleRole = new Role(&#34;dlmLifecycleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;dlm.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var dlmLifecycle = new RolePolicy(&#34;dlmLifecycle&#34;, RolePolicyArgs.builder()        
- *             .role(dlmLifecycleRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *    &#34;Version&#34;: &#34;2012-10-17&#34;,
- *    &#34;Statement&#34;: [
- *       {
- *          &#34;Effect&#34;: &#34;Allow&#34;,
- *          &#34;Action&#34;: [
- *             &#34;ec2:CreateSnapshot&#34;,
- *             &#34;ec2:CreateSnapshots&#34;,
- *             &#34;ec2:DeleteSnapshot&#34;,
- *             &#34;ec2:DescribeInstances&#34;,
- *             &#34;ec2:DescribeVolumes&#34;,
- *             &#34;ec2:DescribeSnapshots&#34;
- *          ],
- *          &#34;Resource&#34;: &#34;*&#34;
- *       },
- *       {
- *          &#34;Effect&#34;: &#34;Allow&#34;,
- *          &#34;Action&#34;: [
- *             &#34;ec2:CreateTags&#34;
- *          ],
- *          &#34;Resource&#34;: &#34;arn:aws:ec2:*::snapshot/*&#34;
- *       }
- *    ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;example DLM lifecycle policy&#34;)
- *             .executionRoleArn(dlmLifecycleRole.arn())
- *             .state(&#34;ENABLED&#34;)
- *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .resourceTypes(&#34;VOLUME&#34;)
- *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
- *                     .name(&#34;2 weeks of daily snapshots&#34;)
- *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
- *                         .interval(24)
- *                         .intervalUnit(&#34;HOURS&#34;)
- *                         .times(&#34;23:45&#34;)
- *                         .build())
- *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
- *                         .count(14)
- *                         .build())
- *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
- *                     .copyTags(false)
- *                     .build())
- *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Example Cross-Region Snapshot Copy Usage
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.dlm.LifecyclePolicy;
- * import com.pulumi.aws.dlm.LifecyclePolicyArgs;
- * import com.pulumi.aws.dlm.inputs.LifecyclePolicyPolicyDetailsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var dlmCrossRegionCopyCmk = new Key(&#34;dlmCrossRegionCopyCmk&#34;, KeyArgs.builder()        
- *             .description(&#34;Example Alternate Region KMS Key&#34;)
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Id&#34;: &#34;dlm-cross-region-copy-cmk&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;Enable IAM User Permissions&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;AWS&#34;: &#34;arn:aws:iam::%s:root&#34;
- *       },
- *       &#34;Action&#34;: &#34;kms:*&#34;,
- *       &#34;Resource&#34;: &#34;*&#34;
- *     }
- *   ]
- * }
- * &#34;, current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
- * 
- *         var example = new LifecyclePolicy(&#34;example&#34;, LifecyclePolicyArgs.builder()        
- *             .description(&#34;example DLM lifecycle policy&#34;)
- *             .executionRoleArn(aws_iam_role.dlm_lifecycle_role().arn())
- *             .state(&#34;ENABLED&#34;)
- *             .policyDetails(LifecyclePolicyPolicyDetailsArgs.builder()
- *                 .resourceTypes(&#34;VOLUME&#34;)
- *                 .schedules(LifecyclePolicyPolicyDetailsScheduleArgs.builder()
- *                     .name(&#34;2 weeks of daily snapshots&#34;)
- *                     .createRule(LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs.builder()
- *                         .interval(24)
- *                         .intervalUnit(&#34;HOURS&#34;)
- *                         .times(&#34;23:45&#34;)
- *                         .build())
- *                     .retainRule(LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs.builder()
- *                         .count(14)
- *                         .build())
- *                     .tagsToAdd(Map.of(&#34;SnapshotCreator&#34;, &#34;DLM&#34;))
- *                     .copyTags(false)
- *                     .crossRegionCopyRules(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs.builder()
- *                         .target(&#34;us-west-2&#34;)
- *                         .encrypted(true)
- *                         .cmkArn(dlmCrossRegionCopyCmk.arn())
- *                         .copyTags(true)
- *                         .retainRule(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs.builder()
- *                             .interval(30)
- *                             .intervalUnit(&#34;DAYS&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .targetTags(Map.of(&#34;Snapshot&#34;, &#34;true&#34;))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * DLM lifecycle policies can be imported by their policy ID
- * 
- * ```sh
- *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
- * ```
- * 
- */
 @ResourceType(type="aws:dlm/lifecyclePolicy:LifecyclePolicy")
 public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description for the DLM lifecycle policy.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return A description for the DLM lifecycle policy.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The ARN of an IAM role that is able to be assumed by the DLM service.
-     * 
-     */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
-    /**
-     * @return The ARN of an IAM role that is able to be assumed by the DLM service.
-     * 
-     */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
-    /**
-     * See the `policy_details` configuration block. Max of 1.
-     * 
-     */
     @Export(name="policyDetails", refs={LifecyclePolicyPolicyDetails.class}, tree="[0]")
     private Output<LifecyclePolicyPolicyDetails> policyDetails;
 
-    /**
-     * @return See the `policy_details` configuration block. Max of 1.
-     * 
-     */
     public Output<LifecyclePolicyPolicyDetails> policyDetails() {
         return this.policyDetails;
     }
-    /**
-     * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> state;
 
-    /**
-     * @return Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-     * 
-     */
     public Output<Optional<String>> state() {
         return Codegen.optional(this.state);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

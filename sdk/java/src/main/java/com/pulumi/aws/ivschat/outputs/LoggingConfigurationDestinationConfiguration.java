@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LoggingConfigurationDestinationConfiguration {
-    /**
-     * @return An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-     * 
-     */
     private @Nullable LoggingConfigurationDestinationConfigurationCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-     * 
-     */
     private @Nullable LoggingConfigurationDestinationConfigurationFirehose firehose;
-    /**
-     * @return An Amazon S3 destination configuration where chat activity will be logged.
-     * 
-     */
     private @Nullable LoggingConfigurationDestinationConfigurationS3 s3;
 
     private LoggingConfigurationDestinationConfiguration() {}
-    /**
-     * @return An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<LoggingConfigurationDestinationConfigurationCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<LoggingConfigurationDestinationConfigurationFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
-    /**
-     * @return An Amazon S3 destination configuration where chat activity will be logged.
-     * 
-     */
     public Optional<LoggingConfigurationDestinationConfigurationS3> s3() {
         return Optional.ofNullable(this.s3);
     }

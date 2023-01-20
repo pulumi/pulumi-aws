@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow {
-    /**
-     * @return The location of the Salesforce resource.
-     * 
-     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow() {}
-    /**
-     * @return The location of the Salesforce resource.
-     * 
-     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

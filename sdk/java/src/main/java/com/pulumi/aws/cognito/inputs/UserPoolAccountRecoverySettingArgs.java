@@ -14,17 +14,9 @@ public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resourc
 
     public static final UserPoolAccountRecoverySettingArgs Empty = new UserPoolAccountRecoverySettingArgs();
 
-    /**
-     * List of Account Recovery Options of the following structure:
-     * 
-     */
     @Import(name="recoveryMechanisms", required=true)
     private Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms;
 
-    /**
-     * @return List of Account Recovery Options of the following structure:
-     * 
-     */
     public Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms() {
         return this.recoveryMechanisms;
     }
@@ -53,33 +45,15 @@ public final class UserPoolAccountRecoverySettingArgs extends com.pulumi.resourc
             $ = new UserPoolAccountRecoverySettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recoveryMechanisms List of Account Recovery Options of the following structure:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryMechanisms(Output<List<UserPoolAccountRecoverySettingRecoveryMechanismArgs>> recoveryMechanisms) {
             $.recoveryMechanisms = recoveryMechanisms;
             return this;
         }
 
-        /**
-         * @param recoveryMechanisms List of Account Recovery Options of the following structure:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryMechanisms(List<UserPoolAccountRecoverySettingRecoveryMechanismArgs> recoveryMechanisms) {
             return recoveryMechanisms(Output.of(recoveryMechanisms));
         }
 
-        /**
-         * @param recoveryMechanisms List of Account Recovery Options of the following structure:
-         * 
-         * @return builder
-         * 
-         */
         public Builder recoveryMechanisms(UserPoolAccountRecoverySettingRecoveryMechanismArgs... recoveryMechanisms) {
             return recoveryMechanisms(List.of(recoveryMechanisms));
         }

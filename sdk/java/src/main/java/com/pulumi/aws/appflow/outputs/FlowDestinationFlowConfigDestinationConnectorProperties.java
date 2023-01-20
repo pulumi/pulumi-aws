@@ -23,153 +23,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorProperties {
-    /**
-     * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector customConnector;
-    /**
-     * @return Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles customerProfiles;
-    /**
-     * @return Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge eventBridge;
-    /**
-     * @return Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode honeycode;
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics lookoutMetrics;
-    /**
-     * @return Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo marketo;
-    /**
-     * @return Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift redshift;
-    /**
-     * @return Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesS3 s3;
-    /**
-     * @return Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce salesforce;
-    /**
-     * @return Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData sapoData;
-    /**
-     * @return Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake snowflake;
-    /**
-     * @return Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver upsolver;
-    /**
-     * @return Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk zendesk;
 
     private FlowDestinationFlowConfigDestinationConnectorProperties() {}
-    /**
-     * @return Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector> customConnector() {
         return Optional.ofNullable(this.customConnector);
     }
-    /**
-     * @return Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles> customerProfiles() {
         return Optional.ofNullable(this.customerProfiles);
     }
-    /**
-     * @return Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge> eventBridge() {
         return Optional.ofNullable(this.eventBridge);
     }
-    /**
-     * @return Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode> honeycode() {
         return Optional.ofNullable(this.honeycode);
     }
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics> lookoutMetrics() {
         return Optional.ofNullable(this.lookoutMetrics);
     }
-    /**
-     * @return Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo> marketo() {
         return Optional.ofNullable(this.marketo);
     }
-    /**
-     * @return Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift> redshift() {
         return Optional.ofNullable(this.redshift);
     }
-    /**
-     * @return Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesS3> s3() {
         return Optional.ofNullable(this.s3);
     }
-    /**
-     * @return Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce> salesforce() {
         return Optional.ofNullable(this.salesforce);
     }
-    /**
-     * @return Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData> sapoData() {
         return Optional.ofNullable(this.sapoData);
     }
-    /**
-     * @return Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake> snowflake() {
         return Optional.ofNullable(this.snowflake);
     }
-    /**
-     * @return Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver> upsolver() {
         return Optional.ofNullable(this.upsolver);
     }
-    /**
-     * @return Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk> zendesk() {
         return Optional.ofNullable(this.zendesk);
     }

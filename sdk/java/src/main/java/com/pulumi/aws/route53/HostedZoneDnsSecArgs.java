@@ -15,32 +15,16 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.ResourceArg
 
     public static final HostedZoneDnsSecArgs Empty = new HostedZoneDnsSecArgs();
 
-    /**
-     * Identifier of the Route 53 Hosted Zone.
-     * 
-     */
     @Import(name="hostedZoneId", required=true)
     private Output<String> hostedZoneId;
 
-    /**
-     * @return Identifier of the Route 53 Hosted Zone.
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
 
-    /**
-     * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-     * 
-     */
     @Import(name="signingStatus")
     private @Nullable Output<String> signingStatus;
 
-    /**
-     * @return Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-     * 
-     */
     public Optional<Output<String>> signingStatus() {
         return Optional.ofNullable(this.signingStatus);
     }
@@ -70,44 +54,20 @@ public final class HostedZoneDnsSecArgs extends com.pulumi.resources.ResourceArg
             $ = new HostedZoneDnsSecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(Output<String> hostedZoneId) {
             $.hostedZoneId = hostedZoneId;
             return this;
         }
 
-        /**
-         * @param hostedZoneId Identifier of the Route 53 Hosted Zone.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
         }
 
-        /**
-         * @param signingStatus Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingStatus(@Nullable Output<String> signingStatus) {
             $.signingStatus = signingStatus;
             return this;
         }
 
-        /**
-         * @param signingStatus Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder signingStatus(String signingStatus) {
             return signingStatus(Output.of(signingStatus));
         }

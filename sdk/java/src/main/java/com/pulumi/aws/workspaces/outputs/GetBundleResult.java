@@ -15,66 +15,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBundleResult {
-    /**
-     * @return The ID of the bundle.
-     * 
-     */
     private @Nullable String bundleId;
-    /**
-     * @return The compute type. See supported fields below.
-     * 
-     */
     private List<GetBundleComputeType> computeTypes;
-    /**
-     * @return The description of the bundle.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the compute type.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The owner of the bundle.
-     * 
-     */
     private @Nullable String owner;
-    /**
-     * @return The root volume. See supported fields below.
-     * 
-     */
     private List<GetBundleRootStorage> rootStorages;
-    /**
-     * @return The user storage. See supported fields below.
-     * 
-     */
     private List<GetBundleUserStorage> userStorages;
 
     private GetBundleResult() {}
-    /**
-     * @return The ID of the bundle.
-     * 
-     */
     public Optional<String> bundleId() {
         return Optional.ofNullable(this.bundleId);
     }
-    /**
-     * @return The compute type. See supported fields below.
-     * 
-     */
     public List<GetBundleComputeType> computeTypes() {
         return this.computeTypes;
     }
-    /**
-     * @return The description of the bundle.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -85,31 +45,15 @@ public final class GetBundleResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the compute type.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The owner of the bundle.
-     * 
-     */
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
     }
-    /**
-     * @return The root volume. See supported fields below.
-     * 
-     */
     public List<GetBundleRootStorage> rootStorages() {
         return this.rootStorages;
     }
-    /**
-     * @return The user storage. See supported fields below.
-     * 
-     */
     public List<GetBundleUserStorage> userStorages() {
         return this.userStorages;
     }

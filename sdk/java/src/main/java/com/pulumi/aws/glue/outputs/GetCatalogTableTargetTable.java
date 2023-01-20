@@ -9,41 +9,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCatalogTableTargetTable {
-    /**
-     * @return ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-     * 
-     */
     private String catalogId;
-    /**
-     * @return Name of the metadata database where the table metadata resides.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return Name of the table.
-     * 
-     */
     private String name;
 
     private GetCatalogTableTargetTable() {}
-    /**
-     * @return ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }
-    /**
-     * @return Name of the metadata database where the table metadata resides.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return Name of the table.
-     * 
-     */
     public String name() {
         return this.name;
     }

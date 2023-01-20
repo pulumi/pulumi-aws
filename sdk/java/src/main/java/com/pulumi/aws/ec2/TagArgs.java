@@ -13,47 +13,23 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TagArgs Empty = new TagArgs();
 
-    /**
-     * The tag name.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return The tag name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * The ID of the EC2 resource to manage the tag for.
-     * 
-     */
     @Import(name="resourceId", required=true)
     private Output<String> resourceId;
 
-    /**
-     * @return The ID of the EC2 resource to manage the tag for.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
 
-    /**
-     * The value of the tag.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the tag.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -84,65 +60,29 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TagArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key The tag name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The tag name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param resourceId The ID of the EC2 resource to manage the tag for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(Output<String> resourceId) {
             $.resourceId = resourceId;
             return this;
         }
 
-        /**
-         * @param resourceId The ID of the EC2 resource to manage the tag for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceId(String resourceId) {
             return resourceId(Output.of(resourceId));
         }
 
-        /**
-         * @param value The value of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the tag.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

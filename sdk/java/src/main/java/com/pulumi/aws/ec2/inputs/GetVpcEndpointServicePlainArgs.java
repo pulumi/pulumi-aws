@@ -17,77 +17,37 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
 
     public static final GetVpcEndpointServicePlainArgs Empty = new GetVpcEndpointServicePlainArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetVpcEndpointServiceFilter> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<List<GetVpcEndpointServiceFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Common name of an AWS service (e.g., `s3`).
-     * 
-     */
     @Import(name="service")
     private @Nullable String service;
 
-    /**
-     * @return Common name of an AWS service (e.g., `s3`).
-     * 
-     */
     public Optional<String> service() {
         return Optional.ofNullable(this.service);
     }
 
-    /**
-     * Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable String serviceName;
 
-    /**
-     * @return Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-     * 
-     */
     public Optional<String> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * Service type, `Gateway` or `Interface`.
-     * 
-     */
     @Import(name="serviceType")
     private @Nullable String serviceType;
 
-    /**
-     * @return Service type, `Gateway` or `Interface`.
-     * 
-     */
     public Optional<String> serviceType() {
         return Optional.ofNullable(this.serviceType);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -120,66 +80,30 @@ public final class GetVpcEndpointServicePlainArgs extends com.pulumi.resources.I
             $ = new GetVpcEndpointServicePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetVpcEndpointServiceFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcEndpointServiceFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param service Common name of an AWS service (e.g., `s3`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder service(@Nullable String service) {
             $.service = service;
             return this;
         }
 
-        /**
-         * @param serviceName Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable String serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceType Service type, `Gateway` or `Interface`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceType(@Nullable String serviceType) {
             $.serviceType = serviceType;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

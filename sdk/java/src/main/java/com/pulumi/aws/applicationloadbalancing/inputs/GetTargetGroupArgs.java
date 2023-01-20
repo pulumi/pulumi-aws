@@ -16,32 +16,16 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTargetGroupArgs Empty = new GetTargetGroupArgs();
 
-    /**
-     * Full ARN of the target group.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Full ARN of the target group.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Unique name of the target group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name of the target group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -79,44 +63,20 @@ public final class GetTargetGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTargetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Full ARN of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Full ARN of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name Unique name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name of the target group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

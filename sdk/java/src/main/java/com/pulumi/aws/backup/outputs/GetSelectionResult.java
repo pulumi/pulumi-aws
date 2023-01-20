@@ -10,34 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSelectionResult {
-    /**
-     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-     * 
-     */
     private String iamRoleArn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Display name of a resource selection document.
-     * 
-     */
     private String name;
     private String planId;
-    /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-     * 
-     */
     private List<String> resources;
     private String selectionId;
 
     private GetSelectionResult() {}
-    /**
-     * @return ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-     * 
-     */
     public String iamRoleArn() {
         return this.iamRoleArn;
     }
@@ -48,20 +32,12 @@ public final class GetSelectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Display name of a resource selection document.
-     * 
-     */
     public String name() {
         return this.name;
     }
     public String planId() {
         return this.planId;
     }
-    /**
-     * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-     * 
-     */
     public List<String> resources() {
         return this.resources;
     }

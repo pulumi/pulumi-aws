@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InventoryDestinationBucketEncryptionSseKms {
-    /**
-     * @return The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
-     * 
-     */
     private String keyId;
 
     private InventoryDestinationBucketEncryptionSseKms() {}
-    /**
-     * @return The ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
-     * 
-     */
     public String keyId() {
         return this.keyId;
     }

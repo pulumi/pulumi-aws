@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InstanceRestoreToPointInTime {
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-     * 
-     */
     private @Nullable String restoreTime;
-    /**
-     * @return The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
-     * 
-     */
     private @Nullable String sourceDbInstanceAutomatedBackupsArn;
-    /**
-     * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
-     * 
-     */
     private @Nullable String sourceDbInstanceIdentifier;
-    /**
-     * @return The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
-     * 
-     */
     private @Nullable String sourceDbiResourceId;
-    /**
-     * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
-     * 
-     */
     private @Nullable Boolean useLatestRestorableTime;
 
     private InstanceRestoreToPointInTime() {}
-    /**
-     * @return The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-     * 
-     */
     public Optional<String> restoreTime() {
         return Optional.ofNullable(this.restoreTime);
     }
-    /**
-     * @return The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
-     * 
-     */
     public Optional<String> sourceDbInstanceAutomatedBackupsArn() {
         return Optional.ofNullable(this.sourceDbInstanceAutomatedBackupsArn);
     }
-    /**
-     * @return The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
-     * 
-     */
     public Optional<String> sourceDbInstanceIdentifier() {
         return Optional.ofNullable(this.sourceDbInstanceIdentifier);
     }
-    /**
-     * @return The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
-     * 
-     */
     public Optional<String> sourceDbiResourceId() {
         return Optional.ofNullable(this.sourceDbiResourceId);
     }
-    /**
-     * @return A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
-     * 
-     */
     public Optional<Boolean> useLatestRestorableTime() {
         return Optional.ofNullable(this.useLatestRestorableTime);
     }

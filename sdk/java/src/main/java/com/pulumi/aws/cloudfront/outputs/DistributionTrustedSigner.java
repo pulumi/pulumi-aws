@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionTrustedSigner {
-    /**
-     * @return A flag that specifies whether Origin Shield is enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return List of nested attributes for each trusted signer
-     * 
-     */
     private @Nullable List<DistributionTrustedSignerItem> items;
 
     private DistributionTrustedSigner() {}
-    /**
-     * @return A flag that specifies whether Origin Shield is enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return List of nested attributes for each trusted signer
-     * 
-     */
     public List<DistributionTrustedSignerItem> items() {
         return this.items == null ? List.of() : this.items;
     }

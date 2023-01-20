@@ -15,32 +15,16 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
 
     public static final NetworkAclAssociationState Empty = new NetworkAclAssociationState();
 
-    /**
-     * The ID of the network ACL.
-     * 
-     */
     @Import(name="networkAclId")
     private @Nullable Output<String> networkAclId;
 
-    /**
-     * @return The ID of the network ACL.
-     * 
-     */
     public Optional<Output<String>> networkAclId() {
         return Optional.ofNullable(this.networkAclId);
     }
 
-    /**
-     * The ID of the associated Subnet.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return The ID of the associated Subnet.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -70,44 +54,20 @@ public final class NetworkAclAssociationState extends com.pulumi.resources.Resou
             $ = new NetworkAclAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(@Nullable Output<String> networkAclId) {
             $.networkAclId = networkAclId;
             return this;
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(String networkAclId) {
             return networkAclId(Output.of(networkAclId));
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

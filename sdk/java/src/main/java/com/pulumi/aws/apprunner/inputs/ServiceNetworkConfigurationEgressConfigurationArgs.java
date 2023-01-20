@@ -15,32 +15,16 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
 
     public static final ServiceNetworkConfigurationEgressConfigurationArgs Empty = new ServiceNetworkConfigurationEgressConfigurationArgs();
 
-    /**
-     * The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-     * 
-     */
     @Import(name="egressType")
     private @Nullable Output<String> egressType;
 
-    /**
-     * @return The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-     * 
-     */
     public Optional<Output<String>> egressType() {
         return Optional.ofNullable(this.egressType);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-     * 
-     */
     @Import(name="vpcConnectorArn")
     private @Nullable Output<String> vpcConnectorArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-     * 
-     */
     public Optional<Output<String>> vpcConnectorArn() {
         return Optional.ofNullable(this.vpcConnectorArn);
     }
@@ -70,44 +54,20 @@ public final class ServiceNetworkConfigurationEgressConfigurationArgs extends co
             $ = new ServiceNetworkConfigurationEgressConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param egressType The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressType(@Nullable Output<String> egressType) {
             $.egressType = egressType;
             return this;
         }
 
-        /**
-         * @param egressType The type of egress configuration. Valid values are: `DEFAULT` and `VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder egressType(String egressType) {
             return egressType(Output.of(egressType));
         }
 
-        /**
-         * @param vpcConnectorArn The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectorArn(@Nullable Output<String> vpcConnectorArn) {
             $.vpcConnectorArn = vpcConnectorArn;
             return this;
         }
 
-        /**
-         * @param vpcConnectorArn The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcConnectorArn(String vpcConnectorArn) {
             return vpcConnectorArn(Output.of(vpcConnectorArn));
         }

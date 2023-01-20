@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetReputationOptions {
-    /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-     * 
-     */
     private @Nullable String lastFreshStart;
-    /**
-     * @return If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-     * 
-     */
     private @Nullable Boolean reputationMetricsEnabled;
 
     private ConfigurationSetReputationOptions() {}
-    /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-     * 
-     */
     public Optional<String> lastFreshStart() {
         return Optional.ofNullable(this.lastFreshStart);
     }
-    /**
-     * @return If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-     * 
-     */
     public Optional<Boolean> reputationMetricsEnabled() {
         return Optional.ofNullable(this.reputationMetricsEnabled);
     }

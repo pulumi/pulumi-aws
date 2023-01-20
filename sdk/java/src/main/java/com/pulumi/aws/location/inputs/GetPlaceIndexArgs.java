@@ -16,32 +16,16 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPlaceIndexArgs Empty = new GetPlaceIndexArgs();
 
-    /**
-     * Name of the place index resource.
-     * 
-     */
     @Import(name="indexName", required=true)
     private Output<String> indexName;
 
-    /**
-     * @return Name of the place index resource.
-     * 
-     */
     public Output<String> indexName() {
         return this.indexName;
     }
 
-    /**
-     * Key-value map of resource tags for the place index.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags for the place index.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPlaceIndexArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexName Name of the place index resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(Output<String> indexName) {
             $.indexName = indexName;
             return this;
         }
 
-        /**
-         * @param indexName Name of the place index resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexName(String indexName) {
             return indexName(Output.of(indexName));
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the place index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the place index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

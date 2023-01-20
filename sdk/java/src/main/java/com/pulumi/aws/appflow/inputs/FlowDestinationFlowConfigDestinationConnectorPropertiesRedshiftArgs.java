@@ -16,62 +16,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs();
 
-    /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig;
 
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
-    /**
-     * Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-     * 
-     */
     @Import(name="intermediateBucketName", required=true)
     private Output<String> intermediateBucketName;
 
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-     * 
-     */
     public Output<String> intermediateBucketName() {
         return this.intermediateBucketName;
     }
 
-    /**
-     * Object specified in the Veeva flow source.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
@@ -103,86 +71,38 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshi
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
-        /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateBucketName(Output<String> intermediateBucketName) {
             $.intermediateBucketName = intermediateBucketName;
             return this;
         }
 
-        /**
-         * @param intermediateBucketName Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intermediateBucketName(String intermediateBucketName) {
             return intermediateBucketName(Output.of(intermediateBucketName));
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

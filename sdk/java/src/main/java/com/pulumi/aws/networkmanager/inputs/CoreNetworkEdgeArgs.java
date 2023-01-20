@@ -17,47 +17,23 @@ public final class CoreNetworkEdgeArgs extends com.pulumi.resources.ResourceArgs
 
     public static final CoreNetworkEdgeArgs Empty = new CoreNetworkEdgeArgs();
 
-    /**
-     * ASN of a core network edge.
-     * 
-     */
     @Import(name="asn")
     private @Nullable Output<Integer> asn;
 
-    /**
-     * @return ASN of a core network edge.
-     * 
-     */
     public Optional<Output<Integer>> asn() {
         return Optional.ofNullable(this.asn);
     }
 
-    /**
-     * Region where a core network edge is located.
-     * 
-     */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
-    /**
-     * @return Region where a core network edge is located.
-     * 
-     */
     public Optional<Output<String>> edgeLocation() {
         return Optional.ofNullable(this.edgeLocation);
     }
 
-    /**
-     * Inside IP addresses used for core network edges.
-     * 
-     */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
-    /**
-     * @return Inside IP addresses used for core network edges.
-     * 
-     */
     public Optional<Output<List<String>>> insideCidrBlocks() {
         return Optional.ofNullable(this.insideCidrBlocks);
     }
@@ -88,75 +64,33 @@ public final class CoreNetworkEdgeArgs extends com.pulumi.resources.ResourceArgs
             $ = new CoreNetworkEdgeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param asn ASN of a core network edge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder asn(@Nullable Output<Integer> asn) {
             $.asn = asn;
             return this;
         }
 
-        /**
-         * @param asn ASN of a core network edge.
-         * 
-         * @return builder
-         * 
-         */
         public Builder asn(Integer asn) {
             return asn(Output.of(asn));
         }
 
-        /**
-         * @param edgeLocation Region where a core network edge is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(@Nullable Output<String> edgeLocation) {
             $.edgeLocation = edgeLocation;
             return this;
         }
 
-        /**
-         * @param edgeLocation Region where a core network edge is located.
-         * 
-         * @return builder
-         * 
-         */
         public Builder edgeLocation(String edgeLocation) {
             return edgeLocation(Output.of(edgeLocation));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for core network edges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(@Nullable Output<List<String>> insideCidrBlocks) {
             $.insideCidrBlocks = insideCidrBlocks;
             return this;
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for core network edges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(List<String> insideCidrBlocks) {
             return insideCidrBlocks(Output.of(insideCidrBlocks));
         }
 
-        /**
-         * @param insideCidrBlocks Inside IP addresses used for core network edges.
-         * 
-         * @return builder
-         * 
-         */
         public Builder insideCidrBlocks(String... insideCidrBlocks) {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }

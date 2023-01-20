@@ -12,30 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionVpcConfig {
-    /**
-     * @return List of security group IDs associated with the Lambda function.
-     * 
-     */
     private List<String> securityGroupIds;
-    /**
-     * @return List of subnet IDs associated with the Lambda function.
-     * 
-     */
     private List<String> subnetIds;
     private @Nullable String vpcId;
 
     private FunctionVpcConfig() {}
-    /**
-     * @return List of security group IDs associated with the Lambda function.
-     * 
-     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * @return List of subnet IDs associated with the Lambda function.
-     * 
-     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }

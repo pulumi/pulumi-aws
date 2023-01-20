@@ -15,17 +15,9 @@ public final class GetAuthorizationTokenArgs extends com.pulumi.resources.Invoke
 
     public static final GetAuthorizationTokenArgs Empty = new GetAuthorizationTokenArgs();
 
-    /**
-     * AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return AWS account ID of the ECR Repository. If not specified the default account is assumed.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
@@ -54,23 +46,11 @@ public final class GetAuthorizationTokenArgs extends com.pulumi.resources.Invoke
             $ = new GetAuthorizationTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param registryId AWS account ID of the ECR Repository. If not specified the default account is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId AWS account ID of the ECR Repository. If not specified the default account is assumed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }

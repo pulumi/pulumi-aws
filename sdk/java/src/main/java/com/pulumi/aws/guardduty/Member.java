@@ -15,162 +15,47 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `aws.guardduty.InviteAccepter` resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.guardduty.Detector;
- * import com.pulumi.aws.guardduty.DetectorArgs;
- * import com.pulumi.aws.guardduty.Member;
- * import com.pulumi.aws.guardduty.MemberArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primary = new Detector(&#34;primary&#34;, DetectorArgs.builder()        
- *             .enable(true)
- *             .build());
- * 
- *         var memberDetector = new Detector(&#34;memberDetector&#34;, DetectorArgs.builder()        
- *             .enable(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.dev())
- *                 .build());
- * 
- *         var memberMember = new Member(&#34;memberMember&#34;, MemberArgs.builder()        
- *             .accountId(memberDetector.accountId())
- *             .detectorId(primary.id())
- *             .email(&#34;required@example.com&#34;)
- *             .invite(true)
- *             .invitationMessage(&#34;please accept guardduty invitation&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GuardDuty members can be imported using the primary GuardDuty detector ID and member AWS account ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:guardduty/member:Member MyMember 00b00fd5aecc0ab60a708659477e9617:123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:guardduty/member:Member")
 public class Member extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS account ID for member account.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return AWS account ID for member account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The detector ID of the GuardDuty account where you want to create member accounts.
-     * 
-     */
     @Export(name="detectorId", refs={String.class}, tree="[0]")
     private Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the GuardDuty account where you want to create member accounts.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
-    /**
-     * Boolean whether an email notification is sent to the accounts. Defaults to `false`.
-     * 
-     */
     @Export(name="disableEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableEmailNotification;
 
-    /**
-     * @return Boolean whether an email notification is sent to the accounts. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> disableEmailNotification() {
         return Codegen.optional(this.disableEmailNotification);
     }
-    /**
-     * Email address for member account.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return Email address for member account.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * Message for invitation.
-     * 
-     */
     @Export(name="invitationMessage", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invitationMessage;
 
-    /**
-     * @return Message for invitation.
-     * 
-     */
     public Output<Optional<String>> invitationMessage() {
         return Codegen.optional(this.invitationMessage);
     }
-    /**
-     * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-     * 
-     */
     @Export(name="invite", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> invite;
 
-    /**
-     * @return Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
-     * 
-     */
     public Output<Optional<Boolean>> invite() {
         return Codegen.optional(this.invite);
     }
-    /**
-     * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-     * 
-     */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
-    /**
-     * @return The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
-     * 
-     */
     public Output<String> relationshipStatus() {
         return this.relationshipStatus;
     }

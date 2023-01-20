@@ -15,47 +15,23 @@ public final class SiteLocationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SiteLocationArgs Empty = new SiteLocationArgs();
 
-    /**
-     * Address of the location.
-     * 
-     */
     @Import(name="address")
     private @Nullable Output<String> address;
 
-    /**
-     * @return Address of the location.
-     * 
-     */
     public Optional<Output<String>> address() {
         return Optional.ofNullable(this.address);
     }
 
-    /**
-     * Latitude of the location.
-     * 
-     */
     @Import(name="latitude")
     private @Nullable Output<String> latitude;
 
-    /**
-     * @return Latitude of the location.
-     * 
-     */
     public Optional<Output<String>> latitude() {
         return Optional.ofNullable(this.latitude);
     }
 
-    /**
-     * Longitude of the location.
-     * 
-     */
     @Import(name="longitude")
     private @Nullable Output<String> longitude;
 
-    /**
-     * @return Longitude of the location.
-     * 
-     */
     public Optional<Output<String>> longitude() {
         return Optional.ofNullable(this.longitude);
     }
@@ -86,65 +62,29 @@ public final class SiteLocationArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SiteLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param address Address of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(@Nullable Output<String> address) {
             $.address = address;
             return this;
         }
 
-        /**
-         * @param address Address of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder address(String address) {
             return address(Output.of(address));
         }
 
-        /**
-         * @param latitude Latitude of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latitude(@Nullable Output<String> latitude) {
             $.latitude = latitude;
             return this;
         }
 
-        /**
-         * @param latitude Latitude of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder latitude(String latitude) {
             return latitude(Output.of(latitude));
         }
 
-        /**
-         * @param longitude Longitude of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longitude(@Nullable Output<String> longitude) {
             $.longitude = longitude;
             return this;
         }
 
-        /**
-         * @param longitude Longitude of the location.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longitude(String longitude) {
             return longitude(Output.of(longitude));
         }

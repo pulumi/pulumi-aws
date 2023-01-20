@@ -59,17 +59,9 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cloudwatchMetric);
     }
 
-    /**
-     * The description of the rule.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the rule.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -95,32 +87,16 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.elasticsearch);
     }
 
-    /**
-     * Specifies whether the rule is enabled.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Specifies whether the rule is enabled.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     @Import(name="errorAction")
     private @Nullable Output<TopicRuleErrorActionArgs> errorAction;
 
-    /**
-     * @return Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
-     * 
-     */
     public Optional<Output<TopicRuleErrorActionArgs>> errorAction() {
         return Optional.ofNullable(this.errorAction);
     }
@@ -174,17 +150,9 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lambda);
     }
 
-    /**
-     * The name of the rule.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -210,32 +178,16 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sns);
     }
 
-    /**
-     * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     @Import(name="sql", required=true)
     private Output<String> sql;
 
-    /**
-     * @return The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-     * 
-     */
     public Output<String> sql() {
         return this.sql;
     }
 
-    /**
-     * The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     @Import(name="sqlVersion", required=true)
     private Output<String> sqlVersion;
 
-    /**
-     * @return The version of the SQL rules engine to use when evaluating the rule.
-     * 
-     */
     public Output<String> sqlVersion() {
         return this.sqlVersion;
     }
@@ -254,17 +206,9 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.stepFunctions);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -356,23 +300,11 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return cloudwatchMetric(Output.of(cloudwatchMetric));
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -408,44 +340,20 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return elasticsearch(Output.of(elasticsearch));
         }
 
-        /**
-         * @param enabled Specifies whether the rule is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Specifies whether the rule is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param errorAction Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorAction(@Nullable Output<TopicRuleErrorActionArgs> errorAction) {
             $.errorAction = errorAction;
             return this;
         }
 
-        /**
-         * @param errorAction Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorAction(TopicRuleErrorActionArgs errorAction) {
             return errorAction(Output.of(errorAction));
         }
@@ -529,23 +437,11 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return lambda(Output.of(lambda));
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
@@ -577,44 +473,20 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return sns(Output.of(sns));
         }
 
-        /**
-         * @param sql The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(Output<String> sql) {
             $.sql = sql;
             return this;
         }
 
-        /**
-         * @param sql The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sql(String sql) {
             return sql(Output.of(sql));
         }
 
-        /**
-         * @param sqlVersion The version of the SQL rules engine to use when evaluating the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlVersion(Output<String> sqlVersion) {
             $.sqlVersion = sqlVersion;
             return this;
         }
 
-        /**
-         * @param sqlVersion The version of the SQL rules engine to use when evaluating the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sqlVersion(String sqlVersion) {
             return sqlVersion(Output.of(sqlVersion));
         }
@@ -641,23 +513,11 @@ public final class TopicRuleArgs extends com.pulumi.resources.ResourceArgs {
             return stepFunctions(List.of(stepFunctions));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

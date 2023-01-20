@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CatalogDatabaseCreateTableDefaultPermissionPrincipal {
-    /**
-     * @return An identifier for the Lake Formation principal.
-     * 
-     */
     private @Nullable String dataLakePrincipalIdentifier;
 
     private CatalogDatabaseCreateTableDefaultPermissionPrincipal() {}
-    /**
-     * @return An identifier for the Lake Formation principal.
-     * 
-     */
     public Optional<String> dataLakePrincipalIdentifier() {
         return Optional.ofNullable(this.dataLakePrincipalIdentifier);
     }

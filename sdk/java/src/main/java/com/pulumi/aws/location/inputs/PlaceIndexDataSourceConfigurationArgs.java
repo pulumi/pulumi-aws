@@ -15,17 +15,9 @@ public final class PlaceIndexDataSourceConfigurationArgs extends com.pulumi.reso
 
     public static final PlaceIndexDataSourceConfigurationArgs Empty = new PlaceIndexDataSourceConfigurationArgs();
 
-    /**
-     * Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-     * 
-     */
     @Import(name="intendedUse")
     private @Nullable Output<String> intendedUse;
 
-    /**
-     * @return Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-     * 
-     */
     public Optional<Output<String>> intendedUse() {
         return Optional.ofNullable(this.intendedUse);
     }
@@ -54,23 +46,11 @@ public final class PlaceIndexDataSourceConfigurationArgs extends com.pulumi.reso
             $ = new PlaceIndexDataSourceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param intendedUse Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intendedUse(@Nullable Output<String> intendedUse) {
             $.intendedUse = intendedUse;
             return this;
         }
 
-        /**
-         * @param intendedUse Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder intendedUse(String intendedUse) {
             return intendedUse(Output.of(intendedUse));
         }

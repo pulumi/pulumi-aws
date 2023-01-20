@@ -13,77 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Subscribes to a Security Hub standard.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.StandardsSubscription;
- * import com.pulumi.aws.securityhub.StandardsSubscriptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account(&#34;example&#34;);
- * 
- *         var cis = new StandardsSubscription(&#34;cis&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(&#34;arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *         var pci321 = new StandardsSubscription(&#34;pci321&#34;, StandardsSubscriptionArgs.builder()        
- *             .standardsArn(&#34;arn:aws:securityhub:us-east-1::standards/pci-dss/v/3.2.1&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(example)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Security Hub standards subscriptions can be imported using the standards subscription ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0
- * ```
- * 
- * ```sh
- *  $ pulumi import aws:securityhub/standardsSubscription:StandardsSubscription pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1
- * ```
- * 
- */
 @ResourceType(type="aws:securityhub/standardsSubscription:StandardsSubscription")
 public class StandardsSubscription extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of a standard - see below.
-     * 
-     */
     @Export(name="standardsArn", refs={String.class}, tree="[0]")
     private Output<String> standardsArn;
 
-    /**
-     * @return The ARN of a standard - see below.
-     * 
-     */
     public Output<String> standardsArn() {
         return this.standardsArn;
     }

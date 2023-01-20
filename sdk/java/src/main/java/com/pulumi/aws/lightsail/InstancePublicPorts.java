@@ -15,85 +15,17 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses allowed to connect to the instance through the ports, and the protocol.
- * 
- * &gt; See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
- * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.InstancePublicPorts;
- * import com.pulumi.aws.lightsail.InstancePublicPortsArgs;
- * import com.pulumi.aws.lightsail.inputs.InstancePublicPortsPortInfoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .availabilityZone(data.aws_availability_zones().available().names()[0])
- *             .blueprintId(&#34;amazon_linux&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
- *             .build());
- * 
- *         var testInstancePublicPorts = new InstancePublicPorts(&#34;testInstancePublicPorts&#34;, InstancePublicPortsArgs.builder()        
- *             .instanceName(testInstance.name())
- *             .portInfos(InstancePublicPortsPortInfoArgs.builder()
- *                 .protocol(&#34;tcp&#34;)
- *                 .fromPort(80)
- *                 .toPort(80)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/instancePublicPorts:InstancePublicPorts")
 public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Lightsail Instance.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return Name of the Lightsail Instance.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-     * 
-     */
     @Export(name="portInfos", refs={List.class,InstancePublicPortsPortInfo.class}, tree="[0,1]")
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
-    /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-     * 
-     */
     public Output<List<InstancePublicPortsPortInfo>> portInfos() {
         return this.portInfos;
     }

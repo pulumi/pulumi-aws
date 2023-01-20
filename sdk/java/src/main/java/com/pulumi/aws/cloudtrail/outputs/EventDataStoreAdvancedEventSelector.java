@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventDataStoreAdvancedEventSelector {
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     private @Nullable List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors;
-    /**
-     * @return Specifies the name of the advanced event selector.
-     * 
-     */
     private @Nullable String name;
 
     private EventDataStoreAdvancedEventSelector() {}
-    /**
-     * @return Specifies the selector statements in an advanced event selector. Fields documented below.
-     * 
-     */
     public List<EventDataStoreAdvancedEventSelectorFieldSelector> fieldSelectors() {
         return this.fieldSelectors == null ? List.of() : this.fieldSelectors;
     }
-    /**
-     * @return Specifies the name of the advanced event selector.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }

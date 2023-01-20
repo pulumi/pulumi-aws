@@ -15,32 +15,16 @@ public final class LinkBandwidthArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LinkBandwidthArgs Empty = new LinkBandwidthArgs();
 
-    /**
-     * Download speed in Mbps.
-     * 
-     */
     @Import(name="downloadSpeed")
     private @Nullable Output<Integer> downloadSpeed;
 
-    /**
-     * @return Download speed in Mbps.
-     * 
-     */
     public Optional<Output<Integer>> downloadSpeed() {
         return Optional.ofNullable(this.downloadSpeed);
     }
 
-    /**
-     * Upload speed in Mbps.
-     * 
-     */
     @Import(name="uploadSpeed")
     private @Nullable Output<Integer> uploadSpeed;
 
-    /**
-     * @return Upload speed in Mbps.
-     * 
-     */
     public Optional<Output<Integer>> uploadSpeed() {
         return Optional.ofNullable(this.uploadSpeed);
     }
@@ -70,44 +54,20 @@ public final class LinkBandwidthArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LinkBandwidthArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param downloadSpeed Download speed in Mbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder downloadSpeed(@Nullable Output<Integer> downloadSpeed) {
             $.downloadSpeed = downloadSpeed;
             return this;
         }
 
-        /**
-         * @param downloadSpeed Download speed in Mbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder downloadSpeed(Integer downloadSpeed) {
             return downloadSpeed(Output.of(downloadSpeed));
         }
 
-        /**
-         * @param uploadSpeed Upload speed in Mbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uploadSpeed(@Nullable Output<Integer> uploadSpeed) {
             $.uploadSpeed = uploadSpeed;
             return this;
         }
 
-        /**
-         * @param uploadSpeed Upload speed in Mbps.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uploadSpeed(Integer uploadSpeed) {
             return uploadSpeed(Output.of(uploadSpeed));
         }

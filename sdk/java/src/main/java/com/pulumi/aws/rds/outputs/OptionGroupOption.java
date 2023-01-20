@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptionGroupOption {
-    /**
-     * @return A list of DB Security Groups for which the option is enabled.
-     * 
-     */
     private @Nullable List<String> dbSecurityGroupMemberships;
-    /**
-     * @return The Name of the Option (e.g., MEMCACHED).
-     * 
-     */
     private String optionName;
-    /**
-     * @return A list of option settings to apply.
-     * 
-     */
     private @Nullable List<OptionGroupOptionOptionSetting> optionSettings;
-    /**
-     * @return The Port number when connecting to the Option (e.g., 11211).
-     * 
-     */
     private @Nullable Integer port;
-    /**
-     * @return The version of the option (e.g., 13.1.0.0).
-     * 
-     */
     private @Nullable String version;
-    /**
-     * @return A list of VPC Security Groups for which the option is enabled.
-     * 
-     */
     private @Nullable List<String> vpcSecurityGroupMemberships;
 
     private OptionGroupOption() {}
-    /**
-     * @return A list of DB Security Groups for which the option is enabled.
-     * 
-     */
     public List<String> dbSecurityGroupMemberships() {
         return this.dbSecurityGroupMemberships == null ? List.of() : this.dbSecurityGroupMemberships;
     }
-    /**
-     * @return The Name of the Option (e.g., MEMCACHED).
-     * 
-     */
     public String optionName() {
         return this.optionName;
     }
-    /**
-     * @return A list of option settings to apply.
-     * 
-     */
     public List<OptionGroupOptionOptionSetting> optionSettings() {
         return this.optionSettings == null ? List.of() : this.optionSettings;
     }
-    /**
-     * @return The Port number when connecting to the Option (e.g., 11211).
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
-    /**
-     * @return The version of the option (e.g., 13.1.0.0).
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }
-    /**
-     * @return A list of VPC Security Groups for which the option is enabled.
-     * 
-     */
     public List<String> vpcSecurityGroupMemberships() {
         return this.vpcSecurityGroupMemberships == null ? List.of() : this.vpcSecurityGroupMemberships;
     }

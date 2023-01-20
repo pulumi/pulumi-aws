@@ -17,150 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Neptune Parameter Group
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.neptune.ParameterGroup;
- * import com.pulumi.aws.neptune.ParameterGroupArgs;
- * import com.pulumi.aws.neptune.inputs.ParameterGroupParameterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ParameterGroup(&#34;example&#34;, ParameterGroupArgs.builder()        
- *             .family(&#34;neptune1&#34;)
- *             .parameters(ParameterGroupParameterArgs.builder()
- *                 .name(&#34;neptune_query_timeout&#34;)
- *                 .value(&#34;25&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Neptune Parameter Groups can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
- * ```
- * 
- */
 @ResourceType(type="aws:neptune/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Neptune parameter group Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Neptune parameter group Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the Neptune parameter group. Defaults to &#34;Managed by Pulumi&#34;.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The family of the Neptune parameter group.
-     * 
-     */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
-    /**
-     * @return The family of the Neptune parameter group.
-     * 
-     */
     public Output<String> family() {
         return this.family;
     }
-    /**
-     * The name of the Neptune parameter.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Neptune parameter.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A list of Neptune parameters to apply.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
-    /**
-     * @return A list of Neptune parameters to apply.
-     * 
-     */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

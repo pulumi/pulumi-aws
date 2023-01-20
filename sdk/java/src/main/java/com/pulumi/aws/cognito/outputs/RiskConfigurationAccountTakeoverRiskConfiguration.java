@@ -10,29 +10,13 @@ import java.util.Objects;
 
 @CustomType
 public final class RiskConfigurationAccountTakeoverRiskConfiguration {
-    /**
-     * @return The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     private RiskConfigurationAccountTakeoverRiskConfigurationActions actions;
-    /**
-     * @return The notify configuration used to construct email notifications. See details below.
-     * 
-     */
     private RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration;
 
     private RiskConfigurationAccountTakeoverRiskConfiguration() {}
-    /**
-     * @return The compromised credentials risk configuration actions. See details below.
-     * 
-     */
     public RiskConfigurationAccountTakeoverRiskConfigurationActions actions() {
         return this.actions;
     }
-    /**
-     * @return The notify configuration used to construct email notifications. See details below.
-     * 
-     */
     public RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration notifyConfiguration() {
         return this.notifyConfiguration;
     }

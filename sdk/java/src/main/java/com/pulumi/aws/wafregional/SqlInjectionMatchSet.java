@@ -16,82 +16,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.SqlInjectionMatchSet;
- * import com.pulumi.aws.wafregional.SqlInjectionMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sqlInjectionMatchSet = new SqlInjectionMatchSet(&#34;sqlInjectionMatchSet&#34;, SqlInjectionMatchSetArgs.builder()        
- *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
- *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
- *                     .type(&#34;QUERY_STRING&#34;)
- *                     .build())
- *                 .textTransformation(&#34;URL_DECODE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Regional Sql Injection Match Set can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet")
 public class SqlInjectionMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The name or description of the SizeConstraintSet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the SizeConstraintSet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     @Export(name="sqlInjectionMatchTuples", refs={List.class,SqlInjectionMatchSetSqlInjectionMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<SqlInjectionMatchSetSqlInjectionMatchTuple>> sqlInjectionMatchTuples;
 
-    /**
-     * @return The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-     * 
-     */
     public Output<Optional<List<SqlInjectionMatchSetSqlInjectionMatchTuple>>> sqlInjectionMatchTuples() {
         return Codegen.optional(this.sqlInjectionMatchTuples);
     }

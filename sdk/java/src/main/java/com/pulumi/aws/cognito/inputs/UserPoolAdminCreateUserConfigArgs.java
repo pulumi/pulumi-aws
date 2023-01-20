@@ -16,32 +16,16 @@ public final class UserPoolAdminCreateUserConfigArgs extends com.pulumi.resource
 
     public static final UserPoolAdminCreateUserConfigArgs Empty = new UserPoolAdminCreateUserConfigArgs();
 
-    /**
-     * Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-     * 
-     */
     @Import(name="allowAdminCreateUserOnly")
     private @Nullable Output<Boolean> allowAdminCreateUserOnly;
 
-    /**
-     * @return Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-     * 
-     */
     public Optional<Output<Boolean>> allowAdminCreateUserOnly() {
         return Optional.ofNullable(this.allowAdminCreateUserOnly);
     }
 
-    /**
-     * Invite message template structure. Detailed below.
-     * 
-     */
     @Import(name="inviteMessageTemplate")
     private @Nullable Output<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs> inviteMessageTemplate;
 
-    /**
-     * @return Invite message template structure. Detailed below.
-     * 
-     */
     public Optional<Output<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs>> inviteMessageTemplate() {
         return Optional.ofNullable(this.inviteMessageTemplate);
     }
@@ -71,44 +55,20 @@ public final class UserPoolAdminCreateUserConfigArgs extends com.pulumi.resource
             $ = new UserPoolAdminCreateUserConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allowAdminCreateUserOnly Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAdminCreateUserOnly(@Nullable Output<Boolean> allowAdminCreateUserOnly) {
             $.allowAdminCreateUserOnly = allowAdminCreateUserOnly;
             return this;
         }
 
-        /**
-         * @param allowAdminCreateUserOnly Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allowAdminCreateUserOnly(Boolean allowAdminCreateUserOnly) {
             return allowAdminCreateUserOnly(Output.of(allowAdminCreateUserOnly));
         }
 
-        /**
-         * @param inviteMessageTemplate Invite message template structure. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inviteMessageTemplate(@Nullable Output<UserPoolAdminCreateUserConfigInviteMessageTemplateArgs> inviteMessageTemplate) {
             $.inviteMessageTemplate = inviteMessageTemplate;
             return this;
         }
 
-        /**
-         * @param inviteMessageTemplate Invite message template structure. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inviteMessageTemplate(UserPoolAdminCreateUserConfigInviteMessageTemplateArgs inviteMessageTemplate) {
             return inviteMessageTemplate(Output.of(inviteMessageTemplate));
         }

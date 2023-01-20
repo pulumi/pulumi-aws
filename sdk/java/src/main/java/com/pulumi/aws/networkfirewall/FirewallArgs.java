@@ -20,152 +20,72 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FirewallArgs Empty = new FirewallArgs();
 
-    /**
-     * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-     * 
-     */
     @Import(name="deleteProtection")
     private @Nullable Output<Boolean> deleteProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> deleteProtection() {
         return Optional.ofNullable(this.deleteProtection);
     }
 
-    /**
-     * A friendly description of the firewall.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A friendly description of the firewall.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<FirewallEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     public Optional<Output<FirewallEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
-     * 
-     */
     @Import(name="firewallPolicyArn", required=true)
     private Output<String> firewallPolicyArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
-     * 
-     */
     public Output<String> firewallPolicyArn() {
         return this.firewallPolicyArn;
     }
 
-    /**
-     * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-     * 
-     */
     @Import(name="firewallPolicyChangeProtection")
     private @Nullable Output<Boolean> firewallPolicyChangeProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> firewallPolicyChangeProtection() {
         return Optional.ofNullable(this.firewallPolicyChangeProtection);
     }
 
-    /**
-     * A friendly name of the firewall.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A friendly name of the firewall.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-     * 
-     */
     @Import(name="subnetChangeProtection")
     private @Nullable Output<Boolean> subnetChangeProtection;
 
-    /**
-     * @return A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> subnetChangeProtection() {
         return Optional.ofNullable(this.subnetChangeProtection);
     }
 
-    /**
-     * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-     * 
-     */
     @Import(name="subnetMappings", required=true)
     private Output<List<FirewallSubnetMappingArgs>> subnetMappings;
 
-    /**
-     * @return Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-     * 
-     */
     public Output<List<FirewallSubnetMappingArgs>> subnetMappings() {
         return this.subnetMappings;
     }
 
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
@@ -203,222 +123,96 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FirewallArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param deleteProtection A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteProtection(@Nullable Output<Boolean> deleteProtection) {
             $.deleteProtection = deleteProtection;
             return this;
         }
 
-        /**
-         * @param deleteProtection A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deleteProtection(Boolean deleteProtection) {
             return deleteProtection(Output.of(deleteProtection));
         }
 
-        /**
-         * @param description A friendly description of the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A friendly description of the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<FirewallEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration KMS encryption configuration settings. See Encryption Configuration below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(FirewallEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param firewallPolicyArn The Amazon Resource Name (ARN) of the VPC Firewall policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallPolicyArn(Output<String> firewallPolicyArn) {
             $.firewallPolicyArn = firewallPolicyArn;
             return this;
         }
 
-        /**
-         * @param firewallPolicyArn The Amazon Resource Name (ARN) of the VPC Firewall policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallPolicyArn(String firewallPolicyArn) {
             return firewallPolicyArn(Output.of(firewallPolicyArn));
         }
 
-        /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallPolicyChangeProtection(@Nullable Output<Boolean> firewallPolicyChangeProtection) {
             $.firewallPolicyChangeProtection = firewallPolicyChangeProtection;
             return this;
         }
 
-        /**
-         * @param firewallPolicyChangeProtection A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallPolicyChangeProtection(Boolean firewallPolicyChangeProtection) {
             return firewallPolicyChangeProtection(Output.of(firewallPolicyChangeProtection));
         }
 
-        /**
-         * @param name A friendly name of the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A friendly name of the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param subnetChangeProtection A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetChangeProtection(@Nullable Output<Boolean> subnetChangeProtection) {
             $.subnetChangeProtection = subnetChangeProtection;
             return this;
         }
 
-        /**
-         * @param subnetChangeProtection A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
             return subnetChangeProtection(Output.of(subnetChangeProtection));
         }
 
-        /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetMappings(Output<List<FirewallSubnetMappingArgs>> subnetMappings) {
             $.subnetMappings = subnetMappings;
             return this;
         }
 
-        /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetMappings(List<FirewallSubnetMappingArgs> subnetMappings) {
             return subnetMappings(Output.of(subnetMappings));
         }
 
-        /**
-         * @param subnetMappings Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetMappings(FirewallSubnetMappingArgs... subnetMappings) {
             return subnetMappings(List.of(subnetMappings));
         }
 
-        /**
-         * @param tags Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpcId The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The unique identifier of the VPC where AWS Network Firewall should create the firewall.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

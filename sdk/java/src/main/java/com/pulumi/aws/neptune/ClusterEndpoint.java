@@ -16,175 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Neptune Cluster Endpoint Resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.neptune.ClusterEndpoint;
- * import com.pulumi.aws.neptune.ClusterEndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ClusterEndpoint(&#34;example&#34;, ClusterEndpointArgs.builder()        
- *             .clusterIdentifier(aws_neptune_cluster.test().cluster_identifier())
- *             .clusterEndpointIdentifier(&#34;example&#34;)
- *             .endpointType(&#34;READER&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
- * ```
- * 
- */
 @ResourceType(type="aws:neptune/clusterEndpoint:ClusterEndpoint")
 public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The identifier of the endpoint.
-     * 
-     */
     @Export(name="clusterEndpointIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterEndpointIdentifier;
 
-    /**
-     * @return The identifier of the endpoint.
-     * 
-     */
     public Output<String> clusterEndpointIdentifier() {
         return this.clusterEndpointIdentifier;
     }
-    /**
-     * The DB cluster identifier of the DB cluster associated with the endpoint.
-     * 
-     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The DB cluster identifier of the DB cluster associated with the endpoint.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
-    /**
-     * The DNS address of the endpoint.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The DNS address of the endpoint.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-     * 
-     */
     @Export(name="endpointType", refs={String.class}, tree="[0]")
     private Output<String> endpointType;
 
-    /**
-     * @return The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
-     * 
-     */
     public Output<String> endpointType() {
         return this.endpointType;
     }
-    /**
-     * List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-     * 
-     */
     @Export(name="excludedMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedMembers;
 
-    /**
-     * @return List of DB instance identifiers that aren&#39;t part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
-     * 
-     */
     public Output<Optional<List<String>>> excludedMembers() {
         return Codegen.optional(this.excludedMembers);
     }
-    /**
-     * List of DB instance identifiers that are part of the custom endpoint group.
-     * 
-     */
     @Export(name="staticMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> staticMembers;
 
-    /**
-     * @return List of DB instance identifiers that are part of the custom endpoint group.
-     * 
-     */
     public Output<Optional<List<String>>> staticMembers() {
         return Codegen.optional(this.staticMembers);
     }
-    /**
-     * A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

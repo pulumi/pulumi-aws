@@ -13,32 +13,16 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBotAliasArgs Empty = new GetBotAliasArgs();
 
-    /**
-     * Name of the bot.
-     * 
-     */
     @Import(name="botName", required=true)
     private Output<String> botName;
 
-    /**
-     * @return Name of the bot.
-     * 
-     */
     public Output<String> botName() {
         return this.botName;
     }
 
-    /**
-     * Name of the bot alias. The name is case sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the bot alias. The name is case sensitive.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -68,44 +52,20 @@ public final class GetBotAliasArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBotAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param botName Name of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botName(Output<String> botName) {
             $.botName = botName;
             return this;
         }
 
-        /**
-         * @param botName Name of the bot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder botName(String botName) {
             return botName(Output.of(botName));
         }
 
-        /**
-         * @param name Name of the bot alias. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the bot alias. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

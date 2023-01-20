@@ -13,78 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches Principal to AWS IoT Thing.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Thing;
- * import com.pulumi.aws.iot.Certificate;
- * import com.pulumi.aws.iot.CertificateArgs;
- * import com.pulumi.aws.iot.ThingPrincipalAttachment;
- * import com.pulumi.aws.iot.ThingPrincipalAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Thing(&#34;example&#34;);
- * 
- *         var cert = new Certificate(&#34;cert&#34;, CertificateArgs.builder()        
- *             .csr(Files.readString(Paths.get(&#34;csr.pem&#34;)))
- *             .active(true)
- *             .build());
- * 
- *         var att = new ThingPrincipalAttachment(&#34;att&#34;, ThingPrincipalAttachmentArgs.builder()        
- *             .principal(cert.arn())
- *             .thing(example.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment")
 public class ThingPrincipalAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * The name of the thing.
-     * 
-     */
     @Export(name="thing", refs={String.class}, tree="[0]")
     private Output<String> thing;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Output<String> thing() {
         return this.thing;
     }

@@ -13,63 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an individual DynamoDB resource tag. This resource should only be used in cases where DynamoDB resources are created outside the provider (e.g., Table replicas in other regions).
- * 
- * &gt; **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `aws.dynamodb.Table` and `aws.dynamodb.Tag` to manage tags of the same DynamoDB Table in the same region will cause a perpetual difference where the `aws_dynamodb_cluster` resource will try to remove the tag being added by the `aws.dynamodb.Tag` resource.
- * 
- * &gt; **NOTE:** This tagging resource does not use the provider `ignore_tags` configuration.
- * 
- * ## Import
- * 
- * `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name
- * ```
- * 
- */
 @ResourceType(type="aws:dynamodb/tag:Tag")
 public class Tag extends com.pulumi.resources.CustomResource {
-    /**
-     * Tag name.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
-    /**
-     * Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the DynamoDB resource to tag.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
-    /**
-     * Tag value.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

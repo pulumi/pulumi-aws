@@ -16,63 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue User Defined Function Resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.CatalogDatabase;
- * import com.pulumi.aws.glue.CatalogDatabaseArgs;
- * import com.pulumi.aws.glue.UserDefinedFunction;
- * import com.pulumi.aws.glue.UserDefinedFunctionArgs;
- * import com.pulumi.aws.glue.inputs.UserDefinedFunctionResourceUriArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleCatalogDatabase = new CatalogDatabase(&#34;exampleCatalogDatabase&#34;, CatalogDatabaseArgs.builder()        
- *             .name(&#34;my_database&#34;)
- *             .build());
- * 
- *         var exampleUserDefinedFunction = new UserDefinedFunction(&#34;exampleUserDefinedFunction&#34;, UserDefinedFunctionArgs.builder()        
- *             .catalogId(exampleCatalogDatabase.catalogId())
- *             .databaseName(exampleCatalogDatabase.name())
- *             .className(&#34;class&#34;)
- *             .ownerName(&#34;owner&#34;)
- *             .ownerType(&#34;GROUP&#34;)
- *             .resourceUris(UserDefinedFunctionResourceUriArgs.builder()
- *                 .resourceType(&#34;ARCHIVE&#34;)
- *                 .uri(&#34;uri&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue User Defined Functions can be imported using the `catalog_id:database_name:function_name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:glue/userDefinedFunction:UserDefinedFunction func 123456789012:my_database:my_func
- * ```
- * 
- */
 @ResourceType(type="aws:glue/userDefinedFunction:UserDefinedFunction")
 public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     @Export(name="arn", refs={String.class}, tree="[0]")
@@ -81,31 +24,15 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> catalogId;
 
-    /**
-     * @return ID of the Glue Catalog to create the function in. If omitted, this defaults to the AWS Account ID.
-     * 
-     */
     public Output<Optional<String>> catalogId() {
         return Codegen.optional(this.catalogId);
     }
-    /**
-     * The Java class that contains the function code.
-     * 
-     */
     @Export(name="className", refs={String.class}, tree="[0]")
     private Output<String> className;
 
-    /**
-     * @return The Java class that contains the function code.
-     * 
-     */
     public Output<String> className() {
         return this.className;
     }
@@ -115,73 +42,33 @@ public class UserDefinedFunction extends com.pulumi.resources.CustomResource {
     public Output<String> createTime() {
         return this.createTime;
     }
-    /**
-     * The name of the Database to create the Function.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the Database to create the Function.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
-    /**
-     * The name of the function.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the function.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The owner of the function.
-     * 
-     */
     @Export(name="ownerName", refs={String.class}, tree="[0]")
     private Output<String> ownerName;
 
-    /**
-     * @return The owner of the function.
-     * 
-     */
     public Output<String> ownerName() {
         return this.ownerName;
     }
-    /**
-     * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-     * 
-     */
     @Export(name="ownerType", refs={String.class}, tree="[0]")
     private Output<String> ownerType;
 
-    /**
-     * @return The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
-     * 
-     */
     public Output<String> ownerType() {
         return this.ownerType;
     }
-    /**
-     * The configuration block for Resource URIs. See resource uris below for more details.
-     * 
-     */
     @Export(name="resourceUris", refs={List.class,UserDefinedFunctionResourceUri.class}, tree="[0,1]")
     private Output</* @Nullable */ List<UserDefinedFunctionResourceUri>> resourceUris;
 
-    /**
-     * @return The configuration block for Resource URIs. See resource uris below for more details.
-     * 
-     */
     public Output<Optional<List<UserDefinedFunctionResourceUri>>> resourceUris() {
         return Codegen.optional(this.resourceUris);
     }

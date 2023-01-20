@@ -13,85 +13,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionUrlResult {
-    /**
-     * @return Type of authentication that the function URL uses.
-     * 
-     */
     private String authorizationType;
-    /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
-     * 
-     */
     private List<GetFunctionUrlCor> cors;
-    /**
-     * @return When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-     * 
-     */
     private String creationTime;
-    /**
-     * @return ARN of the function.
-     * 
-     */
     private String functionArn;
     private String functionName;
-    /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     private String functionUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-     * 
-     */
     private String lastModifiedTime;
     private @Nullable String qualifier;
-    /**
-     * @return Generated ID for the endpoint.
-     * 
-     */
     private String urlId;
 
     private GetFunctionUrlResult() {}
-    /**
-     * @return Type of authentication that the function URL uses.
-     * 
-     */
     public String authorizationType() {
         return this.authorizationType;
     }
-    /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
-     * 
-     */
     public List<GetFunctionUrlCor> cors() {
         return this.cors;
     }
-    /**
-     * @return When the function URL was created, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-     * 
-     */
     public String creationTime() {
         return this.creationTime;
     }
-    /**
-     * @return ARN of the function.
-     * 
-     */
     public String functionArn() {
         return this.functionArn;
     }
     public String functionName() {
         return this.functionName;
     }
-    /**
-     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     public String functionUrl() {
         return this.functionUrl;
     }
@@ -102,20 +54,12 @@ public final class GetFunctionUrlResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return When the function URL configuration was last updated, in [ISO-8601 format](https://www.w3.org/TR/NOTE-datetime).
-     * 
-     */
     public String lastModifiedTime() {
         return this.lastModifiedTime;
     }
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
-    /**
-     * @return Generated ID for the endpoint.
-     * 
-     */
     public String urlId() {
         return this.urlId;
     }

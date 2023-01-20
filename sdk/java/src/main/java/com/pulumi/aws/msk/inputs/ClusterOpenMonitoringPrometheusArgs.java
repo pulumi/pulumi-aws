@@ -16,32 +16,16 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
 
     public static final ClusterOpenMonitoringPrometheusArgs Empty = new ClusterOpenMonitoringPrometheusArgs();
 
-    /**
-     * Configuration block for JMX Exporter. See below.
-     * 
-     */
     @Import(name="jmxExporter")
     private @Nullable Output<ClusterOpenMonitoringPrometheusJmxExporterArgs> jmxExporter;
 
-    /**
-     * @return Configuration block for JMX Exporter. See below.
-     * 
-     */
     public Optional<Output<ClusterOpenMonitoringPrometheusJmxExporterArgs>> jmxExporter() {
         return Optional.ofNullable(this.jmxExporter);
     }
 
-    /**
-     * Configuration block for Node Exporter. See below.
-     * 
-     */
     @Import(name="nodeExporter")
     private @Nullable Output<ClusterOpenMonitoringPrometheusNodeExporterArgs> nodeExporter;
 
-    /**
-     * @return Configuration block for Node Exporter. See below.
-     * 
-     */
     public Optional<Output<ClusterOpenMonitoringPrometheusNodeExporterArgs>> nodeExporter() {
         return Optional.ofNullable(this.nodeExporter);
     }
@@ -71,44 +55,20 @@ public final class ClusterOpenMonitoringPrometheusArgs extends com.pulumi.resour
             $ = new ClusterOpenMonitoringPrometheusArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param jmxExporter Configuration block for JMX Exporter. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jmxExporter(@Nullable Output<ClusterOpenMonitoringPrometheusJmxExporterArgs> jmxExporter) {
             $.jmxExporter = jmxExporter;
             return this;
         }
 
-        /**
-         * @param jmxExporter Configuration block for JMX Exporter. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jmxExporter(ClusterOpenMonitoringPrometheusJmxExporterArgs jmxExporter) {
             return jmxExporter(Output.of(jmxExporter));
         }
 
-        /**
-         * @param nodeExporter Configuration block for Node Exporter. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeExporter(@Nullable Output<ClusterOpenMonitoringPrometheusNodeExporterArgs> nodeExporter) {
             $.nodeExporter = nodeExporter;
             return this;
         }
 
-        /**
-         * @param nodeExporter Configuration block for Node Exporter. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nodeExporter(ClusterOpenMonitoringPrometheusNodeExporterArgs nodeExporter) {
             return nodeExporter(Output.of(nodeExporter));
         }

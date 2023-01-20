@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MetricStreamStatisticsConfigurationIncludeMetric {
-    /**
-     * @return The name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     private String namespace;
 
     private MetricStreamStatisticsConfigurationIncludeMetric() {}
-    /**
-     * @return The name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return The namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

@@ -15,100 +15,29 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Route 53 Recovery Control Config Cluster.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.route53recoverycontrol.Cluster;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Cluster(&#34;example&#34;);
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
- * ```
- * 
- */
 @ResourceType(type="aws:route53recoverycontrol/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the cluster
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the cluster
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     @Export(name="clusterEndpoints", refs={List.class,ClusterClusterEndpoint.class}, tree="[0,1]")
     private Output<List<ClusterClusterEndpoint>> clusterEndpoints;
 
-    /**
-     * @return List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     public Output<List<ClusterClusterEndpoint>> clusterEndpoints() {
         return this.clusterEndpoints;
     }
-    /**
-     * Unique name describing the cluster.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name describing the cluster.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

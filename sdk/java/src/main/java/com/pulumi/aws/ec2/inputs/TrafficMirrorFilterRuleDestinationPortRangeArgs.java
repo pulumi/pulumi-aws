@@ -15,32 +15,16 @@ public final class TrafficMirrorFilterRuleDestinationPortRangeArgs extends com.p
 
     public static final TrafficMirrorFilterRuleDestinationPortRangeArgs Empty = new TrafficMirrorFilterRuleDestinationPortRangeArgs();
 
-    /**
-     * Starting port of the range
-     * 
-     */
     @Import(name="fromPort")
     private @Nullable Output<Integer> fromPort;
 
-    /**
-     * @return Starting port of the range
-     * 
-     */
     public Optional<Output<Integer>> fromPort() {
         return Optional.ofNullable(this.fromPort);
     }
 
-    /**
-     * Ending port of the range
-     * 
-     */
     @Import(name="toPort")
     private @Nullable Output<Integer> toPort;
 
-    /**
-     * @return Ending port of the range
-     * 
-     */
     public Optional<Output<Integer>> toPort() {
         return Optional.ofNullable(this.toPort);
     }
@@ -70,44 +54,20 @@ public final class TrafficMirrorFilterRuleDestinationPortRangeArgs extends com.p
             $ = new TrafficMirrorFilterRuleDestinationPortRangeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fromPort Starting port of the range
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(@Nullable Output<Integer> fromPort) {
             $.fromPort = fromPort;
             return this;
         }
 
-        /**
-         * @param fromPort Starting port of the range
-         * 
-         * @return builder
-         * 
-         */
         public Builder fromPort(Integer fromPort) {
             return fromPort(Output.of(fromPort));
         }
 
-        /**
-         * @param toPort Ending port of the range
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(@Nullable Output<Integer> toPort) {
             $.toPort = toPort;
             return this;
         }
 
-        /**
-         * @param toPort Ending port of the range
-         * 
-         * @return builder
-         * 
-         */
         public Builder toPort(Integer toPort) {
             return toPort(Output.of(toPort));
         }

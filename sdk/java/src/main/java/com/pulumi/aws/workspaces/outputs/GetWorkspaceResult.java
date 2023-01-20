@@ -14,10 +14,6 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkspaceResult {
     private String bundleId;
-    /**
-     * @return Name of the WorkSpace, as seen by the operating system.
-     * 
-     */
     private String computerName;
     private String directoryId;
     /**
@@ -25,16 +21,8 @@ public final class GetWorkspaceResult {
      * 
      */
     private String id;
-    /**
-     * @return IP address of the WorkSpace.
-     * 
-     */
     private String ipAddress;
     private Boolean rootVolumeEncryptionEnabled;
-    /**
-     * @return Operational state of the WorkSpace.
-     * 
-     */
     private String state;
     private Map<String,String> tags;
     private String userName;
@@ -47,10 +35,6 @@ public final class GetWorkspaceResult {
     public String bundleId() {
         return this.bundleId;
     }
-    /**
-     * @return Name of the WorkSpace, as seen by the operating system.
-     * 
-     */
     public String computerName() {
         return this.computerName;
     }
@@ -64,20 +48,12 @@ public final class GetWorkspaceResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IP address of the WorkSpace.
-     * 
-     */
     public String ipAddress() {
         return this.ipAddress;
     }
     public Boolean rootVolumeEncryptionEnabled() {
         return this.rootVolumeEncryptionEnabled;
     }
-    /**
-     * @return Operational state of the WorkSpace.
-     * 
-     */
     public String state() {
         return this.state;
     }

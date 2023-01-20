@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EndpointConfigurationShadowProductionVariantCoreDumpConfig {
-    /**
-     * @return The URL for S3 location where the captured data is stored.
-     * 
-     */
     private String destinationS3Uri;
-    /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     private String kmsKeyId;
 
     private EndpointConfigurationShadowProductionVariantCoreDumpConfig() {}
-    /**
-     * @return The URL for S3 location where the captured data is stored.
-     * 
-     */
     public String destinationS3Uri() {
         return this.destinationS3Uri;
     }
-    /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }

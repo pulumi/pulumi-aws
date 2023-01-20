@@ -15,47 +15,23 @@ public final class PermissionSetInlinePolicyState extends com.pulumi.resources.R
 
     public static final PermissionSetInlinePolicyState Empty = new PermissionSetInlinePolicyState();
 
-    /**
-     * The IAM inline policy to attach to a Permission Set.
-     * 
-     */
     @Import(name="inlinePolicy")
     private @Nullable Output<String> inlinePolicy;
 
-    /**
-     * @return The IAM inline policy to attach to a Permission Set.
-     * 
-     */
     public Optional<Output<String>> inlinePolicy() {
         return Optional.ofNullable(this.inlinePolicy);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Optional<Output<String>> instanceArn() {
         return Optional.ofNullable(this.instanceArn);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Optional<Output<String>> permissionSetArn() {
         return Optional.ofNullable(this.permissionSetArn);
     }
@@ -86,65 +62,29 @@ public final class PermissionSetInlinePolicyState extends com.pulumi.resources.R
             $ = new PermissionSetInlinePolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inlinePolicy The IAM inline policy to attach to a Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlinePolicy(@Nullable Output<String> inlinePolicy) {
             $.inlinePolicy = inlinePolicy;
             return this;
         }
 
-        /**
-         * @param inlinePolicy The IAM inline policy to attach to a Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inlinePolicy(String inlinePolicy) {
             return inlinePolicy(Output.of(inlinePolicy));
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(@Nullable Output<String> instanceArn) {
             $.instanceArn = instanceArn;
             return this;
         }
 
-        /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceArn(String instanceArn) {
             return instanceArn(Output.of(instanceArn));
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(@Nullable Output<String> permissionSetArn) {
             $.permissionSetArn = permissionSetArn;
             return this;
         }
 
-        /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder permissionSetArn(String permissionSetArn) {
             return permissionSetArn(Output.of(permissionSetArn));
         }

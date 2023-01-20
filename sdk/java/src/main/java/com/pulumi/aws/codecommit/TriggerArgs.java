@@ -15,17 +15,9 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TriggerArgs Empty = new TriggerArgs();
 
-    /**
-     * The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return The name for the repository. This needs to be less than 100 characters.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -62,23 +54,11 @@ public final class TriggerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TriggerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName The name for the repository. This needs to be less than 100 characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

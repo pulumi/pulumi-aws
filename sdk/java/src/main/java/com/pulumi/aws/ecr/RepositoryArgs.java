@@ -20,94 +20,44 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RepositoryArgs Empty = new RepositoryArgs();
 
-    /**
-     * Encryption configuration for the repository. See below for schema.
-     * 
-     */
     @Import(name="encryptionConfigurations")
     private @Nullable Output<List<RepositoryEncryptionConfigurationArgs>> encryptionConfigurations;
 
-    /**
-     * @return Encryption configuration for the repository. See below for schema.
-     * 
-     */
     public Optional<Output<List<RepositoryEncryptionConfigurationArgs>>> encryptionConfigurations() {
         return Optional.ofNullable(this.encryptionConfigurations);
     }
 
-    /**
-     * If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     * 
-     */
     @Import(name="forceDelete")
     private @Nullable Output<Boolean> forceDelete;
 
-    /**
-     * @return If `true`, will delete the repository even if it contains images.
-     * Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
 
-    /**
-     * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     * 
-     */
     @Import(name="imageScanningConfiguration")
     private @Nullable Output<RepositoryImageScanningConfigurationArgs> imageScanningConfiguration;
 
-    /**
-     * @return Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-     * 
-     */
     public Optional<Output<RepositoryImageScanningConfigurationArgs>> imageScanningConfiguration() {
         return Optional.ofNullable(this.imageScanningConfiguration);
     }
 
-    /**
-     * The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     @Import(name="imageTagMutability")
     private @Nullable Output<String> imageTagMutability;
 
-    /**
-     * @return The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-     * 
-     */
     public Optional<Output<String>> imageTagMutability() {
         return Optional.ofNullable(this.imageTagMutability);
     }
 
-    /**
-     * Name of the repository.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the repository.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -141,140 +91,60 @@ public final class RepositoryArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RepositoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration for the repository. See below for schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(@Nullable Output<List<RepositoryEncryptionConfigurationArgs>> encryptionConfigurations) {
             $.encryptionConfigurations = encryptionConfigurations;
             return this;
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration for the repository. See below for schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(List<RepositoryEncryptionConfigurationArgs> encryptionConfigurations) {
             return encryptionConfigurations(Output.of(encryptionConfigurations));
         }
 
-        /**
-         * @param encryptionConfigurations Encryption configuration for the repository. See below for schema.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfigurations(RepositoryEncryptionConfigurationArgs... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
         }
 
-        /**
-         * @param forceDelete If `true`, will delete the repository even if it contains images.
-         * Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
             $.forceDelete = forceDelete;
             return this;
         }
 
-        /**
-         * @param forceDelete If `true`, will delete the repository even if it contains images.
-         * Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forceDelete(Boolean forceDelete) {
             return forceDelete(Output.of(forceDelete));
         }
 
-        /**
-         * @param imageScanningConfiguration Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningConfiguration(@Nullable Output<RepositoryImageScanningConfigurationArgs> imageScanningConfiguration) {
             $.imageScanningConfiguration = imageScanningConfiguration;
             return this;
         }
 
-        /**
-         * @param imageScanningConfiguration Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageScanningConfiguration(RepositoryImageScanningConfigurationArgs imageScanningConfiguration) {
             return imageScanningConfiguration(Output.of(imageScanningConfiguration));
         }
 
-        /**
-         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageTagMutability(@Nullable Output<String> imageTagMutability) {
             $.imageTagMutability = imageTagMutability;
             return this;
         }
 
-        /**
-         * @param imageTagMutability The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageTagMutability(String imageTagMutability) {
             return imageTagMutability(Output.of(imageTagMutability));
         }
 
-        /**
-         * @param name Name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

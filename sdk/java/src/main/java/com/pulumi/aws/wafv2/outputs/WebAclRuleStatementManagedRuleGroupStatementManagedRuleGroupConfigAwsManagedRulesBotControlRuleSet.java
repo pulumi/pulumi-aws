@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet {
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     private String inspectionLevel;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet() {}
-    /**
-     * @return The inspection level to use for the Bot Control rule group.
-     * 
-     */
     public String inspectionLevel() {
         return this.inspectionLevel;
     }

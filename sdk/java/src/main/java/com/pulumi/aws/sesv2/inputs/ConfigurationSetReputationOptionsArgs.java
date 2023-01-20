@@ -16,32 +16,16 @@ public final class ConfigurationSetReputationOptionsArgs extends com.pulumi.reso
 
     public static final ConfigurationSetReputationOptionsArgs Empty = new ConfigurationSetReputationOptionsArgs();
 
-    /**
-     * The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-     * 
-     */
     @Import(name="lastFreshStart")
     private @Nullable Output<String> lastFreshStart;
 
-    /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-     * 
-     */
     public Optional<Output<String>> lastFreshStart() {
         return Optional.ofNullable(this.lastFreshStart);
     }
 
-    /**
-     * If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-     * 
-     */
     @Import(name="reputationMetricsEnabled")
     private @Nullable Output<Boolean> reputationMetricsEnabled;
 
-    /**
-     * @return If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-     * 
-     */
     public Optional<Output<Boolean>> reputationMetricsEnabled() {
         return Optional.ofNullable(this.reputationMetricsEnabled);
     }
@@ -71,44 +55,20 @@ public final class ConfigurationSetReputationOptionsArgs extends com.pulumi.reso
             $ = new ConfigurationSetReputationOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lastFreshStart The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastFreshStart(@Nullable Output<String> lastFreshStart) {
             $.lastFreshStart = lastFreshStart;
             return this;
         }
 
-        /**
-         * @param lastFreshStart The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lastFreshStart(String lastFreshStart) {
             return lastFreshStart(Output.of(lastFreshStart));
         }
 
-        /**
-         * @param reputationMetricsEnabled If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reputationMetricsEnabled(@Nullable Output<Boolean> reputationMetricsEnabled) {
             $.reputationMetricsEnabled = reputationMetricsEnabled;
             return this;
         }
 
-        /**
-         * @param reputationMetricsEnabled If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder reputationMetricsEnabled(Boolean reputationMetricsEnabled) {
             return reputationMetricsEnabled(Output.of(reputationMetricsEnabled));
         }

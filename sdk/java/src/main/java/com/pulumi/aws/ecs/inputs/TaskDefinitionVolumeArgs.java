@@ -18,79 +18,37 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
 
     public static final TaskDefinitionVolumeArgs Empty = new TaskDefinitionVolumeArgs();
 
-    /**
-     * Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     @Import(name="dockerVolumeConfiguration")
     private @Nullable Output<TaskDefinitionVolumeDockerVolumeConfigurationArgs> dockerVolumeConfiguration;
 
-    /**
-     * @return Configuration block to configure a docker volume. Detailed below.
-     * 
-     */
     public Optional<Output<TaskDefinitionVolumeDockerVolumeConfigurationArgs>> dockerVolumeConfiguration() {
         return Optional.ofNullable(this.dockerVolumeConfiguration);
     }
 
-    /**
-     * Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     @Import(name="efsVolumeConfiguration")
     private @Nullable Output<TaskDefinitionVolumeEfsVolumeConfigurationArgs> efsVolumeConfiguration;
 
-    /**
-     * @return Configuration block for an EFS volume. Detailed below.
-     * 
-     */
     public Optional<Output<TaskDefinitionVolumeEfsVolumeConfigurationArgs>> efsVolumeConfiguration() {
         return Optional.ofNullable(this.efsVolumeConfiguration);
     }
 
-    /**
-     * Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     @Import(name="fsxWindowsFileServerVolumeConfiguration")
     private @Nullable Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs> fsxWindowsFileServerVolumeConfiguration;
 
-    /**
-     * @return Configuration block for an FSX Windows File Server volume. Detailed below.
-     * 
-     */
     public Optional<Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs>> fsxWindowsFileServerVolumeConfiguration() {
         return Optional.ofNullable(this.fsxWindowsFileServerVolumeConfiguration);
     }
 
-    /**
-     * Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     @Import(name="hostPath")
     private @Nullable Output<String> hostPath;
 
-    /**
-     * @return Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-     * 
-     */
     public Optional<Output<String>> hostPath() {
         return Optional.ofNullable(this.hostPath);
     }
 
-    /**
-     * Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the volume. This name is referenced in the `sourceVolume`
-     * parameter of container definition in the `mountPoints` section.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -123,109 +81,47 @@ public final class TaskDefinitionVolumeArgs extends com.pulumi.resources.Resourc
             $ = new TaskDefinitionVolumeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dockerVolumeConfiguration Configuration block to configure a docker volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerVolumeConfiguration(@Nullable Output<TaskDefinitionVolumeDockerVolumeConfigurationArgs> dockerVolumeConfiguration) {
             $.dockerVolumeConfiguration = dockerVolumeConfiguration;
             return this;
         }
 
-        /**
-         * @param dockerVolumeConfiguration Configuration block to configure a docker volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs dockerVolumeConfiguration) {
             return dockerVolumeConfiguration(Output.of(dockerVolumeConfiguration));
         }
 
-        /**
-         * @param efsVolumeConfiguration Configuration block for an EFS volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsVolumeConfiguration(@Nullable Output<TaskDefinitionVolumeEfsVolumeConfigurationArgs> efsVolumeConfiguration) {
             $.efsVolumeConfiguration = efsVolumeConfiguration;
             return this;
         }
 
-        /**
-         * @param efsVolumeConfiguration Configuration block for an EFS volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs efsVolumeConfiguration) {
             return efsVolumeConfiguration(Output.of(efsVolumeConfiguration));
         }
 
-        /**
-         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSX Windows File Server volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fsxWindowsFileServerVolumeConfiguration(@Nullable Output<TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs> fsxWindowsFileServerVolumeConfiguration) {
             $.fsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
             return this;
         }
 
-        /**
-         * @param fsxWindowsFileServerVolumeConfiguration Configuration block for an FSX Windows File Server volume. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs fsxWindowsFileServerVolumeConfiguration) {
             return fsxWindowsFileServerVolumeConfiguration(Output.of(fsxWindowsFileServerVolumeConfiguration));
         }
 
-        /**
-         * @param hostPath Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostPath(@Nullable Output<String> hostPath) {
             $.hostPath = hostPath;
             return this;
         }
 
-        /**
-         * @param hostPath Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostPath(String hostPath) {
             return hostPath(Output.of(hostPath));
         }
 
-        /**
-         * @param name Name of the volume. This name is referenced in the `sourceVolume`
-         * parameter of container definition in the `mountPoints` section.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the volume. This name is referenced in the `sourceVolume`
-         * parameter of container definition in the `mountPoints` section.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LifecyclePolicyPolicyDetailsParameters {
-    /**
-     * @return Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-     * 
-     */
     private @Nullable Boolean excludeBootVolume;
-    /**
-     * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-     * 
-     */
     private @Nullable Boolean noReboot;
 
     private LifecyclePolicyPolicyDetailsParameters() {}
-    /**
-     * @return Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
-     * 
-     */
     public Optional<Boolean> excludeBootVolume() {
         return Optional.ofNullable(this.excludeBootVolume);
     }
-    /**
-     * @return Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
-     * 
-     */
     public Optional<Boolean> noReboot() {
         return Optional.ofNullable(this.noReboot);
     }

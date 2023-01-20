@@ -14,10 +14,6 @@ public final class GetDefaultKmsKeyResult {
      * 
      */
     private String id;
-    /**
-     * @return ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-     * 
-     */
     private String keyArn;
 
     private GetDefaultKmsKeyResult() {}
@@ -28,10 +24,6 @@ public final class GetDefaultKmsKeyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
-     * 
-     */
     public String keyArn() {
         return this.keyArn;
     }

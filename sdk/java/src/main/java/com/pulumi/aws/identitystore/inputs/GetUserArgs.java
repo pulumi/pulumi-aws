@@ -17,24 +17,14 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserArgs Empty = new GetUserArgs();
 
-    /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-     * 
-     */
     @Import(name="alternateIdentifier")
     private @Nullable Output<GetUserAlternateIdentifierArgs> alternateIdentifier;
 
-    /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-     * 
-     */
     public Optional<Output<GetUserAlternateIdentifierArgs>> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
 
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -44,8 +34,6 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<GetUserFilterArgs> filter;
 
     /**
-     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -55,32 +43,16 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     @Import(name="identityStoreId", required=true)
     private Output<String> identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }
 
-    /**
-     * The identifier for a user in the Identity Store.
-     * 
-     */
     @Import(name="userId")
     private @Nullable Output<String> userId;
 
-    /**
-     * @return The identifier for a user in the Identity Store.
-     * 
-     */
     public Optional<Output<String>> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -112,30 +84,16 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(@Nullable Output<GetUserAlternateIdentifierArgs> alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(GetUserAlternateIdentifierArgs alternateIdentifier) {
             return alternateIdentifier(Output.of(alternateIdentifier));
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -149,8 +107,6 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -162,44 +118,20 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             return filter(Output.of(filter));
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(Output<String> identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             return identityStoreId(Output.of(identityStoreId));
         }
 
-        /**
-         * @param userId The identifier for a user in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable Output<String> userId) {
             $.userId = userId;
             return this;
         }
 
-        /**
-         * @param userId The identifier for a user in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(String userId) {
             return userId(Output.of(userId));
         }

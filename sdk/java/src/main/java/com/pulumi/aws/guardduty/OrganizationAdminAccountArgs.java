@@ -13,17 +13,9 @@ public final class OrganizationAdminAccountArgs extends com.pulumi.resources.Res
 
     public static final OrganizationAdminAccountArgs Empty = new OrganizationAdminAccountArgs();
 
-    /**
-     * AWS account identifier to designate as a delegated administrator for GuardDuty.
-     * 
-     */
     @Import(name="adminAccountId", required=true)
     private Output<String> adminAccountId;
 
-    /**
-     * @return AWS account identifier to designate as a delegated administrator for GuardDuty.
-     * 
-     */
     public Output<String> adminAccountId() {
         return this.adminAccountId;
     }
@@ -52,23 +44,11 @@ public final class OrganizationAdminAccountArgs extends com.pulumi.resources.Res
             $ = new OrganizationAdminAccountArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param adminAccountId AWS account identifier to designate as a delegated administrator for GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(Output<String> adminAccountId) {
             $.adminAccountId = adminAccountId;
             return this;
         }
 
-        /**
-         * @param adminAccountId AWS account identifier to designate as a delegated administrator for GuardDuty.
-         * 
-         * @return builder
-         * 
-         */
         public Builder adminAccountId(String adminAccountId) {
             return adminAccountId(Output.of(adminAccountId));
         }

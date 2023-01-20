@@ -15,17 +15,9 @@ public final class DomainRetentionPolicyArgs extends com.pulumi.resources.Resour
 
     public static final DomainRetentionPolicyArgs Empty = new DomainRetentionPolicyArgs();
 
-    /**
-     * The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
-     * 
-     */
     @Import(name="homeEfsFileSystem")
     private @Nullable Output<String> homeEfsFileSystem;
 
-    /**
-     * @return The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
-     * 
-     */
     public Optional<Output<String>> homeEfsFileSystem() {
         return Optional.ofNullable(this.homeEfsFileSystem);
     }
@@ -54,23 +46,11 @@ public final class DomainRetentionPolicyArgs extends com.pulumi.resources.Resour
             $ = new DomainRetentionPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param homeEfsFileSystem The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homeEfsFileSystem(@Nullable Output<String> homeEfsFileSystem) {
             $.homeEfsFileSystem = homeEfsFileSystem;
             return this;
         }
 
-        /**
-         * @param homeEfsFileSystem The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Valid values are `Retain` or `Delete`.  Default value is `Retain`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder homeEfsFileSystem(String homeEfsFileSystem) {
             return homeEfsFileSystem(Output.of(homeEfsFileSystem));
         }

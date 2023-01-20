@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class SecretRotationRules {
-    /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret.
-     * 
-     */
     private Integer automaticallyAfterDays;
 
     private SecretRotationRules() {}
-    /**
-     * @return Specifies the number of days between automatic scheduled rotations of the secret.
-     * 
-     */
     public Integer automaticallyAfterDays() {
         return this.automaticallyAfterDays;
     }

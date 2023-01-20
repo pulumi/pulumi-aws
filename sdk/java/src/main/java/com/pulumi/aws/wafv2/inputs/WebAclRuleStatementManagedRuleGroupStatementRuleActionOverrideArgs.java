@@ -14,32 +14,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs();
 
-    /**
-     * Override action to use, in place of the configured action of the rule in the rule group. See Action below for details.
-     * 
-     */
     @Import(name="actionToUse", required=true)
     private Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs> actionToUse;
 
-    /**
-     * @return Override action to use, in place of the configured action of the rule in the rule group. See Action below for details.
-     * 
-     */
     public Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs> actionToUse() {
         return this.actionToUse;
     }
 
-    /**
-     * Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionToUse(Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs> actionToUse) {
             $.actionToUse = actionToUse;
             return this;
         }
 
-        /**
-         * @param actionToUse Override action to use, in place of the configured action of the rule in the rule group. See Action below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionToUse(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs actionToUse) {
             return actionToUse(Output.of(actionToUse));
         }
 
-        /**
-         * @param name Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

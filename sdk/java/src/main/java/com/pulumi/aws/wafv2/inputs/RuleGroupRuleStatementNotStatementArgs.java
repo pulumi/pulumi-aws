@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementNotStatementArgs extends com.pulumi.res
 
     public static final RuleGroupRuleStatementNotStatementArgs Empty = new RuleGroupRuleStatementNotStatementArgs();
 
-    /**
-     * The statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementNotStatementStatementArgs>> statements;
 
-    /**
-     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementNotStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class RuleGroupRuleStatementNotStatementArgs extends com.pulumi.res
             $ = new RuleGroupRuleStatementNotStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<RuleGroupRuleStatementNotStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<RuleGroupRuleStatementNotStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(RuleGroupRuleStatementNotStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

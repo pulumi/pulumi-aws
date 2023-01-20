@@ -17,62 +17,30 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
 
     public static final ReplicationSubnetGroupArgs Empty = new ReplicationSubnetGroupArgs();
 
-    /**
-     * The description for the subnet group.
-     * 
-     */
     @Import(name="replicationSubnetGroupDescription", required=true)
     private Output<String> replicationSubnetGroupDescription;
 
-    /**
-     * @return The description for the subnet group.
-     * 
-     */
     public Output<String> replicationSubnetGroupDescription() {
         return this.replicationSubnetGroupDescription;
     }
 
-    /**
-     * The name for the replication subnet group. This value is stored as a lowercase string.
-     * 
-     */
     @Import(name="replicationSubnetGroupId", required=true)
     private Output<String> replicationSubnetGroupId;
 
-    /**
-     * @return The name for the replication subnet group. This value is stored as a lowercase string.
-     * 
-     */
     public Output<String> replicationSubnetGroupId() {
         return this.replicationSubnetGroupId;
     }
 
-    /**
-     * A list of the EC2 subnet IDs for the subnet group.
-     * 
-     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return A list of the EC2 subnet IDs for the subnet group.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,96 +72,42 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
             $ = new ReplicationSubnetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param replicationSubnetGroupDescription The description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(Output<String> replicationSubnetGroupDescription) {
             $.replicationSubnetGroupDescription = replicationSubnetGroupDescription;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupDescription The description for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupDescription(String replicationSubnetGroupDescription) {
             return replicationSubnetGroupDescription(Output.of(replicationSubnetGroupDescription));
         }
 
-        /**
-         * @param replicationSubnetGroupId The name for the replication subnet group. This value is stored as a lowercase string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(Output<String> replicationSubnetGroupId) {
             $.replicationSubnetGroupId = replicationSubnetGroupId;
             return this;
         }
 
-        /**
-         * @param replicationSubnetGroupId The name for the replication subnet group. This value is stored as a lowercase string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder replicationSubnetGroupId(String replicationSubnetGroupId) {
             return replicationSubnetGroupId(Output.of(replicationSubnetGroupId));
         }
 
-        /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
-        /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
-        /**
-         * @param subnetIds A list of the EC2 subnet IDs for the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

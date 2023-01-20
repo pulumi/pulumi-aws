@@ -14,87 +14,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue Data Catalog Encryption Settings resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.DataCatalogEncryptionSettings;
- * import com.pulumi.aws.glue.DataCatalogEncryptionSettingsArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs;
- * import com.pulumi.aws.glue.inputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DataCatalogEncryptionSettings(&#34;example&#34;, DataCatalogEncryptionSettingsArgs.builder()        
- *             .dataCatalogEncryptionSettings(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs.builder()
- *                 .connectionPasswordEncryption(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs.builder()
- *                     .awsKmsKeyId(aws_kms_key.test().arn())
- *                     .returnConnectionPasswordEncrypted(true)
- *                     .build())
- *                 .encryptionAtRest(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs.builder()
- *                     .catalogEncryptionMode(&#34;SSE-KMS&#34;)
- *                     .sseAwsKmsKeyId(aws_kms_key.test().arn())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings")
 public class DataCatalogEncryptionSettings extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-     * 
-     */
     @Export(name="catalogId", refs={String.class}, tree="[0]")
     private Output<String> catalogId;
 
-    /**
-     * @return The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-     * 
-     */
     public Output<String> catalogId() {
         return this.catalogId;
     }
-    /**
-     * The security configuration to set. see Data Catalog Encryption Settings.
-     * 
-     */
     @Export(name="dataCatalogEncryptionSettings", refs={DataCatalogEncryptionSettingsDataCatalogEncryptionSettings.class}, tree="[0]")
     private Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings;
 
-    /**
-     * @return The security configuration to set. see Data Catalog Encryption Settings.
-     * 
-     */
     public Output<DataCatalogEncryptionSettingsDataCatalogEncryptionSettings> dataCatalogEncryptionSettings() {
         return this.dataCatalogEncryptionSettings;
     }

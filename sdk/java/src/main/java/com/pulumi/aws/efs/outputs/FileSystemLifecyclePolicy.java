@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FileSystemLifecyclePolicy {
-    /**
-     * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-     * 
-     */
     private @Nullable String transitionToIa;
-    /**
-     * @return Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-     * 
-     */
     private @Nullable String transitionToPrimaryStorageClass;
 
     private FileSystemLifecyclePolicy() {}
-    /**
-     * @return Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_1_DAY`, `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-     * 
-     */
     public Optional<String> transitionToIa() {
         return Optional.ofNullable(this.transitionToIa);
     }
-    /**
-     * @return Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
-     * 
-     */
     public Optional<String> transitionToPrimaryStorageClass() {
         return Optional.ofNullable(this.transitionToPrimaryStorageClass);
     }

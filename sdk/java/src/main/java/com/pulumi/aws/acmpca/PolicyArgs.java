@@ -13,32 +13,16 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyArgs Empty = new PolicyArgs();
 
-    /**
-     * JSON-formatted IAM policy to attach to the specified private CA resource.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return JSON-formatted IAM policy to attach to the specified private CA resource.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * ARN of the private CA to associate with the policy.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the private CA to associate with the policy.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -68,44 +52,20 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy JSON-formatted IAM policy to attach to the specified private CA resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON-formatted IAM policy to attach to the specified private CA resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param resourceArn ARN of the private CA to associate with the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the private CA to associate with the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

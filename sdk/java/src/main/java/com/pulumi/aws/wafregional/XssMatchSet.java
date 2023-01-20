@@ -16,89 +16,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.XssMatchSet;
- * import com.pulumi.aws.wafregional.XssMatchSetArgs;
- * import com.pulumi.aws.wafregional.inputs.XssMatchSetXssMatchTupleArgs;
- * import com.pulumi.aws.wafregional.inputs.XssMatchSetXssMatchTupleFieldToMatchArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var xssMatchSet = new XssMatchSet(&#34;xssMatchSet&#34;, XssMatchSetArgs.builder()        
- *             .xssMatchTuples(            
- *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;URI&#34;)
- *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
- *                     .build(),
- *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
- *                         .type(&#34;QUERY_STRING&#34;)
- *                         .build())
- *                     .textTransformation(&#34;NONE&#34;)
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/xssMatchSet:XssMatchSet")
 public class XssMatchSet extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the set
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the set
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parts of web requests that you want to inspect for cross-site scripting attacks.
-     * 
-     */
     @Export(name="xssMatchTuples", refs={List.class,XssMatchSetXssMatchTuple.class}, tree="[0,1]")
     private Output</* @Nullable */ List<XssMatchSetXssMatchTuple>> xssMatchTuples;
 
-    /**
-     * @return The parts of web requests that you want to inspect for cross-site scripting attacks.
-     * 
-     */
     public Output<Optional<List<XssMatchSetXssMatchTuple>>> xssMatchTuples() {
         return Codegen.optional(this.xssMatchTuples);
     }

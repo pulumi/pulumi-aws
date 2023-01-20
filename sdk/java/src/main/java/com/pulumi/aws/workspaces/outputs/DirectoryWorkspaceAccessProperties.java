@@ -11,101 +11,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryWorkspaceAccessProperties {
-    /**
-     * @return Indicates whether users can use Android devices to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeAndroid;
-    /**
-     * @return Indicates whether users can use Chromebooks to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeChromeos;
-    /**
-     * @return Indicates whether users can use iOS devices to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeIos;
-    /**
-     * @return Indicates whether users can use Linux clients to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeLinux;
-    /**
-     * @return Indicates whether users can use macOS clients to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeOsx;
-    /**
-     * @return Indicates whether users can access their WorkSpaces through a web browser.
-     * 
-     */
     private @Nullable String deviceTypeWeb;
-    /**
-     * @return Indicates whether users can use Windows clients to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeWindows;
-    /**
-     * @return Indicates whether users can use zero client devices to access their WorkSpaces.
-     * 
-     */
     private @Nullable String deviceTypeZeroclient;
 
     private DirectoryWorkspaceAccessProperties() {}
-    /**
-     * @return Indicates whether users can use Android devices to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeAndroid() {
         return Optional.ofNullable(this.deviceTypeAndroid);
     }
-    /**
-     * @return Indicates whether users can use Chromebooks to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeChromeos() {
         return Optional.ofNullable(this.deviceTypeChromeos);
     }
-    /**
-     * @return Indicates whether users can use iOS devices to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeIos() {
         return Optional.ofNullable(this.deviceTypeIos);
     }
-    /**
-     * @return Indicates whether users can use Linux clients to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeLinux() {
         return Optional.ofNullable(this.deviceTypeLinux);
     }
-    /**
-     * @return Indicates whether users can use macOS clients to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeOsx() {
         return Optional.ofNullable(this.deviceTypeOsx);
     }
-    /**
-     * @return Indicates whether users can access their WorkSpaces through a web browser.
-     * 
-     */
     public Optional<String> deviceTypeWeb() {
         return Optional.ofNullable(this.deviceTypeWeb);
     }
-    /**
-     * @return Indicates whether users can use Windows clients to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeWindows() {
         return Optional.ofNullable(this.deviceTypeWindows);
     }
-    /**
-     * @return Indicates whether users can use zero client devices to access their WorkSpaces.
-     * 
-     */
     public Optional<String> deviceTypeZeroclient() {
         return Optional.ofNullable(this.deviceTypeZeroclient);
     }

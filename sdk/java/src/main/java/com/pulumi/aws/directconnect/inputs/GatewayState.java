@@ -15,47 +15,23 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayState Empty = new GatewayState();
 
-    /**
-     * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-     * 
-     */
     @Import(name="amazonSideAsn")
     private @Nullable Output<String> amazonSideAsn;
 
-    /**
-     * @return The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-     * 
-     */
     public Optional<Output<String>> amazonSideAsn() {
         return Optional.ofNullable(this.amazonSideAsn);
     }
 
-    /**
-     * The name of the connection.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the connection.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * AWS Account ID of the gateway.
-     * 
-     */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
-    /**
-     * @return AWS Account ID of the gateway.
-     * 
-     */
     public Optional<Output<String>> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
@@ -86,65 +62,29 @@ public final class GatewayState extends com.pulumi.resources.ResourceArgs {
             $ = new GatewayState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonSideAsn The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(@Nullable Output<String> amazonSideAsn) {
             $.amazonSideAsn = amazonSideAsn;
             return this;
         }
 
-        /**
-         * @param amazonSideAsn The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonSideAsn(String amazonSideAsn) {
             return amazonSideAsn(Output.of(amazonSideAsn));
         }
 
-        /**
-         * @param name The name of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param ownerAccountId AWS Account ID of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId AWS Account ID of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }

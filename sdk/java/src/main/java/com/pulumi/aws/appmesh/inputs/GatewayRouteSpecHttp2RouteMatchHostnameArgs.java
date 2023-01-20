@@ -15,32 +15,16 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
 
     public static final GatewayRouteSpecHttp2RouteMatchHostnameArgs Empty = new GatewayRouteSpecHttp2RouteMatchHostnameArgs();
 
-    /**
-     * Exact host name to match on.
-     * 
-     */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
-    /**
-     * @return Exact host name to match on.
-     * 
-     */
     public Optional<Output<String>> exact() {
         return Optional.ofNullable(this.exact);
     }
 
-    /**
-     * Specified ending characters of the host name to match on.
-     * 
-     */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
-    /**
-     * @return Specified ending characters of the host name to match on.
-     * 
-     */
     public Optional<Output<String>> suffix() {
         return Optional.ofNullable(this.suffix);
     }
@@ -70,44 +54,20 @@ public final class GatewayRouteSpecHttp2RouteMatchHostnameArgs extends com.pulum
             $ = new GatewayRouteSpecHttp2RouteMatchHostnameArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param exact Exact host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(@Nullable Output<String> exact) {
             $.exact = exact;
             return this;
         }
 
-        /**
-         * @param exact Exact host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder exact(String exact) {
             return exact(Output.of(exact));
         }
 
-        /**
-         * @param suffix Specified ending characters of the host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(@Nullable Output<String> suffix) {
             $.suffix = suffix;
             return this;
         }
 
-        /**
-         * @param suffix Specified ending characters of the host name to match on.
-         * 
-         * @return builder
-         * 
-         */
         public Builder suffix(String suffix) {
             return suffix(Output.of(suffix));
         }

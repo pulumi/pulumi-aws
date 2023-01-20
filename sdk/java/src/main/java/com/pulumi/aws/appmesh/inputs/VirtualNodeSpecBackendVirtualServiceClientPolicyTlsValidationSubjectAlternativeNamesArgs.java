@@ -13,17 +13,9 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
 
     public static final VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs Empty = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs();
 
-    /**
-     * Criteria for determining a SAN&#39;s match.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match;
 
-    /**
-     * @return Criteria for determining a SAN&#39;s match.
-     * 
-     */
     public Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match() {
         return this.match;
     }
@@ -52,23 +44,11 @@ public final class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
             $ = new VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param match Criteria for determining a SAN&#39;s match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Criteria for determining a SAN&#39;s match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs match) {
             return match(Output.of(match));
         }

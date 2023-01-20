@@ -15,17 +15,9 @@ public final class SerialConsoleAccessState extends com.pulumi.resources.Resourc
 
     public static final SerialConsoleAccessState Empty = new SerialConsoleAccessState();
 
-    /**
-     * Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class SerialConsoleAccessState extends com.pulumi.resources.Resourc
             $ = new SerialConsoleAccessState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether or not serial console access is enabled. Valid values are `true` or `false`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

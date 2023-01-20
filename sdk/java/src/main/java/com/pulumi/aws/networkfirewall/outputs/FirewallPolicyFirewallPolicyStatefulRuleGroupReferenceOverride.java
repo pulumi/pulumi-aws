@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride {
-    /**
-     * @return The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-     * 
-     */
     private @Nullable String action;
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride() {}
-    /**
-     * @return The action that changes the rule group from DROP to ALERT . This only applies to managed rule groups.
-     * 
-     */
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }

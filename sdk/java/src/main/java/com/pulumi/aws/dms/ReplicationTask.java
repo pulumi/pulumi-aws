@@ -16,253 +16,89 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
- * 
- * &gt; **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dms.ReplicationTask;
- * import com.pulumi.aws.dms.ReplicationTaskArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new ReplicationTask(&#34;test&#34;, ReplicationTaskArgs.builder()        
- *             .cdcStartTime(1484346880)
- *             .migrationType(&#34;full-load&#34;)
- *             .replicationInstanceArn(aws_dms_replication_instance.test-dms-replication-instance-tf().replication_instance_arn())
- *             .replicationTaskId(&#34;test-dms-replication-task-tf&#34;)
- *             .replicationTaskSettings(&#34;...&#34;)
- *             .sourceEndpointArn(aws_dms_endpoint.test-dms-source-endpoint-tf().endpoint_arn())
- *             .tableMappings(&#34;{\&#34;rules\&#34;:[{\&#34;rule-type\&#34;:\&#34;selection\&#34;,\&#34;rule-id\&#34;:\&#34;1\&#34;,\&#34;rule-name\&#34;:\&#34;1\&#34;,\&#34;object-locator\&#34;:{\&#34;schema-name\&#34;:\&#34;%\&#34;,\&#34;table-name\&#34;:\&#34;%\&#34;},\&#34;rule-action\&#34;:\&#34;include\&#34;}]}&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
- *             .targetEndpointArn(aws_dms_endpoint.test-dms-target-endpoint-tf().endpoint_arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Replication tasks can be imported using the `replication_task_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
- * ```
- * 
- */
 @ResourceType(type="aws:dms/replicationTask:ReplicationTask")
 public class ReplicationTask extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-     * 
-     */
     @Export(name="cdcStartPosition", refs={String.class}, tree="[0]")
     private Output<String> cdcStartPosition;
 
-    /**
-     * @return Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
-     * 
-     */
     public Output<String> cdcStartPosition() {
         return this.cdcStartPosition;
     }
-    /**
-     * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-     * 
-     */
     @Export(name="cdcStartTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cdcStartTime;
 
-    /**
-     * @return The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
-     * 
-     */
     public Output<Optional<String>> cdcStartTime() {
         return Codegen.optional(this.cdcStartTime);
     }
-    /**
-     * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     * 
-     */
     @Export(name="migrationType", refs={String.class}, tree="[0]")
     private Output<String> migrationType;
 
-    /**
-     * @return The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-     * 
-     */
     public Output<String> migrationType() {
         return this.migrationType;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     @Export(name="replicationInstanceArn", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
-     * 
-     */
     public Output<String> replicationInstanceArn() {
         return this.replicationInstanceArn;
     }
-    /**
-     * The Amazon Resource Name (ARN) for the replication task.
-     * 
-     */
     @Export(name="replicationTaskArn", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
-     * 
-     */
     public Output<String> replicationTaskArn() {
         return this.replicationTaskArn;
     }
-    /**
-     * The replication task identifier.
-     * 
-     */
     @Export(name="replicationTaskId", refs={String.class}, tree="[0]")
     private Output<String> replicationTaskId;
 
-    /**
-     * @return The replication task identifier.
-     * 
-     */
     public Output<String> replicationTaskId() {
         return this.replicationTaskId;
     }
-    /**
-     * An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-     * 
-     */
     @Export(name="replicationTaskSettings", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> replicationTaskSettings;
 
-    /**
-     * @return An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
-     * 
-     */
     public Output<Optional<String>> replicationTaskSettings() {
         return Codegen.optional(this.replicationTaskSettings);
     }
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     * 
-     */
     @Export(name="sourceEndpointArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEndpointArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-     * 
-     */
     public Output<String> sourceEndpointArn() {
         return this.sourceEndpointArn;
     }
-    /**
-     * Whether to run or stop the replication task.
-     * 
-     */
     @Export(name="startReplicationTask", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startReplicationTask;
 
-    /**
-     * @return Whether to run or stop the replication task.
-     * 
-     */
     public Output<Optional<Boolean>> startReplicationTask() {
         return Codegen.optional(this.startReplicationTask);
     }
-    /**
-     * Replication Task status.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Replication Task status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     * 
-     */
     @Export(name="tableMappings", refs={String.class}, tree="[0]")
     private Output<String> tableMappings;
 
-    /**
-     * @return An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-     * 
-     */
     public Output<String> tableMappings() {
         return this.tableMappings;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     * 
-     */
     @Export(name="targetEndpointArn", refs={String.class}, tree="[0]")
     private Output<String> targetEndpointArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-     * 
-     */
     public Output<String> targetEndpointArn() {
         return this.targetEndpointArn;
     }

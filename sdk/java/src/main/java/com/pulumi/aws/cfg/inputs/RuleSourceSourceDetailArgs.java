@@ -15,47 +15,23 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
 
     public static final RuleSourceSourceDetailArgs Empty = new RuleSourceSourceDetailArgs();
 
-    /**
-     * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-     * 
-     */
     @Import(name="eventSource")
     private @Nullable Output<String> eventSource;
 
-    /**
-     * @return The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-     * 
-     */
     public Optional<Output<String>> eventSource() {
         return Optional.ofNullable(this.eventSource);
     }
 
-    /**
-     * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-     * 
-     */
     @Import(name="maximumExecutionFrequency")
     private @Nullable Output<String> maximumExecutionFrequency;
 
-    /**
-     * @return The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-     * 
-     */
     public Optional<Output<String>> maximumExecutionFrequency() {
         return Optional.ofNullable(this.maximumExecutionFrequency);
     }
 
-    /**
-     * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-     * 
-     */
     @Import(name="messageType")
     private @Nullable Output<String> messageType;
 
-    /**
-     * @return The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-     * 
-     */
     public Optional<Output<String>> messageType() {
         return Optional.ofNullable(this.messageType);
     }
@@ -86,65 +62,29 @@ public final class RuleSourceSourceDetailArgs extends com.pulumi.resources.Resou
             $ = new RuleSourceSourceDetailArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventSource The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSource(@Nullable Output<String> eventSource) {
             $.eventSource = eventSource;
             return this;
         }
 
-        /**
-         * @param eventSource The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSource(String eventSource) {
             return eventSource(Output.of(eventSource));
         }
 
-        /**
-         * @param maximumExecutionFrequency The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionFrequency(@Nullable Output<String> maximumExecutionFrequency) {
             $.maximumExecutionFrequency = maximumExecutionFrequency;
             return this;
         }
 
-        /**
-         * @param maximumExecutionFrequency The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumExecutionFrequency(String maximumExecutionFrequency) {
             return maximumExecutionFrequency(Output.of(maximumExecutionFrequency));
         }
 
-        /**
-         * @param messageType The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageType(@Nullable Output<String> messageType) {
             $.messageType = messageType;
             return this;
         }
 
-        /**
-         * @param messageType The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-         * 
-         * @return builder
-         * 
-         */
         public Builder messageType(String messageType) {
             return messageType(Output.of(messageType));
         }

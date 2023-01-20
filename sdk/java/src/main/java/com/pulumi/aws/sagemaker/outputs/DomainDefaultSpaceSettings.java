@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainDefaultSpaceSettings {
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     private String executionRole;
-    /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsJupyterServerAppSettings jupyterServerAppSettings;
-    /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
-    /**
-     * @return A list of security group IDs that will be attached to the user.
-     * 
-     */
     private @Nullable List<String> securityGroups;
 
     private DomainDefaultSpaceSettings() {}
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     public String executionRole() {
         return this.executionRole;
     }
-    /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
-    /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     public Optional<DomainDefaultSpaceSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
-    /**
-     * @return A list of security group IDs that will be attached to the user.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }

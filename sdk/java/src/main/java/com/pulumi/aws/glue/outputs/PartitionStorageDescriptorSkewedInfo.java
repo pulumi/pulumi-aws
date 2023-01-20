@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PartitionStorageDescriptorSkewedInfo {
-    /**
-     * @return A list of names of columns that contain skewed values.
-     * 
-     */
     private @Nullable List<String> skewedColumnNames;
-    /**
-     * @return A list of values that appear so frequently as to be considered skewed.
-     * 
-     */
     private @Nullable Map<String,String> skewedColumnValueLocationMaps;
-    /**
-     * @return A map of skewed values to the columns that contain them.
-     * 
-     */
     private @Nullable List<String> skewedColumnValues;
 
     private PartitionStorageDescriptorSkewedInfo() {}
-    /**
-     * @return A list of names of columns that contain skewed values.
-     * 
-     */
     public List<String> skewedColumnNames() {
         return this.skewedColumnNames == null ? List.of() : this.skewedColumnNames;
     }
-    /**
-     * @return A list of values that appear so frequently as to be considered skewed.
-     * 
-     */
     public Map<String,String> skewedColumnValueLocationMaps() {
         return this.skewedColumnValueLocationMaps == null ? Map.of() : this.skewedColumnValueLocationMaps;
     }
-    /**
-     * @return A map of skewed values to the columns that contain them.
-     * 
-     */
     public List<String> skewedColumnValues() {
         return this.skewedColumnValues == null ? List.of() : this.skewedColumnValues;
     }

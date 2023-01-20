@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private String namespace;
-    /**
-     * @return Statistic of the metric.
-     * 
-     */
     private String statistic;
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingConfigurationCustomizedMetricSpecification() {}
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension> metricDimensions() {
         return this.metricDimensions == null ? List.of() : this.metricDimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }
-    /**
-     * @return Statistic of the metric.
-     * 
-     */
     public String statistic() {
         return this.statistic;
     }
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

@@ -13,17 +13,9 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
 
     public static final InvitationAccepterArgs Empty = new InvitationAccepterArgs();
 
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     @Import(name="graphArn", required=true)
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }
@@ -52,23 +44,11 @@ public final class InvitationAccepterArgs extends com.pulumi.resources.ResourceA
             $ = new InvitationAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param graphArn ARN of the behavior graph that the member account is accepting the invitation for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(Output<String> graphArn) {
             $.graphArn = graphArn;
             return this;
         }
 
-        /**
-         * @param graphArn ARN of the behavior graph that the member account is accepting the invitation for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder graphArn(String graphArn) {
             return graphArn(Output.of(graphArn));
         }

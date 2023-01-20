@@ -14,89 +14,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainSamlOptionsSamlOptions {
-    /**
-     * @return Whether SAML authentication is enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Information from your identity provider.
-     * 
-     */
     private @Nullable DomainSamlOptionsSamlOptionsIdp idp;
-    /**
-     * @return This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     private @Nullable String masterBackendRole;
-    /**
-     * @return This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     private @Nullable String masterUserName;
-    /**
-     * @return Element of the SAML assertion to use for backend roles. Default is roles.
-     * 
-     */
     private @Nullable String rolesKey;
-    /**
-     * @return Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-     * 
-     */
     private @Nullable Integer sessionTimeoutMinutes;
-    /**
-     * @return Element of the SAML assertion to use for username. Default is NameID.
-     * 
-     */
     private @Nullable String subjectKey;
 
     private DomainSamlOptionsSamlOptions() {}
-    /**
-     * @return Whether SAML authentication is enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Information from your identity provider.
-     * 
-     */
     public Optional<DomainSamlOptionsSamlOptionsIdp> idp() {
         return Optional.ofNullable(this.idp);
     }
-    /**
-     * @return This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     public Optional<String> masterBackendRole() {
         return Optional.ofNullable(this.masterBackendRole);
     }
-    /**
-     * @return This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
-     * 
-     */
     public Optional<String> masterUserName() {
         return Optional.ofNullable(this.masterUserName);
     }
-    /**
-     * @return Element of the SAML assertion to use for backend roles. Default is roles.
-     * 
-     */
     public Optional<String> rolesKey() {
         return Optional.ofNullable(this.rolesKey);
     }
-    /**
-     * @return Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-     * 
-     */
     public Optional<Integer> sessionTimeoutMinutes() {
         return Optional.ofNullable(this.sessionTimeoutMinutes);
     }
-    /**
-     * @return Element of the SAML assertion to use for username. Default is NameID.
-     * 
-     */
     public Optional<String> subjectKey() {
         return Optional.ofNullable(this.subjectKey);
     }

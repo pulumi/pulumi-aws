@@ -22,8 +22,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ClusterArgs Empty = new ClusterArgs();
 
     /**
-     * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -33,8 +31,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<String>> capacityProviders;
 
     /**
-     * @return List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -44,24 +40,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.capacityProviders);
     }
 
-    /**
-     * The execute command configuration for the cluster. Detailed below.
-     * 
-     */
     @Import(name="configuration")
     private @Nullable Output<ClusterConfigurationArgs> configuration;
 
-    /**
-     * @return The execute command configuration for the cluster. Detailed below.
-     * 
-     */
     public Optional<Output<ClusterConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
     }
 
     /**
-     * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -71,8 +57,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<List<ClusterDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies;
 
     /**
-     * @return Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-     * 
      * @deprecated
      * Use the aws_ecs_cluster_capacity_providers resource instead
      * 
@@ -82,62 +66,30 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultCapacityProviderStrategies);
     }
 
-    /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the setting to manage. Valid values: `containerInsights`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Configures a default Service Connect namespace. Detailed below.
-     * 
-     */
     @Import(name="serviceConnectDefaults")
     private @Nullable Output<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults;
 
-    /**
-     * @return Configures a default Service Connect namespace. Detailed below.
-     * 
-     */
     public Optional<Output<ClusterServiceConnectDefaultsArgs>> serviceConnectDefaults() {
         return Optional.ofNullable(this.serviceConnectDefaults);
     }
 
-    /**
-     * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-     * 
-     */
     @Import(name="settings")
     private @Nullable Output<List<ClusterSettingArgs>> settings;
 
-    /**
-     * @return Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-     * 
-     */
     public Optional<Output<List<ClusterSettingArgs>>> settings() {
         return Optional.ofNullable(this.settings);
     }
 
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -173,8 +125,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -188,8 +138,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -202,8 +150,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityProviders List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -215,30 +161,16 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             return capacityProviders(List.of(capacityProviders));
         }
 
-        /**
-         * @param configuration The execute command configuration for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(@Nullable Output<ClusterConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
 
-        /**
-         * @param configuration The execute command configuration for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configuration(ClusterConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
         }
 
         /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -252,8 +184,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -266,8 +196,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultCapacityProviderStrategies Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -279,96 +207,42 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             return defaultCapacityProviderStrategies(List.of(defaultCapacityProviderStrategies));
         }
 
-        /**
-         * @param name Name of the setting to manage. Valid values: `containerInsights`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the setting to manage. Valid values: `containerInsights`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceConnectDefaults(@Nullable Output<ClusterServiceConnectDefaultsArgs> serviceConnectDefaults) {
             $.serviceConnectDefaults = serviceConnectDefaults;
             return this;
         }
 
-        /**
-         * @param serviceConnectDefaults Configures a default Service Connect namespace. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceConnectDefaults(ClusterServiceConnectDefaultsArgs serviceConnectDefaults) {
             return serviceConnectDefaults(Output.of(serviceConnectDefaults));
         }
 
-        /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(@Nullable Output<List<ClusterSettingArgs>> settings) {
             $.settings = settings;
             return this;
         }
 
-        /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(List<ClusterSettingArgs> settings) {
             return settings(Output.of(settings));
         }
 
-        /**
-         * @param settings Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder settings(ClusterSettingArgs... settings) {
             return settings(List.of(settings));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

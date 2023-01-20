@@ -16,32 +16,16 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RouteTableArgs Empty = new RouteTableArgs();
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway.
-     * 
-     */
     @Import(name="transitGatewayId", required=true)
     private Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway.
-     * 
-     */
     public Output<String> transitGatewayId() {
         return this.transitGatewayId;
     }
@@ -71,44 +55,20 @@ public final class RouteTableArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RouteTableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayId Identifier of EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId Identifier of EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }

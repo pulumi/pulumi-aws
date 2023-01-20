@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
-    /**
-     * @return The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-     * 
-     */
     private @Nullable Integer interval;
-    /**
-     * @return The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-     * 
-     */
     private @Nullable Integer percentage;
 
     private DeploymentConfigTrafficRoutingConfigTimeBasedLinear() {}
-    /**
-     * @return The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-     * 
-     */
     public Optional<Integer> interval() {
         return Optional.ofNullable(this.interval);
     }
-    /**
-     * @return The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-     * 
-     */
     public Optional<Integer> percentage() {
         return Optional.ofNullable(this.percentage);
     }

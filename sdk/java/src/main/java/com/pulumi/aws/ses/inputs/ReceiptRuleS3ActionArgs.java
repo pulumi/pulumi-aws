@@ -16,77 +16,37 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
 
     public static final ReceiptRuleS3ActionArgs Empty = new ReceiptRuleS3ActionArgs();
 
-    /**
-     * The name of the S3 bucket
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The name of the S3 bucket
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The ARN of the KMS key
-     * 
-     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
-    /**
-     * @return The ARN of the KMS key
-     * 
-     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
 
-    /**
-     * The key prefix of the S3 bucket
-     * 
-     */
     @Import(name="objectKeyPrefix")
     private @Nullable Output<String> objectKeyPrefix;
 
-    /**
-     * @return The key prefix of the S3 bucket
-     * 
-     */
     public Optional<Output<String>> objectKeyPrefix() {
         return Optional.ofNullable(this.objectKeyPrefix);
     }
 
-    /**
-     * The position of the action in the receipt rule
-     * 
-     */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
-    /**
-     * @return The position of the action in the receipt rule
-     * 
-     */
     public Output<Integer> position() {
         return this.position;
     }
 
-    /**
-     * The ARN of an SNS topic to notify
-     * 
-     */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
-    /**
-     * @return The ARN of an SNS topic to notify
-     * 
-     */
     public Optional<Output<String>> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }
@@ -119,107 +79,47 @@ public final class ReceiptRuleS3ActionArgs extends com.pulumi.resources.Resource
             $ = new ReceiptRuleS3ActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The name of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The name of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn The ARN of the KMS key
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }
 
-        /**
-         * @param objectKeyPrefix The key prefix of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(@Nullable Output<String> objectKeyPrefix) {
             $.objectKeyPrefix = objectKeyPrefix;
             return this;
         }
 
-        /**
-         * @param objectKeyPrefix The key prefix of the S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectKeyPrefix(String objectKeyPrefix) {
             return objectKeyPrefix(Output.of(objectKeyPrefix));
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Output<Integer> position) {
             $.position = position;
             return this;
         }
 
-        /**
-         * @param position The position of the action in the receipt rule
-         * 
-         * @return builder
-         * 
-         */
         public Builder position(Integer position) {
             return position(Output.of(position));
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(@Nullable Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn The ARN of an SNS topic to notify
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

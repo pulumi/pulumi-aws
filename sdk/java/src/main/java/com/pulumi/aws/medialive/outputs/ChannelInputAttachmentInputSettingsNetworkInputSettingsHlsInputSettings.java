@@ -12,54 +12,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings {
-    /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
-     * 
-     */
     private @Nullable Integer bandwidth;
-    /**
-     * @return Buffer segments.
-     * 
-     */
     private @Nullable Integer bufferSegments;
-    /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-     * 
-     */
     private @Nullable Integer retries;
-    /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
-     * 
-     */
     private @Nullable Integer retryInterval;
     private @Nullable String scte35Source;
 
     private ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings() {}
-    /**
-     * @return The bitrate is specified in bits per second, as in an HLS manifest.
-     * 
-     */
     public Optional<Integer> bandwidth() {
         return Optional.ofNullable(this.bandwidth);
     }
-    /**
-     * @return Buffer segments.
-     * 
-     */
     public Optional<Integer> bufferSegments() {
         return Optional.ofNullable(this.bufferSegments);
     }
-    /**
-     * @return The number of consecutive times that attempts to read a manifest or segment must fail before the input is considered unavailable.
-     * 
-     */
     public Optional<Integer> retries() {
         return Optional.ofNullable(this.retries);
     }
-    /**
-     * @return The number of seconds between retries when an attempt to read a manifest or segment fails.
-     * 
-     */
     public Optional<Integer> retryInterval() {
         return Optional.ofNullable(this.retryInterval);
     }

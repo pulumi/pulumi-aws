@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TaskDefinitionInferenceAccelerator {
-    /**
-     * @return Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Elastic Inference accelerator type to use.
-     * 
-     */
     private String deviceType;
 
     private TaskDefinitionInferenceAccelerator() {}
-    /**
-     * @return Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Elastic Inference accelerator type to use.
-     * 
-     */
     public String deviceType() {
         return this.deviceType;
     }

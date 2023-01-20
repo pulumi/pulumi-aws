@@ -16,38 +16,16 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSolutionStackArgs Empty = new GetSolutionStackArgs();
 
-    /**
-     * If more than one result is returned, use the most
-     * recent solution stack.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most
-     * recent solution stack.
-     * 
-     */
     public Optional<Output<Boolean>> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-     * AWS documentation for reference solution stack names.
-     * 
-     */
     @Import(name="nameRegex", required=true)
     private Output<String> nameRegex;
 
-    /**
-     * @return Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-     * AWS documentation for reference solution stack names.
-     * 
-     */
     public Output<String> nameRegex() {
         return this.nameRegex;
     }
@@ -77,50 +55,20 @@ public final class GetSolutionStackArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSolutionStackArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent solution stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Output<Boolean> mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent solution stack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the solution stack list returned
-         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-         * AWS documentation for reference solution stack names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(Output<String> nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the solution stack list returned
-         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
-         * AWS documentation for reference solution stack names.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(String nameRegex) {
             return nameRegex(Output.of(nameRegex));
         }

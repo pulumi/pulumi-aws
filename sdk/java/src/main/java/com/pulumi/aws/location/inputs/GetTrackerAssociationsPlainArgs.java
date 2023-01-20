@@ -12,17 +12,9 @@ public final class GetTrackerAssociationsPlainArgs extends com.pulumi.resources.
 
     public static final GetTrackerAssociationsPlainArgs Empty = new GetTrackerAssociationsPlainArgs();
 
-    /**
-     * Name of the tracker resource associated with a geofence collection.
-     * 
-     */
     @Import(name="trackerName", required=true)
     private String trackerName;
 
-    /**
-     * @return Name of the tracker resource associated with a geofence collection.
-     * 
-     */
     public String trackerName() {
         return this.trackerName;
     }
@@ -51,12 +43,6 @@ public final class GetTrackerAssociationsPlainArgs extends com.pulumi.resources.
             $ = new GetTrackerAssociationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param trackerName Name of the tracker resource associated with a geofence collection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(String trackerName) {
             $.trackerName = trackerName;
             return this;

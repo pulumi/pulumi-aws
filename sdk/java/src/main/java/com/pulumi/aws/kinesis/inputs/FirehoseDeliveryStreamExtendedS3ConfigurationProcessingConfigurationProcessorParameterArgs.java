@@ -13,32 +13,16 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
 
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs();
 
-    /**
-     * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-     * 
-     */
     @Import(name="parameterName", required=true)
     private Output<String> parameterName;
 
-    /**
-     * @return Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-     * 
-     */
     public Output<String> parameterName() {
         return this.parameterName;
     }
 
-    /**
-     * Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-     * 
-     */
     @Import(name="parameterValue", required=true)
     private Output<String> parameterValue;
 
-    /**
-     * @return Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-     * 
-     */
     public Output<String> parameterValue() {
         return this.parameterValue;
     }
@@ -68,44 +52,20 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfig
             $ = new FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameterName Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterName(Output<String> parameterName) {
             $.parameterName = parameterName;
             return this;
         }
 
-        /**
-         * @param parameterName Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterName(String parameterName) {
             return parameterName(Output.of(parameterName));
         }
 
-        /**
-         * @param parameterValue Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValue(Output<String> parameterValue) {
             $.parameterValue = parameterValue;
             return this;
         }
 
-        /**
-         * @param parameterValue Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterValue(String parameterValue) {
             return parameterValue(Output.of(parameterValue));
         }

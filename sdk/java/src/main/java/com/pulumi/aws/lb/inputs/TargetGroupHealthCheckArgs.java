@@ -17,137 +17,65 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
     public static final TargetGroupHealthCheckArgs Empty = new TargetGroupHealthCheckArgs();
 
-    /**
-     * Boolean to enable / disable `stickiness`. Default is `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Boolean to enable / disable `stickiness`. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
-     * 
-     */
     @Import(name="healthyThreshold")
     private @Nullable Output<Integer> healthyThreshold;
 
-    /**
-     * @return Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
-     * 
-     */
     public Optional<Output<Integer>> healthyThreshold() {
         return Optional.ofNullable(this.healthyThreshold);
     }
 
-    /**
-     * Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-     * 
-     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
-    /**
-     * @return Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-     * 
-     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
-    /**
-     * Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-     * 
-     */
     @Import(name="matcher")
     private @Nullable Output<String> matcher;
 
-    /**
-     * @return Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-     * 
-     */
     public Optional<Output<String>> matcher() {
         return Optional.ofNullable(this.matcher);
     }
 
-    /**
-     * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-     * 
-     */
     @Import(name="path")
     private @Nullable Output<String> path;
 
-    /**
-     * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-     * 
-     */
     public Optional<Output<String>> path() {
         return Optional.ofNullable(this.path);
     }
 
-    /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-     * 
-     */
     @Import(name="port")
     private @Nullable Output<String> port;
 
-    /**
-     * @return The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-     * 
-     */
     public Optional<Output<String>> port() {
         return Optional.ofNullable(this.port);
     }
 
-    /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-     * 
-     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
-    /**
-     * @return Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-     * 
-     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
-    /**
-     * Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
-     * 
-     */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
-    /**
-     * @return Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
-     * 
-     */
     public Optional<Output<Integer>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
 
-    /**
-     * Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
-     * 
-     */
     @Import(name="unhealthyThreshold")
     private @Nullable Output<Integer> unhealthyThreshold;
 
-    /**
-     * @return Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
-     * 
-     */
     public Optional<Output<Integer>> unhealthyThreshold() {
         return Optional.ofNullable(this.unhealthyThreshold);
     }
@@ -184,191 +112,83 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
             $ = new TargetGroupHealthCheckArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `stickiness`. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Boolean to enable / disable `stickiness`. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param healthyThreshold Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(@Nullable Output<Integer> healthyThreshold) {
             $.healthyThreshold = healthyThreshold;
             return this;
         }
 
-        /**
-         * @param healthyThreshold Number of consecutive health check successes required before considering a target healthy. The range is 2-10. Defaults to 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthyThreshold(Integer healthyThreshold) {
             return healthyThreshold(Output.of(healthyThreshold));
         }
 
-        /**
-         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval Approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300. For `lambda` target groups, it needs to be greater than the timeout of the underlying `lambda`. Defaults to 30.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-         * 
-         * @return builder
-         * 
-         */
         public Builder matcher(@Nullable Output<String> matcher) {
             $.matcher = matcher;
             return this;
         }
 
-        /**
-         * @param matcher Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, &#34;200,202&#34; for HTTP(s) or &#34;0,12&#34; for GRPC) or a range of values (for example, &#34;200-299&#34; or &#34;0-99&#34;). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
-         * 
-         * @return builder
-         * 
-         */
         public Builder matcher(String matcher) {
             return matcher(Output.of(matcher));
         }
 
-        /**
-         * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(@Nullable Output<String> path) {
             $.path = path;
             return this;
         }
 
-        /**
-         * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder path(String path) {
             return path(Output.of(path));
         }
 
-        /**
-         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(@Nullable Output<String> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(String port) {
             return port(Output.of(port));
         }
 
-        /**
-         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
-        /**
-         * @param protocol Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-         * 
-         * @return builder
-         * 
-         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
-        /**
-         * @param timeout Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(@Nullable Output<Integer> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout Amount of time, in seconds, during which no response from a target means a failed health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If the target type is lambda, the default is 30 seconds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(Integer timeout) {
             return timeout(Output.of(timeout));
         }
 
-        /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(@Nullable Output<Integer> unhealthyThreshold) {
             $.unhealthyThreshold = unhealthyThreshold;
             return this;
         }
 
-        /**
-         * @param unhealthyThreshold Number of consecutive health check failures required before considering a target unhealthy. The range is 2-10. Defaults to 3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             return unhealthyThreshold(Output.of(unhealthyThreshold));
         }

@@ -15,47 +15,23 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
 
     public static final GetOutpostInstanceTypePlainArgs Empty = new GetOutpostInstanceTypePlainArgs();
 
-    /**
-     * Outpost ARN.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return Outpost ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Desired instance type. Conflicts with `preferred_instance_types`.
-     * 
-     */
     @Import(name="instanceType")
     private @Nullable String instanceType;
 
-    /**
-     * @return Desired instance type. Conflicts with `preferred_instance_types`.
-     * 
-     */
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
 
-    /**
-     * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-     * 
-     */
     @Import(name="preferredInstanceTypes")
     private @Nullable List<String> preferredInstanceTypes;
 
-    /**
-     * @return Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-     * 
-     */
     public Optional<List<String>> preferredInstanceTypes() {
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
@@ -86,45 +62,21 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
             $ = new GetOutpostInstanceTypePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Outpost ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param instanceType Desired instance type. Conflicts with `preferred_instance_types`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(@Nullable String instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param preferredInstanceTypes Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceTypes(@Nullable List<String> preferredInstanceTypes) {
             $.preferredInstanceTypes = preferredInstanceTypes;
             return this;
         }
 
-        /**
-         * @param preferredInstanceTypes Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instance_type`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
         }

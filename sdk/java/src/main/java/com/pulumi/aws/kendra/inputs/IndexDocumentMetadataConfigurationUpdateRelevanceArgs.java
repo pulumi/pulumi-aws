@@ -18,77 +18,37 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
 
     public static final IndexDocumentMetadataConfigurationUpdateRelevanceArgs Empty = new IndexDocumentMetadataConfigurationUpdateRelevanceArgs();
 
-    /**
-     * Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-     * 
-     */
     @Import(name="duration")
     private @Nullable Output<String> duration;
 
-    /**
-     * @return Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-     * 
-     */
     public Optional<Output<String>> duration() {
         return Optional.ofNullable(this.duration);
     }
 
-    /**
-     * Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-     * 
-     */
     @Import(name="freshness")
     private @Nullable Output<Boolean> freshness;
 
-    /**
-     * @return Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-     * 
-     */
     public Optional<Output<Boolean>> freshness() {
         return Optional.ofNullable(this.freshness);
     }
 
-    /**
-     * The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-     * 
-     */
     @Import(name="importance")
     private @Nullable Output<Integer> importance;
 
-    /**
-     * @return The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-     * 
-     */
     public Optional<Output<Integer>> importance() {
         return Optional.ofNullable(this.importance);
     }
 
-    /**
-     * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-     * 
-     */
     @Import(name="rankOrder")
     private @Nullable Output<String> rankOrder;
 
-    /**
-     * @return Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-     * 
-     */
     public Optional<Output<String>> rankOrder() {
         return Optional.ofNullable(this.rankOrder);
     }
 
-    /**
-     * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-     * 
-     */
     @Import(name="valuesImportanceMap")
     private @Nullable Output<Map<String,Integer>> valuesImportanceMap;
 
-    /**
-     * @return A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-     * 
-     */
     public Optional<Output<Map<String,Integer>>> valuesImportanceMap() {
         return Optional.ofNullable(this.valuesImportanceMap);
     }
@@ -121,107 +81,47 @@ public final class IndexDocumentMetadataConfigurationUpdateRelevanceArgs extends
             $ = new IndexDocumentMetadataConfigurationUpdateRelevanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param duration Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(@Nullable Output<String> duration) {
             $.duration = duration;
             return this;
         }
 
-        /**
-         * @param duration Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
-         * 
-         * @return builder
-         * 
-         */
         public Builder duration(String duration) {
             return duration(Output.of(duration));
         }
 
-        /**
-         * @param freshness Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-         * 
-         * @return builder
-         * 
-         */
         public Builder freshness(@Nullable Output<Boolean> freshness) {
             $.freshness = freshness;
             return this;
         }
 
-        /**
-         * @param freshness Indicates that this field determines how &#34;fresh&#34; a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
-         * 
-         * @return builder
-         * 
-         */
         public Builder freshness(Boolean freshness) {
             return freshness(Output.of(freshness));
         }
 
-        /**
-         * @param importance The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder importance(@Nullable Output<Integer> importance) {
             $.importance = importance;
             return this;
         }
 
-        /**
-         * @param importance The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder importance(Integer importance) {
             return importance(Output.of(importance));
         }
 
-        /**
-         * @param rankOrder Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rankOrder(@Nullable Output<String> rankOrder) {
             $.rankOrder = rankOrder;
             return this;
         }
 
-        /**
-         * @param rankOrder Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rankOrder(String rankOrder) {
             return rankOrder(Output.of(rankOrder));
         }
 
-        /**
-         * @param valuesImportanceMap A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-         * 
-         * @return builder
-         * 
-         */
         public Builder valuesImportanceMap(@Nullable Output<Map<String,Integer>> valuesImportanceMap) {
             $.valuesImportanceMap = valuesImportanceMap;
             return this;
         }
 
-        /**
-         * @param valuesImportanceMap A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
-         * 
-         * @return builder
-         * 
-         */
         public Builder valuesImportanceMap(Map<String,Integer> valuesImportanceMap) {
             return valuesImportanceMap(Output.of(valuesImportanceMap));
         }

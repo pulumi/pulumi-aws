@@ -15,134 +15,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudFront Field-level Encryption Profile resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.PublicKey;
- * import com.pulumi.aws.cloudfront.PublicKeyArgs;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfile;
- * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfileArgs;
- * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PublicKey(&#34;example&#34;, PublicKeyArgs.builder()        
- *             .comment(&#34;test public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
- *             .build());
- * 
- *         var test = new FieldLevelEncryptionProfile(&#34;test&#34;, FieldLevelEncryptionProfileArgs.builder()        
- *             .comment(&#34;test comment&#34;)
- *             .encryptionEntities(FieldLevelEncryptionProfileEncryptionEntitiesArgs.builder()
- *                 .items(FieldLevelEncryptionProfileEncryptionEntitiesItemArgs.builder()
- *                     .publicKeyId(example.id())
- *                     .providerId(&#34;test provider&#34;)
- *                     .fieldPatterns(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs.builder()
- *                         .items(&#34;DateOfBirth&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Cloudfront Field Level Encryption Profile can be imported using the `id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")
 public class FieldLevelEncryptionProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-     * 
-     */
     @Export(name="callerReference", refs={String.class}, tree="[0]")
     private Output<String> callerReference;
 
-    /**
-     * @return Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
-     * 
-     */
     public Output<String> callerReference() {
         return this.callerReference;
     }
-    /**
-     * An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return An optional comment about the Field Level Encryption Profile.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     @Export(name="encryptionEntities", refs={FieldLevelEncryptionProfileEncryptionEntities.class}, tree="[0]")
     private Output<FieldLevelEncryptionProfileEncryptionEntities> encryptionEntities;
 
-    /**
-     * @return The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
-     * 
-     */
     public Output<FieldLevelEncryptionProfileEncryptionEntities> encryptionEntities() {
         return this.encryptionEntities;
     }
-    /**
-     * The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * The name of the Field Level Encryption Profile.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the Field Level Encryption Profile.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

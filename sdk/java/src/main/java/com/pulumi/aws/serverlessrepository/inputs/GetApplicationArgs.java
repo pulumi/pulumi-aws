@@ -15,32 +15,16 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetApplicationArgs Empty = new GetApplicationArgs();
 
-    /**
-     * ARN of the application.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return ARN of the application.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Requested version of the application. By default, retrieves the latest version.
-     * 
-     */
     @Import(name="semanticVersion")
     private @Nullable Output<String> semanticVersion;
 
-    /**
-     * @return Requested version of the application. By default, retrieves the latest version.
-     * 
-     */
     public Optional<Output<String>> semanticVersion() {
         return Optional.ofNullable(this.semanticVersion);
     }
@@ -70,44 +54,20 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetApplicationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId ARN of the application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param semanticVersion Requested version of the application. By default, retrieves the latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder semanticVersion(@Nullable Output<String> semanticVersion) {
             $.semanticVersion = semanticVersion;
             return this;
         }
 
-        /**
-         * @param semanticVersion Requested version of the application. By default, retrieves the latest version.
-         * 
-         * @return builder
-         * 
-         */
         public Builder semanticVersion(String semanticVersion) {
             return semanticVersion(Output.of(semanticVersion));
         }

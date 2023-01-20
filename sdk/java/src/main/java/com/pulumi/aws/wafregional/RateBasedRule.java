@@ -18,180 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a WAF Rate Based Rule Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.wafregional.IpSet;
- * import com.pulumi.aws.wafregional.IpSetArgs;
- * import com.pulumi.aws.wafregional.inputs.IpSetIpSetDescriptorArgs;
- * import com.pulumi.aws.wafregional.RateBasedRule;
- * import com.pulumi.aws.wafregional.RateBasedRuleArgs;
- * import com.pulumi.aws.wafregional.inputs.RateBasedRulePredicateArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ipset = new IpSet(&#34;ipset&#34;, IpSetArgs.builder()        
- *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
- *                 .type(&#34;IPV4&#34;)
- *                 .value(&#34;192.0.7.0/24&#34;)
- *                 .build())
- *             .build());
- * 
- *         var wafrule = new RateBasedRule(&#34;wafrule&#34;, RateBasedRuleArgs.builder()        
- *             .metricName(&#34;tfWAFRule&#34;)
- *             .rateKey(&#34;IP&#34;)
- *             .rateLimit(100)
- *             .predicates(RateBasedRulePredicateArgs.builder()
- *                 .dataId(ipset.id())
- *                 .negated(false)
- *                 .type(&#34;IPMatch&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(ipset)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * WAF Regional Rate Based Rule can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:wafregional/rateBasedRule:RateBasedRule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
- * ```
- * 
- */
 @ResourceType(type="aws:wafregional/rateBasedRule:RateBasedRule")
 public class RateBasedRule extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the WAF Regional Rate Based Rule.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the WAF Regional Rate Based Rule.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name or description for the Amazon CloudWatch metric of this rule.
-     * 
-     */
     @Export(name="metricName", refs={String.class}, tree="[0]")
     private Output<String> metricName;
 
-    /**
-     * @return The name or description for the Amazon CloudWatch metric of this rule.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
-    /**
-     * The name or description of the rule.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name or description of the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The objects to include in a rule (documented below).
-     * 
-     */
     @Export(name="predicates", refs={List.class,RateBasedRulePredicate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<RateBasedRulePredicate>> predicates;
 
-    /**
-     * @return The objects to include in a rule (documented below).
-     * 
-     */
     public Output<Optional<List<RateBasedRulePredicate>>> predicates() {
         return Codegen.optional(this.predicates);
     }
-    /**
-     * Valid value is IP.
-     * 
-     */
     @Export(name="rateKey", refs={String.class}, tree="[0]")
     private Output<String> rateKey;
 
-    /**
-     * @return Valid value is IP.
-     * 
-     */
     public Output<String> rateKey() {
         return this.rateKey;
     }
-    /**
-     * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     * 
-     */
     @Export(name="rateLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> rateLimit;
 
-    /**
-     * @return The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
-     * 
-     */
     public Output<Integer> rateLimit() {
         return this.rateLimit;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

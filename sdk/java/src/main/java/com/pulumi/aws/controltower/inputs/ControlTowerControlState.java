@@ -15,32 +15,16 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
 
     public static final ControlTowerControlState Empty = new ControlTowerControlState();
 
-    /**
-     * The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     @Import(name="controlIdentifier")
     private @Nullable Output<String> controlIdentifier;
 
-    /**
-     * @return The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-     * 
-     */
     public Optional<Output<String>> controlIdentifier() {
         return Optional.ofNullable(this.controlIdentifier);
     }
 
-    /**
-     * The ARN of the organizational unit.
-     * 
-     */
     @Import(name="targetIdentifier")
     private @Nullable Output<String> targetIdentifier;
 
-    /**
-     * @return The ARN of the organizational unit.
-     * 
-     */
     public Optional<Output<String>> targetIdentifier() {
         return Optional.ofNullable(this.targetIdentifier);
     }
@@ -70,44 +54,20 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
             $ = new ControlTowerControlState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlIdentifier(@Nullable Output<String> controlIdentifier) {
             $.controlIdentifier = controlIdentifier;
             return this;
         }
 
-        /**
-         * @param controlIdentifier The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controlIdentifier(String controlIdentifier) {
             return controlIdentifier(Output.of(controlIdentifier));
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(@Nullable Output<String> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
 
-        /**
-         * @param targetIdentifier The ARN of the organizational unit.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetIdentifier(String targetIdentifier) {
             return targetIdentifier(Output.of(targetIdentifier));
         }

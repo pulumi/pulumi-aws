@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption {
-    /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
-     * 
-     */
     private @Nullable StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms sseKms;
-    /**
-     * @return SSE-S3 encryption. An empty configuration block `{}` should be used.
-     * 
-     */
     private @Nullable List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3> sseS3s;
 
     private StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption() {}
-    /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
-     * 
-     */
     public Optional<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms> sseKms() {
         return Optional.ofNullable(this.sseKms);
     }
-    /**
-     * @return SSE-S3 encryption. An empty configuration block `{}` should be used.
-     * 
-     */
     public List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3> sseS3s() {
         return this.sseS3s == null ? List.of() : this.sseS3s;
     }

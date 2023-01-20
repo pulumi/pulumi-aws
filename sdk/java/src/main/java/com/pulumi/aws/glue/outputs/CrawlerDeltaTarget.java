@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerDeltaTarget {
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return A list of the Amazon S3 paths to the Delta tables.
-     * 
-     */
     private List<String> deltaTables;
-    /**
-     * @return Specifies whether to write the manifest files to the Delta table path.
-     * 
-     */
     private Boolean writeManifest;
 
     private CrawlerDeltaTarget() {}
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return A list of the Amazon S3 paths to the Delta tables.
-     * 
-     */
     public List<String> deltaTables() {
         return this.deltaTables;
     }
-    /**
-     * @return Specifies whether to write the manifest files to the Delta table path.
-     * 
-     */
     public Boolean writeManifest() {
         return this.writeManifest;
     }

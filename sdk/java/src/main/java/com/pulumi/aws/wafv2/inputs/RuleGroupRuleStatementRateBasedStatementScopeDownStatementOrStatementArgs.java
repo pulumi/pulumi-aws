@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrS
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs();
 
-    /**
-     * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementArgs>> statements;
 
-    /**
-     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrS
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

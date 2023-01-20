@@ -15,17 +15,9 @@ public final class ConfigurationSetSendingOptionsArgs extends com.pulumi.resourc
 
     public static final ConfigurationSetSendingOptionsArgs Empty = new ConfigurationSetSendingOptionsArgs();
 
-    /**
-     * If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-     * 
-     */
     @Import(name="sendingEnabled")
     private @Nullable Output<Boolean> sendingEnabled;
 
-    /**
-     * @return If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-     * 
-     */
     public Optional<Output<Boolean>> sendingEnabled() {
         return Optional.ofNullable(this.sendingEnabled);
     }
@@ -54,23 +46,11 @@ public final class ConfigurationSetSendingOptionsArgs extends com.pulumi.resourc
             $ = new ConfigurationSetSendingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sendingEnabled If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingEnabled(@Nullable Output<Boolean> sendingEnabled) {
             $.sendingEnabled = sendingEnabled;
             return this;
         }
 
-        /**
-         * @param sendingEnabled If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingEnabled(Boolean sendingEnabled) {
             return sendingEnabled(Output.of(sendingEnabled));
         }

@@ -16,72 +16,30 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
 
     public static final DistributionCustomErrorResponseArgs Empty = new DistributionCustomErrorResponseArgs();
 
-    /**
-     * The minimum amount of time you want
-     * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-     * origin to see whether the object has been updated.
-     * 
-     */
     @Import(name="errorCachingMinTtl")
     private @Nullable Output<Integer> errorCachingMinTtl;
 
-    /**
-     * @return The minimum amount of time you want
-     * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-     * origin to see whether the object has been updated.
-     * 
-     */
     public Optional<Output<Integer>> errorCachingMinTtl() {
         return Optional.ofNullable(this.errorCachingMinTtl);
     }
 
-    /**
-     * The 4xx or 5xx HTTP status code that you want to
-     * customize.
-     * 
-     */
     @Import(name="errorCode", required=true)
     private Output<Integer> errorCode;
 
-    /**
-     * @return The 4xx or 5xx HTTP status code that you want to
-     * customize.
-     * 
-     */
     public Output<Integer> errorCode() {
         return this.errorCode;
     }
 
-    /**
-     * The HTTP status code that you want CloudFront
-     * to return with the custom error page to the viewer.
-     * 
-     */
     @Import(name="responseCode")
     private @Nullable Output<Integer> responseCode;
 
-    /**
-     * @return The HTTP status code that you want CloudFront
-     * to return with the custom error page to the viewer.
-     * 
-     */
     public Optional<Output<Integer>> responseCode() {
         return Optional.ofNullable(this.responseCode);
     }
 
-    /**
-     * The path of the custom error page (for
-     * example, `/custom_404.html`).
-     * 
-     */
     @Import(name="responsePagePath")
     private @Nullable Output<String> responsePagePath;
 
-    /**
-     * @return The path of the custom error page (for
-     * example, `/custom_404.html`).
-     * 
-     */
     public Optional<Output<String>> responsePagePath() {
         return Optional.ofNullable(this.responsePagePath);
     }
@@ -113,96 +71,38 @@ public final class DistributionCustomErrorResponseArgs extends com.pulumi.resour
             $ = new DistributionCustomErrorResponseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorCachingMinTtl The minimum amount of time you want
-         * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-         * origin to see whether the object has been updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCachingMinTtl(@Nullable Output<Integer> errorCachingMinTtl) {
             $.errorCachingMinTtl = errorCachingMinTtl;
             return this;
         }
 
-        /**
-         * @param errorCachingMinTtl The minimum amount of time you want
-         * HTTP error codes to stay in CloudFront caches before CloudFront queries your
-         * origin to see whether the object has been updated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCachingMinTtl(Integer errorCachingMinTtl) {
             return errorCachingMinTtl(Output.of(errorCachingMinTtl));
         }
 
-        /**
-         * @param errorCode The 4xx or 5xx HTTP status code that you want to
-         * customize.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCode(Output<Integer> errorCode) {
             $.errorCode = errorCode;
             return this;
         }
 
-        /**
-         * @param errorCode The 4xx or 5xx HTTP status code that you want to
-         * customize.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorCode(Integer errorCode) {
             return errorCode(Output.of(errorCode));
         }
 
-        /**
-         * @param responseCode The HTTP status code that you want CloudFront
-         * to return with the custom error page to the viewer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(@Nullable Output<Integer> responseCode) {
             $.responseCode = responseCode;
             return this;
         }
 
-        /**
-         * @param responseCode The HTTP status code that you want CloudFront
-         * to return with the custom error page to the viewer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder responseCode(Integer responseCode) {
             return responseCode(Output.of(responseCode));
         }
 
-        /**
-         * @param responsePagePath The path of the custom error page (for
-         * example, `/custom_404.html`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responsePagePath(@Nullable Output<String> responsePagePath) {
             $.responsePagePath = responsePagePath;
             return this;
         }
 
-        /**
-         * @param responsePagePath The path of the custom error page (for
-         * example, `/custom_404.html`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder responsePagePath(String responsePagePath) {
             return responsePagePath(Output.of(responsePagePath));
         }

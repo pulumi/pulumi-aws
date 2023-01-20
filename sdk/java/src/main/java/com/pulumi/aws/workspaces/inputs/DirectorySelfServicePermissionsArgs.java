@@ -15,77 +15,37 @@ public final class DirectorySelfServicePermissionsArgs extends com.pulumi.resour
 
     public static final DirectorySelfServicePermissionsArgs Empty = new DirectorySelfServicePermissionsArgs();
 
-    /**
-     * Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-     * 
-     */
     @Import(name="changeComputeType")
     private @Nullable Output<Boolean> changeComputeType;
 
-    /**
-     * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-     * 
-     */
     public Optional<Output<Boolean>> changeComputeType() {
         return Optional.ofNullable(this.changeComputeType);
     }
 
-    /**
-     * Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-     * 
-     */
     @Import(name="increaseVolumeSize")
     private @Nullable Output<Boolean> increaseVolumeSize;
 
-    /**
-     * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-     * 
-     */
     public Optional<Output<Boolean>> increaseVolumeSize() {
         return Optional.ofNullable(this.increaseVolumeSize);
     }
 
-    /**
-     * Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-     * 
-     */
     @Import(name="rebuildWorkspace")
     private @Nullable Output<Boolean> rebuildWorkspace;
 
-    /**
-     * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-     * 
-     */
     public Optional<Output<Boolean>> rebuildWorkspace() {
         return Optional.ofNullable(this.rebuildWorkspace);
     }
 
-    /**
-     * Whether WorkSpaces directory users can restart their workspace. Default `true`.
-     * 
-     */
     @Import(name="restartWorkspace")
     private @Nullable Output<Boolean> restartWorkspace;
 
-    /**
-     * @return Whether WorkSpaces directory users can restart their workspace. Default `true`.
-     * 
-     */
     public Optional<Output<Boolean>> restartWorkspace() {
         return Optional.ofNullable(this.restartWorkspace);
     }
 
-    /**
-     * Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-     * 
-     */
     @Import(name="switchRunningMode")
     private @Nullable Output<Boolean> switchRunningMode;
 
-    /**
-     * @return Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-     * 
-     */
     public Optional<Output<Boolean>> switchRunningMode() {
         return Optional.ofNullable(this.switchRunningMode);
     }
@@ -118,107 +78,47 @@ public final class DirectorySelfServicePermissionsArgs extends com.pulumi.resour
             $ = new DirectorySelfServicePermissionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param changeComputeType Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeComputeType(@Nullable Output<Boolean> changeComputeType) {
             $.changeComputeType = changeComputeType;
             return this;
         }
 
-        /**
-         * @param changeComputeType Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder changeComputeType(Boolean changeComputeType) {
             return changeComputeType(Output.of(changeComputeType));
         }
 
-        /**
-         * @param increaseVolumeSize Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder increaseVolumeSize(@Nullable Output<Boolean> increaseVolumeSize) {
             $.increaseVolumeSize = increaseVolumeSize;
             return this;
         }
 
-        /**
-         * @param increaseVolumeSize Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder increaseVolumeSize(Boolean increaseVolumeSize) {
             return increaseVolumeSize(Output.of(increaseVolumeSize));
         }
 
-        /**
-         * @param rebuildWorkspace Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rebuildWorkspace(@Nullable Output<Boolean> rebuildWorkspace) {
             $.rebuildWorkspace = rebuildWorkspace;
             return this;
         }
 
-        /**
-         * @param rebuildWorkspace Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rebuildWorkspace(Boolean rebuildWorkspace) {
             return rebuildWorkspace(Output.of(rebuildWorkspace));
         }
 
-        /**
-         * @param restartWorkspace Whether WorkSpaces directory users can restart their workspace. Default `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restartWorkspace(@Nullable Output<Boolean> restartWorkspace) {
             $.restartWorkspace = restartWorkspace;
             return this;
         }
 
-        /**
-         * @param restartWorkspace Whether WorkSpaces directory users can restart their workspace. Default `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restartWorkspace(Boolean restartWorkspace) {
             return restartWorkspace(Output.of(restartWorkspace));
         }
 
-        /**
-         * @param switchRunningMode Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder switchRunningMode(@Nullable Output<Boolean> switchRunningMode) {
             $.switchRunningMode = switchRunningMode;
             return this;
         }
 
-        /**
-         * @param switchRunningMode Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder switchRunningMode(Boolean switchRunningMode) {
             return switchRunningMode(Output.of(switchRunningMode));
         }

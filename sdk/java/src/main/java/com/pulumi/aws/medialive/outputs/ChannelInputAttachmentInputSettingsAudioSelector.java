@@ -12,18 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelector {
-    /**
-     * @return The name of the video description.
-     * 
-     */
     private String name;
     private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings selectorSettings;
 
     private ChannelInputAttachmentInputSettingsAudioSelector() {}
-    /**
-     * @return The name of the video description.
-     * 
-     */
     public String name() {
         return this.name;
     }

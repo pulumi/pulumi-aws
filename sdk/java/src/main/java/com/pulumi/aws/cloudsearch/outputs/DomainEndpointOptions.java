@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainEndpointOptions {
-    /**
-     * @return Enables or disables the requirement that all requests to the domain arrive over HTTPS.
-     * 
-     */
     private @Nullable Boolean enforceHttps;
-    /**
-     * @return The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
-     * 
-     */
     private @Nullable String tlsSecurityPolicy;
 
     private DomainEndpointOptions() {}
-    /**
-     * @return Enables or disables the requirement that all requests to the domain arrive over HTTPS.
-     * 
-     */
     public Optional<Boolean> enforceHttps() {
         return Optional.ofNullable(this.enforceHttps);
     }
-    /**
-     * @return The minimum required TLS version. See the [AWS documentation](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DomainEndpointOptions.html) for valid values.
-     * 
-     */
     public Optional<String> tlsSecurityPolicy() {
         return Optional.ofNullable(this.tlsSecurityPolicy);
     }

@@ -17,51 +17,23 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
 
     public static final DeploymentGroupAlarmConfigurationArgs Empty = new DeploymentGroupAlarmConfigurationArgs();
 
-    /**
-     * A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-     * 
-     */
     @Import(name="alarms")
     private @Nullable Output<List<String>> alarms;
 
-    /**
-     * @return A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-     * 
-     */
     public Optional<Output<List<String>>> alarms() {
         return Optional.ofNullable(this.alarms);
     }
 
-    /**
-     * Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-     * 
-     */
     @Import(name="ignorePollAlarmFailure")
     private @Nullable Output<Boolean> ignorePollAlarmFailure;
 
-    /**
-     * @return Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-     * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-     * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-     * 
-     */
     public Optional<Output<Boolean>> ignorePollAlarmFailure() {
         return Optional.ofNullable(this.ignorePollAlarmFailure);
     }
@@ -92,79 +64,33 @@ public final class DeploymentGroupAlarmConfigurationArgs extends com.pulumi.reso
             $ = new DeploymentGroupAlarmConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(@Nullable Output<List<String>> alarms) {
             $.alarms = alarms;
             return this;
         }
 
-        /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(List<String> alarms) {
             return alarms(Output.of(alarms));
         }
 
-        /**
-         * @param alarms A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alarms(String... alarms) {
             return alarms(List.of(alarms));
         }
 
-        /**
-         * @param enabled Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param ignorePollAlarmFailure Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-         * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-         * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignorePollAlarmFailure(@Nullable Output<Boolean> ignorePollAlarmFailure) {
             $.ignorePollAlarmFailure = ignorePollAlarmFailure;
             return this;
         }
 
-        /**
-         * @param ignorePollAlarmFailure Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-         * * `true`: The deployment will proceed even if alarm status information can&#39;t be retrieved.
-         * * `false`: The deployment will stop if alarm status information can&#39;t be retrieved.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignorePollAlarmFailure(Boolean ignorePollAlarmFailure) {
             return ignorePollAlarmFailure(Output.of(ignorePollAlarmFailure));
         }

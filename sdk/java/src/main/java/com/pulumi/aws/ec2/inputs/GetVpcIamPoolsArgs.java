@@ -16,17 +16,9 @@ public final class GetVpcIamPoolsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVpcIamPoolsArgs Empty = new GetVpcIamPoolsArgs();
 
-    /**
-     * Custom filter block as described below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcIamPoolsFilterArgs>> filters;
 
-    /**
-     * @return Custom filter block as described below.
-     * 
-     */
     public Optional<Output<List<GetVpcIamPoolsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -55,33 +47,15 @@ public final class GetVpcIamPoolsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVpcIamPoolsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpcIamPoolsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpcIamPoolsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Custom filter block as described below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpcIamPoolsFilterArgs... filters) {
             return filters(List.of(filters));
         }

@@ -19,263 +19,73 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Service Discovery Service resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
- * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
- * import com.pulumi.aws.servicediscovery.Service;
- * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .enableDnsSupport(true)
- *             .enableDnsHostnames(true)
- *             .build());
- * 
- *         var examplePrivateDnsNamespace = new PrivateDnsNamespace(&#34;examplePrivateDnsNamespace&#34;, PrivateDnsNamespaceArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .vpc(exampleVpc.id())
- *             .build());
- * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePrivateDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type(&#34;A&#34;)
- *                     .build())
- *                 .routingPolicy(&#34;MULTIVALUE&#34;)
- *                 .build())
- *             .healthCheckCustomConfig(ServiceHealthCheckCustomConfigArgs.builder()
- *                 .failureThreshold(1)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicediscovery.PublicDnsNamespace;
- * import com.pulumi.aws.servicediscovery.PublicDnsNamespaceArgs;
- * import com.pulumi.aws.servicediscovery.Service;
- * import com.pulumi.aws.servicediscovery.ServiceArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
- * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePublicDnsNamespace = new PublicDnsNamespace(&#34;examplePublicDnsNamespace&#34;, PublicDnsNamespaceArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .dnsConfig(ServiceDnsConfigArgs.builder()
- *                 .namespaceId(examplePublicDnsNamespace.id())
- *                 .dnsRecords(ServiceDnsConfigDnsRecordArgs.builder()
- *                     .ttl(10)
- *                     .type(&#34;A&#34;)
- *                     .build())
- *                 .build())
- *             .healthCheckConfig(ServiceHealthCheckConfigArgs.builder()
- *                 .failureThreshold(10)
- *                 .resourcePath(&#34;path&#34;)
- *                 .type(&#34;HTTP&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Service Discovery Service can be imported using the service ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:servicediscovery/service:Service example 0123456789
- * ```
- * 
- */
 @ResourceType(type="aws:servicediscovery/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the service.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the service.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The description of the service.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the service.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-     * 
-     */
     @Export(name="dnsConfig", refs={ServiceDnsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDnsConfig> dnsConfig;
 
-    /**
-     * @return A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
-     * 
-     */
     public Output<Optional<ServiceDnsConfig>> dnsConfig() {
         return Codegen.optional(this.dnsConfig);
     }
-    /**
-     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-     * 
-     */
     @Export(name="healthCheckConfig", refs={ServiceHealthCheckConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckConfig> healthCheckConfig;
 
-    /**
-     * @return A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
-     * 
-     */
     public Output<Optional<ServiceHealthCheckConfig>> healthCheckConfig() {
         return Codegen.optional(this.healthCheckConfig);
     }
-    /**
-     * A complex type that contains settings for ECS managed health checks.
-     * 
-     */
     @Export(name="healthCheckCustomConfig", refs={ServiceHealthCheckCustomConfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceHealthCheckCustomConfig> healthCheckCustomConfig;
 
-    /**
-     * @return A complex type that contains settings for ECS managed health checks.
-     * 
-     */
     public Output<Optional<ServiceHealthCheckCustomConfig>> healthCheckCustomConfig() {
         return Codegen.optional(this.healthCheckCustomConfig);
     }
-    /**
-     * The name of the service.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the service.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of the namespace to use for DNS configuration.
-     * 
-     */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
-    /**
-     * @return The ID of the namespace to use for DNS configuration.
-     * 
-     */
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
-    /**
-     * A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    @Export(name="type", refs={String.class}, tree="[0]")
+    private Output<String> type;
+
+    public Output<String> type() {
+        return this.type;
     }
 
     /**

@@ -18,101 +18,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettings {
-    /**
-     * @return The Canvas app settings. See Canvas App Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsCanvasAppSettings canvasAppSettings;
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     private String executionRole;
-    /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsJupyterServerAppSettings jupyterServerAppSettings;
-    /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
-    /**
-     * @return The RSession app settings. See RSession App Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsRSessionAppSettings rSessionAppSettings;
-    /**
-     * @return The security groups.
-     * 
-     */
     private @Nullable List<String> securityGroups;
-    /**
-     * @return The sharing settings. See Sharing Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsSharingSettings sharingSettings;
-    /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
-     * 
-     */
     private @Nullable UserProfileUserSettingsTensorBoardAppSettings tensorBoardAppSettings;
 
     private UserProfileUserSettings() {}
-    /**
-     * @return The Canvas app settings. See Canvas App Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsCanvasAppSettings> canvasAppSettings() {
         return Optional.ofNullable(this.canvasAppSettings);
     }
-    /**
-     * @return The execution role ARN for the user.
-     * 
-     */
     public String executionRole() {
         return this.executionRole;
     }
-    /**
-     * @return The Jupyter server&#39;s app settings. See Jupyter Server App Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsJupyterServerAppSettings> jupyterServerAppSettings() {
         return Optional.ofNullable(this.jupyterServerAppSettings);
     }
-    /**
-     * @return The kernel gateway app settings. See Kernel Gateway App Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsKernelGatewayAppSettings> kernelGatewayAppSettings() {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
-    /**
-     * @return The RSession app settings. See RSession App Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsRSessionAppSettings> rSessionAppSettings() {
         return Optional.ofNullable(this.rSessionAppSettings);
     }
-    /**
-     * @return The security groups.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
-    /**
-     * @return The sharing settings. See Sharing Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsSharingSettings> sharingSettings() {
         return Optional.ofNullable(this.sharingSettings);
     }
-    /**
-     * @return The TensorBoard app settings. See TensorBoard App Settings below.
-     * 
-     */
     public Optional<UserProfileUserSettingsTensorBoardAppSettings> tensorBoardAppSettings() {
         return Optional.ofNullable(this.tensorBoardAppSettings);
     }

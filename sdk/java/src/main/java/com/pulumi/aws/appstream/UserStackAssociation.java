@@ -15,115 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an AppStream User Stack association.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appstream.Stack;
- * import com.pulumi.aws.appstream.User;
- * import com.pulumi.aws.appstream.UserArgs;
- * import com.pulumi.aws.appstream.UserStackAssociation;
- * import com.pulumi.aws.appstream.UserStackAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testStack = new Stack(&#34;testStack&#34;);
- * 
- *         var testUser = new User(&#34;testUser&#34;, UserArgs.builder()        
- *             .authenticationType(&#34;USERPOOL&#34;)
- *             .userName(&#34;EMAIL&#34;)
- *             .build());
- * 
- *         var testUserStackAssociation = new UserStackAssociation(&#34;testUserStackAssociation&#34;, UserStackAssociationArgs.builder()        
- *             .authenticationType(testUser.authenticationType())
- *             .stackName(testStack.name())
- *             .userName(testUser.userName())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
- * ```
- * 
- */
 @ResourceType(type="aws:appstream/userStackAssociation:UserStackAssociation")
 public class UserStackAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Authentication type for the user.
-     * 
-     */
     @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
-    /**
-     * @return Authentication type for the user.
-     * 
-     */
     public Output<String> authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * Whether a welcome email is sent to a user after the user is created in the user pool.
-     * 
-     */
     @Export(name="sendEmailNotification", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sendEmailNotification;
 
-    /**
-     * @return Whether a welcome email is sent to a user after the user is created in the user pool.
-     * 
-     */
     public Output<Optional<Boolean>> sendEmailNotification() {
         return Codegen.optional(this.sendEmailNotification);
     }
-    /**
-     * Name of the stack that is associated with the user.
-     * 
-     */
     @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
-    /**
-     * @return Name of the stack that is associated with the user.
-     * 
-     */
     public Output<String> stackName() {
         return this.stackName;
     }
-    /**
-     * Email address of the user who is associated with the stack.
-     * 
-     */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
-    /**
-     * @return Email address of the user who is associated with the stack.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }

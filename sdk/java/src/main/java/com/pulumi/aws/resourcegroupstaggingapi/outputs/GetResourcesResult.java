@@ -23,10 +23,6 @@ public final class GetResourcesResult {
     private String id;
     private @Nullable Boolean includeComplianceDetails;
     private @Nullable List<String> resourceArnLists;
-    /**
-     * @return List of objects matching the search criteria.
-     * 
-     */
     private List<GetResourcesResourceTagMappingList> resourceTagMappingLists;
     private @Nullable List<String> resourceTypeFilters;
     private @Nullable List<GetResourcesTagFilter> tagFilters;
@@ -48,10 +44,6 @@ public final class GetResourcesResult {
     public List<String> resourceArnLists() {
         return this.resourceArnLists == null ? List.of() : this.resourceArnLists;
     }
-    /**
-     * @return List of objects matching the search criteria.
-     * 
-     */
     public List<GetResourcesResourceTagMappingList> resourceTagMappingLists() {
         return this.resourceTagMappingLists;
     }

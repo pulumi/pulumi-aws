@@ -17,47 +17,23 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
 
     public static final LbCertificateState Empty = new LbCertificateState();
 
-    /**
-     * The ARN of the lightsail certificate.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the lightsail certificate.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The timestamp when the instance was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the instance was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * The domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return The domain name (e.g., example.com) for your SSL/TLS certificate.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
@@ -69,47 +45,23 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.domainValidationRecords);
     }
 
-    /**
-     * The load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     @Import(name="lbName")
     private @Nullable Output<String> lbName;
 
-    /**
-     * @return The load balancer name where you want to create the SSL/TLS certificate.
-     * 
-     */
     public Optional<Output<String>> lbName() {
         return Optional.ofNullable(this.lbName);
     }
 
-    /**
-     * The SSL/TLS certificate name.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The SSL/TLS certificate name.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     @Import(name="subjectAlternativeNames")
     private @Nullable Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-     * 
-     */
     public Optional<Output<List<String>>> subjectAlternativeNames() {
         return Optional.ofNullable(this.subjectAlternativeNames);
     }
@@ -152,65 +104,29 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
             $ = new LbCertificateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the lightsail certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the lightsail certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param createdAt The timestamp when the instance was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The timestamp when the instance was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName The domain name (e.g., example.com) for your SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
@@ -228,75 +144,33 @@ public final class LbCertificateState extends com.pulumi.resources.ResourceArgs 
             return domainValidationRecords(List.of(domainValidationRecords));
         }
 
-        /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(@Nullable Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName The load balancer name where you want to create the SSL/TLS certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }
 
-        /**
-         * @param name The SSL/TLS certificate name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The SSL/TLS certificate name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(@Nullable Output<List<String>> subjectAlternativeNames) {
             $.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(List<String> subjectAlternativeNames) {
             return subjectAlternativeNames(Output.of(subjectAlternativeNames));
         }
 
-        /**
-         * @param subjectAlternativeNames Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subjectAlternativeNames(String... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }

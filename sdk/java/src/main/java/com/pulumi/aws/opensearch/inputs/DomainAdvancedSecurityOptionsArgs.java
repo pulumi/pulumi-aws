@@ -16,62 +16,30 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
 
     public static final DomainAdvancedSecurityOptionsArgs Empty = new DomainAdvancedSecurityOptionsArgs();
 
-    /**
-     * Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     @Import(name="anonymousAuthEnabled")
     private @Nullable Output<Boolean> anonymousAuthEnabled;
 
-    /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     public Optional<Output<Boolean>> anonymousAuthEnabled() {
         return Optional.ofNullable(this.anonymousAuthEnabled);
     }
 
-    /**
-     * Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     @Import(name="internalUserDatabaseEnabled")
     private @Nullable Output<Boolean> internalUserDatabaseEnabled;
 
-    /**
-     * @return Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
 
-    /**
-     * Configuration block for the main user. Detailed below.
-     * 
-     */
     @Import(name="masterUserOptions")
     private @Nullable Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs> masterUserOptions;
 
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     public Optional<Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs>> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }
@@ -103,86 +71,38 @@ public final class DomainAdvancedSecurityOptionsArgs extends com.pulumi.resource
             $ = new DomainAdvancedSecurityOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-         * 
-         * @return builder
-         * 
-         */
         public Builder anonymousAuthEnabled(@Nullable Output<Boolean> anonymousAuthEnabled) {
             $.anonymousAuthEnabled = anonymousAuthEnabled;
             return this;
         }
 
-        /**
-         * @param anonymousAuthEnabled Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-         * 
-         * @return builder
-         * 
-         */
         public Builder anonymousAuthEnabled(Boolean anonymousAuthEnabled) {
             return anonymousAuthEnabled(Output.of(anonymousAuthEnabled));
         }
 
-        /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param internalUserDatabaseEnabled Whether the internal user database is enabled. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internalUserDatabaseEnabled(@Nullable Output<Boolean> internalUserDatabaseEnabled) {
             $.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
 
-        /**
-         * @param internalUserDatabaseEnabled Whether the internal user database is enabled. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internalUserDatabaseEnabled(Boolean internalUserDatabaseEnabled) {
             return internalUserDatabaseEnabled(Output.of(internalUserDatabaseEnabled));
         }
 
-        /**
-         * @param masterUserOptions Configuration block for the main user. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterUserOptions(@Nullable Output<DomainAdvancedSecurityOptionsMasterUserOptionsArgs> masterUserOptions) {
             $.masterUserOptions = masterUserOptions;
             return this;
         }
 
-        /**
-         * @param masterUserOptions Configuration block for the main user. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs masterUserOptions) {
             return masterUserOptions(Output.of(masterUserOptions));
         }

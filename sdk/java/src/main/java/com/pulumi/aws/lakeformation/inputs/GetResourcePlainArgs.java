@@ -12,17 +12,9 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetResourcePlainArgs Empty = new GetResourcePlainArgs();
 
-    /**
-     * ARN of the resource, an S3 path.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the resource, an S3 path.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -51,12 +43,6 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetResourcePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the resource, an S3 path.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;

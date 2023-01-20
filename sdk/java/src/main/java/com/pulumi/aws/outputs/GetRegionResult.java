@@ -9,39 +9,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRegionResult {
-    /**
-     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
-     * 
-     */
     private String description;
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Name of the selected region.
-     * 
-     */
     private String name;
 
     private GetRegionResult() {}
-    /**
-     * @return Region&#39;s description in this format: &#34;Location (Region name)&#34;.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return EC2 endpoint for the selected region.
-     * 
-     */
     public String endpoint() {
         return this.endpoint;
     }
@@ -52,10 +32,6 @@ public final class GetRegionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the selected region.
-     * 
-     */
     public String name() {
         return this.name;
     }

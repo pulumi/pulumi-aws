@@ -11,33 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class S3BucketAssociationClassificationType {
-    /**
-     * @return A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-     * The only valid value is the default value, `FULL`.
-     * 
-     */
     private @Nullable String continuous;
-    /**
-     * @return A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-     * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-     * 
-     */
     private @Nullable String oneTime;
 
     private S3BucketAssociationClassificationType() {}
-    /**
-     * @return A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.
-     * The only valid value is the default value, `FULL`.
-     * 
-     */
     public Optional<String> continuous() {
         return Optional.ofNullable(this.continuous);
     }
-    /**
-     * @return A string value indicating whether or not Macie performs a one-time classification of all of the existing objects in the bucket.
-     * Valid values are `NONE` and `FULL`. Defaults to `NONE` indicating that Macie only classifies objects that are added after the association was created.
-     * 
-     */
     public Optional<String> oneTime() {
         return Optional.ofNullable(this.oneTime);
     }

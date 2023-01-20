@@ -17,199 +17,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
- * 
- * ## Example Usage
- * 
- * ### Basic Usage
- * ### Email Address Identity
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;testing@example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Domain Identity
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new EmailIdentity(&#34;example&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Configuration Set
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sesv2.ConfigurationSet;
- * import com.pulumi.aws.sesv2.ConfigurationSetArgs;
- * import com.pulumi.aws.sesv2.EmailIdentity;
- * import com.pulumi.aws.sesv2.EmailIdentityArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleConfigurationSet = new ConfigurationSet(&#34;exampleConfigurationSet&#34;, ConfigurationSetArgs.builder()        
- *             .configurationSetName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleEmailIdentity = new EmailIdentity(&#34;exampleEmailIdentity&#34;, EmailIdentityArgs.builder()        
- *             .emailIdentity(&#34;example.com&#34;)
- *             .configurationSetName(exampleConfigurationSet.configurationSetName())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SESv2 (Simple Email V2) Email Identity can be imported using the `email_identity`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
- * ```
- * 
- */
 @ResourceType(type="aws:sesv2/emailIdentity:EmailIdentity")
 public class EmailIdentity extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Email Identity.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Email Identity.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSetName;
 
-    /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     public Output<Optional<String>> configurationSetName() {
         return Codegen.optional(this.configurationSetName);
     }
-    /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     @Export(name="dkimSigningAttributes", refs={EmailIdentityDkimSigningAttributes.class}, tree="[0]")
     private Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes;
 
-    /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     public Output<EmailIdentityDkimSigningAttributes> dkimSigningAttributes() {
         return this.dkimSigningAttributes;
     }
-    /**
-     * The email address or domain to verify.
-     * 
-     */
     @Export(name="emailIdentity", refs={String.class}, tree="[0]")
     private Output<String> emailIdentity;
 
-    /**
-     * @return The email address or domain to verify.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
-    /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     @Export(name="identityType", refs={String.class}, tree="[0]")
     private Output<String> identityType;
 
-    /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     public Output<String> identityType() {
         return this.identityType;
     }
-    /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -219,17 +61,9 @@ public class EmailIdentity extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Specifies whether or not the identity is verified.
-     * 
-     */
     @Export(name="verifiedForSendingStatus", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> verifiedForSendingStatus;
 
-    /**
-     * @return Specifies whether or not the identity is verified.
-     * 
-     */
     public Output<Boolean> verifiedForSendingStatus() {
         return this.verifiedForSendingStatus;
     }

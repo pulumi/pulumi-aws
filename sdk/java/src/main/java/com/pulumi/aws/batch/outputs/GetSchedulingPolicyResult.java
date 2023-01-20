@@ -19,15 +19,7 @@ public final class GetSchedulingPolicyResult {
      * 
      */
     private String id;
-    /**
-     * @return Name of the scheduling policy.
-     * 
-     */
     private String name;
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSchedulingPolicyResult() {}
@@ -44,17 +36,9 @@ public final class GetSchedulingPolicyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Name of the scheduling policy.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Key-value map of resource tags
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

@@ -17,251 +17,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Managed Grafana workspace resource.
- * 
- * ## Example Usage
- * ### Basic configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.grafana.Workspace;
- * import com.pulumi.aws.grafana.WorkspaceArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var assume = new Role(&#34;assume&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;grafana.amazonaws.com&#34;)
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
- *             .accountAccessType(&#34;CURRENT_ACCOUNT&#34;)
- *             .authenticationProviders(&#34;SAML&#34;)
- *             .permissionType(&#34;SERVICE_MANAGED&#34;)
- *             .roleArn(assume.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Grafana Workspace can be imported using the workspace&#39;s `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
- * ```
- * 
- */
 @ResourceType(type="aws:grafana/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
-    /**
-     * The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-     * 
-     */
     @Export(name="accountAccessType", refs={String.class}, tree="[0]")
     private Output<String> accountAccessType;
 
-    /**
-     * @return The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-     * 
-     */
     public Output<String> accountAccessType() {
         return this.accountAccessType;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Grafana workspace.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-     * 
-     */
     @Export(name="authenticationProviders", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> authenticationProviders;
 
-    /**
-     * @return The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-     * 
-     */
     public Output<List<String>> authenticationProviders() {
         return this.authenticationProviders;
     }
-    /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
-     * 
-     */
     @Export(name="dataSources", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> dataSources;
 
-    /**
-     * @return The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
-     * 
-     */
     public Output<Optional<List<String>>> dataSources() {
         return Codegen.optional(this.dataSources);
     }
-    /**
-     * The workspace description.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The workspace description.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The endpoint of the Grafana workspace.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The endpoint of the Grafana workspace.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * The version of Grafana running on the workspace.
-     * 
-     */
     @Export(name="grafanaVersion", refs={String.class}, tree="[0]")
     private Output<String> grafanaVersion;
 
-    /**
-     * @return The version of Grafana running on the workspace.
-     * 
-     */
     public Output<String> grafanaVersion() {
         return this.grafanaVersion;
     }
-    /**
-     * The Grafana workspace name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The Grafana workspace name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-     * 
-     */
     @Export(name="notificationDestinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notificationDestinations;
 
-    /**
-     * @return The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-     * 
-     */
     public Output<Optional<List<String>>> notificationDestinations() {
         return Codegen.optional(this.notificationDestinations);
     }
-    /**
-     * The role name that the workspace uses to access resources through Amazon Organizations.
-     * 
-     */
     @Export(name="organizationRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationRoleName;
 
-    /**
-     * @return The role name that the workspace uses to access resources through Amazon Organizations.
-     * 
-     */
     public Output<Optional<String>> organizationRoleName() {
         return Codegen.optional(this.organizationRoleName);
     }
-    /**
-     * The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-     * 
-     */
     @Export(name="organizationalUnits", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> organizationalUnits;
 
-    /**
-     * @return The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-     * 
-     */
     public Output<Optional<List<String>>> organizationalUnits() {
         return Codegen.optional(this.organizationalUnits);
     }
-    /**
-     * The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-     * 
-     */
     @Export(name="permissionType", refs={String.class}, tree="[0]")
     private Output<String> permissionType;
 
-    /**
-     * @return The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
-     * 
-     */
     public Output<String> permissionType() {
         return this.permissionType;
     }
-    /**
-     * The IAM role ARN that the workspace assumes.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 
-    /**
-     * @return The IAM role ARN that the workspace assumes.
-     * 
-     */
     public Output<Optional<String>> roleArn() {
         return Codegen.optional(this.roleArn);
     }
@@ -271,59 +103,27 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     public Output<String> samlConfigurationStatus() {
         return this.samlConfigurationStatus;
     }
-    /**
-     * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-     * 
-     */
     @Export(name="stackSetName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> stackSetName;
 
-    /**
-     * @return The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-     * 
-     */
     public Output<Optional<String>> stackSetName() {
         return Codegen.optional(this.stackSetName);
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-     * 
-     */
     @Export(name="vpcConfiguration", refs={WorkspaceVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceVpcConfiguration> vpcConfiguration;
 
-    /**
-     * @return The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-     * 
-     */
     public Output<Optional<WorkspaceVpcConfiguration>> vpcConfiguration() {
         return Codegen.optional(this.vpcConfiguration);
     }

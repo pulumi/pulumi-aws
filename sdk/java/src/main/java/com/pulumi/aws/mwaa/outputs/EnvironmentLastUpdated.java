@@ -13,35 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EnvironmentLastUpdated {
-    /**
-     * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
-     * 
-     */
     private @Nullable String createdAt;
     private @Nullable List<EnvironmentLastUpdatedError> errors;
-    /**
-     * @return The status of the Amazon MWAA Environment
-     * 
-     */
     private @Nullable String status;
 
     private EnvironmentLastUpdated() {}
-    /**
-     * @return The Created At date of the MWAA Environment
-     * * `logging_configuration[0].&lt;LOG_CONFIGURATION_TYPE&gt;[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
-     * 
-     */
     public Optional<String> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
     public List<EnvironmentLastUpdatedError> errors() {
         return this.errors == null ? List.of() : this.errors;
     }
-    /**
-     * @return The status of the Amazon MWAA Environment
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

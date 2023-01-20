@@ -15,32 +15,16 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LogStreamArgs Empty = new LogStreamArgs();
 
-    /**
-     * The name of the log group under which the log stream is to be created.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group under which the log stream is to be created.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
 
-    /**
-     * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -70,44 +54,20 @@ public final class LogStreamArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LogStreamArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param logGroupName The name of the log group under which the log stream is to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName The name of the log group under which the log stream is to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }
 
-        /**
-         * @param name The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

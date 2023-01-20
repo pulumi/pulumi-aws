@@ -16,17 +16,9 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
 
     public static final ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs Empty = new ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs();
 
-    /**
-     * A Boolean value that indicates whether to activate the role. The default is `false`.
-     * 
-     */
     @Import(name="isActive")
     private @Nullable Output<Boolean> isActive;
 
-    /**
-     * @return A Boolean value that indicates whether to activate the role. The default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> isActive() {
         return Optional.ofNullable(this.isActive);
     }
@@ -63,23 +55,11 @@ public final class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs e
             $ = new ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isActive(@Nullable Output<Boolean> isActive) {
             $.isActive = isActive;
             return this;
         }
 
-        /**
-         * @param isActive A Boolean value that indicates whether to activate the role. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder isActive(Boolean isActive) {
             return isActive(Output.of(isActive));
         }

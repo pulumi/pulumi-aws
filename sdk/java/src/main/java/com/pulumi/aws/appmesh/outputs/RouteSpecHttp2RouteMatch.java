@@ -13,55 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttp2RouteMatch {
-    /**
-     * @return Client request headers to match on.
-     * 
-     */
     private @Nullable List<RouteSpecHttp2RouteMatchHeader> headers;
-    /**
-     * @return Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-     * 
-     */
     private @Nullable String method;
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     private String prefix;
-    /**
-     * @return Client request header scheme to match on. Valid values: `http`, `https`.
-     * 
-     */
     private @Nullable String scheme;
 
     private RouteSpecHttp2RouteMatch() {}
-    /**
-     * @return Client request headers to match on.
-     * 
-     */
     public List<RouteSpecHttp2RouteMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
-    /**
-     * @return Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-     * 
-     */
     public Optional<String> method() {
         return Optional.ofNullable(this.method);
     }
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     public String prefix() {
         return this.prefix;
     }
-    /**
-     * @return Client request header scheme to match on. Valid values: `http`, `https`.
-     * 
-     */
     public Optional<String> scheme() {
         return Optional.ofNullable(this.scheme);
     }

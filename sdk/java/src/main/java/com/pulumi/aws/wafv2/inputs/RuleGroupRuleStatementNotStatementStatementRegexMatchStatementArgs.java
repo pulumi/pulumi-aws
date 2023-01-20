@@ -18,51 +18,23 @@ public final class RuleGroupRuleStatementNotStatementStatementRegexMatchStatemen
 
     public static final RuleGroupRuleStatementNotStatementStatementRegexMatchStatementArgs Empty = new RuleGroupRuleStatementNotStatementStatementRegexMatchStatementArgs();
 
-    /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     @Import(name="fieldToMatch")
     private @Nullable Output<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
 
-    /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<Output<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementFieldToMatchArgs>> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
 
-    /**
-     * The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     @Import(name="regexString", required=true)
     private Output<String> regexString;
 
-    /**
-     * @return The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-     * 
-     */
     public Output<String> regexString() {
         return this.regexString;
     }
 
-    /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
 
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementTextTransformationArgs>> textTransformations() {
         return this.textTransformations;
     }
@@ -93,81 +65,33 @@ public final class RuleGroupRuleStatementNotStatementStatementRegexMatchStatemen
             $ = new RuleGroupRuleStatementNotStatementStatementRegexMatchStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(@Nullable Output<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch) {
             $.fieldToMatch = fieldToMatch;
             return this;
         }
 
-        /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatch(RuleGroupRuleStatementNotStatementStatementRegexMatchStatementFieldToMatchArgs fieldToMatch) {
             return fieldToMatch(Output.of(fieldToMatch));
         }
 
-        /**
-         * @param regexString The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexString(Output<String> regexString) {
             $.regexString = regexString;
             return this;
         }
 
-        /**
-         * @param regexString The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regexString(String regexString) {
             return regexString(Output.of(regexString));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(Output<List<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementTextTransformationArgs>> textTransformations) {
             $.textTransformations = textTransformations;
             return this;
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(List<RuleGroupRuleStatementNotStatementStatementRegexMatchStatementTextTransformationArgs> textTransformations) {
             return textTransformations(Output.of(textTransformations));
         }
 
-        /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textTransformations(RuleGroupRuleStatementNotStatementStatementRegexMatchStatementTextTransformationArgs... textTransformations) {
             return textTransformations(List.of(textTransformations));
         }

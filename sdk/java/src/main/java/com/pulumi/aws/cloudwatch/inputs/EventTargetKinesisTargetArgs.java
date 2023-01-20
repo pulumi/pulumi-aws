@@ -15,17 +15,9 @@ public final class EventTargetKinesisTargetArgs extends com.pulumi.resources.Res
 
     public static final EventTargetKinesisTargetArgs Empty = new EventTargetKinesisTargetArgs();
 
-    /**
-     * The JSON path to be extracted from the event and used as the partition key.
-     * 
-     */
     @Import(name="partitionKeyPath")
     private @Nullable Output<String> partitionKeyPath;
 
-    /**
-     * @return The JSON path to be extracted from the event and used as the partition key.
-     * 
-     */
     public Optional<Output<String>> partitionKeyPath() {
         return Optional.ofNullable(this.partitionKeyPath);
     }
@@ -54,23 +46,11 @@ public final class EventTargetKinesisTargetArgs extends com.pulumi.resources.Res
             $ = new EventTargetKinesisTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param partitionKeyPath The JSON path to be extracted from the event and used as the partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeyPath(@Nullable Output<String> partitionKeyPath) {
             $.partitionKeyPath = partitionKeyPath;
             return this;
         }
 
-        /**
-         * @param partitionKeyPath The JSON path to be extracted from the event and used as the partition key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder partitionKeyPath(String partitionKeyPath) {
             return partitionKeyPath(Output.of(partitionKeyPath));
         }

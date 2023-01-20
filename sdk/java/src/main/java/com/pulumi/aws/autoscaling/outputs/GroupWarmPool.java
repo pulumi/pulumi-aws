@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GroupWarmPool {
-    /**
-     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
-     * 
-     */
     private @Nullable GroupWarmPoolInstanceReusePolicy instanceReusePolicy;
-    /**
-     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
-     * 
-     */
     private @Nullable Integer maxGroupPreparedCapacity;
-    /**
-     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-     * 
-     */
     private @Nullable Integer minSize;
-    /**
-     * @return Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
-     * 
-     */
     private @Nullable String poolState;
 
     private GroupWarmPool() {}
-    /**
-     * @return Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
-     * 
-     */
     public Optional<GroupWarmPoolInstanceReusePolicy> instanceReusePolicy() {
         return Optional.ofNullable(this.instanceReusePolicy);
     }
-    /**
-     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
-     * 
-     */
     public Optional<Integer> maxGroupPreparedCapacity() {
         return Optional.ofNullable(this.maxGroupPreparedCapacity);
     }
-    /**
-     * @return Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-     * 
-     */
     public Optional<Integer> minSize() {
         return Optional.ofNullable(this.minSize);
     }
-    /**
-     * @return Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
-     * 
-     */
     public Optional<String> poolState() {
         return Optional.ofNullable(this.poolState);
     }

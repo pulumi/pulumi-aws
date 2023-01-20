@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ClusterOpenMonitoringPrometheusNodeExporter {
-    /**
-     * @return Indicates whether you want to enable or disable the JMX Exporter.
-     * 
-     */
     private Boolean enabledInBroker;
 
     private ClusterOpenMonitoringPrometheusNodeExporter() {}
-    /**
-     * @return Indicates whether you want to enable or disable the JMX Exporter.
-     * 
-     */
     public Boolean enabledInBroker() {
         return this.enabledInBroker;
     }

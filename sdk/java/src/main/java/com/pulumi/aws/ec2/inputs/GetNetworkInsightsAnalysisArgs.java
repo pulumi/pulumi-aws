@@ -18,32 +18,16 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
 
     public static final GetNetworkInsightsAnalysisArgs Empty = new GetNetworkInsightsAnalysisArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetNetworkInsightsAnalysisFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Network Insights Analysis to select.
-     * 
-     */
     @Import(name="networkInsightsAnalysisId")
     private @Nullable Output<String> networkInsightsAnalysisId;
 
-    /**
-     * @return ID of the Network Insights Analysis to select.
-     * 
-     */
     public Optional<Output<String>> networkInsightsAnalysisId() {
         return Optional.ofNullable(this.networkInsightsAnalysisId);
     }
@@ -81,54 +65,24 @@ public final class GetNetworkInsightsAnalysisArgs extends com.pulumi.resources.I
             $ = new GetNetworkInsightsAnalysisArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetNetworkInsightsAnalysisFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetNetworkInsightsAnalysisFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetNetworkInsightsAnalysisFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsAnalysisId(@Nullable Output<String> networkInsightsAnalysisId) {
             $.networkInsightsAnalysisId = networkInsightsAnalysisId;
             return this;
         }
 
-        /**
-         * @param networkInsightsAnalysisId ID of the Network Insights Analysis to select.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInsightsAnalysisId(String networkInsightsAnalysisId) {
             return networkInsightsAnalysisId(Output.of(networkInsightsAnalysisId));
         }

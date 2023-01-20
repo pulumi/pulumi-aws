@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexIndexStatisticFaqStatistic {
-    /**
-     * @return The total number of FAQ questions and answers contained in the index.
-     * 
-     */
     private @Nullable Integer indexedQuestionAnswersCount;
 
     private IndexIndexStatisticFaqStatistic() {}
-    /**
-     * @return The total number of FAQ questions and answers contained in the index.
-     * 
-     */
     public Optional<Integer> indexedQuestionAnswersCount() {
         return Optional.ofNullable(this.indexedQuestionAnswersCount);
     }

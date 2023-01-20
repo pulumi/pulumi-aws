@@ -11,65 +11,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectorySelfServicePermissions {
-    /**
-     * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-     * 
-     */
     private @Nullable Boolean changeComputeType;
-    /**
-     * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-     * 
-     */
     private @Nullable Boolean increaseVolumeSize;
-    /**
-     * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-     * 
-     */
     private @Nullable Boolean rebuildWorkspace;
-    /**
-     * @return Whether WorkSpaces directory users can restart their workspace. Default `true`.
-     * 
-     */
     private @Nullable Boolean restartWorkspace;
-    /**
-     * @return Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-     * 
-     */
     private @Nullable Boolean switchRunningMode;
 
     private DirectorySelfServicePermissions() {}
-    /**
-     * @return Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
-     * 
-     */
     public Optional<Boolean> changeComputeType() {
         return Optional.ofNullable(this.changeComputeType);
     }
-    /**
-     * @return Whether WorkSpaces directory users can increase the volume size of the drives on their workspace. Default `false`.
-     * 
-     */
     public Optional<Boolean> increaseVolumeSize() {
         return Optional.ofNullable(this.increaseVolumeSize);
     }
-    /**
-     * @return Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state. Default `false`.
-     * 
-     */
     public Optional<Boolean> rebuildWorkspace() {
         return Optional.ofNullable(this.rebuildWorkspace);
     }
-    /**
-     * @return Whether WorkSpaces directory users can restart their workspace. Default `true`.
-     * 
-     */
     public Optional<Boolean> restartWorkspace() {
         return Optional.ofNullable(this.restartWorkspace);
     }
-    /**
-     * @return Whether WorkSpaces directory users can switch the running mode of their workspace. Default `false`.
-     * 
-     */
     public Optional<Boolean> switchRunningMode() {
         return Optional.ofNullable(this.switchRunningMode);
     }

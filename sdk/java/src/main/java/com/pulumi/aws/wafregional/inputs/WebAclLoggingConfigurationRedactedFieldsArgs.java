@@ -14,17 +14,9 @@ public final class WebAclLoggingConfigurationRedactedFieldsArgs extends com.pulu
 
     public static final WebAclLoggingConfigurationRedactedFieldsArgs Empty = new WebAclLoggingConfigurationRedactedFieldsArgs();
 
-    /**
-     * Set of configuration blocks for fields to redact. Detailed below.
-     * 
-     */
     @Import(name="fieldToMatches", required=true)
     private Output<List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>> fieldToMatches;
 
-    /**
-     * @return Set of configuration blocks for fields to redact. Detailed below.
-     * 
-     */
     public Output<List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>> fieldToMatches() {
         return this.fieldToMatches;
     }
@@ -53,33 +45,15 @@ public final class WebAclLoggingConfigurationRedactedFieldsArgs extends com.pulu
             $ = new WebAclLoggingConfigurationRedactedFieldsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fieldToMatches Set of configuration blocks for fields to redact. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatches(Output<List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs>> fieldToMatches) {
             $.fieldToMatches = fieldToMatches;
             return this;
         }
 
-        /**
-         * @param fieldToMatches Set of configuration blocks for fields to redact. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatches(List<WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs> fieldToMatches) {
             return fieldToMatches(Output.of(fieldToMatches));
         }
 
-        /**
-         * @param fieldToMatches Set of configuration blocks for fields to redact. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fieldToMatches(WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs... fieldToMatches) {
             return fieldToMatches(List.of(fieldToMatches));
         }

@@ -15,32 +15,16 @@ public final class InternetGatewayAttachmentState extends com.pulumi.resources.R
 
     public static final InternetGatewayAttachmentState Empty = new InternetGatewayAttachmentState();
 
-    /**
-     * The ID of the internet gateway.
-     * 
-     */
     @Import(name="internetGatewayId")
     private @Nullable Output<String> internetGatewayId;
 
-    /**
-     * @return The ID of the internet gateway.
-     * 
-     */
     public Optional<Output<String>> internetGatewayId() {
         return Optional.ofNullable(this.internetGatewayId);
     }
 
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -70,44 +54,20 @@ public final class InternetGatewayAttachmentState extends com.pulumi.resources.R
             $ = new InternetGatewayAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param internetGatewayId The ID of the internet gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayId(@Nullable Output<String> internetGatewayId) {
             $.internetGatewayId = internetGatewayId;
             return this;
         }
 
-        /**
-         * @param internetGatewayId The ID of the internet gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder internetGatewayId(String internetGatewayId) {
             return internetGatewayId(Output.of(internetGatewayId));
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

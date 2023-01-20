@@ -15,47 +15,23 @@ public final class GetConfigurationProfilePlainArgs extends com.pulumi.resources
 
     public static final GetConfigurationProfilePlainArgs Empty = new GetConfigurationProfilePlainArgs();
 
-    /**
-     * ID of the AppConfig application to which this configuration profile belongs.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private String applicationId;
 
-    /**
-     * @return ID of the AppConfig application to which this configuration profile belongs.
-     * 
-     */
     public String applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * ID of the Configuration Profile.
-     * 
-     */
     @Import(name="configurationProfileId", required=true)
     private String configurationProfileId;
 
-    /**
-     * @return ID of the Configuration Profile.
-     * 
-     */
     public String configurationProfileId() {
         return this.configurationProfileId;
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -86,34 +62,16 @@ public final class GetConfigurationProfilePlainArgs extends com.pulumi.resources
             $ = new GetConfigurationProfilePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId ID of the AppConfig application to which this configuration profile belongs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param configurationProfileId ID of the Configuration Profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProfileId(String configurationProfileId) {
             $.configurationProfileId = configurationProfileId;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

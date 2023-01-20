@@ -18,62 +18,30 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
 
     public static final WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs();
 
-    /**
-     * Specifies that AWS WAF should allow requests by default. See Allow below for details.
-     * 
-     */
     @Import(name="allow")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs> allow;
 
-    /**
-     * @return Specifies that AWS WAF should allow requests by default. See Allow below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs>> allow() {
         return Optional.ofNullable(this.allow);
     }
 
-    /**
-     * Specifies that AWS WAF should block requests by default. See Block below for details.
-     * 
-     */
     @Import(name="block")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs> block;
 
-    /**
-     * @return Specifies that AWS WAF should block requests by default. See Block below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs>> block() {
         return Optional.ofNullable(this.block);
     }
 
-    /**
-     * Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
-     * 
-     */
     @Import(name="captcha")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha;
 
-    /**
-     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs>> captcha() {
         return Optional.ofNullable(this.captcha);
     }
 
-    /**
-     * Instructs AWS WAF to count the web request and allow it. See Count below for details.
-     * 
-     */
     @Import(name="count")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs> count;
 
-    /**
-     * @return Instructs AWS WAF to count the web request and allow it. See Count below for details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs>> count() {
         return Optional.ofNullable(this.count);
     }
@@ -105,86 +73,38 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             $ = new WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See Allow below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs> allow) {
             $.allow = allow;
             return this;
         }
 
-        /**
-         * @param allow Specifies that AWS WAF should allow requests by default. See Allow below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allow(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs allow) {
             return allow(Output.of(allow));
         }
 
-        /**
-         * @param block Specifies that AWS WAF should block requests by default. See Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs> block) {
             $.block = block;
             return this;
         }
 
-        /**
-         * @param block Specifies that AWS WAF should block requests by default. See Block below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder block(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs block) {
             return block(Output.of(block));
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs> captcha) {
             $.captcha = captcha;
             return this;
         }
 
-        /**
-         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder captcha(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs captcha) {
             return captcha(Output.of(captcha));
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See Count below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs> count) {
             $.count = count;
             return this;
         }
 
-        /**
-         * @param count Instructs AWS WAF to count the web request and allow it. See Count below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder count(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs count) {
             return count(Output.of(count));
         }

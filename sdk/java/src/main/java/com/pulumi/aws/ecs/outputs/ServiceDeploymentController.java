@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceDeploymentController {
-    /**
-     * @return Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
-     * 
-     */
     private @Nullable String type;
 
     private ServiceDeploymentController() {}
-    /**
-     * @return Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

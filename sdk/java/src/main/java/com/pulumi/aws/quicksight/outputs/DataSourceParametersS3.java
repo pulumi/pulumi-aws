@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class DataSourceParametersS3 {
-    /**
-     * @return An object containing the S3 location of the S3 manifest file.
-     * 
-     */
     private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
 
     private DataSourceParametersS3() {}
-    /**
-     * @return An object containing the S3 location of the S3 manifest file.
-     * 
-     */
     public DataSourceParametersS3ManifestFileLocation manifestFileLocation() {
         return this.manifestFileLocation;
     }

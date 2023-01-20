@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationAutoStopConfiguration {
-    /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-     * 
-     */
     private @Nullable Integer idleTimeoutMinutes;
 
     private ApplicationAutoStopConfiguration() {}
-    /**
-     * @return Enables the application to automatically stop after a certain amount of time being idle. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return The amount of idle time in minutes after which your application will automatically stop. Defaults to `15` minutes.
-     * 
-     */
     public Optional<Integer> idleTimeoutMinutes() {
         return Optional.ofNullable(this.idleTimeoutMinutes);
     }

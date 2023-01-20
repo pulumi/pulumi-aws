@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TopicRuleDynamodbv2 {
-    /**
-     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     private @Nullable TopicRuleDynamodbv2PutItem putItem;
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleDynamodbv2() {}
-    /**
-     * @return Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-     * 
-     */
     public Optional<TopicRuleDynamodbv2PutItem> putItem() {
         return Optional.ofNullable(this.putItem);
     }
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

@@ -13,32 +13,16 @@ public final class AvailabilityZoneGroupArgs extends com.pulumi.resources.Resour
 
     public static final AvailabilityZoneGroupArgs Empty = new AvailabilityZoneGroupArgs();
 
-    /**
-     * Name of the Availability Zone Group.
-     * 
-     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
-    /**
-     * @return Name of the Availability Zone Group.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
 
-    /**
-     * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-     * 
-     */
     @Import(name="optInStatus", required=true)
     private Output<String> optInStatus;
 
-    /**
-     * @return Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-     * 
-     */
     public Output<String> optInStatus() {
         return this.optInStatus;
     }
@@ -68,44 +52,20 @@ public final class AvailabilityZoneGroupArgs extends com.pulumi.resources.Resour
             $ = new AvailabilityZoneGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName Name of the Availability Zone Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName Name of the Availability Zone Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param optInStatus Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(Output<String> optInStatus) {
             $.optInStatus = optInStatus;
             return this;
         }
 
-        /**
-         * @param optInStatus Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder optInStatus(String optInStatus) {
             return optInStatus(Output.of(optInStatus));
         }

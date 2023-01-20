@@ -12,15 +12,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetQuickConnectResult {
-    /**
-     * @return ARN of the Quick Connect.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the Quick Connect.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -29,34 +21,14 @@ public final class GetQuickConnectResult {
     private String id;
     private String instanceId;
     private String name;
-    /**
-     * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-     * 
-     */
     private List<GetQuickConnectQuickConnectConfig> quickConnectConfigs;
-    /**
-     * @return Identifier for the Quick Connect.
-     * 
-     */
     private String quickConnectId;
-    /**
-     * @return Map of tags to assign to the Quick Connect.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetQuickConnectResult() {}
-    /**
-     * @return ARN of the Quick Connect.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the Quick Connect.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -73,24 +45,12 @@ public final class GetQuickConnectResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-     * 
-     */
     public List<GetQuickConnectQuickConnectConfig> quickConnectConfigs() {
         return this.quickConnectConfigs;
     }
-    /**
-     * @return Identifier for the Quick Connect.
-     * 
-     */
     public String quickConnectId() {
         return this.quickConnectId;
     }
-    /**
-     * @return Map of tags to assign to the Quick Connect.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

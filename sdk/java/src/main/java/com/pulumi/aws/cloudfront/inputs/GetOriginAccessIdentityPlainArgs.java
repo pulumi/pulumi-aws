@@ -12,17 +12,9 @@ public final class GetOriginAccessIdentityPlainArgs extends com.pulumi.resources
 
     public static final GetOriginAccessIdentityPlainArgs Empty = new GetOriginAccessIdentityPlainArgs();
 
-    /**
-     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     @Import(name="id", required=true)
     private String id;
 
-    /**
-     * @return The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-     * 
-     */
     public String id() {
         return this.id;
     }
@@ -51,12 +43,6 @@ public final class GetOriginAccessIdentityPlainArgs extends com.pulumi.resources
             $ = new GetOriginAccessIdentityPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             $.id = id;
             return this;

@@ -16,47 +16,23 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
 
     public static final ExtensionAssociationArgs Empty = new ExtensionAssociationArgs();
 
-    /**
-     * The ARN of the extension defined in the association.
-     * 
-     */
     @Import(name="extensionArn", required=true)
     private Output<String> extensionArn;
 
-    /**
-     * @return The ARN of the extension defined in the association.
-     * 
-     */
     public Output<String> extensionArn() {
         return this.extensionArn;
     }
 
-    /**
-     * The parameter names and values defined for the association.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return The parameter names and values defined for the association.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
@@ -87,65 +63,29 @@ public final class ExtensionAssociationArgs extends com.pulumi.resources.Resourc
             $ = new ExtensionAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param extensionArn The ARN of the extension defined in the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionArn(Output<String> extensionArn) {
             $.extensionArn = extensionArn;
             return this;
         }
 
-        /**
-         * @param extensionArn The ARN of the extension defined in the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder extensionArn(String extensionArn) {
             return extensionArn(Output.of(extensionArn));
         }
 
-        /**
-         * @param parameters The parameter names and values defined for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters The parameter names and values defined for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn The ARN of the application, configuration profile, or environment to associate with the extension.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

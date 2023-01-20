@@ -16,32 +16,16 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
 
     public static final BucketMetricFilterArgs Empty = new BucketMetricFilterArgs();
 
-    /**
-     * Object prefix for filtering (singular).
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Object prefix for filtering (singular).
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Object tags for filtering (up to 10).
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Object tags for filtering (up to 10).
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class BucketMetricFilterArgs extends com.pulumi.resources.ResourceA
             $ = new BucketMetricFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param prefix Object prefix for filtering (singular).
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Object prefix for filtering (singular).
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tags Object tags for filtering (up to 10).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Object tags for filtering (up to 10).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

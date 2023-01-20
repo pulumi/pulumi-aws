@@ -13,47 +13,23 @@ public final class UserInGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final UserInGroupArgs Empty = new UserInGroupArgs();
 
-    /**
-     * The name of the group to which the user is to be added.
-     * 
-     */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
-    /**
-     * @return The name of the group to which the user is to be added.
-     * 
-     */
     public Output<String> groupName() {
         return this.groupName;
     }
 
-    /**
-     * The user pool ID of the user and group.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private Output<String> userPoolId;
 
-    /**
-     * @return The user pool ID of the user and group.
-     * 
-     */
     public Output<String> userPoolId() {
         return this.userPoolId;
     }
 
-    /**
-     * The username of the user to be added to the group.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return The username of the user to be added to the group.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -84,65 +60,29 @@ public final class UserInGroupArgs extends com.pulumi.resources.ResourceArgs {
             $ = new UserInGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupName The name of the group to which the user is to be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
-        /**
-         * @param groupName The name of the group to which the user is to be added.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupName(String groupName) {
             return groupName(Output.of(groupName));
         }
 
-        /**
-         * @param userPoolId The user pool ID of the user and group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(Output<String> userPoolId) {
             $.userPoolId = userPoolId;
             return this;
         }
 
-        /**
-         * @param userPoolId The user pool ID of the user and group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             return userPoolId(Output.of(userPoolId));
         }
 
-        /**
-         * @param username The username of the user to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username The username of the user to be added to the group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

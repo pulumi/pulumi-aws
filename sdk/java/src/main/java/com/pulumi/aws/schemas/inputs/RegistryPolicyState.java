@@ -15,32 +15,16 @@ public final class RegistryPolicyState extends com.pulumi.resources.ResourceArgs
 
     public static final RegistryPolicyState Empty = new RegistryPolicyState();
 
-    /**
-     * Resource Policy for EventBridge Schema Registry
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return Resource Policy for EventBridge Schema Registry
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * Name of EventBridge Schema Registry
-     * 
-     */
     @Import(name="registryName")
     private @Nullable Output<String> registryName;
 
-    /**
-     * @return Name of EventBridge Schema Registry
-     * 
-     */
     public Optional<Output<String>> registryName() {
         return Optional.ofNullable(this.registryName);
     }
@@ -70,44 +54,20 @@ public final class RegistryPolicyState extends com.pulumi.resources.ResourceArgs
             $ = new RegistryPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy Resource Policy for EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy Resource Policy for EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param registryName Name of EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryName(@Nullable Output<String> registryName) {
             $.registryName = registryName;
             return this;
         }
 
-        /**
-         * @param registryName Name of EventBridge Schema Registry
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryName(String registryName) {
             return registryName(Output.of(registryName));
         }

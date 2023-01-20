@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterClientAuthenticationTls {
-    /**
-     * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
-     * 
-     */
     private @Nullable List<String> certificateAuthorityArns;
 
     private ClusterClientAuthenticationTls() {}
-    /**
-     * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
-     * 
-     */
     public List<String> certificateAuthorityArns() {
         return this.certificateAuthorityArns == null ? List.of() : this.certificateAuthorityArns;
     }

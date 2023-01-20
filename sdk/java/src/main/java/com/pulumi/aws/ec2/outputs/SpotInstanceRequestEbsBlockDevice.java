@@ -14,129 +14,49 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestEbsBlockDevice {
-    /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
-     * 
-     */
     private @Nullable Boolean deleteOnTermination;
-    /**
-     * @return Name of the device to mount.
-     * 
-     */
     private String deviceName;
-    /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-     * 
-     */
     private @Nullable Boolean encrypted;
-    /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-     * 
-     */
     private @Nullable Integer iops;
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-     * 
-     */
     private @Nullable String kmsKeyId;
-    /**
-     * @return Snapshot ID to mount.
-     * 
-     */
     private @Nullable String snapshotId;
-    /**
-     * @return Map of tags to assign to the device.
-     * 
-     */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
-     * 
-     */
     private @Nullable Integer throughput;
     private @Nullable String volumeId;
-    /**
-     * @return Size of the volume in gibibytes (GiB).
-     * 
-     */
     private @Nullable Integer volumeSize;
-    /**
-     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
-     * 
-     */
     private @Nullable String volumeType;
 
     private SpotInstanceRequestEbsBlockDevice() {}
-    /**
-     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
-     * 
-     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
-    /**
-     * @return Name of the device to mount.
-     * 
-     */
     public String deviceName() {
         return this.deviceName;
     }
-    /**
-     * @return Enables [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) on the volume. Defaults to `false`. Cannot be used with `snapshot_id`. Must be configured to perform drift detection.
-     * 
-     */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
-    /**
-     * @return Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
-     * 
-     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
-    /**
-     * @return Snapshot ID to mount.
-     * 
-     */
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
-    /**
-     * @return Map of tags to assign to the device.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
-    /**
-     * @return Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
-     * 
-     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
     public Optional<String> volumeId() {
         return Optional.ofNullable(this.volumeId);
     }
-    /**
-     * @return Size of the volume in gibibytes (GiB).
-     * 
-     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
-    /**
-     * @return Type of volume. Valid values include `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1`, or `st1`. Defaults to `gp2`.
-     * 
-     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

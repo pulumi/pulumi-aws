@@ -17,62 +17,30 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
 
     public static final OpenIdConnectProviderArgs Empty = new OpenIdConnectProviderArgs();
 
-    /**
-     * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
-     * 
-     */
     @Import(name="clientIdLists", required=true)
     private Output<List<String>> clientIdLists;
 
-    /**
-     * @return A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
-     * 
-     */
     public Output<List<String>> clientIdLists() {
         return this.clientIdLists;
     }
 
-    /**
-     * Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     @Import(name="thumbprintLists", required=true)
     private Output<List<String>> thumbprintLists;
 
-    /**
-     * @return A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-     * 
-     */
     public Output<List<String>> thumbprintLists() {
         return this.thumbprintLists;
     }
 
-    /**
-     * The URL of the identity provider. Corresponds to the _iss_ claim.
-     * 
-     */
     @Import(name="url", required=true)
     private Output<String> url;
 
-    /**
-     * @return The URL of the identity provider. Corresponds to the _iss_ claim.
-     * 
-     */
     public Output<String> url() {
         return this.url;
     }
@@ -104,106 +72,46 @@ public final class OpenIdConnectProviderArgs extends com.pulumi.resources.Resour
             $ = new OpenIdConnectProviderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdLists(Output<List<String>> clientIdLists) {
             $.clientIdLists = clientIdLists;
             return this;
         }
 
-        /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdLists(List<String> clientIdLists) {
             return clientIdLists(Output.of(clientIdLists));
         }
 
-        /**
-         * @param clientIdLists A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that&#39;s sent as the client_id parameter on OAuth requests.)
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientIdLists(String... clientIdLists) {
             return clientIdLists(List.of(clientIdLists));
         }
 
-        /**
-         * @param tags Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of resource tags for the IAM OIDC provider. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(Output<List<String>> thumbprintLists) {
             $.thumbprintLists = thumbprintLists;
             return this;
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(List<String> thumbprintLists) {
             return thumbprintLists(Output.of(thumbprintLists));
         }
 
-        /**
-         * @param thumbprintLists A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider&#39;s server certificate(s).
-         * 
-         * @return builder
-         * 
-         */
         public Builder thumbprintLists(String... thumbprintLists) {
             return thumbprintLists(List.of(thumbprintLists));
         }
 
-        /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(Output<String> url) {
             $.url = url;
             return this;
         }
 
-        /**
-         * @param url The URL of the identity provider. Corresponds to the _iss_ claim.
-         * 
-         * @return builder
-         * 
-         */
         public Builder url(String url) {
             return url(Output.of(url));
         }

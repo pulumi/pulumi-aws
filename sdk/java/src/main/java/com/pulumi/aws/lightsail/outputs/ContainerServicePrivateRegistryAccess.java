@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ContainerServicePrivateRegistryAccess {
-    /**
-     * @return Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-     * 
-     */
     private @Nullable ContainerServicePrivateRegistryAccessEcrImagePullerRole ecrImagePullerRole;
 
     private ContainerServicePrivateRegistryAccess() {}
-    /**
-     * @return Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-     * 
-     */
     public Optional<ContainerServicePrivateRegistryAccessEcrImagePullerRole> ecrImagePullerRole() {
         return Optional.ofNullable(this.ecrImagePullerRole);
     }

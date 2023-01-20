@@ -15,77 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Service Catalog Tag Option.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.servicecatalog.TagOption;
- * import com.pulumi.aws.servicecatalog.TagOptionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new TagOption(&#34;example&#34;, TagOptionArgs.builder()        
- *             .key(&#34;nyckel&#34;)
- *             .value(&#34;värde&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
- * ```
- * 
- */
 @ResourceType(type="aws:servicecatalog/tagOption:TagOption")
 public class TagOption extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether tag option is active. Default is `true`.
-     * 
-     */
     @Export(name="active", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> active;
 
-    /**
-     * @return Whether tag option is active. Default is `true`.
-     * 
-     */
     public Output<Optional<Boolean>> active() {
         return Codegen.optional(this.active);
     }
-    /**
-     * Tag option key.
-     * 
-     */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
-    /**
-     * @return Tag option key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
@@ -95,17 +35,9 @@ public class TagOption extends com.pulumi.resources.CustomResource {
     public Output<String> owner() {
         return this.owner;
     }
-    /**
-     * Tag option value.
-     * 
-     */
     @Export(name="value", refs={String.class}, tree="[0]")
     private Output<String> value;
 
-    /**
-     * @return Tag option value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }

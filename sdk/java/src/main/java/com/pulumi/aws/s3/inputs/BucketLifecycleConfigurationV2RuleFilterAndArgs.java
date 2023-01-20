@@ -17,62 +17,30 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs extends com.p
 
     public static final BucketLifecycleConfigurationV2RuleFilterAndArgs Empty = new BucketLifecycleConfigurationV2RuleFilterAndArgs();
 
-    /**
-     * Minimum object size to which the rule applies. Value must be at least `0` if specified.
-     * 
-     */
     @Import(name="objectSizeGreaterThan")
     private @Nullable Output<Integer> objectSizeGreaterThan;
 
-    /**
-     * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
-     * 
-     */
     public Optional<Output<Integer>> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
 
-    /**
-     * Maximum object size to which the rule applies. Value must be at least `1` if specified.
-     * 
-     */
     @Import(name="objectSizeLessThan")
     private @Nullable Output<Integer> objectSizeLessThan;
 
-    /**
-     * @return Maximum object size to which the rule applies. Value must be at least `1` if specified.
-     * 
-     */
     public Optional<Output<Integer>> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
 
-    /**
-     * Prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
-    /**
-     * Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class BucketLifecycleConfigurationV2RuleFilterAndArgs extends com.p
             $ = new BucketLifecycleConfigurationV2RuleFilterAndArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeGreaterThan(@Nullable Output<Integer> objectSizeGreaterThan) {
             $.objectSizeGreaterThan = objectSizeGreaterThan;
             return this;
         }
 
-        /**
-         * @param objectSizeGreaterThan Minimum object size to which the rule applies. Value must be at least `0` if specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeGreaterThan(Integer objectSizeGreaterThan) {
             return objectSizeGreaterThan(Output.of(objectSizeGreaterThan));
         }
 
-        /**
-         * @param objectSizeLessThan Maximum object size to which the rule applies. Value must be at least `1` if specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeLessThan(@Nullable Output<Integer> objectSizeLessThan) {
             $.objectSizeLessThan = objectSizeLessThan;
             return this;
         }
 
-        /**
-         * @param objectSizeLessThan Maximum object size to which the rule applies. Value must be at least `1` if specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectSizeLessThan(Integer objectSizeLessThan) {
             return objectSizeLessThan(Output.of(objectSizeLessThan));
         }
 
-        /**
-         * @param prefix Prefix identifying one or more objects to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Prefix identifying one or more objects to which the rule applies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

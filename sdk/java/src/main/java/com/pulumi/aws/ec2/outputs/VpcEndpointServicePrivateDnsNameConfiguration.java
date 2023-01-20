@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcEndpointServicePrivateDnsNameConfiguration {
-    /**
-     * @return Name of the record subdomain the service provider needs to create.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-     * 
-     */
     private @Nullable String state;
-    /**
-     * @return Endpoint service verification type, for example `TXT`.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Value the service provider adds to the private DNS name domain record before verification.
-     * 
-     */
     private @Nullable String value;
 
     private VpcEndpointServicePrivateDnsNameConfiguration() {}
-    /**
-     * @return Name of the record subdomain the service provider needs to create.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }
-    /**
-     * @return Endpoint service verification type, for example `TXT`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Value the service provider adds to the private DNS name domain record before verification.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

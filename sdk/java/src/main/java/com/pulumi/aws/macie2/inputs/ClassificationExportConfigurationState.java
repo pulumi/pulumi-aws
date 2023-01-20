@@ -15,17 +15,9 @@ public final class ClassificationExportConfigurationState extends com.pulumi.res
 
     public static final ClassificationExportConfigurationState Empty = new ClassificationExportConfigurationState();
 
-    /**
-     * Configuration block for a S3 Destination. Defined below
-     * 
-     */
     @Import(name="s3Destination")
     private @Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
 
-    /**
-     * @return Configuration block for a S3 Destination. Defined below
-     * 
-     */
     public Optional<Output<ClassificationExportConfigurationS3DestinationArgs>> s3Destination() {
         return Optional.ofNullable(this.s3Destination);
     }
@@ -54,23 +46,11 @@ public final class ClassificationExportConfigurationState extends com.pulumi.res
             $ = new ClassificationExportConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param s3Destination Configuration block for a S3 Destination. Defined below
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(@Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
 
-        /**
-         * @param s3Destination Configuration block for a S3 Destination. Defined below
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Destination(ClassificationExportConfigurationS3DestinationArgs s3Destination) {
             return s3Destination(Output.of(s3Destination));
         }

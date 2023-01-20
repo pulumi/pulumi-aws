@@ -15,32 +15,16 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
 
     public static final TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs Empty = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs();
 
-    /**
-     * Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-     * 
-     */
     @Import(name="accessPointId")
     private @Nullable Output<String> accessPointId;
 
-    /**
-     * @return Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-     * 
-     */
     public Optional<Output<String>> accessPointId() {
         return Optional.ofNullable(this.accessPointId);
     }
 
-    /**
-     * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-     * 
-     */
     @Import(name="iam")
     private @Nullable Output<String> iam;
 
-    /**
-     * @return Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-     * 
-     */
     public Optional<Output<String>> iam() {
         return Optional.ofNullable(this.iam);
     }
@@ -70,44 +54,20 @@ public final class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
             $ = new TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessPointId Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(@Nullable Output<String> accessPointId) {
             $.accessPointId = accessPointId;
             return this;
         }
 
-        /**
-         * @param accessPointId Access point ID to use. If an access point is specified, the root directory value will be relative to the directory set for the access point. If specified, transit encryption must be enabled in the EFSVolumeConfiguration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessPointId(String accessPointId) {
             return accessPointId(Output.of(accessPointId));
         }
 
-        /**
-         * @param iam Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iam(@Nullable Output<String> iam) {
             $.iam = iam;
             return this;
         }
 
-        /**
-         * @param iam Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder iam(String iam) {
             return iam(Output.of(iam));
         }

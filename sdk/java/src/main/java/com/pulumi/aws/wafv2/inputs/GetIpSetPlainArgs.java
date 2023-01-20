@@ -12,32 +12,16 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIpSetPlainArgs Empty = new GetIpSetPlainArgs();
 
-    /**
-     * Name of the WAFv2 IP Set.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the WAFv2 IP Set.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     @Import(name="scope", required=true)
     private String scope;
 
-    /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
@@ -67,23 +51,11 @@ public final class GetIpSetPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIpSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the WAFv2 IP Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             $.scope = scope;
             return this;

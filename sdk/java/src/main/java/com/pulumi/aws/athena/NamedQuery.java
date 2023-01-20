@@ -14,152 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Athena Named Query resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.athena.Workgroup;
- * import com.pulumi.aws.athena.WorkgroupArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
- * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
- * import com.pulumi.aws.athena.Database;
- * import com.pulumi.aws.athena.DatabaseArgs;
- * import com.pulumi.aws.athena.NamedQuery;
- * import com.pulumi.aws.athena.NamedQueryArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var hogeBucketV2 = new BucketV2(&#34;hogeBucketV2&#34;);
- * 
- *         var testKey = new Key(&#34;testKey&#34;, KeyArgs.builder()        
- *             .deletionWindowInDays(7)
- *             .description(&#34;Athena KMS Key&#34;)
- *             .build());
- * 
- *         var testWorkgroup = new Workgroup(&#34;testWorkgroup&#34;, WorkgroupArgs.builder()        
- *             .configuration(WorkgroupConfigurationArgs.builder()
- *                 .resultConfiguration(WorkgroupConfigurationResultConfigurationArgs.builder()
- *                     .encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs.builder()
- *                         .encryptionOption(&#34;SSE_KMS&#34;)
- *                         .kmsKeyArn(testKey.arn())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var hogeDatabase = new Database(&#34;hogeDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;users&#34;)
- *             .bucket(hogeBucketV2.id())
- *             .build());
- * 
- *         var foo = new NamedQuery(&#34;foo&#34;, NamedQueryArgs.builder()        
- *             .workgroup(testWorkgroup.id())
- *             .database(hogeDatabase.name())
- *             .query(hogeDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Athena Named Query can be imported using the query ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
- * ```
- * 
- */
 @ResourceType(type="aws:athena/namedQuery:NamedQuery")
 public class NamedQuery extends com.pulumi.resources.CustomResource {
-    /**
-     * Database to which the query belongs.
-     * 
-     */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
-    /**
-     * @return Database to which the query belongs.
-     * 
-     */
     public Output<String> database() {
         return this.database;
     }
-    /**
-     * Brief explanation of the query. Maximum length of 1024.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Brief explanation of the query. Maximum length of 1024.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Plain language name for the query. Maximum length of 128.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Plain language name for the query. Maximum length of 128.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Text of the query itself. In other words, all query statements. Maximum length of 262144.
-     * 
-     */
     @Export(name="query", refs={String.class}, tree="[0]")
     private Output<String> query;
 
-    /**
-     * @return Text of the query itself. In other words, all query statements. Maximum length of 262144.
-     * 
-     */
     public Output<String> query() {
         return this.query;
     }
-    /**
-     * Workgroup to which the query belongs. Defaults to `primary`
-     * 
-     */
     @Export(name="workgroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workgroup;
 
-    /**
-     * @return Workgroup to which the query belongs. Defaults to `primary`
-     * 
-     */
     public Output<Optional<String>> workgroup() {
         return Codegen.optional(this.workgroup);
     }

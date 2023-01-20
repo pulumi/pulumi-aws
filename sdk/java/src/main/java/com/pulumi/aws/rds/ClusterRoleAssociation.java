@@ -13,94 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a RDS DB Cluster association with an IAM Role. Example use cases:
- * 
- * * [Creating an IAM Role to Allow Amazon Aurora to Access AWS Services](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.IAM.CreateRole.html)
- * * [Importing Amazon S3 Data into an RDS PostgreSQL DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html)
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.ClusterRoleAssociation;
- * import com.pulumi.aws.rds.ClusterRoleAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ClusterRoleAssociation(&#34;example&#34;, ClusterRoleAssociationArgs.builder()        
- *             .dbClusterIdentifier(aws_rds_cluster.example().id())
- *             .featureName(&#34;S3_INTEGRATION&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_rds_cluster_role_association` can be imported using the DB Cluster Identifier and IAM Role ARN separated by a comma (`,`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
- * ```
- * 
- */
 @ResourceType(type="aws:rds/clusterRoleAssociation:ClusterRoleAssociation")
 public class ClusterRoleAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * DB Cluster Identifier to associate with the IAM Role.
-     * 
-     */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
-    /**
-     * @return DB Cluster Identifier to associate with the IAM Role.
-     * 
-     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
-    /**
-     * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     @Export(name="featureName", refs={String.class}, tree="[0]")
     private Output<String> featureName;
 
-    /**
-     * @return Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     public Output<String> featureName() {
         return this.featureName;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

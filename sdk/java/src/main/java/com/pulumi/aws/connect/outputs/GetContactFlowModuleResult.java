@@ -10,21 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetContactFlowModuleResult {
-    /**
-     * @return ARN of the Contact Flow Module.
-     * 
-     */
     private String arn;
     private String contactFlowModuleId;
-    /**
-     * @return Logic of the Contact Flow Module.
-     * 
-     */
     private String content;
-    /**
-     * @return Description of the Contact Flow Module.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -33,44 +21,20 @@ public final class GetContactFlowModuleResult {
     private String id;
     private String instanceId;
     private String name;
-    /**
-     * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
-     * 
-     */
     private String state;
-    /**
-     * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
-     * 
-     */
     private String status;
-    /**
-     * @return Map of tags to assign to the Contact Flow Module.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetContactFlowModuleResult() {}
-    /**
-     * @return ARN of the Contact Flow Module.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
     public String contactFlowModuleId() {
         return this.contactFlowModuleId;
     }
-    /**
-     * @return Logic of the Contact Flow Module.
-     * 
-     */
     public String content() {
         return this.content;
     }
-    /**
-     * @return Description of the Contact Flow Module.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -87,24 +51,12 @@ public final class GetContactFlowModuleResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
-     * 
-     */
     public String state() {
         return this.state;
     }
-    /**
-     * @return Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
-     * 
-     */
     public String status() {
         return this.status;
     }
-    /**
-     * @return Map of tags to assign to the Contact Flow Module.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

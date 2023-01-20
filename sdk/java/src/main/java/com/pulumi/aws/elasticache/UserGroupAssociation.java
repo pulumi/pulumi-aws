@@ -13,104 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Associate an existing ElastiCache user and an existing user group.
- * 
- * &gt; **NOTE:** The provider will detect changes in the `aws.elasticache.UserGroup` since `aws.elasticache.UserGroupAssociation` changes the user IDs associated with the user group. You can ignore these changes with the `ignore_changes` option as shown in the example.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.elasticache.User;
- * import com.pulumi.aws.elasticache.UserArgs;
- * import com.pulumi.aws.elasticache.UserGroup;
- * import com.pulumi.aws.elasticache.UserGroupArgs;
- * import com.pulumi.aws.elasticache.UserGroupAssociation;
- * import com.pulumi.aws.elasticache.UserGroupAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new User(&#34;default&#34;, UserArgs.builder()        
- *             .userId(&#34;defaultUserID&#34;)
- *             .userName(&#34;default&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
- *             .build());
- * 
- *         var exampleUserGroup = new UserGroup(&#34;exampleUserGroup&#34;, UserGroupArgs.builder()        
- *             .engine(&#34;REDIS&#34;)
- *             .userGroupId(&#34;userGroupId&#34;)
- *             .userIds(default_.userId())
- *             .build());
- * 
- *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
- *             .userId(&#34;exampleUserID&#34;)
- *             .userName(&#34;exampleuser&#34;)
- *             .accessString(&#34;on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember&#34;)
- *             .engine(&#34;REDIS&#34;)
- *             .passwords(&#34;password123456789&#34;)
- *             .build());
- * 
- *         var exampleUserGroupAssociation = new UserGroupAssociation(&#34;exampleUserGroupAssociation&#34;, UserGroupAssociationArgs.builder()        
- *             .userGroupId(exampleUserGroup.userGroupId())
- *             .userId(exampleUser.userId())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
- * ```
- * 
- */
 @ResourceType(type="aws:elasticache/userGroupAssociation:UserGroupAssociation")
 public class UserGroupAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the user group.
-     * 
-     */
     @Export(name="userGroupId", refs={String.class}, tree="[0]")
     private Output<String> userGroupId;
 
-    /**
-     * @return ID of the user group.
-     * 
-     */
     public Output<String> userGroupId() {
         return this.userGroupId;
     }
-    /**
-     * ID of the user to associated with the user group.
-     * 
-     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
-    /**
-     * @return ID of the user to associated with the user group.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }

@@ -14,105 +14,29 @@ import java.lang.Integer;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Kinesis Analytics v2 Application Snapshot.
- * Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kinesisanalyticsv2.ApplicationSnapshot;
- * import com.pulumi.aws.kinesisanalyticsv2.ApplicationSnapshotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ApplicationSnapshot(&#34;example&#34;, ApplicationSnapshotArgs.builder()        
- *             .applicationName(aws_kinesisanalyticsv2_application.example().name())
- *             .snapshotName(&#34;example-snapshot&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
- * ```
- * 
- */
 @ResourceType(type="aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")
 public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     @Export(name="applicationName", refs={String.class}, tree="[0]")
     private Output<String> applicationName;
 
-    /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
-     * 
-     */
     public Output<String> applicationName() {
         return this.applicationName;
     }
-    /**
-     * The current application version ID when the snapshot was created.
-     * 
-     */
     @Export(name="applicationVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationVersionId;
 
-    /**
-     * @return The current application version ID when the snapshot was created.
-     * 
-     */
     public Output<Integer> applicationVersionId() {
         return this.applicationVersionId;
     }
-    /**
-     * The timestamp of the application snapshot.
-     * 
-     */
     @Export(name="snapshotCreationTimestamp", refs={String.class}, tree="[0]")
     private Output<String> snapshotCreationTimestamp;
 
-    /**
-     * @return The timestamp of the application snapshot.
-     * 
-     */
     public Output<String> snapshotCreationTimestamp() {
         return this.snapshotCreationTimestamp;
     }
-    /**
-     * The name of the application snapshot.
-     * 
-     */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
-    /**
-     * @return The name of the application snapshot.
-     * 
-     */
     public Output<String> snapshotName() {
         return this.snapshotName;
     }

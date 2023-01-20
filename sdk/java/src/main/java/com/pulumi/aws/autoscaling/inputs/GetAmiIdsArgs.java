@@ -17,32 +17,16 @@ public final class GetAmiIdsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAmiIdsArgs Empty = new GetAmiIdsArgs();
 
-    /**
-     * Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetAmiIdsFilterArgs>> filters;
 
-    /**
-     * @return Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-     * 
-     */
     public Optional<Output<List<GetAmiIdsFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * List of autoscaling group names
-     * 
-     */
     @Import(name="names")
     private @Nullable Output<List<String>> names;
 
-    /**
-     * @return List of autoscaling group names
-     * 
-     */
     public Optional<Output<List<String>>> names() {
         return Optional.ofNullable(this.names);
     }
@@ -72,64 +56,28 @@ public final class GetAmiIdsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAmiIdsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetAmiIdsFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetAmiIdsFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetAmiIdsFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param names List of autoscaling group names
-         * 
-         * @return builder
-         * 
-         */
         public Builder names(@Nullable Output<List<String>> names) {
             $.names = names;
             return this;
         }
 
-        /**
-         * @param names List of autoscaling group names
-         * 
-         * @return builder
-         * 
-         */
         public Builder names(List<String> names) {
             return names(Output.of(names));
         }
 
-        /**
-         * @param names List of autoscaling group names
-         * 
-         * @return builder
-         * 
-         */
         public Builder names(String... names) {
             return names(List.of(names));
         }

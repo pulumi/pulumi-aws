@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
-    /**
-     * @return The ARN for the S3 bucket containing the application code.
-     * 
-     */
     private String bucketArn;
-    /**
-     * @return The file key for the object containing the application code.
-     * 
-     */
     private String fileKey;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource() {}
-    /**
-     * @return The ARN for the S3 bucket containing the application code.
-     * 
-     */
     public String bucketArn() {
         return this.bucketArn;
     }
-    /**
-     * @return The file key for the object containing the application code.
-     * 
-     */
     public String fileKey() {
         return this.fileKey;
     }

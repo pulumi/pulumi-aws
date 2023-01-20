@@ -14,32 +14,16 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
 
     public static final ConnectorPluginCustomPluginArgs Empty = new ConnectorPluginCustomPluginArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
 
-    /**
-     * The revision of the worker configuration.
-     * 
-     */
     @Import(name="revision", required=true)
     private Output<Integer> revision;
 
-    /**
-     * @return The revision of the worker configuration.
-     * 
-     */
     public Output<Integer> revision() {
         return this.revision;
     }
@@ -69,44 +53,20 @@ public final class ConnectorPluginCustomPluginArgs extends com.pulumi.resources.
             $ = new ConnectorPluginCustomPluginArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name (ARN) of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param revision The revision of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(Output<Integer> revision) {
             $.revision = revision;
             return this;
         }
 
-        /**
-         * @param revision The revision of the worker configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(Integer revision) {
             return revision(Output.of(revision));
         }

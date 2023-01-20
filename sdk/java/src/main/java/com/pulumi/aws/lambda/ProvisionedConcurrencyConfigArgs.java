@@ -14,47 +14,23 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
 
     public static final ProvisionedConcurrencyConfigArgs Empty = new ProvisionedConcurrencyConfigArgs();
 
-    /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
-    /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
-    /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
-     * 
-     */
     @Import(name="provisionedConcurrentExecutions", required=true)
     private Output<Integer> provisionedConcurrentExecutions;
 
-    /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to `1`.
-     * 
-     */
     public Output<Integer> provisionedConcurrentExecutions() {
         return this.provisionedConcurrentExecutions;
     }
 
-    /**
-     * Lambda Function version or Lambda Alias name.
-     * 
-     */
     @Import(name="qualifier", required=true)
     private Output<String> qualifier;
 
-    /**
-     * @return Lambda Function version or Lambda Alias name.
-     * 
-     */
     public Output<String> qualifier() {
         return this.qualifier;
     }
@@ -85,65 +61,29 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
             $ = new ProvisionedConcurrencyConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrentExecutions(Output<Integer> provisionedConcurrentExecutions) {
             $.provisionedConcurrentExecutions = provisionedConcurrentExecutions;
             return this;
         }
 
-        /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder provisionedConcurrentExecutions(Integer provisionedConcurrentExecutions) {
             return provisionedConcurrentExecutions(Output.of(provisionedConcurrentExecutions));
         }
 
-        /**
-         * @param qualifier Lambda Function version or Lambda Alias name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier Lambda Function version or Lambda Alias name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }

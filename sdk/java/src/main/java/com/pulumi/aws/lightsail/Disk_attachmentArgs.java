@@ -13,47 +13,23 @@ public final class Disk_attachmentArgs extends com.pulumi.resources.ResourceArgs
 
     public static final Disk_attachmentArgs Empty = new Disk_attachmentArgs();
 
-    /**
-     * The name of the Lightsail Disk.
-     * 
-     */
     @Import(name="diskName", required=true)
     private Output<String> diskName;
 
-    /**
-     * @return The name of the Lightsail Disk.
-     * 
-     */
     public Output<String> diskName() {
         return this.diskName;
     }
 
-    /**
-     * The disk path to expose to the instance.
-     * 
-     */
     @Import(name="diskPath", required=true)
     private Output<String> diskPath;
 
-    /**
-     * @return The disk path to expose to the instance.
-     * 
-     */
     public Output<String> diskPath() {
         return this.diskPath;
     }
 
-    /**
-     * The name of the Lightsail Instance to attach to.
-     * 
-     */
     @Import(name="instanceName", required=true)
     private Output<String> instanceName;
 
-    /**
-     * @return The name of the Lightsail Instance to attach to.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
@@ -84,65 +60,29 @@ public final class Disk_attachmentArgs extends com.pulumi.resources.ResourceArgs
             $ = new Disk_attachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskName The name of the Lightsail Disk.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskName(Output<String> diskName) {
             $.diskName = diskName;
             return this;
         }
 
-        /**
-         * @param diskName The name of the Lightsail Disk.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskName(String diskName) {
             return diskName(Output.of(diskName));
         }
 
-        /**
-         * @param diskPath The disk path to expose to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(Output<String> diskPath) {
             $.diskPath = diskPath;
             return this;
         }
 
-        /**
-         * @param diskPath The disk path to expose to the instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(String diskPath) {
             return diskPath(Output.of(diskPath));
         }
 
-        /**
-         * @param instanceName The name of the Lightsail Instance to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
-        /**
-         * @param instanceName The name of the Lightsail Instance to attach to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }

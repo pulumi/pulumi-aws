@@ -14,44 +14,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings {
     private @Nullable String certficateMode;
-    /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     private @Nullable Integer connectionRetryInterval;
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination;
-    /**
-     * @return Number of retry attempts.
-     * 
-     */
     private @Nullable Integer numRetries;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings() {}
     public Optional<String> certficateMode() {
         return Optional.ofNullable(this.certficateMode);
     }
-    /**
-     * @return Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
-     * 
-     */
     public Optional<Integer> connectionRetryInterval() {
         return Optional.ofNullable(this.connectionRetryInterval);
     }
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination destination() {
         return this.destination;
     }
-    /**
-     * @return Number of retry attempts.
-     * 
-     */
     public Optional<Integer> numRetries() {
         return Optional.ofNullable(this.numRetries);
     }

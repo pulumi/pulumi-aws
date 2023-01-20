@@ -16,160 +16,53 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages a DocDB database cluster snapshot for DocDB clusters.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.docdb.ClusterSnapshot;
- * import com.pulumi.aws.docdb.ClusterSnapshotArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ClusterSnapshot(&#34;example&#34;, ClusterSnapshotArgs.builder()        
- *             .dbClusterIdentifier(aws_docdb_cluster.example().id())
- *             .dbClusterSnapshotIdentifier(&#34;resourcetestsnapshot1234&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
- * ```
- * 
- */
 @ResourceType(type="aws:docdb/clusterSnapshot:ClusterSnapshot")
 public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
-    /**
-     * List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
-     * 
-     */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
-    /**
-     * @return List of EC2 Availability Zones that instances in the DocDB cluster snapshot can be restored in.
-     * 
-     */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
-    /**
-     * The DocDB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
-    /**
-     * @return The DocDB Cluster Identifier from which to take the snapshot.
-     * 
-     */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
-    /**
-     * The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
-     * 
-     */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for the DocDB Cluster Snapshot.
-     * 
-     */
     public Output<String> dbClusterSnapshotArn() {
         return this.dbClusterSnapshotArn;
     }
-    /**
-     * The Identifier for the snapshot.
-     * 
-     */
     @Export(name="dbClusterSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotIdentifier;
 
-    /**
-     * @return The Identifier for the snapshot.
-     * 
-     */
     public Output<String> dbClusterSnapshotIdentifier() {
         return this.dbClusterSnapshotIdentifier;
     }
-    /**
-     * Specifies the name of the database engine.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return Specifies the name of the database engine.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * Version of the database engine for this DocDB cluster snapshot.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return Version of the database engine for this DocDB cluster snapshot.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocDB cluster snapshot.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * Port that the DocDB cluster was listening on at the time of the snapshot.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return Port that the DocDB cluster was listening on at the time of the snapshot.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
@@ -185,45 +78,21 @@ public class ClusterSnapshot extends com.pulumi.resources.CustomResource {
     public Output<String> sourceDbClusterSnapshotArn() {
         return this.sourceDbClusterSnapshotArn;
     }
-    /**
-     * The status of this DocDB Cluster Snapshot.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The status of this DocDB Cluster Snapshot.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Specifies whether the DocDB cluster snapshot is encrypted.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DocDB cluster snapshot is encrypted.
-     * 
-     */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
-    /**
-     * The VPC ID associated with the DocDB cluster snapshot.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
-    /**
-     * @return The VPC ID associated with the DocDB cluster snapshot.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }

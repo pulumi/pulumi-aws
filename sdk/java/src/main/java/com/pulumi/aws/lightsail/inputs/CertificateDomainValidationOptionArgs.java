@@ -15,17 +15,9 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
 
     public static final CertificateDomainValidationOptionArgs Empty = new CertificateDomainValidationOptionArgs();
 
-    /**
-     * A domain name for which the certificate should be issued.
-     * 
-     */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
-    /**
-     * @return A domain name for which the certificate should be issued.
-     * 
-     */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
     }
@@ -78,23 +70,11 @@ public final class CertificateDomainValidationOptionArgs extends com.pulumi.reso
             $ = new CertificateDomainValidationOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName A domain name for which the certificate should be issued.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(@Nullable Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName A domain name for which the certificate should be issued.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }

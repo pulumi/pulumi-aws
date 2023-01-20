@@ -17,32 +17,16 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetDedicatedHostPlainArgs Empty = new GetDedicatedHostPlainArgs();
 
-    /**
-     * Configuration block. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetDedicatedHostFilter> filters;
 
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<List<GetDedicatedHostFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * ID of the Dedicated Host.
-     * 
-     */
     @Import(name="hostId")
     private @Nullable String hostId;
 
-    /**
-     * @return ID of the Dedicated Host.
-     * 
-     */
     public Optional<String> hostId() {
         return Optional.ofNullable(this.hostId);
     }
@@ -80,33 +64,15 @@ public final class GetDedicatedHostPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetDedicatedHostPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetDedicatedHostFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetDedicatedHostFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param hostId ID of the Dedicated Host.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostId(@Nullable String hostId) {
             $.hostId = hostId;
             return this;

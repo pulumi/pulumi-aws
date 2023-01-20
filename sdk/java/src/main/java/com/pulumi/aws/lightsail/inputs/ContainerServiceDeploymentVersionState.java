@@ -19,92 +19,44 @@ public final class ContainerServiceDeploymentVersionState extends com.pulumi.res
 
     public static final ContainerServiceDeploymentVersionState Empty = new ContainerServiceDeploymentVersionState();
 
-    /**
-     * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     @Import(name="containers")
     private @Nullable Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers;
 
-    /**
-     * @return A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     public Optional<Output<List<ContainerServiceDeploymentVersionContainerArgs>>> containers() {
         return Optional.ofNullable(this.containers);
     }
 
-    /**
-     * The timestamp when the deployment was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the deployment was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     @Import(name="publicEndpoint")
     private @Nullable Output<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint;
 
-    /**
-     * @return A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     public Optional<Output<ContainerServiceDeploymentVersionPublicEndpointArgs>> publicEndpoint() {
         return Optional.ofNullable(this.publicEndpoint);
     }
 
-    /**
-     * The name for the container service.
-     * 
-     */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
-    /**
-     * @return The name for the container service.
-     * 
-     */
     public Optional<Output<String>> serviceName() {
         return Optional.ofNullable(this.serviceName);
     }
 
-    /**
-     * The current state of the container service.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The current state of the container service.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
 
-    /**
-     * The version number of the deployment.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
-    /**
-     * @return The version number of the deployment.
-     * 
-     */
     public Optional<Output<Integer>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -138,138 +90,60 @@ public final class ContainerServiceDeploymentVersionState extends com.pulumi.res
             $ = new ContainerServiceDeploymentVersionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(@Nullable Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers) {
             $.containers = containers;
             return this;
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(List<ContainerServiceDeploymentVersionContainerArgs> containers) {
             return containers(Output.of(containers));
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(ContainerServiceDeploymentVersionContainerArgs... containers) {
             return containers(List.of(containers));
         }
 
-        /**
-         * @param createdAt The timestamp when the deployment was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The timestamp when the deployment was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicEndpoint(@Nullable Output<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint) {
             $.publicEndpoint = publicEndpoint;
             return this;
         }
 
-        /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs publicEndpoint) {
             return publicEndpoint(Output.of(publicEndpoint));
         }
 
-        /**
-         * @param serviceName The name for the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(@Nullable Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName The name for the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }
 
-        /**
-         * @param state The current state of the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The current state of the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }
 
-        /**
-         * @param version The version number of the deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<Integer> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The version number of the deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(Integer version) {
             return version(Output.of(version));
         }

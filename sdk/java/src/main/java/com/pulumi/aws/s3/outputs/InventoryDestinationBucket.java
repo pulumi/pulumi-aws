@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InventoryDestinationBucket {
-    /**
-     * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return The Amazon S3 bucket ARN of the destination.
-     * 
-     */
     private String bucketArn;
-    /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-     * 
-     */
     private @Nullable InventoryDestinationBucketEncryption encryption;
-    /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-     * 
-     */
     private String format;
-    /**
-     * @return The prefix that is prepended to all inventory results.
-     * 
-     */
     private @Nullable String prefix;
 
     private InventoryDestinationBucket() {}
-    /**
-     * @return The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return The Amazon S3 bucket ARN of the destination.
-     * 
-     */
     public String bucketArn() {
         return this.bucketArn;
     }
-    /**
-     * @return Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-     * 
-     */
     public Optional<InventoryDestinationBucketEncryption> encryption() {
         return Optional.ofNullable(this.encryption);
     }
-    /**
-     * @return Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-     * 
-     */
     public String format() {
         return this.format;
     }
-    /**
-     * @return The prefix that is prepended to all inventory results.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }

@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPermissionsDataLocation {
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     */
     private String arn;
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     private String catalogId;
 
     private GetPermissionsDataLocation() {}
-    /**
-     * @return ARN that uniquely identifies the data location resource.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
-     * 
-     */
     public String catalogId() {
         return this.catalogId;
     }

@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleFilterAnd {
-    /**
-     * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
-     * 
-     */
     private @Nullable Integer objectSizeGreaterThan;
-    /**
-     * @return Maximum object size to which the rule applies. Value must be at least `1` if specified.
-     * 
-     */
     private @Nullable Integer objectSizeLessThan;
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * 
-     */
     private @Nullable Map<String,String> tags;
 
     private BucketLifecycleConfigurationV2RuleFilterAnd() {}
-    /**
-     * @return Minimum object size to which the rule applies. Value must be at least `0` if specified.
-     * 
-     */
     public Optional<Integer> objectSizeGreaterThan() {
         return Optional.ofNullable(this.objectSizeGreaterThan);
     }
-    /**
-     * @return Maximum object size to which the rule applies. Value must be at least `1` if specified.
-     * 
-     */
     public Optional<Integer> objectSizeLessThan() {
         return Optional.ofNullable(this.objectSizeLessThan);
     }
-    /**
-     * @return Prefix identifying one or more objects to which the rule applies.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Key-value map of resource tags. All of these tags must exist in the object&#39;s tag set in order for the rule to apply.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

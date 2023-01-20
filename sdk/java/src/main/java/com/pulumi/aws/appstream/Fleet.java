@@ -20,329 +20,119 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppStream fleet.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appstream.Fleet;
- * import com.pulumi.aws.appstream.FleetArgs;
- * import com.pulumi.aws.appstream.inputs.FleetComputeCapacityArgs;
- * import com.pulumi.aws.appstream.inputs.FleetVpcConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testFleet = new Fleet(&#34;testFleet&#34;, FleetArgs.builder()        
- *             .computeCapacity(FleetComputeCapacityArgs.builder()
- *                 .desiredInstances(1)
- *                 .build())
- *             .description(&#34;test fleet&#34;)
- *             .displayName(&#34;test-fleet&#34;)
- *             .enableDefaultInternetAccess(false)
- *             .fleetType(&#34;ON_DEMAND&#34;)
- *             .idleDisconnectTimeoutInSeconds(60)
- *             .imageName(&#34;Amazon-AppStream2-Sample-Image-02-04-2019&#34;)
- *             .instanceType(&#34;stream.standard.large&#34;)
- *             .maxUserDurationInSeconds(600)
- *             .tags(Map.of(&#34;TagName&#34;, &#34;tag-value&#34;))
- *             .vpcConfig(FleetVpcConfigArgs.builder()
- *                 .subnetIds(&#34;subnet-06e9b13400c225127&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_appstream_fleet` can be imported using the id, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
- * ```
- * 
- */
 @ResourceType(type="aws:appstream/fleet:Fleet")
 public class Fleet extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the appstream fleet.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the appstream fleet.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block for the desired capacity of the fleet. See below.
-     * 
-     */
     @Export(name="computeCapacity", refs={FleetComputeCapacity.class}, tree="[0]")
     private Output<FleetComputeCapacity> computeCapacity;
 
-    /**
-     * @return Configuration block for the desired capacity of the fleet. See below.
-     * 
-     */
     public Output<FleetComputeCapacity> computeCapacity() {
         return this.computeCapacity;
     }
-    /**
-     * Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return Date and time, in UTC and extended RFC 3339 format, when the fleet was created.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Description to display.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Description to display.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * Amount of time that a streaming session remains active after users disconnect.
-     * 
-     */
     @Export(name="disconnectTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> disconnectTimeoutInSeconds;
 
-    /**
-     * @return Amount of time that a streaming session remains active after users disconnect.
-     * 
-     */
     public Output<Integer> disconnectTimeoutInSeconds() {
         return this.disconnectTimeoutInSeconds;
     }
-    /**
-     * Human-readable friendly name for the AppStream fleet.
-     * 
-     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
-    /**
-     * @return Human-readable friendly name for the AppStream fleet.
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
-    /**
-     * Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-     * 
-     */
     @Export(name="domainJoinInfo", refs={FleetDomainJoinInfo.class}, tree="[0]")
     private Output<FleetDomainJoinInfo> domainJoinInfo;
 
-    /**
-     * @return Configuration block for the name of the directory and organizational unit (OU) to use to join the fleet to a Microsoft Active Directory domain. See below.
-     * 
-     */
     public Output<FleetDomainJoinInfo> domainJoinInfo() {
         return this.domainJoinInfo;
     }
-    /**
-     * Enables or disables default internet access for the fleet.
-     * 
-     */
     @Export(name="enableDefaultInternetAccess", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableDefaultInternetAccess;
 
-    /**
-     * @return Enables or disables default internet access for the fleet.
-     * 
-     */
     public Output<Boolean> enableDefaultInternetAccess() {
         return this.enableDefaultInternetAccess;
     }
-    /**
-     * Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-     * 
-     */
     @Export(name="fleetType", refs={String.class}, tree="[0]")
     private Output<String> fleetType;
 
-    /**
-     * @return Fleet type. Valid values are: `ON_DEMAND`, `ALWAYS_ON`
-     * 
-     */
     public Output<String> fleetType() {
         return this.fleetType;
     }
-    /**
-     * ARN of the IAM role to apply to the fleet.
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return ARN of the IAM role to apply to the fleet.
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-     * 
-     */
     @Export(name="idleDisconnectTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> idleDisconnectTimeoutInSeconds;
 
-    /**
-     * @return Amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the `disconnect_timeout_in_seconds` time interval begins.
-     * 
-     */
     public Output<Optional<Integer>> idleDisconnectTimeoutInSeconds() {
         return Codegen.optional(this.idleDisconnectTimeoutInSeconds);
     }
-    /**
-     * ARN of the public, private, or shared image to use.
-     * 
-     */
     @Export(name="imageArn", refs={String.class}, tree="[0]")
     private Output<String> imageArn;
 
-    /**
-     * @return ARN of the public, private, or shared image to use.
-     * 
-     */
     public Output<String> imageArn() {
         return this.imageArn;
     }
-    /**
-     * Name of the image used to create the fleet.
-     * 
-     */
     @Export(name="imageName", refs={String.class}, tree="[0]")
     private Output<String> imageName;
 
-    /**
-     * @return Name of the image used to create the fleet.
-     * 
-     */
     public Output<String> imageName() {
         return this.imageName;
     }
-    /**
-     * Instance type to use when launching fleet instances.
-     * 
-     */
     @Export(name="instanceType", refs={String.class}, tree="[0]")
     private Output<String> instanceType;
 
-    /**
-     * @return Instance type to use when launching fleet instances.
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
-    /**
-     * Maximum amount of time that a streaming session can remain active, in seconds.
-     * 
-     */
     @Export(name="maxUserDurationInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxUserDurationInSeconds;
 
-    /**
-     * @return Maximum amount of time that a streaming session can remain active, in seconds.
-     * 
-     */
     public Output<Integer> maxUserDurationInSeconds() {
         return this.maxUserDurationInSeconds;
     }
-    /**
-     * Unique name for the fleet.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name for the fleet.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-     * 
-     */
     @Export(name="streamView", refs={String.class}, tree="[0]")
     private Output<String> streamView;
 
-    /**
-     * @return AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
-     * 
-     */
     public Output<String> streamView() {
         return this.streamView;
     }
-    /**
-     * Map of tags to attach to AppStream instances.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to attach to AppStream instances.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -352,17 +142,9 @@ public class Fleet extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Configuration block for the VPC configuration for the image builder. See below.
-     * 
-     */
     @Export(name="vpcConfig", refs={FleetVpcConfig.class}, tree="[0]")
     private Output<FleetVpcConfig> vpcConfig;
 
-    /**
-     * @return Configuration block for the VPC configuration for the image builder. See below.
-     * 
-     */
     public Output<FleetVpcConfig> vpcConfig() {
         return this.vpcConfig;
     }

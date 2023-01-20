@@ -11,10 +11,6 @@ import java.util.Objects;
 public final class GetListenerDefaultActionRedirect {
     private String host;
     private String path;
-    /**
-     * @return Port of the listener. Required if `arn` is not set.
-     * 
-     */
     private String port;
     private String protocol;
     private String query;
@@ -27,10 +23,6 @@ public final class GetListenerDefaultActionRedirect {
     public String path() {
         return this.path;
     }
-    /**
-     * @return Port of the listener. Required if `arn` is not set.
-     * 
-     */
     public String port() {
         return this.port;
     }

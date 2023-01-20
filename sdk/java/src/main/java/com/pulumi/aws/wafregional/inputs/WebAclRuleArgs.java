@@ -18,79 +18,37 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleArgs Empty = new WebAclRuleArgs();
 
-    /**
-     * Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     @Import(name="action")
     private @Nullable Output<WebAclRuleActionArgs> action;
 
-    /**
-     * @return Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<Output<WebAclRuleActionArgs>> action() {
         return Optional.ofNullable(this.action);
     }
 
-    /**
-     * Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     @Import(name="overrideAction")
     private @Nullable Output<WebAclRuleOverrideActionArgs> overrideAction;
 
-    /**
-     * @return Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-     * 
-     */
     public Optional<Output<WebAclRuleOverrideActionArgs>> overrideAction() {
         return Optional.ofNullable(this.overrideAction);
     }
 
-    /**
-     * Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     @Import(name="priority", required=true)
     private Output<Integer> priority;
 
-    /**
-     * @return Specifies the order in which the rules in a WebACL are evaluated.
-     * Rules with a lower value are evaluated before rules with a higher value.
-     * 
-     */
     public Output<Integer> priority() {
         return this.priority;
     }
 
-    /**
-     * ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     @Import(name="ruleId", required=true)
     private Output<String> ruleId;
 
-    /**
-     * @return ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-     * 
-     */
     public Output<String> ruleId() {
         return this.ruleId;
     }
 
-    /**
-     * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -123,109 +81,47 @@ public final class WebAclRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new WebAclRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(@Nullable Output<WebAclRuleActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(WebAclRuleActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param overrideAction Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrideAction(@Nullable Output<WebAclRuleOverrideActionArgs> overrideAction) {
             $.overrideAction = overrideAction;
             return this;
         }
 
-        /**
-         * @param overrideAction Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder overrideAction(WebAclRuleOverrideActionArgs overrideAction) {
             return overrideAction(Output.of(overrideAction));
         }
 
-        /**
-         * @param priority Specifies the order in which the rules in a WebACL are evaluated.
-         * Rules with a lower value are evaluated before rules with a higher value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Output<Integer> priority) {
             $.priority = priority;
             return this;
         }
 
-        /**
-         * @param priority Specifies the order in which the rules in a WebACL are evaluated.
-         * Rules with a lower value are evaluated before rules with a higher value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder priority(Integer priority) {
             return priority(Output.of(priority));
         }
 
-        /**
-         * @param ruleId ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleId(Output<String> ruleId) {
             $.ruleId = ruleId;
             return this;
         }
 
-        /**
-         * @param ruleId ID of the associated WAF (Regional) rule (e.g., `aws.wafregional.Rule`). WAF (Global) rules cannot be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleId(String ruleId) {
             return ruleId(Output.of(ruleId));
         }
 
-        /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

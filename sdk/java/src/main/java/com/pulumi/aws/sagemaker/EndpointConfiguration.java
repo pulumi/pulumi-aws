@@ -20,182 +20,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker endpoint configuration resource.
- * 
- * ## Example Usage
- * 
- * Basic usage:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.EndpointConfiguration;
- * import com.pulumi.aws.sagemaker.EndpointConfigurationArgs;
- * import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var ec = new EndpointConfiguration(&#34;ec&#34;, EndpointConfigurationArgs.builder()        
- *             .productionVariants(EndpointConfigurationProductionVariantArgs.builder()
- *                 .variantName(&#34;variant-1&#34;)
- *                 .modelName(aws_sagemaker_model.m().name())
- *                 .initialInstanceCount(1)
- *                 .instanceType(&#34;ml.t2.medium&#34;)
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;foo&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Endpoint configurations can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/endpointConfiguration:EndpointConfiguration")
 public class EndpointConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Specifies configuration for how an endpoint performs asynchronous inference.
-     * 
-     */
     @Export(name="asyncInferenceConfig", refs={EndpointConfigurationAsyncInferenceConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationAsyncInferenceConfig> asyncInferenceConfig;
 
-    /**
-     * @return Specifies configuration for how an endpoint performs asynchronous inference.
-     * 
-     */
     public Output<Optional<EndpointConfigurationAsyncInferenceConfig>> asyncInferenceConfig() {
         return Codegen.optional(this.asyncInferenceConfig);
     }
-    /**
-     * Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-     * 
-     */
     @Export(name="dataCaptureConfig", refs={EndpointConfigurationDataCaptureConfig.class}, tree="[0]")
     private Output</* @Nullable */ EndpointConfigurationDataCaptureConfig> dataCaptureConfig;
 
-    /**
-     * @return Specifies the parameters to capture input/output of SageMaker models endpoints. Fields are documented below.
-     * 
-     */
     public Output<Optional<EndpointConfigurationDataCaptureConfig>> dataCaptureConfig() {
         return Codegen.optional(this.dataCaptureConfig);
     }
-    /**
-     * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-     * 
-     */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-     * 
-     */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
-    /**
-     * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-     * 
-     */
     @Export(name="productionVariants", refs={List.class,EndpointConfigurationProductionVariant.class}, tree="[0,1]")
     private Output<List<EndpointConfigurationProductionVariant>> productionVariants;
 
-    /**
-     * @return An list of ProductionVariant objects, one for each model that you want to host at this endpoint. Fields are documented below.
-     * 
-     */
     public Output<List<EndpointConfigurationProductionVariant>> productionVariants() {
         return this.productionVariants;
     }
-    /**
-     * Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-     * 
-     */
     @Export(name="shadowProductionVariants", refs={List.class,EndpointConfigurationShadowProductionVariant.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EndpointConfigurationShadowProductionVariant>> shadowProductionVariants;
 
-    /**
-     * @return Array of ProductionVariant objects. There is one for each model that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on ProductionVariants.If you use this field, you can only specify one variant for ProductionVariants and one variant for ShadowProductionVariants. Fields are documented below.
-     * 
-     */
     public Output<Optional<List<EndpointConfigurationShadowProductionVariant>>> shadowProductionVariants() {
         return Codegen.optional(this.shadowProductionVariants);
     }
-    /**
-     * A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

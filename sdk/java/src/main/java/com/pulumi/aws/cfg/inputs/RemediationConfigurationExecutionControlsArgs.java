@@ -15,17 +15,9 @@ public final class RemediationConfigurationExecutionControlsArgs extends com.pul
 
     public static final RemediationConfigurationExecutionControlsArgs Empty = new RemediationConfigurationExecutionControlsArgs();
 
-    /**
-     * Configuration block for SSM controls. See below.
-     * 
-     */
     @Import(name="ssmControls")
     private @Nullable Output<RemediationConfigurationExecutionControlsSsmControlsArgs> ssmControls;
 
-    /**
-     * @return Configuration block for SSM controls. See below.
-     * 
-     */
     public Optional<Output<RemediationConfigurationExecutionControlsSsmControlsArgs>> ssmControls() {
         return Optional.ofNullable(this.ssmControls);
     }
@@ -54,23 +46,11 @@ public final class RemediationConfigurationExecutionControlsArgs extends com.pul
             $ = new RemediationConfigurationExecutionControlsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ssmControls Configuration block for SSM controls. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmControls(@Nullable Output<RemediationConfigurationExecutionControlsSsmControlsArgs> ssmControls) {
             $.ssmControls = ssmControls;
             return this;
         }
 
-        /**
-         * @param ssmControls Configuration block for SSM controls. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ssmControls(RemediationConfigurationExecutionControlsSsmControlsArgs ssmControls) {
             return ssmControls(Output.of(ssmControls));
         }

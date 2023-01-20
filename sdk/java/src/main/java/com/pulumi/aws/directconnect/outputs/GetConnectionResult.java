@@ -10,72 +10,28 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConnectionResult {
-    /**
-     * @return ARN of the connection.
-     * 
-     */
     private String arn;
-    /**
-     * @return Direct Connect endpoint on which the physical connection terminates.
-     * 
-     */
     private String awsDevice;
-    /**
-     * @return Bandwidth of the connection.
-     * 
-     */
     private String bandwidth;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return AWS Direct Connect location where the connection is located.
-     * 
-     */
     private String location;
     private String name;
-    /**
-     * @return ID of the AWS account that owns the connection.
-     * 
-     */
     private String ownerAccountId;
-    /**
-     * @return Name of the service provider associated with the connection.
-     * 
-     */
     private String providerName;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return The VLAN ID.
-     * 
-     */
     private String vlanId;
 
     private GetConnectionResult() {}
-    /**
-     * @return ARN of the connection.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Direct Connect endpoint on which the physical connection terminates.
-     * 
-     */
     public String awsDevice() {
         return this.awsDevice;
     }
-    /**
-     * @return Bandwidth of the connection.
-     * 
-     */
     public String bandwidth() {
         return this.bandwidth;
     }
@@ -86,41 +42,21 @@ public final class GetConnectionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return AWS Direct Connect location where the connection is located.
-     * 
-     */
     public String location() {
         return this.location;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return ID of the AWS account that owns the connection.
-     * 
-     */
     public String ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * @return Name of the service provider associated with the connection.
-     * 
-     */
     public String providerName() {
         return this.providerName;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return The VLAN ID.
-     * 
-     */
     public String vlanId() {
         return this.vlanId;
     }

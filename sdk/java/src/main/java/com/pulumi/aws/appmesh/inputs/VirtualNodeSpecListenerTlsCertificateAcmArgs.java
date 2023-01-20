@@ -13,17 +13,9 @@ public final class VirtualNodeSpecListenerTlsCertificateAcmArgs extends com.pulu
 
     public static final VirtualNodeSpecListenerTlsCertificateAcmArgs Empty = new VirtualNodeSpecListenerTlsCertificateAcmArgs();
 
-    /**
-     * ARN for the certificate.
-     * 
-     */
     @Import(name="certificateArn", required=true)
     private Output<String> certificateArn;
 
-    /**
-     * @return ARN for the certificate.
-     * 
-     */
     public Output<String> certificateArn() {
         return this.certificateArn;
     }
@@ -52,23 +44,11 @@ public final class VirtualNodeSpecListenerTlsCertificateAcmArgs extends com.pulu
             $ = new VirtualNodeSpecListenerTlsCertificateAcmArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateArn ARN for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(Output<String> certificateArn) {
             $.certificateArn = certificateArn;
             return this;
         }
 
-        /**
-         * @param certificateArn ARN for the certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateArn(String certificateArn) {
             return certificateArn(Output.of(certificateArn));
         }

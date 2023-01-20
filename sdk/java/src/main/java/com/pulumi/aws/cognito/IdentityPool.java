@@ -18,229 +18,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Cognito Identity Pool.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.SamlProvider;
- * import com.pulumi.aws.iam.SamlProviderArgs;
- * import com.pulumi.aws.cognito.IdentityPool;
- * import com.pulumi.aws.cognito.IdentityPoolArgs;
- * import com.pulumi.aws.cognito.inputs.IdentityPoolCognitoIdentityProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new SamlProvider(&#34;default&#34;, SamlProviderArgs.builder()        
- *             .samlMetadataDocument(Files.readString(Paths.get(&#34;saml-metadata.xml&#34;)))
- *             .build());
- * 
- *         var main = new IdentityPool(&#34;main&#34;, IdentityPoolArgs.builder()        
- *             .identityPoolName(&#34;identity pool&#34;)
- *             .allowUnauthenticatedIdentities(false)
- *             .allowClassicFlow(false)
- *             .cognitoIdentityProviders(            
- *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;6lhlkkfbfb4q5kpp90urffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ&#34;)
- *                     .serverSideTokenCheck(false)
- *                     .build(),
- *                 IdentityPoolCognitoIdentityProviderArgs.builder()
- *                     .clientId(&#34;7kodkvfqfb4qfkp39eurffae&#34;)
- *                     .providerName(&#34;cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu&#34;)
- *                     .serverSideTokenCheck(false)
- *                     .build())
- *             .supportedLoginProviders(Map.ofEntries(
- *                 Map.entry(&#34;graph.facebook.com&#34;, &#34;7346241598935552&#34;),
- *                 Map.entry(&#34;accounts.google.com&#34;, &#34;123456789012.apps.googleusercontent.com&#34;)
- *             ))
- *             .samlProviderArns(default_.arn())
- *             .openidConnectProviderArns(&#34;arn:aws:iam::123456789012:oidc-provider/id.example.com&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Cognito Identity Pool can be imported using its ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2_abc123
- * ```
- * 
- */
 @ResourceType(type="aws:cognito/identityPool:IdentityPool")
 public class IdentityPool extends com.pulumi.resources.CustomResource {
-    /**
-     * Enables or disables the classic / basic authentication flow. Default is `false`.
-     * 
-     */
     @Export(name="allowClassicFlow", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowClassicFlow;
 
-    /**
-     * @return Enables or disables the classic / basic authentication flow. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> allowClassicFlow() {
         return Codegen.optional(this.allowClassicFlow);
     }
-    /**
-     * Whether the identity pool supports unauthenticated logins or not.
-     * 
-     */
     @Export(name="allowUnauthenticatedIdentities", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowUnauthenticatedIdentities;
 
-    /**
-     * @return Whether the identity pool supports unauthenticated logins or not.
-     * 
-     */
     public Output<Optional<Boolean>> allowUnauthenticatedIdentities() {
         return Codegen.optional(this.allowUnauthenticatedIdentities);
     }
-    /**
-     * The ARN of the identity pool.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the identity pool.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * An array of Amazon Cognito Identity user pools and their client IDs.
-     * 
-     */
     @Export(name="cognitoIdentityProviders", refs={List.class,IdentityPoolCognitoIdentityProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<IdentityPoolCognitoIdentityProvider>> cognitoIdentityProviders;
 
-    /**
-     * @return An array of Amazon Cognito Identity user pools and their client IDs.
-     * 
-     */
     public Output<Optional<List<IdentityPoolCognitoIdentityProvider>>> cognitoIdentityProviders() {
         return Codegen.optional(this.cognitoIdentityProviders);
     }
-    /**
-     * The &#34;domain&#34; by which Cognito will refer to your users. This name acts as a placeholder that allows your
-     * backend and the Cognito service to communicate about the developer provider.
-     * 
-     */
     @Export(name="developerProviderName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> developerProviderName;
 
-    /**
-     * @return The &#34;domain&#34; by which Cognito will refer to your users. This name acts as a placeholder that allows your
-     * backend and the Cognito service to communicate about the developer provider.
-     * 
-     */
     public Output<Optional<String>> developerProviderName() {
         return Codegen.optional(this.developerProviderName);
     }
-    /**
-     * The Cognito Identity Pool name.
-     * 
-     */
     @Export(name="identityPoolName", refs={String.class}, tree="[0]")
     private Output<String> identityPoolName;
 
-    /**
-     * @return The Cognito Identity Pool name.
-     * 
-     */
     public Output<String> identityPoolName() {
         return this.identityPoolName;
     }
-    /**
-     * Set of OpendID Connect provider ARNs.
-     * 
-     */
     @Export(name="openidConnectProviderArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> openidConnectProviderArns;
 
-    /**
-     * @return Set of OpendID Connect provider ARNs.
-     * 
-     */
     public Output<Optional<List<String>>> openidConnectProviderArns() {
         return Codegen.optional(this.openidConnectProviderArns);
     }
-    /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-     * 
-     */
     @Export(name="samlProviderArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> samlProviderArns;
 
-    /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
-     * 
-     */
     public Output<Optional<List<String>>> samlProviderArns() {
         return Codegen.optional(this.samlProviderArns);
     }
-    /**
-     * Key-Value pairs mapping provider names to provider app IDs.
-     * 
-     */
     @Export(name="supportedLoginProviders", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> supportedLoginProviders;
 
-    /**
-     * @return Key-Value pairs mapping provider names to provider app IDs.
-     * 
-     */
     public Output<Optional<Map<String,String>>> supportedLoginProviders() {
         return Codegen.optional(this.supportedLoginProviders);
     }
-    /**
-     * A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

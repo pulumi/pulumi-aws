@@ -24,36 +24,16 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
 
     public static final EventSourceMappingArgs Empty = new EventSourceMappingArgs();
 
-    /**
-     * Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
-     * 
-     */
     @Import(name="amazonManagedKafkaEventSourceConfig")
     private @Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> amazonManagedKafkaEventSourceConfig;
 
-    /**
-     * @return Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
-     * 
-     */
     public Optional<Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs>> amazonManagedKafkaEventSourceConfig() {
         return Optional.ofNullable(this.amazonManagedKafkaEventSourceConfig);
     }
 
-    /**
-     * The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-     * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
-     * 
-     */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
-    /**
-     * @return The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-     * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-     * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
-     * 
-     */
     public Optional<Output<Integer>> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
@@ -72,98 +52,44 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.destinationConfig);
     }
 
-    /**
-     * Determines if the mapping will be enabled on creation. Defaults to `true`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Determines if the mapping will be enabled on creation. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
-    /**
-     * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
-     * 
-     */
     @Import(name="eventSourceArn")
     private @Nullable Output<String> eventSourceArn;
 
-    /**
-     * @return The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
-     * 
-     */
     public Optional<Output<String>> eventSourceArn() {
         return Optional.ofNullable(this.eventSourceArn);
     }
 
-    /**
-     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-     * 
-     */
     @Import(name="filterCriteria")
     private @Nullable Output<EventSourceMappingFilterCriteriaArgs> filterCriteria;
 
-    /**
-     * @return The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-     * 
-     */
     public Optional<Output<EventSourceMappingFilterCriteriaArgs>> filterCriteria() {
         return Optional.ofNullable(this.filterCriteria);
     }
 
-    /**
-     * The name or the ARN of the Lambda function that will be subscribing to events.
-     * 
-     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
-    /**
-     * @return The name or the ARN of the Lambda function that will be subscribing to events.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
-    /**
-     * A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-     * 
-     */
     @Import(name="functionResponseTypes")
     private @Nullable Output<List<String>> functionResponseTypes;
 
-    /**
-     * @return A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-     * 
-     */
     public Optional<Output<List<String>>> functionResponseTypes() {
         return Optional.ofNullable(this.functionResponseTypes);
     }
 
-    /**
-     * The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-     * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-     * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-     * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-     * 
-     */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
-    /**
-     * @return The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-     * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-     * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-     * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-     * 
-     */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
         return Optional.ofNullable(this.maximumBatchingWindowInSeconds);
     }
@@ -189,19 +115,9 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.parallelizationFactor);
     }
 
-    /**
-     * The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-     * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-     * 
-     */
     @Import(name="queues")
     private @Nullable Output<List<String>> queues;
 
-    /**
-     * @return The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-     * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-     * 
-     */
     public Optional<Output<List<String>>> queues() {
         return Optional.ofNullable(this.queues);
     }
@@ -213,19 +129,9 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.selfManagedEventSource);
     }
 
-    /**
-     * Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
-     * 
-     */
     @Import(name="selfManagedKafkaEventSourceConfig")
     private @Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> selfManagedKafkaEventSourceConfig;
 
-    /**
-     * @return Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-     * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
-     * 
-     */
     public Optional<Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs>> selfManagedKafkaEventSourceConfig() {
         return Optional.ofNullable(this.selfManagedKafkaEventSourceConfig);
     }
@@ -237,62 +143,30 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.sourceAccessConfigurations);
     }
 
-    /**
-     * The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-     * 
-     */
     @Import(name="startingPosition")
     private @Nullable Output<String> startingPosition;
 
-    /**
-     * @return The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-     * 
-     */
     public Optional<Output<String>> startingPosition() {
         return Optional.ofNullable(this.startingPosition);
     }
 
-    /**
-     * A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-     * 
-     */
     @Import(name="startingPositionTimestamp")
     private @Nullable Output<String> startingPositionTimestamp;
 
-    /**
-     * @return A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-     * 
-     */
     public Optional<Output<String>> startingPositionTimestamp() {
         return Optional.ofNullable(this.startingPositionTimestamp);
     }
 
-    /**
-     * The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-     * 
-     */
     @Import(name="topics")
     private @Nullable Output<List<String>> topics;
 
-    /**
-     * @return The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-     * 
-     */
     public Optional<Output<List<String>>> topics() {
         return Optional.ofNullable(this.topics);
     }
 
-    /**
-     * The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-     * 
-     */
     @Import(name="tumblingWindowInSeconds")
     private @Nullable Output<Integer> tumblingWindowInSeconds;
 
-    /**
-     * @return The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-     * 
-     */
     public Optional<Output<Integer>> tumblingWindowInSeconds() {
         return Optional.ofNullable(this.tumblingWindowInSeconds);
     }
@@ -341,48 +215,20 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
             $ = new EventSourceMappingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonManagedKafkaEventSourceConfig(@Nullable Output<EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs> amazonManagedKafkaEventSourceConfig) {
             $.amazonManagedKafkaEventSourceConfig = amazonManagedKafkaEventSourceConfig;
             return this;
         }
 
-        /**
-         * @param amazonManagedKafkaEventSourceConfig Additional configuration block for Amazon Managed Kafka sources. Incompatible with &#34;self_managed_event_source&#34; and &#34;self_managed_kafka_event_source_config&#34;. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder amazonManagedKafkaEventSourceConfig(EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs amazonManagedKafkaEventSourceConfig) {
             return amazonManagedKafkaEventSourceConfig(Output.of(amazonManagedKafkaEventSourceConfig));
         }
 
-        /**
-         * @param batchSize The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-         * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-         * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(@Nullable Output<Integer> batchSize) {
             $.batchSize = batchSize;
             return this;
         }
 
-        /**
-         * @param batchSize The largest number of records that Lambda will retrieve from your event source at the time of invocation. Defaults to `100` for DynamoDB, Kinesis, MQ and MSK, `10` for SQS.
-         * * `bisect_batch_on_function_error`: - (Optional) If the function returns an error, split the batch in two and retry. Only available for stream sources (DynamoDB and Kinesis). Defaults to `false`.
-         * * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder batchSize(Integer batchSize) {
             return batchSize(Output.of(batchSize));
         }
@@ -405,144 +251,60 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
             return destinationConfig(Output.of(destinationConfig));
         }
 
-        /**
-         * @param enabled Determines if the mapping will be enabled on creation. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Determines if the mapping will be enabled on creation. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSourceArn(@Nullable Output<String> eventSourceArn) {
             $.eventSourceArn = eventSourceArn;
             return this;
         }
 
-        /**
-         * @param eventSourceArn The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventSourceArn(String eventSourceArn) {
             return eventSourceArn(Output.of(eventSourceArn));
         }
 
-        /**
-         * @param filterCriteria The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterCriteria(@Nullable Output<EventSourceMappingFilterCriteriaArgs> filterCriteria) {
             $.filterCriteria = filterCriteria;
             return this;
         }
 
-        /**
-         * @param filterCriteria The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filterCriteria(EventSourceMappingFilterCriteriaArgs filterCriteria) {
             return filterCriteria(Output.of(filterCriteria));
         }
 
-        /**
-         * @param functionName The name or the ARN of the Lambda function that will be subscribing to events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName The name or the ARN of the Lambda function that will be subscribing to events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param functionResponseTypes A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionResponseTypes(@Nullable Output<List<String>> functionResponseTypes) {
             $.functionResponseTypes = functionResponseTypes;
             return this;
         }
 
-        /**
-         * @param functionResponseTypes A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionResponseTypes(List<String> functionResponseTypes) {
             return functionResponseTypes(Output.of(functionResponseTypes));
         }
 
-        /**
-         * @param functionResponseTypes A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionResponseTypes(String... functionResponseTypes) {
             return functionResponseTypes(List.of(functionResponseTypes));
         }
 
-        /**
-         * @param maximumBatchingWindowInSeconds The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-         * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-         * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-         * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchingWindowInSeconds(@Nullable Output<Integer> maximumBatchingWindowInSeconds) {
             $.maximumBatchingWindowInSeconds = maximumBatchingWindowInSeconds;
             return this;
         }
 
-        /**
-         * @param maximumBatchingWindowInSeconds The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
-         * * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
-         * * `maximum_retry_attempts`: - (Optional) The maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
-         * * `parallelization_factor`: - (Optional) The number of batches to process from each shard concurrently. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of 1, maximum of 10.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumBatchingWindowInSeconds(Integer maximumBatchingWindowInSeconds) {
             return maximumBatchingWindowInSeconds(Output.of(maximumBatchingWindowInSeconds));
         }
@@ -574,36 +336,15 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
             return parallelizationFactor(Output.of(parallelizationFactor));
         }
 
-        /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(@Nullable Output<List<String>> queues) {
             $.queues = queues;
             return this;
         }
 
-        /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(List<String> queues) {
             return queues(Output.of(queues));
         }
 
-        /**
-         * @param queues The name of the Amazon MQ broker destination queue to consume. Only available for MQ sources. A single queue name must be specified.
-         * * `self_managed_event_source`: - (Optional) For Self Managed Kafka sources, the location of the self managed cluster. If set, configuration must also include `source_access_configuration`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder queues(String... queues) {
             return queues(List.of(queues));
         }
@@ -617,25 +358,11 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
             return selfManagedEventSource(Output.of(selfManagedEventSource));
         }
 
-        /**
-         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selfManagedKafkaEventSourceConfig(@Nullable Output<EventSourceMappingSelfManagedKafkaEventSourceConfigArgs> selfManagedKafkaEventSourceConfig) {
             $.selfManagedKafkaEventSourceConfig = selfManagedKafkaEventSourceConfig;
             return this;
         }
 
-        /**
-         * @param selfManagedKafkaEventSourceConfig Additional configuration block for Self Managed Kafka sources. Incompatible with &#34;event_source_arn&#34; and &#34;amazon_managed_kafka_event_source_config&#34;. Detailed below.
-         * * `source_access_configuration`: (Optional) For Self Managed Kafka sources, the access configuration for the source. If set, configuration must also include `self_managed_event_source`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder selfManagedKafkaEventSourceConfig(EventSourceMappingSelfManagedKafkaEventSourceConfigArgs selfManagedKafkaEventSourceConfig) {
             return selfManagedKafkaEventSourceConfig(Output.of(selfManagedKafkaEventSourceConfig));
         }
@@ -653,96 +380,42 @@ public final class EventSourceMappingArgs extends com.pulumi.resources.ResourceA
             return sourceAccessConfigurations(List.of(sourceAccessConfigurations));
         }
 
-        /**
-         * @param startingPosition The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(@Nullable Output<String> startingPosition) {
             $.startingPosition = startingPosition;
             return this;
         }
 
-        /**
-         * @param startingPosition The position in the stream where AWS Lambda should start reading. Must be one of `AT_TIMESTAMP` (Kinesis only), `LATEST` or `TRIM_HORIZON` if getting events from Kinesis, DynamoDB or MSK. Must not be provided if getting events from SQS. More information about these positions can be found in the [AWS DynamoDB Streams API Reference](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html) and [AWS Kinesis API Reference](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType).
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPosition(String startingPosition) {
             return startingPosition(Output.of(startingPosition));
         }
 
-        /**
-         * @param startingPositionTimestamp A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPositionTimestamp(@Nullable Output<String> startingPositionTimestamp) {
             $.startingPositionTimestamp = startingPositionTimestamp;
             return this;
         }
 
-        /**
-         * @param startingPositionTimestamp A timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of the data record which to start reading when using `starting_position` set to `AT_TIMESTAMP`. If a record with this exact timestamp does not exist, the next later record is chosen. If the timestamp is older than the current trim horizon, the oldest available record is chosen.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startingPositionTimestamp(String startingPositionTimestamp) {
             return startingPositionTimestamp(Output.of(startingPositionTimestamp));
         }
 
-        /**
-         * @param topics The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(@Nullable Output<List<String>> topics) {
             $.topics = topics;
             return this;
         }
 
-        /**
-         * @param topics The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(List<String> topics) {
             return topics(Output.of(topics));
         }
 
-        /**
-         * @param topics The name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder topics(String... topics) {
             return topics(List.of(topics));
         }
 
-        /**
-         * @param tumblingWindowInSeconds The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tumblingWindowInSeconds(@Nullable Output<Integer> tumblingWindowInSeconds) {
             $.tumblingWindowInSeconds = tumblingWindowInSeconds;
             return this;
         }
 
-        /**
-         * @param tumblingWindowInSeconds The duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
-         * 
-         * @return builder
-         * 
-         */
         public Builder tumblingWindowInSeconds(Integer tumblingWindowInSeconds) {
             return tumblingWindowInSeconds(Output.of(tumblingWindowInSeconds));
         }

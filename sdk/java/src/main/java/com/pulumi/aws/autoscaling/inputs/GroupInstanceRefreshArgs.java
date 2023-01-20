@@ -17,47 +17,23 @@ public final class GroupInstanceRefreshArgs extends com.pulumi.resources.Resourc
 
     public static final GroupInstanceRefreshArgs Empty = new GroupInstanceRefreshArgs();
 
-    /**
-     * Override default parameters for Instance Refresh.
-     * 
-     */
     @Import(name="preferences")
     private @Nullable Output<GroupInstanceRefreshPreferencesArgs> preferences;
 
-    /**
-     * @return Override default parameters for Instance Refresh.
-     * 
-     */
     public Optional<Output<GroupInstanceRefreshPreferencesArgs>> preferences() {
         return Optional.ofNullable(this.preferences);
     }
 
-    /**
-     * Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-     * 
-     */
     @Import(name="strategy", required=true)
     private Output<String> strategy;
 
-    /**
-     * @return Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-     * 
-     */
     public Output<String> strategy() {
         return this.strategy;
     }
 
-    /**
-     * Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<List<String>> triggers;
 
-    /**
-     * @return Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-     * 
-     */
     public Optional<Output<List<String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
@@ -88,75 +64,33 @@ public final class GroupInstanceRefreshArgs extends com.pulumi.resources.Resourc
             $ = new GroupInstanceRefreshArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param preferences Override default parameters for Instance Refresh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferences(@Nullable Output<GroupInstanceRefreshPreferencesArgs> preferences) {
             $.preferences = preferences;
             return this;
         }
 
-        /**
-         * @param preferences Override default parameters for Instance Refresh.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferences(GroupInstanceRefreshPreferencesArgs preferences) {
             return preferences(Output.of(preferences));
         }
 
-        /**
-         * @param strategy Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strategy(Output<String> strategy) {
             $.strategy = strategy;
             return this;
         }
 
-        /**
-         * @param strategy Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder strategy(String strategy) {
             return strategy(Output.of(strategy));
         }
 
-        /**
-         * @param triggers Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<List<String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(List<String> triggers) {
             return triggers(Output.of(triggers));
         }
 
-        /**
-         * @param triggers Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(String... triggers) {
             return triggers(List.of(triggers));
         }

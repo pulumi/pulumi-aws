@@ -15,109 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EC2 Transit Gateway Prefix List Reference.
- * 
- * ## Example Usage
- * ### Attachment Routing
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.PrefixListReference;
- * import com.pulumi.aws.ec2transitgateway.PrefixListReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference(&#34;example&#34;, PrefixListReferenceArgs.builder()        
- *             .prefixListId(aws_ec2_managed_prefix_list.example().id())
- *             .transitGatewayAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
- *             .transitGatewayRouteTableId(aws_ec2_transit_gateway.example().association_default_route_table_id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Blackhole Routing
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2transitgateway.PrefixListReference;
- * import com.pulumi.aws.ec2transitgateway.PrefixListReferenceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PrefixListReference(&#34;example&#34;, PrefixListReferenceArgs.builder()        
- *             .blackhole(true)
- *             .prefixListId(aws_ec2_managed_prefix_list.example().id())
- *             .transitGatewayRouteTableId(aws_ec2_transit_gateway.example().association_default_route_table_id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_ec2_transit_gateway_prefix_list_reference` can be imported by using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`), e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2transitgateway/prefixListReference:PrefixListReference")
 public class PrefixListReference extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-     * 
-     */
     @Export(name="blackhole", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blackhole;
 
-    /**
-     * @return Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-     * 
-     */
     public Output<Optional<Boolean>> blackhole() {
         return Codegen.optional(this.blackhole);
     }
-    /**
-     * Identifier of EC2 Prefix List.
-     * 
-     */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output<String> prefixListId;
 
-    /**
-     * @return Identifier of EC2 Prefix List.
-     * 
-     */
     public Output<String> prefixListId() {
         return this.prefixListId;
     }
@@ -127,31 +35,15 @@ public class PrefixListReference extends com.pulumi.resources.CustomResource {
     public Output<String> prefixListOwnerId() {
         return this.prefixListOwnerId;
     }
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     @Export(name="transitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayAttachmentId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     public Output<Optional<String>> transitGatewayAttachmentId() {
         return Codegen.optional(this.transitGatewayAttachmentId);
     }
-    /**
-     * Identifier of EC2 Transit Gateway Route Table.
-     * 
-     */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Route Table.
-     * 
-     */
     public Output<String> transitGatewayRouteTableId() {
         return this.transitGatewayRouteTableId;
     }

@@ -13,17 +13,9 @@ public final class GatewayRouteSpecHttpRouteActionTargetArgs extends com.pulumi.
 
     public static final GatewayRouteSpecHttpRouteActionTargetArgs Empty = new GatewayRouteSpecHttpRouteActionTargetArgs();
 
-    /**
-     * Virtual service gateway route target.
-     * 
-     */
     @Import(name="virtualService", required=true)
     private Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService;
 
-    /**
-     * @return Virtual service gateway route target.
-     * 
-     */
     public Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService() {
         return this.virtualService;
     }
@@ -52,23 +44,11 @@ public final class GatewayRouteSpecHttpRouteActionTargetArgs extends com.pulumi.
             $ = new GatewayRouteSpecHttpRouteActionTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param virtualService Virtual service gateway route target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualService(Output<GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs> virtualService) {
             $.virtualService = virtualService;
             return this;
         }
 
-        /**
-         * @param virtualService Virtual service gateway route target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder virtualService(GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs virtualService) {
             return virtualService(Output.of(virtualService));
         }

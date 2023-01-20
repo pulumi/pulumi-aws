@@ -16,121 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Direct Connect LAG. Connections can be added to the LAG via the `aws.directconnect.Connection` and `aws.directconnect.ConnectionAssociation` resources.
- * 
- * &gt; *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.directconnect.LinkAggregationGroup;
- * import com.pulumi.aws.directconnect.LinkAggregationGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var hoge = new LinkAggregationGroup(&#34;hoge&#34;, LinkAggregationGroupArgs.builder()        
- *             .connectionsBandwidth(&#34;1Gbps&#34;)
- *             .forceDestroy(true)
- *             .location(&#34;EqDC2&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Direct Connect LAGs can be imported using the `lag id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
- * ```
- * 
- */
 @ResourceType(type="aws:directconnect/linkAggregationGroup:LinkAggregationGroup")
 public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the LAG.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the LAG.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ID of an existing dedicated connection to migrate to the LAG.
-     * 
-     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectionId;
 
-    /**
-     * @return The ID of an existing dedicated connection to migrate to the LAG.
-     * 
-     */
     public Output<Optional<String>> connectionId() {
         return Codegen.optional(this.connectionId);
     }
-    /**
-     * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
-     * 
-     */
     @Export(name="connectionsBandwidth", refs={String.class}, tree="[0]")
     private Output<String> connectionsBandwidth;
 
-    /**
-     * @return The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
-     * 
-     */
     public Output<String> connectionsBandwidth() {
         return this.connectionsBandwidth;
     }
-    /**
-     * A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * 
-     */
     @Export(name="hasLogicalRedundancy", refs={String.class}, tree="[0]")
     private Output<String> hasLogicalRedundancy;
 
-    /**
-     * @return Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
-     * 
-     */
     public Output<String> hasLogicalRedundancy() {
         return this.hasLogicalRedundancy;
     }
@@ -140,87 +54,39 @@ public class LinkAggregationGroup extends com.pulumi.resources.CustomResource {
     public Output<Boolean> jumboFrameCapable() {
         return this.jumboFrameCapable;
     }
-    /**
-     * The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-     * 
-     */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
-    /**
-     * @return The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
-     * 
-     */
     public Output<String> location() {
         return this.location;
     }
-    /**
-     * The name of the LAG.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the LAG.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The ID of the AWS account that owns the LAG.
-     * 
-     */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
-    /**
-     * @return The ID of the AWS account that owns the LAG.
-     * 
-     */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
-    /**
-     * The name of the service provider associated with the LAG.
-     * 
-     */
     @Export(name="providerName", refs={String.class}, tree="[0]")
     private Output<String> providerName;
 
-    /**
-     * @return The name of the service provider associated with the LAG.
-     * 
-     */
     public Output<String> providerName() {
         return this.providerName;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

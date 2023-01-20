@@ -22,15 +22,7 @@ public final class GetScriptResult {
      */
     private String id;
     private @Nullable String language;
-    /**
-     * @return Python script generated from the DAG when the `language` argument is set to `PYTHON`.
-     * 
-     */
     private String pythonScript;
-    /**
-     * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
-     * 
-     */
     private String scalaCode;
 
     private GetScriptResult() {}
@@ -50,17 +42,9 @@ public final class GetScriptResult {
     public Optional<String> language() {
         return Optional.ofNullable(this.language);
     }
-    /**
-     * @return Python script generated from the DAG when the `language` argument is set to `PYTHON`.
-     * 
-     */
     public String pythonScript() {
         return this.pythonScript;
     }
-    /**
-     * @return Scala code generated from the DAG when the `language` argument is set to `SCALA`.
-     * 
-     */
     public String scalaCode() {
         return this.scalaCode;
     }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TaskExcludes {
-    /**
-     * @return The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-     * 
-     */
     private @Nullable String filterType;
-    /**
-     * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
-     * 
-     */
     private @Nullable String value;
 
     private TaskExcludes() {}
-    /**
-     * @return The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
-     * 
-     */
     public Optional<String> filterType() {
         return Optional.ofNullable(this.filterType);
     }
-    /**
-     * @return A single filter string that consists of the patterns to exclude. The patterns are delimited by &#34;|&#34; (that is, a pipe), for example: `/folder1|/folder2`
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

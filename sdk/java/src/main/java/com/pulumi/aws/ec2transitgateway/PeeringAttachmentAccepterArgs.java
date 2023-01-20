@@ -16,32 +16,16 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
 
     public static final PeeringAttachmentAccepterArgs Empty = new PeeringAttachmentAccepterArgs();
 
-    /**
-     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ID of the EC2 Transit Gateway Peering Attachment to manage.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId", required=true)
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return The ID of the EC2 Transit Gateway Peering Attachment to manage.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
@@ -71,44 +55,20 @@ public final class PeeringAttachmentAccepterArgs extends com.pulumi.resources.Re
             $ = new PeeringAttachmentAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the EC2 Transit Gateway Peering Attachment to manage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId The ID of the EC2 Transit Gateway Peering Attachment to manage.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }

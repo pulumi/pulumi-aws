@@ -15,32 +15,16 @@ public final class TableEncryptionSpecificationArgs extends com.pulumi.resources
 
     public static final TableEncryptionSpecificationArgs Empty = new TableEncryptionSpecificationArgs();
 
-    /**
-     * The Amazon Resource Name (ARN) of the customer managed KMS key.
-     * 
-     */
     @Import(name="kmsKeyIdentifier")
     private @Nullable Output<String> kmsKeyIdentifier;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
-     * 
-     */
     public Optional<Output<String>> kmsKeyIdentifier() {
         return Optional.ofNullable(this.kmsKeyIdentifier);
     }
 
-    /**
-     * The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -70,44 +54,20 @@ public final class TableEncryptionSpecificationArgs extends com.pulumi.resources
             $ = new TableEncryptionSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param kmsKeyIdentifier The Amazon Resource Name (ARN) of the customer managed KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(@Nullable Output<String> kmsKeyIdentifier) {
             $.kmsKeyIdentifier = kmsKeyIdentifier;
             return this;
         }
 
-        /**
-         * @param kmsKeyIdentifier The Amazon Resource Name (ARN) of the customer managed KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyIdentifier(String kmsKeyIdentifier) {
             return kmsKeyIdentifier(Output.of(kmsKeyIdentifier));
         }
 
-        /**
-         * @param type The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

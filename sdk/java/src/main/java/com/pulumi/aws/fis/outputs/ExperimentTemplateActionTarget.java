@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ExperimentTemplateActionTarget {
-    /**
-     * @return Tag key.
-     * 
-     */
     private String key;
-    /**
-     * @return Tag value.
-     * 
-     */
     private String value;
 
     private ExperimentTemplateActionTarget() {}
-    /**
-     * @return Tag key.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Tag value.
-     * 
-     */
     public String value() {
         return this.value;
     }

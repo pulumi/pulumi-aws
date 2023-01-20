@@ -13,32 +13,16 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GetUserFilterArgs Empty = new GetUserFilterArgs();
 
-    /**
-     * Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-     * 
-     */
     @Import(name="attributePath", required=true)
     private Output<String> attributePath;
 
-    /**
-     * @return Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-     * 
-     */
     public Output<String> attributePath() {
         return this.attributePath;
     }
 
-    /**
-     * Value for an attribute.
-     * 
-     */
     @Import(name="attributeValue", required=true)
     private Output<String> attributeValue;
 
-    /**
-     * @return Value for an attribute.
-     * 
-     */
     public Output<String> attributeValue() {
         return this.attributeValue;
     }
@@ -68,44 +52,20 @@ public final class GetUserFilterArgs extends com.pulumi.resources.ResourceArgs {
             $ = new GetUserFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributePath(Output<String> attributePath) {
             $.attributePath = attributePath;
             return this;
         }
 
-        /**
-         * @param attributePath Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributePath(String attributePath) {
             return attributePath(Output.of(attributePath));
         }
 
-        /**
-         * @param attributeValue Value for an attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeValue(Output<String> attributeValue) {
             $.attributeValue = attributeValue;
             return this;
         }
 
-        /**
-         * @param attributeValue Value for an attribute.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeValue(String attributeValue) {
             return attributeValue(Output.of(attributeValue));
         }

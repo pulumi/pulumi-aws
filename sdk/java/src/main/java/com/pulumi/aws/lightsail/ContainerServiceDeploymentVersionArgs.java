@@ -18,47 +18,23 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
 
     public static final ContainerServiceDeploymentVersionArgs Empty = new ContainerServiceDeploymentVersionArgs();
 
-    /**
-     * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     @Import(name="containers", required=true)
     private Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers;
 
-    /**
-     * @return A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     public Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers() {
         return this.containers;
     }
 
-    /**
-     * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     @Import(name="publicEndpoint")
     private @Nullable Output<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint;
 
-    /**
-     * @return A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     public Optional<Output<ContainerServiceDeploymentVersionPublicEndpointArgs>> publicEndpoint() {
         return Optional.ofNullable(this.publicEndpoint);
     }
 
-    /**
-     * The name for the container service.
-     * 
-     */
     @Import(name="serviceName", required=true)
     private Output<String> serviceName;
 
-    /**
-     * @return The name for the container service.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
@@ -89,75 +65,33 @@ public final class ContainerServiceDeploymentVersionArgs extends com.pulumi.reso
             $ = new ContainerServiceDeploymentVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(Output<List<ContainerServiceDeploymentVersionContainerArgs>> containers) {
             $.containers = containers;
             return this;
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(List<ContainerServiceDeploymentVersionContainerArgs> containers) {
             return containers(Output.of(containers));
         }
 
-        /**
-         * @param containers A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containers(ContainerServiceDeploymentVersionContainerArgs... containers) {
             return containers(List.of(containers));
         }
 
-        /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicEndpoint(@Nullable Output<ContainerServiceDeploymentVersionPublicEndpointArgs> publicEndpoint) {
             $.publicEndpoint = publicEndpoint;
             return this;
         }
 
-        /**
-         * @param publicEndpoint A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs publicEndpoint) {
             return publicEndpoint(Output.of(publicEndpoint));
         }
 
-        /**
-         * @param serviceName The name for the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(Output<String> serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param serviceName The name for the container service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             return serviceName(Output.of(serviceName));
         }

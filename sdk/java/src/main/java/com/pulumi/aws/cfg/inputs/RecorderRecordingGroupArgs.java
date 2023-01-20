@@ -17,47 +17,23 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
 
     public static final RecorderRecordingGroupArgs Empty = new RecorderRecordingGroupArgs();
 
-    /**
-     * Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-     * 
-     */
     @Import(name="allSupported")
     private @Nullable Output<Boolean> allSupported;
 
-    /**
-     * @return Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-     * 
-     */
     public Optional<Output<Boolean>> allSupported() {
         return Optional.ofNullable(this.allSupported);
     }
 
-    /**
-     * Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-     * 
-     */
     @Import(name="includeGlobalResourceTypes")
     private @Nullable Output<Boolean> includeGlobalResourceTypes;
 
-    /**
-     * @return Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-     * 
-     */
     public Optional<Output<Boolean>> includeGlobalResourceTypes() {
         return Optional.ofNullable(this.includeGlobalResourceTypes);
     }
 
-    /**
-     * A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-     * 
-     */
     @Import(name="resourceTypes")
     private @Nullable Output<List<String>> resourceTypes;
 
-    /**
-     * @return A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-     * 
-     */
     public Optional<Output<List<String>>> resourceTypes() {
         return Optional.ofNullable(this.resourceTypes);
     }
@@ -88,75 +64,33 @@ public final class RecorderRecordingGroupArgs extends com.pulumi.resources.Resou
             $ = new RecorderRecordingGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allSupported Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allSupported(@Nullable Output<Boolean> allSupported) {
             $.allSupported = allSupported;
             return this;
         }
 
-        /**
-         * @param allSupported Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allSupported(Boolean allSupported) {
             return allSupported(Output.of(allSupported));
         }
 
-        /**
-         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeGlobalResourceTypes(@Nullable Output<Boolean> includeGlobalResourceTypes) {
             $.includeGlobalResourceTypes = includeGlobalResourceTypes;
             return this;
         }
 
-        /**
-         * @param includeGlobalResourceTypes Specifies whether AWS Config includes all supported types of *global resources* with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeGlobalResourceTypes(Boolean includeGlobalResourceTypes) {
             return includeGlobalResourceTypes(Output.of(includeGlobalResourceTypes));
         }
 
-        /**
-         * @param resourceTypes A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(@Nullable Output<List<String>> resourceTypes) {
             $.resourceTypes = resourceTypes;
             return this;
         }
 
-        /**
-         * @param resourceTypes A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(List<String> resourceTypes) {
             return resourceTypes(Output.of(resourceTypes));
         }
 
-        /**
-         * @param resourceTypes A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypes(String... resourceTypes) {
             return resourceTypes(List.of(resourceTypes));
         }

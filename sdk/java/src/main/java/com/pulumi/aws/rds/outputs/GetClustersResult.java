@@ -12,15 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetClustersResult {
-    /**
-     * @return Set of cluster ARNs of the matched RDS clusters.
-     * 
-     */
     private List<String> clusterArns;
-    /**
-     * @return Set of ARNs of cluster identifiers of the matched RDS clusters.
-     * 
-     */
     private List<String> clusterIdentifiers;
     private @Nullable List<GetClustersFilter> filters;
     /**
@@ -30,17 +22,9 @@ public final class GetClustersResult {
     private String id;
 
     private GetClustersResult() {}
-    /**
-     * @return Set of cluster ARNs of the matched RDS clusters.
-     * 
-     */
     public List<String> clusterArns() {
         return this.clusterArns;
     }
-    /**
-     * @return Set of ARNs of cluster identifiers of the matched RDS clusters.
-     * 
-     */
     public List<String> clusterIdentifiers() {
         return this.clusterIdentifiers;
     }

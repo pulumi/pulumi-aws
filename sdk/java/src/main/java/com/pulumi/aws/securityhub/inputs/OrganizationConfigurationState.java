@@ -15,17 +15,9 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
 
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
-    /**
-     * Whether to automatically enable Security Hub for new accounts in the organization.
-     * 
-     */
     @Import(name="autoEnable")
     private @Nullable Output<Boolean> autoEnable;
 
-    /**
-     * @return Whether to automatically enable Security Hub for new accounts in the organization.
-     * 
-     */
     public Optional<Output<Boolean>> autoEnable() {
         return Optional.ofNullable(this.autoEnable);
     }
@@ -54,23 +46,11 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
             $ = new OrganizationConfigurationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable Whether to automatically enable Security Hub for new accounts in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(@Nullable Output<Boolean> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable Whether to automatically enable Security Hub for new accounts in the organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Boolean autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }

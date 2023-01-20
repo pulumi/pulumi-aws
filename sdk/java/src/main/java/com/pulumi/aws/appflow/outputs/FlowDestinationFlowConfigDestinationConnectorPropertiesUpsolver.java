@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
-    /**
-     * @return Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-     * 
-     */
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver() {}
-    /**
-     * @return Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-     * 
-     */
     public FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig s3OutputFormatConfig() {
         return this.s3OutputFormatConfig;
     }

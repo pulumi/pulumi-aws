@@ -19,372 +19,125 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a DAX Cluster resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dax.Cluster;
- * import com.pulumi.aws.dax.ClusterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bar = new Cluster(&#34;bar&#34;, ClusterArgs.builder()        
- *             .clusterName(&#34;cluster-example&#34;)
- *             .iamRoleArn(data.aws_iam_role().example().arn())
- *             .nodeType(&#34;dax.r4.large&#34;)
- *             .replicationFactor(1)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * DAX Clusters can be imported using the `cluster_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
- * ```
- * 
- *  [1]http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
- * 
- */
 @ResourceType(type="aws:dax/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the DAX cluster
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the DAX cluster
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of Availability Zones in which the
-     * nodes will be created
-     * 
-     */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> availabilityZones;
 
-    /**
-     * @return List of Availability Zones in which the
-     * nodes will be created
-     * 
-     */
     public Output<Optional<List<String>>> availabilityZones() {
         return Codegen.optional(this.availabilityZones);
     }
-    /**
-     * The DNS name of the DAX cluster without the port appended
-     * 
-     */
     @Export(name="clusterAddress", refs={String.class}, tree="[0]")
     private Output<String> clusterAddress;
 
-    /**
-     * @return The DNS name of the DAX cluster without the port appended
-     * 
-     */
     public Output<String> clusterAddress() {
         return this.clusterAddress;
     }
-    /**
-     * The type of encryption the
-     * cluster&#39;s endpoint should support. Valid values are: `NONE` and `TLS`.
-     * Default value is `NONE`.
-     * 
-     */
     @Export(name="clusterEndpointEncryptionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clusterEndpointEncryptionType;
 
-    /**
-     * @return The type of encryption the
-     * cluster&#39;s endpoint should support. Valid values are: `NONE` and `TLS`.
-     * Default value is `NONE`.
-     * 
-     */
     public Output<Optional<String>> clusterEndpointEncryptionType() {
         return Codegen.optional(this.clusterEndpointEncryptionType);
     }
-    /**
-     * Group identifier. DAX converts this name to
-     * lowercase
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return Group identifier. DAX converts this name to
-     * lowercase
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * The configuration endpoint for this DAX cluster,
-     * consisting of a DNS name and a port number
-     * 
-     */
     @Export(name="configurationEndpoint", refs={String.class}, tree="[0]")
     private Output<String> configurationEndpoint;
 
-    /**
-     * @return The configuration endpoint for this DAX cluster,
-     * consisting of a DNS name and a port number
-     * 
-     */
     public Output<String> configurationEndpoint() {
         return this.configurationEndpoint;
     }
-    /**
-     * Description for the cluster
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description for the cluster
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A valid Amazon Resource Name (ARN) that identifies
-     * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
-     * permissions to access DynamoDB on your behalf
-     * 
-     */
     @Export(name="iamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> iamRoleArn;
 
-    /**
-     * @return A valid Amazon Resource Name (ARN) that identifies
-     * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
-     * permissions to access DynamoDB on your behalf
-     * 
-     */
     public Output<String> iamRoleArn() {
         return this.iamRoleArn;
     }
-    /**
-     * Specifies the weekly time range for when
-     * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-     * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-     * `sun:05:00-sun:09:00`
-     * 
-     */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> maintenanceWindow;
 
-    /**
-     * @return Specifies the weekly time range for when
-     * maintenance on the cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi`
-     * (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example:
-     * `sun:05:00-sun:09:00`
-     * 
-     */
     public Output<String> maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * The compute and memory capacity of the nodes. See
-     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-     * 
-     */
     @Export(name="nodeType", refs={String.class}, tree="[0]")
     private Output<String> nodeType;
 
-    /**
-     * @return The compute and memory capacity of the nodes. See
-     * [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
-     * 
-     */
     public Output<String> nodeType() {
         return this.nodeType;
     }
-    /**
-     * List of node objects including `id`, `address`, `port` and
-     * `availability_zone`. Referenceable e.g., as
-     * `${aws_dax_cluster.test.nodes.0.address}`
-     * 
-     */
     @Export(name="nodes", refs={List.class,ClusterNode.class}, tree="[0,1]")
     private Output<List<ClusterNode>> nodes;
 
-    /**
-     * @return List of node objects including `id`, `address`, `port` and
-     * `availability_zone`. Referenceable e.g., as
-     * `${aws_dax_cluster.test.nodes.0.address}`
-     * 
-     */
     public Output<List<ClusterNode>> nodes() {
         return this.nodes;
     }
-    /**
-     * An Amazon Resource Name (ARN) of an
-     * SNS topic to send DAX notifications to. Example:
-     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     * 
-     */
     @Export(name="notificationTopicArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTopicArn;
 
-    /**
-     * @return An Amazon Resource Name (ARN) of an
-     * SNS topic to send DAX notifications to. Example:
-     * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-     * 
-     */
     public Output<Optional<String>> notificationTopicArn() {
         return Codegen.optional(this.notificationTopicArn);
     }
-    /**
-     * Name of the parameter group to associate
-     * with this DAX cluster
-     * 
-     */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
-    /**
-     * @return Name of the parameter group to associate
-     * with this DAX cluster
-     * 
-     */
     public Output<String> parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * The port used by the configuration endpoint
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return The port used by the configuration endpoint
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
-    /**
-     * The number of nodes in the DAX cluster. A
-     * replication factor of 1 will create a single-node cluster, without any read
-     * replicas
-     * 
-     */
     @Export(name="replicationFactor", refs={Integer.class}, tree="[0]")
     private Output<Integer> replicationFactor;
 
-    /**
-     * @return The number of nodes in the DAX cluster. A
-     * replication factor of 1 will create a single-node cluster, without any read
-     * replicas
-     * 
-     */
     public Output<Integer> replicationFactor() {
         return this.replicationFactor;
     }
-    /**
-     * One or more VPC security groups associated
-     * with the cluster
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return One or more VPC security groups associated
-     * with the cluster
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * Encrypt at rest options
-     * 
-     */
     @Export(name="serverSideEncryption", refs={ClusterServerSideEncryption.class}, tree="[0]")
     private Output</* @Nullable */ ClusterServerSideEncryption> serverSideEncryption;
 
-    /**
-     * @return Encrypt at rest options
-     * 
-     */
     public Output<Optional<ClusterServerSideEncryption>> serverSideEncryption() {
         return Codegen.optional(this.serverSideEncryption);
     }
-    /**
-     * Name of the subnet group to be used for the
-     * cluster
-     * 
-     */
     @Export(name="subnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> subnetGroupName;
 
-    /**
-     * @return Name of the subnet group to be used for the
-     * cluster
-     * 
-     */
     public Output<String> subnetGroupName() {
         return this.subnetGroupName;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

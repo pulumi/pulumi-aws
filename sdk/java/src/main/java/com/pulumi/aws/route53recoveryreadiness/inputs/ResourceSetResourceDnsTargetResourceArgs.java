@@ -16,77 +16,37 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
 
     public static final ResourceSetResourceDnsTargetResourceArgs Empty = new ResourceSetResourceDnsTargetResourceArgs();
 
-    /**
-     * Domain name that is targeted.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Domain name that is targeted.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-     * 
-     */
     @Import(name="hostedZoneArn")
     private @Nullable Output<String> hostedZoneArn;
 
-    /**
-     * @return Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-     * 
-     */
     public Optional<Output<String>> hostedZoneArn() {
         return Optional.ofNullable(this.hostedZoneArn);
     }
 
-    /**
-     * Resource record set ID that is targeted.
-     * 
-     */
     @Import(name="recordSetId")
     private @Nullable Output<String> recordSetId;
 
-    /**
-     * @return Resource record set ID that is targeted.
-     * 
-     */
     public Optional<Output<String>> recordSetId() {
         return Optional.ofNullable(this.recordSetId);
     }
 
-    /**
-     * Type of DNS Record of target resource.
-     * 
-     */
     @Import(name="recordType")
     private @Nullable Output<String> recordType;
 
-    /**
-     * @return Type of DNS Record of target resource.
-     * 
-     */
     public Optional<Output<String>> recordType() {
         return Optional.ofNullable(this.recordType);
     }
 
-    /**
-     * Target resource the R53 record specified with the above params points to.
-     * 
-     */
     @Import(name="targetResource")
     private @Nullable Output<ResourceSetResourceDnsTargetResourceTargetResourceArgs> targetResource;
 
-    /**
-     * @return Target resource the R53 record specified with the above params points to.
-     * 
-     */
     public Optional<Output<ResourceSetResourceDnsTargetResourceTargetResourceArgs>> targetResource() {
         return Optional.ofNullable(this.targetResource);
     }
@@ -119,107 +79,47 @@ public final class ResourceSetResourceDnsTargetResourceArgs extends com.pulumi.r
             $ = new ResourceSetResourceDnsTargetResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Domain name that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Domain name that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param hostedZoneArn Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneArn(@Nullable Output<String> hostedZoneArn) {
             $.hostedZoneArn = hostedZoneArn;
             return this;
         }
 
-        /**
-         * @param hostedZoneArn Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostedZoneArn(String hostedZoneArn) {
             return hostedZoneArn(Output.of(hostedZoneArn));
         }
 
-        /**
-         * @param recordSetId Resource record set ID that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordSetId(@Nullable Output<String> recordSetId) {
             $.recordSetId = recordSetId;
             return this;
         }
 
-        /**
-         * @param recordSetId Resource record set ID that is targeted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordSetId(String recordSetId) {
             return recordSetId(Output.of(recordSetId));
         }
 
-        /**
-         * @param recordType Type of DNS Record of target resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordType(@Nullable Output<String> recordType) {
             $.recordType = recordType;
             return this;
         }
 
-        /**
-         * @param recordType Type of DNS Record of target resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordType(String recordType) {
             return recordType(Output.of(recordType));
         }
 
-        /**
-         * @param targetResource Target resource the R53 record specified with the above params points to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetResource(@Nullable Output<ResourceSetResourceDnsTargetResourceTargetResourceArgs> targetResource) {
             $.targetResource = targetResource;
             return this;
         }
 
-        /**
-         * @param targetResource Target resource the R53 record specified with the above params points to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetResource(ResourceSetResourceDnsTargetResourceTargetResourceArgs targetResource) {
             return targetResource(Output.of(targetResource));
         }

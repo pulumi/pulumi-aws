@@ -13,32 +13,16 @@ public final class LbAttachmentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LbAttachmentArgs Empty = new LbAttachmentArgs();
 
-    /**
-     * The name of the instance to attach to the load balancer.
-     * 
-     */
     @Import(name="instanceName", required=true)
     private Output<String> instanceName;
 
-    /**
-     * @return The name of the instance to attach to the load balancer.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
 
-    /**
-     * The name of the Lightsail load balancer.
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return The name of the Lightsail load balancer.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
@@ -68,44 +52,20 @@ public final class LbAttachmentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LbAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceName The name of the instance to attach to the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(Output<String> instanceName) {
             $.instanceName = instanceName;
             return this;
         }
 
-        /**
-         * @param instanceName The name of the instance to attach to the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceName(String instanceName) {
             return instanceName(Output.of(instanceName));
         }
 
-        /**
-         * @param lbName The name of the Lightsail load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName The name of the Lightsail load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }

@@ -15,62 +15,30 @@ public final class FeatureVariationValueArgs extends com.pulumi.resources.Resour
 
     public static final FeatureVariationValueArgs Empty = new FeatureVariationValueArgs();
 
-    /**
-     * If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-     * 
-     */
     @Import(name="boolValue")
     private @Nullable Output<String> boolValue;
 
-    /**
-     * @return If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-     * 
-     */
     public Optional<Output<String>> boolValue() {
         return Optional.ofNullable(this.boolValue);
     }
 
-    /**
-     * If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-     * 
-     */
     @Import(name="doubleValue")
     private @Nullable Output<String> doubleValue;
 
-    /**
-     * @return If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-     * 
-     */
     public Optional<Output<String>> doubleValue() {
         return Optional.ofNullable(this.doubleValue);
     }
 
-    /**
-     * If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-     * 
-     */
     @Import(name="longValue")
     private @Nullable Output<String> longValue;
 
-    /**
-     * @return If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-     * 
-     */
     public Optional<Output<String>> longValue() {
         return Optional.ofNullable(this.longValue);
     }
 
-    /**
-     * If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-     * 
-     */
     @Import(name="stringValue")
     private @Nullable Output<String> stringValue;
 
-    /**
-     * @return If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-     * 
-     */
     public Optional<Output<String>> stringValue() {
         return Optional.ofNullable(this.stringValue);
     }
@@ -102,86 +70,38 @@ public final class FeatureVariationValueArgs extends com.pulumi.resources.Resour
             $ = new FeatureVariationValueArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param boolValue If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder boolValue(@Nullable Output<String> boolValue) {
             $.boolValue = boolValue;
             return this;
         }
 
-        /**
-         * @param boolValue If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder boolValue(String boolValue) {
             return boolValue(Output.of(boolValue));
         }
 
-        /**
-         * @param doubleValue If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder doubleValue(@Nullable Output<String> doubleValue) {
             $.doubleValue = doubleValue;
             return this;
         }
 
-        /**
-         * @param doubleValue If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder doubleValue(String doubleValue) {
             return doubleValue(Output.of(doubleValue));
         }
 
-        /**
-         * @param longValue If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longValue(@Nullable Output<String> longValue) {
             $.longValue = longValue;
             return this;
         }
 
-        /**
-         * @param longValue If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder longValue(String longValue) {
             return longValue(Output.of(longValue));
         }
 
-        /**
-         * @param stringValue If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringValue(@Nullable Output<String> stringValue) {
             $.stringValue = stringValue;
             return this;
         }
 
-        /**
-         * @param stringValue If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stringValue(String stringValue) {
             return stringValue(Output.of(stringValue));
         }

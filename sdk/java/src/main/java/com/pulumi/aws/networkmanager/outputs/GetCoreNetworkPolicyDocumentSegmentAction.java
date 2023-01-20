@@ -12,101 +12,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentSegmentAction {
-    /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
-     * 
-     */
     private String action;
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
-     * 
-     */
     private @Nullable List<String> destinationCidrBlocks;
-    /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
-     * 
-     */
     private @Nullable List<String> destinations;
-    /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
-     * 
-     */
     private @Nullable String mode;
-    /**
-     * @return Name of the segment.
-     * 
-     */
     private String segment;
-    /**
-     * @return A set subtraction of segments to not share with.
-     * 
-     */
     private @Nullable List<String> shareWithExcepts;
-    /**
-     * @return A list of strings to share with. Must be a substring is all segments. Valid values include: `[&#34;*&#34;]` or `[&#34;&lt;segment-names&gt;&#34;]`.
-     * 
-     */
     private @Nullable List<String> shareWiths;
 
     private GetCoreNetworkPolicyDocumentSegmentAction() {}
-    /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
-     * 
-     */
     public String action() {
         return this.action;
     }
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
-     * 
-     */
     public List<String> destinationCidrBlocks() {
         return this.destinationCidrBlocks == null ? List.of() : this.destinationCidrBlocks;
     }
-    /**
-     * @return A list of strings. Valid values include `[&#34;blackhole&#34;]` or a list of attachment ids.
-     * 
-     */
     public List<String> destinations() {
         return this.destinations == null ? List.of() : this.destinations;
     }
-    /**
-     * @return String. This mode places the attachment and return routes in each of the `share_with` segments. Valid values include: `attachment-route`.
-     * 
-     */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
     }
-    /**
-     * @return Name of the segment.
-     * 
-     */
     public String segment() {
         return this.segment;
     }
-    /**
-     * @return A set subtraction of segments to not share with.
-     * 
-     */
     public List<String> shareWithExcepts() {
         return this.shareWithExcepts == null ? List.of() : this.shareWithExcepts;
     }
-    /**
-     * @return A list of strings to share with. Must be a substring is all segments. Valid values include: `[&#34;*&#34;]` or `[&#34;&lt;segment-names&gt;&#34;]`.
-     * 
-     */
     public List<String> shareWiths() {
         return this.shareWiths == null ? List.of() : this.shareWiths;
     }

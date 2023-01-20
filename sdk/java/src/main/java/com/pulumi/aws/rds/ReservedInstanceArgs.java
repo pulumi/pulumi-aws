@@ -17,32 +17,16 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
 
     public static final ReservedInstanceArgs Empty = new ReservedInstanceArgs();
 
-    /**
-     * Number of instances to reserve. Default value is `1`.
-     * 
-     */
     @Import(name="instanceCount")
     private @Nullable Output<Integer> instanceCount;
 
-    /**
-     * @return Number of instances to reserve. Default value is `1`.
-     * 
-     */
     public Optional<Output<Integer>> instanceCount() {
         return Optional.ofNullable(this.instanceCount);
     }
 
-    /**
-     * ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
-     * 
-     */
     @Import(name="offeringId", required=true)
     private Output<String> offeringId;
 
-    /**
-     * @return ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
-     * 
-     */
     public Output<String> offeringId() {
         return this.offeringId;
     }
@@ -54,17 +38,9 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.reservationId);
     }
 
-    /**
-     * Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -96,44 +72,20 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
             $ = new ReservedInstanceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceCount Number of instances to reserve. Default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(@Nullable Output<Integer> instanceCount) {
             $.instanceCount = instanceCount;
             return this;
         }
 
-        /**
-         * @param instanceCount Number of instances to reserve. Default value is `1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceCount(Integer instanceCount) {
             return instanceCount(Output.of(instanceCount));
         }
 
-        /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringId(Output<String> offeringId) {
             $.offeringId = offeringId;
             return this;
         }
 
-        /**
-         * @param offeringId ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `aws.rds.getReservedInstanceOffering` data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder offeringId(String offeringId) {
             return offeringId(Output.of(offeringId));
         }
@@ -147,23 +99,11 @@ public final class ReservedInstanceArgs extends com.pulumi.resources.ResourceArg
             return reservationId(Output.of(reservationId));
         }
 
-        /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -16,32 +16,16 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
 
     public static final WebAclLoggingConfigurationLoggingFilterFilterConditionArgs Empty = new WebAclLoggingConfigurationLoggingFilterFilterConditionArgs();
 
-    /**
-     * A single action condition. See Action Condition below for more details.
-     * 
-     */
     @Import(name="actionCondition")
     private @Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs> actionCondition;
 
-    /**
-     * @return A single action condition. See Action Condition below for more details.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs>> actionCondition() {
         return Optional.ofNullable(this.actionCondition);
     }
 
-    /**
-     * A single label name condition. See Label Name Condition below for more details.
-     * 
-     */
     @Import(name="labelNameCondition")
     private @Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs> labelNameCondition;
 
-    /**
-     * @return A single label name condition. See Label Name Condition below for more details.
-     * 
-     */
     public Optional<Output<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs>> labelNameCondition() {
         return Optional.ofNullable(this.labelNameCondition);
     }
@@ -71,44 +55,20 @@ public final class WebAclLoggingConfigurationLoggingFilterFilterConditionArgs ex
             $ = new WebAclLoggingConfigurationLoggingFilterFilterConditionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionCondition A single action condition. See Action Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionCondition(@Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs> actionCondition) {
             $.actionCondition = actionCondition;
             return this;
         }
 
-        /**
-         * @param actionCondition A single action condition. See Action Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs actionCondition) {
             return actionCondition(Output.of(actionCondition));
         }
 
-        /**
-         * @param labelNameCondition A single label name condition. See Label Name Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelNameCondition(@Nullable Output<WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs> labelNameCondition) {
             $.labelNameCondition = labelNameCondition;
             return this;
         }
 
-        /**
-         * @param labelNameCondition A single label name condition. See Label Name Condition below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder labelNameCondition(WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs labelNameCondition) {
             return labelNameCondition(Output.of(labelNameCondition));
         }

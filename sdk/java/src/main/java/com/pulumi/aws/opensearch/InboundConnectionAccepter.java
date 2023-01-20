@@ -13,100 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.opensearch.OutboundConnection;
- * import com.pulumi.aws.opensearch.OutboundConnectionArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionLocalDomainInfoArgs;
- * import com.pulumi.aws.opensearch.inputs.OutboundConnectionRemoteDomainInfoArgs;
- * import com.pulumi.aws.opensearch.InboundConnectionAccepter;
- * import com.pulumi.aws.opensearch.InboundConnectionAccepterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         var fooOutboundConnection = new OutboundConnection(&#34;fooOutboundConnection&#34;, OutboundConnectionArgs.builder()        
- *             .connectionAlias(&#34;outbound_connection&#34;)
- *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
- *                 .ownerId(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .domainName(aws_opensearch_domain.local_domain().domain_name())
- *                 .build())
- *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
- *                 .ownerId(currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *                 .region(currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
- *                 .domainName(aws_opensearch_domain.remote_domain().domain_name())
- *                 .build())
- *             .build());
- * 
- *         var fooInboundConnectionAccepter = new InboundConnectionAccepter(&#34;fooInboundConnectionAccepter&#34;, InboundConnectionAccepterArgs.builder()        
- *             .connectionId(fooOutboundConnection.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AWS Opensearch Inbound Connection Accepters can be imported by using the Inbound Connection ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
- * ```
- * 
- */
 @ResourceType(type="aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter")
 public class InboundConnectionAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * Specifies the ID of the connection to accept.
-     * 
-     */
     @Export(name="connectionId", refs={String.class}, tree="[0]")
     private Output<String> connectionId;
 
-    /**
-     * @return Specifies the ID of the connection to accept.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
-    /**
-     * Status of the connection request.
-     * 
-     */
     @Export(name="connectionStatus", refs={String.class}, tree="[0]")
     private Output<String> connectionStatus;
 
-    /**
-     * @return Status of the connection request.
-     * 
-     */
     public Output<String> connectionStatus() {
         return this.connectionStatus;
     }

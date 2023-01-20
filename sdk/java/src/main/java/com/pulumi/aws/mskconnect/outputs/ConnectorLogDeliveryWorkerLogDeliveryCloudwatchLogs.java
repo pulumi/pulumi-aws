@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
-    /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     private @Nullable String logGroup;
 
     private ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs() {}
-    /**
-     * @return Specifies whether connector logs get sent to the specified Amazon S3 destination.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return The name of the CloudWatch log group that is the destination for log delivery.
-     * 
-     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }

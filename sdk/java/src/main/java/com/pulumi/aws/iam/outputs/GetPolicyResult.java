@@ -12,15 +12,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPolicyResult {
-    /**
-     * @return ARN of the policy.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the policy.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,40 +20,16 @@ public final class GetPolicyResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Path to the policy.
-     * 
-     */
     private String path;
     private @Nullable String pathPrefix;
-    /**
-     * @return Policy document of the policy.
-     * 
-     */
     private String policy;
-    /**
-     * @return Policy&#39;s ID.
-     * 
-     */
     private String policyId;
-    /**
-     * @return Key-value mapping of tags for the IAM Policy.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetPolicyResult() {}
-    /**
-     * @return ARN of the policy.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the policy.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -75,34 +43,18 @@ public final class GetPolicyResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Path to the policy.
-     * 
-     */
     public String path() {
         return this.path;
     }
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
-    /**
-     * @return Policy document of the policy.
-     * 
-     */
     public String policy() {
         return this.policy;
     }
-    /**
-     * @return Policy&#39;s ID.
-     * 
-     */
     public String policyId() {
         return this.policyId;
     }
-    /**
-     * @return Key-value mapping of tags for the IAM Policy.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

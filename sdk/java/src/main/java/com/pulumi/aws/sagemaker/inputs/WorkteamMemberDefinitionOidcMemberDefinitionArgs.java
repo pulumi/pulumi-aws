@@ -14,17 +14,9 @@ public final class WorkteamMemberDefinitionOidcMemberDefinitionArgs extends com.
 
     public static final WorkteamMemberDefinitionOidcMemberDefinitionArgs Empty = new WorkteamMemberDefinitionOidcMemberDefinitionArgs();
 
-    /**
-     * A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-     * 
-     */
     @Import(name="groups", required=true)
     private Output<List<String>> groups;
 
-    /**
-     * @return A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-     * 
-     */
     public Output<List<String>> groups() {
         return this.groups;
     }
@@ -53,33 +45,15 @@ public final class WorkteamMemberDefinitionOidcMemberDefinitionArgs extends com.
             $ = new WorkteamMemberDefinitionOidcMemberDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groups A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(Output<List<String>> groups) {
             $.groups = groups;
             return this;
         }
 
-        /**
-         * @param groups A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(List<String> groups) {
             return groups(Output.of(groups));
         }
 
-        /**
-         * @param groups A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groups(String... groups) {
             return groups(List.of(groups));
         }

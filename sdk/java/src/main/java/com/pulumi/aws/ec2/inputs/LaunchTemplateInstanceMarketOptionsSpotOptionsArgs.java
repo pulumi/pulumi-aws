@@ -16,79 +16,37 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs extends co
 
     public static final LaunchTemplateInstanceMarketOptionsSpotOptionsArgs Empty = new LaunchTemplateInstanceMarketOptionsSpotOptionsArgs();
 
-    /**
-     * The required duration in minutes. This value must be a multiple of 60.
-     * 
-     */
     @Import(name="blockDurationMinutes")
     private @Nullable Output<Integer> blockDurationMinutes;
 
-    /**
-     * @return The required duration in minutes. This value must be a multiple of 60.
-     * 
-     */
     public Optional<Output<Integer>> blockDurationMinutes() {
         return Optional.ofNullable(this.blockDurationMinutes);
     }
 
-    /**
-     * The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-     * `stop`, or `terminate`. (Default: `terminate`).
-     * 
-     */
     @Import(name="instanceInterruptionBehavior")
     private @Nullable Output<String> instanceInterruptionBehavior;
 
-    /**
-     * @return The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-     * `stop`, or `terminate`. (Default: `terminate`).
-     * 
-     */
     public Optional<Output<String>> instanceInterruptionBehavior() {
         return Optional.ofNullable(this.instanceInterruptionBehavior);
     }
 
-    /**
-     * The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-     * 
-     */
     @Import(name="maxPrice")
     private @Nullable Output<String> maxPrice;
 
-    /**
-     * @return The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-     * 
-     */
     public Optional<Output<String>> maxPrice() {
         return Optional.ofNullable(this.maxPrice);
     }
 
-    /**
-     * The Spot Instance request type. Can be `one-time`, or `persistent`.
-     * 
-     */
     @Import(name="spotInstanceType")
     private @Nullable Output<String> spotInstanceType;
 
-    /**
-     * @return The Spot Instance request type. Can be `one-time`, or `persistent`.
-     * 
-     */
     public Optional<Output<String>> spotInstanceType() {
         return Optional.ofNullable(this.spotInstanceType);
     }
 
-    /**
-     * The end date of the request.
-     * 
-     */
     @Import(name="validUntil")
     private @Nullable Output<String> validUntil;
 
-    /**
-     * @return The end date of the request.
-     * 
-     */
     public Optional<Output<String>> validUntil() {
         return Optional.ofNullable(this.validUntil);
     }
@@ -121,109 +79,47 @@ public final class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs extends co
             $ = new LaunchTemplateInstanceMarketOptionsSpotOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockDurationMinutes The required duration in minutes. This value must be a multiple of 60.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockDurationMinutes(@Nullable Output<Integer> blockDurationMinutes) {
             $.blockDurationMinutes = blockDurationMinutes;
             return this;
         }
 
-        /**
-         * @param blockDurationMinutes The required duration in minutes. This value must be a multiple of 60.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockDurationMinutes(Integer blockDurationMinutes) {
             return blockDurationMinutes(Output.of(blockDurationMinutes));
         }
 
-        /**
-         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-         * `stop`, or `terminate`. (Default: `terminate`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceInterruptionBehavior(@Nullable Output<String> instanceInterruptionBehavior) {
             $.instanceInterruptionBehavior = instanceInterruptionBehavior;
             return this;
         }
 
-        /**
-         * @param instanceInterruptionBehavior The behavior when a Spot Instance is interrupted. Can be `hibernate`,
-         * `stop`, or `terminate`. (Default: `terminate`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceInterruptionBehavior(String instanceInterruptionBehavior) {
             return instanceInterruptionBehavior(Output.of(instanceInterruptionBehavior));
         }
 
-        /**
-         * @param maxPrice The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPrice(@Nullable Output<String> maxPrice) {
             $.maxPrice = maxPrice;
             return this;
         }
 
-        /**
-         * @param maxPrice The maximum hourly price you&#39;re willing to pay for the Spot Instances.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxPrice(String maxPrice) {
             return maxPrice(Output.of(maxPrice));
         }
 
-        /**
-         * @param spotInstanceType The Spot Instance request type. Can be `one-time`, or `persistent`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotInstanceType(@Nullable Output<String> spotInstanceType) {
             $.spotInstanceType = spotInstanceType;
             return this;
         }
 
-        /**
-         * @param spotInstanceType The Spot Instance request type. Can be `one-time`, or `persistent`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spotInstanceType(String spotInstanceType) {
             return spotInstanceType(Output.of(spotInstanceType));
         }
 
-        /**
-         * @param validUntil The end date of the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validUntil(@Nullable Output<String> validUntil) {
             $.validUntil = validUntil;
             return this;
         }
 
-        /**
-         * @param validUntil The end date of the request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder validUntil(String validUntil) {
             return validUntil(Output.of(validUntil));
         }

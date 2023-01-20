@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FlowSourceFlowConfigSourceConnectorPropertiesSlack {
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     private String object;
 
     private FlowSourceFlowConfigSourceConnectorPropertiesSlack() {}
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public String object() {
         return this.object;
     }

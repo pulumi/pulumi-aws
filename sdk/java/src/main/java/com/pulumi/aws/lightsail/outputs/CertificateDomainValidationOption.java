@@ -11,20 +11,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateDomainValidationOption {
-    /**
-     * @return A domain name for which the certificate should be issued.
-     * 
-     */
     private @Nullable String domainName;
     private @Nullable String resourceRecordName;
     private @Nullable String resourceRecordType;
     private @Nullable String resourceRecordValue;
 
     private CertificateDomainValidationOption() {}
-    /**
-     * @return A domain name for which the certificate should be issued.
-     * 
-     */
     public Optional<String> domainName() {
         return Optional.ofNullable(this.domainName);
     }

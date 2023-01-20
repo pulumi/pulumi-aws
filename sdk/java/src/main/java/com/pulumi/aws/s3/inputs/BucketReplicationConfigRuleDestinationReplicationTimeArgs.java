@@ -14,32 +14,16 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
 
     public static final BucketReplicationConfigRuleDestinationReplicationTimeArgs Empty = new BucketReplicationConfigRuleDestinationReplicationTimeArgs();
 
-    /**
-     * The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     @Import(name="status", required=true)
     private Output<String> status;
 
-    /**
-     * @return The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
 
-    /**
-     * A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
-     * 
-     */
     @Import(name="time", required=true)
     private Output<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time;
 
-    /**
-     * @return A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
-     * 
-     */
     public Output<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time() {
         return this.time;
     }
@@ -69,44 +53,20 @@ public final class BucketReplicationConfigRuleDestinationReplicationTimeArgs ext
             $ = new BucketReplicationConfigRuleDestinationReplicationTimeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param status The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status of the Replication Time Control. Either `&#34;Enabled&#34;` or `&#34;Disabled&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param time A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(Output<BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs> time) {
             $.time = time;
             return this;
         }
 
-        /**
-         * @param time A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder time(BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs time) {
             return time(Output.of(time));
         }

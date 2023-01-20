@@ -16,77 +16,37 @@ public final class TrackerArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TrackerArgs Empty = new TrackerArgs();
 
-    /**
-     * The optional description for the tracker resource.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The optional description for the tracker resource.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
-    /**
-     * @return A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-     * 
-     */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }
 
-    /**
-     * The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-     * 
-     */
     @Import(name="positionFiltering")
     private @Nullable Output<String> positionFiltering;
 
-    /**
-     * @return The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-     * 
-     */
     public Optional<Output<String>> positionFiltering() {
         return Optional.ofNullable(this.positionFiltering);
     }
 
-    /**
-     * Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The name of the tracker resource.
-     * 
-     */
     @Import(name="trackerName", required=true)
     private Output<String> trackerName;
 
-    /**
-     * @return The name of the tracker resource.
-     * 
-     */
     public Output<String> trackerName() {
         return this.trackerName;
     }
@@ -119,107 +79,47 @@ public final class TrackerArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TrackerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The optional description for the tracker resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The optional description for the tracker resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(@Nullable Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId A key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }
 
-        /**
-         * @param positionFiltering The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder positionFiltering(@Nullable Output<String> positionFiltering) {
             $.positionFiltering = positionFiltering;
             return this;
         }
 
-        /**
-         * @param positionFiltering The position filtering method of the tracker resource. Valid values: `TimeBased`, `DistanceBased`, `AccuracyBased`. Default: `TimeBased`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder positionFiltering(String positionFiltering) {
             return positionFiltering(Output.of(positionFiltering));
         }
 
-        /**
-         * @param tags Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value tags for the tracker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param trackerName The name of the tracker resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(Output<String> trackerName) {
             $.trackerName = trackerName;
             return this;
         }
 
-        /**
-         * @param trackerName The name of the tracker resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder trackerName(String trackerName) {
             return trackerName(Output.of(trackerName));
         }

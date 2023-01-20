@@ -11,50 +11,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAuthorizationTokenResult {
-    /**
-     * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-     * 
-     */
     private String authorizationToken;
-    /**
-     * @return Time in UTC RFC3339 format when the authorization token expires.
-     * 
-     */
     private String expiresAt;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Password decoded from the authorization token.
-     * 
-     */
     private String password;
-    /**
-     * @return Registry URL to use in the docker login command.
-     * 
-     */
     private String proxyEndpoint;
     private @Nullable String registryId;
-    /**
-     * @return User name decoded from the authorization token.
-     * 
-     */
     private String userName;
 
     private GetAuthorizationTokenResult() {}
-    /**
-     * @return Temporary IAM authentication credentials to access the ECR repository encoded in base64 in the form of `user_name:password`.
-     * 
-     */
     public String authorizationToken() {
         return this.authorizationToken;
     }
-    /**
-     * @return Time in UTC RFC3339 format when the authorization token expires.
-     * 
-     */
     public String expiresAt() {
         return this.expiresAt;
     }
@@ -65,27 +37,15 @@ public final class GetAuthorizationTokenResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Password decoded from the authorization token.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Registry URL to use in the docker login command.
-     * 
-     */
     public String proxyEndpoint() {
         return this.proxyEndpoint;
     }
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
-    /**
-     * @return User name decoded from the authorization token.
-     * 
-     */
     public String userName() {
         return this.userName;
     }

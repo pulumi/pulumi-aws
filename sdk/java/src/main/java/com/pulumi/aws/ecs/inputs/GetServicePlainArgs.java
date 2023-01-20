@@ -15,47 +15,23 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetServicePlainArgs Empty = new GetServicePlainArgs();
 
-    /**
-     * ARN of the ECS Cluster
-     * 
-     */
     @Import(name="clusterArn", required=true)
     private String clusterArn;
 
-    /**
-     * @return ARN of the ECS Cluster
-     * 
-     */
     public String clusterArn() {
         return this.clusterArn;
     }
 
-    /**
-     * Name of the ECS Service
-     * 
-     */
     @Import(name="serviceName", required=true)
     private String serviceName;
 
-    /**
-     * @return Name of the ECS Service
-     * 
-     */
     public String serviceName() {
         return this.serviceName;
     }
 
-    /**
-     * Resource tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Resource tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -86,34 +62,16 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetServicePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterArn ARN of the ECS Cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterArn(String clusterArn) {
             $.clusterArn = clusterArn;
             return this;
         }
 
-        /**
-         * @param serviceName Name of the ECS Service
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceName(String serviceName) {
             $.serviceName = serviceName;
             return this;
         }
 
-        /**
-         * @param tags Resource tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

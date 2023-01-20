@@ -15,47 +15,23 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
 
     public static final VpnConnectionRouteArgs Empty = new VpnConnectionRouteArgs();
 
-    /**
-     * The CIDR block associated with the local subnet of the customer data center.
-     * 
-     */
     @Import(name="destinationCidrBlock")
     private @Nullable Output<String> destinationCidrBlock;
 
-    /**
-     * @return The CIDR block associated with the local subnet of the customer data center.
-     * 
-     */
     public Optional<Output<String>> destinationCidrBlock() {
         return Optional.ofNullable(this.destinationCidrBlock);
     }
 
-    /**
-     * Indicates how the routes were provided.
-     * 
-     */
     @Import(name="source")
     private @Nullable Output<String> source;
 
-    /**
-     * @return Indicates how the routes were provided.
-     * 
-     */
     public Optional<Output<String>> source() {
         return Optional.ofNullable(this.source);
     }
 
-    /**
-     * The current state of the static route.
-     * 
-     */
     @Import(name="state")
     private @Nullable Output<String> state;
 
-    /**
-     * @return The current state of the static route.
-     * 
-     */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
     }
@@ -86,65 +62,29 @@ public final class VpnConnectionRouteArgs extends com.pulumi.resources.ResourceA
             $ = new VpnConnectionRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer data center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(@Nullable Output<String> destinationCidrBlock) {
             $.destinationCidrBlock = destinationCidrBlock;
             return this;
         }
 
-        /**
-         * @param destinationCidrBlock The CIDR block associated with the local subnet of the customer data center.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationCidrBlock(String destinationCidrBlock) {
             return destinationCidrBlock(Output.of(destinationCidrBlock));
         }
 
-        /**
-         * @param source Indicates how the routes were provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(@Nullable Output<String> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source Indicates how the routes were provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(String source) {
             return source(Output.of(source));
         }
 
-        /**
-         * @param state The current state of the static route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(@Nullable Output<String> state) {
             $.state = state;
             return this;
         }
 
-        /**
-         * @param state The current state of the static route.
-         * 
-         * @return builder
-         * 
-         */
         public Builder state(String state) {
             return state(Output.of(state));
         }

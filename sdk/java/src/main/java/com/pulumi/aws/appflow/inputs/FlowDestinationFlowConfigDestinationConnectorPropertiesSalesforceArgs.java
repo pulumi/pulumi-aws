@@ -17,62 +17,30 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs();
 
-    /**
-     * Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     @Import(name="errorHandlingConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig;
 
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs>> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
 
-    /**
-     * Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-     * 
-     */
     @Import(name="idFieldNames")
     private @Nullable Output<List<String>> idFieldNames;
 
-    /**
-     * @return Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-     * 
-     */
     public Optional<Output<List<String>>> idFieldNames() {
         return Optional.ofNullable(this.idFieldNames);
     }
 
-    /**
-     * Object specified in the Veeva flow source.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
 
-    /**
-     * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     @Import(name="writeOperationType")
     private @Nullable Output<String> writeOperationType;
 
-    /**
-     * @return This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-     * 
-     */
     public Optional<Output<String>> writeOperationType() {
         return Optional.ofNullable(this.writeOperationType);
     }
@@ -104,96 +72,42 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesf
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs> errorHandlingConfig) {
             $.errorHandlingConfig = errorHandlingConfig;
             return this;
         }
 
-        /**
-         * @param errorHandlingConfig Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorHandlingConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs errorHandlingConfig) {
             return errorHandlingConfig(Output.of(errorHandlingConfig));
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(@Nullable Output<List<String>> idFieldNames) {
             $.idFieldNames = idFieldNames;
             return this;
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(List<String> idFieldNames) {
             return idFieldNames(Output.of(idFieldNames));
         }
 
-        /**
-         * @param idFieldNames Name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
-         * 
-         * @return builder
-         * 
-         */
         public Builder idFieldNames(String... idFieldNames) {
             return idFieldNames(List.of(idFieldNames));
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }
 
-        /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeOperationType(@Nullable Output<String> writeOperationType) {
             $.writeOperationType = writeOperationType;
             return this;
         }
 
-        /**
-         * @param writeOperationType This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `id_field_names` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder writeOperationType(String writeOperationType) {
             return writeOperationType(Output.of(writeOperationType));
         }

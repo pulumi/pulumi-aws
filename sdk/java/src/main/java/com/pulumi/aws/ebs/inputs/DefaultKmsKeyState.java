@@ -15,17 +15,9 @@ public final class DefaultKmsKeyState extends com.pulumi.resources.ResourceArgs 
 
     public static final DefaultKmsKeyState Empty = new DefaultKmsKeyState();
 
-    /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-     * 
-     */
     @Import(name="keyArn")
     private @Nullable Output<String> keyArn;
 
-    /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-     * 
-     */
     public Optional<Output<String>> keyArn() {
         return Optional.ofNullable(this.keyArn);
     }
@@ -54,23 +46,11 @@ public final class DefaultKmsKeyState extends com.pulumi.resources.ResourceArgs 
             $ = new DefaultKmsKeyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyArn The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(@Nullable Output<String> keyArn) {
             $.keyArn = keyArn;
             return this;
         }
 
-        /**
-         * @param keyArn The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyArn(String keyArn) {
             return keyArn(Output.of(keyArn));
         }

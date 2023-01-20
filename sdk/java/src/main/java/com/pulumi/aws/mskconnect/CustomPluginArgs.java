@@ -16,62 +16,30 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CustomPluginArgs Empty = new CustomPluginArgs();
 
-    /**
-     * The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     * 
-     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
-    /**
-     * @return The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
-    /**
-     * A summary description of the custom plugin.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return A summary description of the custom plugin.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Information about the location of a custom plugin. See below.
-     * 
-     */
     @Import(name="location", required=true)
     private Output<CustomPluginLocationArgs> location;
 
-    /**
-     * @return Information about the location of a custom plugin. See below.
-     * 
-     */
     public Output<CustomPluginLocationArgs> location() {
         return this.location;
     }
 
-    /**
-     * The name of the custom plugin..
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the custom plugin..
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -103,86 +71,38 @@ public final class CustomPluginArgs extends com.pulumi.resources.ResourceArgs {
             $ = new CustomPluginArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param contentType The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType The type of the plugin file. Allowed values are `ZIP` and `JAR`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param description A summary description of the custom plugin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description A summary description of the custom plugin.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param location Information about the location of a custom plugin. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(Output<CustomPluginLocationArgs> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Information about the location of a custom plugin. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(CustomPluginLocationArgs location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param name The name of the custom plugin..
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the custom plugin..
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

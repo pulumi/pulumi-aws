@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     private @Nullable FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig errorHandlingConfig;
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-     * 
-     */
     private String intermediateBucketName;
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     private String object;
 
     private FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift() {}
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return Settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
-     * 
-     */
     public Optional<FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig> errorHandlingConfig() {
         return Optional.ofNullable(this.errorHandlingConfig);
     }
-    /**
-     * @return Intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
-     * 
-     */
     public String intermediateBucketName() {
         return this.intermediateBucketName;
     }
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public String object() {
         return this.object;
     }

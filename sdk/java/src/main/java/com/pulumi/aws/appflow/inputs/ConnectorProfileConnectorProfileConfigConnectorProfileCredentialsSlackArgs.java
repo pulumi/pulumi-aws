@@ -16,62 +16,30 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs();
 
-    /**
-     * The credentials used to access protected Zendesk resources.
-     * 
-     */
     @Import(name="accessToken")
     private @Nullable Output<String> accessToken;
 
-    /**
-     * @return The credentials used to access protected Zendesk resources.
-     * 
-     */
     public Optional<Output<String>> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
 
-    /**
-     * The identifier for the desired client.
-     * 
-     */
     @Import(name="clientId", required=true)
     private Output<String> clientId;
 
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
 
-    /**
-     * The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
-    /**
-     * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     @Import(name="oauthRequest")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs> oauthRequest;
 
-    /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs>> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
@@ -103,86 +71,38 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accessToken The credentials used to access protected Zendesk resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(@Nullable Output<String> accessToken) {
             $.accessToken = accessToken;
             return this;
         }
 
-        /**
-         * @param accessToken The credentials used to access protected Zendesk resources.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
         }
 
-        /**
-         * @param clientId The identifier for the desired client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
-        /**
-         * @param clientId The identifier for the desired client.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
-        /**
-         * @param clientSecret The client secret used by the OAuth client to authenticate to the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
-        /**
-         * @param clientSecret The client secret used by the OAuth client to authenticate to the authorization server.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
-        /**
-         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs> oauthRequest) {
             $.oauthRequest = oauthRequest;
             return this;
         }
 
-        /**
-         * @param oauthRequest The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthRequest(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs oauthRequest) {
             return oauthRequest(Output.of(oauthRequest));
         }

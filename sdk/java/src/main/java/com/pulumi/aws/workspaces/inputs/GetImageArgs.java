@@ -13,17 +13,9 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImageArgs Empty = new GetImageArgs();
 
-    /**
-     * ID of the image.
-     * 
-     */
     @Import(name="imageId", required=true)
     private Output<String> imageId;
 
-    /**
-     * @return ID of the image.
-     * 
-     */
     public Output<String> imageId() {
         return this.imageId;
     }
@@ -52,23 +44,11 @@ public final class GetImageArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImageArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageId ID of the image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageId(Output<String> imageId) {
             $.imageId = imageId;
             return this;
         }
 
-        /**
-         * @param imageId ID of the image.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageId(String imageId) {
             return imageId(Output.of(imageId));
         }

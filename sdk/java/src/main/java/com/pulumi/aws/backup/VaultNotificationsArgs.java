@@ -14,47 +14,23 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
 
     public static final VaultNotificationsArgs Empty = new VaultNotificationsArgs();
 
-    /**
-     * An array of events that indicate the status of jobs to back up resources to the backup vault.
-     * 
-     */
     @Import(name="backupVaultEvents", required=true)
     private Output<List<String>> backupVaultEvents;
 
-    /**
-     * @return An array of events that indicate the status of jobs to back up resources to the backup vault.
-     * 
-     */
     public Output<List<String>> backupVaultEvents() {
         return this.backupVaultEvents;
     }
 
-    /**
-     * Name of the backup vault to add notifications for.
-     * 
-     */
     @Import(name="backupVaultName", required=true)
     private Output<String> backupVaultName;
 
-    /**
-     * @return Name of the backup vault to add notifications for.
-     * 
-     */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-     * 
-     */
     @Import(name="snsTopicArn", required=true)
     private Output<String> snsTopicArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-     * 
-     */
     public Output<String> snsTopicArn() {
         return this.snsTopicArn;
     }
@@ -85,75 +61,33 @@ public final class VaultNotificationsArgs extends com.pulumi.resources.ResourceA
             $ = new VaultNotificationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultEvents(Output<List<String>> backupVaultEvents) {
             $.backupVaultEvents = backupVaultEvents;
             return this;
         }
 
-        /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultEvents(List<String> backupVaultEvents) {
             return backupVaultEvents(Output.of(backupVaultEvents));
         }
 
-        /**
-         * @param backupVaultEvents An array of events that indicate the status of jobs to back up resources to the backup vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultEvents(String... backupVaultEvents) {
             return backupVaultEvents(List.of(backupVaultEvents));
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(Output<String> backupVaultName) {
             $.backupVaultName = backupVaultName;
             return this;
         }
 
-        /**
-         * @param backupVaultName Name of the backup vault to add notifications for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backupVaultName(String backupVaultName) {
             return backupVaultName(Output.of(backupVaultName));
         }
 
-        /**
-         * @param snsTopicArn The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsTopicArn(Output<String> snsTopicArn) {
             $.snsTopicArn = snsTopicArn;
             return this;
         }
 
-        /**
-         * @param snsTopicArn The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
-         * 
-         * @return builder
-         * 
-         */
         public Builder snsTopicArn(String snsTopicArn) {
             return snsTopicArn(Output.of(snsTopicArn));
         }

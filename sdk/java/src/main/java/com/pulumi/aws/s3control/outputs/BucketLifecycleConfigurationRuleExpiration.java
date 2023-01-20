@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationRuleExpiration {
-    /**
-     * @return Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-     * 
-     */
     private @Nullable String date;
-    /**
-     * @return Number of days before the object is to be deleted.
-     * 
-     */
     private @Nullable Integer days;
-    /**
-     * @return Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-     * 
-     */
     private @Nullable Boolean expiredObjectDeleteMarker;
 
     private BucketLifecycleConfigurationRuleExpiration() {}
-    /**
-     * @return Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-     * 
-     */
     public Optional<String> date() {
         return Optional.ofNullable(this.date);
     }
-    /**
-     * @return Number of days before the object is to be deleted.
-     * 
-     */
     public Optional<Integer> days() {
         return Optional.ofNullable(this.days);
     }
-    /**
-     * @return Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-     * 
-     */
     public Optional<Boolean> expiredObjectDeleteMarker() {
         return Optional.ofNullable(this.expiredObjectDeleteMarker);
     }

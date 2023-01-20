@@ -13,102 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a License Manager association.
- * 
- * &gt; **Note:** License configurations can also be associated with launch templates by specifying the `license_specifications` block for an `aws.ec2.LaunchTemplate`.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Ec2Functions;
- * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.licensemanager.LicenseConfiguration;
- * import com.pulumi.aws.licensemanager.LicenseConfigurationArgs;
- * import com.pulumi.aws.licensemanager.Association;
- * import com.pulumi.aws.licensemanager.AssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners(&#34;amazon&#34;)
- *             .filters(GetAmiFilterArgs.builder()
- *                 .name(&#34;name&#34;)
- *                 .values(&#34;amzn-ami-vpc-nat*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .ami(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
- *             .instanceType(&#34;t2.micro&#34;)
- *             .build());
- * 
- *         var exampleLicenseConfiguration = new LicenseConfiguration(&#34;exampleLicenseConfiguration&#34;, LicenseConfigurationArgs.builder()        
- *             .licenseCountingType(&#34;Instance&#34;)
- *             .build());
- * 
- *         var exampleAssociation = new Association(&#34;exampleAssociation&#34;, AssociationArgs.builder()        
- *             .licenseConfigurationArn(exampleLicenseConfiguration.arn())
- *             .resourceArn(exampleInstance.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * License configurations can be imported in the form `resource_arn,license_configuration_arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:licensemanager/association:Association example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
- * ```
- * 
- */
 @ResourceType(type="aws:licensemanager/association:Association")
 public class Association extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the license configuration.
-     * 
-     */
     @Export(name="licenseConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> licenseConfigurationArn;
 
-    /**
-     * @return ARN of the license configuration.
-     * 
-     */
     public Output<String> licenseConfigurationArn() {
         return this.licenseConfigurationArn;
     }
-    /**
-     * ARN of the resource associated with the license configuration.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource associated with the license configuration.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

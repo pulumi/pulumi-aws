@@ -11,18 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TrustAnchorSourceSourceData {
-    /**
-     * @return The ARN of an ACM Private Certificate Authority.
-     * 
-     */
     private @Nullable String acmPcaArn;
     private @Nullable String x509CertificateData;
 
     private TrustAnchorSourceSourceData() {}
-    /**
-     * @return The ARN of an ACM Private Certificate Authority.
-     * 
-     */
     public Optional<String> acmPcaArn() {
         return Optional.ofNullable(this.acmPcaArn);
     }

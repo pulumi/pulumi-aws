@@ -15,32 +15,16 @@ public final class AlertManagerDefinitionState extends com.pulumi.resources.Reso
 
     public static final AlertManagerDefinitionState Empty = new AlertManagerDefinitionState();
 
-    /**
-     * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     * 
-     */
     @Import(name="definition")
     private @Nullable Output<String> definition;
 
-    /**
-     * @return the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     * 
-     */
     public Optional<Output<String>> definition() {
         return Optional.ofNullable(this.definition);
     }
 
-    /**
-     * ID of the prometheus workspace the alert manager definition should be linked to
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
-    /**
-     * @return ID of the prometheus workspace the alert manager definition should be linked to
-     * 
-     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -70,44 +54,20 @@ public final class AlertManagerDefinitionState extends com.pulumi.resources.Reso
             $ = new AlertManagerDefinitionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param definition the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(@Nullable Output<String> definition) {
             $.definition = definition;
             return this;
         }
 
-        /**
-         * @param definition the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder definition(String definition) {
             return definition(Output.of(definition));
         }
 
-        /**
-         * @param workspaceId ID of the prometheus workspace the alert manager definition should be linked to
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId ID of the prometheus workspace the alert manager definition should be linked to
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

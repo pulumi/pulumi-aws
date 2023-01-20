@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsAvailBlanking {
-    /**
-     * @return Blanking image to be used. See Avail Blanking Image for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsAvailBlankingAvailBlankingImage availBlankingImage;
-    /**
-     * @return When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-     * 
-     */
     private @Nullable String state;
 
     private ChannelEncoderSettingsAvailBlanking() {}
-    /**
-     * @return Blanking image to be used. See Avail Blanking Image for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsAvailBlankingAvailBlankingImage> availBlankingImage() {
         return Optional.ofNullable(this.availBlankingImage);
     }
-    /**
-     * @return When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
-     * 
-     */
     public Optional<String> state() {
         return Optional.ofNullable(this.state);
     }

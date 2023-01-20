@@ -15,32 +15,16 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationCustomFie
 
     public static final IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs Empty = new IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs();
 
-    /**
-     * The name of the field.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the field.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -70,44 +54,20 @@ public final class IndexingConfigurationThingGroupIndexingConfigurationCustomFie
             $ = new IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param type The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

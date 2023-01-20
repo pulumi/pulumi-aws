@@ -15,147 +15,47 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Outposts Endpoint.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3outposts.Endpoint;
- * import com.pulumi.aws.s3outposts.EndpointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Endpoint(&#34;example&#34;, EndpointArgs.builder()        
- *             .outpostId(data.aws_outposts_outpost().example().id())
- *             .securityGroupId(aws_security_group.example().id())
- *             .subnetId(aws_subnet.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:s3outposts/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * VPC CIDR block of the endpoint.
-     * 
-     */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
-    /**
-     * @return VPC CIDR block of the endpoint.
-     * 
-     */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
-    /**
-     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
-    /**
-     * @return UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Output<String> creationTime() {
         return this.creationTime;
     }
-    /**
-     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     @Export(name="networkInterfaces", refs={List.class,EndpointNetworkInterface.class}, tree="[0,1]")
     private Output<List<EndpointNetworkInterface>> networkInterfaces;
 
-    /**
-     * @return Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     public Output<List<EndpointNetworkInterface>> networkInterfaces() {
         return this.networkInterfaces;
     }
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     @Export(name="outpostId", refs={String.class}, tree="[0]")
     private Output<String> outpostId;
 
-    /**
-     * @return Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     public Output<String> outpostId() {
         return this.outpostId;
     }
-    /**
-     * Identifier of the EC2 Security Group.
-     * 
-     */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
-    /**
-     * @return Identifier of the EC2 Security Group.
-     * 
-     */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
-    /**
-     * Identifier of the EC2 Subnet.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return Identifier of the EC2 Subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }

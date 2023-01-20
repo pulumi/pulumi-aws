@@ -12,33 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
-    /**
-     * @return Mapping information when the record format uses delimiters.
-     * See CSV Mapping Parameters below for more details.
-     * 
-     */
     private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv csv;
-    /**
-     * @return Mapping information when JSON is the record format on the streaming source.
-     * See JSON Mapping Parameters below for more details.
-     * 
-     */
     private @Nullable AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson json;
 
     private AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters() {}
-    /**
-     * @return Mapping information when the record format uses delimiters.
-     * See CSV Mapping Parameters below for more details.
-     * 
-     */
     public Optional<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv> csv() {
         return Optional.ofNullable(this.csv);
     }
-    /**
-     * @return Mapping information when JSON is the record format on the streaming source.
-     * See JSON Mapping Parameters below for more details.
-     * 
-     */
     public Optional<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson> json() {
         return Optional.ofNullable(this.json);
     }

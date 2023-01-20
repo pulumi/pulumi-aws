@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpcEndpointDnsOptions {
-    /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-     * 
-     */
     private @Nullable String dnsRecordIpType;
 
     private VpcEndpointDnsOptions() {}
-    /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-     * 
-     */
     public Optional<String> dnsRecordIpType() {
         return Optional.ofNullable(this.dnsRecordIpType);
     }

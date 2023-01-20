@@ -13,29 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScalingPlanApplicationSource {
-    /**
-     * @return ARN of a AWS CloudFormation stack.
-     * 
-     */
     private @Nullable String cloudformationStackArn;
-    /**
-     * @return Set of tags.
-     * 
-     */
     private @Nullable List<ScalingPlanApplicationSourceTagFilter> tagFilters;
 
     private ScalingPlanApplicationSource() {}
-    /**
-     * @return ARN of a AWS CloudFormation stack.
-     * 
-     */
     public Optional<String> cloudformationStackArn() {
         return Optional.ofNullable(this.cloudformationStackArn);
     }
-    /**
-     * @return Set of tags.
-     * 
-     */
     public List<ScalingPlanApplicationSourceTagFilter> tagFilters() {
         return this.tagFilters == null ? List.of() : this.tagFilters;
     }

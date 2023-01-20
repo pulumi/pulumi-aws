@@ -14,32 +14,16 @@ public final class GetCachePolicyPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetCachePolicyPlainArgs Empty = new GetCachePolicyPlainArgs();
 
-    /**
-     * Identifier for the cache policy.
-     * 
-     */
     @Import(name="id")
     private @Nullable String id;
 
-    /**
-     * @return Identifier for the cache policy.
-     * 
-     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Unique name to identify the cache policy.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return Unique name to identify the cache policy.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -69,23 +53,11 @@ public final class GetCachePolicyPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetCachePolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Identifier for the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param name Unique name to identify the cache policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;

@@ -15,77 +15,37 @@ public final class SharedDirectoryAccepterState extends com.pulumi.resources.Res
 
     public static final SharedDirectoryAccepterState Empty = new SharedDirectoryAccepterState();
 
-    /**
-     * Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     * 
-     */
     @Import(name="method")
     private @Nullable Output<String> method;
 
-    /**
-     * @return Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-     * 
-     */
     public Optional<Output<String>> method() {
         return Optional.ofNullable(this.method);
     }
 
-    /**
-     * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     * 
-     */
     @Import(name="notes")
     private @Nullable Output<String> notes;
 
-    /**
-     * @return Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-     * 
-     */
     public Optional<Output<String>> notes() {
         return Optional.ofNullable(this.notes);
     }
 
-    /**
-     * Account identifier of the directory owner.
-     * 
-     */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
-    /**
-     * @return Account identifier of the directory owner.
-     * 
-     */
     public Optional<Output<String>> ownerAccountId() {
         return Optional.ofNullable(this.ownerAccountId);
     }
 
-    /**
-     * Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     * 
-     */
     @Import(name="ownerDirectoryId")
     private @Nullable Output<String> ownerDirectoryId;
 
-    /**
-     * @return Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-     * 
-     */
     public Optional<Output<String>> ownerDirectoryId() {
         return Optional.ofNullable(this.ownerDirectoryId);
     }
 
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     @Import(name="sharedDirectoryId")
     private @Nullable Output<String> sharedDirectoryId;
 
-    /**
-     * @return Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     public Optional<Output<String>> sharedDirectoryId() {
         return Optional.ofNullable(this.sharedDirectoryId);
     }
@@ -118,107 +78,47 @@ public final class SharedDirectoryAccepterState extends com.pulumi.resources.Res
             $ = new SharedDirectoryAccepterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param method Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(@Nullable Output<String> method) {
             $.method = method;
             return this;
         }
 
-        /**
-         * @param method Method used when sharing a directory (i.e., `ORGANIZATIONS` or `HANDSHAKE`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder method(String method) {
             return method(Output.of(method));
         }
 
-        /**
-         * @param notes Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notes(@Nullable Output<String> notes) {
             $.notes = notes;
             return this;
         }
 
-        /**
-         * @param notes Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notes(String notes) {
             return notes(Output.of(notes));
         }
 
-        /**
-         * @param ownerAccountId Account identifier of the directory owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(@Nullable Output<String> ownerAccountId) {
             $.ownerAccountId = ownerAccountId;
             return this;
         }
 
-        /**
-         * @param ownerAccountId Account identifier of the directory owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
         }
 
-        /**
-         * @param ownerDirectoryId Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerDirectoryId(@Nullable Output<String> ownerDirectoryId) {
             $.ownerDirectoryId = ownerDirectoryId;
             return this;
         }
 
-        /**
-         * @param ownerDirectoryId Identifier of the Managed Microsoft AD directory from the perspective of the directory owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerDirectoryId(String ownerDirectoryId) {
             return ownerDirectoryId(Output.of(ownerDirectoryId));
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(@Nullable Output<String> sharedDirectoryId) {
             $.sharedDirectoryId = sharedDirectoryId;
             return this;
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(String sharedDirectoryId) {
             return sharedDirectoryId(Output.of(sharedDirectoryId));
         }

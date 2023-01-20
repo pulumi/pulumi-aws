@@ -16,32 +16,16 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs();
 
-    /**
-     * Provides additional mapping information when the record format uses delimiters (for example, CSV).
-     * 
-     */
     @Import(name="csvMappingParameters")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs> csvMappingParameters;
 
-    /**
-     * @return Provides additional mapping information when the record format uses delimiters (for example, CSV).
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs>> csvMappingParameters() {
         return Optional.ofNullable(this.csvMappingParameters);
     }
 
-    /**
-     * Provides additional mapping information when JSON is the record format on the streaming source.
-     * 
-     */
     @Import(name="jsonMappingParameters")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs> jsonMappingParameters;
 
-    /**
-     * @return Provides additional mapping information when JSON is the record format on the streaming source.
-     * 
-     */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs>> jsonMappingParameters() {
         return Optional.ofNullable(this.jsonMappingParameters);
     }
@@ -71,44 +55,20 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param csvMappingParameters Provides additional mapping information when the record format uses delimiters (for example, CSV).
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvMappingParameters(@Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs> csvMappingParameters) {
             $.csvMappingParameters = csvMappingParameters;
             return this;
         }
 
-        /**
-         * @param csvMappingParameters Provides additional mapping information when the record format uses delimiters (for example, CSV).
-         * 
-         * @return builder
-         * 
-         */
         public Builder csvMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs csvMappingParameters) {
             return csvMappingParameters(Output.of(csvMappingParameters));
         }
 
-        /**
-         * @param jsonMappingParameters Provides additional mapping information when JSON is the record format on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonMappingParameters(@Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs> jsonMappingParameters) {
             $.jsonMappingParameters = jsonMappingParameters;
             return this;
         }
 
-        /**
-         * @param jsonMappingParameters Provides additional mapping information when JSON is the record format on the streaming source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonMappingParameters(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs jsonMappingParameters) {
             return jsonMappingParameters(Output.of(jsonMappingParameters));
         }

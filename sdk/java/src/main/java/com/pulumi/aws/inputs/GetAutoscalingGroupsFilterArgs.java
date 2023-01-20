@@ -14,32 +14,16 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
 
     public static final GetAutoscalingGroupsFilterArgs Empty = new GetAutoscalingGroupsFilterArgs();
 
-    /**
-     * Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Value of the filter.
-     * 
-     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
-    /**
-     * @return Value of the filter.
-     * 
-     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -69,54 +53,24 @@ public final class GetAutoscalingGroupsFilterArgs extends com.pulumi.resources.R
             $ = new GetAutoscalingGroupsFilterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param values Value of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values Value of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values Value of the filter.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

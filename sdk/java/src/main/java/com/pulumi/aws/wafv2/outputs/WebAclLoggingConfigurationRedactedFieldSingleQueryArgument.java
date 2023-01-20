@@ -10,8 +10,6 @@ import java.util.Objects;
 @CustomType
 public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgument {
     /**
-     * @return The name of the query header to redact. This setting must be provided as lower case characters.
-     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 
@@ -21,8 +19,6 @@ public final class WebAclLoggingConfigurationRedactedFieldSingleQueryArgument {
 
     private WebAclLoggingConfigurationRedactedFieldSingleQueryArgument() {}
     /**
-     * @return The name of the query header to redact. This setting must be provided as lower case characters.
-     * 
      * @deprecated
      * Not supported by WAFv2 API
      * 

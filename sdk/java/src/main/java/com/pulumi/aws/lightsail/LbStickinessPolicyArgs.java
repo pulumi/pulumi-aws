@@ -15,47 +15,23 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
 
     public static final LbStickinessPolicyArgs Empty = new LbStickinessPolicyArgs();
 
-    /**
-     * The cookie duration in seconds. This determines the length of the session stickiness.
-     * 
-     */
     @Import(name="cookieDuration", required=true)
     private Output<Integer> cookieDuration;
 
-    /**
-     * @return The cookie duration in seconds. This determines the length of the session stickiness.
-     * 
-     */
     public Output<Integer> cookieDuration() {
         return this.cookieDuration;
     }
 
-    /**
-     * - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
-     * 
-     */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
-    /**
-     * @return - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
 
-    /**
-     * The name of the load balancer to which you want to enable session stickiness.
-     * 
-     */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
 
-    /**
-     * @return The name of the load balancer to which you want to enable session stickiness.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }
@@ -86,65 +62,29 @@ public final class LbStickinessPolicyArgs extends com.pulumi.resources.ResourceA
             $ = new LbStickinessPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cookieDuration The cookie duration in seconds. This determines the length of the session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieDuration(Output<Integer> cookieDuration) {
             $.cookieDuration = cookieDuration;
             return this;
         }
 
-        /**
-         * @param cookieDuration The cookie duration in seconds. This determines the length of the session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cookieDuration(Integer cookieDuration) {
             return cookieDuration(Output.of(cookieDuration));
         }
 
-        /**
-         * @param enabled - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled - The Session Stickiness state of the load balancer. `true` to activate session stickiness or `false` to deactivate session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
-        /**
-         * @param lbName The name of the load balancer to which you want to enable session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(Output<String> lbName) {
             $.lbName = lbName;
             return this;
         }
 
-        /**
-         * @param lbName The name of the load balancer to which you want to enable session stickiness.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
         }

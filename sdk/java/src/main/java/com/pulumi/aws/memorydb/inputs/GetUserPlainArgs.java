@@ -15,32 +15,16 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * Map of tags assigned to the subnet group.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the subnet group.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the user.
-     * 
-     */
     @Import(name="userName", required=true)
     private String userName;
 
-    /**
-     * @return Name of the user.
-     * 
-     */
     public String userName() {
         return this.userName;
     }
@@ -70,23 +54,11 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Map of tags assigned to the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param userName Name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             $.userName = userName;
             return this;

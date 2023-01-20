@@ -13,32 +13,16 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final InviteAccepterArgs Empty = new InviteAccepterArgs();
 
-    /**
-     * The detector ID of the member GuardDuty account.
-     * 
-     */
     @Import(name="detectorId", required=true)
     private Output<String> detectorId;
 
-    /**
-     * @return The detector ID of the member GuardDuty account.
-     * 
-     */
     public Output<String> detectorId() {
         return this.detectorId;
     }
 
-    /**
-     * AWS account ID for primary account.
-     * 
-     */
     @Import(name="masterAccountId", required=true)
     private Output<String> masterAccountId;
 
-    /**
-     * @return AWS account ID for primary account.
-     * 
-     */
     public Output<String> masterAccountId() {
         return this.masterAccountId;
     }
@@ -68,44 +52,20 @@ public final class InviteAccepterArgs extends com.pulumi.resources.ResourceArgs 
             $ = new InviteAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param detectorId The detector ID of the member GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(Output<String> detectorId) {
             $.detectorId = detectorId;
             return this;
         }
 
-        /**
-         * @param detectorId The detector ID of the member GuardDuty account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder detectorId(String detectorId) {
             return detectorId(Output.of(detectorId));
         }
 
-        /**
-         * @param masterAccountId AWS account ID for primary account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterAccountId(Output<String> masterAccountId) {
             $.masterAccountId = masterAccountId;
             return this;
         }
 
-        /**
-         * @param masterAccountId AWS account ID for primary account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder masterAccountId(String masterAccountId) {
             return masterAccountId(Output.of(masterAccountId));
         }

@@ -13,77 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MetricAlarmMetricQuery {
-    /**
-     * @return The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     private @Nullable String accountId;
-    /**
-     * @return The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-     * 
-     */
     private @Nullable String expression;
-    /**
-     * @return A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     private String id;
-    /**
-     * @return A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     private @Nullable String label;
-    /**
-     * @return The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     private @Nullable MetricAlarmMetricQueryMetric metric;
-    /**
-     * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-     * 
-     */
     private @Nullable Boolean returnData;
 
     private MetricAlarmMetricQuery() {}
-    /**
-     * @return The ID of the account where the metrics are located, if this is a cross-account alarm.
-     * 
-     */
     public Optional<String> accountId() {
         return Optional.ofNullable(this.accountId);
     }
-    /**
-     * @return The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
-     * 
-     */
     public Optional<String> expression() {
         return Optional.ofNullable(this.expression);
     }
-    /**
-     * @return A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-     * 
-     */
     public Optional<String> label() {
         return Optional.ofNullable(this.label);
     }
-    /**
-     * @return The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-     * 
-     */
     public Optional<MetricAlarmMetricQueryMetric> metric() {
         return Optional.ofNullable(this.metric);
     }
-    /**
-     * @return Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
-     * 
-     */
     public Optional<Boolean> returnData() {
         return Optional.ofNullable(this.returnData);
     }

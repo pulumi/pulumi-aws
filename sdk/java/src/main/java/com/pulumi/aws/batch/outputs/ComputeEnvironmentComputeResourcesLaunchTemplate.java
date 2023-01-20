@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ComputeEnvironmentComputeResourcesLaunchTemplate {
-    /**
-     * @return ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-     * 
-     */
     private @Nullable String launchTemplateId;
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     private @Nullable String launchTemplateName;
-    /**
-     * @return The version number of the launch template. Default: The default version of the launch template.
-     * 
-     */
     private @Nullable String version;
 
     private ComputeEnvironmentComputeResourcesLaunchTemplate() {}
-    /**
-     * @return ID of the launch template. You must specify either the launch template ID or launch template name in the request, but not both.
-     * 
-     */
     public Optional<String> launchTemplateId() {
         return Optional.ofNullable(this.launchTemplateId);
     }
-    /**
-     * @return Name of the launch template.
-     * 
-     */
     public Optional<String> launchTemplateName() {
         return Optional.ofNullable(this.launchTemplateName);
     }
-    /**
-     * @return The version number of the launch template. Default: The default version of the launch template.
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

@@ -24,10 +24,6 @@ public final class GetTagsResult {
     private @Nullable String searchString;
     private @Nullable List<GetTagsSortBy> sortBies;
     private @Nullable String tagKey;
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     private List<String> tags;
     private GetTagsTimePeriod timePeriod;
 
@@ -51,10 +47,6 @@ public final class GetTagsResult {
     public Optional<String> tagKey() {
         return Optional.ofNullable(this.tagKey);
     }
-    /**
-     * @return Tags that match your request.
-     * 
-     */
     public List<String> tags() {
         return this.tags;
     }

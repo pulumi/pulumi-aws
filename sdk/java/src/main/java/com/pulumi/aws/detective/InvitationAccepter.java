@@ -13,77 +13,11 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.detective.Graph;
- * import com.pulumi.aws.detective.Member;
- * import com.pulumi.aws.detective.MemberArgs;
- * import com.pulumi.aws.detective.InvitationAccepter;
- * import com.pulumi.aws.detective.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primaryGraph = new Graph(&#34;primaryGraph&#34;);
- * 
- *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;ACCOUNT ID&#34;)
- *             .emailAddress(&#34;EMAIL&#34;)
- *             .graphArn(primaryGraph.id())
- *             .message(&#34;Message of the invite&#34;)
- *             .build());
- * 
- *         var member = new InvitationAccepter(&#34;member&#34;, InvitationAccepterArgs.builder()        
- *             .graphArn(primaryGraph.graphArn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .dependsOn(primaryMember)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
- * ```
- * 
- */
 @ResourceType(type="aws:detective/invitationAccepter:InvitationAccepter")
 public class InvitationAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
-    /**
-     * @return ARN of the behavior graph that the member account is accepting the invitation for.
-     * 
-     */
     public Output<String> graphArn() {
         return this.graphArn;
     }

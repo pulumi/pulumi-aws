@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserProfileUserSettingsJupyterServerAppSettings {
-    /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-     * 
-     */
     private @Nullable List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-     * 
-     */
     private UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     private @Nullable List<String> lifecycleConfigArns;
 
     private UserProfileUserSettingsJupyterServerAppSettings() {}
-    /**
-     * @return A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-     * 
-     */
     public List<UserProfileUserSettingsJupyterServerAppSettingsCodeRepository> codeRepositories() {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
-    /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-     * 
-     */
     public UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {
         return this.defaultResourceSpec;
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
-     * 
-     */
     public List<String> lifecycleConfigArns() {
         return this.lifecycleConfigArns == null ? List.of() : this.lifecycleConfigArns;
     }

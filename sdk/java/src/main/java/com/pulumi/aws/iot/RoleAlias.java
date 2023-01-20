@@ -15,121 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IoT role alias.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iot.RoleAlias;
- * import com.pulumi.aws.iot.RoleAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {&#34;Service&#34;: &#34;credentials.iot.amazonaws.com&#34;,
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var alias = new RoleAlias(&#34;alias&#34;, RoleAliasArgs.builder()        
- *             .alias(&#34;Thermostat-dynamodb-access-role-alias&#34;)
- *             .roleArn(role.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IOT Role Alias can be imported via the alias, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
- * ```
- * 
- */
 @ResourceType(type="aws:iot/roleAlias:RoleAlias")
 public class RoleAlias extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the role alias.
-     * 
-     */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
-    /**
-     * @return The name of the role alias.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
-    /**
-     * The ARN assigned by AWS to this role alias.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN assigned by AWS to this role alias.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     @Export(name="credentialDuration", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> credentialDuration;
 
-    /**
-     * @return The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
-     * 
-     */
     public Output<Optional<Integer>> credentialDuration() {
         return Codegen.optional(this.credentialDuration);
     }
-    /**
-     * The identity of the role to which the alias refers.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The identity of the role to which the alias refers.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

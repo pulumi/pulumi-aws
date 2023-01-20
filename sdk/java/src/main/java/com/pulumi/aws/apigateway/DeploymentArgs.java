@@ -16,92 +16,44 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DeploymentArgs Empty = new DeploymentArgs();
 
-    /**
-     * Description of the deployment
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the deployment
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * REST API identifier.
-     * 
-     */
     @Import(name="restApi", required=true)
     private Output<String> restApi;
 
-    /**
-     * @return REST API identifier.
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
 
-    /**
-     * Description to set on the stage managed by the `stage_name` argument.
-     * 
-     */
     @Import(name="stageDescription")
     private @Nullable Output<String> stageDescription;
 
-    /**
-     * @return Description to set on the stage managed by the `stage_name` argument.
-     * 
-     */
     public Optional<Output<String>> stageDescription() {
         return Optional.ofNullable(this.stageDescription);
     }
 
-    /**
-     * Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     */
     @Import(name="stageName")
     private @Nullable Output<String> stageName;
 
-    /**
-     * @return Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     */
     public Optional<Output<String>> stageName() {
         return Optional.ofNullable(this.stageName);
     }
 
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     @Import(name="triggers")
     private @Nullable Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-     * 
-     */
     public Optional<Output<Map<String,String>>> triggers() {
         return Optional.ofNullable(this.triggers);
     }
 
-    /**
-     * Map to set on the stage managed by the `stage_name` argument.
-     * 
-     */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
-    /**
-     * @return Map to set on the stage managed by the `stage_name` argument.
-     * 
-     */
     public Optional<Output<Map<String,String>>> variables() {
         return Optional.ofNullable(this.variables);
     }
@@ -135,128 +87,56 @@ public final class DeploymentArgs extends com.pulumi.resources.ResourceArgs {
             $ = new DeploymentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the deployment
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the deployment
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param restApi REST API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(Output<String> restApi) {
             $.restApi = restApi;
             return this;
         }
 
-        /**
-         * @param restApi REST API identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApi(String restApi) {
             return restApi(Output.of(restApi));
         }
 
-        /**
-         * @param stageDescription Description to set on the stage managed by the `stage_name` argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageDescription(@Nullable Output<String> stageDescription) {
             $.stageDescription = stageDescription;
             return this;
         }
 
-        /**
-         * @param stageDescription Description to set on the stage managed by the `stage_name` argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageDescription(String stageDescription) {
             return stageDescription(Output.of(stageDescription));
         }
 
-        /**
-         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(@Nullable Output<String> stageName) {
             $.stageName = stageName;
             return this;
         }
 
-        /**
-         * @param stageName Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stageName(String stageName) {
             return stageName(Output.of(stageName));
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(@Nullable Output<Map<String,String>> triggers) {
             $.triggers = triggers;
             return this;
         }
 
-        /**
-         * @param triggers Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder triggers(Map<String,String> triggers) {
             return triggers(Output.of(triggers));
         }
 
-        /**
-         * @param variables Map to set on the stage managed by the `stage_name` argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(@Nullable Output<Map<String,String>> variables) {
             $.variables = variables;
             return this;
         }
 
-        /**
-         * @param variables Map to set on the stage managed by the `stage_name` argument.
-         * 
-         * @return builder
-         * 
-         */
         public Builder variables(Map<String,String> variables) {
             return variables(Output.of(variables));
         }

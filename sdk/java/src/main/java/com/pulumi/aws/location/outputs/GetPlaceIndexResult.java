@@ -12,74 +12,30 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPlaceIndexResult {
-    /**
-     * @return Timestamp for when the place index resource was created in ISO 8601 format.
-     * 
-     */
     private String createTime;
-    /**
-     * @return Data provider of geospatial data.
-     * 
-     */
     private String dataSource;
-    /**
-     * @return List of configurations that specify data storage option for requesting Places.
-     * 
-     */
     private List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations;
-    /**
-     * @return Optional description for the place index resource.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN for the place index resource.
-     * 
-     */
     private String indexArn;
     private String indexName;
-    /**
-     * @return Key-value map of resource tags for the place index.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
-     * 
-     */
     private String updateTime;
 
     private GetPlaceIndexResult() {}
-    /**
-     * @return Timestamp for when the place index resource was created in ISO 8601 format.
-     * 
-     */
     public String createTime() {
         return this.createTime;
     }
-    /**
-     * @return Data provider of geospatial data.
-     * 
-     */
     public String dataSource() {
         return this.dataSource;
     }
-    /**
-     * @return List of configurations that specify data storage option for requesting Places.
-     * 
-     */
     public List<GetPlaceIndexDataSourceConfiguration> dataSourceConfigurations() {
         return this.dataSourceConfigurations;
     }
-    /**
-     * @return Optional description for the place index resource.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -90,27 +46,15 @@ public final class GetPlaceIndexResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN for the place index resource.
-     * 
-     */
     public String indexArn() {
         return this.indexArn;
     }
     public String indexName() {
         return this.indexName;
     }
-    /**
-     * @return Key-value map of resource tags for the place index.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Timestamp for when the place index resource was last updated in ISO 8601 format.
-     * 
-     */
     public String updateTime() {
         return this.updateTime;
     }

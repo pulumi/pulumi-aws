@@ -14,32 +14,16 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
 
     public static final RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs Empty = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs();
 
-    /**
-     * A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-     * 
-     */
     @Import(name="actionDefinition", required=true)
     private Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition;
 
-    /**
-     * @return A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition() {
         return this.actionDefinition;
     }
 
-    /**
-     * A friendly name of the custom action.
-     * 
-     */
     @Import(name="actionName", required=true)
     private Output<String> actionName;
 
-    /**
-     * @return A friendly name of the custom action.
-     * 
-     */
     public Output<String> actionName() {
         return this.actionName;
     }
@@ -69,44 +53,20 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCu
             $ = new RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDefinition(Output<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs> actionDefinition) {
             $.actionDefinition = actionDefinition;
             return this;
         }
 
-        /**
-         * @param actionDefinition A configuration block describing the custom action associated with the `action_name`. See Action Definition below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionDefinition(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionActionDefinitionArgs actionDefinition) {
             return actionDefinition(Output.of(actionDefinition));
         }
 
-        /**
-         * @param actionName A friendly name of the custom action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionName(Output<String> actionName) {
             $.actionName = actionName;
             return this;
         }
 
-        /**
-         * @param actionName A friendly name of the custom action.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actionName(String actionName) {
             return actionName(Output.of(actionName));
         }

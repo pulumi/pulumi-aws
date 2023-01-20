@@ -15,17 +15,9 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs extends com.pulu
 
     public static final ConnectorKafkaClusterEncryptionInTransitArgs Empty = new ConnectorKafkaClusterEncryptionInTransitArgs();
 
-    /**
-     * The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-     * 
-     */
     @Import(name="encryptionType")
     private @Nullable Output<String> encryptionType;
 
-    /**
-     * @return The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-     * 
-     */
     public Optional<Output<String>> encryptionType() {
         return Optional.ofNullable(this.encryptionType);
     }
@@ -54,23 +46,11 @@ public final class ConnectorKafkaClusterEncryptionInTransitArgs extends com.pulu
             $ = new ConnectorKafkaClusterEncryptionInTransitArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param encryptionType The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(@Nullable Output<String> encryptionType) {
             $.encryptionType = encryptionType;
             return this;
         }
 
-        /**
-         * @param encryptionType The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionType(String encryptionType) {
             return encryptionType(Output.of(encryptionType));
         }

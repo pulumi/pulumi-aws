@@ -16,107 +16,51 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionUrlState Empty = new FunctionUrlState();
 
-    /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     @Import(name="authorizationType")
     private @Nullable Output<String> authorizationType;
 
-    /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     public Optional<Output<String>> authorizationType() {
         return Optional.ofNullable(this.authorizationType);
     }
 
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     @Import(name="cors")
     private @Nullable Output<FunctionUrlCorsArgs> cors;
 
-    /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     public Optional<Output<FunctionUrlCorsArgs>> cors() {
         return Optional.ofNullable(this.cors);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the function.
-     * 
-     */
     @Import(name="functionArn")
     private @Nullable Output<String> functionArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the function.
-     * 
-     */
     public Optional<Output<String>> functionArn() {
         return Optional.ofNullable(this.functionArn);
     }
 
-    /**
-     * The name (or ARN) of the Lambda function.
-     * 
-     */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
-    /**
-     * @return The name (or ARN) of the Lambda function.
-     * 
-     */
     public Optional<Output<String>> functionName() {
         return Optional.ofNullable(this.functionName);
     }
 
-    /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     @Import(name="functionUrl")
     private @Nullable Output<String> functionUrl;
 
-    /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-     * 
-     */
     public Optional<Output<String>> functionUrl() {
         return Optional.ofNullable(this.functionUrl);
     }
 
-    /**
-     * The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
 
-    /**
-     * A generated ID for the endpoint.
-     * 
-     */
     @Import(name="urlId")
     private @Nullable Output<String> urlId;
 
-    /**
-     * @return A generated ID for the endpoint.
-     * 
-     */
     public Optional<Output<String>> urlId() {
         return Optional.ofNullable(this.urlId);
     }
@@ -151,149 +95,65 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
             $ = new FunctionUrlState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(@Nullable Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
-        /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
-        /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(@Nullable Output<FunctionUrlCorsArgs> cors) {
             $.cors = cors;
             return this;
         }
 
-        /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(FunctionUrlCorsArgs cors) {
             return cors(Output.of(cors));
         }
 
-        /**
-         * @param functionArn The Amazon Resource Name (ARN) of the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(@Nullable Output<String> functionArn) {
             $.functionArn = functionArn;
             return this;
         }
 
-        /**
-         * @param functionArn The Amazon Resource Name (ARN) of the function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionArn(String functionArn) {
             return functionArn(Output.of(functionArn));
         }
 
-        /**
-         * @param functionName The name (or ARN) of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(@Nullable Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName The name (or ARN) of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionUrl(@Nullable Output<String> functionUrl) {
             $.functionUrl = functionUrl;
             return this;
         }
 
-        /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionUrl(String functionUrl) {
             return functionUrl(Output.of(functionUrl));
         }
 
-        /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }
 
-        /**
-         * @param urlId A generated ID for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlId(@Nullable Output<String> urlId) {
             $.urlId = urlId;
             return this;
         }
 
-        /**
-         * @param urlId A generated ID for the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder urlId(String urlId) {
             return urlId(Output.of(urlId));
         }

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RuleGroupRuleActionBlock {
-    /**
-     * @return Defines a custom response for the web request. See Custom Response below for details.
-     * 
-     */
     private @Nullable RuleGroupRuleActionBlockCustomResponse customResponse;
 
     private RuleGroupRuleActionBlock() {}
-    /**
-     * @return Defines a custom response for the web request. See Custom Response below for details.
-     * 
-     */
     public Optional<RuleGroupRuleActionBlockCustomResponse> customResponse() {
         return Optional.ofNullable(this.customResponse);
     }

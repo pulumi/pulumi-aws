@@ -14,10 +14,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetInternetGatewayResult {
-    /**
-     * @return ARN of the Internet Gateway.
-     * 
-     */
     private String arn;
     private List<GetInternetGatewayAttachment> attachments;
     private @Nullable List<GetInternetGatewayFilter> filters;
@@ -27,18 +23,10 @@ public final class GetInternetGatewayResult {
      */
     private String id;
     private String internetGatewayId;
-    /**
-     * @return ID of the AWS account that owns the internet gateway.
-     * 
-     */
     private String ownerId;
     private Map<String,String> tags;
 
     private GetInternetGatewayResult() {}
-    /**
-     * @return ARN of the Internet Gateway.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -58,10 +46,6 @@ public final class GetInternetGatewayResult {
     public String internetGatewayId() {
         return this.internetGatewayId;
     }
-    /**
-     * @return ID of the AWS account that owns the internet gateway.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }

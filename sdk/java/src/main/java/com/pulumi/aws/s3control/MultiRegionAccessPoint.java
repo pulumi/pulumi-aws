@@ -14,163 +14,41 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an S3 Multi-Region Access Point associated with specified buckets.
- * 
- * ## Example Usage
- * ### Multiple AWS Buckets in Different Regions
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
- * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
- * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primaryRegion = new Provider(&#34;primaryRegion&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var secondaryRegion = new Provider(&#34;secondaryRegion&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var fooBucket = new BucketV2(&#34;fooBucket&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
- *             .provider(aws.primary_region())
- *             .build());
- * 
- *         var barBucket = new BucketV2(&#34;barBucket&#34;, BucketV2Args.Empty, CustomResourceOptions.builder()
- *             .provider(aws.secondary_region())
- *             .build());
- * 
- *         var example = new MultiRegionAccessPoint(&#34;example&#34;, MultiRegionAccessPointArgs.builder()        
- *             .details(MultiRegionAccessPointDetailsArgs.builder()
- *                 .name(&#34;example&#34;)
- *                 .regions(                
- *                     MultiRegionAccessPointDetailsRegionArgs.builder()
- *                         .bucket(fooBucket.id())
- *                         .build(),
- *                     MultiRegionAccessPointDetailsRegionArgs.builder()
- *                         .bucket(barBucket.id())
- *                         .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Multi-Region Access Points can be imported using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`), e.g.
- * 
- * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
- * ```
- * 
- */
 @ResourceType(type="aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint")
 public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return The AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * The alias for the Multi-Region Access Point.
-     * 
-     */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
-    /**
-     * @return The alias for the Multi-Region Access Point.
-     * 
-     */
     public Output<String> alias() {
         return this.alias;
     }
-    /**
-     * Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Multi-Region Access Point.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     @Export(name="details", refs={MultiRegionAccessPointDetails.class}, tree="[0]")
     private Output<MultiRegionAccessPointDetails> details;
 
-    /**
-     * @return A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
-     * 
-     */
     public Output<MultiRegionAccessPointDetails> details() {
         return this.details;
     }
-    /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

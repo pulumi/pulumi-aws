@@ -15,47 +15,23 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
 
     public static final SshKeyState Empty = new SshKeyState();
 
-    /**
-     * The public key portion of an SSH key pair.
-     * 
-     */
     @Import(name="body")
     private @Nullable Output<String> body;
 
-    /**
-     * @return The public key portion of an SSH key pair.
-     * 
-     */
     public Optional<Output<String>> body() {
         return Optional.ofNullable(this.body);
     }
 
-    /**
-     * The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     @Import(name="serverId")
     private @Nullable Output<String> serverId;
 
-    /**
-     * @return The Server ID of the Transfer Server (e.g., `s-12345678`)
-     * 
-     */
     public Optional<Output<String>> serverId() {
         return Optional.ofNullable(this.serverId);
     }
 
-    /**
-     * The name of the user account that is assigned to one or more servers.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return The name of the user account that is assigned to one or more servers.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -86,65 +62,29 @@ public final class SshKeyState extends com.pulumi.resources.ResourceArgs {
             $ = new SshKeyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param body The public key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
 
-        /**
-         * @param body The public key portion of an SSH key pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder body(String body) {
             return body(Output.of(body));
         }
 
-        /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(@Nullable Output<String> serverId) {
             $.serverId = serverId;
             return this;
         }
 
-        /**
-         * @param serverId The Server ID of the Transfer Server (e.g., `s-12345678`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverId(String serverId) {
             return serverId(Output.of(serverId));
         }
 
-        /**
-         * @param userName The name of the user account that is assigned to one or more servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The name of the user account that is assigned to one or more servers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

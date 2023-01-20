@@ -10,52 +10,24 @@ import java.util.Objects;
 @CustomType
 public final class GetOutpostResult {
     private String arn;
-    /**
-     * @return Availability Zone name.
-     * 
-     */
     private String availabilityZone;
-    /**
-     * @return Availability Zone identifier.
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return Description.
-     * 
-     */
     private String description;
     private String id;
     private String name;
     private String ownerId;
-    /**
-     * @return Site identifier.
-     * 
-     */
     private String siteId;
 
     private GetOutpostResult() {}
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Availability Zone name.
-     * 
-     */
     public String availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * @return Availability Zone identifier.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return Description.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -68,10 +40,6 @@ public final class GetOutpostResult {
     public String ownerId() {
         return this.ownerId;
     }
-    /**
-     * @return Site identifier.
-     * 
-     */
     public String siteId() {
         return this.siteId;
     }

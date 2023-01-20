@@ -17,163 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates and manages an AWS IoT Authorizer.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.Authorizer;
- * import com.pulumi.aws.iot.AuthorizerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Authorizer(&#34;example&#34;, AuthorizerArgs.builder()        
- *             .authorizerFunctionArn(aws_lambda_function.example().arn())
- *             .signingDisabled(false)
- *             .status(&#34;ACTIVE&#34;)
- *             .tokenKeyName(&#34;Token-Header&#34;)
- *             .tokenSigningPublicKeys(Map.of(&#34;Key1&#34;, Files.readString(Paths.get(&#34;test-fixtures/iot-authorizer-signing-key.pem&#34;))))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IOT Authorizers can be imported using the name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:iot/authorizer:Authorizer example example
- * ```
- * 
- */
 @ResourceType(type="aws:iot/authorizer:Authorizer")
 public class Authorizer extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the authorizer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the authorizer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the authorizer&#39;s Lambda function.
-     * 
-     */
     @Export(name="authorizerFunctionArn", refs={String.class}, tree="[0]")
     private Output<String> authorizerFunctionArn;
 
-    /**
-     * @return The ARN of the authorizer&#39;s Lambda function.
-     * 
-     */
     public Output<String> authorizerFunctionArn() {
         return this.authorizerFunctionArn;
     }
-    /**
-     * Specifies whether the HTTP caching is enabled or not. Default: `false`.
-     * 
-     */
     @Export(name="enableCachingForHttp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableCachingForHttp;
 
-    /**
-     * @return Specifies whether the HTTP caching is enabled or not. Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> enableCachingForHttp() {
         return Codegen.optional(this.enableCachingForHttp);
     }
-    /**
-     * The name of the authorizer.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the authorizer.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-     * 
-     */
     @Export(name="signingDisabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> signingDisabled;
 
-    /**
-     * @return Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-     * 
-     */
     public Output<Optional<Boolean>> signingDisabled() {
         return Codegen.optional(this.signingDisabled);
     }
-    /**
-     * The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> status;
 
-    /**
-     * @return The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-     * 
-     */
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
-    /**
-     * The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-     * 
-     */
     @Export(name="tokenKeyName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKeyName;
 
-    /**
-     * @return The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-     * 
-     */
     public Output<Optional<String>> tokenKeyName() {
         return Codegen.optional(this.tokenKeyName);
     }
-    /**
-     * The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-     * 
-     */
     @Export(name="tokenSigningPublicKeys", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tokenSigningPublicKeys;
 
-    /**
-     * @return The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tokenSigningPublicKeys() {
         return Codegen.optional(this.tokenSigningPublicKeys);
     }

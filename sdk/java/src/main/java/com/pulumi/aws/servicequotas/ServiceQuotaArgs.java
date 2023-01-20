@@ -14,47 +14,23 @@ public final class ServiceQuotaArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServiceQuotaArgs Empty = new ServiceQuotaArgs();
 
-    /**
-     * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-     * 
-     */
     @Import(name="quotaCode", required=true)
     private Output<String> quotaCode;
 
-    /**
-     * @return Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-     * 
-     */
     public Output<String> quotaCode() {
         return this.quotaCode;
     }
 
-    /**
-     * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     @Import(name="serviceCode", required=true)
     private Output<String> serviceCode;
 
-    /**
-     * @return Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-     * 
-     */
     public Output<String> serviceCode() {
         return this.serviceCode;
     }
 
-    /**
-     * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<Double> value;
 
-    /**
-     * @return Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-     * 
-     */
     public Output<Double> value() {
         return this.value;
     }
@@ -85,65 +61,29 @@ public final class ServiceQuotaArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServiceQuotaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param quotaCode Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(Output<String> quotaCode) {
             $.quotaCode = quotaCode;
             return this;
         }
 
-        /**
-         * @param quotaCode Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder quotaCode(String quotaCode) {
             return quotaCode(Output.of(quotaCode));
         }
 
-        /**
-         * @param serviceCode Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(Output<String> serviceCode) {
             $.serviceCode = serviceCode;
             return this;
         }
 
-        /**
-         * @param serviceCode Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceCode(String serviceCode) {
             return serviceCode(Output.of(serviceCode));
         }
 
-        /**
-         * @param value Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<Double> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Double value) {
             return value(Output.of(value));
         }

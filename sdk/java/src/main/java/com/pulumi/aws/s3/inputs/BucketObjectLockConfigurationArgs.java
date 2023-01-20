@@ -16,32 +16,16 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
 
     public static final BucketObjectLockConfigurationArgs Empty = new BucketObjectLockConfigurationArgs();
 
-    /**
-     * Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-     * 
-     */
     @Import(name="objectLockEnabled", required=true)
     private Output<String> objectLockEnabled;
 
-    /**
-     * @return Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-     * 
-     */
     public Output<String> objectLockEnabled() {
         return this.objectLockEnabled;
     }
 
-    /**
-     * The Object Lock rule in place for this bucket.
-     * 
-     */
     @Import(name="rule")
     private @Nullable Output<BucketObjectLockConfigurationRuleArgs> rule;
 
-    /**
-     * @return The Object Lock rule in place for this bucket.
-     * 
-     */
     public Optional<Output<BucketObjectLockConfigurationRuleArgs>> rule() {
         return Optional.ofNullable(this.rule);
     }
@@ -71,44 +55,20 @@ public final class BucketObjectLockConfigurationArgs extends com.pulumi.resource
             $ = new BucketObjectLockConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectLockEnabled(Output<String> objectLockEnabled) {
             $.objectLockEnabled = objectLockEnabled;
             return this;
         }
 
-        /**
-         * @param objectLockEnabled Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectLockEnabled(String objectLockEnabled) {
             return objectLockEnabled(Output.of(objectLockEnabled));
         }
 
-        /**
-         * @param rule The Object Lock rule in place for this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(@Nullable Output<BucketObjectLockConfigurationRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
 
-        /**
-         * @param rule The Object Lock rule in place for this bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rule(BucketObjectLockConfigurationRuleArgs rule) {
             return rule(Output.of(rule));
         }

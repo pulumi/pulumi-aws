@@ -21,984 +21,323 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an RDS instance resource.  A DB instance is an isolated database
- * environment in the cloud.  A DB instance can contain multiple user-created
- * databases.
- * 
- * Changes to a DB instance can occur when you manually change a parameter, such as
- * `allocated_storage`, and are reflected in the next maintenance window. Because
- * of this, this provider may report a difference in its planning phase because a
- * modification has not yet taken place. You can use the `apply_immediately` flag
- * to instruct the service to apply the change immediately (see documentation
- * below).
- * 
- * When upgrading the major version of an engine, `allow_major_version_upgrade` must be set to `true`.
- * 
- * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
- * See the AWS Docs on [RDS Instance Maintenance][instance-maintenance] for more information.
- * 
- * &gt; **Note:** All arguments including the username and password will be stored in the raw state as plain-text.
- * Read more about sensitive data instate.
- * 
- * ## RDS Instance Class Types
- * 
- * Amazon RDS supports three types of instance classes: Standard, Memory Optimized, and Burstable Performance.
- * For more information please read the AWS RDS documentation about [DB Instance Class Types](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html)
- * 
- * ## Low-Downtime Updates
- * 
- * By default, RDS applies updates to DB Instances in-place, which can lead to service interruptions.
- * Low-downtime updates minimize service interruptions by performing the updates with an [RDS Blue/Green deployment][blue-green] and switching over the instances when complete.
- * 
- * Low-downtime updates are only available for DB Instances using MySQL and MariaDB,
- * as other engines are not supported by RDS Blue/Green deployments.
- * 
- * Backups must be enabled to use low-downtime updates.
- * 
- * Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Instance;
- * import com.pulumi.aws.rds.InstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var default_ = new Instance(&#34;default&#34;, InstanceArgs.builder()        
- *             .allocatedStorage(10)
- *             .dbName(&#34;mydb&#34;)
- *             .engine(&#34;mysql&#34;)
- *             .engineVersion(&#34;5.7&#34;)
- *             .instanceClass(&#34;db.t3.micro&#34;)
- *             .parameterGroupName(&#34;default.mysql5.7&#34;)
- *             .password(&#34;foobarbaz&#34;)
- *             .skipFinalSnapshot(true)
- *             .username(&#34;foo&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Storage Autoscaling
- * 
- * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.rds.Instance;
- * import com.pulumi.aws.rds.InstanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
- *             .allocatedStorage(50)
- *             .maxAllocatedStorage(100)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * DB Instances can be imported using the `identifier`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
- * ```
- * 
- */
 @ResourceType(type="aws:rds/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
-    /**
-     * The hostname of the RDS instance. See also `endpoint` and `port`.
-     * 
-     */
     @Export(name="address", refs={String.class}, tree="[0]")
     private Output<String> address;
 
-    /**
-     * @return The hostname of the RDS instance. See also `endpoint` and `port`.
-     * 
-     */
     public Output<String> address() {
         return this.address;
     }
-    /**
-     * The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
-     * 
-     */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
-    /**
-     * @return The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
-     * 
-     */
     public Output<Integer> allocatedStorage() {
         return this.allocatedStorage;
     }
-    /**
-     * Indicates that major version
-     * upgrades are allowed. Changing this parameter does not result in an outage and
-     * the change is asynchronously applied as soon as possible.
-     * 
-     */
     @Export(name="allowMajorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowMajorVersionUpgrade;
 
-    /**
-     * @return Indicates that major version
-     * upgrades are allowed. Changing this parameter does not result in an outage and
-     * the change is asynchronously applied as soon as possible.
-     * 
-     */
     public Output<Optional<Boolean>> allowMajorVersionUpgrade() {
         return Codegen.optional(this.allowMajorVersionUpgrade);
     }
-    /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more
-     * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-     * 
-     */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
-    /**
-     * @return Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is
-     * `false`. See [Amazon RDS Documentation for more
-     * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
-     * 
-     */
     public Output<Optional<Boolean>> applyImmediately() {
         return Codegen.optional(this.applyImmediately);
     }
-    /**
-     * The ARN of the RDS instance.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the RDS instance.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Indicates that minor engine upgrades
-     * will be applied automatically to the DB instance during the maintenance window.
-     * Defaults to true.
-     * 
-     */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
-    /**
-     * @return Indicates that minor engine upgrades
-     * will be applied automatically to the DB instance during the maintenance window.
-     * Defaults to true.
-     * 
-     */
     public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
-    /**
-     * The AZ for the RDS instance.
-     * 
-     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
-    /**
-     * @return The AZ for the RDS instance.
-     * 
-     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
-    /**
-     * The days to retain backups for.
-     * Must be between `0` and `35`.
-     * Default is `0`.
-     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
-     * uses low-downtime updates,
-     * or will use [RDS Blue/Green deployments][blue-green].
-     * 
-     */
     @Export(name="backupRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> backupRetentionPeriod;
 
-    /**
-     * @return The days to retain backups for.
-     * Must be between `0` and `35`.
-     * Default is `0`.
-     * Must be greater than `0` if the database is used as a source for a [Read Replica][instance-replication],
-     * uses low-downtime updates,
-     * or will use [RDS Blue/Green deployments][blue-green].
-     * 
-     */
     public Output<Integer> backupRetentionPeriod() {
         return this.backupRetentionPeriod;
     }
-    /**
-     * The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
-     * 
-     */
     @Export(name="backupWindow", refs={String.class}, tree="[0]")
     private Output<String> backupWindow;
 
-    /**
-     * @return The daily time range (in UTC) during which automated backups are created if they are enabled.
-     * Example: &#34;09:46-10:16&#34;. Must not overlap with `maintenance_window`.
-     * 
-     */
     public Output<String> backupWindow() {
         return this.backupWindow;
     }
-    /**
-     * Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
-     * 
-     */
     @Export(name="blueGreenUpdate", refs={InstanceBlueGreenUpdate.class}, tree="[0]")
     private Output</* @Nullable */ InstanceBlueGreenUpdate> blueGreenUpdate;
 
-    /**
-     * @return Enables low-downtime updates using [RDS Blue/Green deployments][blue-green].
-     * See blue_green_update below
-     * 
-     */
     public Output<Optional<InstanceBlueGreenUpdate>> blueGreenUpdate() {
         return Codegen.optional(this.blueGreenUpdate);
     }
-    /**
-     * The identifier of the CA certificate for the DB instance.
-     * 
-     */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertIdentifier;
 
-    /**
-     * @return The identifier of the CA certificate for the DB instance.
-     * 
-     */
     public Output<String> caCertIdentifier() {
         return this.caCertIdentifier;
     }
-    /**
-     * The character set name to use for DB
-     * encoding in Oracle and Microsoft SQL instances (collation). This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * 
-     */
     @Export(name="characterSetName", refs={String.class}, tree="[0]")
     private Output<String> characterSetName;
 
-    /**
-     * @return The character set name to use for DB
-     * encoding in Oracle and Microsoft SQL instances (collation). This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
-     * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
-     * 
-     */
     public Output<String> characterSetName() {
         return this.characterSetName;
     }
-    /**
-     * Copy all Instance `tags` to snapshots. Default is `false`.
-     * 
-     */
     @Export(name="copyTagsToSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToSnapshot;
 
-    /**
-     * @return Copy all Instance `tags` to snapshots. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> copyTagsToSnapshot() {
         return Codegen.optional(this.copyTagsToSnapshot);
     }
-    /**
-     * The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
-     * 
-     */
     @Export(name="customIamInstanceProfile", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customIamInstanceProfile;
 
-    /**
-     * @return The instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
-     * 
-     */
     public Output<Optional<String>> customIamInstanceProfile() {
         return Codegen.optional(this.customIamInstanceProfile);
     }
-    /**
-     * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
-     * 
-     */
     @Export(name="customerOwnedIpEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> customerOwnedIpEnabled;
 
-    /**
-     * @return Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
-     * 
-     */
     public Output<Optional<Boolean>> customerOwnedIpEnabled() {
         return Codegen.optional(this.customerOwnedIpEnabled);
     }
-    /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     @Export(name="dbName", refs={String.class}, tree="[0]")
     private Output<String> dbName;
 
-    /**
-     * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     public Output<String> dbName() {
         return this.dbName;
     }
-    /**
-     * Name of DB subnet group. DB instance will
-     * be created in the VPC associated with the DB subnet group. If unspecified, will
-     * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it should be specified only if the source database
-     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
-     * 
-     */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
-    /**
-     * @return Name of DB subnet group. DB instance will
-     * be created in the VPC associated with the DB subnet group. If unspecified, will
-     * be created in the `default` VPC, or in EC2 Classic, if available. When working
-     * with read replicas, it should be specified only if the source database
-     * specifies an instance in another AWS Region. See [DBSubnetGroupName in API
-     * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
-     * for additional read replica contraints.
-     * 
-     */
     public Output<String> dbSubnetGroupName() {
         return this.dbSubnetGroupName;
     }
-    /**
-     * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
-     * 
-     */
     @Export(name="deleteAutomatedBackups", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteAutomatedBackups;
 
-    /**
-     * @return Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
-     * 
-     */
     public Output<Optional<Boolean>> deleteAutomatedBackups() {
         return Codegen.optional(this.deleteAutomatedBackups);
     }
-    /**
-     * If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     @Export(name="deletionProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deletionProtection;
 
-    /**
-     * @return If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> deletionProtection() {
         return Codegen.optional(this.deletionProtection);
     }
-    /**
-     * The ID of the Directory Service Active Directory domain to create the instance in.
-     * 
-     */
     @Export(name="domain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domain;
 
-    /**
-     * @return The ID of the Directory Service Active Directory domain to create the instance in.
-     * 
-     */
     public Output<Optional<String>> domain() {
         return Codegen.optional(this.domain);
     }
-    /**
-     * The name of the IAM role to be used when making API calls to the Directory Service.
-     * 
-     */
     @Export(name="domainIamRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> domainIamRoleName;
 
-    /**
-     * @return The name of the IAM role to be used when making API calls to the Directory Service.
-     * 
-     */
     public Output<Optional<String>> domainIamRoleName() {
         return Codegen.optional(this.domainIamRoleName);
     }
-    /**
-     * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
-     * 
-     */
     @Export(name="enabledCloudwatchLogsExports", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enabledCloudwatchLogsExports;
 
-    /**
-     * @return Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
-     * 
-     */
     public Output<Optional<List<String>>> enabledCloudwatchLogsExports() {
         return Codegen.optional(this.enabledCloudwatchLogsExports);
     }
-    /**
-     * The connection endpoint in `address:port` format.
-     * 
-     */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
-    /**
-     * @return The connection endpoint in `address:port` format.
-     * 
-     */
     public Output<String> endpoint() {
         return this.endpoint;
     }
-    /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-     * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
-     * 
-     */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
-    /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html). Cannot be specified for a replica.
-     * Note that for Amazon Aurora instances the engine must match the DB cluster&#39;s engine&#39;.
-     * For information on the difference between the available Aurora MySQL engines
-     * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
-     * in the Amazon RDS User Guide.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
-    /**
-     * The engine version to use. If `auto_minor_version_upgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
-     * 
-     */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
-    /**
-     * @return The engine version to use. If `auto_minor_version_upgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
-     * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
-     * Note that for Amazon Aurora instances the engine version must match the DB cluster&#39;s engine version&#39;. Cannot be specified for a replica.
-     * 
-     */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
-    /**
-     * The running version of the database.
-     * 
-     */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
     private Output<String> engineVersionActual;
 
-    /**
-     * @return The running version of the database.
-     * 
-     */
     public Output<String> engineVersionActual() {
         return this.engineVersionActual;
     }
-    /**
-     * The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-     * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
-     * 
-     */
     @Export(name="finalSnapshotIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalSnapshotIdentifier;
 
-    /**
-     * @return The name of your final DB snapshot
-     * when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
-     * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
-     * 
-     */
     public Output<Optional<String>> finalSnapshotIdentifier() {
         return Codegen.optional(this.finalSnapshotIdentifier);
     }
-    /**
-     * The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
-     * 
-     */
     @Export(name="hostedZoneId", refs={String.class}, tree="[0]")
     private Output<String> hostedZoneId;
 
-    /**
-     * @return The canonical hosted zone ID of the DB instance (to be used
-     * in a Route 53 Alias record).
-     * 
-     */
     public Output<String> hostedZoneId() {
         return this.hostedZoneId;
     }
-    /**
-     * Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
-     * accounts is enabled.
-     * 
-     */
     @Export(name="iamDatabaseAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> iamDatabaseAuthenticationEnabled;
 
-    /**
-     * @return Specifies whether mappings of AWS Identity and Access Management (IAM) accounts to database
-     * accounts is enabled.
-     * 
-     */
     public Output<Optional<Boolean>> iamDatabaseAuthenticationEnabled() {
         return Codegen.optional(this.iamDatabaseAuthenticationEnabled);
     }
-    /**
-     * The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-     * 
-     */
     @Export(name="identifier", refs={String.class}, tree="[0]")
     private Output<String> identifier;
 
-    /**
-     * @return The name of the RDS instance,
-     * if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified.
-     * 
-     */
     public Output<String> identifier() {
         return this.identifier;
     }
-    /**
-     * Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
-     * 
-     */
     @Export(name="identifierPrefix", refs={String.class}, tree="[0]")
     private Output<String> identifierPrefix;
 
-    /**
-     * @return Creates a unique
-     * identifier beginning with the specified prefix. Conflicts with `identifier`.
-     * 
-     */
     public Output<String> identifierPrefix() {
         return this.identifierPrefix;
     }
-    /**
-     * The instance type of the RDS instance.
-     * 
-     */
     @Export(name="instanceClass", refs={String.class}, tree="[0]")
     private Output<String> instanceClass;
 
-    /**
-     * @return The instance type of the RDS instance.
-     * 
-     */
     public Output<String> instanceClass() {
         return this.instanceClass;
     }
-    /**
-     * The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
-     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
-     * 
-     */
     @Export(name="iops", refs={Integer.class}, tree="[0]")
     private Output<Integer> iops;
 
-    /**
-     * @return The amount of provisioned IOPS. Setting this implies a
-     * storage_type of &#34;io1&#34;. Can only be set when `storage_type` is `&#34;io1&#34;` or `&#34;gp3&#34;`.
-     * Cannot be specified for gp3 storage if the `allocated_storage` value is below a per-`engine` threshold.
-     * See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
-     * 
-     */
     public Output<Integer> iops() {
         return this.iops;
     }
-    /**
-     * The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The ARN for the KMS encryption key. If creating an
-     * encrypted replica, set this to the destination KMS ARN.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
-    /**
-     * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-     * 
-     */
     @Export(name="latestRestorableTime", refs={String.class}, tree="[0]")
     private Output<String> latestRestorableTime;
 
-    /**
-     * @return The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-     * 
-     */
     public Output<String> latestRestorableTime() {
         return this.latestRestorableTime;
     }
-    /**
-     * (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
-     * 
-     */
     @Export(name="licenseModel", refs={String.class}, tree="[0]")
     private Output<String> licenseModel;
 
-    /**
-     * @return (Optional, but required for some DB engines, i.e., Oracle
-     * SE1) License model information for this DB instance.
-     * 
-     */
     public Output<String> licenseModel() {
         return this.licenseModel;
     }
-    /**
-     * The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;. See [RDS
-     * Maintenance Window
-     * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
-     * for more information.
-     * 
-     */
     @Export(name="maintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> maintenanceWindow;
 
-    /**
-     * @return The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;. See [RDS
-     * Maintenance Window
-     * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
-     * for more information.
-     * 
-     */
     public Output<String> maintenanceWindow() {
         return this.maintenanceWindow;
     }
-    /**
-     * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
-     * 
-     */
     @Export(name="maxAllocatedStorage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAllocatedStorage;
 
-    /**
-     * @return When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocated_storage`. Must be greater than or equal to `allocated_storage` or `0` to disable Storage Autoscaling.
-     * 
-     */
     public Output<Optional<Integer>> maxAllocatedStorage() {
         return Codegen.optional(this.maxAllocatedStorage);
     }
-    /**
-     * The interval, in seconds, between points
-     * when Enhanced Monitoring metrics are collected for the DB instance. To disable
-     * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
-     * Values: 0, 1, 5, 10, 15, 30, 60.
-     * 
-     */
     @Export(name="monitoringInterval", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> monitoringInterval;
 
-    /**
-     * @return The interval, in seconds, between points
-     * when Enhanced Monitoring metrics are collected for the DB instance. To disable
-     * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
-     * Values: 0, 1, 5, 10, 15, 30, 60.
-     * 
-     */
     public Output<Optional<Integer>> monitoringInterval() {
         return Codegen.optional(this.monitoringInterval);
     }
-    /**
-     * The ARN for the IAM role that permits RDS
-     * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
-     * information on the [AWS
-     * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
-     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-     * 
-     */
     @Export(name="monitoringRoleArn", refs={String.class}, tree="[0]")
     private Output<String> monitoringRoleArn;
 
-    /**
-     * @return The ARN for the IAM role that permits RDS
-     * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
-     * information on the [AWS
-     * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
-     * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-     * 
-     */
     public Output<String> monitoringRoleArn() {
         return this.monitoringRoleArn;
     }
-    /**
-     * Specifies if the RDS instance is multi-AZ
-     * 
-     */
     @Export(name="multiAz", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> multiAz;
 
-    /**
-     * @return Specifies if the RDS instance is multi-AZ
-     * 
-     */
     public Output<Boolean> multiAz() {
         return this.multiAz;
     }
-    /**
-     * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case. Cannot be specified for a replica.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
-     * 
-     */
     @Export(name="ncharCharacterSetName", refs={String.class}, tree="[0]")
     private Output<String> ncharCharacterSetName;
 
-    /**
-     * @return The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
-     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
-     * 
-     */
     public Output<String> ncharCharacterSetName() {
         return this.ncharCharacterSetName;
     }
-    /**
-     * The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
-     * 
-     */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
-    /**
-     * @return The network type of the DB instance. Valid values: `IPV4`, `DUAL`.
-     * 
-     */
     public Output<String> networkType() {
         return this.networkType;
     }
-    /**
-     * Name of the DB option group to associate.
-     * 
-     */
     @Export(name="optionGroupName", refs={String.class}, tree="[0]")
     private Output<String> optionGroupName;
 
-    /**
-     * @return Name of the DB option group to associate.
-     * 
-     */
     public Output<String> optionGroupName() {
         return this.optionGroupName;
     }
-    /**
-     * Name of the DB parameter group to
-     * associate.
-     * 
-     */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
-    /**
-     * @return Name of the DB parameter group to
-     * associate.
-     * 
-     */
     public Output<String> parameterGroupName() {
         return this.parameterGroupName;
     }
-    /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
-     * 
-     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
-    /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Password for the master DB user. Note that this may show up in
-     * logs, and it will be stored in the state file.
-     * 
-     */
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
-    /**
-     * Specifies whether Performance Insights are enabled. Defaults to false.
-     * 
-     */
     @Export(name="performanceInsightsEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> performanceInsightsEnabled;
 
-    /**
-     * @return Specifies whether Performance Insights are enabled. Defaults to false.
-     * 
-     */
     public Output<Optional<Boolean>> performanceInsightsEnabled() {
         return Codegen.optional(this.performanceInsightsEnabled);
     }
-    /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
-     * 
-     */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> performanceInsightsKmsKeyId;
 
-    /**
-     * @return The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true. Once KMS key is set, it can never be changed.
-     * 
-     */
     public Output<String> performanceInsightsKmsKeyId() {
         return this.performanceInsightsKmsKeyId;
     }
-    /**
-     * Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
-     * 
-     */
     @Export(name="performanceInsightsRetentionPeriod", refs={Integer.class}, tree="[0]")
     private Output<Integer> performanceInsightsRetentionPeriod;
 
-    /**
-     * @return Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to &#39;7&#39;.
-     * 
-     */
     public Output<Integer> performanceInsightsRetentionPeriod() {
         return this.performanceInsightsRetentionPeriod;
     }
-    /**
-     * The port on which the DB accepts connections.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
-    /**
-     * @return The port on which the DB accepts connections.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
-    /**
-     * Bool to control if instance is publicly
-     * accessible. Default is `false`.
-     * 
-     */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
-    /**
-     * @return Bool to control if instance is publicly
-     * accessible. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> publiclyAccessible() {
         return Codegen.optional(this.publiclyAccessible);
     }
-    /**
-     * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
-     * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-     * 
-     */
     @Export(name="replicaMode", refs={String.class}, tree="[0]")
     private Output<String> replicaMode;
 
-    /**
-     * @return Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
-     * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
-     * 
-     */
     public Output<String> replicaMode() {
         return this.replicaMode;
     }
@@ -1008,83 +347,31 @@ public class Instance extends com.pulumi.resources.CustomResource {
     public Output<List<String>> replicas() {
         return this.replicas;
     }
-    /**
-     * Specifies that this resource is a Replicate
-     * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate (if replicating within
-     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-     * cross-region). Note that if you are
-     * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-     * for more information on using Replication.
-     * 
-     */
     @Export(name="replicateSourceDb", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> replicateSourceDb;
 
-    /**
-     * @return Specifies that this resource is a Replicate
-     * database, and to use this value as the source database. This correlates to the
-     * `identifier` of another Amazon RDS Database to replicate (if replicating within
-     * a single region) or ARN of the Amazon RDS Database to replicate (if replicating
-     * cross-region). Note that if you are
-     * creating a cross-region replica of an encrypted database you will also need to
-     * specify a `kms_key_id`. See [DB Instance Replication][instance-replication] and [Working with
-     * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
-     * for more information on using Replication.
-     * 
-     */
     public Output<Optional<String>> replicateSourceDb() {
         return Codegen.optional(this.replicateSourceDb);
     }
-    /**
-     * The RDS Resource ID of this instance.
-     * 
-     */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
-    /**
-     * @return The RDS Resource ID of this instance.
-     * 
-     */
     public Output<String> resourceId() {
         return this.resourceId;
     }
-    /**
-     * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-     * 
-     */
     @Export(name="restoreToPointInTime", refs={InstanceRestoreToPointInTime.class}, tree="[0]")
     private Output</* @Nullable */ InstanceRestoreToPointInTime> restoreToPointInTime;
 
-    /**
-     * @return A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
-     * 
-     */
     public Output<Optional<InstanceRestoreToPointInTime>> restoreToPointInTime() {
         return Codegen.optional(this.restoreToPointInTime);
     }
-    /**
-     * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-     * 
-     */
     @Export(name="s3Import", refs={InstanceS3Import.class}, tree="[0]")
     private Output</* @Nullable */ InstanceS3Import> s3Import;
 
-    /**
-     * @return Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
-     * 
-     */
     public Output<Optional<InstanceS3Import>> s3Import() {
         return Codegen.optional(this.s3Import);
     }
     /**
-     * List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
      * @deprecated
      * With the retirement of EC2-Classic the security_group_names attribute has been deprecated and will be removed in a future version.
      * 
@@ -1093,202 +380,72 @@ public class Instance extends com.pulumi.resources.CustomResource {
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityGroupNames;
 
-    /**
-     * @return List of DB Security Groups to
-     * associate. Only used for [DB Instances on the _EC2-Classic_
-     * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
-     * 
-     */
     public Output<Optional<List<String>>> securityGroupNames() {
         return Codegen.optional(this.securityGroupNames);
     }
-    /**
-     * Determines whether a final DB snapshot is
-     * created before the DB instance is deleted. If true is specified, no DBSnapshot
-     * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
-     * is `false`.
-     * 
-     */
     @Export(name="skipFinalSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipFinalSnapshot;
 
-    /**
-     * @return Determines whether a final DB snapshot is
-     * created before the DB instance is deleted. If true is specified, no DBSnapshot
-     * is created. If false is specified, a DB snapshot is created before the DB
-     * instance is deleted, using the value from `final_snapshot_identifier`. Default
-     * is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> skipFinalSnapshot() {
         return Codegen.optional(this.skipFinalSnapshot);
     }
-    /**
-     * Specifies whether or not to create this
-     * database from a snapshot. This correlates to the snapshot ID you&#39;d find in the
-     * RDS console, e.g: rds:production-2015-06-26-06-05.
-     * 
-     */
     @Export(name="snapshotIdentifier", refs={String.class}, tree="[0]")
     private Output<String> snapshotIdentifier;
 
-    /**
-     * @return Specifies whether or not to create this
-     * database from a snapshot. This correlates to the snapshot ID you&#39;d find in the
-     * RDS console, e.g: rds:production-2015-06-26-06-05.
-     * 
-     */
     public Output<String> snapshotIdentifier() {
         return this.snapshotIdentifier;
     }
-    /**
-     * The RDS instance status.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The RDS instance status.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Specifies whether the DB instance is
-     * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
-     * default is `false` if not specified.
-     * 
-     */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> storageEncrypted;
 
-    /**
-     * @return Specifies whether the DB instance is
-     * encrypted. Note that if you are creating a cross-region read replica this field
-     * is ignored and you should instead declare `kms_key_id` with a valid ARN. The
-     * default is `false` if not specified.
-     * 
-     */
     public Output<Optional<Boolean>> storageEncrypted() {
         return Codegen.optional(this.storageEncrypted);
     }
-    /**
-     * The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
-     * 
-     */
     @Export(name="storageThroughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageThroughput;
 
-    /**
-     * @return The storage throughput value for the DB instance. Can only be set when `storage_type` is `&#34;gp3&#34;`. Cannot be specified if the `allocated_storage` value is below a per-`engine` threshold. See the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage) for details.
-     * 
-     */
     public Output<Integer> storageThroughput() {
         return this.storageThroughput;
     }
-    /**
-     * One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
-     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
-     * &#34;gp2&#34; if not.
-     * 
-     */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
-    /**
-     * @return One of &#34;standard&#34; (magnetic), &#34;gp2&#34; (general
-     * purpose SSD), &#34;gp3&#34; (general purpose SSD that needs `iops` independently)
-     * or &#34;io1&#34; (provisioned IOPS SSD). The default is &#34;io1&#34; if `iops` is specified,
-     * &#34;gp2&#34; if not.
-     * 
-     */
     public Output<String> storageType() {
         return this.storageType;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Time zone of the DB instance. `timezone` is currently
-     * only supported by Microsoft SQL Server. The `timezone` can only be set on
-     * creation. See [MSSQL User
-     * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
-     * for more information.
-     * 
-     */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output<String> timezone;
 
-    /**
-     * @return Time zone of the DB instance. `timezone` is currently
-     * only supported by Microsoft SQL Server. The `timezone` can only be set on
-     * creation. See [MSSQL User
-     * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
-     * for more information.
-     * 
-     */
     public Output<String> timezone() {
         return this.timezone;
     }
-    /**
-     * (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
-     * 
-     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
-    /**
-     * @return (Required unless a `snapshot_identifier` or `replicate_source_db`
-     * is provided) Username for the master DB user. Cannot be specified for a replica.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
-    /**
-     * List of VPC security groups to
-     * associate.
-     * 
-     */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
-    /**
-     * @return List of VPC security groups to
-     * associate.
-     * 
-     */
     public Output<List<String>> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

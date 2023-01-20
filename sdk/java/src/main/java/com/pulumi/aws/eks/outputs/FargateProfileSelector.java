@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FargateProfileSelector {
-    /**
-     * @return Key-value map of Kubernetes labels for selection.
-     * 
-     */
     private @Nullable Map<String,String> labels;
-    /**
-     * @return Kubernetes namespace for selection.
-     * 
-     */
     private String namespace;
 
     private FargateProfileSelector() {}
-    /**
-     * @return Key-value map of Kubernetes labels for selection.
-     * 
-     */
     public Map<String,String> labels() {
         return this.labels == null ? Map.of() : this.labels;
     }
-    /**
-     * @return Kubernetes namespace for selection.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }

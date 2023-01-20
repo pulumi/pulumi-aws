@@ -15,47 +15,23 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetStreamConsumerArgs Empty = new GetStreamConsumerArgs();
 
-    /**
-     * ARN of the stream consumer.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the stream consumer.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * Name of the stream consumer.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the stream consumer.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * ARN of the data stream the consumer is registered with.
-     * 
-     */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
-    /**
-     * @return ARN of the data stream the consumer is registered with.
-     * 
-     */
     public Output<String> streamArn() {
         return this.streamArn;
     }
@@ -86,65 +62,29 @@ public final class GetStreamConsumerArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetStreamConsumerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the stream consumer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the stream consumer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param name Name of the stream consumer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the stream consumer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param streamArn ARN of the data stream the consumer is registered with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(Output<String> streamArn) {
             $.streamArn = streamArn;
             return this;
         }
 
-        /**
-         * @param streamArn ARN of the data stream the consumer is registered with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
         }

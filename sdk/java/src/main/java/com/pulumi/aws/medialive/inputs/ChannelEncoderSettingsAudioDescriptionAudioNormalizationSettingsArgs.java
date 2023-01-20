@@ -16,47 +16,23 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
 
     public static final ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs();
 
-    /**
-     * Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-     * 
-     */
     @Import(name="algorithm")
     private @Nullable Output<String> algorithm;
 
-    /**
-     * @return Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-     * 
-     */
     public Optional<Output<String>> algorithm() {
         return Optional.ofNullable(this.algorithm);
     }
 
-    /**
-     * Algorithm control for the audio description.
-     * 
-     */
     @Import(name="algorithmControl")
     private @Nullable Output<String> algorithmControl;
 
-    /**
-     * @return Algorithm control for the audio description.
-     * 
-     */
     public Optional<Output<String>> algorithmControl() {
         return Optional.ofNullable(this.algorithmControl);
     }
 
-    /**
-     * Target LKFS (loudness) to adjust volume to.
-     * 
-     */
     @Import(name="targetLkfs")
     private @Nullable Output<Double> targetLkfs;
 
-    /**
-     * @return Target LKFS (loudness) to adjust volume to.
-     * 
-     */
     public Optional<Output<Double>> targetLkfs() {
         return Optional.ofNullable(this.targetLkfs);
     }
@@ -87,65 +63,29 @@ public final class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSetti
             $ = new ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param algorithm Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(@Nullable Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
-        /**
-         * @param algorithm Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 to the EBU R-128 specification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
 
-        /**
-         * @param algorithmControl Algorithm control for the audio description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithmControl(@Nullable Output<String> algorithmControl) {
             $.algorithmControl = algorithmControl;
             return this;
         }
 
-        /**
-         * @param algorithmControl Algorithm control for the audio description.
-         * 
-         * @return builder
-         * 
-         */
         public Builder algorithmControl(String algorithmControl) {
             return algorithmControl(Output.of(algorithmControl));
         }
 
-        /**
-         * @param targetLkfs Target LKFS (loudness) to adjust volume to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetLkfs(@Nullable Output<Double> targetLkfs) {
             $.targetLkfs = targetLkfs;
             return this;
         }
 
-        /**
-         * @param targetLkfs Target LKFS (loudness) to adjust volume to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetLkfs(Double targetLkfs) {
             return targetLkfs(Output.of(targetLkfs));
         }

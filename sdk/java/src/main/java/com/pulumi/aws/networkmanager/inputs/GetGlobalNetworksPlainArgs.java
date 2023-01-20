@@ -15,17 +15,9 @@ public final class GetGlobalNetworksPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetGlobalNetworksPlainArgs Empty = new GetGlobalNetworksPlainArgs();
 
-    /**
-     * Restricts the list to the global networks with these tags.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Restricts the list to the global networks with these tags.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -54,12 +46,6 @@ public final class GetGlobalNetworksPlainArgs extends com.pulumi.resources.Invok
             $ = new GetGlobalNetworksPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Restricts the list to the global networks with these tags.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

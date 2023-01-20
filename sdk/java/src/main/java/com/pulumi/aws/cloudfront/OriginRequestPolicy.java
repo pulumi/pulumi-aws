@@ -17,155 +17,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * The following example below creates a CloudFront origin request policy.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.OriginRequestPolicy;
- * import com.pulumi.aws.cloudfront.OriginRequestPolicyArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyCookiesConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyCookiesConfigCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyHeadersConfigHeadersArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.OriginRequestPolicyQueryStringsConfigQueryStringsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new OriginRequestPolicy(&#34;example&#34;, OriginRequestPolicyArgs.builder()        
- *             .comment(&#34;example comment&#34;)
- *             .cookiesConfig(OriginRequestPolicyCookiesConfigArgs.builder()
- *                 .cookieBehavior(&#34;whitelist&#34;)
- *                 .cookies(OriginRequestPolicyCookiesConfigCookiesArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .headersConfig(OriginRequestPolicyHeadersConfigArgs.builder()
- *                 .headerBehavior(&#34;whitelist&#34;)
- *                 .headers(OriginRequestPolicyHeadersConfigHeadersArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .queryStringsConfig(OriginRequestPolicyQueryStringsConfigArgs.builder()
- *                 .queryStringBehavior(&#34;whitelist&#34;)
- *                 .queryStrings(OriginRequestPolicyQueryStringsConfigQueryStringsArgs.builder()
- *                     .items(&#34;example&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Cloudfront Origin Request Policies can be imported using the `id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:cloudfront/originRequestPolicy:OriginRequestPolicy policy ccca32ef-dce3-4df3-80df-1bd3000bc4d3
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/originRequestPolicy:OriginRequestPolicy")
 public class OriginRequestPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Comment to describe the origin request policy.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Comment to describe the origin request policy.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-     * 
-     */
     @Export(name="cookiesConfig", refs={OriginRequestPolicyCookiesConfig.class}, tree="[0]")
     private Output<OriginRequestPolicyCookiesConfig> cookiesConfig;
 
-    /**
-     * @return Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-     * 
-     */
     public Output<OriginRequestPolicyCookiesConfig> cookiesConfig() {
         return this.cookiesConfig;
     }
-    /**
-     * The current version of the origin request policy.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The current version of the origin request policy.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-     * 
-     */
     @Export(name="headersConfig", refs={OriginRequestPolicyHeadersConfig.class}, tree="[0]")
     private Output<OriginRequestPolicyHeadersConfig> headersConfig;
 
-    /**
-     * @return Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-     * 
-     */
     public Output<OriginRequestPolicyHeadersConfig> headersConfig() {
         return this.headersConfig;
     }
-    /**
-     * Unique name to identify the origin request policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Unique name to identify the origin request policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-     * 
-     */
     @Export(name="queryStringsConfig", refs={OriginRequestPolicyQueryStringsConfig.class}, tree="[0]")
     private Output<OriginRequestPolicyQueryStringsConfig> queryStringsConfig;
 
-    /**
-     * @return Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-     * 
-     */
     public Output<OriginRequestPolicyQueryStringsConfig> queryStringsConfig() {
         return this.queryStringsConfig;
     }

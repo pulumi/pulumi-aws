@@ -15,62 +15,30 @@ public final class ProductPortfolioAssociationState extends com.pulumi.resources
 
     public static final ProductPortfolioAssociationState Empty = new ProductPortfolioAssociationState();
 
-    /**
-     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     @Import(name="acceptLanguage")
     private @Nullable Output<String> acceptLanguage;
 
-    /**
-     * @return Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-     * 
-     */
     public Optional<Output<String>> acceptLanguage() {
         return Optional.ofNullable(this.acceptLanguage);
     }
 
-    /**
-     * Portfolio identifier.
-     * 
-     */
     @Import(name="portfolioId")
     private @Nullable Output<String> portfolioId;
 
-    /**
-     * @return Portfolio identifier.
-     * 
-     */
     public Optional<Output<String>> portfolioId() {
         return Optional.ofNullable(this.portfolioId);
     }
 
-    /**
-     * Product identifier.
-     * 
-     */
     @Import(name="productId")
     private @Nullable Output<String> productId;
 
-    /**
-     * @return Product identifier.
-     * 
-     */
     public Optional<Output<String>> productId() {
         return Optional.ofNullable(this.productId);
     }
 
-    /**
-     * Identifier of the source portfolio.
-     * 
-     */
     @Import(name="sourcePortfolioId")
     private @Nullable Output<String> sourcePortfolioId;
 
-    /**
-     * @return Identifier of the source portfolio.
-     * 
-     */
     public Optional<Output<String>> sourcePortfolioId() {
         return Optional.ofNullable(this.sourcePortfolioId);
     }
@@ -102,86 +70,38 @@ public final class ProductPortfolioAssociationState extends com.pulumi.resources
             $ = new ProductPortfolioAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(@Nullable Output<String> acceptLanguage) {
             $.acceptLanguage = acceptLanguage;
             return this;
         }
 
-        /**
-         * @param acceptLanguage Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder acceptLanguage(String acceptLanguage) {
             return acceptLanguage(Output.of(acceptLanguage));
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(@Nullable Output<String> portfolioId) {
             $.portfolioId = portfolioId;
             return this;
         }
 
-        /**
-         * @param portfolioId Portfolio identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder portfolioId(String portfolioId) {
             return portfolioId(Output.of(portfolioId));
         }
 
-        /**
-         * @param productId Product identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productId(@Nullable Output<String> productId) {
             $.productId = productId;
             return this;
         }
 
-        /**
-         * @param productId Product identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder productId(String productId) {
             return productId(Output.of(productId));
         }
 
-        /**
-         * @param sourcePortfolioId Identifier of the source portfolio.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortfolioId(@Nullable Output<String> sourcePortfolioId) {
             $.sourcePortfolioId = sourcePortfolioId;
             return this;
         }
 
-        /**
-         * @param sourcePortfolioId Identifier of the source portfolio.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourcePortfolioId(String sourcePortfolioId) {
             return sourcePortfolioId(Output.of(sourcePortfolioId));
         }

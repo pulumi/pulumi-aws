@@ -28,609 +28,179 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * &gt; **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `aws.iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
- * 
- * Provides an ECS service - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
- * 
- * See [ECS Services section in AWS developer guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
- * import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var mongo = new Service(&#34;mongo&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.foo().id())
- *             .taskDefinition(aws_ecs_task_definition.mongo().arn())
- *             .desiredCount(3)
- *             .iamRole(aws_iam_role.foo().arn())
- *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
- *                 .type(&#34;binpack&#34;)
- *                 .field(&#34;cpu&#34;)
- *                 .build())
- *             .loadBalancers(ServiceLoadBalancerArgs.builder()
- *                 .targetGroupArn(aws_lb_target_group.foo().arn())
- *                 .containerName(&#34;mongo&#34;)
- *                 .containerPort(8080)
- *                 .build())
- *             .placementConstraints(ServicePlacementConstraintArgs.builder()
- *                 .type(&#34;memberOf&#34;)
- *                 .expression(&#34;attribute:ecs.availability-zone in [us-west-2a, us-west-2b]&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_iam_role_policy.foo())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Ignoring Changes to Desired Count
- * 
- * You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .desiredCount(2)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Daemon Scheduling Strategy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var bar = new Service(&#34;bar&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.foo().id())
- *             .taskDefinition(aws_ecs_task_definition.bar().arn())
- *             .schedulingStrategy(&#34;DAEMON&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### CloudWatch Deployment Alarms
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceAlarmsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.example().id())
- *             .alarms(ServiceAlarmsArgs.builder()
- *                 .enable(true)
- *                 .rollback(true)
- *                 .alarmNames(aws_cloudwatch_metric_alarm.example().alarm_name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### External Deployment Controller
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecs.Service;
- * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceDeploymentControllerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
- *             .cluster(aws_ecs_cluster.example().id())
- *             .deploymentController(ServiceDeploymentControllerArgs.builder()
- *                 .type(&#34;EXTERNAL&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
- * ```
- * 
- */
 @ResourceType(type="aws:ecs/service:Service")
 public class Service extends com.pulumi.resources.CustomResource {
-    /**
-     * Information about the CloudWatch alarms. See below.
-     * 
-     */
     @Export(name="alarms", refs={ServiceAlarms.class}, tree="[0]")
     private Output</* @Nullable */ ServiceAlarms> alarms;
 
-    /**
-     * @return Information about the CloudWatch alarms. See below.
-     * 
-     */
     public Output<Optional<ServiceAlarms>> alarms() {
         return Codegen.optional(this.alarms);
     }
-    /**
-     * Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
-     * 
-     */
     @Export(name="capacityProviderStrategies", refs={List.class,ServiceCapacityProviderStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceCapacityProviderStrategy>> capacityProviderStrategies;
 
-    /**
-     * @return Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
-     * 
-     */
     public Output<Optional<List<ServiceCapacityProviderStrategy>>> capacityProviderStrategies() {
         return Codegen.optional(this.capacityProviderStrategies);
     }
-    /**
-     * ARN of an ECS cluster.
-     * 
-     */
     @Export(name="cluster", refs={String.class}, tree="[0]")
     private Output<String> cluster;
 
-    /**
-     * @return ARN of an ECS cluster.
-     * 
-     */
     public Output<String> cluster() {
         return this.cluster;
     }
-    /**
-     * Configuration block for deployment circuit breaker. See below.
-     * 
-     */
     @Export(name="deploymentCircuitBreaker", refs={ServiceDeploymentCircuitBreaker.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDeploymentCircuitBreaker> deploymentCircuitBreaker;
 
-    /**
-     * @return Configuration block for deployment circuit breaker. See below.
-     * 
-     */
     public Output<Optional<ServiceDeploymentCircuitBreaker>> deploymentCircuitBreaker() {
         return Codegen.optional(this.deploymentCircuitBreaker);
     }
-    /**
-     * Configuration block for deployment controller configuration. See below.
-     * 
-     */
     @Export(name="deploymentController", refs={ServiceDeploymentController.class}, tree="[0]")
     private Output</* @Nullable */ ServiceDeploymentController> deploymentController;
 
-    /**
-     * @return Configuration block for deployment controller configuration. See below.
-     * 
-     */
     public Output<Optional<ServiceDeploymentController>> deploymentController() {
         return Codegen.optional(this.deploymentController);
     }
-    /**
-     * Upper limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-     * 
-     */
     @Export(name="deploymentMaximumPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deploymentMaximumPercent;
 
-    /**
-     * @return Upper limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
-     * 
-     */
     public Output<Optional<Integer>> deploymentMaximumPercent() {
         return Codegen.optional(this.deploymentMaximumPercent);
     }
-    /**
-     * Lower limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-     * 
-     */
     @Export(name="deploymentMinimumHealthyPercent", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deploymentMinimumHealthyPercent;
 
-    /**
-     * @return Lower limit (as a percentage of the service&#39;s desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
-     * 
-     */
     public Output<Optional<Integer>> deploymentMinimumHealthyPercent() {
         return Codegen.optional(this.deploymentMinimumHealthyPercent);
     }
-    /**
-     * Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-     * 
-     */
     @Export(name="desiredCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> desiredCount;
 
-    /**
-     * @return Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
-     * 
-     */
     public Output<Optional<Integer>> desiredCount() {
         return Codegen.optional(this.desiredCount);
     }
-    /**
-     * Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
-     * 
-     */
     @Export(name="enableEcsManagedTags", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableEcsManagedTags;
 
-    /**
-     * @return Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
-     * 
-     */
     public Output<Optional<Boolean>> enableEcsManagedTags() {
         return Codegen.optional(this.enableEcsManagedTags);
     }
-    /**
-     * Specifies whether to enable Amazon ECS Exec for the tasks within the service.
-     * 
-     */
     @Export(name="enableExecuteCommand", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExecuteCommand;
 
-    /**
-     * @return Specifies whether to enable Amazon ECS Exec for the tasks within the service.
-     * 
-     */
     public Output<Optional<Boolean>> enableExecuteCommand() {
         return Codegen.optional(this.enableExecuteCommand);
     }
-    /**
-     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-     * 
-     */
     @Export(name="forceNewDeployment", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceNewDeployment;
 
-    /**
-     * @return Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
-     * 
-     */
     public Output<Optional<Boolean>> forceNewDeployment() {
         return Codegen.optional(this.forceNewDeployment);
     }
-    /**
-     * Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-     * 
-     */
     @Export(name="healthCheckGracePeriodSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> healthCheckGracePeriodSeconds;
 
-    /**
-     * @return Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
-     * 
-     */
     public Output<Optional<Integer>> healthCheckGracePeriodSeconds() {
         return Codegen.optional(this.healthCheckGracePeriodSeconds);
     }
-    /**
-     * ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-     * 
-     */
     @Export(name="iamRole", refs={String.class}, tree="[0]")
     private Output<String> iamRole;
 
-    /**
-     * @return ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
-     * 
-     */
     public Output<String> iamRole() {
         return this.iamRole;
     }
-    /**
-     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-     * 
-     */
     @Export(name="launchType", refs={String.class}, tree="[0]")
     private Output<String> launchType;
 
-    /**
-     * @return Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-     * 
-     */
     public Output<String> launchType() {
         return this.launchType;
     }
-    /**
-     * Configuration block for load balancers. See below.
-     * 
-     */
     @Export(name="loadBalancers", refs={List.class,ServiceLoadBalancer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceLoadBalancer>> loadBalancers;
 
-    /**
-     * @return Configuration block for load balancers. See below.
-     * 
-     */
     public Output<Optional<List<ServiceLoadBalancer>>> loadBalancers() {
         return Codegen.optional(this.loadBalancers);
     }
-    /**
-     * Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the service (up to 255 letters, numbers, hyphens, and underscores)
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-     * 
-     */
     @Export(name="networkConfiguration", refs={ServiceNetworkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceNetworkConfiguration> networkConfiguration;
 
-    /**
-     * @return Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-     * 
-     */
     public Output<Optional<ServiceNetworkConfiguration>> networkConfiguration() {
         return Codegen.optional(this.networkConfiguration);
     }
-    /**
-     * Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-     * 
-     */
     @Export(name="orderedPlacementStrategies", refs={List.class,ServiceOrderedPlacementStrategy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceOrderedPlacementStrategy>> orderedPlacementStrategies;
 
-    /**
-     * @return Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-     * 
-     */
     public Output<Optional<List<ServiceOrderedPlacementStrategy>>> orderedPlacementStrategies() {
         return Codegen.optional(this.orderedPlacementStrategies);
     }
-    /**
-     * Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-     * 
-     */
     @Export(name="placementConstraints", refs={List.class,ServicePlacementConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServicePlacementConstraint>> placementConstraints;
 
-    /**
-     * @return Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
-     * 
-     */
     public Output<Optional<List<ServicePlacementConstraint>>> placementConstraints() {
         return Codegen.optional(this.placementConstraints);
     }
-    /**
-     * Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     * 
-     */
     @Export(name="platformVersion", refs={String.class}, tree="[0]")
     private Output<String> platformVersion;
 
-    /**
-     * @return Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-     * 
-     */
     public Output<String> platformVersion() {
         return this.platformVersion;
     }
-    /**
-     * Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-     * 
-     */
     @Export(name="propagateTags", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> propagateTags;
 
-    /**
-     * @return Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
-     * 
-     */
     public Output<Optional<String>> propagateTags() {
         return Codegen.optional(this.propagateTags);
     }
-    /**
-     * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don&#39;t support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-     * 
-     */
     @Export(name="schedulingStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedulingStrategy;
 
-    /**
-     * @return Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don&#39;t support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-     * 
-     */
     public Output<Optional<String>> schedulingStrategy() {
         return Codegen.optional(this.schedulingStrategy);
     }
-    /**
-     * The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-     * 
-     */
     @Export(name="serviceConnectConfiguration", refs={ServiceServiceConnectConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceConnectConfiguration> serviceConnectConfiguration;
 
-    /**
-     * @return The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-     * 
-     */
     public Output<Optional<ServiceServiceConnectConfiguration>> serviceConnectConfiguration() {
         return Codegen.optional(this.serviceConnectConfiguration);
     }
-    /**
-     * Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-     * 
-     */
     @Export(name="serviceRegistries", refs={ServiceServiceRegistries.class}, tree="[0]")
     private Output</* @Nullable */ ServiceServiceRegistries> serviceRegistries;
 
-    /**
-     * @return Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
-     * 
-     */
     public Output<Optional<ServiceServiceRegistries>> serviceRegistries() {
         return Codegen.optional(this.serviceRegistries);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-     * 
-     */
     @Export(name="taskDefinition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> taskDefinition;
 
-    /**
-     * @return Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
-     * 
-     */
     public Output<Optional<String>> taskDefinition() {
         return Codegen.optional(this.taskDefinition);
     }
-    /**
-     * Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
-     * 
-     */
     @Export(name="triggers", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> triggers;
 
-    /**
-     * @return Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
-     * 
-     */
     public Output<Map<String,String>> triggers() {
         return this.triggers;
     }
-    /**
-     * If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     * 
-     */
     @Export(name="waitForSteadyState", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> waitForSteadyState;
 
-    /**
-     * @return If `true`, this provider will wait for the service to reach a steady state (like [`aws ecs wait services-stable`](https://docs.aws.amazon.com/cli/latest/reference/ecs/wait/services-stable.html)) before continuing. Default `false`.
-     * 
-     */
     public Output<Optional<Boolean>> waitForSteadyState() {
         return Codegen.optional(this.waitForSteadyState);
     }

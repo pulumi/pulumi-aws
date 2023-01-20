@@ -16,47 +16,23 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RecorderArgs Empty = new RecorderArgs();
 
-    /**
-     * The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Recording group - see below.
-     * 
-     */
     @Import(name="recordingGroup")
     private @Nullable Output<RecorderRecordingGroupArgs> recordingGroup;
 
-    /**
-     * @return Recording group - see below.
-     * 
-     */
     public Optional<Output<RecorderRecordingGroupArgs>> recordingGroup() {
         return Optional.ofNullable(this.recordingGroup);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -87,65 +63,29 @@ public final class RecorderArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RecorderArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the recorder. Defaults to `default`. Changing it recreates the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param recordingGroup Recording group - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingGroup(@Nullable Output<RecorderRecordingGroupArgs> recordingGroup) {
             $.recordingGroup = recordingGroup;
             return this;
         }
 
-        /**
-         * @param recordingGroup Recording group - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recordingGroup(RecorderRecordingGroupArgs recordingGroup) {
             return recordingGroup(Output.of(recordingGroup));
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

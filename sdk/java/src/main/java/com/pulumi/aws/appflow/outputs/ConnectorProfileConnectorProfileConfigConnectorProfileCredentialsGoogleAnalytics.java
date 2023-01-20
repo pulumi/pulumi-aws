@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
-    /**
-     * @return The credentials used to access protected Zendesk resources.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     private String clientId;
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     private String clientSecret;
-    /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest oauthRequest;
-    /**
-     * @return The refresh token used to refresh expired access token.
-     * 
-     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics() {}
-    /**
-     * @return The credentials used to access protected Zendesk resources.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return The identifier for the desired client.
-     * 
-     */
     public String clientId() {
         return this.clientId;
     }
-    /**
-     * @return The client secret used by the OAuth client to authenticate to the authorization server.
-     * 
-     */
     public String clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
-    /**
-     * @return The refresh token used to refresh expired access token.
-     * 
-     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

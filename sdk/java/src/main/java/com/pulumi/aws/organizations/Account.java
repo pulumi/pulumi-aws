@@ -16,155 +16,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a member account in the current organization.
- * 
- * &gt; **Note:** Account management must be done from the organization&#39;s root account.
- * 
- * &gt; **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Account;
- * import com.pulumi.aws.organizations.AccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var account = new Account(&#34;account&#34;, AccountArgs.builder()        
- *             .email(&#34;john@doe.org&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * The AWS member account can be imported by using the `account_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:organizations/account:Account my_account 111111111111
- * ```
- * 
- *  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource &#34;aws_organizations_account&#34; &#34;account&#34; {
- * 
- *  name
- * 
- * = &#34;my_new_account&#34;
- * 
- *  email
- * 
- *  = &#34;john@doe.org&#34;
- * 
- *  role_name = &#34;myOrganizationRole&#34;
- * 
- * # There is no AWS Organizations API for reading role_name
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [role_name]
- * 
- *  } }
- * 
- */
 @ResourceType(type="aws:organizations/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN for this account.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN for this account.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-     * 
-     */
     @Export(name="closeOnDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> closeOnDeletion;
 
-    /**
-     * @return If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-     * 
-     */
     public Output<Optional<Boolean>> closeOnDeletion() {
         return Codegen.optional(this.closeOnDeletion);
     }
-    /**
-     * Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-     * 
-     */
     @Export(name="createGovcloud", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> createGovcloud;
 
-    /**
-     * @return Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-     * 
-     */
     public Output<Optional<Boolean>> createGovcloud() {
         return Codegen.optional(this.createGovcloud);
     }
-    /**
-     * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-     * 
-     */
     @Export(name="email", refs={String.class}, tree="[0]")
     private Output<String> email;
 
-    /**
-     * @return Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-     * 
-     */
     public Output<String> email() {
         return this.email;
     }
-    /**
-     * ID for a GovCloud account created with the account.
-     * 
-     */
     @Export(name="govcloudId", refs={String.class}, tree="[0]")
     private Output<String> govcloudId;
 
-    /**
-     * @return ID for a GovCloud account created with the account.
-     * 
-     */
     public Output<String> govcloudId() {
         return this.govcloudId;
     }
-    /**
-     * If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-     * 
-     */
     @Export(name="iamUserAccessToBilling", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> iamUserAccessToBilling;
 
-    /**
-     * @return If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-     * 
-     */
     public Output<Optional<String>> iamUserAccessToBilling() {
         return Codegen.optional(this.iamUserAccessToBilling);
     }
@@ -180,45 +66,21 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> joinedTimestamp() {
         return this.joinedTimestamp;
     }
-    /**
-     * Friendly name for the member account.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Friendly name for the member account.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-     * 
-     */
     @Export(name="parentId", refs={String.class}, tree="[0]")
     private Output<String> parentId;
 
-    /**
-     * @return Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-     * 
-     */
     public Output<String> parentId() {
         return this.parentId;
     }
-    /**
-     * The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-     * 
-     */
     @Export(name="roleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleName;
 
-    /**
-     * @return The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-     * 
-     */
     public Output<Optional<String>> roleName() {
         return Codegen.optional(this.roleName);
     }
@@ -228,31 +90,15 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

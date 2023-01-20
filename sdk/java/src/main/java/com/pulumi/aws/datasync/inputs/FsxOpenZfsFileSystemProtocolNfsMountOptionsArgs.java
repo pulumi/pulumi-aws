@@ -15,17 +15,9 @@ public final class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs extends com.p
 
     public static final FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs Empty = new FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs();
 
-    /**
-     * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -54,23 +46,11 @@ public final class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs extends com.p
             $ = new FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param version The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

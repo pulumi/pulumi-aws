@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
-    /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize canarySize;
-    /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
-     * 
-     */
     private @Nullable EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize linearStepSize;
-    /**
-     * @return Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-     * 
-     */
     private String type;
-    /**
-     * @return The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     private Integer waitIntervalInSeconds;
 
     private EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration() {}
-    /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
-     * 
-     */
     public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize> canarySize() {
         return Optional.ofNullable(this.canarySize);
     }
-    /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
-     * 
-     */
     public Optional<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize> linearStepSize() {
         return Optional.ofNullable(this.linearStepSize);
     }
-    /**
-     * @return Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
-     * 
-     */
     public Integer waitIntervalInSeconds() {
         return this.waitIntervalInSeconds;
     }

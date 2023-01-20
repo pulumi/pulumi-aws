@@ -16,32 +16,16 @@ public final class GetHttpNamespaceArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetHttpNamespaceArgs Empty = new GetHttpNamespaceArgs();
 
-    /**
-     * Name of the http namespace.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the http namespace.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetHttpNamespaceArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetHttpNamespaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the http namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the http namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue {
-    /**
-     * @return The tag key.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return The tag value.
-     * 
-     */
     private @Nullable String value;
 
     private ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValue() {}
-    /**
-     * @return The tag key.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return The tag value.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

@@ -20,118 +20,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a new Amazon Redshift Serverless Workgroup.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshiftserverless.Workgroup;
- * import com.pulumi.aws.redshiftserverless.WorkgroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Workgroup(&#34;example&#34;, WorkgroupArgs.builder()        
- *             .namespaceName(&#34;concurrency-scaling&#34;)
- *             .workgroupName(&#34;concurrency-scaling&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Redshift Serverless Workgroups can be imported using the `workgroup_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshiftserverless/workgroup:Workgroup")
 public class Workgroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     * 
-     */
     @Export(name="baseCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> baseCapacity;
 
-    /**
-     * @return The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-     * 
-     */
     public Output<Integer> baseCapacity() {
         return this.baseCapacity;
     }
-    /**
-     * An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     * 
-     */
     @Export(name="configParameters", refs={List.class,WorkgroupConfigParameter.class}, tree="[0,1]")
     private Output<List<WorkgroupConfigParameter>> configParameters;
 
-    /**
-     * @return An array of parameters to set for more control over a serverless database. See `Config Parameter` below.
-     * 
-     */
     public Output<List<WorkgroupConfigParameter>> configParameters() {
         return this.configParameters;
     }
-    /**
-     * The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     @Export(name="endpoints", refs={List.class,WorkgroupEndpoint.class}, tree="[0,1]")
     private Output<List<WorkgroupEndpoint>> endpoints;
 
-    /**
-     * @return The endpoint that is created from the workgroup. See `Endpoint` below.
-     * 
-     */
     public Output<List<WorkgroupEndpoint>> endpoints() {
         return this.endpoints;
     }
-    /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     @Export(name="enhancedVpcRouting", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enhancedVpcRouting;
 
-    /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
-     * 
-     */
     public Output<Optional<Boolean>> enhancedVpcRouting() {
         return Codegen.optional(this.enhancedVpcRouting);
     }
@@ -141,101 +58,45 @@ public class Workgroup extends com.pulumi.resources.CustomResource {
     public Output<String> namespaceName() {
         return this.namespaceName;
     }
-    /**
-     * A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
-    /**
-     * @return A value that specifies whether the workgroup can be accessed from a public network.
-     * 
-     */
     public Output<Optional<Boolean>> publiclyAccessible() {
         return Codegen.optional(this.publiclyAccessible);
     }
-    /**
-     * An array of security group IDs to associate with the workgroup.
-     * 
-     */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
-    /**
-     * @return An array of security group IDs to associate with the workgroup.
-     * 
-     */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
-    /**
-     * An array of VPC subnet IDs to associate with the workgroup.
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subnetIds;
 
-    /**
-     * @return An array of VPC subnet IDs to associate with the workgroup.
-     * 
-     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Redshift Workgroup ID.
-     * 
-     */
     @Export(name="workgroupId", refs={String.class}, tree="[0]")
     private Output<String> workgroupId;
 
-    /**
-     * @return The Redshift Workgroup ID.
-     * 
-     */
     public Output<String> workgroupId() {
         return this.workgroupId;
     }
-    /**
-     * The name of the workgroup.
-     * 
-     */
     @Export(name="workgroupName", refs={String.class}, tree="[0]")
     private Output<String> workgroupName;
 
-    /**
-     * @return The name of the workgroup.
-     * 
-     */
     public Output<String> workgroupName() {
         return this.workgroupName;
     }

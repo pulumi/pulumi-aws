@@ -19,268 +19,71 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppSync Data Source.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.dynamodb.Table;
- * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicy;
- * import com.pulumi.aws.iam.RolePolicyArgs;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.DataSource;
- * import com.pulumi.aws.appsync.DataSourceArgs;
- * import com.pulumi.aws.appsync.inputs.DataSourceDynamodbConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleTable = new Table(&#34;exampleTable&#34;, TableArgs.builder()        
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .hashKey(&#34;UserId&#34;)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;UserId&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;appsync.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(exampleRole.id())
- *             .policy(exampleTable.arn().applyValue(arn -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;dynamodb:*&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: [
- *         &#34;%s&#34;
- *       ]
- *     }
- *   ]
- * }
- * &#34;, arn)))
- *             .build());
- * 
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .build());
- * 
- *         var exampleDataSource = new DataSource(&#34;exampleDataSource&#34;, DataSourceArgs.builder()        
- *             .apiId(exampleGraphQLApi.id())
- *             .name(&#34;my_appsync_example&#34;)
- *             .serviceRoleArn(exampleRole.arn())
- *             .type(&#34;AMAZON_DYNAMODB&#34;)
- *             .dynamodbConfig(DataSourceDynamodbConfigArgs.builder()
- *                 .tableName(exampleTable.name())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/dataSource:DataSource")
 public class DataSource extends com.pulumi.resources.CustomResource {
-    /**
-     * API ID for the GraphQL API for the data source.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API ID for the GraphQL API for the data source.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Description of the data source.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the data source.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * DynamoDB settings. See below
-     * 
-     */
     @Export(name="dynamodbConfig", refs={DataSourceDynamodbConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceDynamodbConfig> dynamodbConfig;
 
-    /**
-     * @return DynamoDB settings. See below
-     * 
-     */
     public Output<Optional<DataSourceDynamodbConfig>> dynamodbConfig() {
         return Codegen.optional(this.dynamodbConfig);
     }
-    /**
-     * Amazon Elasticsearch settings. See below
-     * 
-     */
     @Export(name="elasticsearchConfig", refs={DataSourceElasticsearchConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceElasticsearchConfig> elasticsearchConfig;
 
-    /**
-     * @return Amazon Elasticsearch settings. See below
-     * 
-     */
     public Output<Optional<DataSourceElasticsearchConfig>> elasticsearchConfig() {
         return Codegen.optional(this.elasticsearchConfig);
     }
-    /**
-     * HTTP settings. See below
-     * 
-     */
     @Export(name="httpConfig", refs={DataSourceHttpConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceHttpConfig> httpConfig;
 
-    /**
-     * @return HTTP settings. See below
-     * 
-     */
     public Output<Optional<DataSourceHttpConfig>> httpConfig() {
         return Codegen.optional(this.httpConfig);
     }
-    /**
-     * AWS Lambda settings. See below
-     * 
-     */
     @Export(name="lambdaConfig", refs={DataSourceLambdaConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceLambdaConfig> lambdaConfig;
 
-    /**
-     * @return AWS Lambda settings. See below
-     * 
-     */
     public Output<Optional<DataSourceLambdaConfig>> lambdaConfig() {
         return Codegen.optional(this.lambdaConfig);
     }
-    /**
-     * User-supplied name for the data source.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return User-supplied name for the data source.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * AWS RDS settings. See Relational Database Config
-     * 
-     */
     @Export(name="relationalDatabaseConfig", refs={DataSourceRelationalDatabaseConfig.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceRelationalDatabaseConfig> relationalDatabaseConfig;
 
-    /**
-     * @return AWS RDS settings. See Relational Database Config
-     * 
-     */
     public Output<Optional<DataSourceRelationalDatabaseConfig>> relationalDatabaseConfig() {
         return Codegen.optional(this.relationalDatabaseConfig);
     }
-    /**
-     * IAM service role ARN for the data source.
-     * 
-     */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceRoleArn;
 
-    /**
-     * @return IAM service role ARN for the data source.
-     * 
-     */
     public Output<Optional<String>> serviceRoleArn() {
         return Codegen.optional(this.serviceRoleArn);
     }
-    /**
-     * Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

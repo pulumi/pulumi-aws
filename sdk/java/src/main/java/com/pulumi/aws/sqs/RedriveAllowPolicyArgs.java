@@ -13,32 +13,16 @@ public final class RedriveAllowPolicyArgs extends com.pulumi.resources.ResourceA
 
     public static final RedriveAllowPolicyArgs Empty = new RedriveAllowPolicyArgs();
 
-    /**
-     * The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     @Import(name="queueUrl", required=true)
     private Output<String> queueUrl;
 
-    /**
-     * @return The URL of the SQS Queue to which to attach the policy
-     * 
-     */
     public Output<String> queueUrl() {
         return this.queueUrl;
     }
 
-    /**
-     * The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     @Import(name="redriveAllowPolicy", required=true)
     private Output<String> redriveAllowPolicy;
 
-    /**
-     * @return The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-     * 
-     */
     public Output<String> redriveAllowPolicy() {
         return this.redriveAllowPolicy;
     }
@@ -68,44 +52,20 @@ public final class RedriveAllowPolicyArgs extends com.pulumi.resources.ResourceA
             $ = new RedriveAllowPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(Output<String> queueUrl) {
             $.queueUrl = queueUrl;
             return this;
         }
 
-        /**
-         * @param queueUrl The URL of the SQS Queue to which to attach the policy
-         * 
-         * @return builder
-         * 
-         */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
         }
 
-        /**
-         * @param redriveAllowPolicy The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder redriveAllowPolicy(Output<String> redriveAllowPolicy) {
             $.redriveAllowPolicy = redriveAllowPolicy;
             return this;
         }
 
-        /**
-         * @param redriveAllowPolicy The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder redriveAllowPolicy(String redriveAllowPolicy) {
             return redriveAllowPolicy(Output.of(redriveAllowPolicy));
         }

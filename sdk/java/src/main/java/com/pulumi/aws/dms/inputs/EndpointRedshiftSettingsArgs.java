@@ -15,77 +15,37 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
 
     public static final EndpointRedshiftSettingsArgs Empty = new EndpointRedshiftSettingsArgs();
 
-    /**
-     * S3 object prefix.
-     * 
-     */
     @Import(name="bucketFolder")
     private @Nullable Output<String> bucketFolder;
 
-    /**
-     * @return S3 object prefix.
-     * 
-     */
     public Optional<Output<String>> bucketFolder() {
         return Optional.ofNullable(this.bucketFolder);
     }
 
-    /**
-     * S3 bucket name.
-     * 
-     */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
-    /**
-     * @return S3 bucket name.
-     * 
-     */
     public Optional<Output<String>> bucketName() {
         return Optional.ofNullable(this.bucketName);
     }
 
-    /**
-     * Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-     * 
-     */
     @Import(name="encryptionMode")
     private @Nullable Output<String> encryptionMode;
 
-    /**
-     * @return Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-     * 
-     */
     public Optional<Output<String>> encryptionMode() {
         return Optional.ofNullable(this.encryptionMode);
     }
 
-    /**
-     * If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-     * 
-     */
     @Import(name="serverSideEncryptionKmsKeyId")
     private @Nullable Output<String> serverSideEncryptionKmsKeyId;
 
-    /**
-     * @return If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-     * 
-     */
     public Optional<Output<String>> serverSideEncryptionKmsKeyId() {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
 
-    /**
-     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-     * 
-     */
     @Import(name="serviceAccessRoleArn")
     private @Nullable Output<String> serviceAccessRoleArn;
 
-    /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-     * 
-     */
     public Optional<Output<String>> serviceAccessRoleArn() {
         return Optional.ofNullable(this.serviceAccessRoleArn);
     }
@@ -118,107 +78,47 @@ public final class EndpointRedshiftSettingsArgs extends com.pulumi.resources.Res
             $ = new EndpointRedshiftSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketFolder S3 object prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketFolder(@Nullable Output<String> bucketFolder) {
             $.bucketFolder = bucketFolder;
             return this;
         }
 
-        /**
-         * @param bucketFolder S3 object prefix.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketFolder(String bucketFolder) {
             return bucketFolder(Output.of(bucketFolder));
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(@Nullable Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName S3 bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(@Nullable Output<String> encryptionMode) {
             $.encryptionMode = encryptionMode;
             return this;
         }
 
-        /**
-         * @param encryptionMode Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionMode(String encryptionMode) {
             return encryptionMode(Output.of(encryptionMode));
         }
 
-        /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionKmsKeyId(@Nullable Output<String> serverSideEncryptionKmsKeyId) {
             $.serverSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             return this;
         }
 
-        /**
-         * @param serverSideEncryptionKmsKeyId If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverSideEncryptionKmsKeyId(String serverSideEncryptionKmsKeyId) {
             return serverSideEncryptionKmsKeyId(Output.of(serverSideEncryptionKmsKeyId));
         }
 
-        /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(@Nullable Output<String> serviceAccessRoleArn) {
             $.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
             return serviceAccessRoleArn(Output.of(serviceAccessRoleArn));
         }

@@ -13,32 +13,16 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
 
     public static final RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs Empty = new RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs();
 
-    /**
-     * - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     @Import(name="fallbackBehavior", required=true)
     private Output<String> fallbackBehavior;
 
-    /**
-     * @return - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-     * 
-     */
     public Output<String> fallbackBehavior() {
         return this.fallbackBehavior;
     }
 
-    /**
-     * - The name of the HTTP header to use for the IP address.
-     * 
-     */
     @Import(name="headerName", required=true)
     private Output<String> headerName;
 
-    /**
-     * @return - The name of the HTTP header to use for the IP address.
-     * 
-     */
     public Output<String> headerName() {
         return this.headerName;
     }
@@ -68,44 +52,20 @@ public final class RuleGroupRuleStatementAndStatementStatementOrStatementStateme
             $ = new RuleGroupRuleStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackBehavior - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(Output<String> fallbackBehavior) {
             $.fallbackBehavior = fallbackBehavior;
             return this;
         }
 
-        /**
-         * @param fallbackBehavior - The match status to assign to the web request if the request doesn&#39;t have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackBehavior(String fallbackBehavior) {
             return fallbackBehavior(Output.of(fallbackBehavior));
         }
 
-        /**
-         * @param headerName - The name of the HTTP header to use for the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(Output<String> headerName) {
             $.headerName = headerName;
             return this;
         }
 
-        /**
-         * @param headerName - The name of the HTTP header to use for the IP address.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerName(String headerName) {
             return headerName(Output.of(headerName));
         }

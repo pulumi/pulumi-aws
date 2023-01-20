@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConfigurationSetSendingOptions {
-    /**
-     * @return If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-     * 
-     */
     private @Nullable Boolean sendingEnabled;
 
     private ConfigurationSetSendingOptions() {}
-    /**
-     * @return If `true`, email sending is enabled for the configuration set. If `false`, email sending is disabled for the configuration set.
-     * 
-     */
     public Optional<Boolean> sendingEnabled() {
         return Optional.ofNullable(this.sendingEnabled);
     }

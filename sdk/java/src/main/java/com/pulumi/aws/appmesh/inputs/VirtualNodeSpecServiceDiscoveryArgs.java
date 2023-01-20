@@ -16,32 +16,16 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
 
     public static final VirtualNodeSpecServiceDiscoveryArgs Empty = new VirtualNodeSpecServiceDiscoveryArgs();
 
-    /**
-     * Any AWS Cloud Map information for the virtual node.
-     * 
-     */
     @Import(name="awsCloudMap")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs> awsCloudMap;
 
-    /**
-     * @return Any AWS Cloud Map information for the virtual node.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs>> awsCloudMap() {
         return Optional.ofNullable(this.awsCloudMap);
     }
 
-    /**
-     * DNS service name for the virtual node.
-     * 
-     */
     @Import(name="dns")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryDnsArgs> dns;
 
-    /**
-     * @return DNS service name for the virtual node.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryDnsArgs>> dns() {
         return Optional.ofNullable(this.dns);
     }
@@ -71,44 +55,20 @@ public final class VirtualNodeSpecServiceDiscoveryArgs extends com.pulumi.resour
             $ = new VirtualNodeSpecServiceDiscoveryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsCloudMap Any AWS Cloud Map information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsCloudMap(@Nullable Output<VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs> awsCloudMap) {
             $.awsCloudMap = awsCloudMap;
             return this;
         }
 
-        /**
-         * @param awsCloudMap Any AWS Cloud Map information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsCloudMap(VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs awsCloudMap) {
             return awsCloudMap(Output.of(awsCloudMap));
         }
 
-        /**
-         * @param dns DNS service name for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dns(@Nullable Output<VirtualNodeSpecServiceDiscoveryDnsArgs> dns) {
             $.dns = dns;
             return this;
         }
 
-        /**
-         * @param dns DNS service name for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dns(VirtualNodeSpecServiceDiscoveryDnsArgs dns) {
             return dns(Output.of(dns));
         }

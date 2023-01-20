@@ -15,32 +15,16 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetPlanPlainArgs Empty = new GetPlanPlainArgs();
 
-    /**
-     * Backup plan ID.
-     * 
-     */
     @Import(name="planId", required=true)
     private String planId;
 
-    /**
-     * @return Backup plan ID.
-     * 
-     */
     public String planId() {
         return this.planId;
     }
 
-    /**
-     * Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the plans you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetPlanPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param planId Backup plan ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder planId(String planId) {
             $.planId = planId;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the plans you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

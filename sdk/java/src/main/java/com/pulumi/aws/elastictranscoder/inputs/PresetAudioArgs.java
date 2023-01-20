@@ -15,77 +15,37 @@ public final class PresetAudioArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PresetAudioArgs Empty = new PresetAudioArgs();
 
-    /**
-     * The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-     * 
-     */
     @Import(name="audioPackingMode")
     private @Nullable Output<String> audioPackingMode;
 
-    /**
-     * @return The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-     * 
-     */
     public Optional<Output<String>> audioPackingMode() {
         return Optional.ofNullable(this.audioPackingMode);
     }
 
-    /**
-     * The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
-     * 
-     */
     @Import(name="bitRate")
     private @Nullable Output<String> bitRate;
 
-    /**
-     * @return The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
-     * 
-     */
     public Optional<Output<String>> bitRate() {
         return Optional.ofNullable(this.bitRate);
     }
 
-    /**
-     * The number of audio channels in the output file
-     * 
-     */
     @Import(name="channels")
     private @Nullable Output<String> channels;
 
-    /**
-     * @return The number of audio channels in the output file
-     * 
-     */
     public Optional<Output<String>> channels() {
         return Optional.ofNullable(this.channels);
     }
 
-    /**
-     * The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
-     * 
-     */
     @Import(name="codec")
     private @Nullable Output<String> codec;
 
-    /**
-     * @return The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
-     * 
-     */
     public Optional<Output<String>> codec() {
         return Optional.ofNullable(this.codec);
     }
 
-    /**
-     * The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
-     * 
-     */
     @Import(name="sampleRate")
     private @Nullable Output<String> sampleRate;
 
-    /**
-     * @return The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
-     * 
-     */
     public Optional<Output<String>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
@@ -118,107 +78,47 @@ public final class PresetAudioArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PresetAudioArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param audioPackingMode The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioPackingMode(@Nullable Output<String> audioPackingMode) {
             $.audioPackingMode = audioPackingMode;
             return this;
         }
 
-        /**
-         * @param audioPackingMode The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
-         * 
-         * @return builder
-         * 
-         */
         public Builder audioPackingMode(String audioPackingMode) {
             return audioPackingMode(Output.of(audioPackingMode));
         }
 
-        /**
-         * @param bitRate The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitRate(@Nullable Output<String> bitRate) {
             $.bitRate = bitRate;
             return this;
         }
 
-        /**
-         * @param bitRate The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer between 64 and 320, inclusive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitRate(String bitRate) {
             return bitRate(Output.of(bitRate));
         }
 
-        /**
-         * @param channels The number of audio channels in the output file
-         * 
-         * @return builder
-         * 
-         */
         public Builder channels(@Nullable Output<String> channels) {
             $.channels = channels;
             return this;
         }
 
-        /**
-         * @param channels The number of audio channels in the output file
-         * 
-         * @return builder
-         * 
-         */
         public Builder channels(String channels) {
             return channels(Output.of(channels));
         }
 
-        /**
-         * @param codec The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codec(@Nullable Output<String> codec) {
             $.codec = codec;
             return this;
         }
 
-        /**
-         * @param codec The audio codec for the output file. Valid values are `AAC`, `flac`, `mp2`, `mp3`, `pcm`, and `vorbis`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codec(String codec) {
             return codec(Output.of(codec));
         }
 
-        /**
-         * @param sampleRate The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleRate(@Nullable Output<String> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
-        /**
-         * @param sampleRate The sample rate of the audio stream in the output file, in hertz. Valid values are: `auto`, `22050`, `32000`, `44100`, `48000`, `96000`
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleRate(String sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }

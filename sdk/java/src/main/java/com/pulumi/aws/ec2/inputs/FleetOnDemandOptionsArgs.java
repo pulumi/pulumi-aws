@@ -15,17 +15,9 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
 
     public static final FleetOnDemandOptionsArgs Empty = new FleetOnDemandOptionsArgs();
 
-    /**
-     * How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     @Import(name="allocationStrategy")
     private @Nullable Output<String> allocationStrategy;
 
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<Output<String>> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }
@@ -54,23 +46,11 @@ public final class FleetOnDemandOptionsArgs extends com.pulumi.resources.Resourc
             $ = new FleetOnDemandOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(@Nullable Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }

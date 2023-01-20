@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLocalDiskResult {
-    /**
-     * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
-     * 
-     */
     private String diskId;
     private String diskNode;
     private String diskPath;
@@ -24,10 +20,6 @@ public final class GetLocalDiskResult {
     private String id;
 
     private GetLocalDiskResult() {}
-    /**
-     * @return Disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
-     * 
-     */
     public String diskId() {
         return this.diskId;
     }

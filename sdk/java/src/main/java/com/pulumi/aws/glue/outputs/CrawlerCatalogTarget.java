@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerCatalogTarget {
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     private @Nullable String connectionName;
-    /**
-     * @return The name of the Glue database to be synchronized.
-     * 
-     */
     private String databaseName;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     private @Nullable String dlqEventQueueArn;
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     private @Nullable String eventQueueArn;
-    /**
-     * @return A list of catalog tables to be synchronized.
-     * 
-     */
     private List<String> tables;
 
     private CrawlerCatalogTarget() {}
-    /**
-     * @return The name of the connection to use to connect to the Delta table target.
-     * 
-     */
     public Optional<String> connectionName() {
         return Optional.ofNullable(this.connectionName);
     }
-    /**
-     * @return The name of the Glue database to be synchronized.
-     * 
-     */
     public String databaseName() {
         return this.databaseName;
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     public Optional<String> dlqEventQueueArn() {
         return Optional.ofNullable(this.dlqEventQueueArn);
     }
-    /**
-     * @return A valid Amazon SQS ARN.
-     * 
-     */
     public Optional<String> eventQueueArn() {
         return Optional.ofNullable(this.eventQueueArn);
     }
-    /**
-     * @return A list of catalog tables to be synchronized.
-     * 
-     */
     public List<String> tables() {
         return this.tables;
     }

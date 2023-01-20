@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BudgetActionDefinition {
-    /**
-     * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-     * 
-     */
     private @Nullable BudgetActionDefinitionIamActionDefinition iamActionDefinition;
-    /**
-     * @return The service control policies (SCPs) action definition details. See SCP Action Definition.
-     * 
-     */
     private @Nullable BudgetActionDefinitionScpActionDefinition scpActionDefinition;
-    /**
-     * @return The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-     * 
-     */
     private @Nullable BudgetActionDefinitionSsmActionDefinition ssmActionDefinition;
 
     private BudgetActionDefinition() {}
-    /**
-     * @return The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-     * 
-     */
     public Optional<BudgetActionDefinitionIamActionDefinition> iamActionDefinition() {
         return Optional.ofNullable(this.iamActionDefinition);
     }
-    /**
-     * @return The service control policies (SCPs) action definition details. See SCP Action Definition.
-     * 
-     */
     public Optional<BudgetActionDefinitionScpActionDefinition> scpActionDefinition() {
         return Optional.ofNullable(this.scpActionDefinition);
     }
-    /**
-     * @return The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-     * 
-     */
     public Optional<BudgetActionDefinitionSsmActionDefinition> ssmActionDefinition() {
         return Optional.ofNullable(this.ssmActionDefinition);
     }

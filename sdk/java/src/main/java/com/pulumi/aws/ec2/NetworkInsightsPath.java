@@ -16,175 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Network Insights Path resource. Part of the &#34;Reachability Analyzer&#34; service in the AWS VPC console.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NetworkInsightsPath;
- * import com.pulumi.aws.ec2.NetworkInsightsPathArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new NetworkInsightsPath(&#34;test&#34;, NetworkInsightsPathArgs.builder()        
- *             .source(aws_network_interface.source().id())
- *             .destination(aws_network_interface.destination().id())
- *             .protocol(&#34;tcp&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Network Insights Paths can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/networkInsightsPath:NetworkInsightsPath")
 public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Network Insights Path.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Network Insights Path.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
-     * 
-     */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
-    /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
-     * 
-     */
     public Output<String> destination() {
         return this.destination;
     }
-    /**
-     * IP address of the destination resource.
-     * 
-     */
     @Export(name="destinationIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationIp;
 
-    /**
-     * @return IP address of the destination resource.
-     * 
-     */
     public Output<Optional<String>> destinationIp() {
         return Codegen.optional(this.destinationIp);
     }
-    /**
-     * Destination port to analyze access to.
-     * 
-     */
     @Export(name="destinationPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> destinationPort;
 
-    /**
-     * @return Destination port to analyze access to.
-     * 
-     */
     public Output<Optional<Integer>> destinationPort() {
         return Codegen.optional(this.destinationPort);
     }
-    /**
-     * Protocol to use for analysis. Valid options are `tcp` or `udp`.
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output<String> protocol;
 
-    /**
-     * @return Protocol to use for analysis. Valid options are `tcp` or `udp`.
-     * 
-     */
     public Output<String> protocol() {
         return this.protocol;
     }
-    /**
-     * ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
-     * 
-     */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
-    /**
-     * @return ID of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway.
-     * 
-     */
     public Output<String> source() {
         return this.source;
     }
-    /**
-     * IP address of the source resource.
-     * 
-     */
     @Export(name="sourceIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceIp;
 
-    /**
-     * @return IP address of the source resource.
-     * 
-     */
     public Output<Optional<String>> sourceIp() {
         return Codegen.optional(this.sourceIp);
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

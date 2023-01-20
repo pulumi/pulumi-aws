@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointAccessVpcEndpoint {
-    /**
-     * @return The network interfaces of the endpoint.. See `Network Interface` below.
-     * 
-     */
     private @Nullable List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces;
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     private @Nullable String vpcEndpointId;
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     private @Nullable String vpcId;
 
     private EndpointAccessVpcEndpoint() {}
-    /**
-     * @return The network interfaces of the endpoint.. See `Network Interface` below.
-     * 
-     */
     public List<EndpointAccessVpcEndpointNetworkInterface> networkInterfaces() {
         return this.networkInterfaces == null ? List.of() : this.networkInterfaces;
     }
-    /**
-     * @return The DNS address of the VPC endpoint.
-     * 
-     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
-    /**
-     * @return The port that Amazon Redshift Serverless listens on.
-     * 
-     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

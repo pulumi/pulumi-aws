@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MaintenanceWindowTaskTaskInvocationParameters {
-    /**
-     * @return The parameters for an AUTOMATION task type. Documented below.
-     * 
-     */
     private @Nullable MaintenanceWindowTaskTaskInvocationParametersAutomationParameters automationParameters;
-    /**
-     * @return The parameters for a LAMBDA task type. Documented below.
-     * 
-     */
     private @Nullable MaintenanceWindowTaskTaskInvocationParametersLambdaParameters lambdaParameters;
-    /**
-     * @return The parameters for a RUN_COMMAND task type. Documented below.
-     * 
-     */
     private @Nullable MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters runCommandParameters;
-    /**
-     * @return The parameters for a STEP_FUNCTIONS task type. Documented below.
-     * 
-     */
     private @Nullable MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters stepFunctionsParameters;
 
     private MaintenanceWindowTaskTaskInvocationParameters() {}
-    /**
-     * @return The parameters for an AUTOMATION task type. Documented below.
-     * 
-     */
     public Optional<MaintenanceWindowTaskTaskInvocationParametersAutomationParameters> automationParameters() {
         return Optional.ofNullable(this.automationParameters);
     }
-    /**
-     * @return The parameters for a LAMBDA task type. Documented below.
-     * 
-     */
     public Optional<MaintenanceWindowTaskTaskInvocationParametersLambdaParameters> lambdaParameters() {
         return Optional.ofNullable(this.lambdaParameters);
     }
-    /**
-     * @return The parameters for a RUN_COMMAND task type. Documented below.
-     * 
-     */
     public Optional<MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters> runCommandParameters() {
         return Optional.ofNullable(this.runCommandParameters);
     }
-    /**
-     * @return The parameters for a STEP_FUNCTIONS task type. Documented below.
-     * 
-     */
     public Optional<MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters> stepFunctionsParameters() {
         return Optional.ofNullable(this.stepFunctionsParameters);
     }

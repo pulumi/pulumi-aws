@@ -14,32 +14,16 @@ public final class GetTrafficPolicyDocumentRuleItem extends com.pulumi.resources
 
     public static final GetTrafficPolicyDocumentRuleItem Empty = new GetTrafficPolicyDocumentRuleItem();
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable String endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable String healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
@@ -69,23 +53,11 @@ public final class GetTrafficPolicyDocumentRuleItem extends com.pulumi.resources
             $ = new GetTrafficPolicyDocumentRuleItem(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable String endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable String healthCheck) {
             $.healthCheck = healthCheck;
             return this;

@@ -16,32 +16,16 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserArgs Empty = new GetUserArgs();
 
-    /**
-     * Map of tags assigned to the subnet group.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags assigned to the subnet group.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Name of the user.
-     * 
-     */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
-    /**
-     * @return Name of the user.
-     * 
-     */
     public Output<String> userName() {
         return this.userName;
     }
@@ -71,44 +55,20 @@ public final class GetUserArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Map of tags assigned to the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the subnet group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param userName Name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName Name of the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

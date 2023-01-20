@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAdvancedSecurityOptions {
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-     * 
-     */
     private @Nullable Boolean internalUserDatabaseEnabled;
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
     private DomainAdvancedSecurityOptions() {}
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-     * 
-     */
     public Optional<Boolean> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     public Optional<DomainAdvancedSecurityOptionsMasterUserOptions> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }

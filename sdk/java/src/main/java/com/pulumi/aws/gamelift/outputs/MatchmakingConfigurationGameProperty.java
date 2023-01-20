@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class MatchmakingConfigurationGameProperty {
-    /**
-     * @return A game property key
-     * 
-     */
     private String key;
-    /**
-     * @return A game property value.
-     * 
-     */
     private String value;
 
     private MatchmakingConfigurationGameProperty() {}
-    /**
-     * @return A game property key
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return A game property value.
-     * 
-     */
     public String value() {
         return this.value;
     }

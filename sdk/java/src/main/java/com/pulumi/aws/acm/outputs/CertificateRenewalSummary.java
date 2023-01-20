@@ -11,30 +11,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CertificateRenewalSummary {
-    /**
-     * @return The status of ACM&#39;s managed renewal of the certificate
-     * 
-     */
     private @Nullable String renewalStatus;
-    /**
-     * @return The reason that a renewal request was unsuccessful or is pending
-     * 
-     */
     private @Nullable String renewalStatusReason;
     private @Nullable String updatedAt;
 
     private CertificateRenewalSummary() {}
-    /**
-     * @return The status of ACM&#39;s managed renewal of the certificate
-     * 
-     */
     public Optional<String> renewalStatus() {
         return Optional.ofNullable(this.renewalStatus);
     }
-    /**
-     * @return The reason that a renewal request was unsuccessful or is pending
-     * 
-     */
     public Optional<String> renewalStatusReason() {
         return Optional.ofNullable(this.renewalStatusReason);
     }

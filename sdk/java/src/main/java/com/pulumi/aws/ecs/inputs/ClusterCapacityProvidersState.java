@@ -17,47 +17,23 @@ public final class ClusterCapacityProvidersState extends com.pulumi.resources.Re
 
     public static final ClusterCapacityProvidersState Empty = new ClusterCapacityProvidersState();
 
-    /**
-     * Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     @Import(name="capacityProviders")
     private @Nullable Output<List<String>> capacityProviders;
 
-    /**
-     * @return Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-     * 
-     */
     public Optional<Output<List<String>>> capacityProviders() {
         return Optional.ofNullable(this.capacityProviders);
     }
 
-    /**
-     * Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     @Import(name="clusterName")
     private @Nullable Output<String> clusterName;
 
-    /**
-     * @return Name of the ECS cluster to manage capacity providers for.
-     * 
-     */
     public Optional<Output<String>> clusterName() {
         return Optional.ofNullable(this.clusterName);
     }
 
-    /**
-     * Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     @Import(name="defaultCapacityProviderStrategies")
     private @Nullable Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies;
 
-    /**
-     * @return Set of capacity provider strategies to use by default for the cluster. Detailed below.
-     * 
-     */
     public Optional<Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>>> defaultCapacityProviderStrategies() {
         return Optional.ofNullable(this.defaultCapacityProviderStrategies);
     }
@@ -88,85 +64,37 @@ public final class ClusterCapacityProvidersState extends com.pulumi.resources.Re
             $ = new ClusterCapacityProvidersState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(@Nullable Output<List<String>> capacityProviders) {
             $.capacityProviders = capacityProviders;
             return this;
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(List<String> capacityProviders) {
             return capacityProviders(Output.of(capacityProviders));
         }
 
-        /**
-         * @param capacityProviders Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder capacityProviders(String... capacityProviders) {
             return capacityProviders(List.of(capacityProviders));
         }
 
-        /**
-         * @param clusterName Name of the ECS cluster to manage capacity providers for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(@Nullable Output<String> clusterName) {
             $.clusterName = clusterName;
             return this;
         }
 
-        /**
-         * @param clusterName Name of the ECS cluster to manage capacity providers for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(@Nullable Output<List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs>> defaultCapacityProviderStrategies) {
             $.defaultCapacityProviderStrategies = defaultCapacityProviderStrategies;
             return this;
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(List<ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs> defaultCapacityProviderStrategies) {
             return defaultCapacityProviderStrategies(Output.of(defaultCapacityProviderStrategies));
         }
 
-        /**
-         * @param defaultCapacityProviderStrategies Set of capacity provider strategies to use by default for the cluster. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs... defaultCapacityProviderStrategies) {
             return defaultCapacityProviderStrategies(List.of(defaultCapacityProviderStrategies));
         }

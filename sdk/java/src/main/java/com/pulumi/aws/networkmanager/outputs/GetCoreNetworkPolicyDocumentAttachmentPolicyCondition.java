@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
-    /**
-     * @return string value
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     private @Nullable String operator;
-    /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
-     * 
-     */
     private String type;
-    /**
-     * @return string value
-     * 
-     */
     private @Nullable String value;
 
     private GetCoreNetworkPolicyDocumentAttachmentPolicyCondition() {}
-    /**
-     * @return string value
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-     * 
-     */
     public Optional<String> operator() {
         return Optional.ofNullable(this.operator);
     }
-    /**
-     * @return Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
-     * 
-     */
     public String type() {
         return this.type;
     }
-    /**
-     * @return string value
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

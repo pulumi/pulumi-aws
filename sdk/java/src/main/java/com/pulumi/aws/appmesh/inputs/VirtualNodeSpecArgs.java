@@ -20,77 +20,37 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
 
     public static final VirtualNodeSpecArgs Empty = new VirtualNodeSpecArgs();
 
-    /**
-     * Defaults for backends.
-     * 
-     */
     @Import(name="backendDefaults")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsArgs> backendDefaults;
 
-    /**
-     * @return Defaults for backends.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecBackendDefaultsArgs>> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
 
-    /**
-     * Backends to which the virtual node is expected to send outbound traffic.
-     * 
-     */
     @Import(name="backends")
     private @Nullable Output<List<VirtualNodeSpecBackendArgs>> backends;
 
-    /**
-     * @return Backends to which the virtual node is expected to send outbound traffic.
-     * 
-     */
     public Optional<Output<List<VirtualNodeSpecBackendArgs>>> backends() {
         return Optional.ofNullable(this.backends);
     }
 
-    /**
-     * Listeners from which the virtual node is expected to receive inbound traffic.
-     * 
-     */
     @Import(name="listener")
     private @Nullable Output<VirtualNodeSpecListenerArgs> listener;
 
-    /**
-     * @return Listeners from which the virtual node is expected to receive inbound traffic.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecListenerArgs>> listener() {
         return Optional.ofNullable(this.listener);
     }
 
-    /**
-     * Inbound and outbound access logging information for the virtual node.
-     * 
-     */
     @Import(name="logging")
     private @Nullable Output<VirtualNodeSpecLoggingArgs> logging;
 
-    /**
-     * @return Inbound and outbound access logging information for the virtual node.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecLoggingArgs>> logging() {
         return Optional.ofNullable(this.logging);
     }
 
-    /**
-     * Service discovery information for the virtual node.
-     * 
-     */
     @Import(name="serviceDiscovery")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryArgs> serviceDiscovery;
 
-    /**
-     * @return Service discovery information for the virtual node.
-     * 
-     */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryArgs>> serviceDiscovery() {
         return Optional.ofNullable(this.serviceDiscovery);
     }
@@ -123,117 +83,51 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
             $ = new VirtualNodeSpecArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param backendDefaults Defaults for backends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backendDefaults(@Nullable Output<VirtualNodeSpecBackendDefaultsArgs> backendDefaults) {
             $.backendDefaults = backendDefaults;
             return this;
         }
 
-        /**
-         * @param backendDefaults Defaults for backends.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backendDefaults(VirtualNodeSpecBackendDefaultsArgs backendDefaults) {
             return backendDefaults(Output.of(backendDefaults));
         }
 
-        /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backends(@Nullable Output<List<VirtualNodeSpecBackendArgs>> backends) {
             $.backends = backends;
             return this;
         }
 
-        /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backends(List<VirtualNodeSpecBackendArgs> backends) {
             return backends(Output.of(backends));
         }
 
-        /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder backends(VirtualNodeSpecBackendArgs... backends) {
             return backends(List.of(backends));
         }
 
-        /**
-         * @param listener Listeners from which the virtual node is expected to receive inbound traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listener(@Nullable Output<VirtualNodeSpecListenerArgs> listener) {
             $.listener = listener;
             return this;
         }
 
-        /**
-         * @param listener Listeners from which the virtual node is expected to receive inbound traffic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder listener(VirtualNodeSpecListenerArgs listener) {
             return listener(Output.of(listener));
         }
 
-        /**
-         * @param logging Inbound and outbound access logging information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(@Nullable Output<VirtualNodeSpecLoggingArgs> logging) {
             $.logging = logging;
             return this;
         }
 
-        /**
-         * @param logging Inbound and outbound access logging information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logging(VirtualNodeSpecLoggingArgs logging) {
             return logging(Output.of(logging));
         }
 
-        /**
-         * @param serviceDiscovery Service discovery information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceDiscovery(@Nullable Output<VirtualNodeSpecServiceDiscoveryArgs> serviceDiscovery) {
             $.serviceDiscovery = serviceDiscovery;
             return this;
         }
 
-        /**
-         * @param serviceDiscovery Service discovery information for the virtual node.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceDiscovery(VirtualNodeSpecServiceDiscoveryArgs serviceDiscovery) {
             return serviceDiscovery(Output.of(serviceDiscovery));
         }

@@ -15,47 +15,23 @@ public final class FileSystemSizeInByteArgs extends com.pulumi.resources.Resourc
 
     public static final FileSystemSizeInByteArgs Empty = new FileSystemSizeInByteArgs();
 
-    /**
-     * The latest known metered size (in bytes) of data stored in the file system.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<Integer> value;
 
-    /**
-     * @return The latest known metered size (in bytes) of data stored in the file system.
-     * 
-     */
     public Optional<Output<Integer>> value() {
         return Optional.ofNullable(this.value);
     }
 
-    /**
-     * The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-     * 
-     */
     @Import(name="valueInIa")
     private @Nullable Output<Integer> valueInIa;
 
-    /**
-     * @return The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-     * 
-     */
     public Optional<Output<Integer>> valueInIa() {
         return Optional.ofNullable(this.valueInIa);
     }
 
-    /**
-     * The latest known metered size (in bytes) of data stored in the Standard storage class.
-     * 
-     */
     @Import(name="valueInStandard")
     private @Nullable Output<Integer> valueInStandard;
 
-    /**
-     * @return The latest known metered size (in bytes) of data stored in the Standard storage class.
-     * 
-     */
     public Optional<Output<Integer>> valueInStandard() {
         return Optional.ofNullable(this.valueInStandard);
     }
@@ -86,65 +62,29 @@ public final class FileSystemSizeInByteArgs extends com.pulumi.resources.Resourc
             $ = new FileSystemSizeInByteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param value The latest known metered size (in bytes) of data stored in the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<Integer> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The latest known metered size (in bytes) of data stored in the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Integer value) {
             return value(Output.of(value));
         }
 
-        /**
-         * @param valueInIa The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueInIa(@Nullable Output<Integer> valueInIa) {
             $.valueInIa = valueInIa;
             return this;
         }
 
-        /**
-         * @param valueInIa The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueInIa(Integer valueInIa) {
             return valueInIa(Output.of(valueInIa));
         }
 
-        /**
-         * @param valueInStandard The latest known metered size (in bytes) of data stored in the Standard storage class.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueInStandard(@Nullable Output<Integer> valueInStandard) {
             $.valueInStandard = valueInStandard;
             return this;
         }
 
-        /**
-         * @param valueInStandard The latest known metered size (in bytes) of data stored in the Standard storage class.
-         * 
-         * @return builder
-         * 
-         */
         public Builder valueInStandard(Integer valueInStandard) {
             return valueInStandard(Output.of(valueInStandard));
         }

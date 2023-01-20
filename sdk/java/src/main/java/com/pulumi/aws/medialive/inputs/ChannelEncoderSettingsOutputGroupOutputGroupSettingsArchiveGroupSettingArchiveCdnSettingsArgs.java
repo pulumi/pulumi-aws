@@ -15,17 +15,9 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs();
 
-    /**
-     * Archive S3 Settings. See Archive S3 Settings for more details.
-     * 
-     */
     @Import(name="archiveS3Settings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs> archiveS3Settings;
 
-    /**
-     * @return Archive S3 Settings. See Archive S3 Settings for more details.
-     * 
-     */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs>> archiveS3Settings() {
         return Optional.ofNullable(this.archiveS3Settings);
     }
@@ -54,23 +46,11 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGr
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param archiveS3Settings Archive S3 Settings. See Archive S3 Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveS3Settings(@Nullable Output<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs> archiveS3Settings) {
             $.archiveS3Settings = archiveS3Settings;
             return this;
         }
 
-        /**
-         * @param archiveS3Settings Archive S3 Settings. See Archive S3 Settings for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder archiveS3Settings(ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs archiveS3Settings) {
             return archiveS3Settings(Output.of(archiveS3Settings));
         }

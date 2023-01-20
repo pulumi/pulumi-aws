@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainLogPublishingOption {
-    /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
-     * 
-     */
     private String cloudwatchLogGroupArn;
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     private @Nullable Boolean enabled;
-    /**
-     * @return Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-     * 
-     */
     private String logType;
 
     private DomainLogPublishingOption() {}
-    /**
-     * @return ARN of the Cloudwatch log group to which log needs to be published.
-     * 
-     */
     public String cloudwatchLogGroupArn() {
         return this.cloudwatchLogGroupArn;
     }
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
-    /**
-     * @return Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-     * 
-     */
     public String logType() {
         return this.logType;
     }

@@ -16,229 +16,47 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Config Conformance Pack. More information about this collection of Config rules and remediation actions can be found in the
- * [Conformance Packs](https://docs.aws.amazon.com/config/latest/developerguide/conformance-packs.html) documentation.
- * Sample Conformance Pack templates may be found in the
- * [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
- * 
- * &gt; **NOTE:** The account must have a Configuration Recorder with proper IAM permissions before the Conformance Pack will
- * successfully create or update. See also the
- * `aws.cfg.Recorder` resource.
- * 
- * ## Example Usage
- * ### Template Body
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cfg.ConformancePack;
- * import com.pulumi.aws.cfg.ConformancePackArgs;
- * import com.pulumi.aws.cfg.inputs.ConformancePackInputParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ConformancePack(&#34;example&#34;, ConformancePackArgs.builder()        
- *             .inputParameters(ConformancePackInputParameterArgs.builder()
- *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
- *                 .parameterValue(&#34;90&#34;)
- *                 .build())
- *             .templateBody(&#34;&#34;&#34;
- * Parameters:
- *   AccessKeysRotatedParameterMaxAccessKeyAge:
- *     Type: String
- * Resources:
- *   IAMPasswordPolicy:
- *     Properties:
- *       ConfigRuleName: IAMPasswordPolicy
- *       Source:
- *         Owner: AWS
- *         SourceIdentifier: IAM_PASSWORD_POLICY
- *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_config_configuration_recorder.example())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Template S3 URI
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketObjectv2;
- * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.cfg.ConformancePack;
- * import com.pulumi.aws.cfg.ConformancePackArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .key(&#34;example-key&#34;)
- *             .content(&#34;&#34;&#34;
- * Resources:
- *   IAMPasswordPolicy:
- *     Properties:
- *       ConfigRuleName: IAMPasswordPolicy
- *       Source:
- *         Owner: AWS
- *         SourceIdentifier: IAM_PASSWORD_POLICY
- *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleConformancePack = new ConformancePack(&#34;exampleConformancePack&#34;, ConformancePackArgs.builder()        
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
- *                 var bucket = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
- *             }))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_config_configuration_recorder.example())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Config Conformance Packs can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cfg/conformancePack:ConformancePack example example
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/conformancePack:ConformancePack")
 public class ConformancePack extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the conformance pack.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the conformance pack.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-     * 
-     */
     @Export(name="deliveryS3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3Bucket;
 
-    /**
-     * @return Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
-     * 
-     */
     public Output<Optional<String>> deliveryS3Bucket() {
         return Codegen.optional(this.deliveryS3Bucket);
     }
-    /**
-     * The prefix for the Amazon S3 bucket. Maximum length of 1024.
-     * 
-     */
     @Export(name="deliveryS3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3KeyPrefix;
 
-    /**
-     * @return The prefix for the Amazon S3 bucket. Maximum length of 1024.
-     * 
-     */
     public Output<Optional<String>> deliveryS3KeyPrefix() {
         return Codegen.optional(this.deliveryS3KeyPrefix);
     }
-    /**
-     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-     * 
-     */
     @Export(name="inputParameters", refs={List.class,ConformancePackInputParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ConformancePackInputParameter>> inputParameters;
 
-    /**
-     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-     * 
-     */
     public Output<Optional<List<ConformancePackInputParameter>>> inputParameters() {
         return Codegen.optional(this.inputParameters);
     }
-    /**
-     * The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-     * 
-     */
     @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateBody;
 
-    /**
-     * @return A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-     * 
-     */
     public Output<Optional<String>> templateBody() {
         return Codegen.optional(this.templateBody);
     }
-    /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-     * 
-     */
     @Export(name="templateS3Uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateS3Uri;
 
-    /**
-     * @return Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-     * 
-     */
     public Output<Optional<String>> templateS3Uri() {
         return Codegen.optional(this.templateS3Uri);
     }

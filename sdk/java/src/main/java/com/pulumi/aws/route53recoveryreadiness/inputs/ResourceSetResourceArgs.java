@@ -24,47 +24,23 @@ public final class ResourceSetResourceArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.componentId);
     }
 
-    /**
-     * Component for DNS/Routing Control Readiness Checks.
-     * 
-     */
     @Import(name="dnsTargetResource")
     private @Nullable Output<ResourceSetResourceDnsTargetResourceArgs> dnsTargetResource;
 
-    /**
-     * @return Component for DNS/Routing Control Readiness Checks.
-     * 
-     */
     public Optional<Output<ResourceSetResourceDnsTargetResourceArgs>> dnsTargetResource() {
         return Optional.ofNullable(this.dnsTargetResource);
     }
 
-    /**
-     * Recovery group ARN or cell ARN that contains this resource set.
-     * 
-     */
     @Import(name="readinessScopes")
     private @Nullable Output<List<String>> readinessScopes;
 
-    /**
-     * @return Recovery group ARN or cell ARN that contains this resource set.
-     * 
-     */
     public Optional<Output<List<String>>> readinessScopes() {
         return Optional.ofNullable(this.readinessScopes);
     }
 
-    /**
-     * ARN of the resource.
-     * 
-     */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
-    /**
-     * @return ARN of the resource.
-     * 
-     */
     public Optional<Output<String>> resourceArn() {
         return Optional.ofNullable(this.resourceArn);
     }
@@ -105,75 +81,33 @@ public final class ResourceSetResourceArgs extends com.pulumi.resources.Resource
             return componentId(Output.of(componentId));
         }
 
-        /**
-         * @param dnsTargetResource Component for DNS/Routing Control Readiness Checks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsTargetResource(@Nullable Output<ResourceSetResourceDnsTargetResourceArgs> dnsTargetResource) {
             $.dnsTargetResource = dnsTargetResource;
             return this;
         }
 
-        /**
-         * @param dnsTargetResource Component for DNS/Routing Control Readiness Checks.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsTargetResource(ResourceSetResourceDnsTargetResourceArgs dnsTargetResource) {
             return dnsTargetResource(Output.of(dnsTargetResource));
         }
 
-        /**
-         * @param readinessScopes Recovery group ARN or cell ARN that contains this resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readinessScopes(@Nullable Output<List<String>> readinessScopes) {
             $.readinessScopes = readinessScopes;
             return this;
         }
 
-        /**
-         * @param readinessScopes Recovery group ARN or cell ARN that contains this resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readinessScopes(List<String> readinessScopes) {
             return readinessScopes(Output.of(readinessScopes));
         }
 
-        /**
-         * @param readinessScopes Recovery group ARN or cell ARN that contains this resource set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder readinessScopes(String... readinessScopes) {
             return readinessScopes(List.of(readinessScopes));
         }
 
-        /**
-         * @param resourceArn ARN of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(@Nullable Output<String> resourceArn) {
             $.resourceArn = resourceArn;
             return this;
         }
 
-        /**
-         * @param resourceArn ARN of the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArn(String resourceArn) {
             return resourceArn(Output.of(resourceArn));
         }

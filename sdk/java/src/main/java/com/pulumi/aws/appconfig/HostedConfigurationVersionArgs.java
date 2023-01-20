@@ -15,77 +15,37 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
 
     public static final HostedConfigurationVersionArgs Empty = new HostedConfigurationVersionArgs();
 
-    /**
-     * Application ID.
-     * 
-     */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
-    /**
-     * @return Application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
-    /**
-     * Configuration profile ID.
-     * 
-     */
     @Import(name="configurationProfileId", required=true)
     private Output<String> configurationProfileId;
 
-    /**
-     * @return Configuration profile ID.
-     * 
-     */
     public Output<String> configurationProfileId() {
         return this.configurationProfileId;
     }
 
-    /**
-     * Content of the configuration or the configuration data.
-     * 
-     */
     @Import(name="content", required=true)
     private Output<String> content;
 
-    /**
-     * @return Content of the configuration or the configuration data.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
 
-    /**
-     * Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-     * 
-     */
     @Import(name="contentType", required=true)
     private Output<String> contentType;
 
-    /**
-     * @return Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
 
-    /**
-     * Description of the configuration.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the configuration.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -118,107 +78,47 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
             $ = new HostedConfigurationVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param applicationId Application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
-        /**
-         * @param applicationId Application ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
-        /**
-         * @param configurationProfileId Configuration profile ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProfileId(Output<String> configurationProfileId) {
             $.configurationProfileId = configurationProfileId;
             return this;
         }
 
-        /**
-         * @param configurationProfileId Configuration profile ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationProfileId(String configurationProfileId) {
             return configurationProfileId(Output.of(configurationProfileId));
         }
 
-        /**
-         * @param content Content of the configuration or the configuration data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(Output<String> content) {
             $.content = content;
             return this;
         }
 
-        /**
-         * @param content Content of the configuration or the configuration data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder content(String content) {
             return content(Output.of(content));
         }
 
-        /**
-         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(Output<String> contentType) {
             $.contentType = contentType;
             return this;
         }
 
-        /**
-         * @param contentType Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
         }
 
-        /**
-         * @param description Description of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the configuration.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }

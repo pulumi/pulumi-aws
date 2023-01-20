@@ -14,73 +14,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a lifecycle configuration for SageMaker Notebook Instances.
- * 
- * ## Import
- * 
- * Models can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")
 public class NotebookInstanceLifecycleConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
-     * 
-     */
     @Export(name="onCreate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onCreate;
 
-    /**
-     * @return A shell script (base64-encoded) that runs only once when the SageMaker Notebook Instance is created.
-     * 
-     */
     public Output<Optional<String>> onCreate() {
         return Codegen.optional(this.onCreate);
     }
-    /**
-     * A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
-     * 
-     */
     @Export(name="onStart", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onStart;
 
-    /**
-     * @return A shell script (base64-encoded) that runs every time the SageMaker Notebook Instance is started including the time it&#39;s created.
-     * 
-     */
     public Output<Optional<String>> onStart() {
         return Codegen.optional(this.onStart);
     }

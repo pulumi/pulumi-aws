@@ -15,109 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage AWS Secrets Manager secret policy.
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.secretsmanager.Secret;
- * import com.pulumi.aws.secretsmanager.SecretPolicy;
- * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleSecret = new Secret(&#34;exampleSecret&#34;);
- * 
- *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
- *             .secretArn(exampleSecret.arn())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- * 	{
- * 	  &#34;Sid&#34;: &#34;EnableAnotherAWSAccountToReadTheSecret&#34;,
- * 	  &#34;Effect&#34;: &#34;Allow&#34;,
- * 	  &#34;Principal&#34;: {
- * 		&#34;AWS&#34;: &#34;arn:aws:iam::123456789012:root&#34;
- * 	  },
- * 	  &#34;Action&#34;: &#34;secretsmanager:GetSecretValue&#34;,
- * 	  &#34;Resource&#34;: &#34;*&#34;
- * 	}
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_secretsmanager_secret_policy` can be imported by using the secret Amazon Resource Name (ARN), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
- * ```
- * 
- */
 @ResourceType(type="aws:secretsmanager/secretPolicy:SecretPolicy")
 public class SecretPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-     * 
-     */
     @Export(name="blockPublicPolicy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blockPublicPolicy;
 
-    /**
-     * @return Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-     * 
-     */
     public Output<Optional<Boolean>> blockPublicPolicy() {
         return Codegen.optional(this.blockPublicPolicy);
     }
-    /**
-     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `&#34;{}&#34;` to delete the policy, `&#34;{}&#34;` is not a valid policy since `policy` is required.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `&#34;{}&#34;` to delete the policy, `&#34;{}&#34;` is not a valid policy since `policy` is required.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * Secret ARN.
-     * 
-     */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
-    /**
-     * @return Secret ARN.
-     * 
-     */
     public Output<String> secretArn() {
         return this.secretArn;
     }

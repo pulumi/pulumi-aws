@@ -16,62 +16,30 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
 
     public static final ServiceLoadBalancerArgs Empty = new ServiceLoadBalancerArgs();
 
-    /**
-     * Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
-    /**
-     * Port on the container to associate with the load balancer.
-     * 
-     */
     @Import(name="containerPort", required=true)
     private Output<Integer> containerPort;
 
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Output<Integer> containerPort() {
         return this.containerPort;
     }
 
-    /**
-     * Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     @Import(name="elbName")
     private @Nullable Output<String> elbName;
 
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     public Optional<Output<String>> elbName() {
         return Optional.ofNullable(this.elbName);
     }
 
-    /**
-     * ARN of the Load Balancer target group to associate with the service.
-     * 
-     */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     */
     public Optional<Output<String>> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
@@ -103,86 +71,38 @@ public final class ServiceLoadBalancerArgs extends com.pulumi.resources.Resource
             $ = new ServiceLoadBalancerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName Name of the container to associate with the load balancer (as it appears in a container definition).
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param containerPort Port on the container to associate with the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Output<Integer> containerPort) {
             $.containerPort = containerPort;
             return this;
         }
 
-        /**
-         * @param containerPort Port on the container to associate with the load balancer.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerPort(Integer containerPort) {
             return containerPort(Output.of(containerPort));
         }
 
-        /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbName(@Nullable Output<String> elbName) {
             $.elbName = elbName;
             return this;
         }
 
-        /**
-         * @param elbName Name of the ELB (Classic) to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder elbName(String elbName) {
             return elbName(Output.of(elbName));
         }
 
-        /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(@Nullable Output<String> targetGroupArn) {
             $.targetGroupArn = targetGroupArn;
             return this;
         }
 
-        /**
-         * @param targetGroupArn ARN of the Load Balancer target group to associate with the service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(String targetGroupArn) {
             return targetGroupArn(Output.of(targetGroupArn));
         }

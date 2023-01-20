@@ -26,267 +26,11 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
- * 
- * ## Example Usage
- * ### DynamoDB Target Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerDynamodbTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.example().name())
- *             .role(aws_iam_role.example().arn())
- *             .dynamodbTargets(CrawlerDynamodbTargetArgs.builder()
- *                 .path(&#34;table-name&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### JDBC Target Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerJdbcTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.example().name())
- *             .role(aws_iam_role.example().arn())
- *             .jdbcTargets(CrawlerJdbcTargetArgs.builder()
- *                 .connectionName(aws_glue_connection.example().name())
- *                 .path(&#34;database-name/%&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### S3 Target Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerS3TargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.example().name())
- *             .role(aws_iam_role.example().arn())
- *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format(&#34;s3://%s&#34;, aws_s3_bucket.example().bucket()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Catalog Target Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerSchemaChangePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.example().name())
- *             .role(aws_iam_role.example().arn())
- *             .catalogTargets(CrawlerCatalogTargetArgs.builder()
- *                 .databaseName(aws_glue_catalog_database.example().name())
- *                 .tables(aws_glue_catalog_table.example().name())
- *                 .build())
- *             .schemaChangePolicy(CrawlerSchemaChangePolicyArgs.builder()
- *                 .deleteBehavior(&#34;LOG&#34;)
- *                 .build())
- *             .configuration(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;:1.0,
- *   &#34;Grouping&#34;: {
- *     &#34;TableGroupingPolicy&#34;: &#34;CombineCompatibleSchemas&#34;
- *   }
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### MongoDB Target Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerMongodbTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Crawler(&#34;example&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.example().name())
- *             .role(aws_iam_role.example().arn())
- *             .mongodbTargets(CrawlerMongodbTargetArgs.builder()
- *                 .connectionName(aws_glue_connection.example().name())
- *                 .path(&#34;database-name/%&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Configuration Settings Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.glue.Crawler;
- * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerS3TargetArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var eventsCrawler = new Crawler(&#34;eventsCrawler&#34;, CrawlerArgs.builder()        
- *             .databaseName(aws_glue_catalog_database.glue_database().name())
- *             .schedule(&#34;cron(0 1 * * ? *)&#34;)
- *             .role(aws_iam_role.glue_role().arn())
- *             .tags(var_.tags())
- *             .configuration(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Grouping&#34;, jsonObject(
- *                         jsonProperty(&#34;TableGroupingPolicy&#34;, &#34;CombineCompatibleSchemas&#34;)
- *                     )),
- *                     jsonProperty(&#34;CrawlerOutput&#34;, jsonObject(
- *                         jsonProperty(&#34;Partitions&#34;, jsonObject(
- *                             jsonProperty(&#34;AddOrUpdateBehavior&#34;, &#34;InheritFromTable&#34;)
- *                         ))
- *                     )),
- *                     jsonProperty(&#34;Version&#34;, 1)
- *                 )))
- *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format(&#34;s3://%s&#34;, aws_s3_bucket.data_lake_bucket().bucket()))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue Crawlers can be imported using `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
- * ```
- * 
- */
 @ResourceType(type="aws:glue/crawler:Crawler")
 public class Crawler extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the crawler
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the crawler
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -296,45 +40,21 @@ public class Crawler extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<CrawlerCatalogTarget>>> catalogTargets() {
         return Codegen.optional(this.catalogTargets);
     }
-    /**
-     * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-     * 
-     */
     @Export(name="classifiers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> classifiers;
 
-    /**
-     * @return List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-     * 
-     */
     public Output<Optional<List<String>>> classifiers() {
         return Codegen.optional(this.classifiers);
     }
-    /**
-     * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-     * 
-     */
     @Export(name="configuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configuration;
 
-    /**
-     * @return JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-     * 
-     */
     public Output<Optional<String>> configuration() {
         return Codegen.optional(this.configuration);
     }
-    /**
-     * The name of the Glue database to be synchronized.
-     * 
-     */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
-    /**
-     * @return The name of the Glue database to be synchronized.
-     * 
-     */
     public Output<String> databaseName() {
         return this.databaseName;
     }
@@ -344,227 +64,99 @@ public class Crawler extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<CrawlerDeltaTarget>>> deltaTargets() {
         return Codegen.optional(this.deltaTargets);
     }
-    /**
-     * Description of the crawler.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the crawler.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * List of nested DynamoDB target arguments. See Dynamodb Target below.
-     * 
-     */
     @Export(name="dynamodbTargets", refs={List.class,CrawlerDynamodbTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerDynamodbTarget>> dynamodbTargets;
 
-    /**
-     * @return List of nested DynamoDB target arguments. See Dynamodb Target below.
-     * 
-     */
     public Output<Optional<List<CrawlerDynamodbTarget>>> dynamodbTargets() {
         return Codegen.optional(this.dynamodbTargets);
     }
-    /**
-     * List of nested JBDC target arguments. See JDBC Target below.
-     * 
-     */
     @Export(name="jdbcTargets", refs={List.class,CrawlerJdbcTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerJdbcTarget>> jdbcTargets;
 
-    /**
-     * @return List of nested JBDC target arguments. See JDBC Target below.
-     * 
-     */
     public Output<Optional<List<CrawlerJdbcTarget>>> jdbcTargets() {
         return Codegen.optional(this.jdbcTargets);
     }
-    /**
-     * Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
-     * 
-     */
     @Export(name="lakeFormationConfiguration", refs={CrawlerLakeFormationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerLakeFormationConfiguration> lakeFormationConfiguration;
 
-    /**
-     * @return Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
-     * 
-     */
     public Output<Optional<CrawlerLakeFormationConfiguration>> lakeFormationConfiguration() {
         return Codegen.optional(this.lakeFormationConfiguration);
     }
-    /**
-     * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-     * 
-     */
     @Export(name="lineageConfiguration", refs={CrawlerLineageConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerLineageConfiguration> lineageConfiguration;
 
-    /**
-     * @return Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-     * 
-     */
     public Output<Optional<CrawlerLineageConfiguration>> lineageConfiguration() {
         return Codegen.optional(this.lineageConfiguration);
     }
-    /**
-     * List nested MongoDB target arguments. See MongoDB Target below.
-     * 
-     */
     @Export(name="mongodbTargets", refs={List.class,CrawlerMongodbTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerMongodbTarget>> mongodbTargets;
 
-    /**
-     * @return List nested MongoDB target arguments. See MongoDB Target below.
-     * 
-     */
     public Output<Optional<List<CrawlerMongodbTarget>>> mongodbTargets() {
         return Codegen.optional(this.mongodbTargets);
     }
-    /**
-     * Name of the crawler.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the crawler.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-     * 
-     */
     @Export(name="recrawlPolicy", refs={CrawlerRecrawlPolicy.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerRecrawlPolicy> recrawlPolicy;
 
-    /**
-     * @return A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-     * 
-     */
     public Output<Optional<CrawlerRecrawlPolicy>> recrawlPolicy() {
         return Codegen.optional(this.recrawlPolicy);
     }
-    /**
-     * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
-    /**
-     * @return The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-     * 
-     */
     public Output<String> role() {
         return this.role;
     }
-    /**
-     * List nested Amazon S3 target arguments. See S3 Target below.
-     * 
-     */
     @Export(name="s3Targets", refs={List.class,CrawlerS3Target.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerS3Target>> s3Targets;
 
-    /**
-     * @return List nested Amazon S3 target arguments. See S3 Target below.
-     * 
-     */
     public Output<Optional<List<CrawlerS3Target>>> s3Targets() {
         return Codegen.optional(this.s3Targets);
     }
-    /**
-     * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-     * 
-     */
     @Export(name="schedule", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schedule;
 
-    /**
-     * @return A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-     * 
-     */
     public Output<Optional<String>> schedule() {
         return Codegen.optional(this.schedule);
     }
-    /**
-     * Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
-     * 
-     */
     @Export(name="schemaChangePolicy", refs={CrawlerSchemaChangePolicy.class}, tree="[0]")
     private Output</* @Nullable */ CrawlerSchemaChangePolicy> schemaChangePolicy;
 
-    /**
-     * @return Policy for the crawler&#39;s update and deletion behavior. See Schema Change Policy below.
-     * 
-     */
     public Output<Optional<CrawlerSchemaChangePolicy>> schemaChangePolicy() {
         return Codegen.optional(this.schemaChangePolicy);
     }
-    /**
-     * The name of Security Configuration to be used by the crawler
-     * 
-     */
     @Export(name="securityConfiguration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> securityConfiguration;
 
-    /**
-     * @return The name of Security Configuration to be used by the crawler
-     * 
-     */
     public Output<Optional<String>> securityConfiguration() {
         return Codegen.optional(this.securityConfiguration);
     }
-    /**
-     * The table prefix used for catalog tables that are created.
-     * 
-     */
     @Export(name="tablePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tablePrefix;
 
-    /**
-     * @return The table prefix used for catalog tables that are created.
-     * 
-     */
     public Output<Optional<String>> tablePrefix() {
         return Codegen.optional(this.tablePrefix);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

@@ -15,32 +15,16 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSlotTypeArgs Empty = new GetSlotTypeArgs();
 
-    /**
-     * Name of the slot type. The name is case sensitive.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the slot type. The name is case sensitive.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Version of the slot type.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the slot type.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -70,44 +54,20 @@ public final class GetSlotTypeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSlotTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the slot type. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the slot type. The name is case sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param version Version of the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the slot type.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

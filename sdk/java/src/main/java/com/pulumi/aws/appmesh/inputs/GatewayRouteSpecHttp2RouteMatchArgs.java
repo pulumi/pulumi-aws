@@ -16,32 +16,16 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
 
     public static final GatewayRouteSpecHttp2RouteMatchArgs Empty = new GatewayRouteSpecHttp2RouteMatchArgs();
 
-    /**
-     * Host name to rewrite.
-     * 
-     */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttp2RouteMatchHostnameArgs> hostname;
 
-    /**
-     * @return Host name to rewrite.
-     * 
-     */
     public Optional<Output<GatewayRouteSpecHttp2RouteMatchHostnameArgs>> hostname() {
         return Optional.ofNullable(this.hostname);
     }
 
-    /**
-     * Specified beginning characters to rewrite.
-     * 
-     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
-    /**
-     * @return Specified beginning characters to rewrite.
-     * 
-     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -71,44 +55,20 @@ public final class GatewayRouteSpecHttp2RouteMatchArgs extends com.pulumi.resour
             $ = new GatewayRouteSpecHttp2RouteMatchArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(@Nullable Output<GatewayRouteSpecHttp2RouteMatchHostnameArgs> hostname) {
             $.hostname = hostname;
             return this;
         }
 
-        /**
-         * @param hostname Host name to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder hostname(GatewayRouteSpecHttp2RouteMatchHostnameArgs hostname) {
             return hostname(Output.of(hostname));
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
-        /**
-         * @param prefix Specified beginning characters to rewrite.
-         * 
-         * @return builder
-         * 
-         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

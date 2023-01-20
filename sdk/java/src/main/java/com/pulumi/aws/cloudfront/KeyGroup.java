@@ -15,111 +15,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Example Usage
- * 
- * The following example below creates a CloudFront key group.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudfront.PublicKey;
- * import com.pulumi.aws.cloudfront.PublicKeyArgs;
- * import com.pulumi.aws.cloudfront.KeyGroup;
- * import com.pulumi.aws.cloudfront.KeyGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var examplePublicKey = new PublicKey(&#34;examplePublicKey&#34;, PublicKeyArgs.builder()        
- *             .comment(&#34;example public key&#34;)
- *             .encodedKey(Files.readString(Paths.get(&#34;public_key.pem&#34;)))
- *             .build());
- * 
- *         var exampleKeyGroup = new KeyGroup(&#34;exampleKeyGroup&#34;, KeyGroupArgs.builder()        
- *             .comment(&#34;example key group&#34;)
- *             .items(examplePublicKey.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CloudFront Key Group can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
- * ```
- * 
- */
 @ResourceType(type="aws:cloudfront/keyGroup:KeyGroup")
 public class KeyGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * A comment to describe the key group..
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return A comment to describe the key group..
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * The identifier for this version of the key group.
-     * 
-     */
     @Export(name="etag", refs={String.class}, tree="[0]")
     private Output<String> etag;
 
-    /**
-     * @return The identifier for this version of the key group.
-     * 
-     */
     public Output<String> etag() {
         return this.etag;
     }
-    /**
-     * A list of the identifiers of the public keys in the key group.
-     * 
-     */
     @Export(name="items", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> items;
 
-    /**
-     * @return A list of the identifiers of the public keys in the key group.
-     * 
-     */
     public Output<List<String>> items() {
         return this.items;
     }
-    /**
-     * A name to identify the key group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name to identify the key group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }

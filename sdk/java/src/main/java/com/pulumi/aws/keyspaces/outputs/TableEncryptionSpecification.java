@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableEncryptionSpecification {
-    /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
-     * 
-     */
     private @Nullable String kmsKeyIdentifier;
-    /**
-     * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     private @Nullable String type;
 
     private TableEncryptionSpecification() {}
-    /**
-     * @return The Amazon Resource Name (ARN) of the customer managed KMS key.
-     * 
-     */
     public Optional<String> kmsKeyIdentifier() {
         return Optional.ofNullable(this.kmsKeyIdentifier);
     }
-    /**
-     * @return The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

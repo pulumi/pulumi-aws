@@ -14,41 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroup {
-    /**
-     * @return The name of the video description.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings;
-    /**
-     * @return List of outputs. See Outputs for more details.
-     * 
-     */
     private List<ChannelEncoderSettingsOutputGroupOutput> outputs;
 
     private ChannelEncoderSettingsOutputGroup() {}
-    /**
-     * @return The name of the video description.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return Settings associated with the output group. See Output Group Settings for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettings outputGroupSettings() {
         return this.outputGroupSettings;
     }
-    /**
-     * @return List of outputs. See Outputs for more details.
-     * 
-     */
     public List<ChannelEncoderSettingsOutputGroupOutput> outputs() {
         return this.outputs;
     }

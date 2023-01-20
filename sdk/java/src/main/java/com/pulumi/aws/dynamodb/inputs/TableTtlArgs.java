@@ -16,32 +16,16 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TableTtlArgs Empty = new TableTtlArgs();
 
-    /**
-     * Name of the table attribute to store the TTL timestamp in.
-     * 
-     */
     @Import(name="attributeName", required=true)
     private Output<String> attributeName;
 
-    /**
-     * @return Name of the table attribute to store the TTL timestamp in.
-     * 
-     */
     public Output<String> attributeName() {
         return this.attributeName;
     }
 
-    /**
-     * Whether TTL is enabled.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether TTL is enabled.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -71,44 +55,20 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TableTtlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(Output<String> attributeName) {
             $.attributeName = attributeName;
             return this;
         }
 
-        /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * 
-         * @return builder
-         * 
-         */
         public Builder attributeName(String attributeName) {
             return attributeName(Output.of(attributeName));
         }
 
-        /**
-         * @param enabled Whether TTL is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether TTL is enabled.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

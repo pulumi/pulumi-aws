@@ -12,67 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteSpecHttpRouteMatchHeaderMatch {
-    /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-     * 
-     */
     private @Nullable String exact;
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     private @Nullable String prefix;
-    /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
-     * 
-     */
     private @Nullable RouteSpecHttpRouteMatchHeaderMatchRange range;
-    /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     private @Nullable String regex;
-    /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     private @Nullable String suffix;
 
     private RouteSpecHttpRouteMatchHeaderMatch() {}
-    /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
-    /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-     * 
-     */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
-    /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
-     * 
-     */
     public Optional<RouteSpecHttpRouteMatchHeaderMatchRange> range() {
         return Optional.ofNullable(this.range);
     }
-    /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
-    /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-     * 
-     */
     public Optional<String> suffix() {
         return Optional.ofNullable(this.suffix);
     }

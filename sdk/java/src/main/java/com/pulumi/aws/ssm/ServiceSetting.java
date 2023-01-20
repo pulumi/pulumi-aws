@@ -13,104 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * This setting defines how a user interacts with or uses a service or a feature of a service.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.ServiceSetting;
- * import com.pulumi.aws.ssm.ServiceSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testSetting = new ServiceSetting(&#34;testSetting&#34;, ServiceSettingArgs.builder()        
- *             .settingId(&#34;arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled&#34;)
- *             .settingValue(&#34;true&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AWS SSM Service Setting can be imported using the `setting_id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/serviceSetting:ServiceSetting")
 public class ServiceSetting extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the service setting.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the service setting.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ID of the service setting.
-     * 
-     */
     @Export(name="settingId", refs={String.class}, tree="[0]")
     private Output<String> settingId;
 
-    /**
-     * @return ID of the service setting.
-     * 
-     */
     public Output<String> settingId() {
         return this.settingId;
     }
-    /**
-     * Value of the service setting.
-     * 
-     */
     @Export(name="settingValue", refs={String.class}, tree="[0]")
     private Output<String> settingValue;
 
-    /**
-     * @return Value of the service setting.
-     * 
-     */
     public Output<String> settingValue() {
         return this.settingValue;
     }
-    /**
-     * Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }

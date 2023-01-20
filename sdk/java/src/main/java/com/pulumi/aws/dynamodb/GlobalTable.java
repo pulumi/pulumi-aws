@@ -15,147 +15,23 @@ import java.lang.String;
 import java.util.List;
 import javax.annotation.Nullable;
 
-/**
- * Manages [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html). These are layered on top of existing DynamoDB Tables.
- * 
- * &gt; **NOTE:** To instead manage [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html), use the `aws.dynamodb.Table` resource `replica` configuration block.
- * 
- * &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.Provider;
- * import com.pulumi.aws.ProviderArgs;
- * import com.pulumi.aws.dynamodb.Table;
- * import com.pulumi.aws.dynamodb.TableArgs;
- * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
- * import com.pulumi.aws.dynamodb.GlobalTable;
- * import com.pulumi.aws.dynamodb.GlobalTableArgs;
- * import com.pulumi.aws.dynamodb.inputs.GlobalTableReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var us_east_1 = new Provider(&#34;us-east-1&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-east-1&#34;)
- *             .build());
- * 
- *         var us_west_2 = new Provider(&#34;us-west-2&#34;, ProviderArgs.builder()        
- *             .region(&#34;us-west-2&#34;)
- *             .build());
- * 
- *         var us_east_1Table = new Table(&#34;us-east-1Table&#34;, TableArgs.builder()        
- *             .hashKey(&#34;myAttribute&#34;)
- *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .build());
- * 
- *         var us_west_2Table = new Table(&#34;us-west-2Table&#34;, TableArgs.builder()        
- *             .hashKey(&#34;myAttribute&#34;)
- *             .streamEnabled(true)
- *             .streamViewType(&#34;NEW_AND_OLD_IMAGES&#34;)
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .attributes(TableAttributeArgs.builder()
- *                 .name(&#34;myAttribute&#34;)
- *                 .type(&#34;S&#34;)
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-west-2())
- *                 .build());
- * 
- *         var myTable = new GlobalTable(&#34;myTable&#34;, GlobalTableArgs.builder()        
- *             .replicas(            
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-east-1&#34;)
- *                     .build(),
- *                 GlobalTableReplicaArgs.builder()
- *                     .regionName(&#34;us-west-2&#34;)
- *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.us-east-1())
- *                 .dependsOn(                
- *                     us_east_1Table,
- *                     us_west_2Table)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * DynamoDB Global Tables can be imported using the global table name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
- * ```
- * 
- */
 @ResourceType(type="aws:dynamodb/globalTable:GlobalTable")
 public class GlobalTable extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the DynamoDB Global Table
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the DynamoDB Global Table
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the global table. Must match underlying DynamoDB Table names in all regions.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     @Export(name="replicas", refs={List.class,GlobalTableReplica.class}, tree="[0,1]")
     private Output<List<GlobalTableReplica>> replicas;
 
-    /**
-     * @return Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-     * 
-     */
     public Output<List<GlobalTableReplica>> replicas() {
         return this.replicas;
     }

@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementOrStatementStatementOrStatement {
-    /**
-     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     private List<RuleGroupRuleStatementOrStatementStatementOrStatementStatement> statements;
 
     private RuleGroupRuleStatementOrStatementStatementOrStatement() {}
-    /**
-     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public List<RuleGroupRuleStatementOrStatementStatementOrStatementStatement> statements() {
         return this.statements;
     }

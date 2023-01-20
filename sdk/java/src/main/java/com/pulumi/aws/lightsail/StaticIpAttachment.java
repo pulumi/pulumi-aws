@@ -13,96 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a static IP address attachment - relationship between a Lightsail static IP &amp; Lightsail instance.
- * 
- * &gt; **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see [&#34;Regions and Availability Zones in Amazon Lightsail&#34;](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.StaticIp;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.StaticIpAttachment;
- * import com.pulumi.aws.lightsail.StaticIpAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testStaticIp = new StaticIp(&#34;testStaticIp&#34;);
- * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .availabilityZone(&#34;us-east-1b&#34;)
- *             .blueprintId(&#34;string&#34;)
- *             .bundleId(&#34;string&#34;)
- *             .keyPairName(&#34;some_key_name&#34;)
- *             .build());
- * 
- *         var testStaticIpAttachment = new StaticIpAttachment(&#34;testStaticIpAttachment&#34;, StaticIpAttachmentArgs.builder()        
- *             .staticIpName(testStaticIp.id())
- *             .instanceName(testInstance.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/staticIpAttachment:StaticIpAttachment")
 public class StaticIpAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the Lightsail instance to attach the IP to
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return The name of the Lightsail instance to attach the IP to
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * The allocated static IP address
-     * 
-     */
     @Export(name="ipAddress", refs={String.class}, tree="[0]")
     private Output<String> ipAddress;
 
-    /**
-     * @return The allocated static IP address
-     * 
-     */
     public Output<String> ipAddress() {
         return this.ipAddress;
     }
-    /**
-     * The name of the allocated static IP
-     * 
-     */
     @Export(name="staticIpName", refs={String.class}, tree="[0]")
     private Output<String> staticIpName;
 
-    /**
-     * @return The name of the allocated static IP
-     * 
-     */
     public Output<String> staticIpName() {
         return this.staticIpName;
     }

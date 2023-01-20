@@ -24,10 +24,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
     private @Nullable String pmtPid;
     private @Nullable Integer programNum;
     private @Nullable String scte35Behavior;
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     private @Nullable String scte35Pid;
     private @Nullable String timedMetadataBehavior;
     private @Nullable String timedMetadataPid;
@@ -71,10 +67,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutpu
     public Optional<String> scte35Behavior() {
         return Optional.ofNullable(this.scte35Behavior);
     }
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<String> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }

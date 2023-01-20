@@ -18,510 +18,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Rule Group Resource
- * 
- * ## Example Usage
- * ### Stateful Inspection for denying access to a domain
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .type(&#34;STATEFUL&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stateful Inspection for permitting packets from a source IP address
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var ips =         
- *             &#34;1.1.1.1/32&#34;,
- *             &#34;1.0.0.1/32&#34;;
- * 
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(50)
- *             .description(&#34;Permits http traffic from source&#34;)
- *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .dynamic(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Name&#34;, &#34;permit HTTP from source&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stateful Inspection for blocking packets from going to an intended destination
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .statefulRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .type(&#34;STATEFUL&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stateful Inspection from rules specifications defined in Suricata flat format
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .type(&#34;STATEFUL&#34;)
- *             .rules(Files.readString(Paths.get(&#34;example.rules&#34;)))
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRuleVariablesArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .ruleVariables(RuleGroupRuleGroupRuleVariablesArgs.builder()
- *                     .ipSets(                    
- *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;WEBSERVERS_HOSTS&#34;)
- *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
- *                                 .definitions(                                
- *                                     &#34;10.0.0.0/16&#34;,
- *                                     &#34;10.0.1.0/24&#34;,
- *                                     &#34;192.168.0.0/16&#34;)
- *                                 .build())
- *                             .build(),
- *                         RuleGroupRuleGroupRuleVariablesIpSetArgs.builder()
- *                             .key(&#34;EXTERNAL_HOST&#34;)
- *                             .ipSet(RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs.builder()
- *                                 .definitions(&#34;1.2.3.4/32&#34;)
- *                                 .build())
- *                             .build())
- *                     .portSets(RuleGroupRuleGroupRuleVariablesPortSetArgs.builder()
- *                         .key(&#34;HTTP_PORTS&#34;)
- *                         .portSet(RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs.builder()
- *                             .definitions(                            
- *                                 &#34;443&#34;,
- *                                 &#34;80&#34;)
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesString(Files.readString(Paths.get(&#34;suricata_rules_file&#34;)))
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Stateless Inspection with a Custom Action
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .description(&#34;Stateless Rate Limiting Rule&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .statelessRulesAndCustomActions(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs.builder()
- *                         .customAction(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .statelessRule(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .type(&#34;STATELESS&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### IP Set References to the Rule Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.RuleGroup;
- * import com.pulumi.aws.networkfirewall.RuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupRulesSourceRulesSourceListArgs;
- * import com.pulumi.aws.networkfirewall.inputs.RuleGroupRuleGroupReferenceSetsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new RuleGroup(&#34;example&#34;, RuleGroupArgs.builder()        
- *             .capacity(100)
- *             .type(&#34;STATEFUL&#34;)
- *             .ruleGroup(RuleGroupRuleGroupArgs.builder()
- *                 .rulesSource(RuleGroupRuleGroupRulesSourceArgs.builder()
- *                     .rulesSourceList(RuleGroupRuleGroupRulesSourceRulesSourceListArgs.builder()
- *                         .generatedRulesType(&#34;DENYLIST&#34;)
- *                         .targetTypes(&#34;HTTP_HOST&#34;)
- *                         .targets(&#34;test.example.com&#34;)
- *                         .build())
- *                     .build())
- *                 .referenceSets(RuleGroupRuleGroupReferenceSetsArgs.builder()
- *                     .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs.builder()
- *                         .key(&#34;example&#34;)
- *                         .ipSetReferences(RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs.builder()
- *                             .referenceArn(aws_ec2_managed_prefix_list.this().arn())
- *                             .build())
- *                         .build())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Network Firewall Rule Groups can be imported using their `ARN`.
- * 
- * ```sh
- *  $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/ruleGroup:RuleGroup")
 public class RuleGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the rule group.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the rule group.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-     * 
-     */
     @Export(name="capacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> capacity;
 
-    /**
-     * @return The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
-     * 
-     */
     public Output<Integer> capacity() {
         return this.capacity;
     }
-    /**
-     * A friendly description of the rule group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A friendly description of the rule group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={RuleGroupEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ RuleGroupEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     public Output<Optional<RuleGroupEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * A friendly name of the rule group.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the rule group.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-     * 
-     */
     @Export(name="ruleGroup", refs={RuleGroupRuleGroup.class}, tree="[0]")
     private Output<RuleGroupRuleGroup> ruleGroup;
 
-    /**
-     * @return A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
-     * 
-     */
     public Output<RuleGroupRuleGroup> ruleGroup() {
         return this.ruleGroup;
     }
-    /**
-     * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-     * 
-     */
     @Export(name="rules", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rules;
 
-    /**
-     * @return The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
-     * 
-     */
     public Output<Optional<String>> rules() {
         return Codegen.optional(this.rules);
     }
-    /**
-     * A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of AWS KMS key to use for encryption of your Network Firewall resources. Valid values are `CUSTOMER_KMS` and `AWS_OWNED_KMS_KEY`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * A string token used when updating the rule group.
-     * 
-     */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
-    /**
-     * @return A string token used when updating the rule group.
-     * 
-     */
     public Output<String> updateToken() {
         return this.updateToken;
     }

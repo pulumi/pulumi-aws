@@ -13,98 +13,34 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReplicationGroupResult {
-    /**
-     * @return ARN of the created ElastiCache Replication Group.
-     * 
-     */
     private String arn;
-    /**
-     * @return Whether an AuthToken (password) is enabled.
-     * 
-     */
     private Boolean authTokenEnabled;
-    /**
-     * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
-     * 
-     */
     private Boolean automaticFailoverEnabled;
-    /**
-     * @return The configuration endpoint address to allow host discovery.
-     * 
-     */
     private String configurationEndpointAddress;
-    /**
-     * @return Description of the replication group.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-     * 
-     */
     private List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations;
-    /**
-     * @return Identifiers of all the nodes that are part of this replication group.
-     * 
-     */
     private List<String> memberClusters;
-    /**
-     * @return Whether Multi-AZ Support is enabled for the replication group.
-     * 
-     */
     private Boolean multiAzEnabled;
-    /**
-     * @return The cluster node type.
-     * 
-     */
     private String nodeType;
-    /**
-     * @return The number of cache clusters that the replication group has.
-     * 
-     */
     private Integer numCacheClusters;
-    /**
-     * @return Number of node groups (shards) for the replication group.
-     * 
-     */
     private Integer numNodeGroups;
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-     * 
      * @deprecated
      * Use num_cache_clusters instead
      * 
      */
     @Deprecated /* Use num_cache_clusters instead */
     private Integer numberCacheClusters;
-    /**
-     * @return The port number on which the configuration endpoint will accept connections.
-     * 
-     */
     private Integer port;
-    /**
-     * @return The endpoint of the primary node in this node group (shard).
-     * 
-     */
     private String primaryEndpointAddress;
-    /**
-     * @return The endpoint of the reader node in this node group (shard).
-     * 
-     */
     private String readerEndpointAddress;
-    /**
-     * @return Number of replica nodes in each node group.
-     * 
-     */
     private Integer replicasPerNodeGroup;
     /**
-     * @return (**Deprecated** use `description` instead) Description of the replication group.
-     * 
      * @deprecated
      * Use description instead
      * 
@@ -112,50 +48,22 @@ public final class GetReplicationGroupResult {
     @Deprecated /* Use description instead */
     private String replicationGroupDescription;
     private String replicationGroupId;
-    /**
-     * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
-     * 
-     */
     private Integer snapshotRetentionLimit;
-    /**
-     * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-     * 
-     */
     private String snapshotWindow;
 
     private GetReplicationGroupResult() {}
-    /**
-     * @return ARN of the created ElastiCache Replication Group.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Whether an AuthToken (password) is enabled.
-     * 
-     */
     public Boolean authTokenEnabled() {
         return this.authTokenEnabled;
     }
-    /**
-     * @return A flag whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails.
-     * 
-     */
     public Boolean automaticFailoverEnabled() {
         return this.automaticFailoverEnabled;
     }
-    /**
-     * @return The configuration endpoint address to allow host discovery.
-     * 
-     */
     public String configurationEndpointAddress() {
         return this.configurationEndpointAddress;
     }
-    /**
-     * @return Description of the replication group.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -166,51 +74,25 @@ public final class GetReplicationGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
-     * 
-     */
     public List<GetReplicationGroupLogDeliveryConfiguration> logDeliveryConfigurations() {
         return this.logDeliveryConfigurations;
     }
-    /**
-     * @return Identifiers of all the nodes that are part of this replication group.
-     * 
-     */
     public List<String> memberClusters() {
         return this.memberClusters;
     }
-    /**
-     * @return Whether Multi-AZ Support is enabled for the replication group.
-     * 
-     */
     public Boolean multiAzEnabled() {
         return this.multiAzEnabled;
     }
-    /**
-     * @return The cluster node type.
-     * 
-     */
     public String nodeType() {
         return this.nodeType;
     }
-    /**
-     * @return The number of cache clusters that the replication group has.
-     * 
-     */
     public Integer numCacheClusters() {
         return this.numCacheClusters;
     }
-    /**
-     * @return Number of node groups (shards) for the replication group.
-     * 
-     */
     public Integer numNodeGroups() {
         return this.numNodeGroups;
     }
     /**
-     * @return (**Deprecated** use `num_cache_clusters` instead) Number of cache clusters that the replication group has.
-     * 
      * @deprecated
      * Use num_cache_clusters instead
      * 
@@ -219,37 +101,19 @@ public final class GetReplicationGroupResult {
     public Integer numberCacheClusters() {
         return this.numberCacheClusters;
     }
-    /**
-     * @return The port number on which the configuration endpoint will accept connections.
-     * 
-     */
     public Integer port() {
         return this.port;
     }
-    /**
-     * @return The endpoint of the primary node in this node group (shard).
-     * 
-     */
     public String primaryEndpointAddress() {
         return this.primaryEndpointAddress;
     }
-    /**
-     * @return The endpoint of the reader node in this node group (shard).
-     * 
-     */
     public String readerEndpointAddress() {
         return this.readerEndpointAddress;
     }
-    /**
-     * @return Number of replica nodes in each node group.
-     * 
-     */
     public Integer replicasPerNodeGroup() {
         return this.replicasPerNodeGroup;
     }
     /**
-     * @return (**Deprecated** use `description` instead) Description of the replication group.
-     * 
      * @deprecated
      * Use description instead
      * 
@@ -261,17 +125,9 @@ public final class GetReplicationGroupResult {
     public String replicationGroupId() {
         return this.replicationGroupId;
     }
-    /**
-     * @return The number of days for which ElastiCache retains automatic cache cluster snapshots before deleting them.
-     * 
-     */
     public Integer snapshotRetentionLimit() {
         return this.snapshotRetentionLimit;
     }
-    /**
-     * @return Daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
-     * 
-     */
     public String snapshotWindow() {
         return this.snapshotWindow;
     }

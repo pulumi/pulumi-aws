@@ -15,82 +15,23 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iot.LoggingOptions;
- * import com.pulumi.aws.iot.LoggingOptionsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new LoggingOptions(&#34;example&#34;, LoggingOptionsArgs.builder()        
- *             .defaultLogLevel(&#34;WARN&#34;)
- *             .roleArn(aws_iam_role.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:iot/loggingOptions:LoggingOptions")
 public class LoggingOptions extends com.pulumi.resources.CustomResource {
-    /**
-     * The default logging level. Valid Values: `&#34;DEBUG&#34;`, `&#34;INFO&#34;`, `&#34;ERROR&#34;`, `&#34;WARN&#34;`, `&#34;DISABLED&#34;`.
-     * 
-     */
     @Export(name="defaultLogLevel", refs={String.class}, tree="[0]")
     private Output<String> defaultLogLevel;
 
-    /**
-     * @return The default logging level. Valid Values: `&#34;DEBUG&#34;`, `&#34;INFO&#34;`, `&#34;ERROR&#34;`, `&#34;WARN&#34;`, `&#34;DISABLED&#34;`.
-     * 
-     */
     public Output<String> defaultLogLevel() {
         return this.defaultLogLevel;
     }
-    /**
-     * If `true` all logs are disabled. The default is `false`.
-     * 
-     */
     @Export(name="disableAllLogs", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableAllLogs;
 
-    /**
-     * @return If `true` all logs are disabled. The default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> disableAllLogs() {
         return Codegen.optional(this.disableAllLogs);
     }
-    /**
-     * The ARN of the role that allows IoT to write to Cloudwatch logs.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The ARN of the role that allows IoT to write to Cloudwatch logs.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }

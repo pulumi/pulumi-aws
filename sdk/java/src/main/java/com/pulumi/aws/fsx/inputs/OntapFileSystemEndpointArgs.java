@@ -17,32 +17,16 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
 
     public static final OntapFileSystemEndpointArgs Empty = new OntapFileSystemEndpointArgs();
 
-    /**
-     * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-     * 
-     */
     @Import(name="interclusters")
     private @Nullable Output<List<OntapFileSystemEndpointInterclusterArgs>> interclusters;
 
-    /**
-     * @return An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapFileSystemEndpointInterclusterArgs>>> interclusters() {
         return Optional.ofNullable(this.interclusters);
     }
 
-    /**
-     * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-     * 
-     */
     @Import(name="managements")
     private @Nullable Output<List<OntapFileSystemEndpointManagementArgs>> managements;
 
-    /**
-     * @return An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-     * 
-     */
     public Optional<Output<List<OntapFileSystemEndpointManagementArgs>>> managements() {
         return Optional.ofNullable(this.managements);
     }
@@ -72,64 +56,28 @@ public final class OntapFileSystemEndpointArgs extends com.pulumi.resources.Reso
             $ = new OntapFileSystemEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interclusters(@Nullable Output<List<OntapFileSystemEndpointInterclusterArgs>> interclusters) {
             $.interclusters = interclusters;
             return this;
         }
 
-        /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interclusters(List<OntapFileSystemEndpointInterclusterArgs> interclusters) {
             return interclusters(Output.of(interclusters));
         }
 
-        /**
-         * @param interclusters An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interclusters(OntapFileSystemEndpointInterclusterArgs... interclusters) {
             return interclusters(List.of(interclusters));
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(@Nullable Output<List<OntapFileSystemEndpointManagementArgs>> managements) {
             $.managements = managements;
             return this;
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(List<OntapFileSystemEndpointManagementArgs> managements) {
             return managements(Output.of(managements));
         }
 
-        /**
-         * @param managements An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder managements(OntapFileSystemEndpointManagementArgs... managements) {
             return managements(List.of(managements));
         }

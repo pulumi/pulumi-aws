@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification {
-    /**
-     * @return List of up to 10 structures that defines custom capacity metric in predictive scaling policy
-     * 
-     */
     private List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery> metricDataQueries;
 
     private PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification() {}
-    /**
-     * @return List of up to 10 structures that defines custom capacity metric in predictive scaling policy
-     * 
-     */
     public List<PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery> metricDataQueries() {
         return this.metricDataQueries;
     }

@@ -18,253 +18,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.iot.Policy;
- * import com.pulumi.aws.iot.PolicyArgs;
- * import com.pulumi.aws.iot.ProvisioningTemplate;
- * import com.pulumi.aws.iot.ProvisioningTemplateArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var iotAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;iot.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var iotFleetProvisioning = new Role(&#34;iotFleetProvisioning&#34;, RoleArgs.builder()        
- *             .path(&#34;/service-role/&#34;)
- *             .assumeRolePolicy(iotAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var iotFleetProvisioningRegistration = new RolePolicyAttachment(&#34;iotFleetProvisioningRegistration&#34;, RolePolicyAttachmentArgs.builder()        
- *             .role(iotFleetProvisioning.name())
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration&#34;)
- *             .build());
- * 
- *         final var devicePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;iot:Subscribe&#34;)
- *                 .resources(&#34;*&#34;)
- *                 .build())
- *             .build());
- * 
- *         var devicePolicyPolicy = new Policy(&#34;devicePolicyPolicy&#34;, PolicyArgs.builder()        
- *             .policy(devicePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var fleet = new ProvisioningTemplate(&#34;fleet&#34;, ProvisioningTemplateArgs.builder()        
- *             .description(&#34;My provisioning template&#34;)
- *             .provisioningRoleArn(iotFleetProvisioning.arn())
- *             .templateBody(devicePolicyPolicy.name().applyValue(name -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
- *                         jsonProperty(&#34;SerialNumber&#34;, jsonObject(
- *                             jsonProperty(&#34;Type&#34;, &#34;String&#34;)
- *                         ))
- *                     )),
- *                     jsonProperty(&#34;Resources&#34;, jsonObject(
- *                         jsonProperty(&#34;certificate&#34;, jsonObject(
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;CertificateId&#34;, jsonObject(
- *                                     jsonProperty(&#34;Ref&#34;, &#34;AWS::IoT::Certificate::Id&#34;)
- *                                 )),
- *                                 jsonProperty(&#34;Status&#34;, &#34;Active&#34;)
- *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::IoT::Certificate&#34;)
- *                         )),
- *                         jsonProperty(&#34;policy&#34;, jsonObject(
- *                             jsonProperty(&#34;Properties&#34;, jsonObject(
- *                                 jsonProperty(&#34;PolicyName&#34;, name)
- *                             )),
- *                             jsonProperty(&#34;Type&#34;, &#34;AWS::IoT::Policy&#34;)
- *                         ))
- *                     ))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * IoT fleet provisioning templates can be imported using the `name`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:iot/provisioningTemplate:ProvisioningTemplate fleet FleetProvisioningTemplate
- * ```
- * 
- */
 @ResourceType(type="aws:iot/provisioningTemplate:ProvisioningTemplate")
 public class ProvisioningTemplate extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN that identifies the provisioning template.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN that identifies the provisioning template.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The default version of the fleet provisioning template.
-     * 
-     */
     @Export(name="defaultVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> defaultVersionId;
 
-    /**
-     * @return The default version of the fleet provisioning template.
-     * 
-     */
     public Output<Integer> defaultVersionId() {
         return this.defaultVersionId;
     }
-    /**
-     * The description of the fleet provisioning template.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the fleet provisioning template.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * True to enable the fleet provisioning template, otherwise false.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return True to enable the fleet provisioning template, otherwise false.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * The name of the fleet provisioning template.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the fleet provisioning template.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a pre-provisioning hook template. Details below.
-     * 
-     */
     @Export(name="preProvisioningHook", refs={ProvisioningTemplatePreProvisioningHook.class}, tree="[0]")
     private Output</* @Nullable */ ProvisioningTemplatePreProvisioningHook> preProvisioningHook;
 
-    /**
-     * @return Creates a pre-provisioning hook template. Details below.
-     * 
-     */
     public Output<Optional<ProvisioningTemplatePreProvisioningHook>> preProvisioningHook() {
         return Codegen.optional(this.preProvisioningHook);
     }
-    /**
-     * The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-     * 
-     */
     @Export(name="provisioningRoleArn", refs={String.class}, tree="[0]")
     private Output<String> provisioningRoleArn;
 
-    /**
-     * @return The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-     * 
-     */
     public Output<String> provisioningRoleArn() {
         return this.provisioningRoleArn;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The JSON formatted contents of the fleet provisioning template.
-     * 
-     */
     @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output<String> templateBody;
 
-    /**
-     * @return The JSON formatted contents of the fleet provisioning template.
-     * 
-     */
     public Output<String> templateBody() {
         return this.templateBody;
     }

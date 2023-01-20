@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceLoadBalancer {
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     private String containerName;
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     private Integer containerPort;
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     private @Nullable String elbName;
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     */
     private @Nullable String targetGroupArn;
 
     private ServiceLoadBalancer() {}
-    /**
-     * @return Name of the container to associate with the load balancer (as it appears in a container definition).
-     * 
-     */
     public String containerName() {
         return this.containerName;
     }
-    /**
-     * @return Port on the container to associate with the load balancer.
-     * 
-     */
     public Integer containerPort() {
         return this.containerPort;
     }
-    /**
-     * @return Name of the ELB (Classic) to associate with the service.
-     * 
-     */
     public Optional<String> elbName() {
         return Optional.ofNullable(this.elbName);
     }
-    /**
-     * @return ARN of the Load Balancer target group to associate with the service.
-     * 
-     */
     public Optional<String> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }

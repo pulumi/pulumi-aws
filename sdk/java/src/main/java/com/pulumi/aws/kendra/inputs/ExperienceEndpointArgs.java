@@ -15,32 +15,16 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
 
     public static final ExperienceEndpointArgs Empty = new ExperienceEndpointArgs();
 
-    /**
-     * The endpoint of your Amazon Kendra experience.
-     * 
-     */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
-    /**
-     * @return The endpoint of your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
 
-    /**
-     * The type of endpoint for your Amazon Kendra experience.
-     * 
-     */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
-    /**
-     * @return The type of endpoint for your Amazon Kendra experience.
-     * 
-     */
     public Optional<Output<String>> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
@@ -70,44 +54,20 @@ public final class ExperienceEndpointArgs extends com.pulumi.resources.ResourceA
             $ = new ExperienceEndpointArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpoint The endpoint of your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(@Nullable Output<String> endpoint) {
             $.endpoint = endpoint;
             return this;
         }
 
-        /**
-         * @param endpoint The endpoint of your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
         }
 
-        /**
-         * @param endpointType The type of endpoint for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(@Nullable Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
-        /**
-         * @param endpointType The type of endpoint for your Amazon Kendra experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }

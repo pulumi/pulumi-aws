@@ -16,249 +16,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates a grouping of protected resources so they can be handled as a collective.
- * This resource grouping improves the accuracy of detection and reduces false positives. For more information see
- * [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
- * 
- * ## Example Usage
- * ### Create protection group for all resources
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.shield.ProtectionGroup;
- * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
- *             .aggregation(&#34;MAX&#34;)
- *             .pattern(&#34;ALL&#34;)
- *             .protectionGroupId(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Create protection group for arbitrary number of resources
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.ec2.Eip;
- * import com.pulumi.aws.ec2.EipArgs;
- * import com.pulumi.aws.shield.Protection;
- * import com.pulumi.aws.shield.ProtectionArgs;
- * import com.pulumi.aws.shield.ProtectionGroup;
- * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
- *             .build());
- * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build());
- * 
- *         var exampleProtectionGroup = new ProtectionGroup(&#34;exampleProtectionGroup&#34;, ProtectionGroupArgs.builder()        
- *             .protectionGroupId(&#34;example&#34;)
- *             .aggregation(&#34;MEAN&#34;)
- *             .pattern(&#34;ARBITRARY&#34;)
- *             .members(exampleEip.id().applyValue(id -&gt; String.format(&#34;arn:aws:ec2:%s:%s:eip-allocation/%s&#34;, currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleProtection)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Create protection group for a type of resource
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.shield.ProtectionGroup;
- * import com.pulumi.aws.shield.ProtectionGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ProtectionGroup(&#34;example&#34;, ProtectionGroupArgs.builder()        
- *             .aggregation(&#34;SUM&#34;)
- *             .pattern(&#34;BY_RESOURCE_TYPE&#34;)
- *             .protectionGroupId(&#34;example&#34;)
- *             .resourceType(&#34;ELASTIC_IP_ALLOCATION&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Shield protection group resources can be imported by specifying their protection group id.
- * 
- * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
- * ```
- * 
- */
 @ResourceType(type="aws:shield/protectionGroup:ProtectionGroup")
 public class ProtectionGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-     * 
-     */
     @Export(name="aggregation", refs={String.class}, tree="[0]")
     private Output<String> aggregation;
 
-    /**
-     * @return Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-     * 
-     */
     public Output<String> aggregation() {
         return this.aggregation;
     }
-    /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
-     * 
-     */
     @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> members;
 
-    /**
-     * @return The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
-     * 
-     */
     public Output<Optional<List<String>>> members() {
         return Codegen.optional(this.members);
     }
-    /**
-     * The criteria to use to choose the protected resources for inclusion in the group.
-     * 
-     */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
-    /**
-     * @return The criteria to use to choose the protected resources for inclusion in the group.
-     * 
-     */
     public Output<String> pattern() {
         return this.pattern;
     }
-    /**
-     * The ARN (Amazon Resource Name) of the protection group.
-     * 
-     */
     @Export(name="protectionGroupArn", refs={String.class}, tree="[0]")
     private Output<String> protectionGroupArn;
 
-    /**
-     * @return The ARN (Amazon Resource Name) of the protection group.
-     * 
-     */
     public Output<String> protectionGroupArn() {
         return this.protectionGroupArn;
     }
-    /**
-     * The name of the protection group.
-     * 
-     */
     @Export(name="protectionGroupId", refs={String.class}, tree="[0]")
     private Output<String> protectionGroupId;
 
-    /**
-     * @return The name of the protection group.
-     * 
-     */
     public Output<String> protectionGroupId() {
         return this.protectionGroupId;
     }
-    /**
-     * The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceType;
 
-    /**
-     * @return The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
-     * 
-     */
     public Output<Optional<String>> resourceType() {
         return Codegen.optional(this.resourceType);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

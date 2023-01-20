@@ -11,38 +11,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAclResult {
-    /**
-     * @return ARN of the ACL.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The minimum engine version supported by the ACL.
-     * 
-     */
     private String minimumEngineVersion;
     private String name;
-    /**
-     * @return Map of tags assigned to the ACL.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Set of MemoryDB user names included in this ACL.
-     * 
-     */
     private List<String> userNames;
 
     private GetAclResult() {}
-    /**
-     * @return ARN of the ACL.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -53,27 +33,15 @@ public final class GetAclResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The minimum engine version supported by the ACL.
-     * 
-     */
     public String minimumEngineVersion() {
         return this.minimumEngineVersion;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of tags assigned to the ACL.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Set of MemoryDB user names included in this ACL.
-     * 
-     */
     public List<String> userNames() {
         return this.userNames;
     }

@@ -21,62 +21,30 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
 
     public static final ListenerRuleActionArgs Empty = new ListenerRuleActionArgs();
 
-    /**
-     * Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-     * 
-     */
     @Import(name="authenticateCognito")
     private @Nullable Output<ListenerRuleActionAuthenticateCognitoArgs> authenticateCognito;
 
-    /**
-     * @return Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-     * 
-     */
     public Optional<Output<ListenerRuleActionAuthenticateCognitoArgs>> authenticateCognito() {
         return Optional.ofNullable(this.authenticateCognito);
     }
 
-    /**
-     * Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-     * 
-     */
     @Import(name="authenticateOidc")
     private @Nullable Output<ListenerRuleActionAuthenticateOidcArgs> authenticateOidc;
 
-    /**
-     * @return Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-     * 
-     */
     public Optional<Output<ListenerRuleActionAuthenticateOidcArgs>> authenticateOidc() {
         return Optional.ofNullable(this.authenticateOidc);
     }
 
-    /**
-     * Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     @Import(name="fixedResponse")
     private @Nullable Output<ListenerRuleActionFixedResponseArgs> fixedResponse;
 
-    /**
-     * @return Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-     * 
-     */
     public Optional<Output<ListenerRuleActionFixedResponseArgs>> fixedResponse() {
         return Optional.ofNullable(this.fixedResponse);
     }
 
-    /**
-     * Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-     * 
-     */
     @Import(name="forward")
     private @Nullable Output<ListenerRuleActionForwardArgs> forward;
 
-    /**
-     * @return Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-     * 
-     */
     public Optional<Output<ListenerRuleActionForwardArgs>> forward() {
         return Optional.ofNullable(this.forward);
     }
@@ -88,47 +56,23 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.order);
     }
 
-    /**
-     * Information for creating a redirect action. Required if `type` is `redirect`.
-     * 
-     */
     @Import(name="redirect")
     private @Nullable Output<ListenerRuleActionRedirectArgs> redirect;
 
-    /**
-     * @return Information for creating a redirect action. Required if `type` is `redirect`.
-     * 
-     */
     public Optional<Output<ListenerRuleActionRedirectArgs>> redirect() {
         return Optional.ofNullable(this.redirect);
     }
 
-    /**
-     * The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
-     * 
-     */
     @Import(name="targetGroupArn")
     private @Nullable Output<String> targetGroupArn;
 
-    /**
-     * @return The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
-     * 
-     */
     public Optional<Output<String>> targetGroupArn() {
         return Optional.ofNullable(this.targetGroupArn);
     }
 
-    /**
-     * The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -164,86 +108,38 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
             $ = new ListenerRuleActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authenticateCognito Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognito(@Nullable Output<ListenerRuleActionAuthenticateCognitoArgs> authenticateCognito) {
             $.authenticateCognito = authenticateCognito;
             return this;
         }
 
-        /**
-         * @param authenticateCognito Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateCognito(ListenerRuleActionAuthenticateCognitoArgs authenticateCognito) {
             return authenticateCognito(Output.of(authenticateCognito));
         }
 
-        /**
-         * @param authenticateOidc Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidc(@Nullable Output<ListenerRuleActionAuthenticateOidcArgs> authenticateOidc) {
             $.authenticateOidc = authenticateOidc;
             return this;
         }
 
-        /**
-         * @param authenticateOidc Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authenticateOidc(ListenerRuleActionAuthenticateOidcArgs authenticateOidc) {
             return authenticateOidc(Output.of(authenticateOidc));
         }
 
-        /**
-         * @param fixedResponse Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(@Nullable Output<ListenerRuleActionFixedResponseArgs> fixedResponse) {
             $.fixedResponse = fixedResponse;
             return this;
         }
 
-        /**
-         * @param fixedResponse Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fixedResponse(ListenerRuleActionFixedResponseArgs fixedResponse) {
             return fixedResponse(Output.of(fixedResponse));
         }
 
-        /**
-         * @param forward Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(@Nullable Output<ListenerRuleActionForwardArgs> forward) {
             $.forward = forward;
             return this;
         }
 
-        /**
-         * @param forward Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(ListenerRuleActionForwardArgs forward) {
             return forward(Output.of(forward));
         }
@@ -257,65 +153,29 @@ public final class ListenerRuleActionArgs extends com.pulumi.resources.ResourceA
             return order(Output.of(order));
         }
 
-        /**
-         * @param redirect Information for creating a redirect action. Required if `type` is `redirect`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(@Nullable Output<ListenerRuleActionRedirectArgs> redirect) {
             $.redirect = redirect;
             return this;
         }
 
-        /**
-         * @param redirect Information for creating a redirect action. Required if `type` is `redirect`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirect(ListenerRuleActionRedirectArgs redirect) {
             return redirect(Output.of(redirect));
         }
 
-        /**
-         * @param targetGroupArn The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(@Nullable Output<String> targetGroupArn) {
             $.targetGroupArn = targetGroupArn;
             return this;
         }
 
-        /**
-         * @param targetGroupArn The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGroupArn(String targetGroupArn) {
             return targetGroupArn(Output.of(targetGroupArn));
         }
 
-        /**
-         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

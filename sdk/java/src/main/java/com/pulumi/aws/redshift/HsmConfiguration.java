@@ -16,178 +16,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.HsmConfiguration;
- * import com.pulumi.aws.redshift.HsmConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HsmConfiguration(&#34;example&#34;, HsmConfigurationArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .hsmConfigurationIdentifier(&#34;example&#34;)
- *             .hsmIpAddress(&#34;10.0.0.1&#34;)
- *             .hsmPartitionName(&#34;aws&#34;)
- *             .hsmPartitionPassword(&#34;example&#34;)
- *             .hsmServerPublicCertificate(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Redshift Hsm Client Certificates support import by `hsm_configuration_identifier`, e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
- * ```
- * 
- */
 @ResourceType(type="aws:redshift/hsmConfiguration:HsmConfiguration")
 public class HsmConfiguration extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the Hsm Client Certificate.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A text description of the HSM configuration to be created.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return A text description of the HSM configuration to be created.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     * 
-     */
     @Export(name="hsmConfigurationIdentifier", refs={String.class}, tree="[0]")
     private Output<String> hsmConfigurationIdentifier;
 
-    /**
-     * @return The identifier to be assigned to the new Amazon Redshift HSM configuration.
-     * 
-     */
     public Output<String> hsmConfigurationIdentifier() {
         return this.hsmConfigurationIdentifier;
     }
-    /**
-     * The IP address that the Amazon Redshift cluster must use to access the HSM.
-     * 
-     */
     @Export(name="hsmIpAddress", refs={String.class}, tree="[0]")
     private Output<String> hsmIpAddress;
 
-    /**
-     * @return The IP address that the Amazon Redshift cluster must use to access the HSM.
-     * 
-     */
     public Output<String> hsmIpAddress() {
         return this.hsmIpAddress;
     }
-    /**
-     * The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     * 
-     */
     @Export(name="hsmPartitionName", refs={String.class}, tree="[0]")
     private Output<String> hsmPartitionName;
 
-    /**
-     * @return The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-     * 
-     */
     public Output<String> hsmPartitionName() {
         return this.hsmPartitionName;
     }
-    /**
-     * The password required to access the HSM partition.
-     * 
-     */
     @Export(name="hsmPartitionPassword", refs={String.class}, tree="[0]")
     private Output<String> hsmPartitionPassword;
 
-    /**
-     * @return The password required to access the HSM partition.
-     * 
-     */
     public Output<String> hsmPartitionPassword() {
         return this.hsmPartitionPassword;
     }
-    /**
-     * The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     * 
-     */
     @Export(name="hsmServerPublicCertificate", refs={String.class}, tree="[0]")
     private Output<String> hsmServerPublicCertificate;
 
-    /**
-     * @return The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-     * 
-     */
     public Output<String> hsmServerPublicCertificate() {
         return this.hsmServerPublicCertificate;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

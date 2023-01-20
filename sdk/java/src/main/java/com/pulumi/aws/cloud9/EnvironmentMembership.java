@@ -13,114 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an environment member to an AWS Cloud9 development environment.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloud9.EnvironmentEC2;
- * import com.pulumi.aws.cloud9.EnvironmentEC2Args;
- * import com.pulumi.aws.iam.User;
- * import com.pulumi.aws.cloud9.EnvironmentMembership;
- * import com.pulumi.aws.cloud9.EnvironmentMembershipArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testEnvironmentEC2 = new EnvironmentEC2(&#34;testEnvironmentEC2&#34;, EnvironmentEC2Args.builder()        
- *             .instanceType(&#34;t2.micro&#34;)
- *             .build());
- * 
- *         var testUser = new User(&#34;testUser&#34;);
- * 
- *         var testEnvironmentMembership = new EnvironmentMembership(&#34;testEnvironmentMembership&#34;, EnvironmentMembershipArgs.builder()        
- *             .environmentId(testEnvironmentEC2.id())
- *             .permissions(&#34;read-only&#34;)
- *             .userArn(testUser.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
- * ```
- * 
- */
 @ResourceType(type="aws:cloud9/environmentMembership:EnvironmentMembership")
 public class EnvironmentMembership extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the environment that contains the environment member you want to add.
-     * 
-     */
     @Export(name="environmentId", refs={String.class}, tree="[0]")
     private Output<String> environmentId;
 
-    /**
-     * @return The ID of the environment that contains the environment member you want to add.
-     * 
-     */
     public Output<String> environmentId() {
         return this.environmentId;
     }
-    /**
-     * The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     * 
-     */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output<String> permissions;
 
-    /**
-     * @return The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-     * 
-     */
     public Output<String> permissions() {
         return this.permissions;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
-     * 
-     */
     @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the environment member you want to add.
-     * 
-     */
     public Output<String> userArn() {
         return this.userArn;
     }
-    /**
-     * he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-     * 
-     */
     @Export(name="userId", refs={String.class}, tree="[0]")
     private Output<String> userId;
 
-    /**
-     * @return he user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-     * 
-     */
     public Output<String> userId() {
         return this.userId;
     }

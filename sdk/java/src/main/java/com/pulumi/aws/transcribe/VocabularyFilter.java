@@ -16,112 +16,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Transcribe VocabularyFilter.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.transcribe.VocabularyFilter;
- * import com.pulumi.aws.transcribe.VocabularyFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VocabularyFilter(&#34;example&#34;, VocabularyFilterArgs.builder()        
- *             .languageCode(&#34;en-US&#34;)
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;tag1&#34;, &#34;value1&#34;),
- *                 Map.entry(&#34;tag2&#34;, &#34;value3&#34;)
- *             ))
- *             .vocabularyFilterName(&#34;example&#34;)
- *             .words(            
- *                 &#34;cars&#34;,
- *                 &#34;bucket&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Transcribe VocabularyFilter can be imported using the `vocabulary_filter_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
- * ```
- * 
- */
 @ResourceType(type="aws:transcribe/vocabularyFilter:VocabularyFilter")
 public class VocabularyFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the VocabularyFilter.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the VocabularyFilter.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Generated download URI.
-     * 
-     */
     @Export(name="downloadUri", refs={String.class}, tree="[0]")
     private Output<String> downloadUri;
 
-    /**
-     * @return Generated download URI.
-     * 
-     */
     public Output<String> downloadUri() {
         return this.downloadUri;
     }
-    /**
-     * The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     * 
-     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
-    /**
-     * @return The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
-     * 
-     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
-    /**
-     * A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -131,45 +48,21 @@ public class VocabularyFilter extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
-     * 
-     */
     @Export(name="vocabularyFilterFileUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vocabularyFilterFileUri;
 
-    /**
-     * @return The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words`.
-     * 
-     */
     public Output<Optional<String>> vocabularyFilterFileUri() {
         return Codegen.optional(this.vocabularyFilterFileUri);
     }
-    /**
-     * The name of the VocabularyFilter.
-     * 
-     */
     @Export(name="vocabularyFilterName", refs={String.class}, tree="[0]")
     private Output<String> vocabularyFilterName;
 
-    /**
-     * @return The name of the VocabularyFilter.
-     * 
-     */
     public Output<String> vocabularyFilterName() {
         return this.vocabularyFilterName;
     }
-    /**
-     * - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-     * 
-     */
     @Export(name="words", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> words;
 
-    /**
-     * @return - A list of terms to include in the vocabulary. Conflicts with `vocabulary_file_uri`
-     * 
-     */
     public Output<Optional<List<String>>> words() {
         return Codegen.optional(this.words);
     }

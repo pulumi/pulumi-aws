@@ -16,111 +16,29 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * The KMS ciphertext resource allows you to encrypt plaintext into ciphertext
- * by using an AWS KMS customer master key. The value returned by this resource
- * is stable across every apply. For a changing ciphertext value each apply, see
- * the `aws.kms.Ciphertext` data source.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kms.Key;
- * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.kms.Ciphertext;
- * import com.pulumi.aws.kms.CiphertextArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var oauthConfig = new Key(&#34;oauthConfig&#34;, KeyArgs.builder()        
- *             .description(&#34;oauth config&#34;)
- *             .isEnabled(true)
- *             .build());
- * 
- *         var oauth = new Ciphertext(&#34;oauth&#34;, CiphertextArgs.builder()        
- *             .keyId(oauthConfig.keyId())
- *             .plaintext(&#34;&#34;&#34;
- * {
- *   &#34;client_id&#34;: &#34;e587dbae22222f55da22&#34;,
- *   &#34;client_secret&#34;: &#34;8289575d00000ace55e1815ec13673955721b8a5&#34;
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:kms/ciphertext:Ciphertext")
 public class Ciphertext extends com.pulumi.resources.CustomResource {
-    /**
-     * Base64 encoded ciphertext
-     * 
-     */
     @Export(name="ciphertextBlob", refs={String.class}, tree="[0]")
     private Output<String> ciphertextBlob;
 
-    /**
-     * @return Base64 encoded ciphertext
-     * 
-     */
     public Output<String> ciphertextBlob() {
         return this.ciphertextBlob;
     }
-    /**
-     * An optional mapping that makes up the encryption context.
-     * 
-     */
     @Export(name="context", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> context;
 
-    /**
-     * @return An optional mapping that makes up the encryption context.
-     * 
-     */
     public Output<Optional<Map<String,String>>> context() {
         return Codegen.optional(this.context);
     }
-    /**
-     * Globally unique key ID for the customer master key.
-     * 
-     */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output<String> keyId;
 
-    /**
-     * @return Globally unique key ID for the customer master key.
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
-    /**
-     * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     @Export(name="plaintext", refs={String.class}, tree="[0]")
     private Output<String> plaintext;
 
-    /**
-     * @return Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
-     * 
-     */
     public Output<String> plaintext() {
         return this.plaintext;
     }

@@ -17,62 +17,30 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AliasArgs Empty = new AliasArgs();
 
-    /**
-     * Description of the alias.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return Description of the alias.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * Name of the alias.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the alias.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies the fleet and/or routing type to use for the alias.
-     * 
-     */
     @Import(name="routingStrategy", required=true)
     private Output<AliasRoutingStrategyArgs> routingStrategy;
 
-    /**
-     * @return Specifies the fleet and/or routing type to use for the alias.
-     * 
-     */
     public Output<AliasRoutingStrategyArgs> routingStrategy() {
         return this.routingStrategy;
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -104,86 +72,38 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
             $ = new AliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description Description of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name Name of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingStrategy(Output<AliasRoutingStrategyArgs> routingStrategy) {
             $.routingStrategy = routingStrategy;
             return this;
         }
 
-        /**
-         * @param routingStrategy Specifies the fleet and/or routing type to use for the alias.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingStrategy(AliasRoutingStrategyArgs routingStrategy) {
             return routingStrategy(Output.of(routingStrategy));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

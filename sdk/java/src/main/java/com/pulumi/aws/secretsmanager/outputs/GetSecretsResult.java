@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSecretsResult {
-    /**
-     * @return Set of ARNs of the matched Secrets Manager secrets.
-     * 
-     */
     private List<String> arns;
     private @Nullable List<GetSecretsFilter> filters;
     /**
@@ -23,17 +19,9 @@ public final class GetSecretsResult {
      * 
      */
     private String id;
-    /**
-     * @return Set of names of the matched Secrets Manager secrets.
-     * 
-     */
     private List<String> names;
 
     private GetSecretsResult() {}
-    /**
-     * @return Set of ARNs of the matched Secrets Manager secrets.
-     * 
-     */
     public List<String> arns() {
         return this.arns;
     }
@@ -47,10 +35,6 @@ public final class GetSecretsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Set of names of the matched Secrets Manager secrets.
-     * 
-     */
     public List<String> names() {
         return this.names;
     }

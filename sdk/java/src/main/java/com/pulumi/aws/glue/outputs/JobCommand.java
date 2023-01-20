@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobCommand {
-    /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
-     * 
-     */
     private @Nullable String pythonVersion;
-    /**
-     * @return Specifies the S3 path to a script that executes a job.
-     * 
-     */
     private String scriptLocation;
 
     private JobCommand() {}
-    /**
-     * @return The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, or `gluestreaming` for Streaming Job Type. `max_capacity` needs to be set if `pythonshell` is chosen.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The Python version being used to execute a Python shell job. Allowed values are 2, 3 or 3.9. Version 3 refers to Python 3.6.
-     * 
-     */
     public Optional<String> pythonVersion() {
         return Optional.ofNullable(this.pythonVersion);
     }
-    /**
-     * @return Specifies the S3 path to a script that executes a job.
-     * 
-     */
     public String scriptLocation() {
         return this.scriptLocation;
     }

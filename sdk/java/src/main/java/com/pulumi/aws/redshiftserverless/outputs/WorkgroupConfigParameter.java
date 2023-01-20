@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkgroupConfigParameter {
-    /**
-     * @return The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
-     * 
-     */
     private String parameterKey;
-    /**
-     * @return The value of the parameter to set.
-     * 
-     */
     private String parameterValue;
 
     private WorkgroupConfigParameter() {}
-    /**
-     * @return The key of the parameter. The options are `datestyle`, `enable_user_activity_logging`, `query_group`, `search_path`, and `max_query_execution_time`.
-     * 
-     */
     public String parameterKey() {
         return this.parameterKey;
     }
-    /**
-     * @return The value of the parameter to set.
-     * 
-     */
     public String parameterValue() {
         return this.parameterValue;
     }

@@ -17,256 +17,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Connect Phone Number resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.PhoneNumber;
- * import com.pulumi.aws.connect.PhoneNumberArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
- *             .countryCode(&#34;US&#34;)
- *             .type(&#34;DID&#34;)
- *             .tags(Map.of(&#34;hello&#34;, &#34;world&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Description
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.PhoneNumber;
- * import com.pulumi.aws.connect.PhoneNumberArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
- *             .countryCode(&#34;US&#34;)
- *             .type(&#34;DID&#34;)
- *             .description(&#34;example description&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Prefix to filter phone numbers
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.PhoneNumber;
- * import com.pulumi.aws.connect.PhoneNumberArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new PhoneNumber(&#34;example&#34;, PhoneNumberArgs.builder()        
- *             .targetArn(aws_connect_instance.example().arn())
- *             .countryCode(&#34;US&#34;)
- *             .type(&#34;DID&#34;)
- *             .prefix(&#34;+18005&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Amazon Connect Phone Numbers can be imported using its `id` e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
- * ```
- * 
- */
 @ResourceType(type="aws:connect/phoneNumber:PhoneNumber")
 public class PhoneNumber extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the phone number.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the phone number.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-     * 
-     */
     @Export(name="countryCode", refs={String.class}, tree="[0]")
     private Output<String> countryCode;
 
-    /**
-     * @return The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
-     * 
-     */
     public Output<String> countryCode() {
         return this.countryCode;
     }
-    /**
-     * The description of the phone number.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the phone number.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-     * 
-     */
     @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
-    /**
-     * @return The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
-     * 
-     */
     public Output<String> phoneNumber() {
         return this.phoneNumber;
     }
-    /**
-     * The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-     * 
-     */
     @Export(name="prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefix;
 
-    /**
-     * @return The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-     * 
-     */
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
     }
-    /**
-     * The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     @Export(name="statuses", refs={List.class,PhoneNumberStatus.class}, tree="[0,1]")
     private Output<List<PhoneNumberStatus>> statuses;
 
-    /**
-     * @return The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-     * 
-     */
     public Output<List<PhoneNumberStatus>> statuses() {
         return this.statuses;
     }
-    /**
-     * Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-     * 
-     */
     @Export(name="targetArn", refs={String.class}, tree="[0]")
     private Output<String> targetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
-     * 
-     */
     public Output<String> targetArn() {
         return this.targetArn;
     }
-    /**
-     * The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }

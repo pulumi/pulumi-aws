@@ -16,62 +16,30 @@ public final class PrivateDnsNamespaceArgs extends com.pulumi.resources.Resource
 
     public static final PrivateDnsNamespaceArgs Empty = new PrivateDnsNamespaceArgs();
 
-    /**
-     * The description that you specify for the namespace when you create it.
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description that you specify for the namespace when you create it.
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of the namespace.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the namespace.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The ID of VPC that you want to associate the namespace with.
-     * 
-     */
     @Import(name="vpc", required=true)
     private Output<String> vpc;
 
-    /**
-     * @return The ID of VPC that you want to associate the namespace with.
-     * 
-     */
     public Output<String> vpc() {
         return this.vpc;
     }
@@ -103,86 +71,38 @@ public final class PrivateDnsNamespaceArgs extends com.pulumi.resources.Resource
             $ = new PrivateDnsNamespaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param description The description that you specify for the namespace when you create it.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description that you specify for the namespace when you create it.
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the namespace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param vpc The ID of VPC that you want to associate the namespace with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpc(Output<String> vpc) {
             $.vpc = vpc;
             return this;
         }
 
-        /**
-         * @param vpc The ID of VPC that you want to associate the namespace with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpc(String vpc) {
             return vpc(Output.of(vpc));
         }

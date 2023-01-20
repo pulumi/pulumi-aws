@@ -16,47 +16,23 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination();
 
-    /**
-     * Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs cloudwatchLogs;
 
-    /**
-     * @return Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     @Import(name="firehose")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose firehose;
 
-    /**
-     * @return Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose> firehose() {
         return Optional.ofNullable(this.firehose);
     }
 
-    /**
-     * Configures S3 as a findings destination.
-     * 
-     */
     @Import(name="s3")
     private @Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 s3;
 
-    /**
-     * @return Configures S3 as a findings destination.
-     * 
-     */
     public Optional<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -87,34 +63,16 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestination(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs Configures CloudWatch Logs as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogs cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param firehose Configures Kinesis Firehose as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehose firehose) {
             $.firehose = firehose;
             return this;
         }
 
-        /**
-         * @param s3 Configures S3 as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3 s3) {
             $.s3 = s3;
             return this;

@@ -16,32 +16,16 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
 
     public static final AccountThrottleSettingArgs Empty = new AccountThrottleSettingArgs();
 
-    /**
-     * Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-     * 
-     */
     @Import(name="burstLimit")
     private @Nullable Output<Integer> burstLimit;
 
-    /**
-     * @return Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-     * 
-     */
     public Optional<Output<Integer>> burstLimit() {
         return Optional.ofNullable(this.burstLimit);
     }
 
-    /**
-     * Number of times API Gateway allows the API to be called per second on average (RPS).
-     * 
-     */
     @Import(name="rateLimit")
     private @Nullable Output<Double> rateLimit;
 
-    /**
-     * @return Number of times API Gateway allows the API to be called per second on average (RPS).
-     * 
-     */
     public Optional<Output<Double>> rateLimit() {
         return Optional.ofNullable(this.rateLimit);
     }
@@ -71,44 +55,20 @@ public final class AccountThrottleSettingArgs extends com.pulumi.resources.Resou
             $ = new AccountThrottleSettingArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param burstLimit Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder burstLimit(@Nullable Output<Integer> burstLimit) {
             $.burstLimit = burstLimit;
             return this;
         }
 
-        /**
-         * @param burstLimit Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder burstLimit(Integer burstLimit) {
             return burstLimit(Output.of(burstLimit));
         }
 
-        /**
-         * @param rateLimit Number of times API Gateway allows the API to be called per second on average (RPS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(@Nullable Output<Double> rateLimit) {
             $.rateLimit = rateLimit;
             return this;
         }
 
-        /**
-         * @param rateLimit Number of times API Gateway allows the API to be called per second on average (RPS).
-         * 
-         * @return builder
-         * 
-         */
         public Builder rateLimit(Double rateLimit) {
             return rateLimit(Output.of(rateLimit));
         }

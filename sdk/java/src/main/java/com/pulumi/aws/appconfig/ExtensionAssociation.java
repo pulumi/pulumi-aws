@@ -16,158 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Associates an AppConfig Extension with a Resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.appconfig.Extension;
- * import com.pulumi.aws.appconfig.ExtensionArgs;
- * import com.pulumi.aws.appconfig.inputs.ExtensionActionPointArgs;
- * import com.pulumi.aws.appconfig.Application;
- * import com.pulumi.aws.appconfig.ExtensionAssociation;
- * import com.pulumi.aws.appconfig.ExtensionAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;);
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;appconfig.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testExtension = new Extension(&#34;testExtension&#34;, ExtensionArgs.builder()        
- *             .description(&#34;test description&#34;)
- *             .actionPoints(ExtensionActionPointArgs.builder()
- *                 .point(&#34;ON_DEPLOYMENT_COMPLETE&#34;)
- *                 .actions(ExtensionActionPointActionArgs.builder()
- *                     .name(&#34;test&#34;)
- *                     .roleArn(testRole.arn())
- *                     .uri(testTopic.arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Extension&#34;))
- *             .build());
- * 
- *         var testApplication = new Application(&#34;testApplication&#34;);
- * 
- *         var testExtensionAssociation = new ExtensionAssociation(&#34;testExtensionAssociation&#34;, ExtensionAssociationArgs.builder()        
- *             .extensionArn(testExtension.arn())
- *             .resourceArn(testApplication.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AppConfig Extension Associations can be imported using their extension association ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/extensionAssociation:ExtensionAssociation")
 public class ExtensionAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the AppConfig Extension Association.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Extension Association.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ARN of the extension defined in the association.
-     * 
-     */
     @Export(name="extensionArn", refs={String.class}, tree="[0]")
     private Output<String> extensionArn;
 
-    /**
-     * @return The ARN of the extension defined in the association.
-     * 
-     */
     public Output<String> extensionArn() {
         return this.extensionArn;
     }
-    /**
-     * The version number for the extension defined in the association.
-     * 
-     */
     @Export(name="extensionVersion", refs={Integer.class}, tree="[0]")
     private Output<Integer> extensionVersion;
 
-    /**
-     * @return The version number for the extension defined in the association.
-     * 
-     */
     public Output<Integer> extensionVersion() {
         return this.extensionVersion;
     }
-    /**
-     * The parameter names and values defined for the association.
-     * 
-     */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> parameters;
 
-    /**
-     * @return The parameter names and values defined for the association.
-     * 
-     */
     public Output<Optional<Map<String,String>>> parameters() {
         return Codegen.optional(this.parameters);
     }
-    /**
-     * The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
-    /**
-     * @return The ARN of the application, configuration profile, or environment to associate with the extension.
-     * 
-     */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }

@@ -17,32 +17,16 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final RegionSettingsArgs Empty = new RegionSettingsArgs();
 
-    /**
-     * A map of services along with the management preferences for the Region.
-     * 
-     */
     @Import(name="resourceTypeManagementPreference")
     private @Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference;
 
-    /**
-     * @return A map of services along with the management preferences for the Region.
-     * 
-     */
     public Optional<Output<Map<String,Boolean>>> resourceTypeManagementPreference() {
         return Optional.ofNullable(this.resourceTypeManagementPreference);
     }
 
-    /**
-     * A map of services along with the opt-in preferences for the Region.
-     * 
-     */
     @Import(name="resourceTypeOptInPreference", required=true)
     private Output<Map<String,Boolean>> resourceTypeOptInPreference;
 
-    /**
-     * @return A map of services along with the opt-in preferences for the Region.
-     * 
-     */
     public Output<Map<String,Boolean>> resourceTypeOptInPreference() {
         return this.resourceTypeOptInPreference;
     }
@@ -72,44 +56,20 @@ public final class RegionSettingsArgs extends com.pulumi.resources.ResourceArgs 
             $ = new RegionSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeManagementPreference(@Nullable Output<Map<String,Boolean>> resourceTypeManagementPreference) {
             $.resourceTypeManagementPreference = resourceTypeManagementPreference;
             return this;
         }
 
-        /**
-         * @param resourceTypeManagementPreference A map of services along with the management preferences for the Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeManagementPreference(Map<String,Boolean> resourceTypeManagementPreference) {
             return resourceTypeManagementPreference(Output.of(resourceTypeManagementPreference));
         }
 
-        /**
-         * @param resourceTypeOptInPreference A map of services along with the opt-in preferences for the Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeOptInPreference(Output<Map<String,Boolean>> resourceTypeOptInPreference) {
             $.resourceTypeOptInPreference = resourceTypeOptInPreference;
             return this;
         }
 
-        /**
-         * @param resourceTypeOptInPreference A map of services along with the opt-in preferences for the Region.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTypeOptInPreference(Map<String,Boolean> resourceTypeOptInPreference) {
             return resourceTypeOptInPreference(Output.of(resourceTypeOptInPreference));
         }

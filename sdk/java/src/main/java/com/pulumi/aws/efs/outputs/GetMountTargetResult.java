@@ -13,25 +13,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetMountTargetResult {
     private @Nullable String accessPointId;
-    /**
-     * @return The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
-     * 
-     */
     private String availabilityZoneId;
-    /**
-     * @return The name of the Availability Zone (AZ) that the mount target resides in.
-     * 
-     */
     private String availabilityZoneName;
-    /**
-     * @return DNS name for the EFS file system.
-     * 
-     */
     private String dnsName;
-    /**
-     * @return Amazon Resource Name of the file system for which the mount target is intended.
-     * 
-     */
     private String fileSystemArn;
     private String fileSystemId;
     /**
@@ -39,67 +23,27 @@ public final class GetMountTargetResult {
      * 
      */
     private String id;
-    /**
-     * @return Address at which the file system may be mounted via the mount target.
-     * 
-     */
     private String ipAddress;
-    /**
-     * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-     * 
-     */
     private String mountTargetDnsName;
     private String mountTargetId;
-    /**
-     * @return The ID of the network interface that Amazon EFS created when it created the mount target.
-     * 
-     */
     private String networkInterfaceId;
-    /**
-     * @return AWS account ID that owns the resource.
-     * 
-     */
     private String ownerId;
-    /**
-     * @return List of VPC security group IDs attached to the mount target.
-     * 
-     */
     private List<String> securityGroups;
-    /**
-     * @return ID of the mount target&#39;s subnet.
-     * 
-     */
     private String subnetId;
 
     private GetMountTargetResult() {}
     public Optional<String> accessPointId() {
         return Optional.ofNullable(this.accessPointId);
     }
-    /**
-     * @return The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
-     * 
-     */
     public String availabilityZoneId() {
         return this.availabilityZoneId;
     }
-    /**
-     * @return The name of the Availability Zone (AZ) that the mount target resides in.
-     * 
-     */
     public String availabilityZoneName() {
         return this.availabilityZoneName;
     }
-    /**
-     * @return DNS name for the EFS file system.
-     * 
-     */
     public String dnsName() {
         return this.dnsName;
     }
-    /**
-     * @return Amazon Resource Name of the file system for which the mount target is intended.
-     * 
-     */
     public String fileSystemArn() {
         return this.fileSystemArn;
     }
@@ -113,48 +57,24 @@ public final class GetMountTargetResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Address at which the file system may be mounted via the mount target.
-     * 
-     */
     public String ipAddress() {
         return this.ipAddress;
     }
-    /**
-     * @return The DNS name for the given subnet/AZ per [documented convention](http://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-dns-name.html).
-     * 
-     */
     public String mountTargetDnsName() {
         return this.mountTargetDnsName;
     }
     public String mountTargetId() {
         return this.mountTargetId;
     }
-    /**
-     * @return The ID of the network interface that Amazon EFS created when it created the mount target.
-     * 
-     */
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * @return AWS account ID that owns the resource.
-     * 
-     */
     public String ownerId() {
         return this.ownerId;
     }
-    /**
-     * @return List of VPC security group IDs attached to the mount target.
-     * 
-     */
     public List<String> securityGroups() {
         return this.securityGroups;
     }
-    /**
-     * @return ID of the mount target&#39;s subnet.
-     * 
-     */
     public String subnetId() {
         return this.subnetId;
     }

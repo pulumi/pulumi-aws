@@ -15,32 +15,16 @@ public final class GroupExternalIdArgs extends com.pulumi.resources.ResourceArgs
 
     public static final GroupExternalIdArgs Empty = new GroupExternalIdArgs();
 
-    /**
-     * The identifier issued to this resource by an external identity provider.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return The identifier issued to this resource by an external identity provider.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * The issuer for an external identifier.
-     * 
-     */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
-    /**
-     * @return The issuer for an external identifier.
-     * 
-     */
     public Optional<Output<String>> issuer() {
         return Optional.ofNullable(this.issuer);
     }
@@ -70,44 +54,20 @@ public final class GroupExternalIdArgs extends com.pulumi.resources.ResourceArgs
             $ = new GroupExternalIdArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id The identifier issued to this resource by an external identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id The identifier issued to this resource by an external identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param issuer The issuer for an external identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(@Nullable Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer The issuer for an external identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }

@@ -13,74 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SSM Patch Group resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.PatchBaseline;
- * import com.pulumi.aws.ssm.PatchBaselineArgs;
- * import com.pulumi.aws.ssm.PatchGroup;
- * import com.pulumi.aws.ssm.PatchGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var production = new PatchBaseline(&#34;production&#34;, PatchBaselineArgs.builder()        
- *             .approvedPatches(&#34;KB123456&#34;)
- *             .build());
- * 
- *         var patchgroup = new PatchGroup(&#34;patchgroup&#34;, PatchGroupArgs.builder()        
- *             .baselineId(production.id())
- *             .patchGroup(&#34;patch-group-name&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:ssm/patchGroup:PatchGroup")
 public class PatchGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * The ID of the patch baseline to register the patch group with.
-     * 
-     */
     @Export(name="baselineId", refs={String.class}, tree="[0]")
     private Output<String> baselineId;
 
-    /**
-     * @return The ID of the patch baseline to register the patch group with.
-     * 
-     */
     public Output<String> baselineId() {
         return this.baselineId;
     }
-    /**
-     * The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     @Export(name="patchGroup", refs={String.class}, tree="[0]")
     private Output<String> patchGroup;
 
-    /**
-     * @return The name of the patch group that should be registered with the patch baseline.
-     * 
-     */
     public Output<String> patchGroup() {
         return this.patchGroup;
     }

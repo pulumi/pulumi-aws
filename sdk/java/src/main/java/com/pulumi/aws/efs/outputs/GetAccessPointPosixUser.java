@@ -10,43 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccessPointPosixUser {
-    /**
-     * @return Group ID
-     * 
-     */
     private Integer gid;
-    /**
-     * @return Secondary group IDs
-     * 
-     */
     private List<Integer> secondaryGids;
-    /**
-     * @return User Id
-     * * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-     * 
-     */
     private Integer uid;
 
     private GetAccessPointPosixUser() {}
-    /**
-     * @return Group ID
-     * 
-     */
     public Integer gid() {
         return this.gid;
     }
-    /**
-     * @return Secondary group IDs
-     * 
-     */
     public List<Integer> secondaryGids() {
         return this.secondaryGids;
     }
-    /**
-     * @return User Id
-     * * `root_directory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-     * 
-     */
     public Integer uid() {
         return this.uid;
     }

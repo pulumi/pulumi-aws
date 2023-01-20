@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointConfigurationProductionVariantCoreDumpConfig {
-    /**
-     * @return The URL for S3 location where the captured data is stored.
-     * 
-     */
     private String destinationS3Uri;
-    /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     private @Nullable String kmsKeyId;
 
     private EndpointConfigurationProductionVariantCoreDumpConfig() {}
-    /**
-     * @return The URL for S3 location where the captured data is stored.
-     * 
-     */
     public String destinationS3Uri() {
         return this.destinationS3Uri;
     }
-    /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     public Optional<String> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
     }

@@ -16,47 +16,23 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
 
     public static final FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args Empty = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args();
 
-    /**
-     * Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return Amazon S3 bucket name where the source files are stored.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return Object key for the Amazon S3 bucket in which the source files are stored.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-     * 
-     */
     @Import(name="s3OutputFormatConfig")
     private @Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs> s3OutputFormatConfig;
 
-    /**
-     * @return Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-     * 
-     */
     public Optional<Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs>> s3OutputFormatConfig() {
         return Optional.ofNullable(this.s3OutputFormatConfig);
     }
@@ -87,65 +63,29 @@ public final class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args
             $ = new FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName Amazon S3 bucket name where the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix Object key for the Amazon S3 bucket in which the source files are stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputFormatConfig(@Nullable Output<FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs> s3OutputFormatConfig) {
             $.s3OutputFormatConfig = s3OutputFormatConfig;
             return this;
         }
 
-        /**
-         * @param s3OutputFormatConfig Configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3OutputFormatConfig(FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs s3OutputFormatConfig) {
             return s3OutputFormatConfig(Output.of(s3OutputFormatConfig));
         }

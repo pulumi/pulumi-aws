@@ -15,32 +15,16 @@ public final class GetVaultPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetVaultPlainArgs Empty = new GetVaultPlainArgs();
 
-    /**
-     * Name of the backup vault.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the backup vault.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetVaultPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetVaultPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the backup vault.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Metadata that you can assign to help organize the resources that you create.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

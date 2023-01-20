@@ -15,10 +15,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetOrderableDbInstanceResult {
     private String availabilityZoneGroup;
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     private List<String> availabilityZones;
     private String engine;
     private String engineVersion;
@@ -29,63 +25,19 @@ public final class GetOrderableDbInstanceResult {
     private String id;
     private String instanceClass;
     private String licenseModel;
-    /**
-     * @return Maximum total provisioned IOPS for a DB instance.
-     * 
-     */
     private Integer maxIopsPerDbInstance;
-    /**
-     * @return Maximum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     private Double maxIopsPerGib;
-    /**
-     * @return Maximum storage size for a DB instance.
-     * 
-     */
     private Integer maxStorageSize;
-    /**
-     * @return Minimum total provisioned IOPS for a DB instance.
-     * 
-     */
     private Integer minIopsPerDbInstance;
-    /**
-     * @return Minimum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     private Double minIopsPerGib;
-    /**
-     * @return Minimum storage size for a DB instance.
-     * 
-     */
     private Integer minStorageSize;
-    /**
-     * @return Whether a DB instance is Multi-AZ capable.
-     * 
-     */
     private Boolean multiAzCapable;
-    /**
-     * @return Whether a DB instance supports RDS on Outposts.
-     * 
-     */
     private Boolean outpostCapable;
     private @Nullable List<String> preferredEngineVersions;
     private @Nullable List<String> preferredInstanceClasses;
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     private Boolean readReplicaCapable;
     private String storageType;
-    /**
-     * @return A list of the supported DB engine modes.
-     * 
-     */
     private List<String> supportedEngineModes;
-    /**
-     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
-     * 
-     */
     private List<String> supportedNetworkTypes;
     private Boolean supportsEnhancedMonitoring;
     private Boolean supportsGlobalDatabases;
@@ -101,10 +53,6 @@ public final class GetOrderableDbInstanceResult {
     public String availabilityZoneGroup() {
         return this.availabilityZoneGroup;
     }
-    /**
-     * @return Availability zones where the instance is available.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
@@ -127,59 +75,27 @@ public final class GetOrderableDbInstanceResult {
     public String licenseModel() {
         return this.licenseModel;
     }
-    /**
-     * @return Maximum total provisioned IOPS for a DB instance.
-     * 
-     */
     public Integer maxIopsPerDbInstance() {
         return this.maxIopsPerDbInstance;
     }
-    /**
-     * @return Maximum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     public Double maxIopsPerGib() {
         return this.maxIopsPerGib;
     }
-    /**
-     * @return Maximum storage size for a DB instance.
-     * 
-     */
     public Integer maxStorageSize() {
         return this.maxStorageSize;
     }
-    /**
-     * @return Minimum total provisioned IOPS for a DB instance.
-     * 
-     */
     public Integer minIopsPerDbInstance() {
         return this.minIopsPerDbInstance;
     }
-    /**
-     * @return Minimum provisioned IOPS per GiB for a DB instance.
-     * 
-     */
     public Double minIopsPerGib() {
         return this.minIopsPerGib;
     }
-    /**
-     * @return Minimum storage size for a DB instance.
-     * 
-     */
     public Integer minStorageSize() {
         return this.minStorageSize;
     }
-    /**
-     * @return Whether a DB instance is Multi-AZ capable.
-     * 
-     */
     public Boolean multiAzCapable() {
         return this.multiAzCapable;
     }
-    /**
-     * @return Whether a DB instance supports RDS on Outposts.
-     * 
-     */
     public Boolean outpostCapable() {
         return this.outpostCapable;
     }
@@ -189,27 +105,15 @@ public final class GetOrderableDbInstanceResult {
     public List<String> preferredInstanceClasses() {
         return this.preferredInstanceClasses == null ? List.of() : this.preferredInstanceClasses;
     }
-    /**
-     * @return Whether a DB instance can have a read replica.
-     * 
-     */
     public Boolean readReplicaCapable() {
         return this.readReplicaCapable;
     }
     public String storageType() {
         return this.storageType;
     }
-    /**
-     * @return A list of the supported DB engine modes.
-     * 
-     */
     public List<String> supportedEngineModes() {
         return this.supportedEngineModes;
     }
-    /**
-     * @return The network types supported by the DB instance (`IPV4` or `DUAL`).
-     * 
-     */
     public List<String> supportedNetworkTypes() {
         return this.supportedNetworkTypes;
     }

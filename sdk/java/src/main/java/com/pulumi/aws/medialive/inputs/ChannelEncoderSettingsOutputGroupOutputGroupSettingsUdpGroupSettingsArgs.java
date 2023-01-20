@@ -16,32 +16,16 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
 
     public static final ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs Empty = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs();
 
-    /**
-     * Specifies behavior of last resort when input video os lost.
-     * 
-     */
     @Import(name="inputLossAction")
     private @Nullable Output<String> inputLossAction;
 
-    /**
-     * @return Specifies behavior of last resort when input video os lost.
-     * 
-     */
     public Optional<Output<String>> inputLossAction() {
         return Optional.ofNullable(this.inputLossAction);
     }
 
-    /**
-     * Indicates ID3 frame that has the timecode.
-     * 
-     */
     @Import(name="timedMetadataId3Frame")
     private @Nullable Output<String> timedMetadataId3Frame;
 
-    /**
-     * @return Indicates ID3 frame that has the timecode.
-     * 
-     */
     public Optional<Output<String>> timedMetadataId3Frame() {
         return Optional.ofNullable(this.timedMetadataId3Frame);
     }
@@ -79,44 +63,20 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupS
             $ = new ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputLossAction(@Nullable Output<String> inputLossAction) {
             $.inputLossAction = inputLossAction;
             return this;
         }
 
-        /**
-         * @param inputLossAction Specifies behavior of last resort when input video os lost.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputLossAction(String inputLossAction) {
             return inputLossAction(Output.of(inputLossAction));
         }
 
-        /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timedMetadataId3Frame(@Nullable Output<String> timedMetadataId3Frame) {
             $.timedMetadataId3Frame = timedMetadataId3Frame;
             return this;
         }
 
-        /**
-         * @param timedMetadataId3Frame Indicates ID3 frame that has the timecode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timedMetadataId3Frame(String timedMetadataId3Frame) {
             return timedMetadataId3Frame(Output.of(timedMetadataId3Frame));
         }

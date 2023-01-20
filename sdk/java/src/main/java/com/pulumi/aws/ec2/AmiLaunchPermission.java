@@ -14,182 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Adds a launch permission to an Amazon Machine Image (AMI).
- * 
- * ## Example Usage
- * ### AWS Account ID
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.AmiLaunchPermission;
- * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .accountId(&#34;123456789012&#34;)
- *             .imageId(&#34;ami-12345678&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Public Access
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.AmiLaunchPermission;
- * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .group(&#34;all&#34;)
- *             .imageId(&#34;ami-12345678&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Access
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.OrganizationsFunctions;
- * import com.pulumi.aws.ec2.AmiLaunchPermission;
- * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = OrganizationsFunctions.getOrganization();
- * 
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .imageId(&#34;ami-12345678&#34;)
- *             .organizationArn(current.applyValue(getOrganizationResult -&gt; getOrganizationResult.arn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/amiLaunchPermission:AmiLaunchPermission")
 public class AmiLaunchPermission extends com.pulumi.resources.CustomResource {
-    /**
-     * AWS account ID for the launch permission.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
-    /**
-     * @return AWS account ID for the launch permission.
-     * 
-     */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
     }
-    /**
-     * Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-     * 
-     */
     @Export(name="group", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> group;
 
-    /**
-     * @return Name of the group for the launch permission. Valid values: `&#34;all&#34;`.
-     * 
-     */
     public Output<Optional<String>> group() {
         return Codegen.optional(this.group);
     }
-    /**
-     * ID of the AMI.
-     * 
-     */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
-    /**
-     * @return ID of the AMI.
-     * 
-     */
     public Output<String> imageId() {
         return this.imageId;
     }
-    /**
-     * ARN of an organization for the launch permission.
-     * 
-     */
     @Export(name="organizationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationArn;
 
-    /**
-     * @return ARN of an organization for the launch permission.
-     * 
-     */
     public Output<Optional<String>> organizationArn() {
         return Codegen.optional(this.organizationArn);
     }
-    /**
-     * ARN of an organizational unit for the launch permission.
-     * 
-     */
     @Export(name="organizationalUnitArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> organizationalUnitArn;
 
-    /**
-     * @return ARN of an organizational unit for the launch permission.
-     * 
-     */
     public Output<Optional<String>> organizationalUnitArn() {
         return Codegen.optional(this.organizationalUnitArn);
     }

@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceInstanceConfiguration {
-    /**
-     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
-     * 
-     */
     private @Nullable String cpu;
-    /**
-     * @return ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-     * 
-     */
     private @Nullable String instanceRoleArn;
-    /**
-     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
-     * 
-     */
     private @Nullable String memory;
 
     private ServiceInstanceConfiguration() {}
-    /**
-     * @return Number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
-     * 
-     */
     public Optional<String> cpu() {
         return Optional.ofNullable(this.cpu);
     }
-    /**
-     * @return ARN of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-     * 
-     */
     public Optional<String> instanceRoleArn() {
         return Optional.ofNullable(this.instanceRoleArn);
     }
-    /**
-     * @return Amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
-     * 
-     */
     public Optional<String> memory() {
         return Optional.ofNullable(this.memory);
     }

@@ -13,17 +13,9 @@ public final class BucketOwnershipControlsRuleArgs extends com.pulumi.resources.
 
     public static final BucketOwnershipControlsRuleArgs Empty = new BucketOwnershipControlsRuleArgs();
 
-    /**
-     * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-     * 
-     */
     @Import(name="objectOwnership", required=true)
     private Output<String> objectOwnership;
 
-    /**
-     * @return Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-     * 
-     */
     public Output<String> objectOwnership() {
         return this.objectOwnership;
     }
@@ -52,23 +44,11 @@ public final class BucketOwnershipControlsRuleArgs extends com.pulumi.resources.
             $ = new BucketOwnershipControlsRuleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param objectOwnership Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectOwnership(Output<String> objectOwnership) {
             $.objectOwnership = objectOwnership;
             return this;
         }
 
-        /**
-         * @param objectOwnership Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-         * 
-         * @return builder
-         * 
-         */
         public Builder objectOwnership(String objectOwnership) {
             return objectOwnership(Output.of(objectOwnership));
         }

@@ -15,17 +15,9 @@ public final class IntegrationTlsConfigArgs extends com.pulumi.resources.Resourc
 
     public static final IntegrationTlsConfigArgs Empty = new IntegrationTlsConfigArgs();
 
-    /**
-     * If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-     * 
-     */
     @Import(name="serverNameToVerify")
     private @Nullable Output<String> serverNameToVerify;
 
-    /**
-     * @return If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-     * 
-     */
     public Optional<Output<String>> serverNameToVerify() {
         return Optional.ofNullable(this.serverNameToVerify);
     }
@@ -54,23 +46,11 @@ public final class IntegrationTlsConfigArgs extends com.pulumi.resources.Resourc
             $ = new IntegrationTlsConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param serverNameToVerify If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverNameToVerify(@Nullable Output<String> serverNameToVerify) {
             $.serverNameToVerify = serverNameToVerify;
             return this;
         }
 
-        /**
-         * @param serverNameToVerify If you specify a server name, API Gateway uses it to verify the hostname on the integration&#39;s certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverNameToVerify(String serverNameToVerify) {
             return serverNameToVerify(Output.of(serverNameToVerify));
         }

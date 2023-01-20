@@ -13,17 +13,9 @@ public final class GetInstanceTypeArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetInstanceTypeArgs Empty = new GetInstanceTypeArgs();
 
-    /**
-     * Instance
-     * 
-     */
     @Import(name="instanceType", required=true)
     private Output<String> instanceType;
 
-    /**
-     * @return Instance
-     * 
-     */
     public Output<String> instanceType() {
         return this.instanceType;
     }
@@ -52,23 +44,11 @@ public final class GetInstanceTypeArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetInstanceTypeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceType Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
 
-        /**
-         * @param instanceType Instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
         }

@@ -15,62 +15,30 @@ public final class SigningCertificateState extends com.pulumi.resources.Resource
 
     public static final SigningCertificateState Empty = new SigningCertificateState();
 
-    /**
-     * The contents of the signing certificate in PEM-encoded format.
-     * 
-     */
     @Import(name="certificateBody")
     private @Nullable Output<String> certificateBody;
 
-    /**
-     * @return The contents of the signing certificate in PEM-encoded format.
-     * 
-     */
     public Optional<Output<String>> certificateBody() {
         return Optional.ofNullable(this.certificateBody);
     }
 
-    /**
-     * The ID for the signing certificate.
-     * 
-     */
     @Import(name="certificateId")
     private @Nullable Output<String> certificateId;
 
-    /**
-     * @return The ID for the signing certificate.
-     * 
-     */
     public Optional<Output<String>> certificateId() {
         return Optional.ofNullable(this.certificateId);
     }
 
-    /**
-     * The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The name of the user the signing certificate is for.
-     * 
-     */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
-    /**
-     * @return The name of the user the signing certificate is for.
-     * 
-     */
     public Optional<Output<String>> userName() {
         return Optional.ofNullable(this.userName);
     }
@@ -102,86 +70,38 @@ public final class SigningCertificateState extends com.pulumi.resources.Resource
             $ = new SigningCertificateState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param certificateBody The contents of the signing certificate in PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(@Nullable Output<String> certificateBody) {
             $.certificateBody = certificateBody;
             return this;
         }
 
-        /**
-         * @param certificateBody The contents of the signing certificate in PEM-encoded format.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateBody(String certificateBody) {
             return certificateBody(Output.of(certificateBody));
         }
 
-        /**
-         * @param certificateId The ID for the signing certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateId(@Nullable Output<String> certificateId) {
             $.certificateId = certificateId;
             return this;
         }
 
-        /**
-         * @param certificateId The ID for the signing certificate.
-         * 
-         * @return builder
-         * 
-         */
         public Builder certificateId(String certificateId) {
             return certificateId(Output.of(certificateId));
         }
 
-        /**
-         * @param status The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param userName The name of the user the signing certificate is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
 
-        /**
-         * @param userName The name of the user the signing certificate is for.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userName(String userName) {
             return userName(Output.of(userName));
         }

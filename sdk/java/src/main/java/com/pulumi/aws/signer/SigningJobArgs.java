@@ -18,62 +18,30 @@ public final class SigningJobArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SigningJobArgs Empty = new SigningJobArgs();
 
-    /**
-     * The S3 bucket in which to save your signed object. See Destination below for details.
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<SigningJobDestinationArgs> destination;
 
-    /**
-     * @return The S3 bucket in which to save your signed object. See Destination below for details.
-     * 
-     */
     public Output<SigningJobDestinationArgs> destination() {
         return this.destination;
     }
 
-    /**
-     * Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-     * 
-     */
     @Import(name="ignoreSigningJobFailure")
     private @Nullable Output<Boolean> ignoreSigningJobFailure;
 
-    /**
-     * @return Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-     * 
-     */
     public Optional<Output<Boolean>> ignoreSigningJobFailure() {
         return Optional.ofNullable(this.ignoreSigningJobFailure);
     }
 
-    /**
-     * The name of the profile to initiate the signing operation.
-     * 
-     */
     @Import(name="profileName", required=true)
     private Output<String> profileName;
 
-    /**
-     * @return The name of the profile to initiate the signing operation.
-     * 
-     */
     public Output<String> profileName() {
         return this.profileName;
     }
 
-    /**
-     * The S3 bucket that contains the object to sign. See Source below for details.
-     * 
-     */
     @Import(name="source", required=true)
     private Output<SigningJobSourceArgs> source;
 
-    /**
-     * @return The S3 bucket that contains the object to sign. See Source below for details.
-     * 
-     */
     public Output<SigningJobSourceArgs> source() {
         return this.source;
     }
@@ -105,86 +73,38 @@ public final class SigningJobArgs extends com.pulumi.resources.ResourceArgs {
             $ = new SigningJobArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination The S3 bucket in which to save your signed object. See Destination below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<SigningJobDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination The S3 bucket in which to save your signed object. See Destination below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(SigningJobDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param ignoreSigningJobFailure Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreSigningJobFailure(@Nullable Output<Boolean> ignoreSigningJobFailure) {
             $.ignoreSigningJobFailure = ignoreSigningJobFailure;
             return this;
         }
 
-        /**
-         * @param ignoreSigningJobFailure Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignoreSigningJobFailure(Boolean ignoreSigningJobFailure) {
             return ignoreSigningJobFailure(Output.of(ignoreSigningJobFailure));
         }
 
-        /**
-         * @param profileName The name of the profile to initiate the signing operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileName(Output<String> profileName) {
             $.profileName = profileName;
             return this;
         }
 
-        /**
-         * @param profileName The name of the profile to initiate the signing operation.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profileName(String profileName) {
             return profileName(Output.of(profileName));
         }
 
-        /**
-         * @param source The S3 bucket that contains the object to sign. See Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(Output<SigningJobSourceArgs> source) {
             $.source = source;
             return this;
         }
 
-        /**
-         * @param source The S3 bucket that contains the object to sign. See Source below for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder source(SigningJobSourceArgs source) {
             return source(Output.of(source));
         }

@@ -19,162 +19,41 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppConfig Extension resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.appconfig.Extension;
- * import com.pulumi.aws.appconfig.ExtensionArgs;
- * import com.pulumi.aws.appconfig.inputs.ExtensionActionPointArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testTopic = new Topic(&#34;testTopic&#34;);
- * 
- *         final var testPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;sts:AssumeRole&#34;)
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;Service&#34;)
- *                     .identifiers(&#34;appconfig.amazonaws.com&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(testPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
- *             .build());
- * 
- *         var testExtension = new Extension(&#34;testExtension&#34;, ExtensionArgs.builder()        
- *             .description(&#34;test description&#34;)
- *             .actionPoints(ExtensionActionPointArgs.builder()
- *                 .point(&#34;ON_DEPLOYMENT_COMPLETE&#34;)
- *                 .actions(ExtensionActionPointActionArgs.builder()
- *                     .name(&#34;test&#34;)
- *                     .roleArn(testRole.arn())
- *                     .uri(testTopic.arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.of(&#34;Type&#34;, &#34;AppConfig Extension&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AppConfig Extensions can be imported using their extension ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
- * ```
- * 
- */
 @ResourceType(type="aws:appconfig/extension:Extension")
 public class Extension extends com.pulumi.resources.CustomResource {
-    /**
-     * The action points defined in the extension. Detailed below.
-     * 
-     */
     @Export(name="actionPoints", refs={List.class,ExtensionActionPoint.class}, tree="[0,1]")
     private Output<List<ExtensionActionPoint>> actionPoints;
 
-    /**
-     * @return The action points defined in the extension. Detailed below.
-     * 
-     */
     public Output<List<ExtensionActionPoint>> actionPoints() {
         return this.actionPoints;
     }
-    /**
-     * ARN of the AppConfig Extension.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the AppConfig Extension.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Information about the extension.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
-    /**
-     * @return Information about the extension.
-     * 
-     */
     public Output<String> description() {
         return this.description;
     }
-    /**
-     * A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the extension. Each extension name in your account must be unique. Extension versions use the same name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     * 
-     */
     @Export(name="parameters", refs={List.class,ExtensionParameter.class}, tree="[0,1]")
     private Output<List<ExtensionParameter>> parameters;
 
-    /**
-     * @return The parameters accepted by the extension. You specify parameter values when you associate the extension to an AppConfig resource by using the CreateExtensionAssociation API action. For Lambda extension actions, these parameters are included in the Lambda request object. Detailed below.
-     * 
-     */
     public Output<List<ExtensionParameter>> parameters() {
         return this.parameters;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
@@ -184,17 +63,9 @@ public class Extension extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The version number for the extension.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The version number for the extension.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

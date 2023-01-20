@@ -16,32 +16,16 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
 
     public static final IndexUserTokenConfigurationsArgs Empty = new IndexUserTokenConfigurationsArgs();
 
-    /**
-     * A block that specifies the information about the JSON token type configuration. Detailed below.
-     * 
-     */
     @Import(name="jsonTokenTypeConfiguration")
     private @Nullable Output<IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs> jsonTokenTypeConfiguration;
 
-    /**
-     * @return A block that specifies the information about the JSON token type configuration. Detailed below.
-     * 
-     */
     public Optional<Output<IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs>> jsonTokenTypeConfiguration() {
         return Optional.ofNullable(this.jsonTokenTypeConfiguration);
     }
 
-    /**
-     * A block that specifies the information about the JWT token type configuration. Detailed below.
-     * 
-     */
     @Import(name="jwtTokenTypeConfiguration")
     private @Nullable Output<IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs> jwtTokenTypeConfiguration;
 
-    /**
-     * @return A block that specifies the information about the JWT token type configuration. Detailed below.
-     * 
-     */
     public Optional<Output<IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs>> jwtTokenTypeConfiguration() {
         return Optional.ofNullable(this.jwtTokenTypeConfiguration);
     }
@@ -71,44 +55,20 @@ public final class IndexUserTokenConfigurationsArgs extends com.pulumi.resources
             $ = new IndexUserTokenConfigurationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonTokenTypeConfiguration(@Nullable Output<IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs> jsonTokenTypeConfiguration) {
             $.jsonTokenTypeConfiguration = jsonTokenTypeConfiguration;
             return this;
         }
 
-        /**
-         * @param jsonTokenTypeConfiguration A block that specifies the information about the JSON token type configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs jsonTokenTypeConfiguration) {
             return jsonTokenTypeConfiguration(Output.of(jsonTokenTypeConfiguration));
         }
 
-        /**
-         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtTokenTypeConfiguration(@Nullable Output<IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs> jwtTokenTypeConfiguration) {
             $.jwtTokenTypeConfiguration = jwtTokenTypeConfiguration;
             return this;
         }
 
-        /**
-         * @param jwtTokenTypeConfiguration A block that specifies the information about the JWT token type configuration. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder jwtTokenTypeConfiguration(IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs jwtTokenTypeConfiguration) {
             return jwtTokenTypeConfiguration(Output.of(jwtTokenTypeConfiguration));
         }

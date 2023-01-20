@@ -13,32 +13,16 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
 
     public static final VpcEndpointRouteTableAssociationArgs Empty = new VpcEndpointRouteTableAssociationArgs();
 
-    /**
-     * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
-    /**
-     * @return Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-     * 
-     */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
 
-    /**
-     * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     @Import(name="vpcEndpointId", required=true)
     private Output<String> vpcEndpointId;
 
-    /**
-     * @return Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-     * 
-     */
     public Output<String> vpcEndpointId() {
         return this.vpcEndpointId;
     }
@@ -68,44 +52,20 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
             $ = new VpcEndpointRouteTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param routeTableId Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
-        /**
-         * @param vpcEndpointId Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(Output<String> vpcEndpointId) {
             $.vpcEndpointId = vpcEndpointId;
             return this;
         }
 
-        /**
-         * @param vpcEndpointId Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcEndpointId(String vpcEndpointId) {
             return vpcEndpointId(Output.of(vpcEndpointId));
         }

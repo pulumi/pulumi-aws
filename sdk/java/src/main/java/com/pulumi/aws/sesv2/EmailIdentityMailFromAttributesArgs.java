@@ -15,47 +15,23 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
 
     public static final EmailIdentityMailFromAttributesArgs Empty = new EmailIdentityMailFromAttributesArgs();
 
-    /**
-     * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     @Import(name="behaviorOnMxFailure")
     private @Nullable Output<String> behaviorOnMxFailure;
 
-    /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-     * 
-     */
     public Optional<Output<String>> behaviorOnMxFailure() {
         return Optional.ofNullable(this.behaviorOnMxFailure);
     }
 
-    /**
-     * The verified email identity.
-     * 
-     */
     @Import(name="emailIdentity", required=true)
     private Output<String> emailIdentity;
 
-    /**
-     * @return The verified email identity.
-     * 
-     */
     public Output<String> emailIdentity() {
         return this.emailIdentity;
     }
 
-    /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-     * 
-     */
     @Import(name="mailFromDomain")
     private @Nullable Output<String> mailFromDomain;
 
-    /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-     * 
-     */
     public Optional<Output<String>> mailFromDomain() {
         return Optional.ofNullable(this.mailFromDomain);
     }
@@ -86,65 +62,29 @@ public final class EmailIdentityMailFromAttributesArgs extends com.pulumi.resour
             $ = new EmailIdentityMailFromAttributesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param behaviorOnMxFailure The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorOnMxFailure(@Nullable Output<String> behaviorOnMxFailure) {
             $.behaviorOnMxFailure = behaviorOnMxFailure;
             return this;
         }
 
-        /**
-         * @param behaviorOnMxFailure The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder behaviorOnMxFailure(String behaviorOnMxFailure) {
             return behaviorOnMxFailure(Output.of(behaviorOnMxFailure));
         }
 
-        /**
-         * @param emailIdentity The verified email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The verified email identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mailFromDomain(@Nullable Output<String> mailFromDomain) {
             $.mailFromDomain = mailFromDomain;
             return this;
         }
 
-        /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mailFromDomain(String mailFromDomain) {
             return mailFromDomain(Output.of(mailFromDomain));
         }

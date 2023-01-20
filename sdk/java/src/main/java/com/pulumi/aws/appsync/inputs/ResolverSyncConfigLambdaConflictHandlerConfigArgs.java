@@ -15,17 +15,9 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfigArgs extends com
 
     public static final ResolverSyncConfigLambdaConflictHandlerConfigArgs Empty = new ResolverSyncConfigLambdaConflictHandlerConfigArgs();
 
-    /**
-     * ARN for the Lambda function to use as the Conflict Handler.
-     * 
-     */
     @Import(name="lambdaConflictHandlerArn")
     private @Nullable Output<String> lambdaConflictHandlerArn;
 
-    /**
-     * @return ARN for the Lambda function to use as the Conflict Handler.
-     * 
-     */
     public Optional<Output<String>> lambdaConflictHandlerArn() {
         return Optional.ofNullable(this.lambdaConflictHandlerArn);
     }
@@ -54,23 +46,11 @@ public final class ResolverSyncConfigLambdaConflictHandlerConfigArgs extends com
             $ = new ResolverSyncConfigLambdaConflictHandlerConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param lambdaConflictHandlerArn ARN for the Lambda function to use as the Conflict Handler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConflictHandlerArn(@Nullable Output<String> lambdaConflictHandlerArn) {
             $.lambdaConflictHandlerArn = lambdaConflictHandlerArn;
             return this;
         }
 
-        /**
-         * @param lambdaConflictHandlerArn ARN for the Lambda function to use as the Conflict Handler.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lambdaConflictHandlerArn(String lambdaConflictHandlerArn) {
             return lambdaConflictHandlerArn(Output.of(lambdaConflictHandlerArn));
         }

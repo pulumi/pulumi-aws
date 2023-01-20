@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrameworkControlInputParameter {
-    /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return The value of parameter, for example, hourly.
-     * 
-     */
     private @Nullable String value;
 
     private FrameworkControlInputParameter() {}
-    /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return The value of parameter, for example, hourly.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

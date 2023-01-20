@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class EndpointConfigurationShadowProductionVariantServerlessConfig {
-    /**
-     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-     * 
-     */
     private Integer maxConcurrency;
-    /**
-     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-     * 
-     */
     private Integer memorySizeInMb;
 
     private EndpointConfigurationShadowProductionVariantServerlessConfig() {}
-    /**
-     * @return The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
-     * 
-     */
     public Integer maxConcurrency() {
         return this.maxConcurrency;
     }
-    /**
-     * @return The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
-     * 
-     */
     public Integer memorySizeInMb() {
         return this.memorySizeInMb;
     }

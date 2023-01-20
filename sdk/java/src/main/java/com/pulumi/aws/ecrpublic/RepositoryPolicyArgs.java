@@ -13,32 +13,16 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
 
     public static final RepositoryPolicyArgs Empty = new RepositoryPolicyArgs();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * Name of the repository to apply the policy.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private Output<String> repositoryName;
 
-    /**
-     * @return Name of the repository to apply the policy.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }
@@ -68,44 +52,20 @@ public final class RepositoryPolicyArgs extends com.pulumi.resources.ResourceArg
             $ = new RepositoryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param repositoryName Name of the repository to apply the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(Output<String> repositoryName) {
             $.repositoryName = repositoryName;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the repository to apply the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             return repositoryName(Output.of(repositoryName));
         }

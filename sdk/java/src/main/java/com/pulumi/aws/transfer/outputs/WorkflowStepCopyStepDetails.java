@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkflowStepCopyStepDetails {
-    /**
-     * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-     * 
-     */
     private @Nullable WorkflowStepCopyStepDetailsDestinationFileLocation destinationFileLocation;
-    /**
-     * @return The name of the step, used as an identifier.
-     * 
-     */
     private @Nullable String name;
-    /**
-     * @return A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-     * 
-     */
     private @Nullable String overwriteExisting;
-    /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-     * 
-     */
     private @Nullable String sourceFileLocation;
 
     private WorkflowStepCopyStepDetails() {}
-    /**
-     * @return Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
-     * 
-     */
     public Optional<WorkflowStepCopyStepDetailsDestinationFileLocation> destinationFileLocation() {
         return Optional.ofNullable(this.destinationFileLocation);
     }
-    /**
-     * @return The name of the step, used as an identifier.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
-    /**
-     * @return A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
-     * 
-     */
     public Optional<String> overwriteExisting() {
         return Optional.ofNullable(this.overwriteExisting);
     }
-    /**
-     * @return Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-     * 
-     */
     public Optional<String> sourceFileLocation() {
         return Optional.ofNullable(this.sourceFileLocation);
     }

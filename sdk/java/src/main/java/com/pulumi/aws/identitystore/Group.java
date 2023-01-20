@@ -16,89 +16,35 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS IdentityStore Group.
- * 
- * ## Example Usage
- * 
- * ## Import
- * 
- * An Identity Store Group can be imported using the combination `identity_store_id/group_id`. For example
- * 
- * ```sh
- *  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
- * ```
- * 
- */
 @ResourceType(type="aws:identitystore/group:Group")
 public class Group extends com.pulumi.resources.CustomResource {
-    /**
-     * A string containing the description of the group.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A string containing the description of the group.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     * 
-     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
-    /**
-     * @return A string containing the name of the group. This value is commonly displayed when the group is referenced.
-     * 
-     */
     public Output<String> displayName() {
         return this.displayName;
     }
-    /**
-     * A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     * 
-     */
     @Export(name="externalIds", refs={List.class,GroupExternalId.class}, tree="[0,1]")
     private Output<List<GroupExternalId>> externalIds;
 
-    /**
-     * @return A list of external IDs that contains the identifiers issued to this resource by an external identity provider. See External IDs below.
-     * 
-     */
     public Output<List<GroupExternalId>> externalIds() {
         return this.externalIds;
     }
-    /**
-     * The identifier of the newly created group in the identity store.
-     * 
-     */
     @Export(name="groupId", refs={String.class}, tree="[0]")
     private Output<String> groupId;
 
-    /**
-     * @return The identifier of the newly created group in the identity store.
-     * 
-     */
     public Output<String> groupId() {
         return this.groupId;
     }
-    /**
-     * The globally unique identifier for the identity store.
-     * 
-     */
     @Export(name="identityStoreId", refs={String.class}, tree="[0]")
     private Output<String> identityStoreId;
 
-    /**
-     * @return The globally unique identifier for the identity store.
-     * 
-     */
     public Output<String> identityStoreId() {
         return this.identityStoreId;
     }

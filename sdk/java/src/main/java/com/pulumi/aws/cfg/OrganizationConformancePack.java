@@ -16,256 +16,53 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages a Config Organization Conformance Pack. More information can be found in the [Managing Conformance Packs Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. Example conformance pack templates may be found in the [AWS Config Rules Repository](https://github.com/awslabs/aws-config-rules/tree/master/aws-config-conformance-packs).
- * 
- * &gt; **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `aws.cfg.Recorder` resource.
- * 
- * ## Example Usage
- * ### Using Template Body
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
- * import com.pulumi.aws.cfg.OrganizationConformancePack;
- * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
- * import com.pulumi.aws.cfg.inputs.OrganizationConformancePackInputParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
- *             .build());
- * 
- *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
- *             .inputParameters(OrganizationConformancePackInputParameterArgs.builder()
- *                 .parameterName(&#34;AccessKeysRotatedParameterMaxAccessKeyAge&#34;)
- *                 .parameterValue(&#34;90&#34;)
- *                 .build())
- *             .templateBody(&#34;&#34;&#34;
- * Parameters:
- *   AccessKeysRotatedParameterMaxAccessKeyAge:
- *     Type: String
- * Resources:
- *   IAMPasswordPolicy:
- *     Properties:
- *       ConfigRuleName: IAMPasswordPolicy
- *       Source:
- *         Owner: AWS
- *         SourceIdentifier: IAM_PASSWORD_POLICY
- *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_config_configuration_recorder.example(),
- *                     exampleOrganization)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Using Template S3 URI
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketObjectv2;
- * import com.pulumi.aws.s3.BucketObjectv2Args;
- * import com.pulumi.aws.cfg.OrganizationConformancePack;
- * import com.pulumi.aws.cfg.OrganizationConformancePackArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;config-multiaccountsetup.amazonaws.com&#34;)
- *             .featureSet(&#34;ALL&#34;)
- *             .build());
- * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleBucketObjectv2 = new BucketObjectv2(&#34;exampleBucketObjectv2&#34;, BucketObjectv2Args.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .key(&#34;example-key&#34;)
- *             .content(&#34;&#34;&#34;
- * Resources:
- *   IAMPasswordPolicy:
- *     Properties:
- *       ConfigRuleName: IAMPasswordPolicy
- *       Source:
- *         Owner: AWS
- *         SourceIdentifier: IAM_PASSWORD_POLICY
- *     Type: AWS::Config::ConfigRule
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleOrganizationConformancePack = new OrganizationConformancePack(&#34;exampleOrganizationConformancePack&#34;, OrganizationConformancePackArgs.builder()        
- *             .templateS3Uri(Output.tuple(exampleBucketV2.bucket(), exampleBucketObjectv2.key()).applyValue(values -&gt; {
- *                 var bucket = values.t1;
- *                 var key = values.t2;
- *                 return String.format(&#34;s3://%s/%s&#34;, bucket,key);
- *             }))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_config_configuration_recorder.example(),
- *                     exampleOrganization)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Config Organization Conformance Packs can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
- * ```
- * 
- */
 @ResourceType(type="aws:cfg/organizationConformancePack:OrganizationConformancePack")
 public class OrganizationConformancePack extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the organization conformance pack.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-     * 
-     */
     @Export(name="deliveryS3Bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3Bucket;
 
-    /**
-     * @return Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
-     * 
-     */
     public Output<Optional<String>> deliveryS3Bucket() {
         return Codegen.optional(this.deliveryS3Bucket);
     }
-    /**
-     * The prefix for the Amazon S3 bucket. Maximum length of 1024.
-     * 
-     */
     @Export(name="deliveryS3KeyPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deliveryS3KeyPrefix;
 
-    /**
-     * @return The prefix for the Amazon S3 bucket. Maximum length of 1024.
-     * 
-     */
     public Output<Optional<String>> deliveryS3KeyPrefix() {
         return Codegen.optional(this.deliveryS3KeyPrefix);
     }
-    /**
-     * Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-     * 
-     */
     @Export(name="excludedAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> excludedAccounts;
 
-    /**
-     * @return Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
-     * 
-     */
     public Output<Optional<List<String>>> excludedAccounts() {
         return Codegen.optional(this.excludedAccounts);
     }
-    /**
-     * Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-     * 
-     */
     @Export(name="inputParameters", refs={List.class,OrganizationConformancePackInputParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OrganizationConformancePackInputParameter>> inputParameters;
 
-    /**
-     * @return Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
-     * 
-     */
     public Output<Optional<List<OrganizationConformancePackInputParameter>>> inputParameters() {
         return Codegen.optional(this.inputParameters);
     }
-    /**
-     * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-     * 
-     */
     @Export(name="templateBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateBody;
 
-    /**
-     * @return A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-     * 
-     */
     public Output<Optional<String>> templateBody() {
         return Codegen.optional(this.templateBody);
     }
-    /**
-     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-     * 
-     */
     @Export(name="templateS3Uri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> templateS3Uri;
 
-    /**
-     * @return Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
-     * 
-     */
     public Output<Optional<String>> templateS3Uri() {
         return Codegen.optional(this.templateS3Uri);
     }

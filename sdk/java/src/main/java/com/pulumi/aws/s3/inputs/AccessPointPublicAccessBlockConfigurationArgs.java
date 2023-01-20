@@ -15,74 +15,30 @@ public final class AccessPointPublicAccessBlockConfigurationArgs extends com.pul
 
     public static final AccessPointPublicAccessBlockConfigurationArgs Empty = new AccessPointPublicAccessBlockConfigurationArgs();
 
-    /**
-     * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-     * * PUT Object calls fail if the request includes a public ACL.
-     * * PUT Bucket calls fail if the request includes a public ACL.
-     * 
-     */
     @Import(name="blockPublicAcls")
     private @Nullable Output<Boolean> blockPublicAcls;
 
-    /**
-     * @return Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-     * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-     * * PUT Object calls fail if the request includes a public ACL.
-     * * PUT Bucket calls fail if the request includes a public ACL.
-     * 
-     */
     public Optional<Output<Boolean>> blockPublicAcls() {
         return Optional.ofNullable(this.blockPublicAcls);
     }
 
-    /**
-     * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-     * 
-     */
     @Import(name="blockPublicPolicy")
     private @Nullable Output<Boolean> blockPublicPolicy;
 
-    /**
-     * @return Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-     * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-     * 
-     */
     public Optional<Output<Boolean>> blockPublicPolicy() {
         return Optional.ofNullable(this.blockPublicPolicy);
     }
 
-    /**
-     * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-     * 
-     */
     @Import(name="ignorePublicAcls")
     private @Nullable Output<Boolean> ignorePublicAcls;
 
-    /**
-     * @return Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-     * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-     * 
-     */
     public Optional<Output<Boolean>> ignorePublicAcls() {
         return Optional.ofNullable(this.ignorePublicAcls);
     }
 
-    /**
-     * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-     * * Only the bucket owner and AWS Services can access buckets with public policies.
-     * 
-     */
     @Import(name="restrictPublicBuckets")
     private @Nullable Output<Boolean> restrictPublicBuckets;
 
-    /**
-     * @return Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-     * * Only the bucket owner and AWS Services can access buckets with public policies.
-     * 
-     */
     public Optional<Output<Boolean>> restrictPublicBuckets() {
         return Optional.ofNullable(this.restrictPublicBuckets);
     }
@@ -114,98 +70,38 @@ public final class AccessPointPublicAccessBlockConfigurationArgs extends com.pul
             $ = new AccessPointPublicAccessBlockConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param blockPublicAcls Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         * * PUT Object calls fail if the request includes a public ACL.
-         * * PUT Bucket calls fail if the request includes a public ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicAcls(@Nullable Output<Boolean> blockPublicAcls) {
             $.blockPublicAcls = blockPublicAcls;
             return this;
         }
 
-        /**
-         * @param blockPublicAcls Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
-         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
-         * * PUT Object calls fail if the request includes a public ACL.
-         * * PUT Bucket calls fail if the request includes a public ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicAcls(Boolean blockPublicAcls) {
             return blockPublicAcls(Output.of(blockPublicAcls));
         }
 
-        /**
-         * @param blockPublicPolicy Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicPolicy(@Nullable Output<Boolean> blockPublicPolicy) {
             $.blockPublicPolicy = blockPublicPolicy;
             return this;
         }
 
-        /**
-         * @param blockPublicPolicy Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
-         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder blockPublicPolicy(Boolean blockPublicPolicy) {
             return blockPublicPolicy(Output.of(blockPublicPolicy));
         }
 
-        /**
-         * @param ignorePublicAcls Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignorePublicAcls(@Nullable Output<Boolean> ignorePublicAcls) {
             $.ignorePublicAcls = ignorePublicAcls;
             return this;
         }
 
-        /**
-         * @param ignorePublicAcls Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn&#39;t prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
-         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ignorePublicAcls(Boolean ignorePublicAcls) {
             return ignorePublicAcls(Output.of(ignorePublicAcls));
         }
 
-        /**
-         * @param restrictPublicBuckets Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-         * * Only the bucket owner and AWS Services can access buckets with public policies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictPublicBuckets(@Nullable Output<Boolean> restrictPublicBuckets) {
             $.restrictPublicBuckets = restrictPublicBuckets;
             return this;
         }
 
-        /**
-         * @param restrictPublicBuckets Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
-         * * Only the bucket owner and AWS Services can access buckets with public policies.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restrictPublicBuckets(Boolean restrictPublicBuckets) {
             return restrictPublicBuckets(Output.of(restrictPublicBuckets));
         }

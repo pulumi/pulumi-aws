@@ -13,32 +13,16 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetExperienceArgs Empty = new GetExperienceArgs();
 
-    /**
-     * Identifier of the Experience.
-     * 
-     */
     @Import(name="experienceId", required=true)
     private Output<String> experienceId;
 
-    /**
-     * @return Identifier of the Experience.
-     * 
-     */
     public Output<String> experienceId() {
         return this.experienceId;
     }
 
-    /**
-     * Identifier of the index that contains the Experience.
-     * 
-     */
     @Import(name="indexId", required=true)
     private Output<String> indexId;
 
-    /**
-     * @return Identifier of the index that contains the Experience.
-     * 
-     */
     public Output<String> indexId() {
         return this.indexId;
     }
@@ -68,44 +52,20 @@ public final class GetExperienceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetExperienceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param experienceId Identifier of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(Output<String> experienceId) {
             $.experienceId = experienceId;
             return this;
         }
 
-        /**
-         * @param experienceId Identifier of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(String experienceId) {
             return experienceId(Output.of(experienceId));
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(Output<String> indexId) {
             $.indexId = indexId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             return indexId(Output.of(indexId));
         }

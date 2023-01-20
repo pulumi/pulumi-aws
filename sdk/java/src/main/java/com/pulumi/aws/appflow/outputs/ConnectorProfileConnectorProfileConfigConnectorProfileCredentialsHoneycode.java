@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
-    /**
-     * @return The credentials used to access protected Zendesk resources.
-     * 
-     */
     private @Nullable String accessToken;
-    /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     private @Nullable ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest oauthRequest;
-    /**
-     * @return The refresh token used to refresh expired access token.
-     * 
-     */
     private @Nullable String refreshToken;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode() {}
-    /**
-     * @return The credentials used to access protected Zendesk resources.
-     * 
-     */
     public Optional<String> accessToken() {
         return Optional.ofNullable(this.accessToken);
     }
-    /**
-     * @return The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
-     * 
-     */
     public Optional<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest> oauthRequest() {
         return Optional.ofNullable(this.oauthRequest);
     }
-    /**
-     * @return The refresh token used to refresh expired access token.
-     * 
-     */
     public Optional<String> refreshToken() {
         return Optional.ofNullable(this.refreshToken);
     }

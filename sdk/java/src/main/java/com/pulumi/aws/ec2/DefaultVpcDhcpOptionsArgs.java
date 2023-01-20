@@ -16,32 +16,16 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
 
     public static final DefaultVpcDhcpOptionsArgs Empty = new DefaultVpcDhcpOptionsArgs();
 
-    /**
-     * The ID of the AWS account that owns the DHCP options set.
-     * 
-     */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
-    /**
-     * @return The ID of the AWS account that owns the DHCP options set.
-     * 
-     */
     public Optional<Output<String>> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
 
-    /**
-     * A map of tags to assign to the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
             $ = new DefaultVpcDhcpOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ownerId The ID of the AWS account that owns the DHCP options set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(@Nullable Output<String> ownerId) {
             $.ownerId = ownerId;
             return this;
         }
 
-        /**
-         * @param ownerId The ID of the AWS account that owns the DHCP options set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

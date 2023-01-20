@@ -9,15 +9,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRuleGroupResult {
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the rule group that helps with identification.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,17 +20,9 @@ public final class GetRuleGroupResult {
     private String scope;
 
     private GetRuleGroupResult() {}
-    /**
-     * @return ARN of the entity.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the rule group that helps with identification.
-     * 
-     */
     public String description() {
         return this.description;
     }

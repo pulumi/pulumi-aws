@@ -13,17 +13,9 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs();
 
-    /**
-     * The location of the Salesforce resource.
-     * 
-     */
     @Import(name="instanceUrl", required=true)
     private Output<String> instanceUrl;
 
-    /**
-     * @return The location of the Salesforce resource.
-     * 
-     */
     public Output<String> instanceUrl() {
         return this.instanceUrl;
     }
@@ -52,23 +44,11 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceUrl The location of the Salesforce resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceUrl(Output<String> instanceUrl) {
             $.instanceUrl = instanceUrl;
             return this;
         }
 
-        /**
-         * @param instanceUrl The location of the Salesforce resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceUrl(String instanceUrl) {
             return instanceUrl(Output.of(instanceUrl));
         }

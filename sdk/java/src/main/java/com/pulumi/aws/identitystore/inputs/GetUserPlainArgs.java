@@ -16,24 +16,14 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
-    /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-     * 
-     */
     @Import(name="alternateIdentifier")
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
 
-    /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-     * 
-     */
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
     }
 
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -43,8 +33,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable GetUserFilter filter;
 
     /**
-     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
      * @deprecated
      * Use the alternate_identifier attribute instead.
      * 
@@ -54,32 +42,16 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.filter);
     }
 
-    /**
-     * Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     @Import(name="identityStoreId", required=true)
     private String identityStoreId;
 
-    /**
-     * @return Identity Store ID associated with the Single Sign-On Instance.
-     * 
-     */
     public String identityStoreId() {
         return this.identityStoreId;
     }
 
-    /**
-     * The identifier for a user in the Identity Store.
-     * 
-     */
     @Import(name="userId")
     private @Nullable String userId;
 
-    /**
-     * @return The identifier for a user in the Identity Store.
-     * 
-     */
     public Optional<String> userId() {
         return Optional.ofNullable(this.userId);
     }
@@ -111,20 +83,12 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUserPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
             return this;
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -137,23 +101,11 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
             return this;
         }
 
-        /**
-         * @param userId The identifier for a user in the Identity Store.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userId(@Nullable String userId) {
             $.userId = userId;
             return this;

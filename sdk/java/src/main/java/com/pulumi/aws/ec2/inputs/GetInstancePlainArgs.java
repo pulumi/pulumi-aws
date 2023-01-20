@@ -18,98 +18,44 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetInstancePlainArgs Empty = new GetInstancePlainArgs();
 
-    /**
-     * One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetInstanceFilter> filters;
 
-    /**
-     * @return One or more name/value pairs to use as filters. There are
-     * several valid keys, for a full reference, check out
-     * [describe-instances in the AWS CLI reference][1].
-     * 
-     */
     public Optional<List<GetInstanceFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-     * 
-     */
     @Import(name="getPasswordData")
     private @Nullable Boolean getPasswordData;
 
-    /**
-     * @return If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-     * 
-     */
     public Optional<Boolean> getPasswordData() {
         return Optional.ofNullable(this.getPasswordData);
     }
 
-    /**
-     * Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
-     * 
-     */
     @Import(name="getUserData")
     private @Nullable Boolean getUserData;
 
-    /**
-     * @return Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> getUserData() {
         return Optional.ofNullable(this.getUserData);
     }
 
-    /**
-     * Specify the exact Instance ID with which to populate the data source.
-     * 
-     */
     @Import(name="instanceId")
     private @Nullable String instanceId;
 
-    /**
-     * @return Specify the exact Instance ID with which to populate the data source.
-     * 
-     */
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
 
-    /**
-     * Map of tags, each pair of which must
-     * exactly match a pair on the desired Instance.
-     * 
-     */
     @Import(name="instanceTags")
     private @Nullable Map<String,String> instanceTags;
 
-    /**
-     * @return Map of tags, each pair of which must
-     * exactly match a pair on the desired Instance.
-     * 
-     */
     public Optional<Map<String,String>> instanceTags() {
         return Optional.ofNullable(this.instanceTags);
     }
 
-    /**
-     * Map of tags assigned to the Instance.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the Instance.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -143,82 +89,35 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [describe-instances in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetInstanceFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to use as filters. There are
-         * several valid keys, for a full reference, check out
-         * [describe-instances in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetInstanceFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param getPasswordData If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder getPasswordData(@Nullable Boolean getPasswordData) {
             $.getPasswordData = getPasswordData;
             return this;
         }
 
-        /**
-         * @param getUserData Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder getUserData(@Nullable Boolean getUserData) {
             $.getUserData = getUserData;
             return this;
         }
 
-        /**
-         * @param instanceId Specify the exact Instance ID with which to populate the data source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(@Nullable String instanceId) {
             $.instanceId = instanceId;
             return this;
         }
 
-        /**
-         * @param instanceTags Map of tags, each pair of which must
-         * exactly match a pair on the desired Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
             $.instanceTags = instanceTags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the Instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

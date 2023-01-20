@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BrokerUser {
-    /**
-     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-     * 
-     */
     private @Nullable Boolean consoleAccess;
-    /**
-     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-     * 
-     */
     private @Nullable List<String> groups;
-    /**
-     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
-     * 
-     */
     private String password;
-    /**
-     * @return Username of the user.
-     * 
-     */
     private String username;
 
     private BrokerUser() {}
-    /**
-     * @return Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
-     * 
-     */
     public Optional<Boolean> consoleAccess() {
         return Optional.ofNullable(this.consoleAccess);
     }
-    /**
-     * @return List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-     * 
-     */
     public List<String> groups() {
         return this.groups == null ? List.of() : this.groups;
     }
-    /**
-     * @return Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Username of the user.
-     * 
-     */
     public String username() {
         return this.username;
     }

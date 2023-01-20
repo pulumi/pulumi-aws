@@ -16,62 +16,30 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FunctionUrlArgs Empty = new FunctionUrlArgs();
 
-    /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     @Import(name="authorizationType", required=true)
     private Output<String> authorizationType;
 
-    /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-     * 
-     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
 
-    /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     @Import(name="cors")
     private @Nullable Output<FunctionUrlCorsArgs> cors;
 
-    /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-     * 
-     */
     public Optional<Output<FunctionUrlCorsArgs>> cors() {
         return Optional.ofNullable(this.cors);
     }
 
-    /**
-     * The name (or ARN) of the Lambda function.
-     * 
-     */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
-    /**
-     * @return The name (or ARN) of the Lambda function.
-     * 
-     */
     public Output<String> functionName() {
         return this.functionName;
     }
 
-    /**
-     * The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
-    /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
-     * 
-     */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
@@ -103,86 +71,38 @@ public final class FunctionUrlArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FunctionUrlArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(Output<String> authorizationType) {
             $.authorizationType = authorizationType;
             return this;
         }
 
-        /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authorizationType(String authorizationType) {
             return authorizationType(Output.of(authorizationType));
         }
 
-        /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(@Nullable Output<FunctionUrlCorsArgs> cors) {
             $.cors = cors;
             return this;
         }
 
-        /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cors(FunctionUrlCorsArgs cors) {
             return cors(Output.of(cors));
         }
 
-        /**
-         * @param functionName The name (or ARN) of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(Output<String> functionName) {
             $.functionName = functionName;
             return this;
         }
 
-        /**
-         * @param functionName The name (or ARN) of the Lambda function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder functionName(String functionName) {
             return functionName(Output.of(functionName));
         }
 
-        /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(@Nullable Output<String> qualifier) {
             $.qualifier = qualifier;
             return this;
         }
 
-        /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
         }

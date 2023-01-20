@@ -17,215 +17,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Network Firewall Firewall Policy Resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FirewallPolicy(&#34;example&#34;, FirewallPolicyArgs.builder()        
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessDefaultActions(&#34;aws:pass&#34;)
- *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
- *                 .statelessRuleGroupReferences(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs.builder()
- *                     .priority(1)
- *                     .resourceArn(aws_networkfirewall_rule_group.example().arn())
- *                     .build())
- *                 .build())
- *             .tags(Map.ofEntries(
- *                 Map.entry(&#34;Tag1&#34;, &#34;Value1&#34;),
- *                 Map.entry(&#34;Tag2&#34;, &#34;Value2&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Policy with a Custom Action for Stateless Inspection
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.networkfirewall.FirewallPolicy;
- * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
- * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new FirewallPolicy(&#34;test&#34;, FirewallPolicyArgs.builder()        
- *             .firewallPolicy(FirewallPolicyFirewallPolicyArgs.builder()
- *                 .statelessCustomActions(FirewallPolicyFirewallPolicyStatelessCustomActionArgs.builder()
- *                     .actionDefinition(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs.builder()
- *                         .publishMetricAction(FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs.builder()
- *                             .dimension(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                             .build())
- *                         .build())
- *                     .actionName(&#34;ExampleCustomAction&#34;)
- *                     .build())
- *                 .statelessDefaultActions(                
- *                     &#34;aws:pass&#34;,
- *                     &#34;ExampleCustomAction&#34;)
- *                 .statelessFragmentDefaultActions(&#34;aws:drop&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Network Firewall Policies can be imported using their `ARN`.
- * 
- * ```sh
- *  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
- * ```
- * 
- */
 @ResourceType(type="aws:networkfirewall/firewallPolicy:FirewallPolicy")
 public class FirewallPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) that identifies the firewall policy.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall policy.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A friendly description of the firewall policy.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A friendly description of the firewall policy.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={FirewallPolicyEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirewallPolicyEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return KMS encryption configuration settings. See Encryption Configuration below for details.
-     * 
-     */
     public Output<Optional<FirewallPolicyEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-     * 
-     */
     @Export(name="firewallPolicy", refs={FirewallPolicyFirewallPolicy.class}, tree="[0]")
     private Output<FirewallPolicyFirewallPolicy> firewallPolicy;
 
-    /**
-     * @return A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
-     * 
-     */
     public Output<FirewallPolicyFirewallPolicy> firewallPolicy() {
         return this.firewallPolicy;
     }
-    /**
-     * A friendly name of the firewall policy.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A friendly name of the firewall policy.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * A string token used when updating a firewall policy.
-     * 
-     */
     @Export(name="updateToken", refs={String.class}, tree="[0]")
     private Output<String> updateToken;
 
-    /**
-     * @return A string token used when updating a firewall policy.
-     * 
-     */
     public Output<String> updateToken() {
         return this.updateToken;
     }

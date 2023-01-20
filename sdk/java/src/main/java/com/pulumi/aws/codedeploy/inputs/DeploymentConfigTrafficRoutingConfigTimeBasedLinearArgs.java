@@ -15,32 +15,16 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs exten
 
     public static final DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs Empty = new DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs();
 
-    /**
-     * The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-     * 
-     */
     @Import(name="interval")
     private @Nullable Output<Integer> interval;
 
-    /**
-     * @return The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-     * 
-     */
     public Optional<Output<Integer>> interval() {
         return Optional.ofNullable(this.interval);
     }
 
-    /**
-     * The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-     * 
-     */
     @Import(name="percentage")
     private @Nullable Output<Integer> percentage;
 
-    /**
-     * @return The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-     * 
-     */
     public Optional<Output<Integer>> percentage() {
         return Optional.ofNullable(this.percentage);
     }
@@ -70,44 +54,20 @@ public final class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs exten
             $ = new DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param interval The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(@Nullable Output<Integer> interval) {
             $.interval = interval;
             return this;
         }
 
-        /**
-         * @param interval The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder interval(Integer interval) {
             return interval(Output.of(interval));
         }
 
-        /**
-         * @param percentage The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder percentage(@Nullable Output<Integer> percentage) {
             $.percentage = percentage;
             return this;
         }
 
-        /**
-         * @param percentage The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder percentage(Integer percentage) {
             return percentage(Output.of(percentage));
         }

@@ -17,47 +17,23 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
 
     public static final GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs Empty = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs();
 
-    /**
-     * Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs> cloudwatchLogs;
 
-    /**
-     * @return Configures CloudWatch Logs as a findings destination.
-     * 
-     */
     public Optional<Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs>> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
 
-    /**
-     * Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     @Import(name="firehose")
     private @Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs> firehose;
 
-    /**
-     * @return Configures Kinesis Firehose as a findings destination.
-     * 
-     */
     public Optional<Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs>> firehose() {
         return Optional.ofNullable(this.firehose);
     }
 
-    /**
-     * Configures S3 as a findings destination.
-     * 
-     */
     @Import(name="s3")
     private @Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args> s3;
 
-    /**
-     * @return Configures S3 as a findings destination.
-     * 
-     */
     public Optional<Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args>> s3() {
         return Optional.ofNullable(this.s3);
     }
@@ -88,65 +64,29 @@ public final class GetLogDataProtectionPolicyDocumentStatementOperationAuditFind
             $ = new GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param cloudwatchLogs Configures CloudWatch Logs as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(@Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
 
-        /**
-         * @param cloudwatchLogs Configures CloudWatch Logs as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cloudwatchLogs(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs cloudwatchLogs) {
             return cloudwatchLogs(Output.of(cloudwatchLogs));
         }
 
-        /**
-         * @param firehose Configures Kinesis Firehose as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(@Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs> firehose) {
             $.firehose = firehose;
             return this;
         }
 
-        /**
-         * @param firehose Configures Kinesis Firehose as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firehose(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs firehose) {
             return firehose(Output.of(firehose));
         }
 
-        /**
-         * @param s3 Configures S3 as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(@Nullable Output<GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args> s3) {
             $.s3 = s3;
             return this;
         }
 
-        /**
-         * @param s3 Configures S3 as a findings destination.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3(GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args s3) {
             return s3(Output.of(s3));
         }

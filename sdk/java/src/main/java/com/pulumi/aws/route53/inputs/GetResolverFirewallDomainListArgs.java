@@ -13,17 +13,9 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
 
     public static final GetResolverFirewallDomainListArgs Empty = new GetResolverFirewallDomainListArgs();
 
-    /**
-     * The ID of the domain list.
-     * 
-     */
     @Import(name="firewallDomainListId", required=true)
     private Output<String> firewallDomainListId;
 
-    /**
-     * @return The ID of the domain list.
-     * 
-     */
     public Output<String> firewallDomainListId() {
         return this.firewallDomainListId;
     }
@@ -52,23 +44,11 @@ public final class GetResolverFirewallDomainListArgs extends com.pulumi.resource
             $ = new GetResolverFirewallDomainListArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallDomainListId The ID of the domain list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallDomainListId(Output<String> firewallDomainListId) {
             $.firewallDomainListId = firewallDomainListId;
             return this;
         }
 
-        /**
-         * @param firewallDomainListId The ID of the domain list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallDomainListId(String firewallDomainListId) {
             return firewallDomainListId(Output.of(firewallDomainListId));
         }

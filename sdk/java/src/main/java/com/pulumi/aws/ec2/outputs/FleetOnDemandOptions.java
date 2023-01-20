@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FleetOnDemandOptions {
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     private @Nullable String allocationStrategy;
 
     private FleetOnDemandOptions() {}
-    /**
-     * @return How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
-     * 
-     */
     public Optional<String> allocationStrategy() {
         return Optional.ofNullable(this.allocationStrategy);
     }

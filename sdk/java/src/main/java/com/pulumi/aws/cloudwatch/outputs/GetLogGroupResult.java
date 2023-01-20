@@ -11,50 +11,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLogGroupResult {
-    /**
-     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-     * 
-     */
     private String arn;
-    /**
-     * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-     * 
-     */
     private Integer creationTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ARN of the KMS Key to use when encrypting log data.
-     * 
-     */
     private String kmsKeyId;
     private String name;
-    /**
-     * @return Number of days log events retained in the specified log group.
-     * 
-     */
     private Integer retentionInDays;
-    /**
-     * @return Map of tags to assign to the resource.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetLogGroupResult() {}
-    /**
-     * @return ARN of the Cloudwatch log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-     * 
-     */
     public Integer creationTime() {
         return this.creationTime;
     }
@@ -65,27 +37,15 @@ public final class GetLogGroupResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ARN of the KMS Key to use when encrypting log data.
-     * 
-     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     public String name() {
         return this.name;
     }
-    /**
-     * @return Number of days log events retained in the specified log group.
-     * 
-     */
     public Integer retentionInDays() {
         return this.retentionInDays;
     }
-    /**
-     * @return Map of tags to assign to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

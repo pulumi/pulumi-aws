@@ -15,195 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to create a VPC NAT Gateway.
- * 
- * ## Example Usage
- * ### Public NAT
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NatGateway;
- * import com.pulumi.aws.ec2.NatGatewayArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .allocationId(aws_eip.example().id())
- *             .subnetId(aws_subnet.example().id())
- *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(aws_internet_gateway.example())
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### Private NAT
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.NatGateway;
- * import com.pulumi.aws.ec2.NatGatewayArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new NatGateway(&#34;example&#34;, NatGatewayArgs.builder()        
- *             .connectivityType(&#34;private&#34;)
- *             .subnetId(aws_subnet.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * NAT Gateways can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/natGateway:NatGateway")
 public class NatGateway extends com.pulumi.resources.CustomResource {
-    /**
-     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-     * 
-     */
     @Export(name="allocationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allocationId;
 
-    /**
-     * @return The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
-     * 
-     */
     public Output<Optional<String>> allocationId() {
         return Codegen.optional(this.allocationId);
     }
-    /**
-     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-     * 
-     */
     @Export(name="connectivityType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectivityType;
 
-    /**
-     * @return Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
-     * 
-     */
     public Output<Optional<String>> connectivityType() {
         return Codegen.optional(this.connectivityType);
     }
-    /**
-     * The ID of the network interface associated with the NAT gateway.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output<String> networkInterfaceId;
 
-    /**
-     * @return The ID of the network interface associated with the NAT gateway.
-     * 
-     */
     public Output<String> networkInterfaceId() {
         return this.networkInterfaceId;
     }
-    /**
-     * The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-     * 
-     */
     @Export(name="privateIp", refs={String.class}, tree="[0]")
     private Output<String> privateIp;
 
-    /**
-     * @return The private IPv4 address to assign to the NAT gateway. If you don&#39;t provide an address, a private IPv4 address will be automatically assigned.
-     * 
-     */
     public Output<String> privateIp() {
         return this.privateIp;
     }
-    /**
-     * The Elastic IP address associated with the NAT gateway.
-     * 
-     */
     @Export(name="publicIp", refs={String.class}, tree="[0]")
     private Output<String> publicIp;
 
-    /**
-     * @return The Elastic IP address associated with the NAT gateway.
-     * 
-     */
     public Output<String> publicIp() {
         return this.publicIp;
     }
-    /**
-     * The Subnet ID of the subnet in which to place the gateway.
-     * 
-     */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
-    /**
-     * @return The Subnet ID of the subnet in which to place the gateway.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
-    /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

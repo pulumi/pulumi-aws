@@ -17,99 +17,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EntityRecognizerInputDataConfig {
-    /**
-     * @return Specifies location of the document annotation data.
-     * See the `annotations` Configuration Block section below.
-     * One of `annotations` or `entity_list` is required.
-     * 
-     */
     private @Nullable EntityRecognizerInputDataConfigAnnotations annotations;
-    /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
-     * Used if `data_format` is `AUGMENTED_MANIFEST`.
-     * See the `augmented_manifests` Configuration Block section below.
-     * 
-     */
     private @Nullable List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests;
-    /**
-     * @return The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     private @Nullable String dataFormat;
-    /**
-     * @return Specifies a collection of training documents.
-     * Used if `data_format` is `COMPREHEND_CSV`.
-     * See the `documents` Configuration Block section below.
-     * 
-     */
     private @Nullable EntityRecognizerInputDataConfigDocuments documents;
-    /**
-     * @return Specifies location of the entity list data.
-     * See the `entity_list` Configuration Block section below.
-     * One of `entity_list` or `annotations` is required.
-     * 
-     */
     private @Nullable EntityRecognizerInputDataConfigEntityList entityList;
-    /**
-     * @return Set of entity types to be recognized.
-     * Has a maximum of 25 items.
-     * See the `entity_types` Configuration Block section below.
-     * 
-     */
     private List<EntityRecognizerInputDataConfigEntityType> entityTypes;
 
     private EntityRecognizerInputDataConfig() {}
-    /**
-     * @return Specifies location of the document annotation data.
-     * See the `annotations` Configuration Block section below.
-     * One of `annotations` or `entity_list` is required.
-     * 
-     */
     public Optional<EntityRecognizerInputDataConfigAnnotations> annotations() {
         return Optional.ofNullable(this.annotations);
     }
-    /**
-     * @return List of training datasets produced by Amazon SageMaker Ground Truth.
-     * Used if `data_format` is `AUGMENTED_MANIFEST`.
-     * See the `augmented_manifests` Configuration Block section below.
-     * 
-     */
     public List<EntityRecognizerInputDataConfigAugmentedManifest> augmentedManifests() {
         return this.augmentedManifests == null ? List.of() : this.augmentedManifests;
     }
-    /**
-     * @return The format for the training data.
-     * One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-     * 
-     */
     public Optional<String> dataFormat() {
         return Optional.ofNullable(this.dataFormat);
     }
-    /**
-     * @return Specifies a collection of training documents.
-     * Used if `data_format` is `COMPREHEND_CSV`.
-     * See the `documents` Configuration Block section below.
-     * 
-     */
     public Optional<EntityRecognizerInputDataConfigDocuments> documents() {
         return Optional.ofNullable(this.documents);
     }
-    /**
-     * @return Specifies location of the entity list data.
-     * See the `entity_list` Configuration Block section below.
-     * One of `entity_list` or `annotations` is required.
-     * 
-     */
     public Optional<EntityRecognizerInputDataConfigEntityList> entityList() {
         return Optional.ofNullable(this.entityList);
     }
-    /**
-     * @return Set of entity types to be recognized.
-     * Has a maximum of 25 items.
-     * See the `entity_types` Configuration Block section below.
-     * 
-     */
     public List<EntityRecognizerInputDataConfigEntityType> entityTypes() {
         return this.entityTypes;
     }

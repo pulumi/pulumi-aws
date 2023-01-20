@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataRepositoryAssociationS3AutoExportPolicy {
-    /**
-     * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-     * 
-     */
     private @Nullable List<String> events;
 
     private DataRepositoryAssociationS3AutoExportPolicy() {}
-    /**
-     * @return A list of file event types to automatically export to your linked S3 bucket or import from the linked S3 bucket. Valid values are `NEW`, `CHANGED`, `DELETED`. Max of 3.
-     * 
-     */
     public List<String> events() {
         return this.events == null ? List.of() : this.events;
     }

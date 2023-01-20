@@ -15,47 +15,23 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetConnectionPlainArgs Empty = new GetConnectionPlainArgs();
 
-    /**
-     * CodeStar Connection ARN.
-     * 
-     */
     @Import(name="arn")
     private @Nullable String arn;
 
-    /**
-     * @return CodeStar Connection ARN.
-     * 
-     */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * CodeStar Connection name.
-     * 
-     */
     @Import(name="name")
     private @Nullable String name;
 
-    /**
-     * @return CodeStar Connection name.
-     * 
-     */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Map of key-value resource tags to associate with the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of key-value resource tags to associate with the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -86,34 +62,16 @@ public final class GetConnectionPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetConnectionPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn CodeStar Connection ARN.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param name CodeStar Connection name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param tags Map of key-value resource tags to associate with the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

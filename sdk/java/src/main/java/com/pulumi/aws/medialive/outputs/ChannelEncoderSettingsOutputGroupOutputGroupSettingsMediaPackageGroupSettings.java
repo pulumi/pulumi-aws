@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings {
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination destination;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings() {}
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination destination() {
         return this.destination;
     }

@@ -16,49 +16,23 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
 
     public static final NotificationState Empty = new NotificationState();
 
-    /**
-     * List of AutoScaling Group Names
-     * 
-     */
     @Import(name="groupNames")
     private @Nullable Output<List<String>> groupNames;
 
-    /**
-     * @return List of AutoScaling Group Names
-     * 
-     */
     public Optional<Output<List<String>>> groupNames() {
         return Optional.ofNullable(this.groupNames);
     }
 
-    /**
-     * List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     @Import(name="notifications")
     private @Nullable Output<List<String>> notifications;
 
-    /**
-     * @return List of Notification Types that trigger
-     * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-     * 
-     */
     public Optional<Output<List<String>>> notifications() {
         return Optional.ofNullable(this.notifications);
     }
 
-    /**
-     * Topic ARN for notifications to be sent through
-     * 
-     */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
-    /**
-     * @return Topic ARN for notifications to be sent through
-     * 
-     */
     public Optional<Output<String>> topicArn() {
         return Optional.ofNullable(this.topicArn);
     }
@@ -89,88 +63,37 @@ public final class NotificationState extends com.pulumi.resources.ResourceArgs {
             $ = new NotificationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(@Nullable Output<List<String>> groupNames) {
             $.groupNames = groupNames;
             return this;
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(List<String> groupNames) {
             return groupNames(Output.of(groupNames));
         }
 
-        /**
-         * @param groupNames List of AutoScaling Group Names
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupNames(String... groupNames) {
             return groupNames(List.of(groupNames));
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(@Nullable Output<List<String>> notifications) {
             $.notifications = notifications;
             return this;
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(List<String> notifications) {
             return notifications(Output.of(notifications));
         }
 
-        /**
-         * @param notifications List of Notification Types that trigger
-         * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-         * 
-         * @return builder
-         * 
-         */
         public Builder notifications(String... notifications) {
             return notifications(List.of(notifications));
         }
 
-        /**
-         * @param topicArn Topic ARN for notifications to be sent through
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(@Nullable Output<String> topicArn) {
             $.topicArn = topicArn;
             return this;
         }
 
-        /**
-         * @param topicArn Topic ARN for notifications to be sent through
-         * 
-         * @return builder
-         * 
-         */
         public Builder topicArn(String topicArn) {
             return topicArn(Output.of(topicArn));
         }

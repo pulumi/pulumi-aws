@@ -13,98 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.macie2.Account;
- * import com.pulumi.aws.macie2.AccountArgs;
- * import com.pulumi.aws.macie2.Member;
- * import com.pulumi.aws.macie2.MemberArgs;
- * import com.pulumi.aws.macie2.InvitationAccepter;
- * import com.pulumi.aws.macie2.InvitationAccepterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var primaryAccount = new Account(&#34;primaryAccount&#34;, AccountArgs.Empty, CustomResourceOptions.builder()
- *             .provider(&#34;awsalternate&#34;)
- *             .build());
- * 
- *         var memberAccount = new Account(&#34;memberAccount&#34;);
- * 
- *         var primaryMember = new Member(&#34;primaryMember&#34;, MemberArgs.builder()        
- *             .accountId(&#34;ACCOUNT ID&#34;)
- *             .email(&#34;EMAIL&#34;)
- *             .invite(true)
- *             .invitationMessage(&#34;Message of the invite&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(&#34;awsalternate&#34;)
- *                 .dependsOn(primaryAccount)
- *                 .build());
- * 
- *         var memberInvitationAccepter = new InvitationAccepter(&#34;memberInvitationAccepter&#34;, InvitationAccepterArgs.builder()        
- *             .administratorAccountId(&#34;ADMINISTRATOR ACCOUNT ID&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryMember)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:macie2/invitationAccepter:InvitationAccepter")
 public class InvitationAccepter extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS account ID for the account that sent the invitation.
-     * 
-     */
     @Export(name="administratorAccountId", refs={String.class}, tree="[0]")
     private Output<String> administratorAccountId;
 
-    /**
-     * @return The AWS account ID for the account that sent the invitation.
-     * 
-     */
     public Output<String> administratorAccountId() {
         return this.administratorAccountId;
     }
-    /**
-     * The unique identifier for the invitation.
-     * 
-     */
     @Export(name="invitationId", refs={String.class}, tree="[0]")
     private Output<String> invitationId;
 
-    /**
-     * @return The unique identifier for the invitation.
-     * 
-     */
     public Output<String> invitationId() {
         return this.invitationId;
     }

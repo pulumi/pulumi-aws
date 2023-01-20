@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectCache {
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     private @Nullable String location;
-    /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-     * 
-     */
     private @Nullable List<String> modes;
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     private @Nullable String type;
 
     private ProjectCache() {}
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<String> location() {
         return Optional.ofNullable(this.location);
     }
-    /**
-     * @return Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-     * 
-     */
     public List<String> modes() {
         return this.modes == null ? List.of() : this.modes;
     }
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

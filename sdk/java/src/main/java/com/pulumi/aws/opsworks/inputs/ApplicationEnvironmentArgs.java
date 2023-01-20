@@ -16,47 +16,23 @@ public final class ApplicationEnvironmentArgs extends com.pulumi.resources.Resou
 
     public static final ApplicationEnvironmentArgs Empty = new ApplicationEnvironmentArgs();
 
-    /**
-     * Variable name.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Variable name.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Set visibility of the variable value to `true` or `false`.
-     * 
-     */
     @Import(name="secure")
     private @Nullable Output<Boolean> secure;
 
-    /**
-     * @return Set visibility of the variable value to `true` or `false`.
-     * 
-     */
     public Optional<Output<Boolean>> secure() {
         return Optional.ofNullable(this.secure);
     }
 
-    /**
-     * Variable value.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Variable value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -87,65 +63,29 @@ public final class ApplicationEnvironmentArgs extends com.pulumi.resources.Resou
             $ = new ApplicationEnvironmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param key Variable name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Variable name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param secure Set visibility of the variable value to `true` or `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secure(@Nullable Output<Boolean> secure) {
             $.secure = secure;
             return this;
         }
 
-        /**
-         * @param secure Set visibility of the variable value to `true` or `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secure(Boolean secure) {
             return secure(Output.of(secure));
         }
 
-        /**
-         * @param value Variable value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Variable value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

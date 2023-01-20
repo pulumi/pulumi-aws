@@ -17,226 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EKS Fargate Profile.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.eks.FargateProfile;
- * import com.pulumi.aws.eks.FargateProfileArgs;
- * import com.pulumi.aws.eks.inputs.FargateProfileSelectorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FargateProfile(&#34;example&#34;, FargateProfileArgs.builder()        
- *             .clusterName(aws_eks_cluster.example().name())
- *             .podExecutionRoleArn(aws_iam_role.example().arn())
- *             .subnetIds(aws_subnet.example().stream().map(element -&gt; element.id()).collect(toList()))
- *             .selectors(FargateProfileSelectorArgs.builder()
- *                 .namespace(&#34;example&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Example IAM Role for EKS Fargate Profile
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Role(&#34;example&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;eks-fargate-pods.amazonaws.com&#34;)
- *                         ))
- *                     ))),
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;)
- *                 )))
- *             .build());
- * 
- *         var example_AmazonEKSFargatePodExecutionRolePolicy = new RolePolicyAttachment(&#34;example-AmazonEKSFargatePodExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy&#34;)
- *             .role(example.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EKS Fargate Profiles can be imported using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
- * ```
- * 
- */
 @ResourceType(type="aws:eks/fargateProfile:FargateProfile")
 public class FargateProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the EKS Fargate Profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-     * 
-     */
     @Export(name="clusterName", refs={String.class}, tree="[0]")
     private Output<String> clusterName;
 
-    /**
-     * @return Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
-     * 
-     */
     public Output<String> clusterName() {
         return this.clusterName;
     }
-    /**
-     * Name of the EKS Fargate Profile.
-     * 
-     */
     @Export(name="fargateProfileName", refs={String.class}, tree="[0]")
     private Output<String> fargateProfileName;
 
-    /**
-     * @return Name of the EKS Fargate Profile.
-     * 
-     */
     public Output<String> fargateProfileName() {
         return this.fargateProfileName;
     }
-    /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-     * 
-     */
     @Export(name="podExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> podExecutionRoleArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
-     * 
-     */
     public Output<String> podExecutionRoleArn() {
         return this.podExecutionRoleArn;
     }
-    /**
-     * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-     * 
-     */
     @Export(name="selectors", refs={List.class,FargateProfileSelector.class}, tree="[0,1]")
     private Output<List<FargateProfileSelector>> selectors;
 
-    /**
-     * @return Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
-     * 
-     */
     public Output<List<FargateProfileSelector>> selectors() {
         return this.selectors;
     }
-    /**
-     * Status of the EKS Fargate Profile.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return Status of the EKS Fargate Profile.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-     * 
-     */
     @Export(name="subnetIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetIds;
 
-    /**
-     * @return Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-     * 
-     */
     public Output<Optional<List<String>>> subnetIds() {
         return Codegen.optional(this.subnetIds);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

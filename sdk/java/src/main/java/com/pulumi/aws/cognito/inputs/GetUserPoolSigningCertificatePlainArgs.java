@@ -12,17 +12,9 @@ public final class GetUserPoolSigningCertificatePlainArgs extends com.pulumi.res
 
     public static final GetUserPoolSigningCertificatePlainArgs Empty = new GetUserPoolSigningCertificatePlainArgs();
 
-    /**
-     * Cognito user pool ID.
-     * 
-     */
     @Import(name="userPoolId", required=true)
     private String userPoolId;
 
-    /**
-     * @return Cognito user pool ID.
-     * 
-     */
     public String userPoolId() {
         return this.userPoolId;
     }
@@ -51,12 +43,6 @@ public final class GetUserPoolSigningCertificatePlainArgs extends com.pulumi.res
             $ = new GetUserPoolSigningCertificatePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param userPoolId Cognito user pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userPoolId(String userPoolId) {
             $.userPoolId = userPoolId;
             return this;

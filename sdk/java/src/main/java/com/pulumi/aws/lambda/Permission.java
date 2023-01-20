@@ -14,481 +14,71 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.Alias;
- * import com.pulumi.aws.lambda.AliasArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var iamForLambda = new Role(&#34;iamForLambda&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
- *             .role(iamForLambda.arn())
- *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;nodejs16.x&#34;)
- *             .build());
- * 
- *         var testAlias = new Alias(&#34;testAlias&#34;, AliasArgs.builder()        
- *             .description(&#34;a sample description&#34;)
- *             .functionName(testLambda.name())
- *             .functionVersion(&#34;$LATEST&#34;)
- *             .build());
- * 
- *         var allowCloudwatch = new Permission(&#34;allowCloudwatch&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(testLambda.name())
- *             .principal(&#34;events.amazonaws.com&#34;)
- *             .sourceArn(&#34;arn:aws:events:eu-west-1:111122223333:rule/RunDaily&#34;)
- *             .qualifier(testAlias.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Usage with SNS
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sns.Topic;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import com.pulumi.aws.sns.TopicSubscription;
- * import com.pulumi.aws.sns.TopicSubscriptionArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var defaultTopic = new Topic(&#34;defaultTopic&#34;);
- * 
- *         var defaultRole = new Role(&#34;defaultRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Version&#34;, &#34;2012-10-17&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(jsonObject(
- *                         jsonProperty(&#34;Action&#34;, &#34;sts:AssumeRole&#34;),
- *                         jsonProperty(&#34;Effect&#34;, &#34;Allow&#34;),
- *                         jsonProperty(&#34;Sid&#34;, &#34;&#34;),
- *                         jsonProperty(&#34;Principal&#34;, jsonObject(
- *                             jsonProperty(&#34;Service&#34;, &#34;lambda.amazonaws.com&#34;)
- *                         ))
- *                     )))
- *                 )))
- *             .build());
- * 
- *         var func = new Function(&#34;func&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
- *             .role(defaultRole.arn())
- *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;python3.7&#34;)
- *             .build());
- * 
- *         var withSns = new Permission(&#34;withSns&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(func.name())
- *             .principal(&#34;sns.amazonaws.com&#34;)
- *             .sourceArn(defaultTopic.arn())
- *             .build());
- * 
- *         var lambda = new TopicSubscription(&#34;lambda&#34;, TopicSubscriptionArgs.builder()        
- *             .topic(defaultTopic.arn())
- *             .protocol(&#34;lambda&#34;)
- *             .endpoint(func.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Specify Lambda permissions for API Gateway REST API
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .description(&#34;This is my API for demonstration purposes&#34;)
- *             .build());
- * 
- *         var lambdaPermission = new Permission(&#34;lambdaPermission&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(&#34;MyDemoFunction&#34;)
- *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/*{@literal /}*{@literal /}*&#34;, executionArn)))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Usage with CloudWatch log group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.lambda.Function;
- * import com.pulumi.aws.lambda.FunctionArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
- * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import com.pulumi.asset.FileArchive;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var defaultLogGroup = new LogGroup(&#34;defaultLogGroup&#34;);
- * 
- *         var defaultRole = new Role(&#34;defaultRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;lambda.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var loggingFunction = new Function(&#34;loggingFunction&#34;, FunctionArgs.builder()        
- *             .code(new FileArchive(&#34;lamba_logging.zip&#34;))
- *             .handler(&#34;exports.handler&#34;)
- *             .role(defaultRole.arn())
- *             .runtime(&#34;python3.7&#34;)
- *             .build());
- * 
- *         var loggingPermission = new Permission(&#34;loggingPermission&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(loggingFunction.name())
- *             .principal(&#34;logs.eu-west-1.amazonaws.com&#34;)
- *             .sourceArn(defaultLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
- *             .build());
- * 
- *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter(&#34;loggingLogSubscriptionFilter&#34;, LogSubscriptionFilterArgs.builder()        
- *             .destinationArn(loggingFunction.arn())
- *             .filterPattern(&#34;&#34;)
- *             .logGroup(defaultLogGroup.name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(loggingPermission)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Example function URL cross-account invoke policy
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.FunctionUrl;
- * import com.pulumi.aws.lambda.FunctionUrlArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var urlFunctionUrl = new FunctionUrl(&#34;urlFunctionUrl&#34;, FunctionUrlArgs.builder()        
- *             .functionName(aws_lambda_function.example().function_name())
- *             .authorizationType(&#34;AWS_IAM&#34;)
- *             .build());
- * 
- *         var urlPermission = new Permission(&#34;urlPermission&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunctionUrl&#34;)
- *             .function(aws_lambda_function.example().function_name())
- *             .principal(&#34;arn:aws:iam::444455556666:role/example&#34;)
- *             .sourceAccount(&#34;444455556666&#34;)
- *             .functionUrlAuthType(&#34;AWS_IAM&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
- * ```
- * 
- * ```sh
- *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
- * ```
- * 
- */
 @ResourceType(type="aws:lambda/permission:Permission")
 public class Permission extends com.pulumi.resources.CustomResource {
-    /**
-     * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
-     * 
-     */
     @Export(name="action", refs={String.class}, tree="[0]")
     private Output<String> action;
 
-    /**
-     * @return The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
-     * 
-     */
     public Output<String> action() {
         return this.action;
     }
-    /**
-     * The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-     * 
-     */
     @Export(name="eventSourceToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> eventSourceToken;
 
-    /**
-     * @return The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-     * 
-     */
     public Output<Optional<String>> eventSourceToken() {
         return Codegen.optional(this.eventSourceToken);
     }
-    /**
-     * Name of the Lambda function whose resource policy you are updating
-     * 
-     */
     @Export(name="function", refs={String.class}, tree="[0]")
     private Output<String> function;
 
-    /**
-     * @return Name of the Lambda function whose resource policy you are updating
-     * 
-     */
     public Output<String> function() {
         return this.function;
     }
-    /**
-     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
-     * 
-     */
     @Export(name="functionUrlAuthType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> functionUrlAuthType;
 
-    /**
-     * @return Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
-     * 
-     */
     public Output<Optional<String>> functionUrlAuthType() {
         return Codegen.optional(this.functionUrlAuthType);
     }
-    /**
-     * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-     * 
-     */
     @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
-    /**
-     * @return The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-     * 
-     */
     public Output<String> principal() {
         return this.principal;
     }
-    /**
-     * The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     * 
-     */
     @Export(name="principalOrgId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> principalOrgId;
 
-    /**
-     * @return The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
-     * 
-     */
     public Output<Optional<String>> principalOrgId() {
         return Codegen.optional(this.principalOrgId);
     }
-    /**
-     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-     * 
-     */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
-    /**
-     * @return Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-     * 
-     */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
-    /**
-     * This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
-     * 
-     */
     @Export(name="sourceAccount", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceAccount;
 
-    /**
-     * @return This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
-     * 
-     */
     public Output<Optional<String>> sourceAccount() {
         return Codegen.optional(this.sourceAccount);
     }
-    /**
-     * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
-     * For S3, this should be the ARN of the S3 Bucket.
-     * For EventBridge events, this should be the ARN of the EventBridge Rule.
-     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
-     * 
-     */
     @Export(name="sourceArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceArn;
 
-    /**
-     * @return When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
-     * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
-     * For S3, this should be the ARN of the S3 Bucket.
-     * For EventBridge events, this should be the ARN of the EventBridge Rule.
-     * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
-     * 
-     */
     public Output<Optional<String>> sourceArn() {
         return Codegen.optional(this.sourceArn);
     }
-    /**
-     * A unique statement identifier. By default generated by the provider.
-     * 
-     */
     @Export(name="statementId", refs={String.class}, tree="[0]")
     private Output<String> statementId;
 
-    /**
-     * @return A unique statement identifier. By default generated by the provider.
-     * 
-     */
     public Output<String> statementId() {
         return this.statementId;
     }
-    /**
-     * A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
-     * 
-     */
     @Export(name="statementIdPrefix", refs={String.class}, tree="[0]")
     private Output<String> statementIdPrefix;
 
-    /**
-     * @return A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
-     * 
-     */
     public Output<String> statementIdPrefix() {
         return this.statementIdPrefix;
     }

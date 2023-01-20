@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LanguageModelInputDataConfig {
-    /**
-     * @return IAM role with access to S3 bucket.
-     * 
-     */
     private String dataAccessRoleArn;
-    /**
-     * @return S3 URI where training data is located.
-     * 
-     */
     private String s3Uri;
-    /**
-     * @return S3 URI where tuning data is located.
-     * 
-     */
     private @Nullable String tuningDataS3Uri;
 
     private LanguageModelInputDataConfig() {}
-    /**
-     * @return IAM role with access to S3 bucket.
-     * 
-     */
     public String dataAccessRoleArn() {
         return this.dataAccessRoleArn;
     }
-    /**
-     * @return S3 URI where training data is located.
-     * 
-     */
     public String s3Uri() {
         return this.s3Uri;
     }
-    /**
-     * @return S3 URI where tuning data is located.
-     * 
-     */
     public Optional<String> tuningDataS3Uri() {
         return Optional.ofNullable(this.tuningDataS3Uri);
     }

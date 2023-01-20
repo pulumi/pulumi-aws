@@ -12,32 +12,16 @@ public final class GetRegexPatternSetPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetRegexPatternSetPlainArgs Empty = new GetRegexPatternSetPlainArgs();
 
-    /**
-     * Name of the WAFv2 Regex Pattern Set.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Name of the WAFv2 Regex Pattern Set.
-     * 
-     */
     public String name() {
         return this.name;
     }
 
-    /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     @Import(name="scope", required=true)
     private String scope;
 
-    /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-     * 
-     */
     public String scope() {
         return this.scope;
     }
@@ -67,23 +51,11 @@ public final class GetRegexPatternSetPlainArgs extends com.pulumi.resources.Invo
             $ = new GetRegexPatternSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the WAFv2 Regex Pattern Set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scope(String scope) {
             $.scope = scope;
             return this;

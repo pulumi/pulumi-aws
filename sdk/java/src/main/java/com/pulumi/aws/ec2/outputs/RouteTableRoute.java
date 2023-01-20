@@ -11,127 +11,47 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RouteTableRoute {
-    /**
-     * @return Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     private @Nullable String carrierGatewayId;
-    /**
-     * @return The CIDR block of the route.
-     * 
-     */
     private @Nullable String cidrBlock;
-    /**
-     * @return The Amazon Resource Name (ARN) of a core network.
-     * 
-     */
     private @Nullable String coreNetworkArn;
-    /**
-     * @return The ID of a managed prefix list destination of the route.
-     * 
-     */
     private @Nullable String destinationPrefixListId;
-    /**
-     * @return Identifier of a VPC Egress Only Internet Gateway.
-     * 
-     */
     private @Nullable String egressOnlyGatewayId;
-    /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
-     * 
-     */
     private @Nullable String gatewayId;
     /**
-     * @return Identifier of an EC2 instance.
-     * 
      * @deprecated
      * Use network_interface_id instead
      * 
      */
     @Deprecated /* Use network_interface_id instead */
     private @Nullable String instanceId;
-    /**
-     * @return The Ipv6 CIDR block of the route.
-     * 
-     */
     private @Nullable String ipv6CidrBlock;
-    /**
-     * @return Identifier of a Outpost local gateway.
-     * 
-     */
     private @Nullable String localGatewayId;
-    /**
-     * @return Identifier of a VPC NAT gateway.
-     * 
-     */
     private @Nullable String natGatewayId;
-    /**
-     * @return Identifier of an EC2 network interface.
-     * 
-     */
     private @Nullable String networkInterfaceId;
-    /**
-     * @return Identifier of an EC2 Transit Gateway.
-     * 
-     */
     private @Nullable String transitGatewayId;
-    /**
-     * @return Identifier of a VPC Endpoint.
-     * 
-     */
     private @Nullable String vpcEndpointId;
-    /**
-     * @return Identifier of a VPC peering connection.
-     * 
-     */
     private @Nullable String vpcPeeringConnectionId;
 
     private RouteTableRoute() {}
-    /**
-     * @return Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
-     * 
-     */
     public Optional<String> carrierGatewayId() {
         return Optional.ofNullable(this.carrierGatewayId);
     }
-    /**
-     * @return The CIDR block of the route.
-     * 
-     */
     public Optional<String> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
-    /**
-     * @return The Amazon Resource Name (ARN) of a core network.
-     * 
-     */
     public Optional<String> coreNetworkArn() {
         return Optional.ofNullable(this.coreNetworkArn);
     }
-    /**
-     * @return The ID of a managed prefix list destination of the route.
-     * 
-     */
     public Optional<String> destinationPrefixListId() {
         return Optional.ofNullable(this.destinationPrefixListId);
     }
-    /**
-     * @return Identifier of a VPC Egress Only Internet Gateway.
-     * 
-     */
     public Optional<String> egressOnlyGatewayId() {
         return Optional.ofNullable(this.egressOnlyGatewayId);
     }
-    /**
-     * @return Identifier of a VPC internet gateway or a virtual private gateway.
-     * 
-     */
     public Optional<String> gatewayId() {
         return Optional.ofNullable(this.gatewayId);
     }
     /**
-     * @return Identifier of an EC2 instance.
-     * 
      * @deprecated
      * Use network_interface_id instead
      * 
@@ -140,52 +60,24 @@ public final class RouteTableRoute {
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
-    /**
-     * @return The Ipv6 CIDR block of the route.
-     * 
-     */
     public Optional<String> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
     }
-    /**
-     * @return Identifier of a Outpost local gateway.
-     * 
-     */
     public Optional<String> localGatewayId() {
         return Optional.ofNullable(this.localGatewayId);
     }
-    /**
-     * @return Identifier of a VPC NAT gateway.
-     * 
-     */
     public Optional<String> natGatewayId() {
         return Optional.ofNullable(this.natGatewayId);
     }
-    /**
-     * @return Identifier of an EC2 network interface.
-     * 
-     */
     public Optional<String> networkInterfaceId() {
         return Optional.ofNullable(this.networkInterfaceId);
     }
-    /**
-     * @return Identifier of an EC2 Transit Gateway.
-     * 
-     */
     public Optional<String> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
-    /**
-     * @return Identifier of a VPC Endpoint.
-     * 
-     */
     public Optional<String> vpcEndpointId() {
         return Optional.ofNullable(this.vpcEndpointId);
     }
-    /**
-     * @return Identifier of a VPC peering connection.
-     * 
-     */
     public Optional<String> vpcPeeringConnectionId() {
         return Optional.ofNullable(this.vpcPeeringConnectionId);
     }

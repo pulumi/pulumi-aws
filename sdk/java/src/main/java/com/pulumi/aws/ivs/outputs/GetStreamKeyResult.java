@@ -10,10 +10,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStreamKeyResult {
-    /**
-     * @return ARN of the Stream Key.
-     * 
-     */
     private String arn;
     private String channelArn;
     /**
@@ -21,22 +17,10 @@ public final class GetStreamKeyResult {
      * 
      */
     private String id;
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Stream Key value.
-     * 
-     */
     private String value;
 
     private GetStreamKeyResult() {}
-    /**
-     * @return ARN of the Stream Key.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
@@ -50,17 +34,9 @@ public final class GetStreamKeyResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Map of tags assigned to the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Stream Key value.
-     * 
-     */
     public String value() {
         return this.value;
     }

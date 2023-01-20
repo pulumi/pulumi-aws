@@ -11,10 +11,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrderableClusterResult {
-    /**
-     * @return List of Availability Zone names where the Redshit Cluster is available.
-     * 
-     */
     private List<String> availabilityZones;
     private String clusterType;
     private String clusterVersion;
@@ -27,10 +23,6 @@ public final class GetOrderableClusterResult {
     private @Nullable List<String> preferredNodeTypes;
 
     private GetOrderableClusterResult() {}
-    /**
-     * @return List of Availability Zone names where the Redshit Cluster is available.
-     * 
-     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }

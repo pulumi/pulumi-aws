@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest {
-    /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data.
-     * 
-     */
     private String catalogEncryptionMode;
-    /**
-     * @return ARN of the AWS KMS key to use for encryption at rest.
-     * 
-     */
     private String sseAwsKmsKeyId;
 
     private GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest() {}
-    /**
-     * @return The encryption-at-rest mode for encrypting Data Catalog data.
-     * 
-     */
     public String catalogEncryptionMode() {
         return this.catalogEncryptionMode;
     }
-    /**
-     * @return ARN of the AWS KMS key to use for encryption at rest.
-     * 
-     */
     public String sseAwsKmsKeyId() {
         return this.sseAwsKmsKeyId;
     }

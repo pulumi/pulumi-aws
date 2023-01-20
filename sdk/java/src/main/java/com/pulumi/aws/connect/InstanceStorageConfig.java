@@ -14,279 +14,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Connect Instance Storage Config resource. For more information see
- * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
- * 
- * ## Example Usage
- * ### Storage Config Kinesis Firehose Config
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.InstanceStorageConfig;
- * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisFirehoseConfig(InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs.builder()
- *                     .firehoseArn(aws_kinesis_firehose_delivery_stream.example().arn())
- *                     .build())
- *                 .storageType(&#34;KINESIS_FIREHOSE&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Storage Config Kinesis Stream Config
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.InstanceStorageConfig;
- * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .resourceType(&#34;CONTACT_TRACE_RECORDS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisStreamConfig(InstanceStorageConfigStorageConfigKinesisStreamConfigArgs.builder()
- *                     .streamArn(aws_kinesis_stream.example().arn())
- *                     .build())
- *                 .storageType(&#34;KINESIS_STREAM&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Storage Config Kinesis Video Stream Config
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.InstanceStorageConfig;
- * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .resourceType(&#34;MEDIA_STREAMS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .kinesisVideoStreamConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs.builder()
- *                     .prefix(&#34;example&#34;)
- *                     .retentionPeriodHours(3)
- *                     .encryptionConfig(InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
- *                         .build())
- *                     .build())
- *                 .storageType(&#34;KINESIS_VIDEO_STREAM&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Storage Config S3 Config
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.InstanceStorageConfig;
- * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .bucketPrefix(&#34;example&#34;)
- *                     .build())
- *                 .storageType(&#34;S3&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Storage Config S3 Config with Encryption Config
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.connect.InstanceStorageConfig;
- * import com.pulumi.aws.connect.InstanceStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigArgs;
- * import com.pulumi.aws.connect.inputs.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new InstanceStorageConfig(&#34;example&#34;, InstanceStorageConfigArgs.builder()        
- *             .instanceId(aws_connect_instance.example().id())
- *             .resourceType(&#34;CHAT_TRANSCRIPTS&#34;)
- *             .storageConfig(InstanceStorageConfigStorageConfigArgs.builder()
- *                 .s3Config(InstanceStorageConfigStorageConfigS3ConfigArgs.builder()
- *                     .bucketName(aws_s3_bucket.example().id())
- *                     .bucketPrefix(&#34;example&#34;)
- *                     .encryptionConfig(InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs.builder()
- *                         .encryptionType(&#34;KMS&#34;)
- *                         .keyId(aws_kms_key.example().arn())
- *                         .build())
- *                     .build())
- *                 .storageType(&#34;S3&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Amazon Connect Instance Storage Configs can be imported using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
- * ```
- * 
- */
 @ResourceType(type="aws:connect/instanceStorageConfig:InstanceStorageConfig")
 public class InstanceStorageConfig extends com.pulumi.resources.CustomResource {
-    /**
-     * The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-     * 
-     */
     @Export(name="associationId", refs={String.class}, tree="[0]")
     private Output<String> associationId;
 
-    /**
-     * @return The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-     * 
-     */
     public Output<String> associationId() {
         return this.associationId;
     }
-    /**
-     * Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
-    /**
-     * @return Specifies the identifier of the hosting Amazon Connect Instance.
-     * 
-     */
     public Output<String> instanceId() {
         return this.instanceId;
     }
-    /**
-     * A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-     * 
-     */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
-    /**
-     * @return A valid resource type. Valid Values: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS`.
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
-    /**
-     * Specifies the storage configuration options for the Connect Instance. Documented below.
-     * 
-     */
     @Export(name="storageConfig", refs={InstanceStorageConfigStorageConfig.class}, tree="[0]")
     private Output<InstanceStorageConfigStorageConfig> storageConfig;
 
-    /**
-     * @return Specifies the storage configuration options for the Connect Instance. Documented below.
-     * 
-     */
     public Output<InstanceStorageConfigStorageConfig> storageConfig() {
         return this.storageConfig;
     }

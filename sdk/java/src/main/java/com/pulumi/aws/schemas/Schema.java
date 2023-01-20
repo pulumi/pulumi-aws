@@ -15,232 +15,71 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an EventBridge Schema resource.
- * 
- * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.schemas.Registry;
- * import com.pulumi.aws.schemas.Schema;
- * import com.pulumi.aws.schemas.SchemaArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testRegistry = new Registry(&#34;testRegistry&#34;);
- * 
- *         var testSchema = new Schema(&#34;testSchema&#34;, SchemaArgs.builder()        
- *             .registryName(testRegistry.name())
- *             .type(&#34;OpenApi3&#34;)
- *             .description(&#34;The schema definition for my event&#34;)
- *             .content(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;openapi&#34;, &#34;3.0.0&#34;),
- *                     jsonProperty(&#34;info&#34;, jsonObject(
- *                         jsonProperty(&#34;version&#34;, &#34;1.0.0&#34;),
- *                         jsonProperty(&#34;title&#34;, &#34;Event&#34;)
- *                     )),
- *                     jsonProperty(&#34;paths&#34;, jsonObject(
- * 
- *                     )),
- *                     jsonProperty(&#34;components&#34;, jsonObject(
- *                         jsonProperty(&#34;schemas&#34;, jsonObject(
- *                             jsonProperty(&#34;Event&#34;, jsonObject(
- *                                 jsonProperty(&#34;type&#34;, &#34;object&#34;),
- *                                 jsonProperty(&#34;properties&#34;, jsonObject(
- *                                     jsonProperty(&#34;name&#34;, jsonObject(
- *                                         jsonProperty(&#34;type&#34;, &#34;string&#34;)
- *                                     ))
- *                                 ))
- *                             ))
- *                         ))
- *                     ))
- *                 )))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:schemas/schema:Schema test name/registry
- * ```
- * 
- */
 @ResourceType(type="aws:schemas/schema:Schema")
 public class Schema extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the discoverer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the discoverer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The schema specification. Must be a valid Open API 3.0 spec.
-     * 
-     */
     @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
-    /**
-     * @return The schema specification. Must be a valid Open API 3.0 spec.
-     * 
-     */
     public Output<String> content() {
         return this.content;
     }
-    /**
-     * The description of the schema. Maximum of 256 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the schema. Maximum of 256 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The last modified date of the schema.
-     * 
-     */
     @Export(name="lastModified", refs={String.class}, tree="[0]")
     private Output<String> lastModified;
 
-    /**
-     * @return The last modified date of the schema.
-     * 
-     */
     public Output<String> lastModified() {
         return this.lastModified;
     }
-    /**
-     * The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The name of the registry in which this schema belongs.
-     * 
-     */
     @Export(name="registryName", refs={String.class}, tree="[0]")
     private Output<String> registryName;
 
-    /**
-     * @return The name of the registry in which this schema belongs.
-     * 
-     */
     public Output<String> registryName() {
         return this.registryName;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The type of the schema. Valid values: `OpenApi3`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
-    /**
-     * @return The type of the schema. Valid values: `OpenApi3`.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
-    /**
-     * The version of the schema.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return The version of the schema.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }
-    /**
-     * The created date of the version of the schema.
-     * 
-     */
     @Export(name="versionCreatedDate", refs={String.class}, tree="[0]")
     private Output<String> versionCreatedDate;
 
-    /**
-     * @return The created date of the version of the schema.
-     * 
-     */
     public Output<String> versionCreatedDate() {
         return this.versionCreatedDate;
     }

@@ -16,109 +16,29 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.pinpoint.App;
- * import com.pulumi.aws.pinpoint.AdmChannel;
- * import com.pulumi.aws.pinpoint.AdmChannelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var app = new App(&#34;app&#34;);
- * 
- *         var channel = new AdmChannel(&#34;channel&#34;, AdmChannelArgs.builder()        
- *             .applicationId(app.applicationId())
- *             .clientId(&#34;&#34;)
- *             .clientSecret(&#34;&#34;)
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Pinpoint ADM Channel can be imported using the `application-id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
- * ```
- * 
- */
 @ResourceType(type="aws:pinpoint/admChannel:AdmChannel")
 public class AdmChannel extends com.pulumi.resources.CustomResource {
-    /**
-     * The application ID.
-     * 
-     */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
-    /**
-     * @return The application ID.
-     * 
-     */
     public Output<String> applicationId() {
         return this.applicationId;
     }
-    /**
-     * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     @Export(name="clientId", refs={String.class}, tree="[0]")
     private Output<String> clientId;
 
-    /**
-     * @return Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     public Output<String> clientId() {
         return this.clientId;
     }
-    /**
-     * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     @Export(name="clientSecret", refs={String.class}, tree="[0]")
     private Output<String> clientSecret;
 
-    /**
-     * @return Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-     * 
-     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
-    /**
-     * Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }

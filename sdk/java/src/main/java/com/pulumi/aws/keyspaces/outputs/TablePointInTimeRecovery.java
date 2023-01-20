@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TablePointInTimeRecovery {
-    /**
-     * @return Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     private @Nullable String status;
 
     private TablePointInTimeRecovery() {}
-    /**
-     * @return Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }

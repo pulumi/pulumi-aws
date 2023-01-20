@@ -19,336 +19,75 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage AWS Certificate Manager Private Certificate Authorities (ACM PCA Certificate Authorities).
- * 
- * &gt; **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificate_signing_request` attribute and import the signed certificate using the AWS SDK, CLI or Console. This provider can support another resource to manage that workflow automatically in the future.
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
- *                     .build())
- *                 .build())
- *             .permanentDeletionTimeInDays(7)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Short-lived certificate
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new CertificateAuthority(&#34;example&#34;, CertificateAuthorityArgs.builder()        
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
- *                     .build())
- *                 .build())
- *             .usageMode(&#34;SHORT_LIVED_CERTIFICATE&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Enable Certificate Revocation List
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.acmpca.CertificateAuthority;
- * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationArgs;
- * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         final var acmpcaBucketAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     &#34;s3:GetBucketAcl&#34;,
- *                     &#34;s3:GetBucketLocation&#34;,
- *                     &#34;s3:PutObject&#34;,
- *                     &#34;s3:PutObjectAcl&#34;)
- *                 .resources(                
- *                     exampleBucketV2.arn(),
- *                     exampleBucketV2.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;acm-pca.amazonaws.com&#34;)
- *                     .type(&#34;Service&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var exampleBucketPolicy = new BucketPolicy(&#34;exampleBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(exampleBucketV2.id())
- *             .policy(acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(acmpcaBucketAccess -&gt; acmpcaBucketAccess.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *         var exampleCertificateAuthority = new CertificateAuthority(&#34;exampleCertificateAuthority&#34;, CertificateAuthorityArgs.builder()        
- *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
- *                 .keyAlgorithm(&#34;RSA_4096&#34;)
- *                 .signingAlgorithm(&#34;SHA512WITHRSA&#34;)
- *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
- *                     .commonName(&#34;example.com&#34;)
- *                     .build())
- *                 .build())
- *             .revocationConfiguration(CertificateAuthorityRevocationConfigurationArgs.builder()
- *                 .crlConfiguration(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs.builder()
- *                     .customCname(&#34;crl.example.com&#34;)
- *                     .enabled(true)
- *                     .expirationInDays(7)
- *                     .s3BucketName(exampleBucketV2.id())
- *                     .build())
- *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketPolicy)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_acmpca_certificate_authority` can be imported by using the certificate authority ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
- * ```
- * 
- */
 @ResourceType(type="aws:acmpca/certificateAuthority:CertificateAuthority")
 public class CertificateAuthority extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the certificate authority.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the certificate authority.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output<String> certificate;
 
-    /**
-     * @return Base64-encoded certificate authority (CA) certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public Output<String> certificate() {
         return this.certificate;
     }
-    /**
-     * Nested argument containing algorithms and certificate subject information. Defined below.
-     * 
-     */
     @Export(name="certificateAuthorityConfiguration", refs={CertificateAuthorityCertificateAuthorityConfiguration.class}, tree="[0]")
     private Output<CertificateAuthorityCertificateAuthorityConfiguration> certificateAuthorityConfiguration;
 
-    /**
-     * @return Nested argument containing algorithms and certificate subject information. Defined below.
-     * 
-     */
     public Output<CertificateAuthorityCertificateAuthorityConfiguration> certificateAuthorityConfiguration() {
         return this.certificateAuthorityConfiguration;
     }
-    /**
-     * Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output<String> certificateChain;
 
-    /**
-     * @return Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public Output<String> certificateChain() {
         return this.certificateChain;
     }
-    /**
-     * The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-     * 
-     */
     @Export(name="certificateSigningRequest", refs={String.class}, tree="[0]")
     private Output<String> certificateSigningRequest;
 
-    /**
-     * @return The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-     * 
-     */
     public Output<String> certificateSigningRequest() {
         return this.certificateSigningRequest;
     }
-    /**
-     * Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
-    /**
-     * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     @Export(name="notAfter", refs={String.class}, tree="[0]")
     private Output<String> notAfter;
 
-    /**
-     * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public Output<String> notAfter() {
         return this.notAfter;
     }
-    /**
-     * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     @Export(name="notBefore", refs={String.class}, tree="[0]")
     private Output<String> notBefore;
 
-    /**
-     * @return Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public Output<String> notBefore() {
         return this.notBefore;
     }
-    /**
-     * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-     * 
-     */
     @Export(name="permanentDeletionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> permanentDeletionTimeInDays;
 
-    /**
-     * @return Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
-     * 
-     */
     public Output<Optional<Integer>> permanentDeletionTimeInDays() {
         return Codegen.optional(this.permanentDeletionTimeInDays);
     }
-    /**
-     * Nested argument containing revocation configuration. Defined below.
-     * 
-     */
     @Export(name="revocationConfiguration", refs={CertificateAuthorityRevocationConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ CertificateAuthorityRevocationConfiguration> revocationConfiguration;
 
-    /**
-     * @return Nested argument containing revocation configuration. Defined below.
-     * 
-     */
     public Output<Optional<CertificateAuthorityRevocationConfiguration>> revocationConfiguration() {
         return Codegen.optional(this.revocationConfiguration);
     }
-    /**
-     * Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     @Export(name="serial", refs={String.class}, tree="[0]")
     private Output<String> serial;
 
-    /**
-     * @return Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
-     * 
-     */
     public Output<String> serial() {
         return this.serial;
     }
     /**
-     * (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
      * @deprecated
      * The reported value of the &#34;status&#34; attribute is often inaccurate. Use the resource&#39;s &#34;enabled&#34; attribute to explicitly set status.
      * 
@@ -357,66 +96,30 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return (**Deprecated** use the `enabled` attribute instead) Status of the certificate authority.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of user-defined tags that are attached to the certificate authority. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
-    /**
-     * @return Type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
-     * 
-     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
-    /**
-     * Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-     * 
-     */
     @Export(name="usageMode", refs={String.class}, tree="[0]")
     private Output<String> usageMode;
 
-    /**
-     * @return Specifies whether the CA issues general-purpose certificates that typically require a revocation mechanism, or short-lived certificates that may optionally omit revocation because they expire quickly. Short-lived certificate validity is limited to seven days. Defaults to `GENERAL_PURPOSE`. Valid values: `GENERAL_PURPOSE` and `SHORT_LIVED_CERTIFICATE`.
-     * 
-     */
     public Output<String> usageMode() {
         return this.usageMode;
     }

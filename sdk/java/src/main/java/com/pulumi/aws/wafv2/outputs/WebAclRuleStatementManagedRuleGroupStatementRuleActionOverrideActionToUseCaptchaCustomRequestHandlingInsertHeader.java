@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
-    /**
-     * @return Label string.
-     * 
-     */
     private String name;
-    /**
-     * @return Value of the custom header.
-     * 
-     */
     private String value;
 
     private WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader() {}
-    /**
-     * @return Label string.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Value of the custom header.
-     * 
-     */
     public String value() {
         return this.value;
     }

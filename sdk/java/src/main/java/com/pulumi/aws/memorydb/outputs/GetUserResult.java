@@ -12,57 +12,25 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
-    /**
-     * @return Access permissions string used for this user.
-     * 
-     */
     private String accessString;
-    /**
-     * @return ARN of the user.
-     * 
-     */
     private String arn;
-    /**
-     * @return Denotes the user&#39;s authentication properties.
-     * 
-     */
     private List<GetUserAuthenticationMode> authenticationModes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The minimum engine version supported for the user.
-     * 
-     */
     private String minimumEngineVersion;
-    /**
-     * @return Map of tags assigned to the subnet group.
-     * 
-     */
     private Map<String,String> tags;
     private String userName;
 
     private GetUserResult() {}
-    /**
-     * @return Access permissions string used for this user.
-     * 
-     */
     public String accessString() {
         return this.accessString;
     }
-    /**
-     * @return ARN of the user.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Denotes the user&#39;s authentication properties.
-     * 
-     */
     public List<GetUserAuthenticationMode> authenticationModes() {
         return this.authenticationModes;
     }
@@ -73,17 +41,9 @@ public final class GetUserResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The minimum engine version supported for the user.
-     * 
-     */
     public String minimumEngineVersion() {
         return this.minimumEngineVersion;
     }
-    /**
-     * @return Map of tags assigned to the subnet group.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

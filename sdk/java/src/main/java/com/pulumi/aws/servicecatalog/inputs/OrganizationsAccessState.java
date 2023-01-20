@@ -15,17 +15,9 @@ public final class OrganizationsAccessState extends com.pulumi.resources.Resourc
 
     public static final OrganizationsAccessState Empty = new OrganizationsAccessState();
 
-    /**
-     * Whether to enable AWS Organizations access.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether to enable AWS Organizations access.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class OrganizationsAccessState extends com.pulumi.resources.Resourc
             $ = new OrganizationsAccessState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether to enable AWS Organizations access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether to enable AWS Organizations access.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

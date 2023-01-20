@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting {
-    /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings archiveCdnSettings;
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination destination;
-    /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
-     * 
-     */
     private @Nullable Integer rolloverInterval;
 
     private ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting() {}
-    /**
-     * @return Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings> archiveCdnSettings() {
         return Optional.ofNullable(this.archiveCdnSettings);
     }
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination destination() {
         return this.destination;
     }
-    /**
-     * @return Number of seconds to write to archive file before closing and starting a new one.
-     * 
-     */
     public Optional<Integer> rolloverInterval() {
         return Optional.ofNullable(this.rolloverInterval);
     }

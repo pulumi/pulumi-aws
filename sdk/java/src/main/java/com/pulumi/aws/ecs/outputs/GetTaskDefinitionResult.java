@@ -10,55 +10,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTaskDefinitionResult {
-    /**
-     * @return ARN of the task definition
-     * 
-     */
     private String arn;
-    /**
-     * @return Family of this task definition
-     * 
-     */
     private String family;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Docker networking mode to use for the containers in this task.
-     * 
-     */
     private String networkMode;
-    /**
-     * @return Revision of this task definition
-     * 
-     */
     private Integer revision;
-    /**
-     * @return Status of this task definition
-     * 
-     */
     private String status;
     private String taskDefinition;
-    /**
-     * @return ARN of the IAM role that containers in this task can assume
-     * 
-     */
     private String taskRoleArn;
 
     private GetTaskDefinitionResult() {}
-    /**
-     * @return ARN of the task definition
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Family of this task definition
-     * 
-     */
     public String family() {
         return this.family;
     }
@@ -69,34 +37,18 @@ public final class GetTaskDefinitionResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Docker networking mode to use for the containers in this task.
-     * 
-     */
     public String networkMode() {
         return this.networkMode;
     }
-    /**
-     * @return Revision of this task definition
-     * 
-     */
     public Integer revision() {
         return this.revision;
     }
-    /**
-     * @return Status of this task definition
-     * 
-     */
     public String status() {
         return this.status;
     }
     public String taskDefinition() {
         return this.taskDefinition;
     }
-    /**
-     * @return ARN of the IAM role that containers in this task can assume
-     * 
-     */
     public String taskRoleArn() {
         return this.taskRoleArn;
     }

@@ -12,43 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DistributionOrderedCacheBehaviorLambdaFunctionAssociation {
-    /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
-     * 
-     */
     private String eventType;
-    /**
-     * @return When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-     * 
-     */
     private @Nullable Boolean includeBody;
-    /**
-     * @return ARN of the Lambda function.
-     * 
-     */
     private String lambdaArn;
 
     private DistributionOrderedCacheBehaviorLambdaFunctionAssociation() {}
-    /**
-     * @return The specific event to trigger this function.
-     * Valid values: `viewer-request` or `viewer-response`
-     * 
-     */
     public String eventType() {
         return this.eventType;
     }
-    /**
-     * @return When set to true it exposes the request body to the lambda function. Defaults to false. Valid values: `true`, `false`.
-     * 
-     */
     public Optional<Boolean> includeBody() {
         return Optional.ofNullable(this.includeBody);
     }
-    /**
-     * @return ARN of the Lambda function.
-     * 
-     */
     public String lambdaArn() {
         return this.lambdaArn;
     }

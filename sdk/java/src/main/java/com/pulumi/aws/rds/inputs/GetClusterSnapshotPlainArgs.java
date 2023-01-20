@@ -16,117 +16,51 @@ public final class GetClusterSnapshotPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetClusterSnapshotPlainArgs Empty = new GetClusterSnapshotPlainArgs();
 
-    /**
-     * Returns the list of snapshots created by the specific db_cluster
-     * 
-     */
     @Import(name="dbClusterIdentifier")
     private @Nullable String dbClusterIdentifier;
 
-    /**
-     * @return Returns the list of snapshots created by the specific db_cluster
-     * 
-     */
     public Optional<String> dbClusterIdentifier() {
         return Optional.ofNullable(this.dbClusterIdentifier);
     }
 
-    /**
-     * Returns information on a specific snapshot_id.
-     * 
-     */
     @Import(name="dbClusterSnapshotIdentifier")
     private @Nullable String dbClusterSnapshotIdentifier;
 
-    /**
-     * @return Returns information on a specific snapshot_id.
-     * 
-     */
     public Optional<String> dbClusterSnapshotIdentifier() {
         return Optional.ofNullable(this.dbClusterSnapshotIdentifier);
     }
 
-    /**
-     * Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     @Import(name="includePublic")
     private @Nullable Boolean includePublic;
 
-    /**
-     * @return Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     public Optional<Boolean> includePublic() {
         return Optional.ofNullable(this.includePublic);
     }
 
-    /**
-     * Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     @Import(name="includeShared")
     private @Nullable Boolean includeShared;
 
-    /**
-     * @return Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     public Optional<Boolean> includeShared() {
         return Optional.ofNullable(this.includeShared);
     }
 
-    /**
-     * If more than one result is returned, use the most recent Snapshot.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most recent Snapshot.
-     * 
-     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     @Import(name="snapshotType")
     private @Nullable String snapshotType;
 
-    /**
-     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
 
-    /**
-     * Map of tags for the resource.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -161,83 +95,36 @@ public final class GetClusterSnapshotPlainArgs extends com.pulumi.resources.Invo
             $ = new GetClusterSnapshotPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbClusterIdentifier Returns the list of snapshots created by the specific db_cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterIdentifier(@Nullable String dbClusterIdentifier) {
             $.dbClusterIdentifier = dbClusterIdentifier;
             return this;
         }
 
-        /**
-         * @param dbClusterSnapshotIdentifier Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbClusterSnapshotIdentifier(@Nullable String dbClusterSnapshotIdentifier) {
             $.dbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param includePublic Set this value to true to include manual DB Cluster Snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublic(@Nullable Boolean includePublic) {
             $.includePublic = includePublic;
             return this;
         }
 
-        /**
-         * @param includeShared Set this value to true to include shared manual DB Cluster Snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeShared(@Nullable Boolean includeShared) {
             $.includeShared = includeShared;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most recent Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotType(@Nullable String snapshotType) {
             $.snapshotType = snapshotType;
             return this;
         }
 
-        /**
-         * @param tags Map of tags for the resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

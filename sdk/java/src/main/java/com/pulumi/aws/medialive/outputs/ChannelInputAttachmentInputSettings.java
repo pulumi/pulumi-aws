@@ -19,45 +19,13 @@ import javax.annotation.Nullable;
 public final class ChannelInputAttachmentInputSettings {
     private @Nullable List<ChannelInputAttachmentInputSettingsAudioSelector> audioSelectors;
     private @Nullable List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors;
-    /**
-     * @return Enable or disable the deblock filter when filtering.
-     * 
-     */
     private @Nullable String deblockFilter;
-    /**
-     * @return Enable or disable the denoise filter when filtering.
-     * 
-     */
     private @Nullable String denoiseFilter;
-    /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-     * 
-     */
     private @Nullable Integer filterStrength;
-    /**
-     * @return Turns on the filter for the input.
-     * 
-     */
     private @Nullable String inputFilter;
-    /**
-     * @return Input settings. See Network Input Settings for more details.
-     * 
-     */
     private @Nullable ChannelInputAttachmentInputSettingsNetworkInputSettings networkInputSettings;
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     private @Nullable Integer scte35Pid;
-    /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-     * 
-     */
     private @Nullable String smpte2038DataPreference;
-    /**
-     * @return Loop input if it is a file.
-     * 
-     */
     private @Nullable String sourceEndBehavior;
     private @Nullable ChannelInputAttachmentInputSettingsVideoSelector videoSelector;
 
@@ -68,59 +36,27 @@ public final class ChannelInputAttachmentInputSettings {
     public List<ChannelInputAttachmentInputSettingsCaptionSelector> captionSelectors() {
         return this.captionSelectors == null ? List.of() : this.captionSelectors;
     }
-    /**
-     * @return Enable or disable the deblock filter when filtering.
-     * 
-     */
     public Optional<String> deblockFilter() {
         return Optional.ofNullable(this.deblockFilter);
     }
-    /**
-     * @return Enable or disable the denoise filter when filtering.
-     * 
-     */
     public Optional<String> denoiseFilter() {
         return Optional.ofNullable(this.denoiseFilter);
     }
-    /**
-     * @return Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
-     * 
-     */
     public Optional<Integer> filterStrength() {
         return Optional.ofNullable(this.filterStrength);
     }
-    /**
-     * @return Turns on the filter for the input.
-     * 
-     */
     public Optional<String> inputFilter() {
         return Optional.ofNullable(this.inputFilter);
     }
-    /**
-     * @return Input settings. See Network Input Settings for more details.
-     * 
-     */
     public Optional<ChannelInputAttachmentInputSettingsNetworkInputSettings> networkInputSettings() {
         return Optional.ofNullable(this.networkInputSettings);
     }
-    /**
-     * @return PID from which to read SCTE-35 messages.
-     * 
-     */
     public Optional<Integer> scte35Pid() {
         return Optional.ofNullable(this.scte35Pid);
     }
-    /**
-     * @return Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
-     * 
-     */
     public Optional<String> smpte2038DataPreference() {
         return Optional.ofNullable(this.smpte2038DataPreference);
     }
-    /**
-     * @return Loop input if it is a file.
-     * 
-     */
     public Optional<String> sourceEndBehavior() {
         return Optional.ofNullable(this.sourceEndBehavior);
     }

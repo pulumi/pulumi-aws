@@ -15,10 +15,6 @@ public final class ClusterNode {
     private @Nullable String address;
     private @Nullable String availabilityZone;
     private @Nullable String id;
-    /**
-     * @return The port used by the configuration endpoint
-     * 
-     */
     private @Nullable Integer port;
 
     private ClusterNode() {}
@@ -31,10 +27,6 @@ public final class ClusterNode {
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
-    /**
-     * @return The port used by the configuration endpoint
-     * 
-     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }

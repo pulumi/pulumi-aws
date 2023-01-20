@@ -13,102 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Lightsail Instance to a Lightsail Load Balancer.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.LbAttachment;
- * import com.pulumi.aws.lightsail.LbAttachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
- *             .healthCheckPath(&#34;/&#34;)
- *             .instancePort(&#34;80&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .build());
- * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .blueprintId(&#34;amazon_linux&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
- *             .build());
- * 
- *         var testLbAttachment = new LbAttachment(&#34;testLbAttachment&#34;, LbAttachmentArgs.builder()        
- *             .lbName(testLb.name())
- *             .instanceName(testInstance.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_lightsail_lb_attachment` can be imported by using the name attribute, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbAttachment:LbAttachment")
 public class LbAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the instance to attach to the load balancer.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return The name of the instance to attach to the load balancer.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }
-    /**
-     * The name of the Lightsail load balancer.
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return The name of the Lightsail load balancer.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }

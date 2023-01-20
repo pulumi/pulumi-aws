@@ -15,36 +15,16 @@ public final class RoomMessageReviewHandlerArgs extends com.pulumi.resources.Res
 
     public static final RoomMessageReviewHandlerArgs Empty = new RoomMessageReviewHandlerArgs();
 
-    /**
-     * The fallback behavior (whether the message
-     * is allowed or denied) if the handler does not return a valid response,
-     * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-     * 
-     */
     @Import(name="fallbackResult")
     private @Nullable Output<String> fallbackResult;
 
-    /**
-     * @return The fallback behavior (whether the message
-     * is allowed or denied) if the handler does not return a valid response,
-     * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-     * 
-     */
     public Optional<Output<String>> fallbackResult() {
         return Optional.ofNullable(this.fallbackResult);
     }
 
-    /**
-     * ARN of the lambda message review handler function.
-     * 
-     */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
-    /**
-     * @return ARN of the lambda message review handler function.
-     * 
-     */
     public Optional<Output<String>> uri() {
         return Optional.ofNullable(this.uri);
     }
@@ -74,48 +54,20 @@ public final class RoomMessageReviewHandlerArgs extends com.pulumi.resources.Res
             $ = new RoomMessageReviewHandlerArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param fallbackResult The fallback behavior (whether the message
-         * is allowed or denied) if the handler does not return a valid response,
-         * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackResult(@Nullable Output<String> fallbackResult) {
             $.fallbackResult = fallbackResult;
             return this;
         }
 
-        /**
-         * @param fallbackResult The fallback behavior (whether the message
-         * is allowed or denied) if the handler does not return a valid response,
-         * encounters an error, or times out. Valid values: `ALLOW`, `DENY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fallbackResult(String fallbackResult) {
             return fallbackResult(Output.of(fallbackResult));
         }
 
-        /**
-         * @param uri ARN of the lambda message review handler function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(@Nullable Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri ARN of the lambda message review handler function.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

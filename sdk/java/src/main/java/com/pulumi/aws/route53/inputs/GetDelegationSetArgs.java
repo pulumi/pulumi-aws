@@ -13,17 +13,9 @@ public final class GetDelegationSetArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDelegationSetArgs Empty = new GetDelegationSetArgs();
 
-    /**
-     * Hosted Zone id of the desired delegation set.
-     * 
-     */
     @Import(name="id", required=true)
     private Output<String> id;
 
-    /**
-     * @return Hosted Zone id of the desired delegation set.
-     * 
-     */
     public Output<String> id() {
         return this.id;
     }
@@ -52,23 +44,11 @@ public final class GetDelegationSetArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDelegationSetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id Hosted Zone id of the desired delegation set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id Hosted Zone id of the desired delegation set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }

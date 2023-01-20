@@ -18,77 +18,37 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs();
 
-    /**
-     * Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
-     * 
-     */
     @Import(name="awsManagedRulesBotControlRuleSet")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs> awsManagedRulesBotControlRuleSet;
 
-    /**
-     * @return Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs>> awsManagedRulesBotControlRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesBotControlRuleSet);
     }
 
-    /**
-     * The path of the login endpoint for your application.
-     * 
-     */
     @Import(name="loginPath")
     private @Nullable Output<String> loginPath;
 
-    /**
-     * @return The path of the login endpoint for your application.
-     * 
-     */
     public Optional<Output<String>> loginPath() {
         return Optional.ofNullable(this.loginPath);
     }
 
-    /**
-     * Details about your login page password field. See Password Field for more details.
-     * 
-     */
     @Import(name="passwordField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField;
 
-    /**
-     * @return Details about your login page password field. See Password Field for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs>> passwordField() {
         return Optional.ofNullable(this.passwordField);
     }
 
-    /**
-     * The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     @Import(name="payloadType")
     private @Nullable Output<String> payloadType;
 
-    /**
-     * @return The payload type for your login endpoint, either JSON or form encoded.
-     * 
-     */
     public Optional<Output<String>> payloadType() {
         return Optional.ofNullable(this.payloadType);
     }
 
-    /**
-     * Details about your login page username field. See Username Field for more details.
-     * 
-     */
     @Import(name="usernameField")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField;
 
-    /**
-     * @return Details about your login page username field. See Username Field for more details.
-     * 
-     */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs>> usernameField() {
         return Optional.ofNullable(this.usernameField);
     }
@@ -121,107 +81,47 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsManagedRulesBotControlRuleSet(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs> awsManagedRulesBotControlRuleSet) {
             $.awsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             return this;
         }
 
-        /**
-         * @param awsManagedRulesBotControlRuleSet Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See AWS Managed Rules Bot Control Rule Set for more details
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsManagedRulesBotControlRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs awsManagedRulesBotControlRuleSet) {
             return awsManagedRulesBotControlRuleSet(Output.of(awsManagedRulesBotControlRuleSet));
         }
 
-        /**
-         * @param loginPath The path of the login endpoint for your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loginPath(@Nullable Output<String> loginPath) {
             $.loginPath = loginPath;
             return this;
         }
 
-        /**
-         * @param loginPath The path of the login endpoint for your application.
-         * 
-         * @return builder
-         * 
-         */
         public Builder loginPath(String loginPath) {
             return loginPath(Output.of(loginPath));
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See Password Field for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs> passwordField) {
             $.passwordField = passwordField;
             return this;
         }
 
-        /**
-         * @param passwordField Details about your login page password field. See Password Field for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder passwordField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs passwordField) {
             return passwordField(Output.of(passwordField));
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(@Nullable Output<String> payloadType) {
             $.payloadType = payloadType;
             return this;
         }
 
-        /**
-         * @param payloadType The payload type for your login endpoint, either JSON or form encoded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder payloadType(String payloadType) {
             return payloadType(Output.of(payloadType));
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See Username Field for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameField(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs> usernameField) {
             $.usernameField = usernameField;
             return this;
         }
 
-        /**
-         * @param usernameField Details about your login page username field. See Username Field for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder usernameField(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs usernameField) {
             return usernameField(Output.of(usernameField));
         }

@@ -16,122 +16,58 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
 
     public static final ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs Empty = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs();
 
-    /**
-     * Average bitrate in bits/second.
-     * 
-     */
     @Import(name="bitrate")
     private @Nullable Output<Double> bitrate;
 
-    /**
-     * @return Average bitrate in bits/second.
-     * 
-     */
     public Optional<Output<Double>> bitrate() {
         return Optional.ofNullable(this.bitrate);
     }
 
-    /**
-     * Dolby Digital Plus coding mode.
-     * 
-     */
     @Import(name="codingMode")
     private @Nullable Output<String> codingMode;
 
-    /**
-     * @return Dolby Digital Plus coding mode.
-     * 
-     */
     public Optional<Output<String>> codingMode() {
         return Optional.ofNullable(this.codingMode);
     }
 
-    /**
-     * Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-     * 
-     */
     @Import(name="inputType")
     private @Nullable Output<String> inputType;
 
-    /**
-     * @return Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-     * 
-     */
     public Optional<Output<String>> inputType() {
         return Optional.ofNullable(this.inputType);
     }
 
-    /**
-     * H264 profile.
-     * 
-     */
     @Import(name="profile")
     private @Nullable Output<String> profile;
 
-    /**
-     * @return H264 profile.
-     * 
-     */
     public Optional<Output<String>> profile() {
         return Optional.ofNullable(this.profile);
     }
 
-    /**
-     * Sets LATM/LOAS AAC output for raw containers.
-     * 
-     */
     @Import(name="rawFormat")
     private @Nullable Output<String> rawFormat;
 
-    /**
-     * @return Sets LATM/LOAS AAC output for raw containers.
-     * 
-     */
     public Optional<Output<String>> rawFormat() {
         return Optional.ofNullable(this.rawFormat);
     }
 
-    /**
-     * Sample rate in Hz.
-     * 
-     */
     @Import(name="sampleRate")
     private @Nullable Output<Double> sampleRate;
 
-    /**
-     * @return Sample rate in Hz.
-     * 
-     */
     public Optional<Output<Double>> sampleRate() {
         return Optional.ofNullable(this.sampleRate);
     }
 
-    /**
-     * Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-     * 
-     */
     @Import(name="spec")
     private @Nullable Output<String> spec;
 
-    /**
-     * @return Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-     * 
-     */
     public Optional<Output<String>> spec() {
         return Optional.ofNullable(this.spec);
     }
 
-    /**
-     * VBR Quality Level - Only used if rateControlMode is VBR.
-     * 
-     */
     @Import(name="vbrQuality")
     private @Nullable Output<String> vbrQuality;
 
-    /**
-     * @return VBR Quality Level - Only used if rateControlMode is VBR.
-     * 
-     */
     public Optional<Output<String>> vbrQuality() {
         return Optional.ofNullable(this.vbrQuality);
     }
@@ -167,170 +103,74 @@ public final class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSetting
             $ = new ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(@Nullable Output<Double> bitrate) {
             $.bitrate = bitrate;
             return this;
         }
 
-        /**
-         * @param bitrate Average bitrate in bits/second.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bitrate(Double bitrate) {
             return bitrate(Output.of(bitrate));
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(@Nullable Output<String> codingMode) {
             $.codingMode = codingMode;
             return this;
         }
 
-        /**
-         * @param codingMode Dolby Digital Plus coding mode.
-         * 
-         * @return builder
-         * 
-         */
         public Builder codingMode(String codingMode) {
             return codingMode(Output.of(codingMode));
         }
 
-        /**
-         * @param inputType Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputType(@Nullable Output<String> inputType) {
             $.inputType = inputType;
             return this;
         }
 
-        /**
-         * @param inputType Set to &#34;broadcasterMixedAd&#34; when input contains pre-mixed main audio + AD (narration) as a stereo pair.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputType(String inputType) {
             return inputType(Output.of(inputType));
         }
 
-        /**
-         * @param profile H264 profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profile(@Nullable Output<String> profile) {
             $.profile = profile;
             return this;
         }
 
-        /**
-         * @param profile H264 profile.
-         * 
-         * @return builder
-         * 
-         */
         public Builder profile(String profile) {
             return profile(Output.of(profile));
         }
 
-        /**
-         * @param rawFormat Sets LATM/LOAS AAC output for raw containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawFormat(@Nullable Output<String> rawFormat) {
             $.rawFormat = rawFormat;
             return this;
         }
 
-        /**
-         * @param rawFormat Sets LATM/LOAS AAC output for raw containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder rawFormat(String rawFormat) {
             return rawFormat(Output.of(rawFormat));
         }
 
-        /**
-         * @param sampleRate Sample rate in Hz.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleRate(@Nullable Output<Double> sampleRate) {
             $.sampleRate = sampleRate;
             return this;
         }
 
-        /**
-         * @param sampleRate Sample rate in Hz.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sampleRate(Double sampleRate) {
             return sampleRate(Output.of(sampleRate));
         }
 
-        /**
-         * @param spec Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spec(@Nullable Output<String> spec) {
             $.spec = spec;
             return this;
         }
 
-        /**
-         * @param spec Use MPEG-2 AAC audio instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder spec(String spec) {
             return spec(Output.of(spec));
         }
 
-        /**
-         * @param vbrQuality VBR Quality Level - Only used if rateControlMode is VBR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vbrQuality(@Nullable Output<String> vbrQuality) {
             $.vbrQuality = vbrQuality;
             return this;
         }
 
-        /**
-         * @param vbrQuality VBR Quality Level - Only used if rateControlMode is VBR.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vbrQuality(String vbrQuality) {
             return vbrQuality(Output.of(vbrQuality));
         }

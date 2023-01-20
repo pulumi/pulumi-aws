@@ -18,62 +18,30 @@ public final class GetVpnAttachmentArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetVpnAttachmentArgs Empty = new GetVpnAttachmentArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetVpnAttachmentFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetVpnAttachmentFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Identifier of the EC2 Transit Gateway.
-     * 
-     */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
-    /**
-     * @return Identifier of the EC2 Transit Gateway.
-     * 
-     */
     public Optional<Output<String>> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
     }
 
-    /**
-     * Identifier of the EC2 VPN Connection.
-     * 
-     */
     @Import(name="vpnConnectionId")
     private @Nullable Output<String> vpnConnectionId;
 
-    /**
-     * @return Identifier of the EC2 VPN Connection.
-     * 
-     */
     public Optional<Output<String>> vpnConnectionId() {
         return Optional.ofNullable(this.vpnConnectionId);
     }
@@ -105,96 +73,42 @@ public final class GetVpnAttachmentArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetVpnAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetVpnAttachmentFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetVpnAttachmentFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetVpnAttachmentFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param transitGatewayId Identifier of the EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
             $.transitGatewayId = transitGatewayId;
             return this;
         }
 
-        /**
-         * @param transitGatewayId Identifier of the EC2 Transit Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
         }
 
-        /**
-         * @param vpnConnectionId Identifier of the EC2 VPN Connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionId(@Nullable Output<String> vpnConnectionId) {
             $.vpnConnectionId = vpnConnectionId;
             return this;
         }
 
-        /**
-         * @param vpnConnectionId Identifier of the EC2 VPN Connection.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnConnectionId(String vpnConnectionId) {
             return vpnConnectionId(Output.of(vpnConnectionId));
         }

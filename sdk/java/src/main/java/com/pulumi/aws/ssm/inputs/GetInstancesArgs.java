@@ -16,17 +16,9 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetInstancesArgs Empty = new GetInstancesArgs();
 
-    /**
-     * Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetInstancesFilterArgs>> filters;
 
-    /**
-     * @return Configuration block(s) for filtering. Detailed below.
-     * 
-     */
     public Optional<Output<List<GetInstancesFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
@@ -55,33 +47,15 @@ public final class GetInstancesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetInstancesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetInstancesFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetInstancesFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Configuration block(s) for filtering. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetInstancesFilterArgs... filters) {
             return filters(List.of(filters));
         }

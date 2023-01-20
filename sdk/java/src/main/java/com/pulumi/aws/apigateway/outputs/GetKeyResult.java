@@ -11,101 +11,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyResult {
-    /**
-     * @return Date and time when the API Key was created.
-     * 
-     */
     private String createdDate;
-    /**
-     * @return Description of the API Key.
-     * 
-     */
     private String description;
-    /**
-     * @return Whether the API Key is enabled.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Set to the ID of the API Key.
-     * 
-     */
     private String id;
-    /**
-     * @return Date and time when the API Key was last updated.
-     * 
-     */
     private String lastUpdatedDate;
-    /**
-     * @return Set to the name of the API Key.
-     * 
-     */
     private String name;
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     private Map<String,String> tags;
-    /**
-     * @return Set to the value of the API Key.
-     * 
-     */
     private String value;
 
     private GetKeyResult() {}
-    /**
-     * @return Date and time when the API Key was created.
-     * 
-     */
     public String createdDate() {
         return this.createdDate;
     }
-    /**
-     * @return Description of the API Key.
-     * 
-     */
     public String description() {
         return this.description;
     }
-    /**
-     * @return Whether the API Key is enabled.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Set to the ID of the API Key.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Date and time when the API Key was last updated.
-     * 
-     */
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
-    /**
-     * @return Set to the name of the API Key.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return Map of tags for the resource.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
-    /**
-     * @return Set to the value of the API Key.
-     * 
-     */
     public String value() {
         return this.value;
     }

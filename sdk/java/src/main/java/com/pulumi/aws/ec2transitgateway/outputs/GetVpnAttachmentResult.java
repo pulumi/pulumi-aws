@@ -20,10 +20,6 @@ public final class GetVpnAttachmentResult {
      * 
      */
     private String id;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway VPN Attachment
-     * 
-     */
     private Map<String,String> tags;
     private @Nullable String transitGatewayId;
     private @Nullable String vpnConnectionId;
@@ -39,10 +35,6 @@ public final class GetVpnAttachmentResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway VPN Attachment
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

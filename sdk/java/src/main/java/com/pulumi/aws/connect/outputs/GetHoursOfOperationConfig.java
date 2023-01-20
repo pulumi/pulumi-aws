@@ -12,41 +12,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetHoursOfOperationConfig {
-    /**
-     * @return Day that the hours of operation applies to.
-     * 
-     */
     private String day;
-    /**
-     * @return End time block specifies the time that your contact center closes. The `end_time` is documented below.
-     * 
-     */
     private List<GetHoursOfOperationConfigEndTime> endTimes;
-    /**
-     * @return Start time block specifies the time that your contact center opens. The `start_time` is documented below.
-     * 
-     */
     private List<GetHoursOfOperationConfigStartTime> startTimes;
 
     private GetHoursOfOperationConfig() {}
-    /**
-     * @return Day that the hours of operation applies to.
-     * 
-     */
     public String day() {
         return this.day;
     }
-    /**
-     * @return End time block specifies the time that your contact center closes. The `end_time` is documented below.
-     * 
-     */
     public List<GetHoursOfOperationConfigEndTime> endTimes() {
         return this.endTimes;
     }
-    /**
-     * @return Start time block specifies the time that your contact center opens. The `start_time` is documented below.
-     * 
-     */
     public List<GetHoursOfOperationConfigStartTime> startTimes() {
         return this.startTimes;
     }

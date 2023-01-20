@@ -13,32 +13,16 @@ public final class NetworkAclAssociationArgs extends com.pulumi.resources.Resour
 
     public static final NetworkAclAssociationArgs Empty = new NetworkAclAssociationArgs();
 
-    /**
-     * The ID of the network ACL.
-     * 
-     */
     @Import(name="networkAclId", required=true)
     private Output<String> networkAclId;
 
-    /**
-     * @return The ID of the network ACL.
-     * 
-     */
     public Output<String> networkAclId() {
         return this.networkAclId;
     }
 
-    /**
-     * The ID of the associated Subnet.
-     * 
-     */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
-    /**
-     * @return The ID of the associated Subnet.
-     * 
-     */
     public Output<String> subnetId() {
         return this.subnetId;
     }
@@ -68,44 +52,20 @@ public final class NetworkAclAssociationArgs extends com.pulumi.resources.Resour
             $ = new NetworkAclAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(Output<String> networkAclId) {
             $.networkAclId = networkAclId;
             return this;
         }
 
-        /**
-         * @param networkAclId The ID of the network ACL.
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkAclId(String networkAclId) {
             return networkAclId(Output.of(networkAclId));
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId The ID of the associated Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

@@ -15,47 +15,23 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
 
     public static final ClassificationExportConfigurationS3DestinationArgs Empty = new ClassificationExportConfigurationS3DestinationArgs();
 
-    /**
-     * The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The object key for the bucket in which Amazon Macie exports the data classification results.
-     * 
-     */
     @Import(name="keyPrefix")
     private @Nullable Output<String> keyPrefix;
 
-    /**
-     * @return The object key for the bucket in which Amazon Macie exports the data classification results.
-     * 
-     */
     public Optional<Output<String>> keyPrefix() {
         return Optional.ofNullable(this.keyPrefix);
     }
 
-    /**
-     * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     @Import(name="kmsKeyArn", required=true)
     private Output<String> kmsKeyArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-     * 
-     */
     public Output<String> kmsKeyArn() {
         return this.kmsKeyArn;
     }
@@ -86,65 +62,29 @@ public final class ClassificationExportConfigurationS3DestinationArgs extends co
             $ = new ClassificationExportConfigurationS3DestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucketName The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param keyPrefix The object key for the bucket in which Amazon Macie exports the data classification results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(@Nullable Output<String> keyPrefix) {
             $.keyPrefix = keyPrefix;
             return this;
         }
 
-        /**
-         * @param keyPrefix The object key for the bucket in which Amazon Macie exports the data classification results.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPrefix(String keyPrefix) {
             return keyPrefix(Output.of(keyPrefix));
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
-        /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

@@ -16,17 +16,9 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
 
     public static final FindingsFilterFindingCriteriaArgs Empty = new FindingsFilterFindingCriteriaArgs();
 
-    /**
-     * A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-     * 
-     */
     @Import(name="criterions")
     private @Nullable Output<List<FindingsFilterFindingCriteriaCriterionArgs>> criterions;
 
-    /**
-     * @return A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-     * 
-     */
     public Optional<Output<List<FindingsFilterFindingCriteriaCriterionArgs>>> criterions() {
         return Optional.ofNullable(this.criterions);
     }
@@ -55,33 +47,15 @@ public final class FindingsFilterFindingCriteriaArgs extends com.pulumi.resource
             $ = new FindingsFilterFindingCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder criterions(@Nullable Output<List<FindingsFilterFindingCriteriaCriterionArgs>> criterions) {
             $.criterions = criterions;
             return this;
         }
 
-        /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder criterions(List<FindingsFilterFindingCriteriaCriterionArgs> criterions) {
             return criterions(Output.of(criterions));
         }
 
-        /**
-         * @param criterions A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder criterions(FindingsFilterFindingCriteriaCriterionArgs... criterions) {
             return criterions(List.of(criterions));
         }

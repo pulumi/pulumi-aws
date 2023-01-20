@@ -15,41 +15,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StageCanarySettings {
-    /**
-     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-     * 
-     */
     private @Nullable Double percentTraffic;
-    /**
-     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
-     * 
-     */
     private @Nullable Map<String,Object> stageVariableOverrides;
-    /**
-     * @return Whether the canary deployment uses the stage cache. Defaults to false.
-     * 
-     */
     private @Nullable Boolean useStageCache;
 
     private StageCanarySettings() {}
-    /**
-     * @return Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-     * 
-     */
     public Optional<Double> percentTraffic() {
         return Optional.ofNullable(this.percentTraffic);
     }
-    /**
-     * @return Map of overridden stage `variables` (including new variables) for the canary deployment.
-     * 
-     */
     public Map<String,Object> stageVariableOverrides() {
         return this.stageVariableOverrides == null ? Map.of() : this.stageVariableOverrides;
     }
-    /**
-     * @return Whether the canary deployment uses the stage cache. Defaults to false.
-     * 
-     */
     public Optional<Boolean> useStageCache() {
         return Optional.ofNullable(this.useStageCache);
     }

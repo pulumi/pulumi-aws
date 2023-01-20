@@ -15,32 +15,16 @@ public final class VpnGatewayRoutePropagationState extends com.pulumi.resources.
 
     public static final VpnGatewayRoutePropagationState Empty = new VpnGatewayRoutePropagationState();
 
-    /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     @Import(name="routeTableId")
     private @Nullable Output<String> routeTableId;
 
-    /**
-     * @return The id of the `aws.ec2.RouteTable` to propagate routes into.
-     * 
-     */
     public Optional<Output<String>> routeTableId() {
         return Optional.ofNullable(this.routeTableId);
     }
 
-    /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
-    /**
-     * @return The id of the `aws.ec2.VpnGateway` to propagate routes from.
-     * 
-     */
     public Optional<Output<String>> vpnGatewayId() {
         return Optional.ofNullable(this.vpnGatewayId);
     }
@@ -70,44 +54,20 @@ public final class VpnGatewayRoutePropagationState extends com.pulumi.resources.
             $ = new VpnGatewayRoutePropagationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(@Nullable Output<String> routeTableId) {
             $.routeTableId = routeTableId;
             return this;
         }
 
-        /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routeTableId(String routeTableId) {
             return routeTableId(Output.of(routeTableId));
         }
 
-        /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
         }
 
-        /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

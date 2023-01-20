@@ -10,20 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
     private String groupId;
-    /**
-     * @return The name of the video description.
-     * 
-     */
     private String name;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection() {}
     public String groupId() {
         return this.groupId;
     }
-    /**
-     * @return The name of the video description.
-     * 
-     */
     public String name() {
         return this.name;
     }

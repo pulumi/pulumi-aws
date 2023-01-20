@@ -14,130 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Model for a REST API Gateway.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.RestApiArgs;
- * import com.pulumi.aws.apigateway.Model;
- * import com.pulumi.aws.apigateway.ModelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myDemoAPI = new RestApi(&#34;myDemoAPI&#34;, RestApiArgs.builder()        
- *             .description(&#34;This is my API for demonstration purposes&#34;)
- *             .build());
- * 
- *         var myDemoModel = new Model(&#34;myDemoModel&#34;, ModelArgs.builder()        
- *             .restApi(myDemoAPI.id())
- *             .description(&#34;a JSON schema&#34;)
- *             .contentType(&#34;application/json&#34;)
- *             .schema(&#34;&#34;&#34;
- * {
- *   &#34;type&#34;: &#34;object&#34;
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_api_gateway_model` can be imported using `REST-API-ID/NAME`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
-    /**
-     * Content type of the model
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return Content type of the model
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * Description of the model
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the model
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the model
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the model
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * ID of the associated REST API
-     * 
-     */
     @Export(name="restApi", refs={String.class}, tree="[0]")
     private Output<String> restApi;
 
-    /**
-     * @return ID of the associated REST API
-     * 
-     */
     public Output<String> restApi() {
         return this.restApi;
     }
-    /**
-     * Schema of the model in a JSON form
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schema;
 
-    /**
-     * @return Schema of the model in a JSON form
-     * 
-     */
     public Output<Optional<String>> schema() {
         return Codegen.optional(this.schema);
     }

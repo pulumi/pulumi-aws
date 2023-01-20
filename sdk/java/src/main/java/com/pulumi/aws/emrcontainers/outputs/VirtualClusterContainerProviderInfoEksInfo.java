@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VirtualClusterContainerProviderInfoEksInfo {
-    /**
-     * @return The namespace where the EMR Containers cluster is running
-     * 
-     */
     private @Nullable String namespace;
 
     private VirtualClusterContainerProviderInfoEksInfo() {}
-    /**
-     * @return The namespace where the EMR Containers cluster is running
-     * 
-     */
     public Optional<String> namespace() {
         return Optional.ofNullable(this.namespace);
     }

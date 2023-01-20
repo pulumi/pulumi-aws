@@ -11,41 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ListenerDefaultActionFixedResponse {
-    /**
-     * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-     * 
-     */
     private String contentType;
-    /**
-     * @return Message body.
-     * 
-     */
     private @Nullable String messageBody;
-    /**
-     * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-     * 
-     */
     private @Nullable String statusCode;
 
     private ListenerDefaultActionFixedResponse() {}
-    /**
-     * @return Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
-     * 
-     */
     public String contentType() {
         return this.contentType;
     }
-    /**
-     * @return Message body.
-     * 
-     */
     public Optional<String> messageBody() {
         return Optional.ofNullable(this.messageBody);
     }
-    /**
-     * @return HTTP redirect code. The redirect is either permanent (`HTTP_301`) or temporary (`HTTP_302`).
-     * 
-     */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }

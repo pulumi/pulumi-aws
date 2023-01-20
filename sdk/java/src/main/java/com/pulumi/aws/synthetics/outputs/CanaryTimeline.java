@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CanaryTimeline {
-    /**
-     * @return Date and time the canary was created.
-     * 
-     */
     private @Nullable String created;
-    /**
-     * @return Date and time the canary was most recently modified.
-     * 
-     */
     private @Nullable String lastModified;
-    /**
-     * @return Date and time that the canary&#39;s most recent run started.
-     * 
-     */
     private @Nullable String lastStarted;
-    /**
-     * @return Date and time that the canary&#39;s most recent run ended.
-     * 
-     */
     private @Nullable String lastStopped;
 
     private CanaryTimeline() {}
-    /**
-     * @return Date and time the canary was created.
-     * 
-     */
     public Optional<String> created() {
         return Optional.ofNullable(this.created);
     }
-    /**
-     * @return Date and time the canary was most recently modified.
-     * 
-     */
     public Optional<String> lastModified() {
         return Optional.ofNullable(this.lastModified);
     }
-    /**
-     * @return Date and time that the canary&#39;s most recent run started.
-     * 
-     */
     public Optional<String> lastStarted() {
         return Optional.ofNullable(this.lastStarted);
     }
-    /**
-     * @return Date and time that the canary&#39;s most recent run ended.
-     * 
-     */
     public Optional<String> lastStopped() {
         return Optional.ofNullable(this.lastStopped);
     }

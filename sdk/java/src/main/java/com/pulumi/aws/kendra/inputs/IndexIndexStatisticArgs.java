@@ -17,32 +17,16 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
 
     public static final IndexIndexStatisticArgs Empty = new IndexIndexStatisticArgs();
 
-    /**
-     * A block that specifies the number of question and answer topics in the index. Detailed below.
-     * 
-     */
     @Import(name="faqStatistics")
     private @Nullable Output<List<IndexIndexStatisticFaqStatisticArgs>> faqStatistics;
 
-    /**
-     * @return A block that specifies the number of question and answer topics in the index. Detailed below.
-     * 
-     */
     public Optional<Output<List<IndexIndexStatisticFaqStatisticArgs>>> faqStatistics() {
         return Optional.ofNullable(this.faqStatistics);
     }
 
-    /**
-     * A block that specifies the number of text documents indexed. Detailed below.
-     * 
-     */
     @Import(name="textDocumentStatistics")
     private @Nullable Output<List<IndexIndexStatisticTextDocumentStatisticArgs>> textDocumentStatistics;
 
-    /**
-     * @return A block that specifies the number of text documents indexed. Detailed below.
-     * 
-     */
     public Optional<Output<List<IndexIndexStatisticTextDocumentStatisticArgs>>> textDocumentStatistics() {
         return Optional.ofNullable(this.textDocumentStatistics);
     }
@@ -72,64 +56,28 @@ public final class IndexIndexStatisticArgs extends com.pulumi.resources.Resource
             $ = new IndexIndexStatisticArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqStatistics(@Nullable Output<List<IndexIndexStatisticFaqStatisticArgs>> faqStatistics) {
             $.faqStatistics = faqStatistics;
             return this;
         }
 
-        /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqStatistics(List<IndexIndexStatisticFaqStatisticArgs> faqStatistics) {
             return faqStatistics(Output.of(faqStatistics));
         }
 
-        /**
-         * @param faqStatistics A block that specifies the number of question and answer topics in the index. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder faqStatistics(IndexIndexStatisticFaqStatisticArgs... faqStatistics) {
             return faqStatistics(List.of(faqStatistics));
         }
 
-        /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textDocumentStatistics(@Nullable Output<List<IndexIndexStatisticTextDocumentStatisticArgs>> textDocumentStatistics) {
             $.textDocumentStatistics = textDocumentStatistics;
             return this;
         }
 
-        /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textDocumentStatistics(List<IndexIndexStatisticTextDocumentStatisticArgs> textDocumentStatistics) {
             return textDocumentStatistics(Output.of(textDocumentStatistics));
         }
 
-        /**
-         * @param textDocumentStatistics A block that specifies the number of text documents indexed. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder textDocumentStatistics(IndexIndexStatisticTextDocumentStatisticArgs... textDocumentStatistics) {
             return textDocumentStatistics(List.of(textDocumentStatistics));
         }

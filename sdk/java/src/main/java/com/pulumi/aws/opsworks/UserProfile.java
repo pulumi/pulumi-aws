@@ -15,96 +15,29 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an OpsWorks User Profile resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.opsworks.UserProfile;
- * import com.pulumi.aws.opsworks.UserProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var myProfile = new UserProfile(&#34;myProfile&#34;, UserProfileArgs.builder()        
- *             .userArn(aws_iam_user.user().arn())
- *             .sshUsername(&#34;my_user&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="aws:opsworks/userProfile:UserProfile")
 public class UserProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * Whether users can specify their own SSH public key through the My Settings page
-     * 
-     */
     @Export(name="allowSelfManagement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowSelfManagement;
 
-    /**
-     * @return Whether users can specify their own SSH public key through the My Settings page
-     * 
-     */
     public Output<Optional<Boolean>> allowSelfManagement() {
         return Codegen.optional(this.allowSelfManagement);
     }
-    /**
-     * The users public key
-     * 
-     */
     @Export(name="sshPublicKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sshPublicKey;
 
-    /**
-     * @return The users public key
-     * 
-     */
     public Output<Optional<String>> sshPublicKey() {
         return Codegen.optional(this.sshPublicKey);
     }
-    /**
-     * The ssh username, with witch this user wants to log in
-     * 
-     */
     @Export(name="sshUsername", refs={String.class}, tree="[0]")
     private Output<String> sshUsername;
 
-    /**
-     * @return The ssh username, with witch this user wants to log in
-     * 
-     */
     public Output<String> sshUsername() {
         return this.sshUsername;
     }
-    /**
-     * The user&#39;s IAM ARN
-     * 
-     */
     @Export(name="userArn", refs={String.class}, tree="[0]")
     private Output<String> userArn;
 
-    /**
-     * @return The user&#39;s IAM ARN
-     * 
-     */
     public Output<String> userArn() {
         return this.userArn;
     }

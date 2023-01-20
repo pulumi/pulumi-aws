@@ -16,129 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an EMR Containers (EMR on EKS) Virtual Cluster.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.emrcontainers.VirtualCluster;
- * import com.pulumi.aws.emrcontainers.VirtualClusterArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderInfoArgs;
- * import com.pulumi.aws.emrcontainers.inputs.VirtualClusterContainerProviderInfoEksInfoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new VirtualCluster(&#34;example&#34;, VirtualClusterArgs.builder()        
- *             .containerProvider(VirtualClusterContainerProviderArgs.builder()
- *                 .id(aws_eks_cluster.example().name())
- *                 .type(&#34;EKS&#34;)
- *                 .info(VirtualClusterContainerProviderInfoArgs.builder()
- *                     .eksInfo(VirtualClusterContainerProviderInfoEksInfoArgs.builder()
- *                         .namespace(&#34;default&#34;)
- *                         .build())
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EKS Clusters can be imported using the `id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
- * 
- */
 @ResourceType(type="aws:emrcontainers/virtualCluster:VirtualCluster")
 public class VirtualCluster extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the cluster.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the cluster.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Configuration block for the container provider associated with your cluster.
-     * 
-     */
     @Export(name="containerProvider", refs={VirtualClusterContainerProvider.class}, tree="[0]")
     private Output<VirtualClusterContainerProvider> containerProvider;
 
-    /**
-     * @return Configuration block for the container provider associated with your cluster.
-     * 
-     */
     public Output<VirtualClusterContainerProvider> containerProvider() {
         return this.containerProvider;
     }
-    /**
-     * Name of the virtual cluster.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the virtual cluster.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

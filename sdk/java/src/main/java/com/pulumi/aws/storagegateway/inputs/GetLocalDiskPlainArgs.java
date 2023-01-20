@@ -14,47 +14,23 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetLocalDiskPlainArgs Empty = new GetLocalDiskPlainArgs();
 
-    /**
-     * Device node of the local disk to retrieve. For example, `/dev/sdb`.
-     * 
-     */
     @Import(name="diskNode")
     private @Nullable String diskNode;
 
-    /**
-     * @return Device node of the local disk to retrieve. For example, `/dev/sdb`.
-     * 
-     */
     public Optional<String> diskNode() {
         return Optional.ofNullable(this.diskNode);
     }
 
-    /**
-     * Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-     * 
-     */
     @Import(name="diskPath")
     private @Nullable String diskPath;
 
-    /**
-     * @return Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-     * 
-     */
     public Optional<String> diskPath() {
         return Optional.ofNullable(this.diskPath);
     }
 
-    /**
-     * ARN of the gateway.
-     * 
-     */
     @Import(name="gatewayArn", required=true)
     private String gatewayArn;
 
-    /**
-     * @return ARN of the gateway.
-     * 
-     */
     public String gatewayArn() {
         return this.gatewayArn;
     }
@@ -85,34 +61,16 @@ public final class GetLocalDiskPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetLocalDiskPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param diskNode Device node of the local disk to retrieve. For example, `/dev/sdb`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskNode(@Nullable String diskNode) {
             $.diskNode = diskNode;
             return this;
         }
 
-        /**
-         * @param diskPath Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder diskPath(@Nullable String diskPath) {
             $.diskPath = diskPath;
             return this;
         }
 
-        /**
-         * @param gatewayArn ARN of the gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gatewayArn(String gatewayArn) {
             $.gatewayArn = gatewayArn;
             return this;

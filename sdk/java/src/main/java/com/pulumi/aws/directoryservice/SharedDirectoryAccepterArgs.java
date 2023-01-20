@@ -13,17 +13,9 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
 
     public static final SharedDirectoryAccepterArgs Empty = new SharedDirectoryAccepterArgs();
 
-    /**
-     * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     @Import(name="sharedDirectoryId", required=true)
     private Output<String> sharedDirectoryId;
 
-    /**
-     * @return Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-     * 
-     */
     public Output<String> sharedDirectoryId() {
         return this.sharedDirectoryId;
     }
@@ -52,23 +44,11 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
             $ = new SharedDirectoryAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(Output<String> sharedDirectoryId) {
             $.sharedDirectoryId = sharedDirectoryId;
             return this;
         }
 
-        /**
-         * @param sharedDirectoryId Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sharedDirectoryId(String sharedDirectoryId) {
             return sharedDirectoryId(Output.of(sharedDirectoryId));
         }

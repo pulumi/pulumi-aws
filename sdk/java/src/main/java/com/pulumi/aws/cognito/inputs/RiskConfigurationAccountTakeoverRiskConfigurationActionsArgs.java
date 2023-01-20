@@ -17,47 +17,23 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs 
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs();
 
-    /**
-     * Action to take for a high risk. See action block below.
-     * 
-     */
     @Import(name="highAction")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs> highAction;
 
-    /**
-     * @return Action to take for a high risk. See action block below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs>> highAction() {
         return Optional.ofNullable(this.highAction);
     }
 
-    /**
-     * Action to take for a low risk. See action block below.
-     * 
-     */
     @Import(name="lowAction")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs> lowAction;
 
-    /**
-     * @return Action to take for a low risk. See action block below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs>> lowAction() {
         return Optional.ofNullable(this.lowAction);
     }
 
-    /**
-     * Action to take for a medium risk. See action block below.
-     * 
-     */
     @Import(name="mediumAction")
     private @Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs> mediumAction;
 
-    /**
-     * @return Action to take for a medium risk. See action block below.
-     * 
-     */
     public Optional<Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs>> mediumAction() {
         return Optional.ofNullable(this.mediumAction);
     }
@@ -88,65 +64,29 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs 
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param highAction Action to take for a high risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder highAction(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs> highAction) {
             $.highAction = highAction;
             return this;
         }
 
-        /**
-         * @param highAction Action to take for a high risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder highAction(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs highAction) {
             return highAction(Output.of(highAction));
         }
 
-        /**
-         * @param lowAction Action to take for a low risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lowAction(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs> lowAction) {
             $.lowAction = lowAction;
             return this;
         }
 
-        /**
-         * @param lowAction Action to take for a low risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder lowAction(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs lowAction) {
             return lowAction(Output.of(lowAction));
         }
 
-        /**
-         * @param mediumAction Action to take for a medium risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mediumAction(@Nullable Output<RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs> mediumAction) {
             $.mediumAction = mediumAction;
             return this;
         }
 
-        /**
-         * @param mediumAction Action to take for a medium risk. See action block below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mediumAction(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs mediumAction) {
             return mediumAction(Output.of(mediumAction));
         }

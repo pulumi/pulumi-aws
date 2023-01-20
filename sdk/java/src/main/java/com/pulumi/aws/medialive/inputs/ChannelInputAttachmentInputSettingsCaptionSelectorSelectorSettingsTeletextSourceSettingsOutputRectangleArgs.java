@@ -13,17 +13,9 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
 
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs();
 
-    /**
-     * Output video height in pixels.
-     * 
-     */
     @Import(name="height", required=true)
     private Output<Double> height;
 
-    /**
-     * @return Output video height in pixels.
-     * 
-     */
     public Output<Double> height() {
         return this.height;
     }
@@ -42,17 +34,9 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         return this.topOffset;
     }
 
-    /**
-     * Output video width in pixels.
-     * 
-     */
     @Import(name="width", required=true)
     private Output<Double> width;
 
-    /**
-     * @return Output video width in pixels.
-     * 
-     */
     public Output<Double> width() {
         return this.width;
     }
@@ -84,23 +68,11 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             $ = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param height Output video height in pixels.
-         * 
-         * @return builder
-         * 
-         */
         public Builder height(Output<Double> height) {
             $.height = height;
             return this;
         }
 
-        /**
-         * @param height Output video height in pixels.
-         * 
-         * @return builder
-         * 
-         */
         public Builder height(Double height) {
             return height(Output.of(height));
         }
@@ -123,23 +95,11 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             return topOffset(Output.of(topOffset));
         }
 
-        /**
-         * @param width Output video width in pixels.
-         * 
-         * @return builder
-         * 
-         */
         public Builder width(Output<Double> width) {
             $.width = width;
             return this;
         }
 
-        /**
-         * @param width Output video width in pixels.
-         * 
-         * @return builder
-         * 
-         */
         public Builder width(Double width) {
             return width(Output.of(width));
         }

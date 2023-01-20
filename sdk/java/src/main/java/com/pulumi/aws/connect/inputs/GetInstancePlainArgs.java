@@ -14,32 +14,16 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetInstancePlainArgs Empty = new GetInstancePlainArgs();
 
-    /**
-     * Returns information on a specific connect instance by alias
-     * 
-     */
     @Import(name="instanceAlias")
     private @Nullable String instanceAlias;
 
-    /**
-     * @return Returns information on a specific connect instance by alias
-     * 
-     */
     public Optional<String> instanceAlias() {
         return Optional.ofNullable(this.instanceAlias);
     }
 
-    /**
-     * Returns information on a specific connect instance by id
-     * 
-     */
     @Import(name="instanceId")
     private @Nullable String instanceId;
 
-    /**
-     * @return Returns information on a specific connect instance by id
-     * 
-     */
     public Optional<String> instanceId() {
         return Optional.ofNullable(this.instanceId);
     }
@@ -69,23 +53,11 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetInstancePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param instanceAlias Returns information on a specific connect instance by alias
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceAlias(@Nullable String instanceAlias) {
             $.instanceAlias = instanceAlias;
             return this;
         }
 
-        /**
-         * @param instanceId Returns information on a specific connect instance by id
-         * 
-         * @return builder
-         * 
-         */
         public Builder instanceId(@Nullable String instanceId) {
             $.instanceId = instanceId;
             return this;

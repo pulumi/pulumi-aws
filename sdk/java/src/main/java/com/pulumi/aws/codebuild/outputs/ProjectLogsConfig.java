@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectLogsConfig {
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectLogsConfigCloudwatchLogs cloudwatchLogs;
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     private @Nullable ProjectLogsConfigS3Logs s3Logs;
 
     private ProjectLogsConfig() {}
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectLogsConfigCloudwatchLogs> cloudwatchLogs() {
         return Optional.ofNullable(this.cloudwatchLogs);
     }
-    /**
-     * @return Configuration block. Detailed below.
-     * 
-     */
     public Optional<ProjectLogsConfigS3Logs> s3Logs() {
         return Optional.ofNullable(this.s3Logs);
     }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InfrastructureConfigurationInstanceMetadataOptions {
-    /**
-     * @return The number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     private @Nullable Integer httpPutResponseHopLimit;
-    /**
-     * @return Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-     * 
-     */
     private @Nullable String httpTokens;
 
     private InfrastructureConfigurationInstanceMetadataOptions() {}
-    /**
-     * @return The number of hops that an instance can traverse to reach its destonation.
-     * 
-     */
     public Optional<Integer> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
-    /**
-     * @return Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-     * 
-     */
     public Optional<String> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }

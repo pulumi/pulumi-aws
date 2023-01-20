@@ -16,47 +16,23 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RevisionArgs Empty = new RevisionArgs();
 
-    /**
-     * An optional comment about the revision.
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return An optional comment about the revision.
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * The dataset id.
-     * 
-     */
     @Import(name="dataSetId", required=true)
     private Output<String> dataSetId;
 
-    /**
-     * @return The dataset id.
-     * 
-     */
     public Output<String> dataSetId() {
         return this.dataSetId;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -87,65 +63,29 @@ public final class RevisionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RevisionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comment An optional comment about the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment An optional comment about the revision.
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param dataSetId The dataset id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(Output<String> dataSetId) {
             $.dataSetId = dataSetId;
             return this;
         }
 
-        /**
-         * @param dataSetId The dataset id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dataSetId(String dataSetId) {
             return dataSetId(Output.of(dataSetId));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

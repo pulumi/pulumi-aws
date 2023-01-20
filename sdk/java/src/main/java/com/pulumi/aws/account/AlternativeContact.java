@@ -14,140 +14,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages the specified alternate contact attached to an AWS Account.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.account.AlternativeContact;
- * import com.pulumi.aws.account.AlternativeContactArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var operations = new AlternativeContact(&#34;operations&#34;, AlternativeContactArgs.builder()        
- *             .alternateContactType(&#34;OPERATIONS&#34;)
- *             .emailAddress(&#34;test@example.com&#34;)
- *             .phoneNumber(&#34;+1234567890&#34;)
- *             .title(&#34;Example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * The Alternate Contact for the current account can be imported using the `alternate_contact_type`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
- * ```
- * 
- *  If you provide an account ID, the Alternate Contact can be imported using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
- * ```
- * 
- */
 @ResourceType(type="aws:account/alternativeContact:AlternativeContact")
 public class AlternativeContact extends com.pulumi.resources.CustomResource {
-    /**
-     * ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountId;
 
-    /**
-     * @return ID of the target account when managing member accounts. Will manage current user&#39;s account by default if omitted.
-     * 
-     */
     public Output<Optional<String>> accountId() {
         return Codegen.optional(this.accountId);
     }
-    /**
-     * Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     * 
-     */
     @Export(name="alternateContactType", refs={String.class}, tree="[0]")
     private Output<String> alternateContactType;
 
-    /**
-     * @return Type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
-     * 
-     */
     public Output<String> alternateContactType() {
         return this.alternateContactType;
     }
-    /**
-     * An email address for the alternate contact.
-     * 
-     */
     @Export(name="emailAddress", refs={String.class}, tree="[0]")
     private Output<String> emailAddress;
 
-    /**
-     * @return An email address for the alternate contact.
-     * 
-     */
     public Output<String> emailAddress() {
         return this.emailAddress;
     }
-    /**
-     * Name of the alternate contact.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the alternate contact.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Phone number for the alternate contact.
-     * 
-     */
     @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
-    /**
-     * @return Phone number for the alternate contact.
-     * 
-     */
     public Output<String> phoneNumber() {
         return this.phoneNumber;
     }
-    /**
-     * Title for the alternate contact.
-     * 
-     */
     @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
-    /**
-     * @return Title for the alternate contact.
-     * 
-     */
     public Output<String> title() {
         return this.title;
     }

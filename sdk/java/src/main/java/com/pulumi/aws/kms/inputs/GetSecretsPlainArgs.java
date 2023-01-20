@@ -13,17 +13,9 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretsPlainArgs Empty = new GetSecretsPlainArgs();
 
-    /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     * 
-     */
     @Import(name="secrets", required=true)
     private List<GetSecretsSecret> secrets;
 
-    /**
-     * @return One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-     * 
-     */
     public List<GetSecretsSecret> secrets() {
         return this.secrets;
     }
@@ -52,23 +44,11 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSecretsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secrets(List<GetSecretsSecret> secrets) {
             $.secrets = secrets;
             return this;
         }
 
-        /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secrets(GetSecretsSecret... secrets) {
             return secrets(List.of(secrets));
         }

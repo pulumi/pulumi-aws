@@ -18,107 +18,51 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetEngineVersionArgs Empty = new GetEngineVersionArgs();
 
-    /**
-     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
-     * 
-     */
     @Import(name="defaultOnly")
     private @Nullable Output<Boolean> defaultOnly;
 
-    /**
-     * @return When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
-     * 
-     */
     public Optional<Output<Boolean>> defaultOnly() {
         return Optional.ofNullable(this.defaultOnly);
     }
 
-    /**
-     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-     * 
-     */
     @Import(name="engine", required=true)
     private Output<String> engine;
 
-    /**
-     * @return DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-     * 
-     */
     public Output<String> engine() {
         return this.engine;
     }
 
-    /**
-     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<GetEngineVersionFilterArgs>> filters;
 
-    /**
-     * @return One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-     * 
-     */
     public Optional<Output<List<GetEngineVersionFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
-     * 
-     */
     @Import(name="includeAll")
     private @Nullable Output<Boolean> includeAll;
 
-    /**
-     * @return When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
-     * 
-     */
     public Optional<Output<Boolean>> includeAll() {
         return Optional.ofNullable(this.includeAll);
     }
 
-    /**
-     * Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-     * 
-     */
     @Import(name="parameterGroupFamily")
     private @Nullable Output<String> parameterGroupFamily;
 
-    /**
-     * @return Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-     * 
-     */
     public Optional<Output<String>> parameterGroupFamily() {
         return Optional.ofNullable(this.parameterGroupFamily);
     }
 
-    /**
-     * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     @Import(name="preferredVersions")
     private @Nullable Output<List<String>> preferredVersions;
 
-    /**
-     * @return Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     public Optional<Output<List<String>>> preferredVersions() {
         return Optional.ofNullable(this.preferredVersions);
     }
 
-    /**
-     * Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -153,169 +97,73 @@ public final class GetEngineVersionArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetEngineVersionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOnly(@Nullable Output<Boolean> defaultOnly) {
             $.defaultOnly = defaultOnly;
             return this;
         }
 
-        /**
-         * @param defaultOnly When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder defaultOnly(Boolean defaultOnly) {
             return defaultOnly(Output.of(defaultOnly));
         }
 
-        /**
-         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(Output<String> engine) {
             $.engine = engine;
             return this;
         }
 
-        /**
-         * @param engine DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<GetEngineVersionFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<GetEngineVersionFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetEngineVersionFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAll(@Nullable Output<Boolean> includeAll) {
             $.includeAll = includeAll;
             return this;
         }
 
-        /**
-         * @param includeAll When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeAll(Boolean includeAll) {
             return includeAll(Output.of(includeAll));
         }
 
-        /**
-         * @param parameterGroupFamily Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterGroupFamily(@Nullable Output<String> parameterGroupFamily) {
             $.parameterGroupFamily = parameterGroupFamily;
             return this;
         }
 
-        /**
-         * @param parameterGroupFamily Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameterGroupFamily(String parameterGroupFamily) {
             return parameterGroupFamily(Output.of(parameterGroupFamily));
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(@Nullable Output<List<String>> preferredVersions) {
             $.preferredVersions = preferredVersions;
             return this;
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(List<String> preferredVersions) {
             return preferredVersions(Output.of(preferredVersions));
         }
 
-        /**
-         * @param preferredVersions Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
         }
 
-        /**
-         * @param version Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

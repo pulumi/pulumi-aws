@@ -17,77 +17,37 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
 
     public static final BucketLoggingV2Args Empty = new BucketLoggingV2Args();
 
-    /**
-     * The name of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return The account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * The name of the bucket where you want Amazon S3 to store server access logs.
-     * 
-     */
     @Import(name="targetBucket", required=true)
     private Output<String> targetBucket;
 
-    /**
-     * @return The name of the bucket where you want Amazon S3 to store server access logs.
-     * 
-     */
     public Output<String> targetBucket() {
         return this.targetBucket;
     }
 
-    /**
-     * Set of configuration blocks with information for granting permissions documented below.
-     * 
-     */
     @Import(name="targetGrants")
     private @Nullable Output<List<BucketLoggingV2TargetGrantArgs>> targetGrants;
 
-    /**
-     * @return Set of configuration blocks with information for granting permissions documented below.
-     * 
-     */
     public Optional<Output<List<BucketLoggingV2TargetGrantArgs>>> targetGrants() {
         return Optional.ofNullable(this.targetGrants);
     }
 
-    /**
-     * A prefix for all log object keys.
-     * 
-     */
     @Import(name="targetPrefix", required=true)
     private Output<String> targetPrefix;
 
-    /**
-     * @return A prefix for all log object keys.
-     * 
-     */
     public Output<String> targetPrefix() {
         return this.targetPrefix;
     }
@@ -120,117 +80,51 @@ public final class BucketLoggingV2Args extends com.pulumi.resources.ResourceArgs
             $ = new BucketLoggingV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param targetBucket The name of the bucket where you want Amazon S3 to store server access logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(Output<String> targetBucket) {
             $.targetBucket = targetBucket;
             return this;
         }
 
-        /**
-         * @param targetBucket The name of the bucket where you want Amazon S3 to store server access logs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetBucket(String targetBucket) {
             return targetBucket(Output.of(targetBucket));
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(@Nullable Output<List<BucketLoggingV2TargetGrantArgs>> targetGrants) {
             $.targetGrants = targetGrants;
             return this;
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(List<BucketLoggingV2TargetGrantArgs> targetGrants) {
             return targetGrants(Output.of(targetGrants));
         }
 
-        /**
-         * @param targetGrants Set of configuration blocks with information for granting permissions documented below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetGrants(BucketLoggingV2TargetGrantArgs... targetGrants) {
             return targetGrants(List.of(targetGrants));
         }
 
-        /**
-         * @param targetPrefix A prefix for all log object keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(Output<String> targetPrefix) {
             $.targetPrefix = targetPrefix;
             return this;
         }
 
-        /**
-         * @param targetPrefix A prefix for all log object keys.
-         * 
-         * @return builder
-         * 
-         */
         public Builder targetPrefix(String targetPrefix) {
             return targetPrefix(Output.of(targetPrefix));
         }

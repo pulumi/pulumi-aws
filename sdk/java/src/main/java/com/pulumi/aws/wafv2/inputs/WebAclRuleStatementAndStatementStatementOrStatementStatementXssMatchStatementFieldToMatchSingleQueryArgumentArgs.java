@@ -13,17 +13,9 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementX
 
     public static final WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs Empty = new WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs();
 
-    /**
-     * Name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Name of the query header to inspect. This setting must be provided as lower case characters.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -52,23 +44,11 @@ public final class WebAclRuleStatementAndStatementStatementOrStatementStatementX
             $ = new WebAclRuleStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the query header to inspect. This setting must be provided as lower case characters.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

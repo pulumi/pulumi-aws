@@ -11,19 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MeshSpecEgressFilter {
-    /**
-     * @return Egress filter type. By default, the type is `DROP_ALL`.
-     * Valid values are `ALLOW_ALL` and `DROP_ALL`.
-     * 
-     */
     private @Nullable String type;
 
     private MeshSpecEgressFilter() {}
-    /**
-     * @return Egress filter type. By default, the type is `DROP_ALL`.
-     * Valid values are `ALLOW_ALL` and `DROP_ALL`.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }

@@ -16,32 +16,16 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDirectoryArgs Empty = new GetDirectoryArgs();
 
-    /**
-     * ID of the directory.
-     * 
-     */
     @Import(name="directoryId", required=true)
     private Output<String> directoryId;
 
-    /**
-     * @return ID of the directory.
-     * 
-     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
 
-    /**
-     * A map of tags assigned to the directory/connector.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags assigned to the directory/connector.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -71,44 +55,20 @@ public final class GetDirectoryArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDirectoryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directoryId ID of the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryId(Output<String> directoryId) {
             $.directoryId = directoryId;
             return this;
         }
 
-        /**
-         * @param directoryId ID of the directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryId(String directoryId) {
             return directoryId(Output.of(directoryId));
         }
 
-        /**
-         * @param tags A map of tags assigned to the directory/connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags assigned to the directory/connector.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

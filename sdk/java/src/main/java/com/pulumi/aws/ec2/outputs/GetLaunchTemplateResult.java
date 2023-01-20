@@ -50,10 +50,6 @@ public final class GetLaunchTemplateResult {
     private @Nullable List<GetLaunchTemplateFilter> filters;
     private List<GetLaunchTemplateHibernationOption> hibernationOptions;
     private List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles;
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     private String id;
     private String imageId;
     private String instanceInitiatedShutdownBehavior;
@@ -127,10 +123,6 @@ public final class GetLaunchTemplateResult {
     public List<GetLaunchTemplateIamInstanceProfile> iamInstanceProfiles() {
         return this.iamInstanceProfiles;
     }
-    /**
-     * @return ID of the launch template.
-     * 
-     */
     public String id() {
         return this.id;
     }

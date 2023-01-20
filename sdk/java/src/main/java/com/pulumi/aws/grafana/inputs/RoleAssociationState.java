@@ -16,62 +16,30 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
 
     public static final RoleAssociationState Empty = new RoleAssociationState();
 
-    /**
-     * The AWS SSO group ids to be assigned the role given in `role`.
-     * 
-     */
     @Import(name="groupIds")
     private @Nullable Output<List<String>> groupIds;
 
-    /**
-     * @return The AWS SSO group ids to be assigned the role given in `role`.
-     * 
-     */
     public Optional<Output<List<String>>> groupIds() {
         return Optional.ofNullable(this.groupIds);
     }
 
-    /**
-     * The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     * 
-     */
     @Import(name="role")
     private @Nullable Output<String> role;
 
-    /**
-     * @return The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-     * 
-     */
     public Optional<Output<String>> role() {
         return Optional.ofNullable(this.role);
     }
 
-    /**
-     * The AWS SSO user ids to be assigned the role given in `role`.
-     * 
-     */
     @Import(name="userIds")
     private @Nullable Output<List<String>> userIds;
 
-    /**
-     * @return The AWS SSO user ids to be assigned the role given in `role`.
-     * 
-     */
     public Optional<Output<List<String>>> userIds() {
         return Optional.ofNullable(this.userIds);
     }
 
-    /**
-     * The workspace id.
-     * 
-     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
-    /**
-     * @return The workspace id.
-     * 
-     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
@@ -103,106 +71,46 @@ public final class RoleAssociationState extends com.pulumi.resources.ResourceArg
             $ = new RoleAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupIds(@Nullable Output<List<String>> groupIds) {
             $.groupIds = groupIds;
             return this;
         }
 
-        /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupIds(List<String> groupIds) {
             return groupIds(Output.of(groupIds));
         }
 
-        /**
-         * @param groupIds The AWS SSO group ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder groupIds(String... groupIds) {
             return groupIds(List.of(groupIds));
         }
 
-        /**
-         * @param role The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(@Nullable Output<String> role) {
             $.role = role;
             return this;
         }
 
-        /**
-         * @param role The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
-         * 
-         * @return builder
-         * 
-         */
         public Builder role(String role) {
             return role(Output.of(role));
         }
 
-        /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIds(@Nullable Output<List<String>> userIds) {
             $.userIds = userIds;
             return this;
         }
 
-        /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIds(List<String> userIds) {
             return userIds(Output.of(userIds));
         }
 
-        /**
-         * @param userIds The AWS SSO user ids to be assigned the role given in `role`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder userIds(String... userIds) {
             return userIds(List.of(userIds));
         }
 
-        /**
-         * @param workspaceId The workspace id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId The workspace id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

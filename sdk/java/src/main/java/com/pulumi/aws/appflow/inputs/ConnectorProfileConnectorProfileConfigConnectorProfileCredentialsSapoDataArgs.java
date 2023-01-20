@@ -16,32 +16,16 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs();
 
-    /**
-     * The SAPOData basic authentication credentials.
-     * 
-     */
     @Import(name="basicAuthCredentials")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs> basicAuthCredentials;
 
-    /**
-     * @return The SAPOData basic authentication credentials.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs>> basicAuthCredentials() {
         return Optional.ofNullable(this.basicAuthCredentials);
     }
 
-    /**
-     * The SAPOData OAuth type authentication credentials.
-     * 
-     */
     @Import(name="oauthCredentials")
     private @Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs> oauthCredentials;
 
-    /**
-     * @return The SAPOData OAuth type authentication credentials.
-     * 
-     */
     public Optional<Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs>> oauthCredentials() {
         return Optional.ofNullable(this.oauthCredentials);
     }
@@ -71,44 +55,20 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param basicAuthCredentials The SAPOData basic authentication credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder basicAuthCredentials(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs> basicAuthCredentials) {
             $.basicAuthCredentials = basicAuthCredentials;
             return this;
         }
 
-        /**
-         * @param basicAuthCredentials The SAPOData basic authentication credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder basicAuthCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs basicAuthCredentials) {
             return basicAuthCredentials(Output.of(basicAuthCredentials));
         }
 
-        /**
-         * @param oauthCredentials The SAPOData OAuth type authentication credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthCredentials(@Nullable Output<ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs> oauthCredentials) {
             $.oauthCredentials = oauthCredentials;
             return this;
         }
 
-        /**
-         * @param oauthCredentials The SAPOData OAuth type authentication credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthCredentials(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs oauthCredentials) {
             return oauthCredentials(Output.of(oauthCredentials));
         }

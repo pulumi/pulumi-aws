@@ -13,17 +13,9 @@ public final class TableSchemaDefinitionPartitionKeyArgs extends com.pulumi.reso
 
     public static final TableSchemaDefinitionPartitionKeyArgs Empty = new TableSchemaDefinitionPartitionKeyArgs();
 
-    /**
-     * The name of the partition key column.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the partition key column.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -52,23 +44,11 @@ public final class TableSchemaDefinitionPartitionKeyArgs extends com.pulumi.reso
             $ = new TableSchemaDefinitionPartitionKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the partition key column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the partition key column.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

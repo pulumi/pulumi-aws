@@ -11,53 +11,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentEndpoint {
-    /**
-     * @return ID of a rule you want to assign.
-     * 
-     */
     private String id;
-    /**
-     * @return Region code for the AWS Region that you created the resource in.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return Type of the rule.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Value of the `type`.
-     * 
-     */
     private @Nullable String value;
 
     private GetTrafficPolicyDocumentEndpoint() {}
-    /**
-     * @return ID of a rule you want to assign.
-     * 
-     */
     public String id() {
         return this.id;
     }
-    /**
-     * @return Region code for the AWS Region that you created the resource in.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return Type of the rule.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Value of the `type`.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

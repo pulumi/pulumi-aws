@@ -11,31 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateCpuOptions {
-    /**
-     * @return The number of CPU cores for the instance.
-     * 
-     */
     private @Nullable Integer coreCount;
-    /**
-     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-     * Otherwise, specify the default value of 2.
-     * 
-     */
     private @Nullable Integer threadsPerCore;
 
     private LaunchTemplateCpuOptions() {}
-    /**
-     * @return The number of CPU cores for the instance.
-     * 
-     */
     public Optional<Integer> coreCount() {
         return Optional.ofNullable(this.coreCount);
     }
-    /**
-     * @return The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
-     * Otherwise, specify the default value of 2.
-     * 
-     */
     public Optional<Integer> threadsPerCore() {
         return Optional.ofNullable(this.threadsPerCore);
     }

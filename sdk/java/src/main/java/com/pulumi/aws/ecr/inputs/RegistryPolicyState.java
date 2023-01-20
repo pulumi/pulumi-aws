@@ -15,32 +15,16 @@ public final class RegistryPolicyState extends com.pulumi.resources.ResourceArgs
 
     public static final RegistryPolicyState Empty = new RegistryPolicyState();
 
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * The registry ID where the registry was created.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable Output<String> registryId;
 
-    /**
-     * @return The registry ID where the registry was created.
-     * 
-     */
     public Optional<Output<String>> registryId() {
         return Optional.ofNullable(this.registryId);
     }
@@ -70,44 +54,20 @@ public final class RegistryPolicyState extends com.pulumi.resources.ResourceArgs
             $ = new RegistryPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The policy document. This is a JSON formatted string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param registryId The registry ID where the registry was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable Output<String> registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param registryId The registry ID where the registry was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(String registryId) {
             return registryId(Output.of(registryId));
         }

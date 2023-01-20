@@ -14,96 +14,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Glue resource policy. Only one can exist per region.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.glue.ResourcePolicy;
- * import com.pulumi.aws.glue.ResourcePolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = AwsFunctions.getCallerIdentity();
- * 
- *         final var currentPartition = AwsFunctions.getPartition();
- * 
- *         final var currentRegion = AwsFunctions.getRegion();
- * 
- *         final var glue-example-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;glue:CreateTable&#34;)
- *                 .resources(String.format(&#34;arn:%s:glue:%s:%s:*&#34;, currentPartition.applyValue(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.applyValue(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;*&#34;)
- *                     .type(&#34;AWS&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
- *             .policy(glue_example_policy.json())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Glue Resource Policy can be imported using the account ID
- * 
- * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
- * ```
- * 
- */
 @ResourceType(type="aws:glue/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-     * 
-     */
     @Export(name="enableHybrid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enableHybrid;
 
-    /**
-     * @return Indicates that you are using both methods to grant cross-account. Valid values are `TRUE` and `FALSE`. Note the provider will not perform drift detetction on this field as its not return on read.
-     * 
-     */
     public Output<Optional<String>> enableHybrid() {
         return Codegen.optional(this.enableHybrid);
     }
-    /**
-     * The policy to be applied to the aws glue data catalog.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy to be applied to the aws glue data catalog.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }

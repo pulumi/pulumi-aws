@@ -16,47 +16,23 @@ public final class GetAuthorizationTokenArgs extends com.pulumi.resources.Invoke
 
     public static final GetAuthorizationTokenArgs Empty = new GetAuthorizationTokenArgs();
 
-    /**
-     * Name of the domain that is in scope for the generated authorization token.
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return Name of the domain that is in scope for the generated authorization token.
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
 
-    /**
-     * Account number of the AWS account that owns the domain.
-     * 
-     */
     @Import(name="domainOwner")
     private @Nullable Output<String> domainOwner;
 
-    /**
-     * @return Account number of the AWS account that owns the domain.
-     * 
-     */
     public Optional<Output<String>> domainOwner() {
         return Optional.ofNullable(this.domainOwner);
     }
 
-    /**
-     * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     * 
-     */
     @Import(name="durationSeconds")
     private @Nullable Output<Integer> durationSeconds;
 
-    /**
-     * @return Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-     * 
-     */
     public Optional<Output<Integer>> durationSeconds() {
         return Optional.ofNullable(this.durationSeconds);
     }
@@ -87,65 +63,29 @@ public final class GetAuthorizationTokenArgs extends com.pulumi.resources.Invoke
             $ = new GetAuthorizationTokenArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain Name of the domain that is in scope for the generated authorization token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain Name of the domain that is in scope for the generated authorization token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }
 
-        /**
-         * @param domainOwner Account number of the AWS account that owns the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainOwner(@Nullable Output<String> domainOwner) {
             $.domainOwner = domainOwner;
             return this;
         }
 
-        /**
-         * @param domainOwner Account number of the AWS account that owns the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainOwner(String domainOwner) {
             return domainOwner(Output.of(domainOwner));
         }
 
-        /**
-         * @param durationSeconds Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder durationSeconds(@Nullable Output<Integer> durationSeconds) {
             $.durationSeconds = durationSeconds;
             return this;
         }
 
-        /**
-         * @param durationSeconds Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder durationSeconds(Integer durationSeconds) {
             return durationSeconds(Output.of(durationSeconds));
         }

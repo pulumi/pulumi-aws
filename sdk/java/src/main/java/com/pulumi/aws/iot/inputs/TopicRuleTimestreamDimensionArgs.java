@@ -13,32 +13,16 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
 
     public static final TopicRuleTimestreamDimensionArgs Empty = new TopicRuleTimestreamDimensionArgs();
 
-    /**
-     * The name of the rule.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return The name of the rule.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * The value of the HTTP header.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return The value of the HTTP header.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -68,44 +52,20 @@ public final class TopicRuleTimestreamDimensionArgs extends com.pulumi.resources
             $ = new TopicRuleTimestreamDimensionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param value The value of the HTTP header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The value of the HTTP header.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

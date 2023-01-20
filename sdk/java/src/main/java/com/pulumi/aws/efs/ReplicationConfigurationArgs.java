@@ -14,32 +14,16 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
 
     public static final ReplicationConfigurationArgs Empty = new ReplicationConfigurationArgs();
 
-    /**
-     * A destination configuration block (documented below).
-     * 
-     */
     @Import(name="destination", required=true)
     private Output<ReplicationConfigurationDestinationArgs> destination;
 
-    /**
-     * @return A destination configuration block (documented below).
-     * 
-     */
     public Output<ReplicationConfigurationDestinationArgs> destination() {
         return this.destination;
     }
 
-    /**
-     * The ID of the file system that is to be replicated.
-     * 
-     */
     @Import(name="sourceFileSystemId", required=true)
     private Output<String> sourceFileSystemId;
 
-    /**
-     * @return The ID of the file system that is to be replicated.
-     * 
-     */
     public Output<String> sourceFileSystemId() {
         return this.sourceFileSystemId;
     }
@@ -69,44 +53,20 @@ public final class ReplicationConfigurationArgs extends com.pulumi.resources.Res
             $ = new ReplicationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destination A destination configuration block (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(Output<ReplicationConfigurationDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
 
-        /**
-         * @param destination A destination configuration block (documented below).
-         * 
-         * @return builder
-         * 
-         */
         public Builder destination(ReplicationConfigurationDestinationArgs destination) {
             return destination(Output.of(destination));
         }
 
-        /**
-         * @param sourceFileSystemId The ID of the file system that is to be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileSystemId(Output<String> sourceFileSystemId) {
             $.sourceFileSystemId = sourceFileSystemId;
             return this;
         }
 
-        /**
-         * @param sourceFileSystemId The ID of the file system that is to be replicated.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sourceFileSystemId(String sourceFileSystemId) {
             return sourceFileSystemId(Output.of(sourceFileSystemId));
         }

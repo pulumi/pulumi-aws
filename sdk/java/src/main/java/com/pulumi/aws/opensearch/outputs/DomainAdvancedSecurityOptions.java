@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DomainAdvancedSecurityOptions {
-    /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     private @Nullable Boolean anonymousAuthEnabled;
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     private Boolean enabled;
-    /**
-     * @return Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     private @Nullable Boolean internalUserDatabaseEnabled;
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     private @Nullable DomainAdvancedSecurityOptionsMasterUserOptions masterUserOptions;
 
     private DomainAdvancedSecurityOptions() {}
-    /**
-     * @return Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
-     * 
-     */
     public Optional<Boolean> anonymousAuthEnabled() {
         return Optional.ofNullable(this.anonymousAuthEnabled);
     }
-    /**
-     * @return Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engine_version` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
-     * 
-     */
     public Boolean enabled() {
         return this.enabled;
     }
-    /**
-     * @return Whether the internal user database is enabled. Default is `false`.
-     * 
-     */
     public Optional<Boolean> internalUserDatabaseEnabled() {
         return Optional.ofNullable(this.internalUserDatabaseEnabled);
     }
-    /**
-     * @return Configuration block for the main user. Detailed below.
-     * 
-     */
     public Optional<DomainAdvancedSecurityOptionsMasterUserOptions> masterUserOptions() {
         return Optional.ofNullable(this.masterUserOptions);
     }

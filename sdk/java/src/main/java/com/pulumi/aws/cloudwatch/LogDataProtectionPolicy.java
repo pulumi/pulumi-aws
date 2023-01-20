@@ -13,115 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Log Data Protection Policy resource.
- * 
- * Read more about protecting sensitive user data in the [User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.LogGroup;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
- * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
- * import static com.pulumi.codegen.internal.Serialization.*;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
- * 
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy(&#34;exampleLogDataProtectionPolicy&#34;, LogDataProtectionPolicyArgs.builder()        
- *             .logGroupName(exampleLogGroup.name())
- *             .policyDocument(exampleBucketV2.bucket().applyValue(bucket -&gt; serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;Name&#34;, &#34;Example&#34;),
- *                     jsonProperty(&#34;Version&#34;, &#34;2021-06-01&#34;),
- *                     jsonProperty(&#34;Statement&#34;, jsonArray(
- *                         jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Audit&#34;),
- *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;Operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;Audit&#34;, jsonObject(
- *                                     jsonProperty(&#34;FindingsDestination&#34;, jsonObject(
- *                                         jsonProperty(&#34;S3&#34;, jsonObject(
- *                                             jsonProperty(&#34;Bucket&#34;, bucket)
- *                                         ))
- *                                     ))
- *                                 ))
- *                             ))
- *                         ), 
- *                         jsonObject(
- *                             jsonProperty(&#34;Sid&#34;, &#34;Redact&#34;),
- *                             jsonProperty(&#34;DataIdentifier&#34;, jsonArray(&#34;arn:aws:dataprotection::aws:data-identifier/EmailAddress&#34;)),
- *                             jsonProperty(&#34;Operation&#34;, jsonObject(
- *                                 jsonProperty(&#34;Deidentify&#34;, jsonObject(
- *                                     jsonProperty(&#34;MaskConfig&#34;, jsonObject(
- * 
- *                                     ))
- *                                 ))
- *                             ))
- *                         )
- *                     ))
- *                 ))))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * This resource can be imported using the `log_group_name`. For example
- * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy")
 public class LogDataProtectionPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the log group under which the log stream is to be created.
-     * 
-     */
     @Export(name="logGroupName", refs={String.class}, tree="[0]")
     private Output<String> logGroupName;
 
-    /**
-     * @return The name of the log group under which the log stream is to be created.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     * 
-     */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output<String> policyDocument;
 
-    /**
-     * @return Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
-     * 
-     */
     public Output<String> policyDocument() {
         return this.policyDocument;
     }

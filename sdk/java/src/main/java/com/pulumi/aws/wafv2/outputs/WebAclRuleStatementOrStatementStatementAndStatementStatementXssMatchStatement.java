@@ -13,33 +13,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement {
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch fieldToMatch;
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     private List<WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations;
 
     private WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatement() {}
-    /**
-     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch> fieldToMatch() {
         return Optional.ofNullable(this.fieldToMatch);
     }
-    /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
-     * 
-     */
     public List<WebAclRuleStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation> textTransformations() {
         return this.textTransformations;
     }

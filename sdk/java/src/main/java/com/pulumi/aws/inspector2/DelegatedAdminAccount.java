@@ -13,79 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Resource for managing an AWS Inspector V2 Delegated Admin Account.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inspector2.DelegatedAdminAccount;
- * import com.pulumi.aws.inspector2.DelegatedAdminAccountArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = AwsFunctions.getCallerIdentity();
- * 
- *         var example = new DelegatedAdminAccount(&#34;example&#34;, DelegatedAdminAccountArgs.builder()        
- *             .accountId(current.applyValue(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Inspector V2 Delegated Admin Account can be imported using the `account_id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
- * ```
- * 
- */
 @ResourceType(type="aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount")
 public class DelegatedAdminAccount extends com.pulumi.resources.CustomResource {
-    /**
-     * Account to enable as delegated admin account.
-     * 
-     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
-    /**
-     * @return Account to enable as delegated admin account.
-     * 
-     */
     public Output<String> accountId() {
         return this.accountId;
     }
-    /**
-     * Status of this delegated admin account.
-     * 
-     */
     @Export(name="relationshipStatus", refs={String.class}, tree="[0]")
     private Output<String> relationshipStatus;
 
-    /**
-     * @return Status of this delegated admin account.
-     * 
-     */
     public Output<String> relationshipStatus() {
         return this.relationshipStatus;
     }

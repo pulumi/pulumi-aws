@@ -15,47 +15,23 @@ public final class InstanceLaunchTemplateArgs extends com.pulumi.resources.Resou
 
     public static final InstanceLaunchTemplateArgs Empty = new InstanceLaunchTemplateArgs();
 
-    /**
-     * ID of the launch template. Conflicts with `name`.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return ID of the launch template. Conflicts with `name`.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * Name of the launch template. Conflicts with `id`.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Name of the launch template. Conflicts with `id`.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -86,65 +62,29 @@ public final class InstanceLaunchTemplateArgs extends com.pulumi.resources.Resou
             $ = new InstanceLaunchTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id ID of the launch template. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id ID of the launch template. Conflicts with `name`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name Name of the launch template. Conflicts with `id`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Name of the launch template. Conflicts with `id`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param version Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

@@ -19,107 +19,51 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
 
     public static final AnomalySubscriptionArgs Empty = new AnomalySubscriptionArgs();
 
-    /**
-     * The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
 
-    /**
-     * The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-     * 
-     */
     @Import(name="frequency", required=true)
     private Output<String> frequency;
 
-    /**
-     * @return The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-     * 
-     */
     public Output<String> frequency() {
         return this.frequency;
     }
 
-    /**
-     * A list of cost anomaly monitors.
-     * 
-     */
     @Import(name="monitorArnLists", required=true)
     private Output<List<String>> monitorArnLists;
 
-    /**
-     * @return A list of cost anomaly monitors.
-     * 
-     */
     public Output<List<String>> monitorArnLists() {
         return this.monitorArnLists;
     }
 
-    /**
-     * The name for the subscription.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name for the subscription.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * A subscriber configuration. Multiple subscribers can be defined.
-     * 
-     */
     @Import(name="subscribers", required=true)
     private Output<List<AnomalySubscriptionSubscriberArgs>> subscribers;
 
-    /**
-     * @return A subscriber configuration. Multiple subscribers can be defined.
-     * 
-     */
     public Output<List<AnomalySubscriptionSubscriberArgs>> subscribers() {
         return this.subscribers;
     }
 
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * The dollar value that triggers a notification if the threshold is exceeded.
-     * 
-     */
     @Import(name="threshold", required=true)
     private Output<Double> threshold;
 
-    /**
-     * @return The dollar value that triggers a notification if the threshold is exceeded.
-     * 
-     */
     public Output<Double> threshold() {
         return this.threshold;
     }
@@ -154,169 +98,73 @@ public final class AnomalySubscriptionArgs extends com.pulumi.resources.Resource
             $ = new AnomalySubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }
 
-        /**
-         * @param frequency The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequency(Output<String> frequency) {
             $.frequency = frequency;
             return this;
         }
 
-        /**
-         * @param frequency The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder frequency(String frequency) {
             return frequency(Output.of(frequency));
         }
 
-        /**
-         * @param monitorArnLists A list of cost anomaly monitors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorArnLists(Output<List<String>> monitorArnLists) {
             $.monitorArnLists = monitorArnLists;
             return this;
         }
 
-        /**
-         * @param monitorArnLists A list of cost anomaly monitors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorArnLists(List<String> monitorArnLists) {
             return monitorArnLists(Output.of(monitorArnLists));
         }
 
-        /**
-         * @param monitorArnLists A list of cost anomaly monitors.
-         * 
-         * @return builder
-         * 
-         */
         public Builder monitorArnLists(String... monitorArnLists) {
             return monitorArnLists(List.of(monitorArnLists));
         }
 
-        /**
-         * @param name The name for the subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name for the subscription.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param subscribers A subscriber configuration. Multiple subscribers can be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(Output<List<AnomalySubscriptionSubscriberArgs>> subscribers) {
             $.subscribers = subscribers;
             return this;
         }
 
-        /**
-         * @param subscribers A subscriber configuration. Multiple subscribers can be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(List<AnomalySubscriptionSubscriberArgs> subscribers) {
             return subscribers(Output.of(subscribers));
         }
 
-        /**
-         * @param subscribers A subscriber configuration. Multiple subscribers can be defined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subscribers(AnomalySubscriptionSubscriberArgs... subscribers) {
             return subscribers(List.of(subscribers));
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Output<Double> threshold) {
             $.threshold = threshold;
             return this;
         }
 
-        /**
-         * @param threshold The dollar value that triggers a notification if the threshold is exceeded.
-         * 
-         * @return builder
-         * 
-         */
         public Builder threshold(Double threshold) {
             return threshold(Output.of(threshold));
         }

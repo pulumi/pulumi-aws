@@ -17,47 +17,23 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
 
     public static final FrameworkControlScopeArgs Empty = new FrameworkControlScopeArgs();
 
-    /**
-     * The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-     * 
-     */
     @Import(name="complianceResourceIds")
     private @Nullable Output<List<String>> complianceResourceIds;
 
-    /**
-     * @return The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-     * 
-     */
     public Optional<Output<List<String>>> complianceResourceIds() {
         return Optional.ofNullable(this.complianceResourceIds);
     }
 
-    /**
-     * Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     @Import(name="complianceResourceTypes")
     private @Nullable Output<List<String>> complianceResourceTypes;
 
-    /**
-     * @return Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-     * 
-     */
     public Optional<Output<List<String>>> complianceResourceTypes() {
         return Optional.ofNullable(this.complianceResourceTypes);
     }
 
-    /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -88,85 +64,37 @@ public final class FrameworkControlScopeArgs extends com.pulumi.resources.Resour
             $ = new FrameworkControlScopeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceIds(@Nullable Output<List<String>> complianceResourceIds) {
             $.complianceResourceIds = complianceResourceIds;
             return this;
         }
 
-        /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceIds(List<String> complianceResourceIds) {
             return complianceResourceIds(Output.of(complianceResourceIds));
         }
 
-        /**
-         * @param complianceResourceIds The ID of the only AWS resource that you want your control scope to contain. Minimum number of 1 item. Maximum number of 100 items.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceIds(String... complianceResourceIds) {
             return complianceResourceIds(List.of(complianceResourceIds));
         }
 
-        /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceTypes(@Nullable Output<List<String>> complianceResourceTypes) {
             $.complianceResourceTypes = complianceResourceTypes;
             return this;
         }
 
-        /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceTypes(List<String> complianceResourceTypes) {
             return complianceResourceTypes(Output.of(complianceResourceTypes));
         }
 
-        /**
-         * @param complianceResourceTypes Describes whether the control scope includes one or more types of resources, such as EFS or RDS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder complianceResourceTypes(String... complianceResourceTypes) {
             return complianceResourceTypes(List.of(complianceResourceTypes));
         }
 
-        /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

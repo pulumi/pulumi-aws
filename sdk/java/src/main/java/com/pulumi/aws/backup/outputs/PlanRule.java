@@ -17,113 +17,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanRule {
-    /**
-     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-     * 
-     */
     private @Nullable Integer completionWindow;
-    /**
-     * @return Configuration block(s) with copy operation settings. Detailed below.
-     * 
-     */
     private @Nullable List<PlanRuleCopyAction> copyActions;
-    /**
-     * @return Enable continuous backups for supported resources.
-     * 
-     */
     private @Nullable Boolean enableContinuousBackup;
-    /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-     * 
-     */
     private @Nullable PlanRuleLifecycle lifecycle;
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     private @Nullable Map<String,String> recoveryPointTags;
-    /**
-     * @return An display name for a backup rule.
-     * 
-     */
     private String ruleName;
-    /**
-     * @return A CRON expression specifying when AWS Backup initiates a backup job.
-     * 
-     */
     private @Nullable String schedule;
-    /**
-     * @return The amount of time in minutes before beginning a backup.
-     * 
-     */
     private @Nullable Integer startWindow;
-    /**
-     * @return The name of a logical container where backups are stored.
-     * 
-     */
     private String targetVaultName;
 
     private PlanRule() {}
-    /**
-     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-     * 
-     */
     public Optional<Integer> completionWindow() {
         return Optional.ofNullable(this.completionWindow);
     }
-    /**
-     * @return Configuration block(s) with copy operation settings. Detailed below.
-     * 
-     */
     public List<PlanRuleCopyAction> copyActions() {
         return this.copyActions == null ? List.of() : this.copyActions;
     }
-    /**
-     * @return Enable continuous backups for supported resources.
-     * 
-     */
     public Optional<Boolean> enableContinuousBackup() {
         return Optional.ofNullable(this.enableContinuousBackup);
     }
-    /**
-     * @return The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
-     * 
-     */
     public Optional<PlanRuleLifecycle> lifecycle() {
         return Optional.ofNullable(this.lifecycle);
     }
-    /**
-     * @return Metadata that you can assign to help organize the resources that you create.
-     * 
-     */
     public Map<String,String> recoveryPointTags() {
         return this.recoveryPointTags == null ? Map.of() : this.recoveryPointTags;
     }
-    /**
-     * @return An display name for a backup rule.
-     * 
-     */
     public String ruleName() {
         return this.ruleName;
     }
-    /**
-     * @return A CRON expression specifying when AWS Backup initiates a backup job.
-     * 
-     */
     public Optional<String> schedule() {
         return Optional.ofNullable(this.schedule);
     }
-    /**
-     * @return The amount of time in minutes before beginning a backup.
-     * 
-     */
     public Optional<Integer> startWindow() {
         return Optional.ofNullable(this.startWindow);
     }
-    /**
-     * @return The name of a logical container where backups are stored.
-     * 
-     */
     public String targetVaultName() {
         return this.targetVaultName;
     }

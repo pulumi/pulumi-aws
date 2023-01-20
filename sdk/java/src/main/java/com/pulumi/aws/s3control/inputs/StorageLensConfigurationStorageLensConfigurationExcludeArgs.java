@@ -16,32 +16,16 @@ public final class StorageLensConfigurationStorageLensConfigurationExcludeArgs e
 
     public static final StorageLensConfigurationStorageLensConfigurationExcludeArgs Empty = new StorageLensConfigurationStorageLensConfigurationExcludeArgs();
 
-    /**
-     * List of S3 bucket ARNs.
-     * 
-     */
     @Import(name="buckets")
     private @Nullable Output<List<String>> buckets;
 
-    /**
-     * @return List of S3 bucket ARNs.
-     * 
-     */
     public Optional<Output<List<String>>> buckets() {
         return Optional.ofNullable(this.buckets);
     }
 
-    /**
-     * List of AWS Regions.
-     * 
-     */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
-    /**
-     * @return List of AWS Regions.
-     * 
-     */
     public Optional<Output<List<String>>> regions() {
         return Optional.ofNullable(this.regions);
     }
@@ -71,64 +55,28 @@ public final class StorageLensConfigurationStorageLensConfigurationExcludeArgs e
             $ = new StorageLensConfigurationStorageLensConfigurationExcludeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param buckets List of S3 bucket ARNs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(@Nullable Output<List<String>> buckets) {
             $.buckets = buckets;
             return this;
         }
 
-        /**
-         * @param buckets List of S3 bucket ARNs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(List<String> buckets) {
             return buckets(Output.of(buckets));
         }
 
-        /**
-         * @param buckets List of S3 bucket ARNs.
-         * 
-         * @return builder
-         * 
-         */
         public Builder buckets(String... buckets) {
             return buckets(List.of(buckets));
         }
 
-        /**
-         * @param regions List of AWS Regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(@Nullable Output<List<String>> regions) {
             $.regions = regions;
             return this;
         }
 
-        /**
-         * @param regions List of AWS Regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(List<String> regions) {
             return regions(Output.of(regions));
         }
 
-        /**
-         * @param regions List of AWS Regions.
-         * 
-         * @return builder
-         * 
-         */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
         }

@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria {
-    /**
-     * @return The delimiter of the selection criteria being used.
-     * 
-     */
     private @Nullable String delimiter;
-    /**
-     * @return The max depth of the selection criteria.
-     * 
-     */
     private @Nullable Integer maxDepth;
-    /**
-     * @return The minimum number of storage bytes percentage whose metrics will be selected.
-     * 
-     */
     private @Nullable Double minStorageBytesPercentage;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria() {}
-    /**
-     * @return The delimiter of the selection criteria being used.
-     * 
-     */
     public Optional<String> delimiter() {
         return Optional.ofNullable(this.delimiter);
     }
-    /**
-     * @return The max depth of the selection criteria.
-     * 
-     */
     public Optional<Integer> maxDepth() {
         return Optional.ofNullable(this.maxDepth);
     }
-    /**
-     * @return The minimum number of storage bytes percentage whose metrics will be selected.
-     * 
-     */
     public Optional<Double> minStorageBytesPercentage() {
         return Optional.ofNullable(this.minStorageBytesPercentage);
     }

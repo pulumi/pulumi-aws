@@ -16,147 +16,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker Space resource.
- * 
- * ## Example Usage
- * ### Basic usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.Space;
- * import com.pulumi.aws.sagemaker.SpaceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Space(&#34;example&#34;, SpaceArgs.builder()        
- *             .domainId(aws_sagemaker_domain.test().id())
- *             .spaceName(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SageMaker Spaces can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/space:Space")
 public class Space extends com.pulumi.resources.CustomResource {
-    /**
-     * The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The space&#39;s Amazon Resource Name (ARN).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The ID of the associated Domain.
-     * 
-     */
     @Export(name="domainId", refs={String.class}, tree="[0]")
     private Output<String> domainId;
 
-    /**
-     * @return The ID of the associated Domain.
-     * 
-     */
     public Output<String> domainId() {
         return this.domainId;
     }
-    /**
-     * The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     @Export(name="homeEfsFileSystemUid", refs={String.class}, tree="[0]")
     private Output<String> homeEfsFileSystemUid;
 
-    /**
-     * @return The ID of the space&#39;s profile in the Amazon Elastic File System volume.
-     * 
-     */
     public Output<String> homeEfsFileSystemUid() {
         return this.homeEfsFileSystemUid;
     }
-    /**
-     * The name of the space.
-     * 
-     */
     @Export(name="spaceName", refs={String.class}, tree="[0]")
     private Output<String> spaceName;
 
-    /**
-     * @return The name of the space.
-     * 
-     */
     public Output<String> spaceName() {
         return this.spaceName;
     }
-    /**
-     * A collection of space settings. See Space Settings below.
-     * 
-     */
     @Export(name="spaceSettings", refs={SpaceSpaceSettings.class}, tree="[0]")
     private Output</* @Nullable */ SpaceSpaceSettings> spaceSettings;
 
-    /**
-     * @return A collection of space settings. See Space Settings below.
-     * 
-     */
     public Output<Optional<SpaceSpaceSettings>> spaceSettings() {
         return Codegen.optional(this.spaceSettings);
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

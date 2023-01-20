@@ -13,53 +13,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
-    /**
-     * @return The operator to use in the condition.
-     * 
-     */
     private @Nullable String comparator;
-    /**
-     * @return The tag key to use in the condition. The only valid value is `TAG`.
-     * 
-     */
     private @Nullable String key;
-    /**
-     * @return The tag keys or tag key and value pairs to use in the condition.
-     * 
-     */
     private @Nullable List<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue> tagValues;
-    /**
-     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-     * 
-     */
     private @Nullable String target;
 
     private ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm() {}
-    /**
-     * @return The operator to use in the condition.
-     * 
-     */
     public Optional<String> comparator() {
         return Optional.ofNullable(this.comparator);
     }
-    /**
-     * @return The tag key to use in the condition. The only valid value is `TAG`.
-     * 
-     */
     public Optional<String> key() {
         return Optional.ofNullable(this.key);
     }
-    /**
-     * @return The tag keys or tag key and value pairs to use in the condition.
-     * 
-     */
     public List<ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValue> tagValues() {
         return this.tagValues == null ? List.of() : this.tagValues;
     }
-    /**
-     * @return The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-     * 
-     */
     public Optional<String> target() {
         return Optional.ofNullable(this.target);
     }

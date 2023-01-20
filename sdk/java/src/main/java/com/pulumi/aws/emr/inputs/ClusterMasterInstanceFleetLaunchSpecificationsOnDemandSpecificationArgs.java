@@ -13,17 +13,9 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
 
     public static final ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs Empty = new ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs();
 
-    /**
-     * Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-     * 
-     */
     @Import(name="allocationStrategy", required=true)
     private Output<String> allocationStrategy;
 
-    /**
-     * @return Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-     * 
-     */
     public Output<String> allocationStrategy() {
         return this.allocationStrategy;
     }
@@ -52,23 +44,11 @@ public final class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecifi
             $ = new ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(Output<String> allocationStrategy) {
             $.allocationStrategy = allocationStrategy;
             return this;
         }
 
-        /**
-         * @param allocationStrategy Specifies the strategy to use in launching Spot instance fleets. Currently, the only option is `capacity-optimized` (the default), which launches instances from Spot instance pools with optimal capacity for the number of instances that are launching.
-         * 
-         * @return builder
-         * 
-         */
         public Builder allocationStrategy(String allocationStrategy) {
             return allocationStrategy(Output.of(allocationStrategy));
         }

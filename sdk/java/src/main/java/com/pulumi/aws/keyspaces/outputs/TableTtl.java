@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class TableTtl {
-    /**
-     * @return Valid values: `ENABLED`.
-     * 
-     */
     private String status;
 
     private TableTtl() {}
-    /**
-     * @return Valid values: `ENABLED`.
-     * 
-     */
     public String status() {
         return this.status;
     }

@@ -13,17 +13,9 @@ public final class DomainIdentityArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final DomainIdentityArgs Empty = new DomainIdentityArgs();
 
-    /**
-     * The domain name to assign to SES
-     * 
-     */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
-    /**
-     * @return The domain name to assign to SES
-     * 
-     */
     public Output<String> domain() {
         return this.domain;
     }
@@ -52,23 +44,11 @@ public final class DomainIdentityArgs extends com.pulumi.resources.ResourceArgs 
             $ = new DomainIdentityArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domain The domain name to assign to SES
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The domain name to assign to SES
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

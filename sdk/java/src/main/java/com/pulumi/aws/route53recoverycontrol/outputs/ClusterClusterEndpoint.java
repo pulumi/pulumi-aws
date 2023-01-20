@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterClusterEndpoint {
-    /**
-     * @return Cluster endpoint.
-     * 
-     */
     private @Nullable String endpoint;
-    /**
-     * @return Region of the endpoint.
-     * 
-     */
     private @Nullable String region;
 
     private ClusterClusterEndpoint() {}
-    /**
-     * @return Cluster endpoint.
-     * 
-     */
     public Optional<String> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
-    /**
-     * @return Region of the endpoint.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }

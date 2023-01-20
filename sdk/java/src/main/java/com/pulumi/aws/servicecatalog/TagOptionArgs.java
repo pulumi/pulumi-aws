@@ -16,47 +16,23 @@ public final class TagOptionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final TagOptionArgs Empty = new TagOptionArgs();
 
-    /**
-     * Whether tag option is active. Default is `true`.
-     * 
-     */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
-    /**
-     * @return Whether tag option is active. Default is `true`.
-     * 
-     */
     public Optional<Output<Boolean>> active() {
         return Optional.ofNullable(this.active);
     }
 
-    /**
-     * Tag option key.
-     * 
-     */
     @Import(name="key", required=true)
     private Output<String> key;
 
-    /**
-     * @return Tag option key.
-     * 
-     */
     public Output<String> key() {
         return this.key;
     }
 
-    /**
-     * Tag option value.
-     * 
-     */
     @Import(name="value", required=true)
     private Output<String> value;
 
-    /**
-     * @return Tag option value.
-     * 
-     */
     public Output<String> value() {
         return this.value;
     }
@@ -87,65 +63,29 @@ public final class TagOptionArgs extends com.pulumi.resources.ResourceArgs {
             $ = new TagOptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param active Whether tag option is active. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(@Nullable Output<Boolean> active) {
             $.active = active;
             return this;
         }
 
-        /**
-         * @param active Whether tag option is active. Default is `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder active(Boolean active) {
             return active(Output.of(active));
         }
 
-        /**
-         * @param key Tag option key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key Tag option key.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param value Tag option value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value Tag option value.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

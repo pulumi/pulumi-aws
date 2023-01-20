@@ -14,32 +14,16 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersPlainArgs Empty = new GetUsersPlainArgs();
 
-    /**
-     * Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     * 
-     */
     @Import(name="nameRegex")
     private @Nullable String nameRegex;
 
-    /**
-     * @return Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-     * 
-     */
     public Optional<String> nameRegex() {
         return Optional.ofNullable(this.nameRegex);
     }
 
-    /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="pathPrefix")
     private @Nullable String pathPrefix;
 
-    /**
-     * @return Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-     * 
-     */
     public Optional<String> pathPrefix() {
         return Optional.ofNullable(this.pathPrefix);
     }
@@ -69,23 +53,11 @@ public final class GetUsersPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUsersPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param nameRegex Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-         * 
-         * @return builder
-         * 
-         */
         public Builder nameRegex(@Nullable String nameRegex) {
             $.nameRegex = nameRegex;
             return this;
         }
 
-        /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder pathPrefix(@Nullable String pathPrefix) {
             $.pathPrefix = pathPrefix;
             return this;

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchTemplateMaintenanceOptions {
-    /**
-     * @return Disables the automatic recovery behavior of your instance or sets it to default. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-     * 
-     */
     private @Nullable String autoRecovery;
 
     private LaunchTemplateMaintenanceOptions() {}
-    /**
-     * @return Disables the automatic recovery behavior of your instance or sets it to default. Can be `&#34;default&#34;` or `&#34;disabled&#34;`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
-     * 
-     */
     public Optional<String> autoRecovery() {
         return Optional.ofNullable(this.autoRecovery);
     }

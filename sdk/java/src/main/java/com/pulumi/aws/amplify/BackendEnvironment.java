@@ -13,123 +13,35 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amplify Backend Environment resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amplify.App;
- * import com.pulumi.aws.amplify.BackendEnvironment;
- * import com.pulumi.aws.amplify.BackendEnvironmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleApp = new App(&#34;exampleApp&#34;);
- * 
- *         var exampleBackendEnvironment = new BackendEnvironment(&#34;exampleBackendEnvironment&#34;, BackendEnvironmentArgs.builder()        
- *             .appId(exampleApp.id())
- *             .environmentName(&#34;example&#34;)
- *             .deploymentArtifacts(&#34;app-example-deployment&#34;)
- *             .stackName(&#34;amplify-app-example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
- * ```
- * 
- */
 @ResourceType(type="aws:amplify/backendEnvironment:BackendEnvironment")
 public class BackendEnvironment extends com.pulumi.resources.CustomResource {
-    /**
-     * Unique ID for an Amplify app.
-     * 
-     */
     @Export(name="appId", refs={String.class}, tree="[0]")
     private Output<String> appId;
 
-    /**
-     * @return Unique ID for an Amplify app.
-     * 
-     */
     public Output<String> appId() {
         return this.appId;
     }
-    /**
-     * ARN for a backend environment that is part of an Amplify app.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN for a backend environment that is part of an Amplify app.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Name of deployment artifacts.
-     * 
-     */
     @Export(name="deploymentArtifacts", refs={String.class}, tree="[0]")
     private Output<String> deploymentArtifacts;
 
-    /**
-     * @return Name of deployment artifacts.
-     * 
-     */
     public Output<String> deploymentArtifacts() {
         return this.deploymentArtifacts;
     }
-    /**
-     * Name for the backend environment.
-     * 
-     */
     @Export(name="environmentName", refs={String.class}, tree="[0]")
     private Output<String> environmentName;
 
-    /**
-     * @return Name for the backend environment.
-     * 
-     */
     public Output<String> environmentName() {
         return this.environmentName;
     }
-    /**
-     * AWS CloudFormation stack name of a backend environment.
-     * 
-     */
     @Export(name="stackName", refs={String.class}, tree="[0]")
     private Output<String> stackName;
 
-    /**
-     * @return AWS CloudFormation stack name of a backend environment.
-     * 
-     */
     public Output<String> stackName() {
         return this.stackName;
     }

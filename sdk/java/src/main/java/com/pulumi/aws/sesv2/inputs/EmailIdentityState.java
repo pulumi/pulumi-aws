@@ -18,92 +18,44 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
 
     public static final EmailIdentityState Empty = new EmailIdentityState();
 
-    /**
-     * ARN of the Email Identity.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the Email Identity.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
-    /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-     * 
-     */
     public Optional<Output<String>> configurationSetName() {
         return Optional.ofNullable(this.configurationSetName);
     }
 
-    /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     @Import(name="dkimSigningAttributes")
     private @Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes;
 
-    /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
-     * 
-     */
     public Optional<Output<EmailIdentityDkimSigningAttributesArgs>> dkimSigningAttributes() {
         return Optional.ofNullable(this.dkimSigningAttributes);
     }
 
-    /**
-     * The email address or domain to verify.
-     * 
-     */
     @Import(name="emailIdentity")
     private @Nullable Output<String> emailIdentity;
 
-    /**
-     * @return The email address or domain to verify.
-     * 
-     */
     public Optional<Output<String>> emailIdentity() {
         return Optional.ofNullable(this.emailIdentity);
     }
 
-    /**
-     * The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     @Import(name="identityType")
     private @Nullable Output<String> identityType;
 
-    /**
-     * @return The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-     * 
-     */
     public Optional<Output<String>> identityType() {
         return Optional.ofNullable(this.identityType);
     }
 
-    /**
-     * (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -115,17 +67,9 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Specifies whether or not the identity is verified.
-     * 
-     */
     @Import(name="verifiedForSendingStatus")
     private @Nullable Output<Boolean> verifiedForSendingStatus;
 
-    /**
-     * @return Specifies whether or not the identity is verified.
-     * 
-     */
     public Optional<Output<Boolean>> verifiedForSendingStatus() {
         return Optional.ofNullable(this.verifiedForSendingStatus);
     }
@@ -161,128 +105,56 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
             $ = new EmailIdentityState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the Email Identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the Email Identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(@Nullable Output<String> configurationSetName) {
             $.configurationSetName = configurationSetName;
             return this;
         }
 
-        /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-         * 
-         * @return builder
-         * 
-         */
         public Builder configurationSetName(String configurationSetName) {
             return configurationSetName(Output.of(configurationSetName));
         }
 
-        /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dkimSigningAttributes(@Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes) {
             $.dkimSigningAttributes = dkimSigningAttributes;
             return this;
         }
 
-        /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dkimSigningAttributes(EmailIdentityDkimSigningAttributesArgs dkimSigningAttributes) {
             return dkimSigningAttributes(Output.of(dkimSigningAttributes));
         }
 
-        /**
-         * @param emailIdentity The email address or domain to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(@Nullable Output<String> emailIdentity) {
             $.emailIdentity = emailIdentity;
             return this;
         }
 
-        /**
-         * @param emailIdentity The email address or domain to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder emailIdentity(String emailIdentity) {
             return emailIdentity(Output.of(emailIdentity));
         }
 
-        /**
-         * @param identityType The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityType(@Nullable Output<String> identityType) {
             $.identityType = identityType;
             return this;
         }
 
-        /**
-         * @param identityType The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityType(String identityType) {
             return identityType(Output.of(identityType));
         }
 
-        /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags (Optional) A map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -296,23 +168,11 @@ public final class EmailIdentityState extends com.pulumi.resources.ResourceArgs 
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param verifiedForSendingStatus Specifies whether or not the identity is verified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedForSendingStatus(@Nullable Output<Boolean> verifiedForSendingStatus) {
             $.verifiedForSendingStatus = verifiedForSendingStatus;
             return this;
         }
 
-        /**
-         * @param verifiedForSendingStatus Specifies whether or not the identity is verified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder verifiedForSendingStatus(Boolean verifiedForSendingStatus) {
             return verifiedForSendingStatus(Output.of(verifiedForSendingStatus));
         }

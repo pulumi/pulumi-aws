@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationMetadataOptions {
-    /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     private @Nullable String httpEndpoint;
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     private @Nullable Integer httpPutResponseHopLimit;
-    /**
-     * @return If session tokens are required: `optional`, `required`.
-     * 
-     */
     private @Nullable String httpTokens;
 
     private LaunchConfigurationMetadataOptions() {}
-    /**
-     * @return The state of the metadata service: `enabled`, `disabled`.
-     * 
-     */
     public Optional<String> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
     }
-    /**
-     * @return The desired HTTP PUT response hop limit for instance metadata requests.
-     * 
-     */
     public Optional<Integer> httpPutResponseHopLimit() {
         return Optional.ofNullable(this.httpPutResponseHopLimit);
     }
-    /**
-     * @return If session tokens are required: `optional`, `required`.
-     * 
-     */
     public Optional<String> httpTokens() {
         return Optional.ofNullable(this.httpTokens);
     }

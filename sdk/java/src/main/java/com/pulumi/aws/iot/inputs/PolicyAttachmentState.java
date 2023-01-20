@@ -15,32 +15,16 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
 
     public static final PolicyAttachmentState Empty = new PolicyAttachmentState();
 
-    /**
-     * The name of the policy to attach.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The name of the policy to attach.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * The identity to which the policy is attached.
-     * 
-     */
     @Import(name="target")
     private @Nullable Output<String> target;
 
-    /**
-     * @return The identity to which the policy is attached.
-     * 
-     */
     public Optional<Output<String>> target() {
         return Optional.ofNullable(this.target);
     }
@@ -70,44 +54,20 @@ public final class PolicyAttachmentState extends com.pulumi.resources.ResourceAr
             $ = new PolicyAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy The name of the policy to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The name of the policy to attach.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param target The identity to which the policy is attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(@Nullable Output<String> target) {
             $.target = target;
             return this;
         }
 
-        /**
-         * @param target The identity to which the policy is attached.
-         * 
-         * @return builder
-         * 
-         */
         public Builder target(String target) {
             return target(Output.of(target));
         }

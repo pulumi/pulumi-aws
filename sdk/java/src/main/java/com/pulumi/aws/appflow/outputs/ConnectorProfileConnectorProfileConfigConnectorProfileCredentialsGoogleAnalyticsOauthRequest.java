@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
-    /**
-     * @return The code provided by the connector when it has been authenticated via the connected app.
-     * 
-     */
     private @Nullable String authCode;
-    /**
-     * @return The URL to which the authentication server redirects the browser after authorization has been granted.
-     * 
-     */
     private @Nullable String redirectUri;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest() {}
-    /**
-     * @return The code provided by the connector when it has been authenticated via the connected app.
-     * 
-     */
     public Optional<String> authCode() {
         return Optional.ofNullable(this.authCode);
     }
-    /**
-     * @return The URL to which the authentication server redirects the browser after authorization has been granted.
-     * 
-     */
     public Optional<String> redirectUri() {
         return Optional.ofNullable(this.redirectUri);
     }

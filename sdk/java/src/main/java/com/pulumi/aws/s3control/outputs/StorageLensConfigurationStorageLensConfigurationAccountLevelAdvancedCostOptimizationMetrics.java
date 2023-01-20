@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics {
-    /**
-     * @return Whether advanced cost-optimization metrics are enabled.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics() {}
-    /**
-     * @return Whether advanced cost-optimization metrics are enabled.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

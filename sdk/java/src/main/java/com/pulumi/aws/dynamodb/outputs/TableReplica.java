@@ -12,53 +12,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TableReplica {
-    /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-     * 
-     */
     private @Nullable String kmsKeyArn;
-    /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     * 
-     */
     private @Nullable Boolean pointInTimeRecovery;
-    /**
-     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
-     * 
-     */
     private @Nullable Boolean propagateTags;
-    /**
-     * @return Region name of the replica.
-     * 
-     */
     private String regionName;
 
     private TableReplica() {}
-    /**
-     * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
-     * 
-     */
     public Optional<String> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
-    /**
-     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
-     * 
-     */
     public Optional<Boolean> pointInTimeRecovery() {
         return Optional.ofNullable(this.pointInTimeRecovery);
     }
-    /**
-     * @return Whether to propagate the global table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from global (source) to replica. In other words, tag drift on a replica will not trigger an update. Tag or replica changes on the global table, whether from drift or configuration changes, are propagated to replicas. Changing from `true` to `false` on a subsequent `apply` means replica tags are left as they were, unmanaged, not deleted.
-     * 
-     */
     public Optional<Boolean> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
-    /**
-     * @return Region name of the replica.
-     * 
-     */
     public String regionName() {
         return this.regionName;
     }

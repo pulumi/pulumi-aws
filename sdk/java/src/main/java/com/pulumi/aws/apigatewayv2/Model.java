@@ -14,129 +14,35 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.Model;
- * import com.pulumi.aws.apigatewayv2.ModelArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Model(&#34;example&#34;, ModelArgs.builder()        
- *             .apiId(aws_apigatewayv2_api.example().id())
- *             .contentType(&#34;application/json&#34;)
- *             .schema(&#34;&#34;&#34;
- * {
- *   &#34;$schema&#34;: &#34;http://json-schema.org/draft-04/schema#&#34;,
- *   &#34;title&#34;: &#34;ExampleModel&#34;,
- *   &#34;type&#34;: &#34;object&#34;,
- *   &#34;properties&#34;: {
- *     &#34;id&#34;: { &#34;type&#34;: &#34;string&#34; }
- *   }
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
-    /**
-     * API identifier.
-     * 
-     */
     @Export(name="apiId", refs={String.class}, tree="[0]")
     private Output<String> apiId;
 
-    /**
-     * @return API identifier.
-     * 
-     */
     public Output<String> apiId() {
         return this.apiId;
     }
-    /**
-     * The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     @Export(name="contentType", refs={String.class}, tree="[0]")
     private Output<String> contentType;
 
-    /**
-     * @return The content-type for the model, for example, `application/json`. Must be between 1 and 256 characters in length.
-     * 
-     */
     public Output<String> contentType() {
         return this.contentType;
     }
-    /**
-     * Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Description of the model. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the model. Must be alphanumeric. Must be between 1 and 128 characters in length.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
-    /**
-     * @return Schema for the model. This should be a [JSON schema draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) model. Must be less than or equal to 32768 characters in length.
-     * 
-     */
     public Output<String> schema() {
         return this.schema;
     }

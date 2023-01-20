@@ -13,17 +13,9 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
 
     public static final OrganizationConfigurationArgs Empty = new OrganizationConfigurationArgs();
 
-    /**
-     * Configuration block for auto enabling. See below.
-     * 
-     */
     @Import(name="autoEnable", required=true)
     private Output<OrganizationConfigurationAutoEnableArgs> autoEnable;
 
-    /**
-     * @return Configuration block for auto enabling. See below.
-     * 
-     */
     public Output<OrganizationConfigurationAutoEnableArgs> autoEnable() {
         return this.autoEnable;
     }
@@ -52,23 +44,11 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
             $ = new OrganizationConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoEnable Configuration block for auto enabling. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(Output<OrganizationConfigurationAutoEnableArgs> autoEnable) {
             $.autoEnable = autoEnable;
             return this;
         }
 
-        /**
-         * @param autoEnable Configuration block for auto enabling. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoEnable(OrganizationConfigurationAutoEnableArgs autoEnable) {
             return autoEnable(Output.of(autoEnable));
         }

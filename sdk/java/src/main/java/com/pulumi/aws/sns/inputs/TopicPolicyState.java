@@ -15,47 +15,23 @@ public final class TopicPolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final TopicPolicyState Empty = new TopicPolicyState();
 
-    /**
-     * The ARN of the SNS topic
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the SNS topic
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The AWS Account ID of the SNS topic owner
-     * 
-     */
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
-    /**
-     * @return The AWS Account ID of the SNS topic owner
-     * 
-     */
     public Optional<Output<String>> owner() {
         return Optional.ofNullable(this.owner);
     }
 
-    /**
-     * The fully-formed AWS policy as JSON.
-     * 
-     */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
-    /**
-     * @return The fully-formed AWS policy as JSON.
-     * 
-     */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -86,65 +62,29 @@ public final class TopicPolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new TopicPolicyState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the SNS topic
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the SNS topic
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param owner The AWS Account ID of the SNS topic owner
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(@Nullable Output<String> owner) {
             $.owner = owner;
             return this;
         }
 
-        /**
-         * @param owner The AWS Account ID of the SNS topic owner
-         * 
-         * @return builder
-         * 
-         */
         public Builder owner(String owner) {
             return owner(Output.of(owner));
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The fully-formed AWS policy as JSON.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

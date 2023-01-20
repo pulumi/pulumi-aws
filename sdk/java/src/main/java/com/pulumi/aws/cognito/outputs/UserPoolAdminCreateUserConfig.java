@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class UserPoolAdminCreateUserConfig {
-    /**
-     * @return Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-     * 
-     */
     private @Nullable Boolean allowAdminCreateUserOnly;
-    /**
-     * @return Invite message template structure. Detailed below.
-     * 
-     */
     private @Nullable UserPoolAdminCreateUserConfigInviteMessageTemplate inviteMessageTemplate;
 
     private UserPoolAdminCreateUserConfig() {}
-    /**
-     * @return Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-     * 
-     */
     public Optional<Boolean> allowAdminCreateUserOnly() {
         return Optional.ofNullable(this.allowAdminCreateUserOnly);
     }
-    /**
-     * @return Invite message template structure. Detailed below.
-     * 
-     */
     public Optional<UserPoolAdminCreateUserConfigInviteMessageTemplate> inviteMessageTemplate() {
         return Optional.ofNullable(this.inviteMessageTemplate);
     }

@@ -14,77 +14,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TriggerAction {
-    /**
-     * @return Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-     * 
-     */
     private @Nullable Map<String,String> arguments;
-    /**
-     * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-     * 
-     */
     private @Nullable String crawlerName;
-    /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
-     * 
-     */
     private @Nullable String jobName;
-    /**
-     * @return Specifies configuration properties of a job run notification. See Notification Property details below.
-     * 
-     */
     private @Nullable TriggerActionNotificationProperty notificationProperty;
-    /**
-     * @return The name of the Security Configuration structure to be used with this action.
-     * 
-     */
     private @Nullable String securityConfiguration;
-    /**
-     * @return The job run timeout in minutes. It overrides the timeout value of the job.
-     * 
-     */
     private @Nullable Integer timeout;
 
     private TriggerAction() {}
-    /**
-     * @return Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
-     * 
-     */
     public Map<String,String> arguments() {
         return this.arguments == null ? Map.of() : this.arguments;
     }
-    /**
-     * @return The name of the crawler to watch. If this is specified, `crawl_state` must also be specified. Conflicts with `job_name`.
-     * 
-     */
     public Optional<String> crawlerName() {
         return Optional.ofNullable(this.crawlerName);
     }
-    /**
-     * @return The name of the job to watch. If this is specified, `state` must also be specified. Conflicts with `crawler_name`.
-     * 
-     */
     public Optional<String> jobName() {
         return Optional.ofNullable(this.jobName);
     }
-    /**
-     * @return Specifies configuration properties of a job run notification. See Notification Property details below.
-     * 
-     */
     public Optional<TriggerActionNotificationProperty> notificationProperty() {
         return Optional.ofNullable(this.notificationProperty);
     }
-    /**
-     * @return The name of the Security Configuration structure to be used with this action.
-     * 
-     */
     public Optional<String> securityConfiguration() {
         return Optional.ofNullable(this.securityConfiguration);
     }
-    /**
-     * @return The job run timeout in minutes. It overrides the timeout value of the job.
-     * 
-     */
     public Optional<Integer> timeout() {
         return Optional.ofNullable(this.timeout);
     }

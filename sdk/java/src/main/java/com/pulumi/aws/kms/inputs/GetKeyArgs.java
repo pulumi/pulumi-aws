@@ -16,40 +16,16 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetKeyArgs Empty = new GetKeyArgs();
 
-    /**
-     * List of grant tokens
-     * 
-     */
     @Import(name="grantTokens")
     private @Nullable Output<List<String>> grantTokens;
 
-    /**
-     * @return List of grant tokens
-     * 
-     */
     public Optional<Output<List<String>>> grantTokens() {
         return Optional.ofNullable(this.grantTokens);
     }
 
-    /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     * 
-     */
     @Import(name="keyId", required=true)
     private Output<String> keyId;
 
-    /**
-     * @return Key identifier which can be one of the following format:
-     * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g.: `alias/my-key`
-     * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-     * 
-     */
     public Output<String> keyId() {
         return this.keyId;
     }
@@ -79,62 +55,24 @@ public final class GetKeyArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetKeyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param grantTokens List of grant tokens
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantTokens(@Nullable Output<List<String>> grantTokens) {
             $.grantTokens = grantTokens;
             return this;
         }
 
-        /**
-         * @param grantTokens List of grant tokens
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantTokens(List<String> grantTokens) {
             return grantTokens(Output.of(grantTokens));
         }
 
-        /**
-         * @param grantTokens List of grant tokens
-         * 
-         * @return builder
-         * 
-         */
         public Builder grantTokens(String... grantTokens) {
             return grantTokens(List.of(grantTokens));
         }
 
-        /**
-         * @param keyId Key identifier which can be one of the following format:
-         * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Alias name. E.g.: `alias/my-key`
-         * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(Output<String> keyId) {
             $.keyId = keyId;
             return this;
         }
 
-        /**
-         * @param keyId Key identifier which can be one of the following format:
-         * * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-         * * Alias name. E.g.: `alias/my-key`
-         * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyId(String keyId) {
             return keyId(Output.of(keyId));
         }

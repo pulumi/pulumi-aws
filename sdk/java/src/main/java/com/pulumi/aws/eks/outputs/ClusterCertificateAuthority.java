@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterCertificateAuthority {
-    /**
-     * @return Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-     * 
-     */
     private @Nullable String data;
 
     private ClusterCertificateAuthority() {}
-    /**
-     * @return Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-     * 
-     */
     public Optional<String> data() {
         return Optional.ofNullable(this.data);
     }

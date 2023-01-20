@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SpotInstanceRequestEnclaveOptions {
-    /**
-     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     */
     private @Nullable Boolean enabled;
 
     private SpotInstanceRequestEnclaveOptions() {}
-    /**
-     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     */
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }

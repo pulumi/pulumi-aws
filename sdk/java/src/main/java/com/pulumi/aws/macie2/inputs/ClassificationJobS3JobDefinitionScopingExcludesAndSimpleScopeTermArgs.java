@@ -16,47 +16,23 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScope
 
     public static final ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs Empty = new ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs();
 
-    /**
-     * The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-     * 
-     */
     @Import(name="comparator")
     private @Nullable Output<String> comparator;
 
-    /**
-     * @return The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-     * 
-     */
     public Optional<Output<String>> comparator() {
         return Optional.ofNullable(this.comparator);
     }
 
-    /**
-     * The object property to use in the condition.
-     * 
-     */
     @Import(name="key")
     private @Nullable Output<String> key;
 
-    /**
-     * @return The object property to use in the condition.
-     * 
-     */
     public Optional<Output<String>> key() {
         return Optional.ofNullable(this.key);
     }
 
-    /**
-     * An array that lists the values to use in the condition.
-     * 
-     */
     @Import(name="values")
     private @Nullable Output<List<String>> values;
 
-    /**
-     * @return An array that lists the values to use in the condition.
-     * 
-     */
     public Optional<Output<List<String>>> values() {
         return Optional.ofNullable(this.values);
     }
@@ -87,75 +63,33 @@ public final class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScope
             $ = new ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param comparator The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(@Nullable Output<String> comparator) {
             $.comparator = comparator;
             return this;
         }
 
-        /**
-         * @param comparator The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-         * 
-         * @return builder
-         * 
-         */
         public Builder comparator(String comparator) {
             return comparator(Output.of(comparator));
         }
 
-        /**
-         * @param key The object property to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(@Nullable Output<String> key) {
             $.key = key;
             return this;
         }
 
-        /**
-         * @param key The object property to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
-        /**
-         * @param values An array that lists the values to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(@Nullable Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
-        /**
-         * @param values An array that lists the values to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
-        /**
-         * @param values An array that lists the values to use in the condition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

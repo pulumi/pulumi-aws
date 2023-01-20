@@ -15,17 +15,9 @@ public final class NotebookInstanceInstanceMetadataServiceConfigurationArgs exte
 
     public static final NotebookInstanceInstanceMetadataServiceConfigurationArgs Empty = new NotebookInstanceInstanceMetadataServiceConfigurationArgs();
 
-    /**
-     * Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
-     * 
-     */
     @Import(name="minimumInstanceMetadataServiceVersion")
     private @Nullable Output<String> minimumInstanceMetadataServiceVersion;
 
-    /**
-     * @return Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
-     * 
-     */
     public Optional<Output<String>> minimumInstanceMetadataServiceVersion() {
         return Optional.ofNullable(this.minimumInstanceMetadataServiceVersion);
     }
@@ -54,23 +46,11 @@ public final class NotebookInstanceInstanceMetadataServiceConfigurationArgs exte
             $ = new NotebookInstanceInstanceMetadataServiceConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param minimumInstanceMetadataServiceVersion Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumInstanceMetadataServiceVersion(@Nullable Output<String> minimumInstanceMetadataServiceVersion) {
             $.minimumInstanceMetadataServiceVersion = minimumInstanceMetadataServiceVersion;
             return this;
         }
 
-        /**
-         * @param minimumInstanceMetadataServiceVersion Indicates the minimum IMDS version that the notebook instance supports. When passed &#34;1&#34; is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder minimumInstanceMetadataServiceVersion(String minimumInstanceMetadataServiceVersion) {
             return minimumInstanceMetadataServiceVersion(Output.of(minimumInstanceMetadataServiceVersion));
         }

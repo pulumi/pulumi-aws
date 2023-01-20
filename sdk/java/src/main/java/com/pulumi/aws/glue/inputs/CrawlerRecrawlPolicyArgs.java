@@ -15,17 +15,9 @@ public final class CrawlerRecrawlPolicyArgs extends com.pulumi.resources.Resourc
 
     public static final CrawlerRecrawlPolicyArgs Empty = new CrawlerRecrawlPolicyArgs();
 
-    /**
-     * Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-     * 
-     */
     @Import(name="recrawlBehavior")
     private @Nullable Output<String> recrawlBehavior;
 
-    /**
-     * @return Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-     * 
-     */
     public Optional<Output<String>> recrawlBehavior() {
         return Optional.ofNullable(this.recrawlBehavior);
     }
@@ -54,23 +46,11 @@ public final class CrawlerRecrawlPolicyArgs extends com.pulumi.resources.Resourc
             $ = new CrawlerRecrawlPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param recrawlBehavior Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recrawlBehavior(@Nullable Output<String> recrawlBehavior) {
             $.recrawlBehavior = recrawlBehavior;
             return this;
         }
 
-        /**
-         * @param recrawlBehavior Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder recrawlBehavior(String recrawlBehavior) {
             return recrawlBehavior(Output.of(recrawlBehavior));
         }

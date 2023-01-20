@@ -15,107 +15,51 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
 
     public static final ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs Empty = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs();
 
-    /**
-     * The name of the account.
-     * 
-     */
     @Import(name="accountName")
     private @Nullable Output<String> accountName;
 
-    /**
-     * @return The name of the account.
-     * 
-     */
     public Optional<Output<String>> accountName() {
         return Optional.ofNullable(this.accountName);
     }
 
-    /**
-     * The name of the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
-    /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     public Output<String> bucketName() {
         return this.bucketName;
     }
 
-    /**
-     * The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     @Import(name="bucketPrefix")
     private @Nullable Output<String> bucketPrefix;
 
-    /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     public Optional<Output<String>> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
 
-    /**
-     * The Snowflake Private Link service name to be used for private data transfers.
-     * 
-     */
     @Import(name="privateLinkServiceName")
     private @Nullable Output<String> privateLinkServiceName;
 
-    /**
-     * @return The Snowflake Private Link service name to be used for private data transfers.
-     * 
-     */
     public Optional<Output<String>> privateLinkServiceName() {
         return Optional.ofNullable(this.privateLinkServiceName);
     }
 
-    /**
-     * AWS Region of the Snowflake account.
-     * 
-     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
-    /**
-     * @return AWS Region of the Snowflake account.
-     * 
-     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
-    /**
-     * Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-     * 
-     */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
-    /**
-     * @return Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-     * 
-     */
     public Output<String> stage() {
         return this.stage;
     }
 
-    /**
-     * The name of the Snowflake warehouse.
-     * 
-     */
     @Import(name="warehouse", required=true)
     private Output<String> warehouse;
 
-    /**
-     * @return The name of the Snowflake warehouse.
-     * 
-     */
     public Output<String> warehouse() {
         return this.warehouse;
     }
@@ -150,149 +94,65 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropert
             $ = new ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountName The name of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountName(@Nullable Output<String> accountName) {
             $.accountName = accountName;
             return this;
         }
 
-        /**
-         * @param accountName The name of the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountName(String accountName) {
             return accountName(Output.of(accountName));
         }
 
-        /**
-         * @param bucketName The name of the Amazon S3 bucket associated with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(Output<String> bucketName) {
             $.bucketName = bucketName;
             return this;
         }
 
-        /**
-         * @param bucketName The name of the Amazon S3 bucket associated with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
         }
 
-        /**
-         * @param bucketPrefix The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(@Nullable Output<String> bucketPrefix) {
             $.bucketPrefix = bucketPrefix;
             return this;
         }
 
-        /**
-         * @param bucketPrefix The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucketPrefix(String bucketPrefix) {
             return bucketPrefix(Output.of(bucketPrefix));
         }
 
-        /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateLinkServiceName(@Nullable Output<String> privateLinkServiceName) {
             $.privateLinkServiceName = privateLinkServiceName;
             return this;
         }
 
-        /**
-         * @param privateLinkServiceName The Snowflake Private Link service name to be used for private data transfers.
-         * 
-         * @return builder
-         * 
-         */
         public Builder privateLinkServiceName(String privateLinkServiceName) {
             return privateLinkServiceName(Output.of(privateLinkServiceName));
         }
 
-        /**
-         * @param region AWS Region of the Snowflake account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
-        /**
-         * @param region AWS Region of the Snowflake account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
-        /**
-         * @param stage Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(Output<String> stage) {
             $.stage = stage;
             return this;
         }
 
-        /**
-         * @param stage Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `&lt;Database&gt;.&lt;Schema&gt;.&lt;Stage Name&gt;`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder stage(String stage) {
             return stage(Output.of(stage));
         }
 
-        /**
-         * @param warehouse The name of the Snowflake warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warehouse(Output<String> warehouse) {
             $.warehouse = warehouse;
             return this;
         }
 
-        /**
-         * @param warehouse The name of the Snowflake warehouse.
-         * 
-         * @return builder
-         * 
-         */
         public Builder warehouse(String warehouse) {
             return warehouse(Output.of(warehouse));
         }

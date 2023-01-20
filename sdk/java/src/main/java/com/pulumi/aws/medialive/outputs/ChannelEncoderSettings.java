@@ -16,65 +16,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelEncoderSettings {
-    /**
-     * @return Audio descriptions for the channel. See Audio Descriptions for more details.
-     * 
-     */
     private @Nullable List<ChannelEncoderSettingsAudioDescription> audioDescriptions;
-    /**
-     * @return Settings for ad avail blanking. See Avail Blanking for more details.
-     * 
-     */
     private @Nullable ChannelEncoderSettingsAvailBlanking availBlanking;
-    /**
-     * @return Output groups for the channel. See Output Groups for more details.
-     * 
-     */
     private List<ChannelEncoderSettingsOutputGroup> outputGroups;
-    /**
-     * @return Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-     * 
-     */
     private ChannelEncoderSettingsTimecodeConfig timecodeConfig;
-    /**
-     * @return Video Descriptions. See Video Descriptions for more details.
-     * 
-     */
     private @Nullable List<ChannelEncoderSettingsVideoDescription> videoDescriptions;
 
     private ChannelEncoderSettings() {}
-    /**
-     * @return Audio descriptions for the channel. See Audio Descriptions for more details.
-     * 
-     */
     public List<ChannelEncoderSettingsAudioDescription> audioDescriptions() {
         return this.audioDescriptions == null ? List.of() : this.audioDescriptions;
     }
-    /**
-     * @return Settings for ad avail blanking. See Avail Blanking for more details.
-     * 
-     */
     public Optional<ChannelEncoderSettingsAvailBlanking> availBlanking() {
         return Optional.ofNullable(this.availBlanking);
     }
-    /**
-     * @return Output groups for the channel. See Output Groups for more details.
-     * 
-     */
     public List<ChannelEncoderSettingsOutputGroup> outputGroups() {
         return this.outputGroups;
     }
-    /**
-     * @return Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-     * 
-     */
     public ChannelEncoderSettingsTimecodeConfig timecodeConfig() {
         return this.timecodeConfig;
     }
-    /**
-     * @return Video Descriptions. See Video Descriptions for more details.
-     * 
-     */
     public List<ChannelEncoderSettingsVideoDescription> videoDescriptions() {
         return this.videoDescriptions == null ? List.of() : this.videoDescriptions;
     }

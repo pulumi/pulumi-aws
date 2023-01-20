@@ -13,32 +13,16 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
 
     public static final OrganizationConfigurationAutoEnableArgs Empty = new OrganizationConfigurationAutoEnableArgs();
 
-    /**
-     * Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     @Import(name="ec2", required=true)
     private Output<Boolean> ec2;
 
-    /**
-     * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Output<Boolean> ec2() {
         return this.ec2;
     }
 
-    /**
-     * Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     @Import(name="ecr", required=true)
     private Output<Boolean> ecr;
 
-    /**
-     * @return Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Output<Boolean> ecr() {
         return this.ecr;
     }
@@ -68,44 +52,20 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
             $ = new OrganizationConfigurationAutoEnableArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ec2 Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ec2(Output<Boolean> ec2) {
             $.ec2 = ec2;
             return this;
         }
 
-        /**
-         * @param ec2 Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ec2(Boolean ec2) {
             return ec2(Output.of(ec2));
         }
 
-        /**
-         * @param ecr Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecr(Output<Boolean> ecr) {
             $.ecr = ecr;
             return this;
         }
 
-        /**
-         * @param ecr Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecr(Boolean ecr) {
             return ecr(Output.of(ecr));
         }

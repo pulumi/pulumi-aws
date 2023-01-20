@@ -13,17 +13,9 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs e
 
     public static final FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs Empty = new FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs();
 
-    /**
-     * Object specified in the Veeva flow source.
-     * 
-     */
     @Import(name="object", required=true)
     private Output<String> object;
 
-    /**
-     * @return Object specified in the Veeva flow source.
-     * 
-     */
     public Output<String> object() {
         return this.object;
     }
@@ -52,23 +44,11 @@ public final class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs e
             $ = new FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(Output<String> object) {
             $.object = object;
             return this;
         }
 
-        /**
-         * @param object Object specified in the Veeva flow source.
-         * 
-         * @return builder
-         * 
-         */
         public Builder object(String object) {
             return object(Output.of(object));
         }

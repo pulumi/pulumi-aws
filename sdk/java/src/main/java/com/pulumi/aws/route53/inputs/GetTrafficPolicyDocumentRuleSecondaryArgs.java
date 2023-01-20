@@ -16,62 +16,30 @@ public final class GetTrafficPolicyDocumentRuleSecondaryArgs extends com.pulumi.
 
     public static final GetTrafficPolicyDocumentRuleSecondaryArgs Empty = new GetTrafficPolicyDocumentRuleSecondaryArgs();
 
-    /**
-     * References to an endpoint.
-     * 
-     */
     @Import(name="endpointReference")
     private @Nullable Output<String> endpointReference;
 
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<Output<String>> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
 
-    /**
-     * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     @Import(name="evaluateTargetHealth")
     private @Nullable Output<Boolean> evaluateTargetHealth;
 
-    /**
-     * @return Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-     * 
-     */
     public Optional<Output<Boolean>> evaluateTargetHealth() {
         return Optional.ofNullable(this.evaluateTargetHealth);
     }
 
-    /**
-     * If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     @Import(name="healthCheck")
     private @Nullable Output<String> healthCheck;
 
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<Output<String>> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
 
-    /**
-     * References to a rule.
-     * 
-     */
     @Import(name="ruleReference")
     private @Nullable Output<String> ruleReference;
 
-    /**
-     * @return References to a rule.
-     * 
-     */
     public Optional<Output<String>> ruleReference() {
         return Optional.ofNullable(this.ruleReference);
     }
@@ -103,86 +71,38 @@ public final class GetTrafficPolicyDocumentRuleSecondaryArgs extends com.pulumi.
             $ = new GetTrafficPolicyDocumentRuleSecondaryArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(@Nullable Output<String> endpointReference) {
             $.endpointReference = endpointReference;
             return this;
         }
 
-        /**
-         * @param endpointReference References to an endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointReference(String endpointReference) {
             return endpointReference(Output.of(endpointReference));
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(@Nullable Output<Boolean> evaluateTargetHealth) {
             $.evaluateTargetHealth = evaluateTargetHealth;
             return this;
         }
 
-        /**
-         * @param evaluateTargetHealth Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
-         * 
-         * @return builder
-         * 
-         */
         public Builder evaluateTargetHealth(Boolean evaluateTargetHealth) {
             return evaluateTargetHealth(Output.of(evaluateTargetHealth));
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(@Nullable Output<String> healthCheck) {
             $.healthCheck = healthCheck;
             return this;
         }
 
-        /**
-         * @param healthCheck If you want to associate a health check with the endpoint or rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder healthCheck(String healthCheck) {
             return healthCheck(Output.of(healthCheck));
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(@Nullable Output<String> ruleReference) {
             $.ruleReference = ruleReference;
             return this;
         }
 
-        /**
-         * @param ruleReference References to a rule.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ruleReference(String ruleReference) {
             return ruleReference(Output.of(ruleReference));
         }

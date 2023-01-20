@@ -13,65 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
-    /**
-     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
-     * 
-     */
     private @Nullable List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions;
-    /**
-     * @return Name of the metric.
-     * 
-     */
     private String metricName;
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     private String namespace;
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     private String statistic;
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     private @Nullable String unit;
 
     private PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification() {}
-    /**
-     * @return Configuration block(s) with the dimensions of the metric if the metric was published with dimensions. Detailed below.
-     * 
-     */
     public List<PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension> dimensions() {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public String metricName() {
         return this.metricName;
     }
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public String namespace() {
         return this.namespace;
     }
-    /**
-     * @return Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
-     * 
-     */
     public String statistic() {
         return this.statistic;
     }
-    /**
-     * @return Unit of the metric.
-     * 
-     */
     public Optional<String> unit() {
         return Optional.ofNullable(this.unit);
     }

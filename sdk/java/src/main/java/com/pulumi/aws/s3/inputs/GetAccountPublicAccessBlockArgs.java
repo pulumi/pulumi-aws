@@ -15,17 +15,9 @@ public final class GetAccountPublicAccessBlockArgs extends com.pulumi.resources.
 
     public static final GetAccountPublicAccessBlockArgs Empty = new GetAccountPublicAccessBlockArgs();
 
-    /**
-     * AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
-    /**
-     * @return AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-     * 
-     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -54,23 +46,11 @@ public final class GetAccountPublicAccessBlockArgs extends com.pulumi.resources.
             $ = new GetAccountPublicAccessBlockArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param accountId AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
-        /**
-         * @param accountId AWS account ID to configure. Defaults to automatically determined account ID of the AWS provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

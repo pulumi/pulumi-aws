@@ -17,107 +17,51 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
     public static final EndpointState Empty = new EndpointState();
 
-    /**
-     * Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the endpoint.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * VPC CIDR block of the endpoint.
-     * 
-     */
     @Import(name="cidrBlock")
     private @Nullable Output<String> cidrBlock;
 
-    /**
-     * @return VPC CIDR block of the endpoint.
-     * 
-     */
     public Optional<Output<String>> cidrBlock() {
         return Optional.ofNullable(this.cidrBlock);
     }
 
-    /**
-     * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
-    /**
-     * @return UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-     * 
-     */
     public Optional<Output<String>> creationTime() {
         return Optional.ofNullable(this.creationTime);
     }
 
-    /**
-     * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     @Import(name="networkInterfaces")
     private @Nullable Output<List<EndpointNetworkInterfaceArgs>> networkInterfaces;
 
-    /**
-     * @return Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-     * 
-     */
     public Optional<Output<List<EndpointNetworkInterfaceArgs>>> networkInterfaces() {
         return Optional.ofNullable(this.networkInterfaces);
     }
 
-    /**
-     * Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     @Import(name="outpostId")
     private @Nullable Output<String> outpostId;
 
-    /**
-     * @return Identifier of the Outpost to contain this endpoint.
-     * 
-     */
     public Optional<Output<String>> outpostId() {
         return Optional.ofNullable(this.outpostId);
     }
 
-    /**
-     * Identifier of the EC2 Security Group.
-     * 
-     */
     @Import(name="securityGroupId")
     private @Nullable Output<String> securityGroupId;
 
-    /**
-     * @return Identifier of the EC2 Security Group.
-     * 
-     */
     public Optional<Output<String>> securityGroupId() {
         return Optional.ofNullable(this.securityGroupId);
     }
 
-    /**
-     * Identifier of the EC2 Subnet.
-     * 
-     */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
-    /**
-     * @return Identifier of the EC2 Subnet.
-     * 
-     */
     public Optional<Output<String>> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
@@ -152,159 +96,69 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             $ = new EndpointState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn Amazon Resource Name (ARN) of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param cidrBlock VPC CIDR block of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(@Nullable Output<String> cidrBlock) {
             $.cidrBlock = cidrBlock;
             return this;
         }
 
-        /**
-         * @param cidrBlock VPC CIDR block of the endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder cidrBlock(String cidrBlock) {
             return cidrBlock(Output.of(cidrBlock));
         }
 
-        /**
-         * @param creationTime UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationTime(@Nullable Output<String> creationTime) {
             $.creationTime = creationTime;
             return this;
         }
 
-        /**
-         * @param creationTime UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-         * 
-         * @return builder
-         * 
-         */
         public Builder creationTime(String creationTime) {
             return creationTime(Output.of(creationTime));
         }
 
-        /**
-         * @param networkInterfaces Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(@Nullable Output<List<EndpointNetworkInterfaceArgs>> networkInterfaces) {
             $.networkInterfaces = networkInterfaces;
             return this;
         }
 
-        /**
-         * @param networkInterfaces Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(List<EndpointNetworkInterfaceArgs> networkInterfaces) {
             return networkInterfaces(Output.of(networkInterfaces));
         }
 
-        /**
-         * @param networkInterfaces Set of nested attributes for associated Elastic Network Interfaces (ENIs).
-         * 
-         * @return builder
-         * 
-         */
         public Builder networkInterfaces(EndpointNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(@Nullable Output<String> outpostId) {
             $.outpostId = outpostId;
             return this;
         }
 
-        /**
-         * @param outpostId Identifier of the Outpost to contain this endpoint.
-         * 
-         * @return builder
-         * 
-         */
         public Builder outpostId(String outpostId) {
             return outpostId(Output.of(outpostId));
         }
 
-        /**
-         * @param securityGroupId Identifier of the EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(@Nullable Output<String> securityGroupId) {
             $.securityGroupId = securityGroupId;
             return this;
         }
 
-        /**
-         * @param securityGroupId Identifier of the EC2 Security Group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder securityGroupId(String securityGroupId) {
             return securityGroupId(Output.of(securityGroupId));
         }
 
-        /**
-         * @param subnetId Identifier of the EC2 Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(@Nullable Output<String> subnetId) {
             $.subnetId = subnetId;
             return this;
         }
 
-        /**
-         * @param subnetId Identifier of the EC2 Subnet.
-         * 
-         * @return builder
-         * 
-         */
         public Builder subnetId(String subnetId) {
             return subnetId(Output.of(subnetId));
         }

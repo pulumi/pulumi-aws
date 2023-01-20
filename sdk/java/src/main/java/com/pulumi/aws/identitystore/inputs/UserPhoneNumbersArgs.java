@@ -16,47 +16,23 @@ public final class UserPhoneNumbersArgs extends com.pulumi.resources.ResourceArg
 
     public static final UserPhoneNumbersArgs Empty = new UserPhoneNumbersArgs();
 
-    /**
-     * When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
-    /**
-     * @return When `true`, this is the primary phone number associated with the user.
-     * 
-     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
 
-    /**
-     * The type of phone number.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of phone number.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * The user&#39;s phone number.
-     * 
-     */
     @Import(name="value")
     private @Nullable Output<String> value;
 
-    /**
-     * @return The user&#39;s phone number.
-     * 
-     */
     public Optional<Output<String>> value() {
         return Optional.ofNullable(this.value);
     }
@@ -87,65 +63,29 @@ public final class UserPhoneNumbersArgs extends com.pulumi.resources.ResourceArg
             $ = new UserPhoneNumbersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
-        /**
-         * @param primary When `true`, this is the primary phone number associated with the user.
-         * 
-         * @return builder
-         * 
-         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }
 
-        /**
-         * @param type The type of phone number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of phone number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param value The user&#39;s phone number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
-        /**
-         * @param value The user&#39;s phone number.
-         * 
-         * @return builder
-         * 
-         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

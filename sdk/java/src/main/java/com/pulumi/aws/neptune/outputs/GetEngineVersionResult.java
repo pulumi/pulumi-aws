@@ -14,15 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEngineVersionResult {
     private @Nullable String engine;
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     private String engineDescription;
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     private List<String> exportableLogTypes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -31,48 +23,20 @@ public final class GetEngineVersionResult {
     private String id;
     private String parameterGroupFamily;
     private @Nullable List<String> preferredVersions;
-    /**
-     * @return Set of the time zones supported by this engine.
-     * 
-     */
     private List<String> supportedTimezones;
-    /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-     * 
-     */
     private Boolean supportsLogExportsToCloudwatch;
-    /**
-     * @return Indicates whether the database engine version supports read replicas.
-     * 
-     */
     private Boolean supportsReadReplica;
-    /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     private List<String> validUpgradeTargets;
     private String version;
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
     public Optional<String> engine() {
         return Optional.ofNullable(this.engine);
     }
-    /**
-     * @return Description of the database engine.
-     * 
-     */
     public String engineDescription() {
         return this.engineDescription;
     }
-    /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
-     * 
-     */
     public List<String> exportableLogTypes() {
         return this.exportableLogTypes;
     }
@@ -89,41 +53,21 @@ public final class GetEngineVersionResult {
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
-    /**
-     * @return Set of the time zones supported by this engine.
-     * 
-     */
     public List<String> supportedTimezones() {
         return this.supportedTimezones;
     }
-    /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-     * 
-     */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
-    /**
-     * @return Indicates whether the database engine version supports read replicas.
-     * 
-     */
     public Boolean supportsReadReplica() {
         return this.supportsReadReplica;
     }
-    /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
-     * 
-     */
     public List<String> validUpgradeTargets() {
         return this.validUpgradeTargets;
     }
     public String version() {
         return this.version;
     }
-    /**
-     * @return Description of the database engine version.
-     * 
-     */
     public String versionDescription() {
         return this.versionDescription;
     }

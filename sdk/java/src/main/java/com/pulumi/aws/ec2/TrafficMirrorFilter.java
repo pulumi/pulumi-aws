@@ -16,121 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Traffic mirror filter.\
- * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- * 
- * ## Example Usage
- * 
- * To create a basic traffic mirror filter
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.TrafficMirrorFilter;
- * import com.pulumi.aws.ec2.TrafficMirrorFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var foo = new TrafficMirrorFilter(&#34;foo&#34;, TrafficMirrorFilterArgs.builder()        
- *             .description(&#34;traffic mirror filter - example&#34;)
- *             .networkServices(&#34;amazon-dns&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Traffic mirror filter can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")
 public class TrafficMirrorFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the traffic mirror filter.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the traffic mirror filter.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description of the filter.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the filter.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-     * 
-     */
     @Export(name="networkServices", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> networkServices;
 
-    /**
-     * @return List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-     * 
-     */
     public Output<Optional<List<String>>> networkServices() {
         return Codegen.optional(this.networkServices);
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

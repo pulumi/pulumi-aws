@@ -13,32 +13,16 @@ public final class PolicyTableAssociationArgs extends com.pulumi.resources.Resou
 
     public static final PolicyTableAssociationArgs Empty = new PolicyTableAssociationArgs();
 
-    /**
-     * Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     @Import(name="transitGatewayAttachmentId", required=true)
     private Output<String> transitGatewayAttachmentId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Attachment.
-     * 
-     */
     public Output<String> transitGatewayAttachmentId() {
         return this.transitGatewayAttachmentId;
     }
 
-    /**
-     * Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     @Import(name="transitGatewayPolicyTableId", required=true)
     private Output<String> transitGatewayPolicyTableId;
 
-    /**
-     * @return Identifier of EC2 Transit Gateway Policy Table.
-     * 
-     */
     public Output<String> transitGatewayPolicyTableId() {
         return this.transitGatewayPolicyTableId;
     }
@@ -68,44 +52,20 @@ public final class PolicyTableAssociationArgs extends com.pulumi.resources.Resou
             $ = new PolicyTableAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(Output<String> transitGatewayAttachmentId) {
             $.transitGatewayAttachmentId = transitGatewayAttachmentId;
             return this;
         }
 
-        /**
-         * @param transitGatewayAttachmentId Identifier of EC2 Transit Gateway Attachment.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
             return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(Output<String> transitGatewayPolicyTableId) {
             $.transitGatewayPolicyTableId = transitGatewayPolicyTableId;
             return this;
         }
 
-        /**
-         * @param transitGatewayPolicyTableId Identifier of EC2 Transit Gateway Policy Table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayPolicyTableId(String transitGatewayPolicyTableId) {
             return transitGatewayPolicyTableId(Output.of(transitGatewayPolicyTableId));
         }

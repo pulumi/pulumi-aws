@@ -12,8 +12,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProjectSecondarySourceAuth {
     /**
-     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -21,8 +19,6 @@ public final class ProjectSecondarySourceAuth {
     @Deprecated /* Use the aws_codebuild_source_credential resource instead */
     private @Nullable String resource;
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -32,8 +28,6 @@ public final class ProjectSecondarySourceAuth {
 
     private ProjectSecondarySourceAuth() {}
     /**
-     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -43,8 +37,6 @@ public final class ProjectSecondarySourceAuth {
         return Optional.ofNullable(this.resource);
     }
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 

@@ -18,179 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Athena database.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.athena.Database;
- * import com.pulumi.aws.athena.DatabaseArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
- * 
- *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .name(&#34;database_name&#34;)
- *             .bucket(exampleBucketV2.bucket())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Athena Databases can be imported using their name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:athena/database:Database example example
- * ```
- * 
- *  Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the configuration on an imported resource, the provider will always show a difference. To workaround this behavior, either omit the argument from the configuration or use `ignore_changes` to hide the difference, e.g., terraform resource &#34;aws_athena_database&#34; &#34;example&#34; {
- * 
- *  name
- * 
- *  = &#34;database_name&#34;
- * 
- *  bucket = aws_s3_bucket.example.bucket
- * 
- * # There is no API for reading bucket
- * 
- *  lifecycle {
- * 
- *  ignore_changes = [bucket]
- * 
- *  } }
- * 
- */
 @ResourceType(type="aws:athena/database:Database")
 public class Database extends com.pulumi.resources.CustomResource {
-    /**
-     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     @Export(name="aclConfiguration", refs={DatabaseAclConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseAclConfiguration> aclConfiguration;
 
-    /**
-     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     public Output<Optional<DatabaseAclConfiguration>> aclConfiguration() {
         return Codegen.optional(this.aclConfiguration);
     }
-    /**
-     * Name of S3 bucket to save the results of the query execution.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bucket;
 
-    /**
-     * @return Name of S3 bucket to save the results of the query execution.
-     * 
-     */
     public Output<Optional<String>> bucket() {
         return Codegen.optional(this.bucket);
     }
-    /**
-     * Description of the database.
-     * 
-     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
-    /**
-     * @return Description of the database.
-     * 
-     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-     * 
-     */
     @Export(name="encryptionConfiguration", refs={DatabaseEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseEncryptionConfiguration> encryptionConfiguration;
 
-    /**
-     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
-     * 
-     */
     public Output<Optional<DatabaseEncryptionConfiguration>> encryptionConfiguration() {
         return Codegen.optional(this.encryptionConfiguration);
     }
-    /**
-     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 
-    /**
-     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
-    /**
-     * Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-     * 
-     */
     @Export(name="forceDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDestroy;
 
-    /**
-     * @return Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
-     * 
-     */
     public Output<Optional<Boolean>> forceDestroy() {
         return Codegen.optional(this.forceDestroy);
     }
-    /**
-     * Name of the database to create.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the database to create.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Key-value map of custom metadata properties for the database definition.
-     * 
-     */
     @Export(name="properties", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> properties;
 
-    /**
-     * @return Key-value map of custom metadata properties for the database definition.
-     * 
-     */
     public Output<Optional<Map<String,String>>> properties() {
         return Codegen.optional(this.properties);
     }

@@ -12,41 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class StateMachineLoggingConfiguration {
-    /**
-     * @return Determines whether execution data is included in your log. When set to `false`, data is excluded.
-     * 
-     */
     private @Nullable Boolean includeExecutionData;
-    /**
-     * @return Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-     * 
-     */
     private @Nullable String level;
-    /**
-     * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-     * 
-     */
     private @Nullable String logDestination;
 
     private StateMachineLoggingConfiguration() {}
-    /**
-     * @return Determines whether execution data is included in your log. When set to `false`, data is excluded.
-     * 
-     */
     public Optional<Boolean> includeExecutionData() {
         return Optional.ofNullable(this.includeExecutionData);
     }
-    /**
-     * @return Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-     * 
-     */
     public Optional<String> level() {
         return Optional.ofNullable(this.level);
     }
-    /**
-     * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-     * 
-     */
     public Optional<String> logDestination() {
         return Optional.ofNullable(this.logDestination);
     }

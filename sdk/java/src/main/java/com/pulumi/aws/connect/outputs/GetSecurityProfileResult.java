@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSecurityProfileResult {
-    /**
-     * @return ARN of the Security Profile.
-     * 
-     */
     private String arn;
-    /**
-     * @return Description of the Security Profile.
-     * 
-     */
     private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,35 +20,15 @@ public final class GetSecurityProfileResult {
     private String id;
     private String instanceId;
     private String name;
-    /**
-     * @return The organization resource identifier for the security profile.
-     * 
-     */
     private String organizationResourceId;
-    /**
-     * @return List of permissions assigned to the security profile.
-     * 
-     */
     private List<String> permissions;
     private String securityProfileId;
-    /**
-     * @return Map of tags to assign to the Security Profile.
-     * 
-     */
     private Map<String,String> tags;
 
     private GetSecurityProfileResult() {}
-    /**
-     * @return ARN of the Security Profile.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Description of the Security Profile.
-     * 
-     */
     public String description() {
         return this.description;
     }
@@ -73,27 +45,15 @@ public final class GetSecurityProfileResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The organization resource identifier for the security profile.
-     * 
-     */
     public String organizationResourceId() {
         return this.organizationResourceId;
     }
-    /**
-     * @return List of permissions assigned to the security profile.
-     * 
-     */
     public List<String> permissions() {
         return this.permissions;
     }
     public String securityProfileId() {
         return this.securityProfileId;
     }
-    /**
-     * @return Map of tags to assign to the Security Profile.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }

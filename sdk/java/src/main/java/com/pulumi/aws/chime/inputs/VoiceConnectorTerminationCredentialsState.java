@@ -17,32 +17,16 @@ public final class VoiceConnectorTerminationCredentialsState extends com.pulumi.
 
     public static final VoiceConnectorTerminationCredentialsState Empty = new VoiceConnectorTerminationCredentialsState();
 
-    /**
-     * List of termination SIP credentials.
-     * 
-     */
     @Import(name="credentials")
     private @Nullable Output<List<VoiceConnectorTerminationCredentialsCredentialArgs>> credentials;
 
-    /**
-     * @return List of termination SIP credentials.
-     * 
-     */
     public Optional<Output<List<VoiceConnectorTerminationCredentialsCredentialArgs>>> credentials() {
         return Optional.ofNullable(this.credentials);
     }
 
-    /**
-     * Amazon Chime Voice Connector ID.
-     * 
-     */
     @Import(name="voiceConnectorId")
     private @Nullable Output<String> voiceConnectorId;
 
-    /**
-     * @return Amazon Chime Voice Connector ID.
-     * 
-     */
     public Optional<Output<String>> voiceConnectorId() {
         return Optional.ofNullable(this.voiceConnectorId);
     }
@@ -72,54 +56,24 @@ public final class VoiceConnectorTerminationCredentialsState extends com.pulumi.
             $ = new VoiceConnectorTerminationCredentialsState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param credentials List of termination SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentials(@Nullable Output<List<VoiceConnectorTerminationCredentialsCredentialArgs>> credentials) {
             $.credentials = credentials;
             return this;
         }
 
-        /**
-         * @param credentials List of termination SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentials(List<VoiceConnectorTerminationCredentialsCredentialArgs> credentials) {
             return credentials(Output.of(credentials));
         }
 
-        /**
-         * @param credentials List of termination SIP credentials.
-         * 
-         * @return builder
-         * 
-         */
         public Builder credentials(VoiceConnectorTerminationCredentialsCredentialArgs... credentials) {
             return credentials(List.of(credentials));
         }
 
-        /**
-         * @param voiceConnectorId Amazon Chime Voice Connector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnectorId(@Nullable Output<String> voiceConnectorId) {
             $.voiceConnectorId = voiceConnectorId;
             return this;
         }
 
-        /**
-         * @param voiceConnectorId Amazon Chime Voice Connector ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder voiceConnectorId(String voiceConnectorId) {
             return voiceConnectorId(Output.of(voiceConnectorId));
         }

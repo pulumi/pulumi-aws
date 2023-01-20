@@ -15,32 +15,16 @@ public final class GlobalReplicationGroupGlobalNodeGroupArgs extends com.pulumi.
 
     public static final GlobalReplicationGroupGlobalNodeGroupArgs Empty = new GlobalReplicationGroupGlobalNodeGroupArgs();
 
-    /**
-     * The ID of the global node group.
-     * 
-     */
     @Import(name="globalNodeGroupId")
     private @Nullable Output<String> globalNodeGroupId;
 
-    /**
-     * @return The ID of the global node group.
-     * 
-     */
     public Optional<Output<String>> globalNodeGroupId() {
         return Optional.ofNullable(this.globalNodeGroupId);
     }
 
-    /**
-     * The keyspace for this node group.
-     * 
-     */
     @Import(name="slots")
     private @Nullable Output<String> slots;
 
-    /**
-     * @return The keyspace for this node group.
-     * 
-     */
     public Optional<Output<String>> slots() {
         return Optional.ofNullable(this.slots);
     }
@@ -70,44 +54,20 @@ public final class GlobalReplicationGroupGlobalNodeGroupArgs extends com.pulumi.
             $ = new GlobalReplicationGroupGlobalNodeGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param globalNodeGroupId The ID of the global node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNodeGroupId(@Nullable Output<String> globalNodeGroupId) {
             $.globalNodeGroupId = globalNodeGroupId;
             return this;
         }
 
-        /**
-         * @param globalNodeGroupId The ID of the global node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNodeGroupId(String globalNodeGroupId) {
             return globalNodeGroupId(Output.of(globalNodeGroupId));
         }
 
-        /**
-         * @param slots The keyspace for this node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slots(@Nullable Output<String> slots) {
             $.slots = slots;
             return this;
         }
 
-        /**
-         * @param slots The keyspace for this node group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder slots(String slots) {
             return slots(Output.of(slots));
         }

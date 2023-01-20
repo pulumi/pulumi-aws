@@ -15,17 +15,9 @@ public final class SpotInstanceRequestEnclaveOptionsArgs extends com.pulumi.reso
 
     public static final SpotInstanceRequestEnclaveOptionsArgs Empty = new SpotInstanceRequestEnclaveOptionsArgs();
 
-    /**
-     * Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -54,23 +46,11 @@ public final class SpotInstanceRequestEnclaveOptionsArgs extends com.pulumi.reso
             $ = new SpotInstanceRequestEnclaveOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }

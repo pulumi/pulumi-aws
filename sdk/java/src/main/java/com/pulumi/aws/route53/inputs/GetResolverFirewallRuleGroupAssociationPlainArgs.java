@@ -12,17 +12,9 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
 
     public static final GetResolverFirewallRuleGroupAssociationPlainArgs Empty = new GetResolverFirewallRuleGroupAssociationPlainArgs();
 
-    /**
-     * The identifier for the association.
-     * 
-     */
     @Import(name="firewallRuleGroupAssociationId", required=true)
     private String firewallRuleGroupAssociationId;
 
-    /**
-     * @return The identifier for the association.
-     * 
-     */
     public String firewallRuleGroupAssociationId() {
         return this.firewallRuleGroupAssociationId;
     }
@@ -51,12 +43,6 @@ public final class GetResolverFirewallRuleGroupAssociationPlainArgs extends com.
             $ = new GetResolverFirewallRuleGroupAssociationPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallRuleGroupAssociationId The identifier for the association.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallRuleGroupAssociationId(String firewallRuleGroupAssociationId) {
             $.firewallRuleGroupAssociationId = firewallRuleGroupAssociationId;
             return this;

@@ -15,77 +15,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountState Empty = new AccountState();
 
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-     * 
-     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
-    /**
-     * @return The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-     * 
-     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
-    /**
-     * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-     * 
-     */
     @Import(name="findingPublishingFrequency")
     private @Nullable Output<String> findingPublishingFrequency;
 
-    /**
-     * @return Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-     * 
-     */
     public Optional<Output<String>> findingPublishingFrequency() {
         return Optional.ofNullable(this.findingPublishingFrequency);
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-     * 
-     */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-     * 
-     */
     public Optional<Output<String>> serviceRole() {
         return Optional.ofNullable(this.serviceRole);
     }
 
-    /**
-     * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
-    /**
-     * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-     * 
-     */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
-    /**
-     * @return The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-     * 
-     */
     public Optional<Output<String>> updatedAt() {
         return Optional.ofNullable(this.updatedAt);
     }
@@ -118,107 +78,47 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
             $ = new AccountState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
-        /**
-         * @param createdAt The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
-        /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingPublishingFrequency(@Nullable Output<String> findingPublishingFrequency) {
             $.findingPublishingFrequency = findingPublishingFrequency;
             return this;
         }
 
-        /**
-         * @param findingPublishingFrequency Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder findingPublishingFrequency(String findingPublishingFrequency) {
             return findingPublishingFrequency(Output.of(findingPublishingFrequency));
         }
 
-        /**
-         * @param serviceRole The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(@Nullable Output<String> serviceRole) {
             $.serviceRole = serviceRole;
             return this;
         }
 
-        /**
-         * @param serviceRole The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceRole(String serviceRole) {
             return serviceRole(Output.of(serviceRole));
         }
 
-        /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
-        /**
-         * @param updatedAt The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(@Nullable Output<String> updatedAt) {
             $.updatedAt = updatedAt;
             return this;
         }
 
-        /**
-         * @param updatedAt The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-         * 
-         * @return builder
-         * 
-         */
         public Builder updatedAt(String updatedAt) {
             return updatedAt(Output.of(updatedAt));
         }

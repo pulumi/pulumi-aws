@@ -15,173 +15,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Traffic mirror target.\
- * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
- * 
- * ## Example Usage
- * 
- * To create a basic traffic mirror session
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.TrafficMirrorTarget;
- * import com.pulumi.aws.ec2.TrafficMirrorTargetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var nlb = new TrafficMirrorTarget(&#34;nlb&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;NLB target&#34;)
- *             .networkLoadBalancerArn(aws_lb.lb().arn())
- *             .build());
- * 
- *         var eni = new TrafficMirrorTarget(&#34;eni&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;ENI target&#34;)
- *             .networkInterfaceId(aws_instance.test().primary_network_interface_id())
- *             .build());
- * 
- *         var gwlb = new TrafficMirrorTarget(&#34;gwlb&#34;, TrafficMirrorTargetArgs.builder()        
- *             .description(&#34;GWLB target&#34;)
- *             .gatewayLoadBalancerEndpointId(aws_vpc_endpoint.example().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Traffic mirror targets can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
- * ```
- * 
- */
 @ResourceType(type="aws:ec2/trafficMirrorTarget:TrafficMirrorTarget")
 public class TrafficMirrorTarget extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the traffic mirror target.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the traffic mirror target.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A description of the traffic mirror session.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return A description of the traffic mirror session.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-     * 
-     */
     @Export(name="gatewayLoadBalancerEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> gatewayLoadBalancerEndpointId;
 
-    /**
-     * @return The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
-     * 
-     */
     public Output<Optional<String>> gatewayLoadBalancerEndpointId() {
         return Codegen.optional(this.gatewayLoadBalancerEndpointId);
     }
-    /**
-     * The network interface ID that is associated with the target.
-     * 
-     */
     @Export(name="networkInterfaceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkInterfaceId;
 
-    /**
-     * @return The network interface ID that is associated with the target.
-     * 
-     */
     public Output<Optional<String>> networkInterfaceId() {
         return Codegen.optional(this.networkInterfaceId);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-     * 
-     */
     @Export(name="networkLoadBalancerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkLoadBalancerArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-     * 
-     */
     public Output<Optional<String>> networkLoadBalancerArn() {
         return Codegen.optional(this.networkLoadBalancerArn);
     }
-    /**
-     * The ID of the AWS account that owns the traffic mirror target.
-     * 
-     */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
-    /**
-     * @return The ID of the AWS account that owns the traffic mirror target.
-     * 
-     */
     public Output<String> ownerId() {
         return this.ownerId;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

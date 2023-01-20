@@ -16,32 +16,16 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWorkspaceArgs Empty = new GetWorkspaceArgs();
 
-    /**
-     * Tags assigned to the resource
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Tags assigned to the resource
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Grafana workspace ID.
-     * 
-     */
     @Import(name="workspaceId", required=true)
     private Output<String> workspaceId;
 
-    /**
-     * @return Grafana workspace ID.
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
@@ -71,44 +55,20 @@ public final class GetWorkspaceArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWorkspaceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param tags Tags assigned to the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Tags assigned to the resource
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param workspaceId Grafana workspace ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
-        /**
-         * @param workspaceId Grafana workspace ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }

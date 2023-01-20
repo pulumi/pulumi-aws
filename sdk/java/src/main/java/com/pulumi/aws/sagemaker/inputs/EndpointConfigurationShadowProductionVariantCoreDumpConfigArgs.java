@@ -13,32 +13,16 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
 
     public static final EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs Empty = new EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs();
 
-    /**
-     * The URL for S3 location where the captured data is stored.
-     * 
-     */
     @Import(name="destinationS3Uri", required=true)
     private Output<String> destinationS3Uri;
 
-    /**
-     * @return The URL for S3 location where the captured data is stored.
-     * 
-     */
     public Output<String> destinationS3Uri() {
         return this.destinationS3Uri;
     }
 
-    /**
-     * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     @Import(name="kmsKeyId", required=true)
     private Output<String> kmsKeyId;
 
-    /**
-     * @return The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-     * 
-     */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
@@ -68,44 +52,20 @@ public final class EndpointConfigurationShadowProductionVariantCoreDumpConfigArg
             $ = new EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param destinationS3Uri The URL for S3 location where the captured data is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationS3Uri(Output<String> destinationS3Uri) {
             $.destinationS3Uri = destinationS3Uri;
             return this;
         }
 
-        /**
-         * @param destinationS3Uri The URL for S3 location where the captured data is stored.
-         * 
-         * @return builder
-         * 
-         */
         public Builder destinationS3Uri(String destinationS3Uri) {
             return destinationS3Uri(Output.of(destinationS3Uri));
         }
 
-        /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(Output<String> kmsKeyId) {
             $.kmsKeyId = kmsKeyId;
             return this;
         }
 
-        /**
-         * @param kmsKeyId The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
         }

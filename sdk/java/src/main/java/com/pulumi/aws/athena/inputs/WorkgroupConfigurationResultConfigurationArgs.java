@@ -17,62 +17,30 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
 
     public static final WorkgroupConfigurationResultConfigurationArgs Empty = new WorkgroupConfigurationResultConfigurationArgs();
 
-    /**
-     * That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     @Import(name="aclConfiguration")
     private @Nullable Output<WorkgroupConfigurationResultConfigurationAclConfigurationArgs> aclConfiguration;
 
-    /**
-     * @return That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationResultConfigurationAclConfigurationArgs>> aclConfiguration() {
         return Optional.ofNullable(this.aclConfiguration);
     }
 
-    /**
-     * Configuration block with encryption settings. See Encryption Configuration below.
-     * 
-     */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs> encryptionConfiguration;
 
-    /**
-     * @return Configuration block with encryption settings. See Encryption Configuration below.
-     * 
-     */
     public Optional<Output<WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs>> encryptionConfiguration() {
         return Optional.ofNullable(this.encryptionConfiguration);
     }
 
-    /**
-     * AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-     * 
-     */
     @Import(name="outputLocation")
     private @Nullable Output<String> outputLocation;
 
-    /**
-     * @return Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-     * 
-     */
     public Optional<Output<String>> outputLocation() {
         return Optional.ofNullable(this.outputLocation);
     }
@@ -104,86 +72,38 @@ public final class WorkgroupConfigurationResultConfigurationArgs extends com.pul
             $ = new WorkgroupConfigurationResultConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aclConfiguration(@Nullable Output<WorkgroupConfigurationResultConfigurationAclConfigurationArgs> aclConfiguration) {
             $.aclConfiguration = aclConfiguration;
             return this;
         }
 
-        /**
-         * @param aclConfiguration That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder aclConfiguration(WorkgroupConfigurationResultConfigurationAclConfigurationArgs aclConfiguration) {
             return aclConfiguration(Output.of(aclConfiguration));
         }
 
-        /**
-         * @param encryptionConfiguration Configuration block with encryption settings. See Encryption Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(@Nullable Output<WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs> encryptionConfiguration) {
             $.encryptionConfiguration = encryptionConfiguration;
             return this;
         }
 
-        /**
-         * @param encryptionConfiguration Configuration block with encryption settings. See Encryption Configuration below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder encryptionConfiguration(WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs encryptionConfiguration) {
             return encryptionConfiguration(Output.of(encryptionConfiguration));
         }
 
-        /**
-         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param outputLocation Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLocation(@Nullable Output<String> outputLocation) {
             $.outputLocation = outputLocation;
             return this;
         }
 
-        /**
-         * @param outputLocation Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-         * 
-         * @return builder
-         * 
-         */
         public Builder outputLocation(String outputLocation) {
             return outputLocation(Output.of(outputLocation));
         }

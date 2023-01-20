@@ -15,32 +15,16 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
 
     public static final ThingPrincipalAttachmentState Empty = new ThingPrincipalAttachmentState();
 
-    /**
-     * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     @Import(name="principal")
     private @Nullable Output<String> principal;
 
-    /**
-     * @return The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-     * 
-     */
     public Optional<Output<String>> principal() {
         return Optional.ofNullable(this.principal);
     }
 
-    /**
-     * The name of the thing.
-     * 
-     */
     @Import(name="thing")
     private @Nullable Output<String> thing;
 
-    /**
-     * @return The name of the thing.
-     * 
-     */
     public Optional<Output<String>> thing() {
         return Optional.ofNullable(this.thing);
     }
@@ -70,44 +54,20 @@ public final class ThingPrincipalAttachmentState extends com.pulumi.resources.Re
             $ = new ThingPrincipalAttachmentState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param principal The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(@Nullable Output<String> principal) {
             $.principal = principal;
             return this;
         }
 
-        /**
-         * @param principal The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder principal(String principal) {
             return principal(Output.of(principal));
         }
 
-        /**
-         * @param thing The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thing(@Nullable Output<String> thing) {
             $.thing = thing;
             return this;
         }
 
-        /**
-         * @param thing The name of the thing.
-         * 
-         * @return builder
-         * 
-         */
         public Builder thing(String thing) {
             return thing(Output.of(thing));
         }

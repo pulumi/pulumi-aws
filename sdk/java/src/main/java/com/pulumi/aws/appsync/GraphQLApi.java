@@ -22,577 +22,83 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AppSync GraphQL API.
- * 
- * ## Example Usage
- * ### API Key Authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### AWS IAM Authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;AWS_IAM&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### AWS Cognito User Pool Authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.inputs.GraphQLApiUserPoolConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;AMAZON_COGNITO_USER_POOLS&#34;)
- *             .userPoolConfig(GraphQLApiUserPoolConfigArgs.builder()
- *                 .awsRegion(data.aws_region().current().name())
- *                 .defaultAction(&#34;DENY&#34;)
- *                 .userPoolId(aws_cognito_user_pool.example().id())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### OpenID Connect Authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.inputs.GraphQLApiOpenidConnectConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;OPENID_CONNECT&#34;)
- *             .openidConnectConfig(GraphQLApiOpenidConnectConfigArgs.builder()
- *                 .issuer(&#34;https://example.com&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### AWS Lambda Authorizer Authentication
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.inputs.GraphQLApiLambdaAuthorizerConfigArgs;
- * import com.pulumi.aws.lambda.Permission;
- * import com.pulumi.aws.lambda.PermissionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;AWS_LAMBDA&#34;)
- *             .lambdaAuthorizerConfig(GraphQLApiLambdaAuthorizerConfigArgs.builder()
- *                 .authorizerUri(&#34;arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer&#34;)
- *                 .build())
- *             .build());
- * 
- *         var appsyncLambdaAuthorizer = new Permission(&#34;appsyncLambdaAuthorizer&#34;, PermissionArgs.builder()        
- *             .action(&#34;lambda:InvokeFunction&#34;)
- *             .function(&#34;custom_lambda_authorizer&#34;)
- *             .principal(&#34;appsync.amazonaws.com&#34;)
- *             .sourceArn(example.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Multiple Authentication Providers
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.inputs.GraphQLApiAdditionalAuthenticationProviderArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .additionalAuthenticationProviders(GraphQLApiAdditionalAuthenticationProviderArgs.builder()
- *                 .authenticationType(&#34;AWS_IAM&#34;)
- *                 .build())
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Schema
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new GraphQLApi(&#34;example&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;AWS_IAM&#34;)
- *             .schema(&#34;&#34;&#34;
- * schema {
- * 	query: Query
- * }
- * type Query {
- *   test: Int
- * }
- * 
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Enabling Logging
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.RolePolicyAttachment;
- * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.appsync.inputs.GraphQLApiLogConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRole = new Role(&#34;exampleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *         &#34;Effect&#34;: &#34;Allow&#34;,
- *         &#34;Principal&#34;: {
- *             &#34;Service&#34;: &#34;appsync.amazonaws.com&#34;
- *         },
- *         &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var exampleRolePolicyAttachment = new RolePolicyAttachment(&#34;exampleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
- *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs&#34;)
- *             .role(exampleRole.name())
- *             .build());
- * 
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
- *             .logConfig(GraphQLApiLogConfigArgs.builder()
- *                 .cloudwatchLogsRoleArn(exampleRole.arn())
- *                 .fieldLogLevel(&#34;ERROR&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Associate Web ACL (v2)
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.appsync.GraphQLApi;
- * import com.pulumi.aws.appsync.GraphQLApiArgs;
- * import com.pulumi.aws.wafv2.WebAcl;
- * import com.pulumi.aws.wafv2.WebAclArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
- * import com.pulumi.aws.wafv2.WebAclAssociation;
- * import com.pulumi.aws.wafv2.WebAclAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleGraphQLApi = new GraphQLApi(&#34;exampleGraphQLApi&#34;, GraphQLApiArgs.builder()        
- *             .authenticationType(&#34;API_KEY&#34;)
- *             .build());
- * 
- *         var exampleWebAcl = new WebAcl(&#34;exampleWebAcl&#34;, WebAclArgs.builder()        
- *             .description(&#34;Example of a managed rule.&#34;)
- *             .scope(&#34;REGIONAL&#34;)
- *             .defaultAction(WebAclDefaultActionArgs.builder()
- *                 .allow()
- *                 .build())
- *             .rules(WebAclRuleArgs.builder()
- *                 .name(&#34;rule-1&#34;)
- *                 .priority(1)
- *                 .overrideAction(WebAclRuleOverrideActionArgs.builder()
- *                     .block()
- *                     .build())
- *                 .statement(WebAclRuleStatementArgs.builder()
- *                     .managedRuleGroupStatement(WebAclRuleStatementManagedRuleGroupStatementArgs.builder()
- *                         .name(&#34;AWSManagedRulesCommonRuleSet&#34;)
- *                         .vendorName(&#34;AWS&#34;)
- *                         .build())
- *                     .build())
- *                 .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
- *                     .cloudwatchMetricsEnabled(false)
- *                     .metricName(&#34;friendly-rule-metric-name&#34;)
- *                     .sampledRequestsEnabled(false)
- *                     .build())
- *                 .build())
- *             .visibilityConfig(WebAclVisibilityConfigArgs.builder()
- *                 .cloudwatchMetricsEnabled(false)
- *                 .metricName(&#34;friendly-metric-name&#34;)
- *                 .sampledRequestsEnabled(false)
- *                 .build())
- *             .build());
- * 
- *         var exampleWebAclAssociation = new WebAclAssociation(&#34;exampleWebAclAssociation&#34;, WebAclAssociationArgs.builder()        
- *             .resourceArn(exampleGraphQLApi.arn())
- *             .webAclArn(exampleWebAcl.arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
- * ```
- * 
- */
 @ResourceType(type="aws:appsync/graphQLApi:GraphQLApi")
 public class GraphQLApi extends com.pulumi.resources.CustomResource {
-    /**
-     * One or more additional authentication providers for the GraphqlApi. Defined below.
-     * 
-     */
     @Export(name="additionalAuthenticationProviders", refs={List.class,GraphQLApiAdditionalAuthenticationProvider.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GraphQLApiAdditionalAuthenticationProvider>> additionalAuthenticationProviders;
 
-    /**
-     * @return One or more additional authentication providers for the GraphqlApi. Defined below.
-     * 
-     */
     public Output<Optional<List<GraphQLApiAdditionalAuthenticationProvider>>> additionalAuthenticationProviders() {
         return Codegen.optional(this.additionalAuthenticationProviders);
     }
-    /**
-     * ARN
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-     * 
-     */
     @Export(name="authenticationType", refs={String.class}, tree="[0]")
     private Output<String> authenticationType;
 
-    /**
-     * @return Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-     * 
-     */
     public Output<String> authenticationType() {
         return this.authenticationType;
     }
-    /**
-     * Nested argument containing Lambda authorizer configuration. Defined below.
-     * 
-     */
     @Export(name="lambdaAuthorizerConfig", refs={GraphQLApiLambdaAuthorizerConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLambdaAuthorizerConfig> lambdaAuthorizerConfig;
 
-    /**
-     * @return Nested argument containing Lambda authorizer configuration. Defined below.
-     * 
-     */
     public Output<Optional<GraphQLApiLambdaAuthorizerConfig>> lambdaAuthorizerConfig() {
         return Codegen.optional(this.lambdaAuthorizerConfig);
     }
-    /**
-     * Nested argument containing logging configuration. Defined below.
-     * 
-     */
     @Export(name="logConfig", refs={GraphQLApiLogConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiLogConfig> logConfig;
 
-    /**
-     * @return Nested argument containing logging configuration. Defined below.
-     * 
-     */
     public Output<Optional<GraphQLApiLogConfig>> logConfig() {
         return Codegen.optional(this.logConfig);
     }
-    /**
-     * User-supplied name for the GraphqlApi.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return User-supplied name for the GraphqlApi.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Nested argument containing OpenID Connect configuration. Defined below.
-     * 
-     */
     @Export(name="openidConnectConfig", refs={GraphQLApiOpenidConnectConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiOpenidConnectConfig> openidConnectConfig;
 
-    /**
-     * @return Nested argument containing OpenID Connect configuration. Defined below.
-     * 
-     */
     public Output<Optional<GraphQLApiOpenidConnectConfig>> openidConnectConfig() {
         return Codegen.optional(this.openidConnectConfig);
     }
-    /**
-     * Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> schema;
 
-    /**
-     * @return Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
-     * 
-     */
     public Output<Optional<String>> schema() {
         return Codegen.optional(this.schema);
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-     * 
-     */
     @Export(name="uris", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> uris;
 
-    /**
-     * @return Map of URIs associated with the APIE.g., `uris[&#34;GRAPHQL&#34;] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-     * 
-     */
     public Output<Map<String,String>> uris() {
         return this.uris;
     }
-    /**
-     * Amazon Cognito User Pool configuration. Defined below.
-     * 
-     */
     @Export(name="userPoolConfig", refs={GraphQLApiUserPoolConfig.class}, tree="[0]")
     private Output</* @Nullable */ GraphQLApiUserPoolConfig> userPoolConfig;
 
-    /**
-     * @return Amazon Cognito User Pool configuration. Defined below.
-     * 
-     */
     public Output<Optional<GraphQLApiUserPoolConfig>> userPoolConfig() {
         return Codegen.optional(this.userPoolConfig);
     }
-    /**
-     * Whether tracing with X-ray is enabled. Defaults to false.
-     * 
-     */
     @Export(name="xrayEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> xrayEnabled;
 
-    /**
-     * @return Whether tracing with X-ray is enabled. Defaults to false.
-     * 
-     */
     public Output<Optional<Boolean>> xrayEnabled() {
         return Codegen.optional(this.xrayEnabled);
     }

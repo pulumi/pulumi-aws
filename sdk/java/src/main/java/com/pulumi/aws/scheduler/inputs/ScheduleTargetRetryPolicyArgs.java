@@ -15,32 +15,16 @@ public final class ScheduleTargetRetryPolicyArgs extends com.pulumi.resources.Re
 
     public static final ScheduleTargetRetryPolicyArgs Empty = new ScheduleTargetRetryPolicyArgs();
 
-    /**
-     * Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-     * 
-     */
     @Import(name="maximumEventAgeInSeconds")
     private @Nullable Output<Integer> maximumEventAgeInSeconds;
 
-    /**
-     * @return Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-     * 
-     */
     public Optional<Output<Integer>> maximumEventAgeInSeconds() {
         return Optional.ofNullable(this.maximumEventAgeInSeconds);
     }
 
-    /**
-     * Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-     * 
-     */
     @Import(name="maximumRetryAttempts")
     private @Nullable Output<Integer> maximumRetryAttempts;
 
-    /**
-     * @return Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-     * 
-     */
     public Optional<Output<Integer>> maximumRetryAttempts() {
         return Optional.ofNullable(this.maximumRetryAttempts);
     }
@@ -70,44 +54,20 @@ public final class ScheduleTargetRetryPolicyArgs extends com.pulumi.resources.Re
             $ = new ScheduleTargetRetryPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param maximumEventAgeInSeconds Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumEventAgeInSeconds(@Nullable Output<Integer> maximumEventAgeInSeconds) {
             $.maximumEventAgeInSeconds = maximumEventAgeInSeconds;
             return this;
         }
 
-        /**
-         * @param maximumEventAgeInSeconds Maximum amount of time, in seconds, to continue to make retry attempts. Ranges from `60` to `86400` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumEventAgeInSeconds(Integer maximumEventAgeInSeconds) {
             return maximumEventAgeInSeconds(Output.of(maximumEventAgeInSeconds));
         }
 
-        /**
-         * @param maximumRetryAttempts Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumRetryAttempts(@Nullable Output<Integer> maximumRetryAttempts) {
             $.maximumRetryAttempts = maximumRetryAttempts;
             return this;
         }
 
-        /**
-         * @param maximumRetryAttempts Maximum number of retry attempts to make before the request fails. Ranges from `0` to `185` (default).
-         * 
-         * @return builder
-         * 
-         */
         public Builder maximumRetryAttempts(Integer maximumRetryAttempts) {
             return maximumRetryAttempts(Output.of(maximumRetryAttempts));
         }

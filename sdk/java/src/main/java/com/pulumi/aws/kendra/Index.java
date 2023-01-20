@@ -22,906 +22,113 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Amazon Kendra Index resource.
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
- *             .tags(Map.of(&#34;Key1&#34;, &#34;Value1&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With capacity units
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexCapacityUnitsArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .edition(&#34;DEVELOPER_EDITION&#34;)
- *             .roleArn(aws_iam_role.this().arn())
- *             .capacityUnits(IndexCapacityUnitsArgs.builder()
- *                 .queryCapacityUnits(2)
- *                 .storageCapacityUnits(2)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With server side encryption configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexServerSideEncryptionConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
- *             .serverSideEncryptionConfiguration(IndexServerSideEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(data.aws_kms_key().this().arn())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Document Metadata Configuration Updates
- * ### Specifying the predefined elements
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
- *             .documentMetadataConfigurationUpdates(            
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Appending additional elements
- * 
- * The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateSearchArgs;
- * import com.pulumi.aws.kendra.inputs.IndexDocumentMetadataConfigurationUpdateRelevanceArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
- *             .documentMetadataConfigurationUpdates(            
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_authors&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_category&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_created_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_data_source_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_document_title&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_excerpt_page_number&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(2)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_faq_id&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_file_type&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_language_code&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_last_updated_at&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_source_uri&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_version&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;_view_count&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(false)
- *                         .facetable(false)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-value&#34;)
- *                     .type(&#34;STRING_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(true)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .valuesImportanceMap()
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-long-value&#34;)
- *                     .type(&#34;LONG_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(false)
- *                         .sortable(true)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-string-list-value&#34;)
- *                     .type(&#34;STRING_LIST_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(true)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .importance(1)
- *                         .build())
- *                     .build(),
- *                 IndexDocumentMetadataConfigurationUpdateArgs.builder()
- *                     .name(&#34;example-date-value&#34;)
- *                     .type(&#34;DATE_VALUE&#34;)
- *                     .search(IndexDocumentMetadataConfigurationUpdateSearchArgs.builder()
- *                         .displayable(true)
- *                         .facetable(true)
- *                         .searchable(false)
- *                         .sortable(false)
- *                         .build())
- *                     .relevance(IndexDocumentMetadataConfigurationUpdateRelevanceArgs.builder()
- *                         .freshness(false)
- *                         .importance(1)
- *                         .duration(&#34;25920000s&#34;)
- *                         .rankOrder(&#34;ASCENDING&#34;)
- *                         .build())
- *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With JSON token type configuration
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.kendra.Index;
- * import com.pulumi.aws.kendra.IndexArgs;
- * import com.pulumi.aws.kendra.inputs.IndexUserTokenConfigurationsArgs;
- * import com.pulumi.aws.kendra.inputs.IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Index(&#34;example&#34;, IndexArgs.builder()        
- *             .roleArn(aws_iam_role.this().arn())
- *             .userTokenConfigurations(IndexUserTokenConfigurationsArgs.builder()
- *                 .jsonTokenTypeConfiguration(IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs.builder()
- *                     .groupAttributeField(&#34;groups&#34;)
- *                     .userNameAttributeField(&#34;username&#34;)
- *                     .build())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Amazon Kendra Indexes can be imported using its `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
- * ```
- * 
- */
 @ResourceType(type="aws:kendra/index:Index")
 public class Index extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the Index.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Index.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-     * 
-     */
     @Export(name="capacityUnits", refs={IndexCapacityUnits.class}, tree="[0]")
     private Output<IndexCapacityUnits> capacityUnits;
 
-    /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
-     * 
-     */
     public Output<IndexCapacityUnits> capacityUnits() {
         return this.capacityUnits;
     }
-    /**
-     * The Unix datetime that the index was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The Unix datetime that the index was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * The description of the Index.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return The description of the Index.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-     * 
-     */
     @Export(name="documentMetadataConfigurationUpdates", refs={List.class,IndexDocumentMetadataConfigurationUpdate.class}, tree="[0,1]")
     private Output<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates;
 
-    /**
-     * @return One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
-     * 
-     */
     public Output<List<IndexDocumentMetadataConfigurationUpdate>> documentMetadataConfigurationUpdates() {
         return this.documentMetadataConfigurationUpdates;
     }
-    /**
-     * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`
-     * 
-     */
     @Export(name="edition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edition;
 
-    /**
-     * @return The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`
-     * 
-     */
     public Output<Optional<String>> edition() {
         return Codegen.optional(this.edition);
     }
-    /**
-     * When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     @Export(name="errorMessage", refs={String.class}, tree="[0]")
     private Output<String> errorMessage;
 
-    /**
-     * @return When the Status field value is `FAILED`, this contains a message that explains why.
-     * 
-     */
     public Output<String> errorMessage() {
         return this.errorMessage;
     }
-    /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
-     * 
-     */
     @Export(name="indexStatistics", refs={List.class,IndexIndexStatistic.class}, tree="[0,1]")
     private Output<List<IndexIndexStatistic>> indexStatistics;
 
-    /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
-     * 
-     */
     public Output<List<IndexIndexStatistic>> indexStatistics() {
         return this.indexStatistics;
     }
-    /**
-     * Specifies the name of the Index.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Specifies the name of the Index.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
-     * 
-     */
     @Export(name="serverSideEncryptionConfiguration", refs={IndexServerSideEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
-    /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
-     * 
-     */
     public Output<Optional<IndexServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
         return Codegen.optional(this.serverSideEncryptionConfiguration);
     }
-    /**
-     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `error_message` field contains a message that explains why.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Tags to apply to the Index. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the Index. If configured with a provider
-     * `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Unix datetime that the index was last updated.
-     * 
-     */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
-    /**
-     * @return The Unix datetime that the index was last updated.
-     * 
-     */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
-    /**
-     * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-     * 
-     */
     @Export(name="userContextPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userContextPolicy;
 
-    /**
-     * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html#Kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
-     * 
-     */
     public Output<Optional<String>> userContextPolicy() {
         return Codegen.optional(this.userContextPolicy);
     }
-    /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-     * 
-     */
     @Export(name="userGroupResolutionConfiguration", refs={IndexUserGroupResolutionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserGroupResolutionConfiguration> userGroupResolutionConfiguration;
 
-    /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
-     * 
-     */
     public Output<Optional<IndexUserGroupResolutionConfiguration>> userGroupResolutionConfiguration() {
         return Codegen.optional(this.userGroupResolutionConfiguration);
     }
-    /**
-     * A block that specifies the user token configuration. Detailed below.
-     * 
-     */
     @Export(name="userTokenConfigurations", refs={IndexUserTokenConfigurations.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserTokenConfigurations> userTokenConfigurations;
 
-    /**
-     * @return A block that specifies the user token configuration. Detailed below.
-     * 
-     */
     public Output<Optional<IndexUserTokenConfigurations>> userTokenConfigurations() {
         return Codegen.optional(this.userTokenConfigurations);
     }

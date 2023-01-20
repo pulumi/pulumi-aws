@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperimentTemplateStopCondition {
-    /**
-     * @return Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-     * 
-     */
     private String source;
-    /**
-     * @return Tag value.
-     * 
-     */
     private @Nullable String value;
 
     private ExperimentTemplateStopCondition() {}
-    /**
-     * @return Source of the condition. One of `none`, `aws:cloudwatch:alarm`.
-     * 
-     */
     public String source() {
         return this.source;
     }
-    /**
-     * @return Tag value.
-     * 
-     */
     public Optional<String> value() {
         return Optional.ofNullable(this.value);
     }

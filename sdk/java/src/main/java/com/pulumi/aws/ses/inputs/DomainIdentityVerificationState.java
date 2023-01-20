@@ -15,32 +15,16 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
 
     public static final DomainIdentityVerificationState Empty = new DomainIdentityVerificationState();
 
-    /**
-     * The ARN of the domain identity.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The ARN of the domain identity.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * The domain name of the SES domain identity to verify.
-     * 
-     */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
-    /**
-     * @return The domain name of the SES domain identity to verify.
-     * 
-     */
     public Optional<Output<String>> domain() {
         return Optional.ofNullable(this.domain);
     }
@@ -70,44 +54,20 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
             $ = new DomainIdentityVerificationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The ARN of the domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The ARN of the domain identity.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param domain The domain name of the SES domain identity to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(@Nullable Output<String> domain) {
             $.domain = domain;
             return this;
         }
 
-        /**
-         * @param domain The domain name of the SES domain identity to verify.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
         }

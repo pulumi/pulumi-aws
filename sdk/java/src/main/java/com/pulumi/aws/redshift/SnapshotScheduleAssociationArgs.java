@@ -13,32 +13,16 @@ public final class SnapshotScheduleAssociationArgs extends com.pulumi.resources.
 
     public static final SnapshotScheduleAssociationArgs Empty = new SnapshotScheduleAssociationArgs();
 
-    /**
-     * The cluster identifier.
-     * 
-     */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
-    /**
-     * @return The cluster identifier.
-     * 
-     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
 
-    /**
-     * The snapshot schedule identifier.
-     * 
-     */
     @Import(name="scheduleIdentifier", required=true)
     private Output<String> scheduleIdentifier;
 
-    /**
-     * @return The snapshot schedule identifier.
-     * 
-     */
     public Output<String> scheduleIdentifier() {
         return this.scheduleIdentifier;
     }
@@ -68,44 +52,20 @@ public final class SnapshotScheduleAssociationArgs extends com.pulumi.resources.
             $ = new SnapshotScheduleAssociationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
-        /**
-         * @param clusterIdentifier The cluster identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }
 
-        /**
-         * @param scheduleIdentifier The snapshot schedule identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleIdentifier(Output<String> scheduleIdentifier) {
             $.scheduleIdentifier = scheduleIdentifier;
             return this;
         }
 
-        /**
-         * @param scheduleIdentifier The snapshot schedule identifier.
-         * 
-         * @return builder
-         * 
-         */
         public Builder scheduleIdentifier(String scheduleIdentifier) {
             return scheduleIdentifier(Output.of(scheduleIdentifier));
         }

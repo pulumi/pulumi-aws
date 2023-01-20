@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration {
-    /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-     * 
-     */
     private @Nullable String newerNoncurrentVersions;
-    /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-     * 
-     */
     private @Nullable Integer noncurrentDays;
 
     private BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration() {}
-    /**
-     * @return The number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
-     * 
-     */
     public Optional<String> newerNoncurrentVersions() {
         return Optional.ofNullable(this.newerNoncurrentVersions);
     }
-    /**
-     * @return The number of days an object is noncurrent before Amazon S3 can perform the associated action. Must be a positive integer.
-     * 
-     */
     public Optional<Integer> noncurrentDays() {
         return Optional.ofNullable(this.noncurrentDays);
     }

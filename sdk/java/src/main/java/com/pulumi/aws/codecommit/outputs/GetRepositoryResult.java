@@ -9,52 +9,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRepositoryResult {
-    /**
-     * @return ARN of the repository
-     * 
-     */
     private String arn;
-    /**
-     * @return URL to use for cloning the repository over HTTPS.
-     * 
-     */
     private String cloneUrlHttp;
-    /**
-     * @return URL to use for cloning the repository over SSH.
-     * 
-     */
     private String cloneUrlSsh;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return ID of the repository
-     * 
-     */
     private String repositoryId;
     private String repositoryName;
 
     private GetRepositoryResult() {}
-    /**
-     * @return ARN of the repository
-     * 
-     */
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return URL to use for cloning the repository over HTTPS.
-     * 
-     */
     public String cloneUrlHttp() {
         return this.cloneUrlHttp;
     }
-    /**
-     * @return URL to use for cloning the repository over SSH.
-     * 
-     */
     public String cloneUrlSsh() {
         return this.cloneUrlSsh;
     }
@@ -65,10 +37,6 @@ public final class GetRepositoryResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return ID of the repository
-     * 
-     */
     public String repositoryId() {
         return this.repositoryId;
     }

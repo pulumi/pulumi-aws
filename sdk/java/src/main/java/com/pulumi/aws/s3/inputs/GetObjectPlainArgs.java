@@ -15,32 +15,16 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetObjectPlainArgs Empty = new GetObjectPlainArgs();
 
-    /**
-     * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-     * 
-     */
     @Import(name="bucket", required=true)
     private String bucket;
 
-    /**
-     * @return Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-     * 
-     */
     public String bucket() {
         return this.bucket;
     }
 
-    /**
-     * Full path to the object inside the bucket
-     * 
-     */
     @Import(name="key", required=true)
     private String key;
 
-    /**
-     * @return Full path to the object inside the bucket
-     * 
-     */
     public String key() {
         return this.key;
     }
@@ -52,32 +36,16 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.range);
     }
 
-    /**
-     * Map of tags assigned to the object.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Map of tags assigned to the object.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * Specific version ID of the object returned (defaults to latest version)
-     * 
-     */
     @Import(name="versionId")
     private @Nullable String versionId;
 
-    /**
-     * @return Specific version ID of the object returned (defaults to latest version)
-     * 
-     */
     public Optional<String> versionId() {
         return Optional.ofNullable(this.versionId);
     }
@@ -110,23 +78,11 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetObjectPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param key Full path to the object inside the bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder key(String key) {
             $.key = key;
             return this;
@@ -137,23 +93,11 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
-        /**
-         * @param tags Map of tags assigned to the object.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param versionId Specific version ID of the object returned (defaults to latest version)
-         * 
-         * @return builder
-         * 
-         */
         public Builder versionId(@Nullable String versionId) {
             $.versionId = versionId;
             return this;

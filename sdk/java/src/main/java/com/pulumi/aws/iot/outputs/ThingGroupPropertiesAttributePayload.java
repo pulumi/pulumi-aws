@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ThingGroupPropertiesAttributePayload {
-    /**
-     * @return Key-value map.
-     * 
-     */
     private @Nullable Map<String,String> attributes;
 
     private ThingGroupPropertiesAttributePayload() {}
-    /**
-     * @return Key-value map.
-     * 
-     */
     public Map<String,String> attributes() {
         return this.attributes == null ? Map.of() : this.attributes;
     }

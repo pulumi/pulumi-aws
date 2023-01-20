@@ -15,277 +15,41 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an EventBridge connection resource.
- * 
- * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventConnection;
- * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersApiKeyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
- *                     .key(&#34;x-signature&#34;)
- *                     .value(&#34;1234&#34;)
- *                     .build())
- *                 .build())
- *             .authorizationType(&#34;API_KEY&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Basic Authorization
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventConnection;
- * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
- *                     .username(&#34;user&#34;)
- *                     .build())
- *                 .build())
- *             .authorizationType(&#34;BASIC&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### OAuth Authorization
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventConnection;
- * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint(&#34;https://auth.url.com/endpoint&#34;)
- *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
- *                         .clientId(&#34;1234567890&#34;)
- *                         .clientSecret(&#34;Pass1234!&#34;)
- *                         .build())
- *                     .httpMethod(&#34;GET&#34;)
- *                     .oauthHttpParameters(EventConnectionAuthParametersOauthOauthHttpParametersArgs.builder()
- *                         .body(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                         .build())
- *                     .build())
- *                 .build())
- *             .authorizationType(&#34;OAUTH_CLIENT_CREDENTIALS&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Invocation Http Parameters
- * 
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.cloudwatch.EventConnection;
- * import com.pulumi.aws.cloudwatch.EventConnectionArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new EventConnection(&#34;test&#34;, EventConnectionArgs.builder()        
- *             .authParameters(EventConnectionAuthParametersArgs.builder()
- *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
- *                     .password(&#34;Pass1234!&#34;)
- *                     .username(&#34;user&#34;)
- *                     .build())
- *                 .invocationHttpParameters(EventConnectionAuthParametersInvocationHttpParametersArgs.builder()
- *                     .body(                    
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
- *                         %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .header(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .queryString(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                     .build())
- *                 .build())
- *             .authorizationType(&#34;BASIC&#34;)
- *             .description(&#34;A connection description&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * EventBridge Connection can be imported using the `name`, e.g., console
- * 
- * ```sh
- *  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
- * ```
- * 
- */
 @ResourceType(type="aws:cloudwatch/eventConnection:EventConnection")
 public class EventConnection extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the connection.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the connection.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     @Export(name="authParameters", refs={EventConnectionAuthParameters.class}, tree="[0]")
     private Output<EventConnectionAuthParameters> authParameters;
 
-    /**
-     * @return Parameters used for authorization. A maximum of 1 are allowed. Documented below.
-     * 
-     */
     public Output<EventConnectionAuthParameters> authParameters() {
         return this.authParameters;
     }
-    /**
-     * Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
-    /**
-     * @return Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
-     * 
-     */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
-    /**
-     * Enter a description for the connection. Maximum of 512 characters.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Enter a description for the connection. Maximum of 512 characters.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
-     * 
-     */
     public Output<String> secretArn() {
         return this.secretArn;
     }

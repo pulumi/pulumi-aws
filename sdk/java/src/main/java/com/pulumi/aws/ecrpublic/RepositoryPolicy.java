@@ -13,127 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an Elastic Container Registry Public Repository Policy.
- * 
- * Note that currently only one policy may be applied to a repository.
- * 
- * &gt; **NOTE:** This resource can only be used with `us-east-1` region.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ecrpublic.Repository;
- * import com.pulumi.aws.ecrpublic.RepositoryArgs;
- * import com.pulumi.aws.ecrpublic.RepositoryPolicy;
- * import com.pulumi.aws.ecrpublic.RepositoryPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRepository = new Repository(&#34;exampleRepository&#34;, RepositoryArgs.builder()        
- *             .repositoryName(&#34;example&#34;)
- *             .build());
- * 
- *         var exampleRepositoryPolicy = new RepositoryPolicy(&#34;exampleRepositoryPolicy&#34;, RepositoryPolicyArgs.builder()        
- *             .repositoryName(exampleRepository.repositoryName())
- *             .policy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2008-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Sid&#34;: &#34;new policy&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: &#34;*&#34;,
- *             &#34;Action&#34;: [
- *                 &#34;ecr:GetDownloadUrlForLayer&#34;,
- *                 &#34;ecr:BatchGetImage&#34;,
- *                 &#34;ecr:BatchCheckLayerAvailability&#34;,
- *                 &#34;ecr:PutImage&#34;,
- *                 &#34;ecr:InitiateLayerUpload&#34;,
- *                 &#34;ecr:UploadLayerPart&#34;,
- *                 &#34;ecr:CompleteLayerUpload&#34;,
- *                 &#34;ecr:DescribeRepositories&#34;,
- *                 &#34;ecr:GetRepositoryPolicy&#34;,
- *                 &#34;ecr:ListImages&#34;,
- *                 &#34;ecr:DeleteRepository&#34;,
- *                 &#34;ecr:BatchDeleteImage&#34;,
- *                 &#34;ecr:SetRepositoryPolicy&#34;,
- *                 &#34;ecr:DeleteRepositoryPolicy&#34;
- *             ]
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * ECR Public Repository Policy can be imported using the repository name, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
- * ```
- * 
- */
 @ResourceType(type="aws:ecrpublic/repositoryPolicy:RepositoryPolicy")
 public class RepositoryPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The policy document. This is a JSON formatted string.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The policy document. This is a JSON formatted string.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
-    /**
-     * The registry ID where the repository was created.
-     * 
-     */
     @Export(name="registryId", refs={String.class}, tree="[0]")
     private Output<String> registryId;
 
-    /**
-     * @return The registry ID where the repository was created.
-     * 
-     */
     public Output<String> registryId() {
         return this.registryId;
     }
-    /**
-     * Name of the repository to apply the policy.
-     * 
-     */
     @Export(name="repositoryName", refs={String.class}, tree="[0]")
     private Output<String> repositoryName;
 
-    /**
-     * @return Name of the repository to apply the policy.
-     * 
-     */
     public Output<String> repositoryName() {
         return this.repositoryName;
     }

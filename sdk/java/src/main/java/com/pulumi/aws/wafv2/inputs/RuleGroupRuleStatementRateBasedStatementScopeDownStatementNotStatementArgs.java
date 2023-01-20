@@ -14,17 +14,9 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
 
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs();
 
-    /**
-     * The statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements;
 
-    /**
-     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
-     * 
-     */
     public Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements() {
         return this.statements;
     }
@@ -53,33 +45,15 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
             $ = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(Output<List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
-        /**
-         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statements(RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementArgs... statements) {
             return statements(List.of(statements));
         }

@@ -13,104 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an SES receipt filter resource
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ses.ReceiptFilter;
- * import com.pulumi.aws.ses.ReceiptFilterArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var filter = new ReceiptFilter(&#34;filter&#34;, ReceiptFilterArgs.builder()        
- *             .cidr(&#34;10.10.10.10&#34;)
- *             .policy(&#34;Block&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SES Receipt Filter can be imported using their `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
- * ```
- * 
- */
 @ResourceType(type="aws:ses/receiptFilter:ReceiptFilter")
 public class ReceiptFilter extends com.pulumi.resources.CustomResource {
-    /**
-     * The SES receipt filter ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The SES receipt filter ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The IP address or address range to filter, in CIDR notation
-     * 
-     */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
-    /**
-     * @return The IP address or address range to filter, in CIDR notation
-     * 
-     */
     public Output<String> cidr() {
         return this.cidr;
     }
-    /**
-     * The name of the filter
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the filter
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Block or Allow
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return Block or Allow
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }

@@ -12,65 +12,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderAutoScalingGroupProviderManagedScaling {
-    /**
-     * @return Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
-     * 
-     */
     private @Nullable Integer instanceWarmupPeriod;
-    /**
-     * @return Maximum step adjustment size. A number between 1 and 10,000.
-     * 
-     */
     private @Nullable Integer maximumScalingStepSize;
-    /**
-     * @return Minimum step adjustment size. A number between 1 and 10,000.
-     * 
-     */
     private @Nullable Integer minimumScalingStepSize;
-    /**
-     * @return Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     private @Nullable String status;
-    /**
-     * @return Target utilization for the capacity provider. A number between 1 and 100.
-     * 
-     */
     private @Nullable Integer targetCapacity;
 
     private CapacityProviderAutoScalingGroupProviderManagedScaling() {}
-    /**
-     * @return Period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of 300 seconds is used.
-     * 
-     */
     public Optional<Integer> instanceWarmupPeriod() {
         return Optional.ofNullable(this.instanceWarmupPeriod);
     }
-    /**
-     * @return Maximum step adjustment size. A number between 1 and 10,000.
-     * 
-     */
     public Optional<Integer> maximumScalingStepSize() {
         return Optional.ofNullable(this.maximumScalingStepSize);
     }
-    /**
-     * @return Minimum step adjustment size. A number between 1 and 10,000.
-     * 
-     */
     public Optional<Integer> minimumScalingStepSize() {
         return Optional.ofNullable(this.minimumScalingStepSize);
     }
-    /**
-     * @return Whether auto scaling is managed by ECS. Valid values are `ENABLED` and `DISABLED`.
-     * 
-     */
     public Optional<String> status() {
         return Optional.ofNullable(this.status);
     }
-    /**
-     * @return Target utilization for the capacity provider. A number between 1 and 100.
-     * 
-     */
     public Optional<Integer> targetCapacity() {
         return Optional.ofNullable(this.targetCapacity);
     }

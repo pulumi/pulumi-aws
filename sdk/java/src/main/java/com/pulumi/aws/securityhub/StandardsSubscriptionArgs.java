@@ -13,17 +13,9 @@ public final class StandardsSubscriptionArgs extends com.pulumi.resources.Resour
 
     public static final StandardsSubscriptionArgs Empty = new StandardsSubscriptionArgs();
 
-    /**
-     * The ARN of a standard - see below.
-     * 
-     */
     @Import(name="standardsArn", required=true)
     private Output<String> standardsArn;
 
-    /**
-     * @return The ARN of a standard - see below.
-     * 
-     */
     public Output<String> standardsArn() {
         return this.standardsArn;
     }
@@ -52,23 +44,11 @@ public final class StandardsSubscriptionArgs extends com.pulumi.resources.Resour
             $ = new StandardsSubscriptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param standardsArn The ARN of a standard - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsArn(Output<String> standardsArn) {
             $.standardsArn = standardsArn;
             return this;
         }
 
-        /**
-         * @param standardsArn The ARN of a standard - see below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder standardsArn(String standardsArn) {
             return standardsArn(Output.of(standardsArn));
         }

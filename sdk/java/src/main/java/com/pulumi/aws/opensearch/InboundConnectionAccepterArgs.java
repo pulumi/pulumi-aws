@@ -13,17 +13,9 @@ public final class InboundConnectionAccepterArgs extends com.pulumi.resources.Re
 
     public static final InboundConnectionAccepterArgs Empty = new InboundConnectionAccepterArgs();
 
-    /**
-     * Specifies the ID of the connection to accept.
-     * 
-     */
     @Import(name="connectionId", required=true)
     private Output<String> connectionId;
 
-    /**
-     * @return Specifies the ID of the connection to accept.
-     * 
-     */
     public Output<String> connectionId() {
         return this.connectionId;
     }
@@ -52,23 +44,11 @@ public final class InboundConnectionAccepterArgs extends com.pulumi.resources.Re
             $ = new InboundConnectionAccepterArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionId Specifies the ID of the connection to accept.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(Output<String> connectionId) {
             $.connectionId = connectionId;
             return this;
         }
 
-        /**
-         * @param connectionId Specifies the ID of the connection to accept.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionId(String connectionId) {
             return connectionId(Output.of(connectionId));
         }

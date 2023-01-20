@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CrawlerSchemaChangePolicy {
-    /**
-     * @return The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-     * 
-     */
     private @Nullable String deleteBehavior;
-    /**
-     * @return The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-     * 
-     */
     private @Nullable String updateBehavior;
 
     private CrawlerSchemaChangePolicy() {}
-    /**
-     * @return The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
-     * 
-     */
     public Optional<String> deleteBehavior() {
         return Optional.ofNullable(this.deleteBehavior);
     }
-    /**
-     * @return The update behavior when the crawler finds a changed schema. Valid values: `LOG` or `UPDATE_IN_DATABASE`. Defaults to `UPDATE_IN_DATABASE`.
-     * 
-     */
     public Optional<String> updateBehavior() {
         return Optional.ofNullable(this.updateBehavior);
     }

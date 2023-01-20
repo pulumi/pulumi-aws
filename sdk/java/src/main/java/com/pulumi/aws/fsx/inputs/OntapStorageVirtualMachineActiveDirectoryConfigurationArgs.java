@@ -16,17 +16,9 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
 
     public static final OntapStorageVirtualMachineActiveDirectoryConfigurationArgs Empty = new OntapStorageVirtualMachineActiveDirectoryConfigurationArgs();
 
-    /**
-     * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-     * 
-     */
     @Import(name="netbiosName")
     private @Nullable Output<String> netbiosName;
 
-    /**
-     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-     * 
-     */
     public Optional<Output<String>> netbiosName() {
         return Optional.ofNullable(this.netbiosName);
     }
@@ -63,23 +55,11 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
             $ = new OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netbiosName(@Nullable Output<String> netbiosName) {
             $.netbiosName = netbiosName;
             return this;
         }
 
-        /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
-         * 
-         * @return builder
-         * 
-         */
         public Builder netbiosName(String netbiosName) {
             return netbiosName(Output.of(netbiosName));
         }

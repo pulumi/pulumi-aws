@@ -13,34 +13,16 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
 
     public static final KinesisStreamingDestinationArgs Empty = new KinesisStreamingDestinationArgs();
 
-    /**
-     * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     * 
-     */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
-    /**
-     * @return The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-     * 
-     */
     public Output<String> streamArn() {
         return this.streamArn;
     }
 
-    /**
-     * The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
-     * 
-     */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
-    /**
-     * @return The name of the DynamoDB table. There
-     * can only be one Kinesis streaming destination for a given DynamoDB table.
-     * 
-     */
     public Output<String> tableName() {
         return this.tableName;
     }
@@ -70,46 +52,20 @@ public final class KinesisStreamingDestinationArgs extends com.pulumi.resources.
             $ = new KinesisStreamingDestinationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param streamArn The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(Output<String> streamArn) {
             $.streamArn = streamArn;
             return this;
         }
 
-        /**
-         * @param streamArn The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
         }
 
-        /**
-         * @param tableName The name of the DynamoDB table. There
-         * can only be one Kinesis streaming destination for a given DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(Output<String> tableName) {
             $.tableName = tableName;
             return this;
         }
 
-        /**
-         * @param tableName The name of the DynamoDB table. There
-         * can only be one Kinesis streaming destination for a given DynamoDB table.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tableName(String tableName) {
             return tableName(Output.of(tableName));
         }

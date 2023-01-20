@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorKafkaCluster {
-    /**
-     * @return The Apache Kafka cluster to which the connector is connected.
-     * 
-     */
     private ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster;
 
     private ConnectorKafkaCluster() {}
-    /**
-     * @return The Apache Kafka cluster to which the connector is connected.
-     * 
-     */
     public ConnectorKafkaClusterApacheKafkaCluster apacheKafkaCluster() {
         return this.apacheKafkaCluster;
     }

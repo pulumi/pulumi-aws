@@ -16,62 +16,30 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
 
     public static final EndpointElasticsearchSettingsArgs Empty = new EndpointElasticsearchSettingsArgs();
 
-    /**
-     * Endpoint for the OpenSearch cluster.
-     * 
-     */
     @Import(name="endpointUri", required=true)
     private Output<String> endpointUri;
 
-    /**
-     * @return Endpoint for the OpenSearch cluster.
-     * 
-     */
     public Output<String> endpointUri() {
         return this.endpointUri;
     }
 
-    /**
-     * Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-     * 
-     */
     @Import(name="errorRetryDuration")
     private @Nullable Output<Integer> errorRetryDuration;
 
-    /**
-     * @return Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-     * 
-     */
     public Optional<Output<Integer>> errorRetryDuration() {
         return Optional.ofNullable(this.errorRetryDuration);
     }
 
-    /**
-     * Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-     * 
-     */
     @Import(name="fullLoadErrorPercentage")
     private @Nullable Output<Integer> fullLoadErrorPercentage;
 
-    /**
-     * @return Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-     * 
-     */
     public Optional<Output<Integer>> fullLoadErrorPercentage() {
         return Optional.ofNullable(this.fullLoadErrorPercentage);
     }
 
-    /**
-     * ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-     * 
-     */
     @Import(name="serviceAccessRoleArn", required=true)
     private Output<String> serviceAccessRoleArn;
 
-    /**
-     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-     * 
-     */
     public Output<String> serviceAccessRoleArn() {
         return this.serviceAccessRoleArn;
     }
@@ -103,86 +71,38 @@ public final class EndpointElasticsearchSettingsArgs extends com.pulumi.resource
             $ = new EndpointElasticsearchSettingsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param endpointUri Endpoint for the OpenSearch cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointUri(Output<String> endpointUri) {
             $.endpointUri = endpointUri;
             return this;
         }
 
-        /**
-         * @param endpointUri Endpoint for the OpenSearch cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder endpointUri(String endpointUri) {
             return endpointUri(Output.of(endpointUri));
         }
 
-        /**
-         * @param errorRetryDuration Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorRetryDuration(@Nullable Output<Integer> errorRetryDuration) {
             $.errorRetryDuration = errorRetryDuration;
             return this;
         }
 
-        /**
-         * @param errorRetryDuration Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorRetryDuration(Integer errorRetryDuration) {
             return errorRetryDuration(Output.of(errorRetryDuration));
         }
 
-        /**
-         * @param fullLoadErrorPercentage Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullLoadErrorPercentage(@Nullable Output<Integer> fullLoadErrorPercentage) {
             $.fullLoadErrorPercentage = fullLoadErrorPercentage;
             return this;
         }
 
-        /**
-         * @param fullLoadErrorPercentage Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder fullLoadErrorPercentage(Integer fullLoadErrorPercentage) {
             return fullLoadErrorPercentage(Output.of(fullLoadErrorPercentage));
         }
 
-        /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(Output<String> serviceAccessRoleArn) {
             $.serviceAccessRoleArn = serviceAccessRoleArn;
             return this;
         }
 
-        /**
-         * @param serviceAccessRoleArn ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serviceAccessRoleArn(String serviceAccessRoleArn) {
             return serviceAccessRoleArn(Output.of(serviceAccessRoleArn));
         }

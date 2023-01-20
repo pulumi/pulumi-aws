@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings {
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination destination;
 
     private ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings() {}
-    /**
-     * @return Destination address and port number for RTP or UDP packets. See Destination for more details.
-     * 
-     */
     public ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination destination() {
         return this.destination;
     }

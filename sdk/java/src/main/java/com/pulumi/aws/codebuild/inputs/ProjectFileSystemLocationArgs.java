@@ -15,77 +15,37 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
 
     public static final ProjectFileSystemLocationArgs Empty = new ProjectFileSystemLocationArgs();
 
-    /**
-     * The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-     * 
-     */
     @Import(name="identifier")
     private @Nullable Output<String> identifier;
 
-    /**
-     * @return The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-     * 
-     */
     public Optional<Output<String>> identifier() {
         return Optional.ofNullable(this.identifier);
     }
 
-    /**
-     * Location of the source code from git or s3.
-     * 
-     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
-    /**
-     * @return Location of the source code from git or s3.
-     * 
-     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
 
-    /**
-     * The mount options for a file system created by AWS EFS.
-     * 
-     */
     @Import(name="mountOptions")
     private @Nullable Output<String> mountOptions;
 
-    /**
-     * @return The mount options for a file system created by AWS EFS.
-     * 
-     */
     public Optional<Output<String>> mountOptions() {
         return Optional.ofNullable(this.mountOptions);
     }
 
-    /**
-     * The location in the container where you mount the file system.
-     * 
-     */
     @Import(name="mountPoint")
     private @Nullable Output<String> mountPoint;
 
-    /**
-     * @return The location in the container where you mount the file system.
-     * 
-     */
     public Optional<Output<String>> mountPoint() {
         return Optional.ofNullable(this.mountPoint);
     }
 
-    /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -118,107 +78,47 @@ public final class ProjectFileSystemLocationArgs extends com.pulumi.resources.Re
             $ = new ProjectFileSystemLocationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(@Nullable Output<String> identifier) {
             $.identifier = identifier;
             return this;
         }
 
-        /**
-         * @param identifier The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the identifier in all capital letters to CODEBUILD\_. For example, if you specify my-efs for identifier, a new environment variable is create named CODEBUILD_MY-EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identifier(String identifier) {
             return identifier(Output.of(identifier));
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
-        /**
-         * @param location Location of the source code from git or s3.
-         * 
-         * @return builder
-         * 
-         */
         public Builder location(String location) {
             return location(Output.of(location));
         }
 
-        /**
-         * @param mountOptions The mount options for a file system created by AWS EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(@Nullable Output<String> mountOptions) {
             $.mountOptions = mountOptions;
             return this;
         }
 
-        /**
-         * @param mountOptions The mount options for a file system created by AWS EFS.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountOptions(String mountOptions) {
             return mountOptions(Output.of(mountOptions));
         }
 
-        /**
-         * @param mountPoint The location in the container where you mount the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountPoint(@Nullable Output<String> mountPoint) {
             $.mountPoint = mountPoint;
             return this;
         }
 
-        /**
-         * @param mountPoint The location in the container where you mount the file system.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mountPoint(String mountPoint) {
             return mountPoint(Output.of(mountPoint));
         }
 
-        /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

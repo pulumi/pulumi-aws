@@ -15,104 +15,44 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetSnapshotPlainArgs Empty = new GetSnapshotPlainArgs();
 
-    /**
-     * Returns the list of snapshots created by the specific db_instance
-     * 
-     */
     @Import(name="dbInstanceIdentifier")
     private @Nullable String dbInstanceIdentifier;
 
-    /**
-     * @return Returns the list of snapshots created by the specific db_instance
-     * 
-     */
     public Optional<String> dbInstanceIdentifier() {
         return Optional.ofNullable(this.dbInstanceIdentifier);
     }
 
-    /**
-     * Returns information on a specific snapshot_id.
-     * 
-     */
     @Import(name="dbSnapshotIdentifier")
     private @Nullable String dbSnapshotIdentifier;
 
-    /**
-     * @return Returns information on a specific snapshot_id.
-     * 
-     */
     public Optional<String> dbSnapshotIdentifier() {
         return Optional.ofNullable(this.dbSnapshotIdentifier);
     }
 
-    /**
-     * Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     @Import(name="includePublic")
     private @Nullable Boolean includePublic;
 
-    /**
-     * @return Set this value to true to include manual DB snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-     * 
-     */
     public Optional<Boolean> includePublic() {
         return Optional.ofNullable(this.includePublic);
     }
 
-    /**
-     * Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     @Import(name="includeShared")
     private @Nullable Boolean includeShared;
 
-    /**
-     * @return Set this value to true to include shared manual DB snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
-     * 
-     */
     public Optional<Boolean> includeShared() {
         return Optional.ofNullable(this.includeShared);
     }
 
-    /**
-     * If more than one result is returned, use the most
-     * recent Snapshot.
-     * 
-     */
     @Import(name="mostRecent")
     private @Nullable Boolean mostRecent;
 
-    /**
-     * @return If more than one result is returned, use the most
-     * recent Snapshot.
-     * 
-     */
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
 
-    /**
-     * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     @Import(name="snapshotType")
     private @Nullable String snapshotType;
 
-    /**
-     * @return Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-     * 
-     */
     public Optional<String> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
@@ -146,73 +86,31 @@ public final class GetSnapshotPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetSnapshotPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dbInstanceIdentifier Returns the list of snapshots created by the specific db_instance
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbInstanceIdentifier(@Nullable String dbInstanceIdentifier) {
             $.dbInstanceIdentifier = dbInstanceIdentifier;
             return this;
         }
 
-        /**
-         * @param dbSnapshotIdentifier Returns information on a specific snapshot_id.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dbSnapshotIdentifier(@Nullable String dbSnapshotIdentifier) {
             $.dbSnapshotIdentifier = dbSnapshotIdentifier;
             return this;
         }
 
-        /**
-         * @param includePublic Set this value to true to include manual DB snapshots that are public and can be
-         * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includePublic(@Nullable Boolean includePublic) {
             $.includePublic = includePublic;
             return this;
         }
 
-        /**
-         * @param includeShared Set this value to true to include shared manual DB snapshots from other
-         * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-         * The default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder includeShared(@Nullable Boolean includeShared) {
             $.includeShared = includeShared;
             return this;
         }
 
-        /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent Snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
             return this;
         }
 
-        /**
-         * @param snapshotType Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
-         * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-         * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder snapshotType(@Nullable String snapshotType) {
             $.snapshotType = snapshotType;
             return this;

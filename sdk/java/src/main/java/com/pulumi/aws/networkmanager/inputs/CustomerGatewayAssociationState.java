@@ -15,62 +15,30 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
 
     public static final CustomerGatewayAssociationState Empty = new CustomerGatewayAssociationState();
 
-    /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
-     * 
-     */
     @Import(name="customerGatewayArn")
     private @Nullable Output<String> customerGatewayArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the customer gateway.
-     * 
-     */
     public Optional<Output<String>> customerGatewayArn() {
         return Optional.ofNullable(this.customerGatewayArn);
     }
 
-    /**
-     * The ID of the device.
-     * 
-     */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
-    /**
-     * @return The ID of the device.
-     * 
-     */
     public Optional<Output<String>> deviceId() {
         return Optional.ofNullable(this.deviceId);
     }
 
-    /**
-     * The ID of the global network.
-     * 
-     */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
-    /**
-     * @return The ID of the global network.
-     * 
-     */
     public Optional<Output<String>> globalNetworkId() {
         return Optional.ofNullable(this.globalNetworkId);
     }
 
-    /**
-     * The ID of the link.
-     * 
-     */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
-    /**
-     * @return The ID of the link.
-     * 
-     */
     public Optional<Output<String>> linkId() {
         return Optional.ofNullable(this.linkId);
     }
@@ -102,86 +70,38 @@ public final class CustomerGatewayAssociationState extends com.pulumi.resources.
             $ = new CustomerGatewayAssociationState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerGatewayArn(@Nullable Output<String> customerGatewayArn) {
             $.customerGatewayArn = customerGatewayArn;
             return this;
         }
 
-        /**
-         * @param customerGatewayArn The Amazon Resource Name (ARN) of the customer gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customerGatewayArn(String customerGatewayArn) {
             return customerGatewayArn(Output.of(customerGatewayArn));
         }
 
-        /**
-         * @param deviceId The ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(@Nullable Output<String> deviceId) {
             $.deviceId = deviceId;
             return this;
         }
 
-        /**
-         * @param deviceId The ID of the device.
-         * 
-         * @return builder
-         * 
-         */
         public Builder deviceId(String deviceId) {
             return deviceId(Output.of(deviceId));
         }
 
-        /**
-         * @param globalNetworkId The ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(@Nullable Output<String> globalNetworkId) {
             $.globalNetworkId = globalNetworkId;
             return this;
         }
 
-        /**
-         * @param globalNetworkId The ID of the global network.
-         * 
-         * @return builder
-         * 
-         */
         public Builder globalNetworkId(String globalNetworkId) {
             return globalNetworkId(Output.of(globalNetworkId));
         }
 
-        /**
-         * @param linkId The ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(@Nullable Output<String> linkId) {
             $.linkId = linkId;
             return this;
         }
 
-        /**
-         * @param linkId The ID of the link.
-         * 
-         * @return builder
-         * 
-         */
         public Builder linkId(String linkId) {
             return linkId(Output.of(linkId));
         }

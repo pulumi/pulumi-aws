@@ -18,158 +18,41 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a resource to manage a deployment version for your Amazon Lightsail container service.
- * 
- * &gt; **NOTE:** The Amazon Lightsail container service must be enabled to create a deployment.
- * 
- * &gt; **NOTE:** This resource allows you to manage an Amazon Lightsail container service deployment version but the provider cannot destroy it. Removing this resource from your configuration will remove it from your statefile.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersion;
- * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersionArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionContainerArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ContainerServiceDeploymentVersion(&#34;example&#34;, ContainerServiceDeploymentVersionArgs.builder()        
- *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .image(&#34;amazon/amazon-lightsail:hello-world&#34;)
- *                 .commands()
- *                 .environment(Map.of(&#34;MY_ENVIRONMENT_VARIABLE&#34;, &#34;my_value&#34;))
- *                 .ports(Map.of(&#34;80&#34;, &#34;HTTP&#34;))
- *                 .build())
- *             .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
- *                 .containerName(&#34;hello-world&#34;)
- *                 .containerPort(80)
- *                 .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
- *                     .healthyThreshold(2)
- *                     .unhealthyThreshold(2)
- *                     .timeoutSeconds(2)
- *                     .intervalSeconds(5)
- *                     .path(&#34;/&#34;)
- *                     .successCodes(&#34;200-499&#34;)
- *                     .build())
- *                 .build())
- *             .serviceName(aws_lightsail_container_service.example().name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Lightsail Container Service Deployment Version can be imported using the `service_name` and `version` separated by a slash (`/`), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion")
 public class ContainerServiceDeploymentVersion extends com.pulumi.resources.CustomResource {
-    /**
-     * A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     @Export(name="containers", refs={List.class,ContainerServiceDeploymentVersionContainer.class}, tree="[0,1]")
     private Output<List<ContainerServiceDeploymentVersionContainer>> containers;
 
-    /**
-     * @return A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-     * 
-     */
     public Output<List<ContainerServiceDeploymentVersionContainer>> containers() {
         return this.containers;
     }
-    /**
-     * The timestamp when the deployment was created.
-     * 
-     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
-    /**
-     * @return The timestamp when the deployment was created.
-     * 
-     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
-    /**
-     * A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     @Export(name="publicEndpoint", refs={ContainerServiceDeploymentVersionPublicEndpoint.class}, tree="[0]")
     private Output</* @Nullable */ ContainerServiceDeploymentVersionPublicEndpoint> publicEndpoint;
 
-    /**
-     * @return A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
-     * 
-     */
     public Output<Optional<ContainerServiceDeploymentVersionPublicEndpoint>> publicEndpoint() {
         return Codegen.optional(this.publicEndpoint);
     }
-    /**
-     * The name for the container service.
-     * 
-     */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
-    /**
-     * @return The name for the container service.
-     * 
-     */
     public Output<String> serviceName() {
         return this.serviceName;
     }
-    /**
-     * The current state of the container service.
-     * 
-     */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
-    /**
-     * @return The current state of the container service.
-     * 
-     */
     public Output<String> state() {
         return this.state;
     }
-    /**
-     * The version number of the deployment.
-     * 
-     */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
-    /**
-     * @return The version number of the deployment.
-     * 
-     */
     public Output<Integer> version() {
         return this.version;
     }

@@ -15,194 +15,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM instance profile.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.iam.Role;
- * import com.pulumi.aws.iam.RoleArgs;
- * import com.pulumi.aws.iam.InstanceProfile;
- * import com.pulumi.aws.iam.InstanceProfileArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var role = new Role(&#34;role&#34;, RoleArgs.builder()        
- *             .path(&#34;/&#34;)
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *             &#34;Principal&#34;: {
- *                &#34;Service&#34;: &#34;ec2.amazonaws.com&#34;
- *             },
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Sid&#34;: &#34;&#34;
- *         }
- *     ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var testProfile = new InstanceProfile(&#34;testProfile&#34;, InstanceProfileArgs.builder()        
- *             .role(role.name())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Instance Profiles can be imported using the `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
- * ```
- * 
- */
 @ResourceType(type="aws:iam/instanceProfile:InstanceProfile")
 public class InstanceProfile extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN assigned by AWS to the instance profile.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN assigned by AWS to the instance profile.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Creation timestamp of the instance profile.
-     * 
-     */
     @Export(name="createDate", refs={String.class}, tree="[0]")
     private Output<String> createDate;
 
-    /**
-     * @return Creation timestamp of the instance profile.
-     * 
-     */
     public Output<String> createDate() {
         return this.createDate;
     }
-    /**
-     * Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the instance profile. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`. Can be a string of characters consisting of upper and lowercase alphanumeric characters and these special characters: `_`, `+`, `=`, `,`, `.`, `@`, `-`. Spaces are not allowed.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<Optional<String>> namePrefix() {
         return Codegen.optional(this.namePrefix);
     }
-    /**
-     * Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-     * 
-     */
     @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
-    /**
-     * @return Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
-     * 
-     */
     public Output<Optional<String>> path() {
         return Codegen.optional(this.path);
     }
-    /**
-     * Name of the role to add to the profile.
-     * 
-     */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
-    /**
-     * @return Name of the role to add to the profile.
-     * 
-     */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
     }
-    /**
-     * Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * [Unique ID][1] assigned by AWS.
-     * 
-     */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
-    /**
-     * @return [Unique ID][1] assigned by AWS.
-     * 
-     */
     public Output<String> uniqueId() {
         return this.uniqueId;
     }

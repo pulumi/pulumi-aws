@@ -19,10 +19,6 @@ public final class GetVpcsResult {
      * 
      */
     private String id;
-    /**
-     * @return List of all the VPC Ids found.
-     * 
-     */
     private List<String> ids;
     private Map<String,String> tags;
 
@@ -37,10 +33,6 @@ public final class GetVpcsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return List of all the VPC Ids found.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

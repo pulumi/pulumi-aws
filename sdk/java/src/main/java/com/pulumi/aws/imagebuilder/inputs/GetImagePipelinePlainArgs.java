@@ -15,32 +15,16 @@ public final class GetImagePipelinePlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetImagePipelinePlainArgs Empty = new GetImagePipelinePlainArgs();
 
-    /**
-     * ARN of the image pipeline.
-     * 
-     */
     @Import(name="arn", required=true)
     private String arn;
 
-    /**
-     * @return ARN of the image pipeline.
-     * 
-     */
     public String arn() {
         return this.arn;
     }
 
-    /**
-     * Key-value map of resource tags for the image pipeline.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
-    /**
-     * @return Key-value map of resource tags for the image pipeline.
-     * 
-     */
     public Optional<Map<String,String>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -70,23 +54,11 @@ public final class GetImagePipelinePlainArgs extends com.pulumi.resources.Invoke
             $ = new GetImagePipelinePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the image pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags for the image pipeline.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
             return this;

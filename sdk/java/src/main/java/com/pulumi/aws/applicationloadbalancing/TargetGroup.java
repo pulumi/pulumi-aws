@@ -22,156 +22,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Target Group resource for use with Load Balancer resources.
- * 
- * &gt; **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
- * 
- * ## Example Usage
- * ### Instance Target Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .build());
- * 
- *         var test = new TargetGroup(&#34;test&#34;, TargetGroupArgs.builder()        
- *             .port(80)
- *             .protocol(&#34;HTTP&#34;)
- *             .vpcId(main.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### IP Target Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ec2.Vpc;
- * import com.pulumi.aws.ec2.VpcArgs;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var main = new Vpc(&#34;main&#34;, VpcArgs.builder()        
- *             .cidrBlock(&#34;10.0.0.0/16&#34;)
- *             .build());
- * 
- *         var ip_example = new TargetGroup(&#34;ip-example&#34;, TargetGroupArgs.builder()        
- *             .port(80)
- *             .protocol(&#34;HTTP&#34;)
- *             .targetType(&#34;ip&#34;)
- *             .vpcId(main.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Lambda Target Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var lambda_example = new TargetGroup(&#34;lambda-example&#34;, TargetGroupArgs.builder()        
- *             .targetType(&#34;lambda&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### ALB Target Group
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lb.TargetGroup;
- * import com.pulumi.aws.lb.TargetGroupArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var alb_example = new TargetGroup(&#34;alb-example&#34;, TargetGroupArgs.builder()        
- *             .targetType(&#34;alb&#34;)
- *             .port(80)
- *             .protocol(&#34;TCP&#34;)
- *             .vpcId(aws_vpc.main().id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Target Groups can be imported using their ARN, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:applicationloadbalancing/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
- * ```
- * 
  * @deprecated
  * aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup
  * 
@@ -179,311 +29,135 @@ import javax.annotation.Nullable;
 @Deprecated /* aws.applicationloadbalancing.TargetGroup has been deprecated in favor of aws.alb.TargetGroup */
 @ResourceType(type="aws:applicationloadbalancing/targetGroup:TargetGroup")
 public class TargetGroup extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the Target Group (matches `id`).
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Target Group (matches `id`).
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN suffix for use with CloudWatch Metrics.
-     * 
-     */
     @Export(name="arnSuffix", refs={String.class}, tree="[0]")
     private Output<String> arnSuffix;
 
-    /**
-     * @return ARN suffix for use with CloudWatch Metrics.
-     * 
-     */
     public Output<String> arnSuffix() {
         return this.arnSuffix;
     }
-    /**
-     * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-     * 
-     */
     @Export(name="connectionTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> connectionTermination;
 
-    /**
-     * @return Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> connectionTermination() {
         return Codegen.optional(this.connectionTermination);
     }
-    /**
-     * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-     * 
-     */
     @Export(name="deregistrationDelay", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> deregistrationDelay;
 
-    /**
-     * @return Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-     * 
-     */
     public Output<Optional<Integer>> deregistrationDelay() {
         return Codegen.optional(this.deregistrationDelay);
     }
-    /**
-     * Health Check configuration block. Detailed below.
-     * 
-     */
     @Export(name="healthCheck", refs={TargetGroupHealthCheck.class}, tree="[0]")
     private Output<TargetGroupHealthCheck> healthCheck;
 
-    /**
-     * @return Health Check configuration block. Detailed below.
-     * 
-     */
     public Output<TargetGroupHealthCheck> healthCheck() {
         return this.healthCheck;
     }
-    /**
-     * The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-     * 
-     */
     @Export(name="ipAddressType", refs={String.class}, tree="[0]")
     private Output<String> ipAddressType;
 
-    /**
-     * @return The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-     * 
-     */
     public Output<String> ipAddressType() {
         return this.ipAddressType;
     }
-    /**
-     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-     * 
-     */
     @Export(name="lambdaMultiValueHeadersEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> lambdaMultiValueHeadersEnabled;
 
-    /**
-     * @return Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> lambdaMultiValueHeadersEnabled() {
         return Codegen.optional(this.lambdaMultiValueHeadersEnabled);
     }
-    /**
-     * Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-     * 
-     */
     @Export(name="loadBalancingAlgorithmType", refs={String.class}, tree="[0]")
     private Output<String> loadBalancingAlgorithmType;
 
-    /**
-     * @return Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-     * 
-     */
     public Output<String> loadBalancingAlgorithmType() {
         return this.loadBalancingAlgorithmType;
     }
-    /**
-     * Name of the target group. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the target group. If omitted, this provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-     * 
-     */
     public Output<Optional<String>> namePrefix() {
         return Codegen.optional(this.namePrefix);
     }
-    /**
-     * The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-     * 
-     */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
-    /**
-     * @return The port the load balancer uses when performing health checks on targets. Default is traffic-port.
-     * 
-     */
     public Output<Optional<Integer>> port() {
         return Codegen.optional(this.port);
     }
-    /**
-     * Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-     * 
-     */
     @Export(name="preserveClientIp", refs={String.class}, tree="[0]")
     private Output<String> preserveClientIp;
 
-    /**
-     * @return Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-     * 
-     */
     public Output<String> preserveClientIp() {
         return this.preserveClientIp;
     }
-    /**
-     * Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-     * 
-     */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
-    /**
-     * @return Protocol the load balancer uses when performing health checks on targets. Must be either `TCP`, `HTTP`, or `HTTPS`. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. Defaults to HTTP.
-     * 
-     */
     public Output<Optional<String>> protocol() {
         return Codegen.optional(this.protocol);
     }
-    /**
-     * Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-     * 
-     */
     @Export(name="protocolVersion", refs={String.class}, tree="[0]")
     private Output<String> protocolVersion;
 
-    /**
-     * @return Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-     * 
-     */
     public Output<String> protocolVersion() {
         return this.protocolVersion;
     }
-    /**
-     * Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-     * 
-     */
     @Export(name="proxyProtocolV2", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> proxyProtocolV2;
 
-    /**
-     * @return Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-     * 
-     */
     public Output<Optional<Boolean>> proxyProtocolV2() {
         return Codegen.optional(this.proxyProtocolV2);
     }
-    /**
-     * Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-     * 
-     */
     @Export(name="slowStart", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> slowStart;
 
-    /**
-     * @return Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-     * 
-     */
     public Output<Optional<Integer>> slowStart() {
         return Codegen.optional(this.slowStart);
     }
-    /**
-     * Stickiness configuration block. Detailed below.
-     * 
-     */
     @Export(name="stickiness", refs={TargetGroupStickiness.class}, tree="[0]")
     private Output<TargetGroupStickiness> stickiness;
 
-    /**
-     * @return Stickiness configuration block. Detailed below.
-     * 
-     */
     public Output<TargetGroupStickiness> stickiness() {
         return this.stickiness;
     }
-    /**
-     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-     * 
-     */
     @Export(name="targetFailovers", refs={List.class,TargetGroupTargetFailover.class}, tree="[0,1]")
     private Output<List<TargetGroupTargetFailover>> targetFailovers;
 
-    /**
-     * @return Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-     * 
-     */
     public Output<List<TargetGroupTargetFailover>> targetFailovers() {
         return this.targetFailovers;
     }
-    /**
-     * Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
-     * 
-     */
     @Export(name="targetType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> targetType;
 
-    /**
-     * @return Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
-     * 
-     */
     public Output<Optional<String>> targetType() {
         return Codegen.optional(this.targetType);
     }
-    /**
-     * Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-     * 
-     */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcId;
 
-    /**
-     * @return Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-     * 
-     */
     public Output<Optional<String>> vpcId() {
         return Codegen.optional(this.vpcId);
     }

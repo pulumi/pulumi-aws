@@ -15,65 +15,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetCoreNetworkPolicyDocumentAttachmentPolicy {
-    /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
-     * 
-     */
     private GetCoreNetworkPolicyDocumentAttachmentPolicyAction action;
-    /**
-     * @return Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     private @Nullable String conditionLogic;
-    /**
-     * @return A block argument. Detailed Below.
-     * 
-     */
     private List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions;
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     private @Nullable String description;
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     private Integer ruleNumber;
 
     private GetCoreNetworkPolicyDocumentAttachmentPolicy() {}
-    /**
-     * @return Action to take for the chosen segment. Valid values `create-route` or `share`.
-     * 
-     */
     public GetCoreNetworkPolicyDocumentAttachmentPolicyAction action() {
         return this.action;
     }
-    /**
-     * @return Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-     * 
-     */
     public Optional<String> conditionLogic() {
         return Optional.ofNullable(this.conditionLogic);
     }
-    /**
-     * @return A block argument. Detailed Below.
-     * 
-     */
     public List<GetCoreNetworkPolicyDocumentAttachmentPolicyCondition> conditions() {
         return this.conditions;
     }
-    /**
-     * @return A user-defined string describing the segment action.
-     * 
-     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
-    /**
-     * @return An integer from `1` to `65535` indicating the rule&#39;s order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It&#39;s important to make sure that you number your rules in the exact order that you want them processed.
-     * 
-     */
     public Integer ruleNumber() {
         return this.ruleNumber;
     }

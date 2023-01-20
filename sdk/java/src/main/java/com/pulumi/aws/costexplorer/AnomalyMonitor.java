@@ -15,195 +15,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CE Anomaly Monitor.
- * 
- * ## Example Usage
- * 
- * There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
- * ### Dimensional Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costexplorer.AnomalyMonitor;
- * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var serviceMonitor = new AnomalyMonitor(&#34;serviceMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .monitorDimension(&#34;SERVICE&#34;)
- *             .monitorType(&#34;DIMENSIONAL&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Custom Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.costexplorer.AnomalyMonitor;
- * import com.pulumi.aws.costexplorer.AnomalyMonitorArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
- *             .monitorSpecification(&#34;&#34;&#34;
- * {
- * 	&#34;And&#34;: null,
- * 	&#34;CostCategories&#34;: null,
- * 	&#34;Dimensions&#34;: null,
- * 	&#34;Not&#34;: null,
- * 	&#34;Or&#34;: null,
- * 	&#34;Tags&#34;: {
- * 		&#34;Key&#34;: &#34;CostCenter&#34;,
- * 		&#34;MatchOptions&#34;: null,
- * 		&#34;Values&#34;: [
- * 			&#34;10000&#34;
- * 		]
- * 	}
- * }
- * 
- *             &#34;&#34;&#34;)
- *             .monitorType(&#34;CUSTOM&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_ce_anomaly_monitor` can be imported using the `id`, e.g.
- * 
- * ```sh
- *  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
- * ```
- * 
- */
 @ResourceType(type="aws:costexplorer/anomalyMonitor:AnomalyMonitor")
 public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
-    /**
-     * ARN of the anomaly monitor.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the anomaly monitor.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The dimensions to evaluate. Valid values: `SERVICE`.
-     * 
-     */
     @Export(name="monitorDimension", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitorDimension;
 
-    /**
-     * @return The dimensions to evaluate. Valid values: `SERVICE`.
-     * 
-     */
     public Output<Optional<String>> monitorDimension() {
         return Codegen.optional(this.monitorDimension);
     }
-    /**
-     * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-     * 
-     */
     @Export(name="monitorSpecification", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> monitorSpecification;
 
-    /**
-     * @return A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
-     * 
-     */
     public Output<Optional<String>> monitorSpecification() {
         return Codegen.optional(this.monitorSpecification);
     }
-    /**
-     * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-     * 
-     */
     @Export(name="monitorType", refs={String.class}, tree="[0]")
     private Output<String> monitorType;
 
-    /**
-     * @return The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
-     * 
-     */
     public Output<String> monitorType() {
         return this.monitorType;
     }
-    /**
-     * The name of the monitor.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the monitor.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

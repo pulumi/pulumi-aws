@@ -17,36 +17,16 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
 
     public static final IdentityPoolProviderPrincipalTagState Empty = new IdentityPoolProviderPrincipalTagState();
 
-    /**
-     * An identity pool ID.
-     * 
-     */
     @Import(name="identityPoolId")
     private @Nullable Output<String> identityPoolId;
 
-    /**
-     * @return An identity pool ID.
-     * 
-     */
     public Optional<Output<String>> identityPoolId() {
         return Optional.ofNullable(this.identityPoolId);
     }
 
-    /**
-     * The name of the identity provider.
-     * * `principal_tags`: (Optional: []) - String to string map of variables.
-     * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
-     * 
-     */
     @Import(name="identityProviderName")
     private @Nullable Output<String> identityProviderName;
 
-    /**
-     * @return The name of the identity provider.
-     * * `principal_tags`: (Optional: []) - String to string map of variables.
-     * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
-     * 
-     */
     public Optional<Output<String>> identityProviderName() {
         return Optional.ofNullable(this.identityProviderName);
     }
@@ -92,48 +72,20 @@ public final class IdentityPoolProviderPrincipalTagState extends com.pulumi.reso
             $ = new IdentityPoolProviderPrincipalTagState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param identityPoolId An identity pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(@Nullable Output<String> identityPoolId) {
             $.identityPoolId = identityPoolId;
             return this;
         }
 
-        /**
-         * @param identityPoolId An identity pool ID.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityPoolId(String identityPoolId) {
             return identityPoolId(Output.of(identityPoolId));
         }
 
-        /**
-         * @param identityProviderName The name of the identity provider.
-         * * `principal_tags`: (Optional: []) - String to string map of variables.
-         * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(@Nullable Output<String> identityProviderName) {
             $.identityProviderName = identityProviderName;
             return this;
         }
 
-        /**
-         * @param identityProviderName The name of the identity provider.
-         * * `principal_tags`: (Optional: []) - String to string map of variables.
-         * * `use_defaults`: (Optional: true) use default (username and clientID) attribute mappings.
-         * 
-         * @return builder
-         * 
-         */
         public Builder identityProviderName(String identityProviderName) {
             return identityProviderName(Output.of(identityProviderName));
         }

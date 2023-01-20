@@ -15,34 +15,16 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
 
     public static final EntityRecognizerInputDataConfigDocumentsArgs Empty = new EntityRecognizerInputDataConfigDocumentsArgs();
 
-    /**
-     * Specifies how the input files should be processed.
-     * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-     * 
-     */
     @Import(name="inputFormat")
     private @Nullable Output<String> inputFormat;
 
-    /**
-     * @return Specifies how the input files should be processed.
-     * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-     * 
-     */
     public Optional<Output<String>> inputFormat() {
         return Optional.ofNullable(this.inputFormat);
     }
 
-    /**
-     * Location of entity list.
-     * 
-     */
     @Import(name="s3Uri", required=true)
     private Output<String> s3Uri;
 
-    /**
-     * @return Location of entity list.
-     * 
-     */
     public Output<String> s3Uri() {
         return this.s3Uri;
     }
@@ -80,46 +62,20 @@ public final class EntityRecognizerInputDataConfigDocumentsArgs extends com.pulu
             $ = new EntityRecognizerInputDataConfigDocumentsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param inputFormat Specifies how the input files should be processed.
-         * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormat(@Nullable Output<String> inputFormat) {
             $.inputFormat = inputFormat;
             return this;
         }
 
-        /**
-         * @param inputFormat Specifies how the input files should be processed.
-         * One of `ONE_DOC_PER_LINE` or `ONE_DOC_PER_FILE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder inputFormat(String inputFormat) {
             return inputFormat(Output.of(inputFormat));
         }
 
-        /**
-         * @param s3Uri Location of entity list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(Output<String> s3Uri) {
             $.s3Uri = s3Uri;
             return this;
         }
 
-        /**
-         * @param s3Uri Location of entity list.
-         * 
-         * @return builder
-         * 
-         */
         public Builder s3Uri(String s3Uri) {
             return s3Uri(Output.of(s3Uri));
         }

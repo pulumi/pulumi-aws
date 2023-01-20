@@ -16,8 +16,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
     public static final ProjectSecondarySourceAuthArgs Empty = new ProjectSecondarySourceAuthArgs();
 
     /**
-     * Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -27,8 +25,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
     private @Nullable Output<String> resource;
 
     /**
-     * @return Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -39,8 +35,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -50,8 +44,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
     private Output<String> type;
 
     /**
-     * @return Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-     * 
      * @deprecated
      * Use the aws_codebuild_source_credential resource instead
      * 
@@ -87,8 +79,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resource Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -102,8 +92,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param resource Resource value that applies to the specified authorization type. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -116,8 +104,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -131,8 +117,6 @@ public final class ProjectSecondarySourceAuthArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param type Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
-         * 
          * @return builder
          * 
          * @deprecated

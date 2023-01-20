@@ -17,10 +17,6 @@ public final class GetGlobalNetworksResult {
      * 
      */
     private String id;
-    /**
-     * @return IDs of the global networks.
-     * 
-     */
     private List<String> ids;
     private @Nullable Map<String,String> tags;
 
@@ -32,10 +28,6 @@ public final class GetGlobalNetworksResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IDs of the global networks.
-     * 
-     */
     public List<String> ids() {
         return this.ids;
     }

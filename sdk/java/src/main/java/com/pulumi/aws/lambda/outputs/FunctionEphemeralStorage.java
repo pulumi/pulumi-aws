@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FunctionEphemeralStorage {
-    /**
-     * @return The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
-     * 
-     */
     private @Nullable Integer size;
 
     private FunctionEphemeralStorage() {}
-    /**
-     * @return The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
-     * 
-     */
     public Optional<Integer> size() {
         return Optional.ofNullable(this.size);
     }

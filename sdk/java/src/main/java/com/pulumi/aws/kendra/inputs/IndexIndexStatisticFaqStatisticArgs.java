@@ -15,17 +15,9 @@ public final class IndexIndexStatisticFaqStatisticArgs extends com.pulumi.resour
 
     public static final IndexIndexStatisticFaqStatisticArgs Empty = new IndexIndexStatisticFaqStatisticArgs();
 
-    /**
-     * The total number of FAQ questions and answers contained in the index.
-     * 
-     */
     @Import(name="indexedQuestionAnswersCount")
     private @Nullable Output<Integer> indexedQuestionAnswersCount;
 
-    /**
-     * @return The total number of FAQ questions and answers contained in the index.
-     * 
-     */
     public Optional<Output<Integer>> indexedQuestionAnswersCount() {
         return Optional.ofNullable(this.indexedQuestionAnswersCount);
     }
@@ -54,23 +46,11 @@ public final class IndexIndexStatisticFaqStatisticArgs extends com.pulumi.resour
             $ = new IndexIndexStatisticFaqStatisticArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param indexedQuestionAnswersCount The total number of FAQ questions and answers contained in the index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedQuestionAnswersCount(@Nullable Output<Integer> indexedQuestionAnswersCount) {
             $.indexedQuestionAnswersCount = indexedQuestionAnswersCount;
             return this;
         }
 
-        /**
-         * @param indexedQuestionAnswersCount The total number of FAQ questions and answers contained in the index.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexedQuestionAnswersCount(Integer indexedQuestionAnswersCount) {
             return indexedQuestionAnswersCount(Output.of(indexedQuestionAnswersCount));
         }

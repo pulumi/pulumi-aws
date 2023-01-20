@@ -15,17 +15,9 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
 
     public static final DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs Empty = new DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs();
 
-    /**
-     * Path to the AWS S3 bucket that contains the ACL files.
-     * 
-     */
     @Import(name="keyPath")
     private @Nullable Output<String> keyPath;
 
-    /**
-     * @return Path to the AWS S3 bucket that contains the ACL files.
-     * 
-     */
     public Optional<Output<String>> keyPath() {
         return Optional.ofNullable(this.keyPath);
     }
@@ -54,23 +46,11 @@ public final class DataSourceConfigurationS3ConfigurationAccessControlListConfig
             $ = new DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param keyPath Path to the AWS S3 bucket that contains the ACL files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPath(@Nullable Output<String> keyPath) {
             $.keyPath = keyPath;
             return this;
         }
 
-        /**
-         * @param keyPath Path to the AWS S3 bucket that contains the ACL files.
-         * 
-         * @return builder
-         * 
-         */
         public Builder keyPath(String keyPath) {
             return keyPath(Output.of(keyPath));
         }

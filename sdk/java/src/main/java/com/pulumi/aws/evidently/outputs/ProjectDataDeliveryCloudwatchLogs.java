@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ProjectDataDeliveryCloudwatchLogs {
-    /**
-     * @return The name of the log group where the project stores evaluation events.
-     * 
-     */
     private @Nullable String logGroup;
 
     private ProjectDataDeliveryCloudwatchLogs() {}
-    /**
-     * @return The name of the log group where the project stores evaluation events.
-     * 
-     */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }

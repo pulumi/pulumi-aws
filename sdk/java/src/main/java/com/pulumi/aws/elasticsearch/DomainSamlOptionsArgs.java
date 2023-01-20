@@ -16,32 +16,16 @@ public final class DomainSamlOptionsArgs extends com.pulumi.resources.ResourceAr
 
     public static final DomainSamlOptionsArgs Empty = new DomainSamlOptionsArgs();
 
-    /**
-     * Name of the domain.
-     * 
-     */
     @Import(name="domainName", required=true)
     private Output<String> domainName;
 
-    /**
-     * @return Name of the domain.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
 
-    /**
-     * The SAML authentication options for an AWS Elasticsearch Domain.
-     * 
-     */
     @Import(name="samlOptions")
     private @Nullable Output<DomainSamlOptionsSamlOptionsArgs> samlOptions;
 
-    /**
-     * @return The SAML authentication options for an AWS Elasticsearch Domain.
-     * 
-     */
     public Optional<Output<DomainSamlOptionsSamlOptionsArgs>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
@@ -71,44 +55,20 @@ public final class DomainSamlOptionsArgs extends com.pulumi.resources.ResourceAr
             $ = new DomainSamlOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param domainName Name of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(Output<String> domainName) {
             $.domainName = domainName;
             return this;
         }
 
-        /**
-         * @param domainName Name of the domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
         }
 
-        /**
-         * @param samlOptions The SAML authentication options for an AWS Elasticsearch Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(@Nullable Output<DomainSamlOptionsSamlOptionsArgs> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
 
-        /**
-         * @param samlOptions The SAML authentication options for an AWS Elasticsearch Domain.
-         * 
-         * @return builder
-         * 
-         */
         public Builder samlOptions(DomainSamlOptionsSamlOptionsArgs samlOptions) {
             return samlOptions(Output.of(samlOptions));
         }

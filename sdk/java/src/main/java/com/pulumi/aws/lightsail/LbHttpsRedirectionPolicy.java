@@ -14,98 +14,17 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lightsail.Lb;
- * import com.pulumi.aws.lightsail.LbArgs;
- * import com.pulumi.aws.lightsail.LbCertificate;
- * import com.pulumi.aws.lightsail.LbCertificateArgs;
- * import com.pulumi.aws.lightsail.LbCertificateAttachment;
- * import com.pulumi.aws.lightsail.LbCertificateAttachmentArgs;
- * import com.pulumi.aws.lightsail.LbHttpsRedirectionPolicy;
- * import com.pulumi.aws.lightsail.LbHttpsRedirectionPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var testLb = new Lb(&#34;testLb&#34;, LbArgs.builder()        
- *             .healthCheckPath(&#34;/&#34;)
- *             .instancePort(&#34;80&#34;)
- *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .build());
- * 
- *         var testLbCertificate = new LbCertificate(&#34;testLbCertificate&#34;, LbCertificateArgs.builder()        
- *             .lbName(testLb.id())
- *             .domainName(&#34;test.com&#34;)
- *             .build());
- * 
- *         var testLbCertificateAttachment = new LbCertificateAttachment(&#34;testLbCertificateAttachment&#34;, LbCertificateAttachmentArgs.builder()        
- *             .lbName(testLb.name())
- *             .certificateName(testLbCertificate.name())
- *             .build());
- * 
- *         var testLbHttpsRedirectionPolicy = new LbHttpsRedirectionPolicy(&#34;testLbHttpsRedirectionPolicy&#34;, LbHttpsRedirectionPolicyArgs.builder()        
- *             .lbName(testLb.name())
- *             .enabled(true)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_lightsail_lb_https_redirection_policy` can be imported by using the `lb_name` attribute, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy")
 public class LbHttpsRedirectionPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enabled;
 
-    /**
-     * @return - The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-     * 
-     */
     public Output<Boolean> enabled() {
         return this.enabled;
     }
-    /**
-     * The name of the load balancer to which you want to enable http to https redirection.
-     * 
-     */
     @Export(name="lbName", refs={String.class}, tree="[0]")
     private Output<String> lbName;
 
-    /**
-     * @return The name of the load balancer to which you want to enable http to https redirection.
-     * 
-     */
     public Output<String> lbName() {
         return this.lbName;
     }

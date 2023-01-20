@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class TopicRuleCloudwatchLog {
-    /**
-     * @return The CloudWatch log group name.
-     * 
-     */
     private String logGroupName;
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     private String roleArn;
 
     private TopicRuleCloudwatchLog() {}
-    /**
-     * @return The CloudWatch log group name.
-     * 
-     */
     public String logGroupName() {
         return this.logGroupName;
     }
-    /**
-     * @return The IAM role ARN that allows access to the CloudWatch alarm.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

@@ -17,263 +17,59 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
- * 
- * [FSx File Gateway requirements](https://docs.aws.amazon.com/filegateway/latest/filefsxw/Requirements.html).
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.storagegateway.FileSystemAssociation;
- * import com.pulumi.aws.storagegateway.FileSystemAssociationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FileSystemAssociation(&#34;example&#34;, FileSystemAssociationArgs.builder()        
- *             .gatewayArn(aws_storagegateway_gateway.example().arn())
- *             .locationArn(aws_fsx_windows_file_system.example().arn())
- *             .username(&#34;Admin&#34;)
- *             .password(&#34;avoid-plaintext-passwords&#34;)
- *             .auditDestinationArn(aws_s3_bucket.example().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ## Required Services Example
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.ssm.SsmFunctions;
- * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
- * import com.pulumi.aws.ec2.Instance;
- * import com.pulumi.aws.ec2.InstanceArgs;
- * import com.pulumi.aws.storagegateway.Gateway;
- * import com.pulumi.aws.storagegateway.GatewayArgs;
- * import com.pulumi.aws.storagegateway.inputs.GatewaySmbActiveDirectorySettingsArgs;
- * import com.pulumi.aws.fsx.WindowsFileSystem;
- * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
- * import com.pulumi.aws.storagegateway.FileSystemAssociation;
- * import com.pulumi.aws.storagegateway.FileSystemAssociationArgs;
- * import com.pulumi.aws.storagegateway.inputs.FileSystemAssociationCacheAttributesArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var awsServiceStoragegatewayAmiFILES3Latest = SsmFunctions.getParameter(GetParameterArgs.builder()
- *             .name(&#34;/aws/service/storagegateway/ami/FILE_S3/latest&#34;)
- *             .build());
- * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .ami(awsServiceStoragegatewayAmiFILES3Latest.applyValue(getParameterResult -&gt; getParameterResult.value()))
- *             .associatePublicIpAddress(true)
- *             .instanceType(data.aws_ec2_instance_type_offering().available().instance_type())
- *             .vpcSecurityGroupIds(aws_security_group.test().id())
- *             .subnetId(aws_subnet.test()[0].id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     aws_route.test(),
- *                     aws_vpc_dhcp_options_association.test())
- *                 .build());
- * 
- *         var testGateway = new Gateway(&#34;testGateway&#34;, GatewayArgs.builder()        
- *             .gatewayIpAddress(testInstance.publicIp())
- *             .gatewayName(&#34;test-sgw&#34;)
- *             .gatewayTimezone(&#34;GMT&#34;)
- *             .gatewayType(&#34;FILE_FSX_SMB&#34;)
- *             .smbActiveDirectorySettings(GatewaySmbActiveDirectorySettingsArgs.builder()
- *                 .domainName(aws_directory_service_directory.test().name())
- *                 .password(aws_directory_service_directory.test().password())
- *                 .username(&#34;Admin&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testWindowsFileSystem = new WindowsFileSystem(&#34;testWindowsFileSystem&#34;, WindowsFileSystemArgs.builder()        
- *             .activeDirectoryId(aws_directory_service_directory.test().id())
- *             .securityGroupIds(aws_security_group.test().id())
- *             .skipFinalBackup(true)
- *             .storageCapacity(32)
- *             .subnetIds(aws_subnet.test()[0].id())
- *             .throughputCapacity(8)
- *             .build());
- * 
- *         var fsx = new FileSystemAssociation(&#34;fsx&#34;, FileSystemAssociationArgs.builder()        
- *             .gatewayArn(testGateway.arn())
- *             .locationArn(testWindowsFileSystem.arn())
- *             .username(&#34;Admin&#34;)
- *             .password(aws_directory_service_directory.test().password())
- *             .cacheAttributes(FileSystemAssociationCacheAttributesArgs.builder()
- *                 .cacheStaleTimeoutInSeconds(400)
- *                 .build())
- *             .auditDestinationArn(aws_cloudwatch_log_group.test().arn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
- * ```
- * 
- */
 @ResourceType(type="aws:storagegateway/fileSystemAssociation:FileSystemAssociation")
 public class FileSystemAssociation extends com.pulumi.resources.CustomResource {
-    /**
-     * Amazon Resource Name (ARN) of the newly created file system association.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the newly created file system association.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
-     * 
-     */
     @Export(name="auditDestinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditDestinationArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the storage used for the audit logs.
-     * 
-     */
     public Output<Optional<String>> auditDestinationArn() {
         return Codegen.optional(this.auditDestinationArn);
     }
-    /**
-     * Refresh cache information. see Cache Attributes for more details.
-     * 
-     */
     @Export(name="cacheAttributes", refs={FileSystemAssociationCacheAttributes.class}, tree="[0]")
     private Output</* @Nullable */ FileSystemAssociationCacheAttributes> cacheAttributes;
 
-    /**
-     * @return Refresh cache information. see Cache Attributes for more details.
-     * 
-     */
     public Output<Optional<FileSystemAssociationCacheAttributes>> cacheAttributes() {
         return Codegen.optional(this.cacheAttributes);
     }
-    /**
-     * The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
-     * 
-     */
     public Output<String> gatewayArn() {
         return this.gatewayArn;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
-     * 
-     */
     @Export(name="locationArn", refs={String.class}, tree="[0]")
     private Output<String> locationArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
-     * 
-     */
     public Output<String> locationArn() {
         return this.locationArn;
     }
-    /**
-     * The password of the user credential.
-     * 
-     */
     @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
-    /**
-     * @return The password of the user credential.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
-     * 
-     */
     @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
-    /**
-     * @return The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }

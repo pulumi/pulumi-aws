@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class WebAclRuleStatementAndStatementStatementLabelMatchStatement {
-    /**
-     * @return String to match against.
-     * 
-     */
     private String key;
-    /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-     * 
-     */
     private String scope;
 
     private WebAclRuleStatementAndStatementStatementLabelMatchStatement() {}
-    /**
-     * @return String to match against.
-     * 
-     */
     public String key() {
         return this.key;
     }
-    /**
-     * @return Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
-     * 
-     */
     public String scope() {
         return this.scope;
     }

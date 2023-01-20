@@ -10,17 +10,9 @@ import java.util.Objects;
 
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement {
-    /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement() {}
-    /**
-     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
-     * 
-     */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementStatement> statements() {
         return this.statements;
     }

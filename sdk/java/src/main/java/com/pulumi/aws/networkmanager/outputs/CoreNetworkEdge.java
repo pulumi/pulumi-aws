@@ -13,41 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CoreNetworkEdge {
-    /**
-     * @return ASN of a core network edge.
-     * 
-     */
     private @Nullable Integer asn;
-    /**
-     * @return Region where a core network edge is located.
-     * 
-     */
     private @Nullable String edgeLocation;
-    /**
-     * @return Inside IP addresses used for core network edges.
-     * 
-     */
     private @Nullable List<String> insideCidrBlocks;
 
     private CoreNetworkEdge() {}
-    /**
-     * @return ASN of a core network edge.
-     * 
-     */
     public Optional<Integer> asn() {
         return Optional.ofNullable(this.asn);
     }
-    /**
-     * @return Region where a core network edge is located.
-     * 
-     */
     public Optional<String> edgeLocation() {
         return Optional.ofNullable(this.edgeLocation);
     }
-    /**
-     * @return Inside IP addresses used for core network edges.
-     * 
-     */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
     }

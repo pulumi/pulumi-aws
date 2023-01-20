@@ -13,17 +13,9 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
 
     public static final ConfigurationSetTrackingOptionsArgs Empty = new ConfigurationSetTrackingOptionsArgs();
 
-    /**
-     * The domain to use for tracking open and click events.
-     * 
-     */
     @Import(name="customRedirectDomain", required=true)
     private Output<String> customRedirectDomain;
 
-    /**
-     * @return The domain to use for tracking open and click events.
-     * 
-     */
     public Output<String> customRedirectDomain() {
         return this.customRedirectDomain;
     }
@@ -52,23 +44,11 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
             $ = new ConfigurationSetTrackingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRedirectDomain(Output<String> customRedirectDomain) {
             $.customRedirectDomain = customRedirectDomain;
             return this;
         }
 
-        /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
-         * 
-         * @return builder
-         * 
-         */
         public Builder customRedirectDomain(String customRedirectDomain) {
             return customRedirectDomain(Output.of(customRedirectDomain));
         }

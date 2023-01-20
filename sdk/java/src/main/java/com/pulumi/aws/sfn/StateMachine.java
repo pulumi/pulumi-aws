@@ -17,322 +17,77 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a Step Function State Machine resource
- * 
- * ## Example Usage
- * ### Basic (Standard Workflow)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.StateMachine;
- * import com.pulumi.aws.sfn.StateMachineArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
- *             .definition(&#34;&#34;&#34;
- * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
- *     }
- *   }
- * }
- * &#34;, aws_lambda_function.lambda().arn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Basic (Express Workflow)
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.StateMachine;
- * import com.pulumi.aws.sfn.StateMachineArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
- *             .type(&#34;EXPRESS&#34;)
- *             .definition(&#34;&#34;&#34;
- * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
- *     }
- *   }
- * }
- * &#34;, aws_lambda_function.lambda().arn()))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Logging
- * 
- * &gt; *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sfn.StateMachine;
- * import com.pulumi.aws.sfn.StateMachineArgs;
- * import com.pulumi.aws.sfn.inputs.StateMachineLoggingConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var sfnStateMachine = new StateMachine(&#34;sfnStateMachine&#34;, StateMachineArgs.builder()        
- *             .roleArn(aws_iam_role.iam_for_sfn().arn())
- *             .definition(&#34;&#34;&#34;
- * {
- *   &#34;Comment&#34;: &#34;A Hello World example of the Amazon States Language using an AWS Lambda Function&#34;,
- *   &#34;StartAt&#34;: &#34;HelloWorld&#34;,
- *   &#34;States&#34;: {
- *     &#34;HelloWorld&#34;: {
- *       &#34;Type&#34;: &#34;Task&#34;,
- *       &#34;Resource&#34;: &#34;%s&#34;,
- *       &#34;End&#34;: true
- *     }
- *   }
- * }
- * &#34;, aws_lambda_function.lambda().arn()))
- *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format(&#34;%s:*&#34;, aws_cloudwatch_log_group.log_group_for_sfn().arn()))
- *                 .includeExecutionData(true)
- *                 .level(&#34;ERROR&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * State Machines can be imported using the `arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
- * ```
- * 
- */
 @ResourceType(type="aws:sfn/stateMachine:StateMachine")
 public class StateMachine extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the state machine.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the state machine.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date the state machine was created.
-     * 
-     */
     @Export(name="creationDate", refs={String.class}, tree="[0]")
     private Output<String> creationDate;
 
-    /**
-     * @return The date the state machine was created.
-     * 
-     */
     public Output<String> creationDate() {
         return this.creationDate;
     }
-    /**
-     * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-     * 
-     */
     @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
-    /**
-     * @return The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-     * 
-     */
     public Output<String> definition() {
         return this.definition;
     }
-    /**
-     * Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
-     * 
-     */
     @Export(name="loggingConfiguration", refs={StateMachineLoggingConfiguration.class}, tree="[0]")
     private Output<StateMachineLoggingConfiguration> loggingConfiguration;
 
-    /**
-     * @return Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
-     * 
-     */
     public Output<StateMachineLoggingConfiguration> loggingConfiguration() {
         return this.loggingConfiguration;
     }
-    /**
-     * The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
-    /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-     * 
-     */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-     * 
-     */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
-    /**
-     * The current status of the state machine. Either `ACTIVE` or `DELETING`.
-     * 
-     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
-    /**
-     * @return The current status of the state machine. Either `ACTIVE` or `DELETING`.
-     * 
-     */
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Selects whether AWS X-Ray tracing is enabled.
-     * 
-     */
     @Export(name="tracingConfiguration", refs={StateMachineTracingConfiguration.class}, tree="[0]")
     private Output<StateMachineTracingConfiguration> tracingConfiguration;
 
-    /**
-     * @return Selects whether AWS X-Ray tracing is enabled.
-     * 
-     */
     public Output<StateMachineTracingConfiguration> tracingConfiguration() {
         return this.tracingConfiguration;
     }
-    /**
-     * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
-    /**
-     * @return Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
-     * 
-     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

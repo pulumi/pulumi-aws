@@ -17,32 +17,16 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
 
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs();
 
-    /**
-     * Array of processor parameters. More details are given below
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>> parameters;
 
-    /**
-     * @return Array of processor parameters. More details are given below
-     * 
-     */
     public Optional<Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-     * 
-     */
     @Import(name="type", required=true)
     private Output<String> type;
 
-    /**
-     * @return The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-     * 
-     */
     public Output<String> type() {
         return this.type;
     }
@@ -72,54 +56,24 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
             $ = new FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param parameters Array of processor parameters. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Array of processor parameters. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param parameters Array of processor parameters. More details are given below
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs... parameters) {
             return parameters(List.of(parameters));
         }
 
-        /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

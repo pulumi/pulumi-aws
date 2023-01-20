@@ -14,99 +14,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides a settings of an API Gateway Documentation Part.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigateway.RestApi;
- * import com.pulumi.aws.apigateway.DocumentationPart;
- * import com.pulumi.aws.apigateway.DocumentationPartArgs;
- * import com.pulumi.aws.apigateway.inputs.DocumentationPartLocationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleRestApi = new RestApi(&#34;exampleRestApi&#34;);
- * 
- *         var exampleDocumentationPart = new DocumentationPart(&#34;exampleDocumentationPart&#34;, DocumentationPartArgs.builder()        
- *             .location(DocumentationPartLocationArgs.builder()
- *                 .type(&#34;METHOD&#34;)
- *                 .method(&#34;GET&#34;)
- *                 .path(&#34;/example&#34;)
- *                 .build())
- *             .properties(&#34;{\&#34;description\&#34;:\&#34;Example description\&#34;}&#34;)
- *             .restApiId(exampleRestApi.id())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * API Gateway documentation_parts can be imported using `REST-API-ID/DOC-PART-ID`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
- * ```
- * 
- */
 @ResourceType(type="aws:apigateway/documentationPart:DocumentationPart")
 public class DocumentationPart extends com.pulumi.resources.CustomResource {
-    /**
-     * Location of the targeted API entity of the to-be-created documentation part. See below.
-     * 
-     */
     @Export(name="location", refs={DocumentationPartLocation.class}, tree="[0]")
     private Output<DocumentationPartLocation> location;
 
-    /**
-     * @return Location of the targeted API entity of the to-be-created documentation part. See below.
-     * 
-     */
     public Output<DocumentationPartLocation> location() {
         return this.location;
     }
-    /**
-     * Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-     * 
-     */
     @Export(name="properties", refs={String.class}, tree="[0]")
     private Output<String> properties;
 
-    /**
-     * @return Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., &#34;{ \&#34;description\&#34;: \&#34;The API does ...\&#34; }&#34;. Only Swagger-compliant key-value pairs can be exported and, hence, published.
-     * 
-     */
     public Output<String> properties() {
         return this.properties;
     }
-    /**
-     * ID of the associated Rest API
-     * 
-     */
     @Export(name="restApiId", refs={String.class}, tree="[0]")
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the associated Rest API
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }

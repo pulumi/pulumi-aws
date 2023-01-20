@@ -18,62 +18,30 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final FrameworkArgs Empty = new FrameworkArgs();
 
-    /**
-     * One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     * 
-     */
     @Import(name="controls", required=true)
     private Output<List<FrameworkControlArgs>> controls;
 
-    /**
-     * @return One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-     * 
-     */
     public Output<List<FrameworkControlArgs>> controls() {
         return this.controls;
     }
 
-    /**
-     * The description of the framework with a maximum of 1,024 characters
-     * 
-     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
-    /**
-     * @return The description of the framework with a maximum of 1,024 characters
-     * 
-     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
-    /**
-     * The name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of a parameter, for example, BackupPlanFrequency.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -105,96 +73,42 @@ public final class FrameworkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new FrameworkArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param controls One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(Output<List<FrameworkControlArgs>> controls) {
             $.controls = controls;
             return this;
         }
 
-        /**
-         * @param controls One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(List<FrameworkControlArgs> controls) {
             return controls(Output.of(controls));
         }
 
-        /**
-         * @param controls One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder controls(FrameworkControlArgs... controls) {
             return controls(List.of(controls));
         }
 
-        /**
-         * @param description The description of the framework with a maximum of 1,024 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
-        /**
-         * @param description The description of the framework with a maximum of 1,024 characters
-         * 
-         * @return builder
-         * 
-         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
-        /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of a parameter, for example, BackupPlanFrequency.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags The tag key-value pair applied to those AWS resources that you want to trigger an evaluation for a rule. A maximum of one key-value pair can be provided.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataSourceConfigurationWebCrawlerConfigurationUrls {
-    /**
-     * @return A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-     * 
-     */
     private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration seedUrlConfiguration;
-    /**
-     * @return A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-     * 
-     */
     private @Nullable DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration siteMapsConfiguration;
 
     private DataSourceConfigurationWebCrawlerConfigurationUrls() {}
-    /**
-     * @return A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-     * 
-     */
     public Optional<DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration> seedUrlConfiguration() {
         return Optional.ofNullable(this.seedUrlConfiguration);
     }
-    /**
-     * @return A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
-     * 
-     */
     public Optional<DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration> siteMapsConfiguration() {
         return Optional.ofNullable(this.siteMapsConfiguration);
     }

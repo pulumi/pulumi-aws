@@ -15,17 +15,9 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
 
     public static final ContainerServicePrivateRegistryAccessArgs Empty = new ContainerServicePrivateRegistryAccessArgs();
 
-    /**
-     * Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-     * 
-     */
     @Import(name="ecrImagePullerRole")
     private @Nullable Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> ecrImagePullerRole;
 
-    /**
-     * @return Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-     * 
-     */
     public Optional<Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs>> ecrImagePullerRole() {
         return Optional.ofNullable(this.ecrImagePullerRole);
     }
@@ -54,23 +46,11 @@ public final class ContainerServicePrivateRegistryAccessArgs extends com.pulumi.
             $ = new ContainerServicePrivateRegistryAccessArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param ecrImagePullerRole Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrImagePullerRole(@Nullable Output<ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs> ecrImagePullerRole) {
             $.ecrImagePullerRole = ecrImagePullerRole;
             return this;
         }
 
-        /**
-         * @param ecrImagePullerRole Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder ecrImagePullerRole(ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs ecrImagePullerRole) {
             return ecrImagePullerRole(Output.of(ecrImagePullerRole));
         }

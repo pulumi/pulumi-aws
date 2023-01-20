@@ -17,32 +17,16 @@ public final class VoiceConnectorGroupState extends com.pulumi.resources.Resourc
 
     public static final VoiceConnectorGroupState Empty = new VoiceConnectorGroupState();
 
-    /**
-     * The Amazon Chime Voice Connectors to route inbound calls to.
-     * 
-     */
     @Import(name="connectors")
     private @Nullable Output<List<VoiceConnectorGroupConnectorArgs>> connectors;
 
-    /**
-     * @return The Amazon Chime Voice Connectors to route inbound calls to.
-     * 
-     */
     public Optional<Output<List<VoiceConnectorGroupConnectorArgs>>> connectors() {
         return Optional.ofNullable(this.connectors);
     }
 
-    /**
-     * The name of the Amazon Chime Voice Connector group.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return The name of the Amazon Chime Voice Connector group.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
@@ -72,54 +56,24 @@ public final class VoiceConnectorGroupState extends com.pulumi.resources.Resourc
             $ = new VoiceConnectorGroupState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectors The Amazon Chime Voice Connectors to route inbound calls to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectors(@Nullable Output<List<VoiceConnectorGroupConnectorArgs>> connectors) {
             $.connectors = connectors;
             return this;
         }
 
-        /**
-         * @param connectors The Amazon Chime Voice Connectors to route inbound calls to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectors(List<VoiceConnectorGroupConnectorArgs> connectors) {
             return connectors(Output.of(connectors));
         }
 
-        /**
-         * @param connectors The Amazon Chime Voice Connectors to route inbound calls to.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectors(VoiceConnectorGroupConnectorArgs... connectors) {
             return connectors(List.of(connectors));
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name The name of the Amazon Chime Voice Connector group.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

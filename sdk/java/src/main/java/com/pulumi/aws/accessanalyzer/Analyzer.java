@@ -15,157 +15,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
- * 
- * ## Example Usage
- * ### Account Analyzer
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.accessanalyzer.Analyzer;
- * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Analyzer(&#34;example&#34;, AnalyzerArgs.builder()        
- *             .analyzerName(&#34;example&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Analyzer
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.organizations.Organization;
- * import com.pulumi.aws.organizations.OrganizationArgs;
- * import com.pulumi.aws.accessanalyzer.Analyzer;
- * import com.pulumi.aws.accessanalyzer.AnalyzerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleOrganization = new Organization(&#34;exampleOrganization&#34;, OrganizationArgs.builder()        
- *             .awsServiceAccessPrincipals(&#34;access-analyzer.amazonaws.com&#34;)
- *             .build());
- * 
- *         var exampleAnalyzer = new Analyzer(&#34;exampleAnalyzer&#34;, AnalyzerArgs.builder()        
- *             .analyzerName(&#34;example&#34;)
- *             .type(&#34;ORGANIZATION&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleOrganization)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
- * ```
- * 
- */
 @ResourceType(type="aws:accessanalyzer/analyzer:Analyzer")
 public class Analyzer extends com.pulumi.resources.CustomResource {
-    /**
-     * Name of the Analyzer.
-     * 
-     */
     @Export(name="analyzerName", refs={String.class}, tree="[0]")
     private Output<String> analyzerName;
 
-    /**
-     * @return Name of the Analyzer.
-     * 
-     */
     public Output<String> analyzerName() {
         return this.analyzerName;
     }
-    /**
-     * ARN of the Analyzer.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the Analyzer.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
-     * 
-     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
-    /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT` or `ORGANIZATION`. Defaults to `ACCOUNT`.
-     * 
-     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

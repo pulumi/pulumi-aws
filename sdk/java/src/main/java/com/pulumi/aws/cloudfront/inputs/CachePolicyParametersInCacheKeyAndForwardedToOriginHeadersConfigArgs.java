@@ -16,32 +16,16 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
 
     public static final CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs Empty = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs();
 
-    /**
-     * Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-     * 
-     */
     @Import(name="headerBehavior")
     private @Nullable Output<String> headerBehavior;
 
-    /**
-     * @return Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-     * 
-     */
     public Optional<Output<String>> headerBehavior() {
         return Optional.ofNullable(this.headerBehavior);
     }
 
-    /**
-     * Object that contains a list of header names. See Items for more information.
-     * 
-     */
     @Import(name="headers")
     private @Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs> headers;
 
-    /**
-     * @return Object that contains a list of header names. See Items for more information.
-     * 
-     */
     public Optional<Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs>> headers() {
         return Optional.ofNullable(this.headers);
     }
@@ -71,44 +55,20 @@ public final class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersCon
             $ = new CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param headerBehavior Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerBehavior(@Nullable Output<String> headerBehavior) {
             $.headerBehavior = headerBehavior;
             return this;
         }
 
-        /**
-         * @param headerBehavior Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headerBehavior(String headerBehavior) {
             return headerBehavior(Output.of(headerBehavior));
         }
 
-        /**
-         * @param headers Object that contains a list of header names. See Items for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(@Nullable Output<CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs> headers) {
             $.headers = headers;
             return this;
         }
 
-        /**
-         * @param headers Object that contains a list of header names. See Items for more information.
-         * 
-         * @return builder
-         * 
-         */
         public Builder headers(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs headers) {
             return headers(Output.of(headers));
         }

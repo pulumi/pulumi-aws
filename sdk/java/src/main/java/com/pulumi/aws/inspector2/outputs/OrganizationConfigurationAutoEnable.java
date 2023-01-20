@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class OrganizationConfigurationAutoEnable {
-    /**
-     * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private Boolean ec2;
-    /**
-     * @return Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     private Boolean ecr;
 
     private OrganizationConfigurationAutoEnable() {}
-    /**
-     * @return Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Boolean ec2() {
         return this.ec2;
     }
-    /**
-     * @return Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
-     * 
-     */
     public Boolean ecr() {
         return this.ecr;
     }

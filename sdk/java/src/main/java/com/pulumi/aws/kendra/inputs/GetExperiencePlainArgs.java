@@ -12,32 +12,16 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetExperiencePlainArgs Empty = new GetExperiencePlainArgs();
 
-    /**
-     * Identifier of the Experience.
-     * 
-     */
     @Import(name="experienceId", required=true)
     private String experienceId;
 
-    /**
-     * @return Identifier of the Experience.
-     * 
-     */
     public String experienceId() {
         return this.experienceId;
     }
 
-    /**
-     * Identifier of the index that contains the Experience.
-     * 
-     */
     @Import(name="indexId", required=true)
     private String indexId;
 
-    /**
-     * @return Identifier of the index that contains the Experience.
-     * 
-     */
     public String indexId() {
         return this.indexId;
     }
@@ -67,23 +51,11 @@ public final class GetExperiencePlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetExperiencePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param experienceId Identifier of the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder experienceId(String experienceId) {
             $.experienceId = experienceId;
             return this;
         }
 
-        /**
-         * @param indexId Identifier of the index that contains the Experience.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexId(String indexId) {
             $.indexId = indexId;
             return this;

@@ -17,32 +17,16 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
 
     public static final StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs Empty = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs();
 
-    /**
-     * SSE-KMS encryption. See SSE KMS below for more details.
-     * 
-     */
     @Import(name="sseKms")
     private @Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs> sseKms;
 
-    /**
-     * @return SSE-KMS encryption. See SSE KMS below for more details.
-     * 
-     */
     public Optional<Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs>> sseKms() {
         return Optional.ofNullable(this.sseKms);
     }
 
-    /**
-     * SSE-S3 encryption. An empty configuration block `{}` should be used.
-     * 
-     */
     @Import(name="sseS3s")
     private @Nullable Output<List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>> sseS3s;
 
-    /**
-     * @return SSE-S3 encryption. An empty configuration block `{}` should be used.
-     * 
-     */
     public Optional<Output<List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>>> sseS3s() {
         return Optional.ofNullable(this.sseS3s);
     }
@@ -72,54 +56,24 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
             $ = new StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sseKms SSE-KMS encryption. See SSE KMS below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseKms(@Nullable Output<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs> sseKms) {
             $.sseKms = sseKms;
             return this;
         }
 
-        /**
-         * @param sseKms SSE-KMS encryption. See SSE KMS below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseKms(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs sseKms) {
             return sseKms(Output.of(sseKms));
         }
 
-        /**
-         * @param sseS3s SSE-S3 encryption. An empty configuration block `{}` should be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseS3s(@Nullable Output<List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args>> sseS3s) {
             $.sseS3s = sseS3s;
             return this;
         }
 
-        /**
-         * @param sseS3s SSE-S3 encryption. An empty configuration block `{}` should be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseS3s(List<StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args> sseS3s) {
             return sseS3s(Output.of(sseS3s));
         }
 
-        /**
-         * @param sseS3s SSE-S3 encryption. An empty configuration block `{}` should be used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sseS3s(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args... sseS3s) {
             return sseS3s(List.of(sseS3s));
         }

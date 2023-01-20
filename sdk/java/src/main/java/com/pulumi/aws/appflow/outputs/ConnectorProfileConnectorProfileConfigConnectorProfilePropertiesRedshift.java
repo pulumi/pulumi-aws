@@ -11,89 +11,33 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
-    /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     private String bucketName;
-    /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     private @Nullable String bucketPrefix;
-    /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-     * 
-     */
     private @Nullable String clusterIdentifier;
-    /**
-     * @return ARN of the IAM role that permits AppFlow to access the database through Data API.
-     * 
-     */
     private @Nullable String dataApiRoleArn;
-    /**
-     * @return The name of an Amazon Redshift database.
-     * 
-     */
     private @Nullable String databaseName;
-    /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
-     * 
-     */
     private @Nullable String databaseUrl;
-    /**
-     * @return ARN of the IAM role.
-     * 
-     */
     private String roleArn;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift() {}
-    /**
-     * @return The name of the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     public String bucketName() {
         return this.bucketName;
     }
-    /**
-     * @return The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
-     * 
-     */
     public Optional<String> bucketPrefix() {
         return Optional.ofNullable(this.bucketPrefix);
     }
-    /**
-     * @return The unique ID that&#39;s assigned to an Amazon Redshift cluster.
-     * 
-     */
     public Optional<String> clusterIdentifier() {
         return Optional.ofNullable(this.clusterIdentifier);
     }
-    /**
-     * @return ARN of the IAM role that permits AppFlow to access the database through Data API.
-     * 
-     */
     public Optional<String> dataApiRoleArn() {
         return Optional.ofNullable(this.dataApiRoleArn);
     }
-    /**
-     * @return The name of an Amazon Redshift database.
-     * 
-     */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
-    /**
-     * @return The JDBC URL of the Amazon Redshift cluster.
-     * 
-     */
     public Optional<String> databaseUrl() {
         return Optional.ofNullable(this.databaseUrl);
     }
-    /**
-     * @return ARN of the IAM role.
-     * 
-     */
     public String roleArn() {
         return this.roleArn;
     }

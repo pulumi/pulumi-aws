@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTrafficPolicyDocumentRuleItem {
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     private @Nullable String endpointReference;
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     private @Nullable String healthCheck;
 
     private GetTrafficPolicyDocumentRuleItem() {}
-    /**
-     * @return References to an endpoint.
-     * 
-     */
     public Optional<String> endpointReference() {
         return Optional.ofNullable(this.endpointReference);
     }
-    /**
-     * @return If you want to associate a health check with the endpoint or rule.
-     * 
-     */
     public Optional<String> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }

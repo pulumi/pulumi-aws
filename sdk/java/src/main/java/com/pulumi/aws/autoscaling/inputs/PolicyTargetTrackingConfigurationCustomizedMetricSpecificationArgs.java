@@ -17,77 +17,37 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
 
     public static final PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs Empty = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs();
 
-    /**
-     * Dimensions of the metric.
-     * 
-     */
     @Import(name="metricDimensions")
     private @Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>> metricDimensions;
 
-    /**
-     * @return Dimensions of the metric.
-     * 
-     */
     public Optional<Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>>> metricDimensions() {
         return Optional.ofNullable(this.metricDimensions);
     }
 
-    /**
-     * Name of the metric.
-     * 
-     */
     @Import(name="metricName", required=true)
     private Output<String> metricName;
 
-    /**
-     * @return Name of the metric.
-     * 
-     */
     public Output<String> metricName() {
         return this.metricName;
     }
 
-    /**
-     * Namespace of the metric.
-     * 
-     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
-    /**
-     * @return Namespace of the metric.
-     * 
-     */
     public Output<String> namespace() {
         return this.namespace;
     }
 
-    /**
-     * Statistic of the metric.
-     * 
-     */
     @Import(name="statistic", required=true)
     private Output<String> statistic;
 
-    /**
-     * @return Statistic of the metric.
-     * 
-     */
     public Output<String> statistic() {
         return this.statistic;
     }
 
-    /**
-     * Unit of the metrics to return.
-     * 
-     */
     @Import(name="unit")
     private @Nullable Output<String> unit;
 
-    /**
-     * @return Unit of the metrics to return.
-     * 
-     */
     public Optional<Output<String>> unit() {
         return Optional.ofNullable(this.unit);
     }
@@ -120,117 +80,51 @@ public final class PolicyTargetTrackingConfigurationCustomizedMetricSpecificatio
             $ = new PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param metricDimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDimensions(@Nullable Output<List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs>> metricDimensions) {
             $.metricDimensions = metricDimensions;
             return this;
         }
 
-        /**
-         * @param metricDimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDimensions(List<PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs> metricDimensions) {
             return metricDimensions(Output.of(metricDimensions));
         }
 
-        /**
-         * @param metricDimensions Dimensions of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricDimensions(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs... metricDimensions) {
             return metricDimensions(List.of(metricDimensions));
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(Output<String> metricName) {
             $.metricName = metricName;
             return this;
         }
 
-        /**
-         * @param metricName Name of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder metricName(String metricName) {
             return metricName(Output.of(metricName));
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
-        /**
-         * @param namespace Namespace of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
-        /**
-         * @param statistic Statistic of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(Output<String> statistic) {
             $.statistic = statistic;
             return this;
         }
 
-        /**
-         * @param statistic Statistic of the metric.
-         * 
-         * @return builder
-         * 
-         */
         public Builder statistic(String statistic) {
             return statistic(Output.of(statistic));
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(@Nullable Output<String> unit) {
             $.unit = unit;
             return this;
         }
 
-        /**
-         * @param unit Unit of the metrics to return.
-         * 
-         * @return builder
-         * 
-         */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
         }

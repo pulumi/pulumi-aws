@@ -17,205 +17,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon API Gateway Version 2 domain name.
- * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
- * 
- * &gt; **Note:** This resource establishes ownership of and the TLS settings for
- * a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.DomainName;
- * import com.pulumi.aws.apigatewayv2.DomainNameArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.DomainNameDomainNameConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new DomainName(&#34;example&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;ws-api.example.com&#34;)
- *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Associated Route 53 Resource Record
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.apigatewayv2.DomainName;
- * import com.pulumi.aws.apigatewayv2.DomainNameArgs;
- * import com.pulumi.aws.apigatewayv2.inputs.DomainNameDomainNameConfigurationArgs;
- * import com.pulumi.aws.route53.Record;
- * import com.pulumi.aws.route53.RecordArgs;
- * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
- *             .domainName(&#34;http-api.example.com&#34;)
- *             .domainNameConfiguration(DomainNameDomainNameConfigurationArgs.builder()
- *                 .certificateArn(aws_acm_certificate.example().arn())
- *                 .endpointType(&#34;REGIONAL&#34;)
- *                 .securityPolicy(&#34;TLS_1_2&#34;)
- *                 .build())
- *             .build());
- * 
- *         var exampleRecord = new Record(&#34;exampleRecord&#34;, RecordArgs.builder()        
- *             .name(exampleDomainName.domainName())
- *             .type(&#34;A&#34;)
- *             .zoneId(aws_route53_zone.example().zone_id())
- *             .aliases(RecordAliasArgs.builder()
- *                 .name(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.targetDomainName()))
- *                 .zoneId(exampleDomainName.domainNameConfiguration().applyValue(domainNameConfiguration -&gt; domainNameConfiguration.hostedZoneId()))
- *                 .evaluateTargetHealth(false)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
- * ```
- * 
- */
 @ResourceType(type="aws:apigatewayv2/domainName:DomainName")
 public class DomainName extends com.pulumi.resources.CustomResource {
-    /**
-     * [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-     * 
-     */
     @Export(name="apiMappingSelectionExpression", refs={String.class}, tree="[0]")
     private Output<String> apiMappingSelectionExpression;
 
-    /**
-     * @return [API mapping selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-mapping-selection-expressions) for the domain name.
-     * 
-     */
     public Output<String> apiMappingSelectionExpression() {
         return this.apiMappingSelectionExpression;
     }
-    /**
-     * ARN of the domain name.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return ARN of the domain name.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * Domain name. Must be between 1 and 512 characters in length.
-     * 
-     */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
-    /**
-     * @return Domain name. Must be between 1 and 512 characters in length.
-     * 
-     */
     public Output<String> domainName() {
         return this.domainName;
     }
-    /**
-     * Domain name configuration. See below.
-     * 
-     */
     @Export(name="domainNameConfiguration", refs={DomainNameDomainNameConfiguration.class}, tree="[0]")
     private Output<DomainNameDomainNameConfiguration> domainNameConfiguration;
 
-    /**
-     * @return Domain name configuration. See below.
-     * 
-     */
     public Output<DomainNameDomainNameConfiguration> domainNameConfiguration() {
         return this.domainNameConfiguration;
     }
-    /**
-     * Mutual TLS authentication configuration for the domain name.
-     * 
-     */
     @Export(name="mutualTlsAuthentication", refs={DomainNameMutualTlsAuthentication.class}, tree="[0]")
     private Output</* @Nullable */ DomainNameMutualTlsAuthentication> mutualTlsAuthentication;
 
-    /**
-     * @return Mutual TLS authentication configuration for the domain name.
-     * 
-     */
     public Output<Optional<DomainNameMutualTlsAuthentication>> mutualTlsAuthentication() {
         return Codegen.optional(this.mutualTlsAuthentication);
     }
-    /**
-     * Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

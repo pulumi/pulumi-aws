@@ -9,10 +9,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEventBusResult {
-    /**
-     * @return ARN.
-     * 
-     */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -22,10 +18,6 @@ public final class GetEventBusResult {
     private String name;
 
     private GetEventBusResult() {}
-    /**
-     * @return ARN.
-     * 
-     */
     public String arn() {
         return this.arn;
     }

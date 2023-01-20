@@ -15,47 +15,23 @@ public final class GameServerGroupLaunchTemplateArgs extends com.pulumi.resource
 
     public static final GameServerGroupLaunchTemplateArgs Empty = new GameServerGroupLaunchTemplateArgs();
 
-    /**
-     * A unique identifier for an existing EC2 launch template.
-     * 
-     */
     @Import(name="id")
     private @Nullable Output<String> id;
 
-    /**
-     * @return A unique identifier for an existing EC2 launch template.
-     * 
-     */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
 
-    /**
-     * A readable identifier for an existing EC2 launch template.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return A readable identifier for an existing EC2 launch template.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The version of the EC2 launch template to use. If none is set, the default is the first version created.
-     * 
-     */
     @Import(name="version")
     private @Nullable Output<String> version;
 
-    /**
-     * @return The version of the EC2 launch template to use. If none is set, the default is the first version created.
-     * 
-     */
     public Optional<Output<String>> version() {
         return Optional.ofNullable(this.version);
     }
@@ -86,65 +62,29 @@ public final class GameServerGroupLaunchTemplateArgs extends com.pulumi.resource
             $ = new GameServerGroupLaunchTemplateArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param id A unique identifier for an existing EC2 launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
-        /**
-         * @param id A unique identifier for an existing EC2 launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder id(String id) {
             return id(Output.of(id));
         }
 
-        /**
-         * @param name A readable identifier for an existing EC2 launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name A readable identifier for an existing EC2 launch template.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param version The version of the EC2 launch template to use. If none is set, the default is the first version created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(@Nullable Output<String> version) {
             $.version = version;
             return this;
         }
 
-        /**
-         * @param version The version of the EC2 launch template to use. If none is set, the default is the first version created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

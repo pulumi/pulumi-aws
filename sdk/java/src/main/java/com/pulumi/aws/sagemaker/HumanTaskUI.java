@@ -16,121 +16,35 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a SageMaker Human Task UI resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.sagemaker.HumanTaskUI;
- * import com.pulumi.aws.sagemaker.HumanTaskUIArgs;
- * import com.pulumi.aws.sagemaker.inputs.HumanTaskUIUiTemplateArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new HumanTaskUI(&#34;example&#34;, HumanTaskUIArgs.builder()        
- *             .humanTaskUiName(&#34;example&#34;)
- *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
- *                 .content(Files.readString(Paths.get(&#34;sagemaker-human-task-ui-template.html&#34;)))
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
- * ```
- * 
- */
 @ResourceType(type="aws:sagemaker/humanTaskUI:HumanTaskUI")
 public class HumanTaskUI extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The name of the Human Task UI.
-     * 
-     */
     @Export(name="humanTaskUiName", refs={String.class}, tree="[0]")
     private Output<String> humanTaskUiName;
 
-    /**
-     * @return The name of the Human Task UI.
-     * 
-     */
     public Output<String> humanTaskUiName() {
         return this.humanTaskUiName;
     }
-    /**
-     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * The Liquid template for the worker user interface. See UI Template below.
-     * 
-     */
     @Export(name="uiTemplate", refs={HumanTaskUIUiTemplate.class}, tree="[0]")
     private Output<HumanTaskUIUiTemplate> uiTemplate;
 
-    /**
-     * @return The Liquid template for the worker user interface. See UI Template below.
-     * 
-     */
     public Output<HumanTaskUIUiTemplate> uiTemplate() {
         return this.uiTemplate;
     }

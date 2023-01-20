@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatchHostname {
-    /**
-     * @return Exact host name to match on.
-     * 
-     */
     private @Nullable String exact;
-    /**
-     * @return Specified ending characters of the host name to match on.
-     * 
-     */
     private @Nullable String suffix;
 
     private GatewayRouteSpecHttpRouteMatchHostname() {}
-    /**
-     * @return Exact host name to match on.
-     * 
-     */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
-    /**
-     * @return Specified ending characters of the host name to match on.
-     * 
-     */
     public Optional<String> suffix() {
         return Optional.ofNullable(this.suffix);
     }

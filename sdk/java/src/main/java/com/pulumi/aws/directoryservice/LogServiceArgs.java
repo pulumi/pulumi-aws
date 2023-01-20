@@ -13,32 +13,16 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LogServiceArgs Empty = new LogServiceArgs();
 
-    /**
-     * ID of directory.
-     * 
-     */
     @Import(name="directoryId", required=true)
     private Output<String> directoryId;
 
-    /**
-     * @return ID of directory.
-     * 
-     */
     public Output<String> directoryId() {
         return this.directoryId;
     }
 
-    /**
-     * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     * 
-     */
     @Import(name="logGroupName", required=true)
     private Output<String> logGroupName;
 
-    /**
-     * @return Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-     * 
-     */
     public Output<String> logGroupName() {
         return this.logGroupName;
     }
@@ -68,44 +52,20 @@ public final class LogServiceArgs extends com.pulumi.resources.ResourceArgs {
             $ = new LogServiceArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param directoryId ID of directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryId(Output<String> directoryId) {
             $.directoryId = directoryId;
             return this;
         }
 
-        /**
-         * @param directoryId ID of directory.
-         * 
-         * @return builder
-         * 
-         */
         public Builder directoryId(String directoryId) {
             return directoryId(Output.of(directoryId));
         }
 
-        /**
-         * @param logGroupName Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(Output<String> logGroupName) {
             $.logGroupName = logGroupName;
             return this;
         }
 
-        /**
-         * @param logGroupName Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
-         * 
-         * @return builder
-         * 
-         */
         public Builder logGroupName(String logGroupName) {
             return logGroupName(Output.of(logGroupName));
         }

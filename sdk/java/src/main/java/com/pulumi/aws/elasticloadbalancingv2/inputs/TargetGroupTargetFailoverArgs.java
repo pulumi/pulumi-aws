@@ -13,32 +13,16 @@ public final class TargetGroupTargetFailoverArgs extends com.pulumi.resources.Re
 
     public static final TargetGroupTargetFailoverArgs Empty = new TargetGroupTargetFailoverArgs();
 
-    /**
-     * Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
-     * 
-     */
     @Import(name="onDeregistration", required=true)
     private Output<String> onDeregistration;
 
-    /**
-     * @return Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
-     * 
-     */
     public Output<String> onDeregistration() {
         return this.onDeregistration;
     }
 
-    /**
-     * Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
-     * 
-     */
     @Import(name="onUnhealthy", required=true)
     private Output<String> onUnhealthy;
 
-    /**
-     * @return Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
-     * 
-     */
     public Output<String> onUnhealthy() {
         return this.onUnhealthy;
     }
@@ -68,44 +52,20 @@ public final class TargetGroupTargetFailoverArgs extends com.pulumi.resources.Re
             $ = new TargetGroupTargetFailoverArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param onDeregistration Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDeregistration(Output<String> onDeregistration) {
             $.onDeregistration = onDeregistration;
             return this;
         }
 
-        /**
-         * @param onDeregistration Indicates how the GWLB handles existing flows when a target is deregistered. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_unhealthy`. Default: `no_rebalance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onDeregistration(String onDeregistration) {
             return onDeregistration(Output.of(onDeregistration));
         }
 
-        /**
-         * @param onUnhealthy Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnhealthy(Output<String> onUnhealthy) {
             $.onUnhealthy = onUnhealthy;
             return this;
         }
 
-        /**
-         * @param onUnhealthy Indicates how the GWLB handles existing flows when a target is unhealthy. Possible values are `rebalance` and `no_rebalance`. Must match the attribute value set for `on_deregistration`. Default: `no_rebalance`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder onUnhealthy(String onUnhealthy) {
             return onUnhealthy(Output.of(onUnhealthy));
         }

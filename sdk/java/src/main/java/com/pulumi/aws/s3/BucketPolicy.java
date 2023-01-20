@@ -13,97 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a policy to an S3 bucket resource.
- * 
- * ## Example Usage
- * ### Basic Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.iam.IamFunctions;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
- * import com.pulumi.aws.s3.BucketPolicy;
- * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new BucketV2(&#34;example&#34;);
- * 
- *         final var allowAccessFromAnotherAccountPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type(&#34;AWS&#34;)
- *                     .identifiers(&#34;123456789012&#34;)
- *                     .build())
- *                 .actions(                
- *                     &#34;s3:GetObject&#34;,
- *                     &#34;s3:ListBucket&#34;)
- *                 .resources(                
- *                     example.arn(),
- *                     example.arn().applyValue(arn -&gt; String.format(&#34;%s/*&#34;, arn)))
- *                 .build())
- *             .build());
- * 
- *         var allowAccessFromAnotherAccountBucketPolicy = new BucketPolicy(&#34;allowAccessFromAnotherAccountBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(example.id())
- *             .policy(allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(allowAccessFromAnotherAccountPolicyDocument -&gt; allowAccessFromAnotherAccountPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * S3 bucket policies can be imported using the bucket name, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
- * ```
- * 
- */
 @ResourceType(type="aws:s3/bucketPolicy:BucketPolicy")
 public class BucketPolicy extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the bucket to which to apply the policy.
-     * 
-     */
     @Export(name="bucket", refs={String.class}, tree="[0]")
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket to which to apply the policy.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
-    /**
-     * The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
-     * 
-     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
-    /**
-     * @return The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }

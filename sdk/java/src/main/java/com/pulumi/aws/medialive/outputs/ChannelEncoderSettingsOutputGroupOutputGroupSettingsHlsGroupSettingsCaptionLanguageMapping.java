@@ -11,10 +11,6 @@ import java.util.Objects;
 @CustomType
 public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
     private Integer captionChannel;
-    /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
-     * 
-     */
     private String languageCode;
     private String languageDescription;
 
@@ -22,10 +18,6 @@ public final class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupS
     public Integer captionChannel() {
         return this.captionChannel;
     }
-    /**
-     * @return When specified this field indicates the three letter language code of the caption track to extract from the source.
-     * 
-     */
     public String languageCode() {
         return this.languageCode;
     }

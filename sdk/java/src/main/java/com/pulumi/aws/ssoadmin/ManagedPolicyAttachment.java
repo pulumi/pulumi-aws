@@ -13,75 +13,29 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
- * 
- * &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
- * 
- * ## Import
- * 
- * SSO Managed Policy Attachments can be imported using the `managed_policy_arn`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`) e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment example arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
- * ```
- * 
- */
 @ResourceType(type="aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")
 public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-     * 
-     */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
-    /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     * 
-     */
     @Export(name="managedPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> managedPolicyArn;
 
-    /**
-     * @return The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
-     * 
-     */
     public Output<String> managedPolicyArn() {
         return this.managedPolicyArn;
     }
-    /**
-     * The name of the IAM Managed Policy.
-     * 
-     */
     @Export(name="managedPolicyName", refs={String.class}, tree="[0]")
     private Output<String> managedPolicyName;
 
-    /**
-     * @return The name of the IAM Managed Policy.
-     * 
-     */
     public Output<String> managedPolicyName() {
         return this.managedPolicyName;
     }
-    /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
-    /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
-     * 
-     */
     public Output<String> permissionSetArn() {
         return this.permissionSetArn;
     }

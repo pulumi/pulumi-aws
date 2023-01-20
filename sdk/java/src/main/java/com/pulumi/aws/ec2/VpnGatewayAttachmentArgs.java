@@ -13,32 +13,16 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
 
     public static final VpnGatewayAttachmentArgs Empty = new VpnGatewayAttachmentArgs();
 
-    /**
-     * The ID of the VPC.
-     * 
-     */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
-    /**
-     * @return The ID of the VPC.
-     * 
-     */
     public Output<String> vpcId() {
         return this.vpcId;
     }
 
-    /**
-     * The ID of the Virtual Private Gateway.
-     * 
-     */
     @Import(name="vpnGatewayId", required=true)
     private Output<String> vpnGatewayId;
 
-    /**
-     * @return The ID of the Virtual Private Gateway.
-     * 
-     */
     public Output<String> vpnGatewayId() {
         return this.vpnGatewayId;
     }
@@ -68,44 +52,20 @@ public final class VpnGatewayAttachmentArgs extends com.pulumi.resources.Resourc
             $ = new VpnGatewayAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
-        /**
-         * @param vpcId The ID of the VPC.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }
 
-        /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(Output<String> vpnGatewayId) {
             $.vpnGatewayId = vpnGatewayId;
             return this;
         }
 
-        /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder vpnGatewayId(String vpnGatewayId) {
             return vpnGatewayId(Output.of(vpnGatewayId));
         }

@@ -17,47 +17,23 @@ public final class FleetRuntimeConfigurationArgs extends com.pulumi.resources.Re
 
     public static final FleetRuntimeConfigurationArgs Empty = new FleetRuntimeConfigurationArgs();
 
-    /**
-     * Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-     * 
-     */
     @Import(name="gameSessionActivationTimeoutSeconds")
     private @Nullable Output<Integer> gameSessionActivationTimeoutSeconds;
 
-    /**
-     * @return Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-     * 
-     */
     public Optional<Output<Integer>> gameSessionActivationTimeoutSeconds() {
         return Optional.ofNullable(this.gameSessionActivationTimeoutSeconds);
     }
 
-    /**
-     * Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-     * 
-     */
     @Import(name="maxConcurrentGameSessionActivations")
     private @Nullable Output<Integer> maxConcurrentGameSessionActivations;
 
-    /**
-     * @return Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-     * 
-     */
     public Optional<Output<Integer>> maxConcurrentGameSessionActivations() {
         return Optional.ofNullable(this.maxConcurrentGameSessionActivations);
     }
 
-    /**
-     * Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-     * 
-     */
     @Import(name="serverProcesses")
     private @Nullable Output<List<FleetRuntimeConfigurationServerProcessArgs>> serverProcesses;
 
-    /**
-     * @return Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-     * 
-     */
     public Optional<Output<List<FleetRuntimeConfigurationServerProcessArgs>>> serverProcesses() {
         return Optional.ofNullable(this.serverProcesses);
     }
@@ -88,75 +64,33 @@ public final class FleetRuntimeConfigurationArgs extends com.pulumi.resources.Re
             $ = new FleetRuntimeConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param gameSessionActivationTimeoutSeconds Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gameSessionActivationTimeoutSeconds(@Nullable Output<Integer> gameSessionActivationTimeoutSeconds) {
             $.gameSessionActivationTimeoutSeconds = gameSessionActivationTimeoutSeconds;
             return this;
         }
 
-        /**
-         * @param gameSessionActivationTimeoutSeconds Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder gameSessionActivationTimeoutSeconds(Integer gameSessionActivationTimeoutSeconds) {
             return gameSessionActivationTimeoutSeconds(Output.of(gameSessionActivationTimeoutSeconds));
         }
 
-        /**
-         * @param maxConcurrentGameSessionActivations Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentGameSessionActivations(@Nullable Output<Integer> maxConcurrentGameSessionActivations) {
             $.maxConcurrentGameSessionActivations = maxConcurrentGameSessionActivations;
             return this;
         }
 
-        /**
-         * @param maxConcurrentGameSessionActivations Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-         * 
-         * @return builder
-         * 
-         */
         public Builder maxConcurrentGameSessionActivations(Integer maxConcurrentGameSessionActivations) {
             return maxConcurrentGameSessionActivations(Output.of(maxConcurrentGameSessionActivations));
         }
 
-        /**
-         * @param serverProcesses Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverProcesses(@Nullable Output<List<FleetRuntimeConfigurationServerProcessArgs>> serverProcesses) {
             $.serverProcesses = serverProcesses;
             return this;
         }
 
-        /**
-         * @param serverProcesses Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverProcesses(List<FleetRuntimeConfigurationServerProcessArgs> serverProcesses) {
             return serverProcesses(Output.of(serverProcesses));
         }
 
-        /**
-         * @param serverProcesses Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder serverProcesses(FleetRuntimeConfigurationServerProcessArgs... serverProcesses) {
             return serverProcesses(List.of(serverProcesses));
         }

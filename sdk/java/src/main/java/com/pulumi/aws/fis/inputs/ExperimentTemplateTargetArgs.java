@@ -18,92 +18,44 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
 
     public static final ExperimentTemplateTargetArgs Empty = new ExperimentTemplateTargetArgs();
 
-    /**
-     * Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-     * 
-     */
     @Import(name="filters")
     private @Nullable Output<List<ExperimentTemplateTargetFilterArgs>> filters;
 
-    /**
-     * @return Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-     * 
-     */
     public Optional<Output<List<ExperimentTemplateTargetFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Friendly name given to the target.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Friendly name given to the target.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
 
-    /**
-     * Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-     * 
-     */
     @Import(name="resourceArns")
     private @Nullable Output<List<String>> resourceArns;
 
-    /**
-     * @return Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-     * 
-     */
     public Optional<Output<List<String>>> resourceArns() {
         return Optional.ofNullable(this.resourceArns);
     }
 
-    /**
-     * Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-     * 
-     */
     @Import(name="resourceTags")
     private @Nullable Output<List<ExperimentTemplateTargetResourceTagArgs>> resourceTags;
 
-    /**
-     * @return Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-     * 
-     */
     public Optional<Output<List<ExperimentTemplateTargetResourceTagArgs>>> resourceTags() {
         return Optional.ofNullable(this.resourceTags);
     }
 
-    /**
-     * AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-     * 
-     */
     @Import(name="resourceType", required=true)
     private Output<String> resourceType;
 
-    /**
-     * @return AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-     * 
-     */
     public Output<String> resourceType() {
         return this.resourceType;
     }
 
-    /**
-     * Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-     * 
-     */
     @Import(name="selectionMode", required=true)
     private Output<String> selectionMode;
 
-    /**
-     * @return Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-     * 
-     */
     public Output<String> selectionMode() {
         return this.selectionMode;
     }
@@ -137,158 +89,68 @@ public final class ExperimentTemplateTargetArgs extends com.pulumi.resources.Res
             $ = new ExperimentTemplateTargetArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable Output<List<ExperimentTemplateTargetFilterArgs>> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(List<ExperimentTemplateTargetFilterArgs> filters) {
             return filters(Output.of(filters));
         }
 
-        /**
-         * @param filters Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(ExperimentTemplateTargetFilterArgs... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param name Friendly name given to the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Friendly name given to the target.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArns(@Nullable Output<List<String>> resourceArns) {
             $.resourceArns = resourceArns;
             return this;
         }
 
-        /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArns(List<String> resourceArns) {
             return resourceArns(Output.of(resourceArns));
         }
 
-        /**
-         * @param resourceArns Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceArns(String... resourceArns) {
             return resourceArns(List.of(resourceArns));
         }
 
-        /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(@Nullable Output<List<ExperimentTemplateTargetResourceTagArgs>> resourceTags) {
             $.resourceTags = resourceTags;
             return this;
         }
 
-        /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(List<ExperimentTemplateTargetResourceTagArgs> resourceTags) {
             return resourceTags(Output.of(resourceTags));
         }
 
-        /**
-         * @param resourceTags Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceTags(ExperimentTemplateTargetResourceTagArgs... resourceTags) {
             return resourceTags(List.of(resourceTags));
         }
 
-        /**
-         * @param resourceType AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(Output<String> resourceType) {
             $.resourceType = resourceType;
             return this;
         }
 
-        /**
-         * @param resourceType AWS resource type. The resource type must be supported for the specified action. To find out what resource types are supported, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#resource-types).
-         * 
-         * @return builder
-         * 
-         */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
         }
 
-        /**
-         * @param selectionMode Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionMode(Output<String> selectionMode) {
             $.selectionMode = selectionMode;
             return this;
         }
 
-        /**
-         * @param selectionMode Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
-         * 
-         * @return builder
-         * 
-         */
         public Builder selectionMode(String selectionMode) {
             return selectionMode(Output.of(selectionMode));
         }

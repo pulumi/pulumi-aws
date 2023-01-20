@@ -20,109 +20,51 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
 
     public static final BucketWebsiteConfigurationV2Args Empty = new BucketWebsiteConfigurationV2Args();
 
-    /**
-     * The name of the bucket.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return The name of the bucket.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
-    /**
-     * The name of the error document for the website detailed below.
-     * 
-     */
     @Import(name="errorDocument")
     private @Nullable Output<BucketWebsiteConfigurationV2ErrorDocumentArgs> errorDocument;
 
-    /**
-     * @return The name of the error document for the website detailed below.
-     * 
-     */
     public Optional<Output<BucketWebsiteConfigurationV2ErrorDocumentArgs>> errorDocument() {
         return Optional.ofNullable(this.errorDocument);
     }
 
-    /**
-     * The account ID of the expected bucket owner.
-     * 
-     */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
-    /**
-     * @return The account ID of the expected bucket owner.
-     * 
-     */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
-    /**
-     * The name of the index document for the website detailed below.
-     * 
-     */
     @Import(name="indexDocument")
     private @Nullable Output<BucketWebsiteConfigurationV2IndexDocumentArgs> indexDocument;
 
-    /**
-     * @return The name of the index document for the website detailed below.
-     * 
-     */
     public Optional<Output<BucketWebsiteConfigurationV2IndexDocumentArgs>> indexDocument() {
         return Optional.ofNullable(this.indexDocument);
     }
 
-    /**
-     * The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-     * 
-     */
     @Import(name="redirectAllRequestsTo")
     private @Nullable Output<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs> redirectAllRequestsTo;
 
-    /**
-     * @return The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-     * 
-     */
     public Optional<Output<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs>> redirectAllRequestsTo() {
         return Optional.ofNullable(this.redirectAllRequestsTo);
     }
 
-    /**
-     * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
-     * 
-     */
     @Import(name="routingRuleDetails")
     private @Nullable Output<String> routingRuleDetails;
 
-    /**
-     * @return A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-     * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
-     * 
-     */
     public Optional<Output<String>> routingRuleDetails() {
         return Optional.ofNullable(this.routingRuleDetails);
     }
 
-    /**
-     * List of rules that define when a redirect is applied and the redirect behavior detailed below.
-     * 
-     */
     @Import(name="routingRules")
     private @Nullable Output<List<BucketWebsiteConfigurationV2RoutingRuleArgs>> routingRules;
 
-    /**
-     * @return List of rules that define when a redirect is applied and the redirect behavior detailed below.
-     * 
-     */
     public Optional<Output<List<BucketWebsiteConfigurationV2RoutingRuleArgs>>> routingRules() {
         return Optional.ofNullable(this.routingRules);
     }
@@ -157,161 +99,69 @@ public final class BucketWebsiteConfigurationV2Args extends com.pulumi.resources
             $ = new BucketWebsiteConfigurationV2Args(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket The name of the bucket.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
-        /**
-         * @param errorDocument The name of the error document for the website detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorDocument(@Nullable Output<BucketWebsiteConfigurationV2ErrorDocumentArgs> errorDocument) {
             $.errorDocument = errorDocument;
             return this;
         }
 
-        /**
-         * @param errorDocument The name of the error document for the website detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs errorDocument) {
             return errorDocument(Output.of(errorDocument));
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
         }
 
-        /**
-         * @param expectedBucketOwner The account ID of the expected bucket owner.
-         * 
-         * @return builder
-         * 
-         */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }
 
-        /**
-         * @param indexDocument The name of the index document for the website detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexDocument(@Nullable Output<BucketWebsiteConfigurationV2IndexDocumentArgs> indexDocument) {
             $.indexDocument = indexDocument;
             return this;
         }
 
-        /**
-         * @param indexDocument The name of the index document for the website detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs indexDocument) {
             return indexDocument(Output.of(indexDocument));
         }
 
-        /**
-         * @param redirectAllRequestsTo The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectAllRequestsTo(@Nullable Output<BucketWebsiteConfigurationV2RedirectAllRequestsToArgs> redirectAllRequestsTo) {
             $.redirectAllRequestsTo = redirectAllRequestsTo;
             return this;
         }
 
-        /**
-         * @param redirectAllRequestsTo The redirect behavior for every request to this bucket&#39;s website endpoint detailed below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder redirectAllRequestsTo(BucketWebsiteConfigurationV2RedirectAllRequestsToArgs redirectAllRequestsTo) {
             return redirectAllRequestsTo(Output.of(redirectAllRequestsTo));
         }
 
-        /**
-         * @param routingRuleDetails A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRuleDetails(@Nullable Output<String> routingRuleDetails) {
             $.routingRuleDetails = routingRuleDetails;
             return this;
         }
 
-        /**
-         * @param routingRuleDetails A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
-         * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`&#34;&#34;`) as seen in the example above.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRuleDetails(String routingRuleDetails) {
             return routingRuleDetails(Output.of(routingRuleDetails));
         }
 
-        /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRules(@Nullable Output<List<BucketWebsiteConfigurationV2RoutingRuleArgs>> routingRules) {
             $.routingRules = routingRules;
             return this;
         }
 
-        /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRules(List<BucketWebsiteConfigurationV2RoutingRuleArgs> routingRules) {
             return routingRules(Output.of(routingRules));
         }
 
-        /**
-         * @param routingRules List of rules that define when a redirect is applied and the redirect behavior detailed below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder routingRules(BucketWebsiteConfigurationV2RoutingRuleArgs... routingRules) {
             return routingRules(List.of(routingRules));
         }

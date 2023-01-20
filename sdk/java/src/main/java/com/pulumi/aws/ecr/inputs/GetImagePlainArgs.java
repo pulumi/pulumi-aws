@@ -14,62 +14,30 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetImagePlainArgs Empty = new GetImagePlainArgs();
 
-    /**
-     * Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-     * 
-     */
     @Import(name="imageDigest")
     private @Nullable String imageDigest;
 
-    /**
-     * @return Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-     * 
-     */
     public Optional<String> imageDigest() {
         return Optional.ofNullable(this.imageDigest);
     }
 
-    /**
-     * Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-     * 
-     */
     @Import(name="imageTag")
     private @Nullable String imageTag;
 
-    /**
-     * @return Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-     * 
-     */
     public Optional<String> imageTag() {
         return Optional.ofNullable(this.imageTag);
     }
 
-    /**
-     * ID of the Registry where the repository resides.
-     * 
-     */
     @Import(name="registryId")
     private @Nullable String registryId;
 
-    /**
-     * @return ID of the Registry where the repository resides.
-     * 
-     */
     public Optional<String> registryId() {
         return Optional.ofNullable(this.registryId);
     }
 
-    /**
-     * Name of the ECR Repository.
-     * 
-     */
     @Import(name="repositoryName", required=true)
     private String repositoryName;
 
-    /**
-     * @return Name of the ECR Repository.
-     * 
-     */
     public String repositoryName() {
         return this.repositoryName;
     }
@@ -101,45 +69,21 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetImagePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageDigest Sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageDigest(@Nullable String imageDigest) {
             $.imageDigest = imageDigest;
             return this;
         }
 
-        /**
-         * @param imageTag Tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageTag(@Nullable String imageTag) {
             $.imageTag = imageTag;
             return this;
         }
 
-        /**
-         * @param registryId ID of the Registry where the repository resides.
-         * 
-         * @return builder
-         * 
-         */
         public Builder registryId(@Nullable String registryId) {
             $.registryId = registryId;
             return this;
         }
 
-        /**
-         * @param repositoryName Name of the ECR Repository.
-         * 
-         * @return builder
-         * 
-         */
         public Builder repositoryName(String repositoryName) {
             $.repositoryName = repositoryName;
             return this;

@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LocationSmbMountOptions {
-    /**
-     * @return The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
-     * 
-     */
     private @Nullable String version;
 
     private LocationSmbMountOptions() {}
-    /**
-     * @return The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
-     * 
-     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

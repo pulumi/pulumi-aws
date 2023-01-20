@@ -98,1061 +98,357 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class InsightFilters {
-    /**
-     * @return AWS account ID that a finding is generated in. See String_Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersAwsAccountId> awsAccountIds;
-    /**
-     * @return The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersCompanyName> companyNames;
-    /**
-     * @return Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersComplianceStatus> complianceStatuses;
-    /**
-     * @return A finding&#39;s confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersConfidence> confidences;
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersCreatedAt> createdAts;
-    /**
-     * @return The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersCriticality> criticalities;
-    /**
-     * @return A finding&#39;s description. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersDescription> descriptions;
-    /**
-     * @return The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences;
-    /**
-     * @return The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities;
-    /**
-     * @return The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds;
-    /**
-     * @return The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns;
-    /**
-     * @return The finding provider value for the severity label. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels;
-    /**
-     * @return The finding provider&#39;s original value for the severity. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals;
-    /**
-     * @return One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes;
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersFirstObservedAt> firstObservedAts;
-    /**
-     * @return The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersGeneratorId> generatorIds;
-    /**
-     * @return The security findings provider-specific identifier for a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersId> ids;
-    /**
-     * @return A keyword for a finding. See Keyword Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersKeyword> keywords;
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersLastObservedAt> lastObservedAts;
-    /**
-     * @return The name of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersMalwareName> malwareNames;
-    /**
-     * @return The filesystem path of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersMalwarePath> malwarePaths;
-    /**
-     * @return The state of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersMalwareState> malwareStates;
-    /**
-     * @return The type of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersMalwareType> malwareTypes;
-    /**
-     * @return The destination domain of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains;
-    /**
-     * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s;
-    /**
-     * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s;
-    /**
-     * @return The destination port of network-related information about a finding. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkDestinationPort> networkDestinationPorts;
-    /**
-     * @return Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkDirection> networkDirections;
-    /**
-     * @return The protocol of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkProtocol> networkProtocols;
-    /**
-     * @return The source domain of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkSourceDomain> networkSourceDomains;
-    /**
-     * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s;
-    /**
-     * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s;
-    /**
-     * @return The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkSourceMac> networkSourceMacs;
-    /**
-     * @return The source port of network-related information about a finding. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNetworkSourcePort> networkSourcePorts;
-    /**
-     * @return The text of a note. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNoteText> noteTexts;
-    /**
-     * @return The timestamp of when the note was updated. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNoteUpdatedAt> noteUpdatedAts;
-    /**
-     * @return The principal that created a note. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersNoteUpdatedBy> noteUpdatedBies;
-    /**
-     * @return The date/time that the process was launched. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessLaunchedAt> processLaunchedAts;
-    /**
-     * @return The name of the process. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessName> processNames;
-    /**
-     * @return The parent process ID. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessParentPid> processParentPids;
-    /**
-     * @return The path to the process executable. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessPath> processPaths;
-    /**
-     * @return The process ID. See Number Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessPid> processPids;
-    /**
-     * @return The date/time that the process was terminated. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProcessTerminatedAt> processTerminatedAts;
-    /**
-     * @return The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider&#39;s product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProductArn> productArns;
-    /**
-     * @return A data type where security-findings providers can include additional solution-specific details that aren&#39;t part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProductField> productFields;
-    /**
-     * @return The name of the solution (product) that generates findings. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersProductName> productNames;
-    /**
-     * @return The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersRecommendationText> recommendationTexts;
-    /**
-     * @return The updated record state for the finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersRecordState> recordStates;
-    /**
-     * @return The solution-generated identifier for a related finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersRelatedFindingsId> relatedFindingsIds;
-    /**
-     * @return The ARN of the solution that generated a related finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns;
-    /**
-     * @return The IAM profile ARN of the instance. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns;
-    /**
-     * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds;
-    /**
-     * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses;
-    /**
-     * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses;
-    /**
-     * @return The key name associated with the instance. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames;
-    /**
-     * @return The date and time the instance was launched. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts;
-    /**
-     * @return The identifier of the subnet that the instance was launched in. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds;
-    /**
-     * @return The instance type of the instance. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes;
-    /**
-     * @return The identifier of the VPC that the instance was launched in. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds;
-    /**
-     * @return The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts;
-    /**
-     * @return The status of the IAM access key related to a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses;
-    /**
-     * @return The user associated with the IAM access key related to a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames;
-    /**
-     * @return The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds;
-    /**
-     * @return The display name of the owner of the S3 bucket. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames;
-    /**
-     * @return The identifier of the image related to a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceContainerImageId> resourceContainerImageIds;
-    /**
-     * @return The name of the image related to a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceContainerImageName> resourceContainerImageNames;
-    /**
-     * @return The date/time that the container was started. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts;
-    /**
-     * @return The name of the container related to a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceContainerName> resourceContainerNames;
-    /**
-     * @return The details of a resource that doesn&#39;t have a specific subfield for the resource type defined. See Map Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceDetailsOther> resourceDetailsOthers;
-    /**
-     * @return The canonical identifier for the given resource type. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceId> resourceIds;
-    /**
-     * @return The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourcePartition> resourcePartitions;
-    /**
-     * @return The canonical AWS external Region name where this resource is located. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceRegion> resourceRegions;
-    /**
-     * @return A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceTag> resourceTags;
-    /**
-     * @return Specifies the type of the resource that details are provided for. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersResourceType> resourceTypes;
-    /**
-     * @return The label of a finding&#39;s severity. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersSeverityLabel> severityLabels;
-    /**
-     * @return A URL that links to a page about the current finding in the security-findings provider&#39;s solution. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersSourceUrl> sourceUrls;
-    /**
-     * @return The category of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories;
-    /**
-     * @return The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts;
-    /**
-     * @return The URL for more details from the source of the threat intelligence. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls;
-    /**
-     * @return The source of the threat intelligence. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources;
-    /**
-     * @return The type of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes;
-    /**
-     * @return The value of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues;
-    /**
-     * @return A finding&#39;s title. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersTitle> titles;
-    /**
-     * @return A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersType> types;
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersUpdatedAt> updatedAts;
-    /**
-     * @return A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersUserDefinedValue> userDefinedValues;
-    /**
-     * @return The veracity of a finding. See String Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersVerificationState> verificationStates;
-    /**
-     * @return The status of the investigation into a finding. See Workflow Status Filter below for more details.
-     * 
-     */
     private @Nullable List<InsightFiltersWorkflowStatus> workflowStatuses;
 
     private InsightFilters() {}
-    /**
-     * @return AWS account ID that a finding is generated in. See String_Filter below for more details.
-     * 
-     */
     public List<InsightFiltersAwsAccountId> awsAccountIds() {
         return this.awsAccountIds == null ? List.of() : this.awsAccountIds;
     }
-    /**
-     * @return The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
-     * 
-     */
     public List<InsightFiltersCompanyName> companyNames() {
         return this.companyNames == null ? List.of() : this.companyNames;
     }
-    /**
-     * @return Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersComplianceStatus> complianceStatuses() {
         return this.complianceStatuses == null ? List.of() : this.complianceStatuses;
     }
-    /**
-     * @return A finding&#39;s confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersConfidence> confidences() {
         return this.confidences == null ? List.of() : this.confidences;
     }
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersCreatedAt> createdAts() {
         return this.createdAts == null ? List.of() : this.createdAts;
     }
-    /**
-     * @return The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersCriticality> criticalities() {
         return this.criticalities == null ? List.of() : this.criticalities;
     }
-    /**
-     * @return A finding&#39;s description. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersDescription> descriptions() {
         return this.descriptions == null ? List.of() : this.descriptions;
     }
-    /**
-     * @return The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsConfidence> findingProviderFieldsConfidences() {
         return this.findingProviderFieldsConfidences == null ? List.of() : this.findingProviderFieldsConfidences;
     }
-    /**
-     * @return The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsCriticality> findingProviderFieldsCriticalities() {
         return this.findingProviderFieldsCriticalities == null ? List.of() : this.findingProviderFieldsCriticalities;
     }
-    /**
-     * @return The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsRelatedFindingsId> findingProviderFieldsRelatedFindingsIds() {
         return this.findingProviderFieldsRelatedFindingsIds == null ? List.of() : this.findingProviderFieldsRelatedFindingsIds;
     }
-    /**
-     * @return The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsRelatedFindingsProductArn> findingProviderFieldsRelatedFindingsProductArns() {
         return this.findingProviderFieldsRelatedFindingsProductArns == null ? List.of() : this.findingProviderFieldsRelatedFindingsProductArns;
     }
-    /**
-     * @return The finding provider value for the severity label. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsSeverityLabel> findingProviderFieldsSeverityLabels() {
         return this.findingProviderFieldsSeverityLabels == null ? List.of() : this.findingProviderFieldsSeverityLabels;
     }
-    /**
-     * @return The finding provider&#39;s original value for the severity. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsSeverityOriginal> findingProviderFieldsSeverityOriginals() {
         return this.findingProviderFieldsSeverityOriginals == null ? List.of() : this.findingProviderFieldsSeverityOriginals;
     }
-    /**
-     * @return One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFindingProviderFieldsType> findingProviderFieldsTypes() {
         return this.findingProviderFieldsTypes == null ? List.of() : this.findingProviderFieldsTypes;
     }
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersFirstObservedAt> firstObservedAts() {
         return this.firstObservedAts == null ? List.of() : this.firstObservedAts;
     }
-    /**
-     * @return The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersGeneratorId> generatorIds() {
         return this.generatorIds == null ? List.of() : this.generatorIds;
     }
-    /**
-     * @return The security findings provider-specific identifier for a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersId> ids() {
         return this.ids == null ? List.of() : this.ids;
     }
-    /**
-     * @return A keyword for a finding. See Keyword Filter below for more details.
-     * 
-     */
     public List<InsightFiltersKeyword> keywords() {
         return this.keywords == null ? List.of() : this.keywords;
     }
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersLastObservedAt> lastObservedAts() {
         return this.lastObservedAts == null ? List.of() : this.lastObservedAts;
     }
-    /**
-     * @return The name of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersMalwareName> malwareNames() {
         return this.malwareNames == null ? List.of() : this.malwareNames;
     }
-    /**
-     * @return The filesystem path of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersMalwarePath> malwarePaths() {
         return this.malwarePaths == null ? List.of() : this.malwarePaths;
     }
-    /**
-     * @return The state of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersMalwareState> malwareStates() {
         return this.malwareStates == null ? List.of() : this.malwareStates;
     }
-    /**
-     * @return The type of the malware that was observed. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersMalwareType> malwareTypes() {
         return this.malwareTypes == null ? List.of() : this.malwareTypes;
     }
-    /**
-     * @return The destination domain of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkDestinationDomain> networkDestinationDomains() {
         return this.networkDestinationDomains == null ? List.of() : this.networkDestinationDomains;
     }
-    /**
-     * @return The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkDestinationIpv4> networkDestinationIpv4s() {
         return this.networkDestinationIpv4s == null ? List.of() : this.networkDestinationIpv4s;
     }
-    /**
-     * @return The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkDestinationIpv6> networkDestinationIpv6s() {
         return this.networkDestinationIpv6s == null ? List.of() : this.networkDestinationIpv6s;
     }
-    /**
-     * @return The destination port of network-related information about a finding. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkDestinationPort> networkDestinationPorts() {
         return this.networkDestinationPorts == null ? List.of() : this.networkDestinationPorts;
     }
-    /**
-     * @return Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkDirection> networkDirections() {
         return this.networkDirections == null ? List.of() : this.networkDirections;
     }
-    /**
-     * @return The protocol of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkProtocol> networkProtocols() {
         return this.networkProtocols == null ? List.of() : this.networkProtocols;
     }
-    /**
-     * @return The source domain of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkSourceDomain> networkSourceDomains() {
         return this.networkSourceDomains == null ? List.of() : this.networkSourceDomains;
     }
-    /**
-     * @return The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkSourceIpv4> networkSourceIpv4s() {
         return this.networkSourceIpv4s == null ? List.of() : this.networkSourceIpv4s;
     }
-    /**
-     * @return The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkSourceIpv6> networkSourceIpv6s() {
         return this.networkSourceIpv6s == null ? List.of() : this.networkSourceIpv6s;
     }
-    /**
-     * @return The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkSourceMac> networkSourceMacs() {
         return this.networkSourceMacs == null ? List.of() : this.networkSourceMacs;
     }
-    /**
-     * @return The source port of network-related information about a finding. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNetworkSourcePort> networkSourcePorts() {
         return this.networkSourcePorts == null ? List.of() : this.networkSourcePorts;
     }
-    /**
-     * @return The text of a note. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNoteText> noteTexts() {
         return this.noteTexts == null ? List.of() : this.noteTexts;
     }
-    /**
-     * @return The timestamp of when the note was updated. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNoteUpdatedAt> noteUpdatedAts() {
         return this.noteUpdatedAts == null ? List.of() : this.noteUpdatedAts;
     }
-    /**
-     * @return The principal that created a note. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersNoteUpdatedBy> noteUpdatedBies() {
         return this.noteUpdatedBies == null ? List.of() : this.noteUpdatedBies;
     }
-    /**
-     * @return The date/time that the process was launched. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessLaunchedAt> processLaunchedAts() {
         return this.processLaunchedAts == null ? List.of() : this.processLaunchedAts;
     }
-    /**
-     * @return The name of the process. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessName> processNames() {
         return this.processNames == null ? List.of() : this.processNames;
     }
-    /**
-     * @return The parent process ID. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessParentPid> processParentPids() {
         return this.processParentPids == null ? List.of() : this.processParentPids;
     }
-    /**
-     * @return The path to the process executable. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessPath> processPaths() {
         return this.processPaths == null ? List.of() : this.processPaths;
     }
-    /**
-     * @return The process ID. See Number Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessPid> processPids() {
         return this.processPids == null ? List.of() : this.processPids;
     }
-    /**
-     * @return The date/time that the process was terminated. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProcessTerminatedAt> processTerminatedAts() {
         return this.processTerminatedAts == null ? List.of() : this.processTerminatedAts;
     }
-    /**
-     * @return The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider&#39;s product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProductArn> productArns() {
         return this.productArns == null ? List.of() : this.productArns;
     }
-    /**
-     * @return A data type where security-findings providers can include additional solution-specific details that aren&#39;t part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProductField> productFields() {
         return this.productFields == null ? List.of() : this.productFields;
     }
-    /**
-     * @return The name of the solution (product) that generates findings. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersProductName> productNames() {
         return this.productNames == null ? List.of() : this.productNames;
     }
-    /**
-     * @return The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersRecommendationText> recommendationTexts() {
         return this.recommendationTexts == null ? List.of() : this.recommendationTexts;
     }
-    /**
-     * @return The updated record state for the finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersRecordState> recordStates() {
         return this.recordStates == null ? List.of() : this.recordStates;
     }
-    /**
-     * @return The solution-generated identifier for a related finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersRelatedFindingsId> relatedFindingsIds() {
         return this.relatedFindingsIds == null ? List.of() : this.relatedFindingsIds;
     }
-    /**
-     * @return The ARN of the solution that generated a related finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersRelatedFindingsProductArn> relatedFindingsProductArns() {
         return this.relatedFindingsProductArns == null ? List.of() : this.relatedFindingsProductArns;
     }
-    /**
-     * @return The IAM profile ARN of the instance. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn> resourceAwsEc2InstanceIamInstanceProfileArns() {
         return this.resourceAwsEc2InstanceIamInstanceProfileArns == null ? List.of() : this.resourceAwsEc2InstanceIamInstanceProfileArns;
     }
-    /**
-     * @return The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceImageId> resourceAwsEc2InstanceImageIds() {
         return this.resourceAwsEc2InstanceImageIds == null ? List.of() : this.resourceAwsEc2InstanceImageIds;
     }
-    /**
-     * @return The IPv4 addresses associated with the instance. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceIpv4Address> resourceAwsEc2InstanceIpv4Addresses() {
         return this.resourceAwsEc2InstanceIpv4Addresses == null ? List.of() : this.resourceAwsEc2InstanceIpv4Addresses;
     }
-    /**
-     * @return The IPv6 addresses associated with the instance. See Ip Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceIpv6Address> resourceAwsEc2InstanceIpv6Addresses() {
         return this.resourceAwsEc2InstanceIpv6Addresses == null ? List.of() : this.resourceAwsEc2InstanceIpv6Addresses;
     }
-    /**
-     * @return The key name associated with the instance. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceKeyName> resourceAwsEc2InstanceKeyNames() {
         return this.resourceAwsEc2InstanceKeyNames == null ? List.of() : this.resourceAwsEc2InstanceKeyNames;
     }
-    /**
-     * @return The date and time the instance was launched. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceLaunchedAt> resourceAwsEc2InstanceLaunchedAts() {
         return this.resourceAwsEc2InstanceLaunchedAts == null ? List.of() : this.resourceAwsEc2InstanceLaunchedAts;
     }
-    /**
-     * @return The identifier of the subnet that the instance was launched in. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceSubnetId> resourceAwsEc2InstanceSubnetIds() {
         return this.resourceAwsEc2InstanceSubnetIds == null ? List.of() : this.resourceAwsEc2InstanceSubnetIds;
     }
-    /**
-     * @return The instance type of the instance. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceType> resourceAwsEc2InstanceTypes() {
         return this.resourceAwsEc2InstanceTypes == null ? List.of() : this.resourceAwsEc2InstanceTypes;
     }
-    /**
-     * @return The identifier of the VPC that the instance was launched in. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsEc2InstanceVpcId> resourceAwsEc2InstanceVpcIds() {
         return this.resourceAwsEc2InstanceVpcIds == null ? List.of() : this.resourceAwsEc2InstanceVpcIds;
     }
-    /**
-     * @return The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsIamAccessKeyCreatedAt> resourceAwsIamAccessKeyCreatedAts() {
         return this.resourceAwsIamAccessKeyCreatedAts == null ? List.of() : this.resourceAwsIamAccessKeyCreatedAts;
     }
-    /**
-     * @return The status of the IAM access key related to a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsIamAccessKeyStatus> resourceAwsIamAccessKeyStatuses() {
         return this.resourceAwsIamAccessKeyStatuses == null ? List.of() : this.resourceAwsIamAccessKeyStatuses;
     }
-    /**
-     * @return The user associated with the IAM access key related to a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsIamAccessKeyUserName> resourceAwsIamAccessKeyUserNames() {
         return this.resourceAwsIamAccessKeyUserNames == null ? List.of() : this.resourceAwsIamAccessKeyUserNames;
     }
-    /**
-     * @return The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsS3BucketOwnerId> resourceAwsS3BucketOwnerIds() {
         return this.resourceAwsS3BucketOwnerIds == null ? List.of() : this.resourceAwsS3BucketOwnerIds;
     }
-    /**
-     * @return The display name of the owner of the S3 bucket. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceAwsS3BucketOwnerName> resourceAwsS3BucketOwnerNames() {
         return this.resourceAwsS3BucketOwnerNames == null ? List.of() : this.resourceAwsS3BucketOwnerNames;
     }
-    /**
-     * @return The identifier of the image related to a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceContainerImageId> resourceContainerImageIds() {
         return this.resourceContainerImageIds == null ? List.of() : this.resourceContainerImageIds;
     }
-    /**
-     * @return The name of the image related to a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceContainerImageName> resourceContainerImageNames() {
         return this.resourceContainerImageNames == null ? List.of() : this.resourceContainerImageNames;
     }
-    /**
-     * @return The date/time that the container was started. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceContainerLaunchedAt> resourceContainerLaunchedAts() {
         return this.resourceContainerLaunchedAts == null ? List.of() : this.resourceContainerLaunchedAts;
     }
-    /**
-     * @return The name of the container related to a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceContainerName> resourceContainerNames() {
         return this.resourceContainerNames == null ? List.of() : this.resourceContainerNames;
     }
-    /**
-     * @return The details of a resource that doesn&#39;t have a specific subfield for the resource type defined. See Map Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceDetailsOther> resourceDetailsOthers() {
         return this.resourceDetailsOthers == null ? List.of() : this.resourceDetailsOthers;
     }
-    /**
-     * @return The canonical identifier for the given resource type. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceId> resourceIds() {
         return this.resourceIds == null ? List.of() : this.resourceIds;
     }
-    /**
-     * @return The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourcePartition> resourcePartitions() {
         return this.resourcePartitions == null ? List.of() : this.resourcePartitions;
     }
-    /**
-     * @return The canonical AWS external Region name where this resource is located. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceRegion> resourceRegions() {
         return this.resourceRegions == null ? List.of() : this.resourceRegions;
     }
-    /**
-     * @return A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceTag> resourceTags() {
         return this.resourceTags == null ? List.of() : this.resourceTags;
     }
-    /**
-     * @return Specifies the type of the resource that details are provided for. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersResourceType> resourceTypes() {
         return this.resourceTypes == null ? List.of() : this.resourceTypes;
     }
-    /**
-     * @return The label of a finding&#39;s severity. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersSeverityLabel> severityLabels() {
         return this.severityLabels == null ? List.of() : this.severityLabels;
     }
-    /**
-     * @return A URL that links to a page about the current finding in the security-findings provider&#39;s solution. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersSourceUrl> sourceUrls() {
         return this.sourceUrls == null ? List.of() : this.sourceUrls;
     }
-    /**
-     * @return The category of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorCategory> threatIntelIndicatorCategories() {
         return this.threatIntelIndicatorCategories == null ? List.of() : this.threatIntelIndicatorCategories;
     }
-    /**
-     * @return The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorLastObservedAt> threatIntelIndicatorLastObservedAts() {
         return this.threatIntelIndicatorLastObservedAts == null ? List.of() : this.threatIntelIndicatorLastObservedAts;
     }
-    /**
-     * @return The URL for more details from the source of the threat intelligence. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorSourceUrl> threatIntelIndicatorSourceUrls() {
         return this.threatIntelIndicatorSourceUrls == null ? List.of() : this.threatIntelIndicatorSourceUrls;
     }
-    /**
-     * @return The source of the threat intelligence. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorSource> threatIntelIndicatorSources() {
         return this.threatIntelIndicatorSources == null ? List.of() : this.threatIntelIndicatorSources;
     }
-    /**
-     * @return The type of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorType> threatIntelIndicatorTypes() {
         return this.threatIntelIndicatorTypes == null ? List.of() : this.threatIntelIndicatorTypes;
     }
-    /**
-     * @return The value of a threat intelligence indicator. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersThreatIntelIndicatorValue> threatIntelIndicatorValues() {
         return this.threatIntelIndicatorValues == null ? List.of() : this.threatIntelIndicatorValues;
     }
-    /**
-     * @return A finding&#39;s title. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersTitle> titles() {
         return this.titles == null ? List.of() : this.titles;
     }
-    /**
-     * @return A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersType> types() {
         return this.types == null ? List.of() : this.types;
     }
-    /**
-     * @return An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
-     * 
-     */
     public List<InsightFiltersUpdatedAt> updatedAts() {
         return this.updatedAts == null ? List.of() : this.updatedAts;
     }
-    /**
-     * @return A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
-     * 
-     */
     public List<InsightFiltersUserDefinedValue> userDefinedValues() {
         return this.userDefinedValues == null ? List.of() : this.userDefinedValues;
     }
-    /**
-     * @return The veracity of a finding. See String Filter below for more details.
-     * 
-     */
     public List<InsightFiltersVerificationState> verificationStates() {
         return this.verificationStates == null ? List.of() : this.verificationStates;
     }
-    /**
-     * @return The status of the investigation into a finding. See Workflow Status Filter below for more details.
-     * 
-     */
     public List<InsightFiltersWorkflowStatus> workflowStatuses() {
         return this.workflowStatuses == null ? List.of() : this.workflowStatuses;
     }

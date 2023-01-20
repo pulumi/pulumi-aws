@@ -10,10 +10,6 @@ import java.util.Objects;
 @CustomType
 public final class GetStreamConsumerResult {
     private String arn;
-    /**
-     * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-     * 
-     */
     private String creationTimestamp;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -21,10 +17,6 @@ public final class GetStreamConsumerResult {
      */
     private String id;
     private String name;
-    /**
-     * @return Current status of the stream consumer.
-     * 
-     */
     private String status;
     private String streamArn;
 
@@ -32,10 +24,6 @@ public final class GetStreamConsumerResult {
     public String arn() {
         return this.arn;
     }
-    /**
-     * @return Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-     * 
-     */
     public String creationTimestamp() {
         return this.creationTimestamp;
     }
@@ -49,10 +37,6 @@ public final class GetStreamConsumerResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return Current status of the stream consumer.
-     * 
-     */
     public String status() {
         return this.status;
     }

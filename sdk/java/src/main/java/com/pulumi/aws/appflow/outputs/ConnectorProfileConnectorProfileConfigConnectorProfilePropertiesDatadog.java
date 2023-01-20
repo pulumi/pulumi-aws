@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
-    /**
-     * @return The location of the Salesforce resource.
-     * 
-     */
     private String instanceUrl;
 
     private ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog() {}
-    /**
-     * @return The location of the Salesforce resource.
-     * 
-     */
     public String instanceUrl() {
         return this.instanceUrl;
     }

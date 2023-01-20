@@ -13,17 +13,9 @@ public final class GetBucketPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetBucketPolicyArgs Empty = new GetBucketPolicyArgs();
 
-    /**
-     * Bucket name.
-     * 
-     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
-    /**
-     * @return Bucket name.
-     * 
-     */
     public Output<String> bucket() {
         return this.bucket;
     }
@@ -52,23 +44,11 @@ public final class GetBucketPolicyArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetBucketPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param bucket Bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
-        /**
-         * @param bucket Bucket name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }

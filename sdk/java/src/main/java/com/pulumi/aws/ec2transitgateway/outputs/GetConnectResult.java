@@ -19,26 +19,10 @@ public final class GetConnectResult {
      * 
      */
     private String id;
-    /**
-     * @return Tunnel protocol
-     * 
-     */
     private String protocol;
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect
-     * 
-     */
     private Map<String,String> tags;
     private String transitGatewayConnectId;
-    /**
-     * @return EC2 Transit Gateway identifier
-     * 
-     */
     private String transitGatewayId;
-    /**
-     * @return The underlaying VPC attachment
-     * 
-     */
     private String transportAttachmentId;
 
     private GetConnectResult() {}
@@ -52,34 +36,18 @@ public final class GetConnectResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Tunnel protocol
-     * 
-     */
     public String protocol() {
         return this.protocol;
     }
-    /**
-     * @return Key-value tags for the EC2 Transit Gateway Connect
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags;
     }
     public String transitGatewayConnectId() {
         return this.transitGatewayConnectId;
     }
-    /**
-     * @return EC2 Transit Gateway identifier
-     * 
-     */
     public String transitGatewayId() {
         return this.transitGatewayId;
     }
-    /**
-     * @return The underlaying VPC attachment
-     * 
-     */
     public String transportAttachmentId() {
         return this.transportAttachmentId;
     }

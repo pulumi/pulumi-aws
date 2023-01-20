@@ -14,32 +14,16 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
 
     public static final RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs Empty = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs();
 
-    /**
-     * The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     @Import(name="eventAction", required=true)
     private Output<String> eventAction;
 
-    /**
-     * @return The event action. Valid values are `BLOCK` or `NO_ACTION`.
-     * 
-     */
     public Output<String> eventAction() {
         return this.eventAction;
     }
 
-    /**
-     * Whether to send a notification.
-     * 
-     */
     @Import(name="notify", required=true)
     private Output<Boolean> notify;
 
-    /**
-     * @return Whether to send a notification.
-     * 
-     */
     public Output<Boolean> notify_() {
         return this.notify;
     }
@@ -69,44 +53,20 @@ public final class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAc
             $ = new RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param eventAction The event action. Valid values are `BLOCK` or `NO_ACTION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventAction(Output<String> eventAction) {
             $.eventAction = eventAction;
             return this;
         }
 
-        /**
-         * @param eventAction The event action. Valid values are `BLOCK` or `NO_ACTION`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder eventAction(String eventAction) {
             return eventAction(Output.of(eventAction));
         }
 
-        /**
-         * @param notify Whether to send a notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notify_(Output<Boolean> notify) {
             $.notify = notify;
             return this;
         }
 
-        /**
-         * @param notify Whether to send a notification.
-         * 
-         * @return builder
-         * 
-         */
         public Builder notify_(Boolean notify) {
             return notify_(Output.of(notify));
         }

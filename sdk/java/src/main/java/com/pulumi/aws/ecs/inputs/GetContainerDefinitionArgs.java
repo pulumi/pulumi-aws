@@ -13,32 +13,16 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
 
     public static final GetContainerDefinitionArgs Empty = new GetContainerDefinitionArgs();
 
-    /**
-     * Name of the container definition
-     * 
-     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
-    /**
-     * @return Name of the container definition
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
-    /**
-     * ARN of the task definition which contains the container
-     * 
-     */
     @Import(name="taskDefinition", required=true)
     private Output<String> taskDefinition;
 
-    /**
-     * @return ARN of the task definition which contains the container
-     * 
-     */
     public Output<String> taskDefinition() {
         return this.taskDefinition;
     }
@@ -68,44 +52,20 @@ public final class GetContainerDefinitionArgs extends com.pulumi.resources.Invok
             $ = new GetContainerDefinitionArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName Name of the container definition
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName Name of the container definition
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param taskDefinition ARN of the task definition which contains the container
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskDefinition(Output<String> taskDefinition) {
             $.taskDefinition = taskDefinition;
             return this;
         }
 
-        /**
-         * @param taskDefinition ARN of the task definition which contains the container
-         * 
-         * @return builder
-         * 
-         */
         public Builder taskDefinition(String taskDefinition) {
             return taskDefinition(Output.of(taskDefinition));
         }

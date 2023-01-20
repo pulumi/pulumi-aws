@@ -15,32 +15,16 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
 
     public static final ConfigurationSetDeliveryOptionsArgs Empty = new ConfigurationSetDeliveryOptionsArgs();
 
-    /**
-     * The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     @Import(name="sendingPoolName")
     private @Nullable Output<String> sendingPoolName;
 
-    /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
-     * 
-     */
     public Optional<Output<String>> sendingPoolName() {
         return Optional.ofNullable(this.sendingPoolName);
     }
 
-    /**
-     * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     @Import(name="tlsPolicy")
     private @Nullable Output<String> tlsPolicy;
 
-    /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-     * 
-     */
     public Optional<Output<String>> tlsPolicy() {
         return Optional.ofNullable(this.tlsPolicy);
     }
@@ -70,44 +54,20 @@ public final class ConfigurationSetDeliveryOptionsArgs extends com.pulumi.resour
             $ = new ConfigurationSetDeliveryOptionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param sendingPoolName The name of the dedicated IP pool to associate with the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingPoolName(@Nullable Output<String> sendingPoolName) {
             $.sendingPoolName = sendingPoolName;
             return this;
         }
 
-        /**
-         * @param sendingPoolName The name of the dedicated IP pool to associate with the configuration set.
-         * 
-         * @return builder
-         * 
-         */
         public Builder sendingPoolName(String sendingPoolName) {
             return sendingPoolName(Output.of(sendingPoolName));
         }
 
-        /**
-         * @param tlsPolicy Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsPolicy(@Nullable Output<String> tlsPolicy) {
             $.tlsPolicy = tlsPolicy;
             return this;
         }
 
-        /**
-         * @param tlsPolicy Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tlsPolicy(String tlsPolicy) {
             return tlsPolicy(Output.of(tlsPolicy));
         }

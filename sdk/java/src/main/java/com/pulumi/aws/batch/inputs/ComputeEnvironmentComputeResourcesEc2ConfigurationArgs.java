@@ -15,32 +15,16 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
 
     public static final ComputeEnvironmentComputeResourcesEc2ConfigurationArgs Empty = new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs();
 
-    /**
-     * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-     * 
-     */
     @Import(name="imageIdOverride")
     private @Nullable Output<String> imageIdOverride;
 
-    /**
-     * @return The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-     * 
-     */
     public Optional<Output<String>> imageIdOverride() {
         return Optional.ofNullable(this.imageIdOverride);
     }
 
-    /**
-     * The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-     * 
-     */
     @Import(name="imageType")
     private @Nullable Output<String> imageType;
 
-    /**
-     * @return The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-     * 
-     */
     public Optional<Output<String>> imageType() {
         return Optional.ofNullable(this.imageType);
     }
@@ -70,44 +54,20 @@ public final class ComputeEnvironmentComputeResourcesEc2ConfigurationArgs extend
             $ = new ComputeEnvironmentComputeResourcesEc2ConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdOverride(@Nullable Output<String> imageIdOverride) {
             $.imageIdOverride = imageIdOverride;
             return this;
         }
 
-        /**
-         * @param imageIdOverride The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resources` block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageIdOverride(String imageIdOverride) {
             return imageIdOverride(Output.of(imageIdOverride));
         }
 
-        /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageType(@Nullable Output<String> imageType) {
             $.imageType = imageType;
             return this;
         }
 
-        /**
-         * @param imageType The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn&#39;t specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
-         * 
-         * @return builder
-         * 
-         */
         public Builder imageType(String imageType) {
             return imageType(Output.of(imageType));
         }

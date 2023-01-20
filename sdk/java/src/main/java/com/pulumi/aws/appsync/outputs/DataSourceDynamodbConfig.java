@@ -14,20 +14,8 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceDynamodbConfig {
     private @Nullable DataSourceDynamodbConfigDeltaSyncConfig deltaSyncConfig;
-    /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     private @Nullable String region;
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     private String tableName;
-    /**
-     * @return Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     private @Nullable Boolean useCallerCredentials;
     private @Nullable Boolean versioned;
 
@@ -35,24 +23,12 @@ public final class DataSourceDynamodbConfig {
     public Optional<DataSourceDynamodbConfigDeltaSyncConfig> deltaSyncConfig() {
         return Optional.ofNullable(this.deltaSyncConfig);
     }
-    /**
-     * @return AWS Region for RDS HTTP endpoint. Defaults to current region.
-     * 
-     */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
-    /**
-     * @return Name of the DynamoDB table.
-     * 
-     */
     public String tableName() {
         return this.tableName;
     }
-    /**
-     * @return Set to `true` to use Amazon Cognito credentials with this data source.
-     * 
-     */
     public Optional<Boolean> useCallerCredentials() {
         return Optional.ofNullable(this.useCallerCredentials);
     }

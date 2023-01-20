@@ -21,186 +21,86 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
 
     public static final JobDefinitionState Empty = new JobDefinitionState();
 
-    /**
-     * The Amazon Resource Name of the job definition.
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return The Amazon Resource Name of the job definition.
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-     * 
-     */
     @Import(name="containerProperties")
     private @Nullable Output<String> containerProperties;
 
-    /**
-     * @return A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-     * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-     * 
-     */
     public Optional<Output<String>> containerProperties() {
         return Optional.ofNullable(this.containerProperties);
     }
 
-    /**
-     * Specifies the name of the job definition.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Specifies the name of the job definition.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Specifies the parameter substitution placeholders to set in the job definition.
-     * 
-     */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
-    /**
-     * @return Specifies the parameter substitution placeholders to set in the job definition.
-     * 
-     */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
     }
 
-    /**
-     * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-     * 
-     */
     @Import(name="platformCapabilities")
     private @Nullable Output<List<String>> platformCapabilities;
 
-    /**
-     * @return The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-     * 
-     */
     public Optional<Output<List<String>>> platformCapabilities() {
         return Optional.ofNullable(this.platformCapabilities);
     }
 
-    /**
-     * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-     * 
-     */
     @Import(name="propagateTags")
     private @Nullable Output<Boolean> propagateTags;
 
-    /**
-     * @return Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-     * 
-     */
     public Optional<Output<Boolean>> propagateTags() {
         return Optional.ofNullable(this.propagateTags);
     }
 
-    /**
-     * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
-     * 
-     */
     @Import(name="retryStrategy")
     private @Nullable Output<JobDefinitionRetryStrategyArgs> retryStrategy;
 
-    /**
-     * @return Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-     * Maximum number of `retry_strategy` is `1`.  Defined below.
-     * 
-     */
     public Optional<Output<JobDefinitionRetryStrategyArgs>> retryStrategy() {
         return Optional.ofNullable(this.retryStrategy);
     }
 
-    /**
-     * The revision of the job definition.
-     * 
-     */
     @Import(name="revision")
     private @Nullable Output<Integer> revision;
 
-    /**
-     * @return The revision of the job definition.
-     * 
-     */
     public Optional<Output<Integer>> revision() {
         return Optional.ofNullable(this.revision);
     }
 
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-     * 
-     */
     @Import(name="timeout")
     private @Nullable Output<JobDefinitionTimeoutArgs> timeout;
 
-    /**
-     * @return Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-     * 
-     */
     public Optional<Output<JobDefinitionTimeoutArgs>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
 
-    /**
-     * The type of job definition. Must be `container`.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return The type of job definition. Must be `container`.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -240,268 +140,114 @@ public final class JobDefinitionState extends com.pulumi.resources.ResourceArgs 
             $ = new JobDefinitionState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn The Amazon Resource Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn The Amazon Resource Name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerProperties(@Nullable Output<String> containerProperties) {
             $.containerProperties = containerProperties;
             return this;
         }
 
-        /**
-         * @param containerProperties A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
-         * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerProperties(String containerProperties) {
             return containerProperties(Output.of(containerProperties));
         }
 
-        /**
-         * @param name Specifies the name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Specifies the name of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param parameters Specifies the parameter substitution placeholders to set in the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(@Nullable Output<Map<String,String>> parameters) {
             $.parameters = parameters;
             return this;
         }
 
-        /**
-         * @param parameters Specifies the parameter substitution placeholders to set in the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
         }
 
-        /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformCapabilities(@Nullable Output<List<String>> platformCapabilities) {
             $.platformCapabilities = platformCapabilities;
             return this;
         }
 
-        /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformCapabilities(List<String> platformCapabilities) {
             return platformCapabilities(Output.of(platformCapabilities));
         }
 
-        /**
-         * @param platformCapabilities The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder platformCapabilities(String... platformCapabilities) {
             return platformCapabilities(List.of(platformCapabilities));
         }
 
-        /**
-         * @param propagateTags Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(@Nullable Output<Boolean> propagateTags) {
             $.propagateTags = propagateTags;
             return this;
         }
 
-        /**
-         * @param propagateTags Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder propagateTags(Boolean propagateTags) {
             return propagateTags(Output.of(propagateTags));
         }
 
-        /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-         * Maximum number of `retry_strategy` is `1`.  Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryStrategy(@Nullable Output<JobDefinitionRetryStrategyArgs> retryStrategy) {
             $.retryStrategy = retryStrategy;
             return this;
         }
 
-        /**
-         * @param retryStrategy Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
-         * Maximum number of `retry_strategy` is `1`.  Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryStrategy(JobDefinitionRetryStrategyArgs retryStrategy) {
             return retryStrategy(Output.of(retryStrategy));
         }
 
-        /**
-         * @param revision The revision of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(@Nullable Output<Integer> revision) {
             $.revision = revision;
             return this;
         }
 
-        /**
-         * @param revision The revision of the job definition.
-         * 
-         * @return builder
-         * 
-         */
         public Builder revision(Integer revision) {
             return revision(Output.of(revision));
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param timeout Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(@Nullable Output<JobDefinitionTimeoutArgs> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(JobDefinitionTimeoutArgs timeout) {
             return timeout(Output.of(timeout));
         }
 
-        /**
-         * @param type The type of job definition. Must be `container`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type The type of job definition. Must be `container`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

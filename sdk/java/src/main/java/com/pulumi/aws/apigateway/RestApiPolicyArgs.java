@@ -13,32 +13,16 @@ public final class RestApiPolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RestApiPolicyArgs Empty = new RestApiPolicyArgs();
 
-    /**
-     * JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return JSON formatted policy document that controls access to the API Gateway.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
 
-    /**
-     * ID of the REST API.
-     * 
-     */
     @Import(name="restApiId", required=true)
     private Output<String> restApiId;
 
-    /**
-     * @return ID of the REST API.
-     * 
-     */
     public Output<String> restApiId() {
         return this.restApiId;
     }
@@ -68,44 +52,20 @@ public final class RestApiPolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RestApiPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the API Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy JSON formatted policy document that controls access to the API Gateway.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param restApiId ID of the REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(Output<String> restApiId) {
             $.restApiId = restApiId;
             return this;
         }
 
-        /**
-         * @param restApiId ID of the REST API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restApiId(String restApiId) {
             return restApiId(Output.of(restApiId));
         }

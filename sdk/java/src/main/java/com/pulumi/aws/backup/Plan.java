@@ -18,159 +18,47 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an AWS Backup plan resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.backup.Plan;
- * import com.pulumi.aws.backup.PlanArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleArgs;
- * import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
- * import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Plan(&#34;example&#34;, PlanArgs.builder()        
- *             .rules(PlanRuleArgs.builder()
- *                 .ruleName(&#34;my_example_backup_rule&#34;)
- *                 .targetVaultName(aws_backup_vault.test().name())
- *                 .schedule(&#34;cron(0 12 * * ? *)&#34;)
- *                 .lifecycle(PlanRuleLifecycleArgs.builder()
- *                     .deleteAfter(14)
- *                     .build())
- *                 .build())
- *             .advancedBackupSettings(PlanAdvancedBackupSettingArgs.builder()
- *                 .backupOptions(Map.of(&#34;WindowsVSS&#34;, &#34;enabled&#34;))
- *                 .resourceType(&#34;EC2&#34;)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * Backup Plan can be imported using the `id`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;
- * ```
- * 
- */
 @ResourceType(type="aws:backup/plan:Plan")
 public class Plan extends com.pulumi.resources.CustomResource {
-    /**
-     * An object that specifies backup options for each resource type.
-     * 
-     */
     @Export(name="advancedBackupSettings", refs={List.class,PlanAdvancedBackupSetting.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanAdvancedBackupSetting>> advancedBackupSettings;
 
-    /**
-     * @return An object that specifies backup options for each resource type.
-     * 
-     */
     public Output<Optional<List<PlanAdvancedBackupSetting>>> advancedBackupSettings() {
         return Codegen.optional(this.advancedBackupSettings);
     }
-    /**
-     * The ARN of the backup plan.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the backup plan.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The display name of a backup plan.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return The display name of a backup plan.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     @Export(name="rules", refs={List.class,PlanRule.class}, tree="[0,1]")
     private Output<List<PlanRule>> rules;
 
-    /**
-     * @return A rule object that specifies a scheduled task that is used to back up a selection of resources.
-     * 
-     */
     public Output<List<PlanRule>> rules() {
         return this.rules;
     }
-    /**
-     * Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
-    /**
-     * @return Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-     * 
-     */
     public Output<String> version() {
         return this.version;
     }

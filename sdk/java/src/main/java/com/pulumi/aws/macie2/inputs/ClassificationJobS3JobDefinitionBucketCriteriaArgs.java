@@ -16,32 +16,16 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
 
     public static final ClassificationJobS3JobDefinitionBucketCriteriaArgs Empty = new ClassificationJobS3JobDefinitionBucketCriteriaArgs();
 
-    /**
-     * The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-     * 
-     */
     @Import(name="excludes")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs> excludes;
 
-    /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs>> excludes() {
         return Optional.ofNullable(this.excludes);
     }
 
-    /**
-     * The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-     * 
-     */
     @Import(name="includes")
     private @Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs> includes;
 
-    /**
-     * @return The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-     * 
-     */
     public Optional<Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs>> includes() {
         return Optional.ofNullable(this.includes);
     }
@@ -71,44 +55,20 @@ public final class ClassificationJobS3JobDefinitionBucketCriteriaArgs extends co
             $ = new ClassificationJobS3JobDefinitionBucketCriteriaArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param excludes The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludes(@Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs> excludes) {
             $.excludes = excludes;
             return this;
         }
 
-        /**
-         * @param excludes The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder excludes(ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs excludes) {
             return excludes(Output.of(excludes));
         }
 
-        /**
-         * @param includes The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(@Nullable Output<ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs> includes) {
             $.includes = includes;
             return this;
         }
 
-        /**
-         * @param includes The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-         * 
-         * @return builder
-         * 
-         */
         public Builder includes(ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs includes) {
             return includes(Output.of(includes));
         }

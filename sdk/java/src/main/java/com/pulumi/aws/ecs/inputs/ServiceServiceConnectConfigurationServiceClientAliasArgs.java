@@ -16,32 +16,16 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
 
     public static final ServiceServiceConnectConfigurationServiceClientAliasArgs Empty = new ServiceServiceConnectConfigurationServiceClientAliasArgs();
 
-    /**
-     * The name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     @Import(name="dnsName")
     private @Nullable Output<String> dnsName;
 
-    /**
-     * @return The name that you use in the applications of client tasks to connect to this service.
-     * 
-     */
     public Optional<Output<String>> dnsName() {
         return Optional.ofNullable(this.dnsName);
     }
 
-    /**
-     * The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
-    /**
-     * @return The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-     * 
-     */
     public Output<Integer> port() {
         return this.port;
     }
@@ -71,44 +55,20 @@ public final class ServiceServiceConnectConfigurationServiceClientAliasArgs exte
             $ = new ServiceServiceConnectConfigurationServiceClientAliasArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param dnsName The name that you use in the applications of client tasks to connect to this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(@Nullable Output<String> dnsName) {
             $.dnsName = dnsName;
             return this;
         }
 
-        /**
-         * @param dnsName The name that you use in the applications of client tasks to connect to this service.
-         * 
-         * @return builder
-         * 
-         */
         public Builder dnsName(String dnsName) {
             return dnsName(Output.of(dnsName));
         }
 
-        /**
-         * @param port The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
-        /**
-         * @param port The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.
-         * 
-         * @return builder
-         * 
-         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }

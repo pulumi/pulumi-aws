@@ -12,29 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CostCategorySplitChargeRuleParameter {
-    /**
-     * @return Parameter type.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return Parameter values.
-     * 
-     */
     private @Nullable List<String> values;
 
     private CostCategorySplitChargeRuleParameter() {}
-    /**
-     * @return Parameter type.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return Parameter values.
-     * 
-     */
     public List<String> values() {
         return this.values == null ? List.of() : this.values;
     }

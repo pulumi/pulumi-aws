@@ -16,51 +16,23 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetSnapshotIdsPlainArgs Empty = new GetSnapshotIdsPlainArgs();
 
-    /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     @Import(name="filters")
     private @Nullable List<GetSnapshotIdsFilter> filters;
 
-    /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
-     * 
-     */
     public Optional<List<GetSnapshotIdsFilter>> filters() {
         return Optional.ofNullable(this.filters);
     }
 
-    /**
-     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-     * 
-     */
     @Import(name="owners")
     private @Nullable List<String> owners;
 
-    /**
-     * @return Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-     * 
-     */
     public Optional<List<String>> owners() {
         return Optional.ofNullable(this.owners);
     }
 
-    /**
-     * One or more AWS accounts IDs that can create volumes from the snapshot.
-     * 
-     */
     @Import(name="restorableByUserIds")
     private @Nullable List<String> restorableByUserIds;
 
-    /**
-     * @return One or more AWS accounts IDs that can create volumes from the snapshot.
-     * 
-     */
     public Optional<List<String>> restorableByUserIds() {
         return Optional.ofNullable(this.restorableByUserIds);
     }
@@ -91,69 +63,29 @@ public final class GetSnapshotIdsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetSnapshotIdsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(@Nullable List<GetSnapshotIdsFilter> filters) {
             $.filters = filters;
             return this;
         }
 
-        /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
-         * 
-         * @return builder
-         * 
-         */
         public Builder filters(GetSnapshotIdsFilter... filters) {
             return filters(List.of(filters));
         }
 
-        /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owners(@Nullable List<String> owners) {
             $.owners = owners;
             return this;
         }
 
-        /**
-         * @param owners Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
-         * 
-         * @return builder
-         * 
-         */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
         }
 
-        /**
-         * @param restorableByUserIds One or more AWS accounts IDs that can create volumes from the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
             $.restorableByUserIds = restorableByUserIds;
             return this;
         }
 
-        /**
-         * @param restorableByUserIds One or more AWS accounts IDs that can create volumes from the snapshot.
-         * 
-         * @return builder
-         * 
-         */
         public Builder restorableByUserIds(String... restorableByUserIds) {
             return restorableByUserIds(List.of(restorableByUserIds));
         }

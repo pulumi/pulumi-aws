@@ -11,41 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetReportPlanReportSetting {
-    /**
-     * @return ARNs of the frameworks a report covers.
-     * 
-     */
     private List<String> frameworkArns;
-    /**
-     * @return Specifies the number of frameworks a report covers.
-     * 
-     */
     private Integer numberOfFrameworks;
-    /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
-     * 
-     */
     private String reportTemplate;
 
     private GetReportPlanReportSetting() {}
-    /**
-     * @return ARNs of the frameworks a report covers.
-     * 
-     */
     public List<String> frameworkArns() {
         return this.frameworkArns;
     }
-    /**
-     * @return Specifies the number of frameworks a report covers.
-     * 
-     */
     public Integer numberOfFrameworks() {
         return this.numberOfFrameworks;
     }
-    /**
-     * @return Identifies the report template for the report. Reports are built using a report template.
-     * 
-     */
     public String reportTemplate() {
         return this.reportTemplate;
     }

@@ -16,258 +16,65 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides a CloudWatch Evidently Segment resource.
- * 
- * ## Example Usage
- * ### Basic
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.evidently.Segment;
- * import com.pulumi.aws.evidently.SegmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .pattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,10,\&#34;&lt;=\&#34;,20]}]}&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With JSON object in pattern
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.evidently.Segment;
- * import com.pulumi.aws.evidently.SegmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .pattern(&#34;&#34;&#34;
- *   {
- *     &#34;Price&#34;: [
- *       {
- *         &#34;numeric&#34;: [&#34;&gt;&#34;,10,&#34;&lt;=&#34;,20]
- *       }
- *     ]
- *   }
- *   
- *             &#34;&#34;&#34;)
- *             .tags(Map.of(&#34;Key1&#34;, &#34;example Segment&#34;))
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### With Description
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.evidently.Segment;
- * import com.pulumi.aws.evidently.SegmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Segment(&#34;example&#34;, SegmentArgs.builder()        
- *             .description(&#34;example&#34;)
- *             .pattern(&#34;{\&#34;Price\&#34;:[{\&#34;numeric\&#34;:[\&#34;&gt;\&#34;,10,\&#34;&lt;=\&#34;,20]}]}&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * CloudWatch Evidently Segment can be imported using the `arn`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
- * ```
- * 
- */
 @ResourceType(type="aws:evidently/segment:Segment")
 public class Segment extends com.pulumi.resources.CustomResource {
-    /**
-     * The ARN of the segment.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return The ARN of the segment.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * The date and time that the segment is created.
-     * 
-     */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
-    /**
-     * @return The date and time that the segment is created.
-     * 
-     */
     public Output<String> createdTime() {
         return this.createdTime;
     }
-    /**
-     * Specifies the description of the segment.
-     * 
-     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
-    /**
-     * @return Specifies the description of the segment.
-     * 
-     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    /**
-     * The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-     * 
-     */
     @Export(name="experimentCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> experimentCount;
 
-    /**
-     * @return The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-     * 
-     */
     public Output<Integer> experimentCount() {
         return this.experimentCount;
     }
-    /**
-     * The date and time that this segment was most recently updated.
-     * 
-     */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
-    /**
-     * @return The date and time that this segment was most recently updated.
-     * 
-     */
     public Output<String> lastUpdatedTime() {
         return this.lastUpdatedTime;
     }
-    /**
-     * The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-     * 
-     */
     @Export(name="launchCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> launchCount;
 
-    /**
-     * @return The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-     * 
-     */
     public Output<Integer> launchCount() {
         return this.launchCount;
     }
-    /**
-     * A name for the segment.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return A name for the segment.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-     * 
-     */
     @Export(name="pattern", refs={String.class}, tree="[0]")
     private Output<String> pattern;
 
-    /**
-     * @return The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-     * 
-     */
     public Output<String> pattern() {
         return this.pattern;
     }
-    /**
-     * Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }

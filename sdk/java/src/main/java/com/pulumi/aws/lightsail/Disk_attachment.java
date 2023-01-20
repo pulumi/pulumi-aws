@@ -13,116 +13,23 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Attaches a Lightsail disk to a Lightsail Instance
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.AwsFunctions;
- * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
- * import com.pulumi.aws.lightsail.Disk;
- * import com.pulumi.aws.lightsail.DiskArgs;
- * import com.pulumi.aws.lightsail.Instance;
- * import com.pulumi.aws.lightsail.InstanceArgs;
- * import com.pulumi.aws.lightsail.Disk_attachment;
- * import com.pulumi.aws.lightsail.Disk_attachmentArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state(&#34;available&#34;)
- *             .filters(GetAvailabilityZonesFilterArgs.builder()
- *                 .name(&#34;opt-in-status&#34;)
- *                 .values(&#34;opt-in-not-required&#34;)
- *                 .build())
- *             .build());
- * 
- *         var testDisk = new Disk(&#34;testDisk&#34;, DiskArgs.builder()        
- *             .sizeInGb(8)
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .build());
- * 
- *         var testInstance = new Instance(&#34;testInstance&#34;, InstanceArgs.builder()        
- *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
- *             .blueprintId(&#34;amazon_linux&#34;)
- *             .bundleId(&#34;nano_1_0&#34;)
- *             .build());
- * 
- *         var testDisk_attachment = new Disk_attachment(&#34;testDisk_attachment&#34;, Disk_attachmentArgs.builder()        
- *             .diskName(testDisk.name())
- *             .instanceName(testInstance.name())
- *             .diskPath(&#34;/dev/xvdf&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * `aws_lightsail_disk` can be imported by using the id attribute, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
- * ```
- * 
- */
 @ResourceType(type="aws:lightsail/disk_attachment:Disk_attachment")
 public class Disk_attachment extends com.pulumi.resources.CustomResource {
-    /**
-     * The name of the Lightsail Disk.
-     * 
-     */
     @Export(name="diskName", refs={String.class}, tree="[0]")
     private Output<String> diskName;
 
-    /**
-     * @return The name of the Lightsail Disk.
-     * 
-     */
     public Output<String> diskName() {
         return this.diskName;
     }
-    /**
-     * The disk path to expose to the instance.
-     * 
-     */
     @Export(name="diskPath", refs={String.class}, tree="[0]")
     private Output<String> diskPath;
 
-    /**
-     * @return The disk path to expose to the instance.
-     * 
-     */
     public Output<String> diskPath() {
         return this.diskPath;
     }
-    /**
-     * The name of the Lightsail Instance to attach to.
-     * 
-     */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
-    /**
-     * @return The name of the Lightsail Instance to attach to.
-     * 
-     */
     public Output<String> instanceName() {
         return this.instanceName;
     }

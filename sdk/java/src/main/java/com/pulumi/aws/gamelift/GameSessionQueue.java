@@ -18,172 +18,53 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * Provides an GameLift Game Session Queue resource.
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.gamelift.GameSessionQueue;
- * import com.pulumi.aws.gamelift.GameSessionQueueArgs;
- * import com.pulumi.aws.gamelift.inputs.GameSessionQueuePlayerLatencyPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new GameSessionQueue(&#34;test&#34;, GameSessionQueueArgs.builder()        
- *             .destinations(            
- *                 aws_gamelift_fleet.us_west_2_fleet().arn(),
- *                 aws_gamelift_fleet.eu_central_1_fleet().arn())
- *             .notificationTarget(aws_sns_topic.game_session_queue_notifications().arn())
- *             .playerLatencyPolicies(            
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(100)
- *                     .policyDurationSeconds(5)
- *                     .build(),
- *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
- *                     .maximumIndividualPlayerLatencyMilliseconds(200)
- *                     .build())
- *             .timeoutInSeconds(60)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * GameLift Game Session Queues can be imported by their `name`, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
- * ```
- * 
- */
 @ResourceType(type="aws:gamelift/gameSessionQueue:GameSessionQueue")
 public class GameSessionQueue extends com.pulumi.resources.CustomResource {
-    /**
-     * Game Session Queue ARN.
-     * 
-     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
-    /**
-     * @return Game Session Queue ARN.
-     * 
-     */
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * List of fleet/alias ARNs used by session queue for placing game sessions.
-     * 
-     */
     @Export(name="destinations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> destinations;
 
-    /**
-     * @return List of fleet/alias ARNs used by session queue for placing game sessions.
-     * 
-     */
     public Output<Optional<List<String>>> destinations() {
         return Codegen.optional(this.destinations);
     }
-    /**
-     * Name of the session queue.
-     * 
-     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
-    /**
-     * @return Name of the session queue.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
-    /**
-     * An SNS topic ARN that is set up to receive game session placement notifications.
-     * 
-     */
     @Export(name="notificationTarget", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> notificationTarget;
 
-    /**
-     * @return An SNS topic ARN that is set up to receive game session placement notifications.
-     * 
-     */
     public Output<Optional<String>> notificationTarget() {
         return Codegen.optional(this.notificationTarget);
     }
-    /**
-     * One or more policies used to choose fleet based on player latency. See below.
-     * 
-     */
     @Export(name="playerLatencyPolicies", refs={List.class,GameSessionQueuePlayerLatencyPolicy.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GameSessionQueuePlayerLatencyPolicy>> playerLatencyPolicies;
 
-    /**
-     * @return One or more policies used to choose fleet based on player latency. See below.
-     * 
-     */
     public Output<Optional<List<GameSessionQueuePlayerLatencyPolicy>>> playerLatencyPolicies() {
         return Codegen.optional(this.playerLatencyPolicies);
     }
-    /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
-    /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
-    /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
-    /**
-     * Maximum time a game session request can remain in the queue.
-     * 
-     */
     @Export(name="timeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeoutInSeconds;
 
-    /**
-     * @return Maximum time a game session request can remain in the queue.
-     * 
-     */
     public Output<Optional<Integer>> timeoutInSeconds() {
         return Codegen.optional(this.timeoutInSeconds);
     }

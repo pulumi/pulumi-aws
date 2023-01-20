@@ -17,62 +17,30 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterState Empty = new ClusterState();
 
-    /**
-     * ARN of the cluster
-     * 
-     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
-    /**
-     * @return ARN of the cluster
-     * 
-     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
 
-    /**
-     * List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     @Import(name="clusterEndpoints")
     private @Nullable Output<List<ClusterClusterEndpointArgs>> clusterEndpoints;
 
-    /**
-     * @return List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-     * 
-     */
     public Optional<Output<List<ClusterClusterEndpointArgs>>> clusterEndpoints() {
         return Optional.ofNullable(this.clusterEndpoints);
     }
 
-    /**
-     * Unique name describing the cluster.
-     * 
-     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
-    /**
-     * @return Unique name describing the cluster.
-     * 
-     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
-    /**
-     * @return Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-     * 
-     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -104,96 +72,42 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             $ = new ClusterState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param arn ARN of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
-        /**
-         * @param arn ARN of the cluster
-         * 
-         * @return builder
-         * 
-         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(@Nullable Output<List<ClusterClusterEndpointArgs>> clusterEndpoints) {
             $.clusterEndpoints = clusterEndpoints;
             return this;
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(List<ClusterClusterEndpointArgs> clusterEndpoints) {
             return clusterEndpoints(Output.of(clusterEndpoints));
         }
 
-        /**
-         * @param clusterEndpoints List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder clusterEndpoints(ClusterClusterEndpointArgs... clusterEndpoints) {
             return clusterEndpoints(List.of(clusterEndpoints));
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Unique name describing the cluster.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
-        /**
-         * @param status Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
-        /**
-         * @param status Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
-         * 
-         * @return builder
-         * 
-         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

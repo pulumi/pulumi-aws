@@ -15,17 +15,9 @@ public final class ClusterIdentityOidcArgs extends com.pulumi.resources.Resource
 
     public static final ClusterIdentityOidcArgs Empty = new ClusterIdentityOidcArgs();
 
-    /**
-     * Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
-    /**
-     * @return Issuer URL for the OpenID Connect identity provider.
-     * 
-     */
     public Optional<Output<String>> issuer() {
         return Optional.ofNullable(this.issuer);
     }
@@ -54,23 +46,11 @@ public final class ClusterIdentityOidcArgs extends com.pulumi.resources.Resource
             $ = new ClusterIdentityOidcArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param issuer Issuer URL for the OpenID Connect identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(@Nullable Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
-        /**
-         * @param issuer Issuer URL for the OpenID Connect identity provider.
-         * 
-         * @return builder
-         * 
-         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }

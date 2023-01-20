@@ -13,85 +13,17 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import javax.annotation.Nullable;
 
-/**
- * Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
- * 
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.amp.Workspace;
- * import com.pulumi.aws.amp.AlertManagerDefinition;
- * import com.pulumi.aws.amp.AlertManagerDefinitionArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var demoWorkspace = new Workspace(&#34;demoWorkspace&#34;);
- * 
- *         var demoAlertManagerDefinition = new AlertManagerDefinition(&#34;demoAlertManagerDefinition&#34;, AlertManagerDefinitionArgs.builder()        
- *             .workspaceId(demoWorkspace.id())
- *             .definition(&#34;&#34;&#34;
- * alertmanager_config: |
- *   route:
- *     receiver: &#39;default&#39;
- *   receivers:
- *     - name: &#39;default&#39;
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- * ## Import
- * 
- * The prometheus alert manager definition can be imported using the workspace identifier, e.g.,
- * 
- * ```sh
- *  $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
- * ```
- * 
- */
 @ResourceType(type="aws:amp/alertManagerDefinition:AlertManagerDefinition")
 public class AlertManagerDefinition extends com.pulumi.resources.CustomResource {
-    /**
-     * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     * 
-     */
     @Export(name="definition", refs={String.class}, tree="[0]")
     private Output<String> definition;
 
-    /**
-     * @return the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
-     * 
-     */
     public Output<String> definition() {
         return this.definition;
     }
-    /**
-     * ID of the prometheus workspace the alert manager definition should be linked to
-     * 
-     */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 
-    /**
-     * @return ID of the prometheus workspace the alert manager definition should be linked to
-     * 
-     */
     public Output<String> workspaceId() {
         return this.workspaceId;
     }

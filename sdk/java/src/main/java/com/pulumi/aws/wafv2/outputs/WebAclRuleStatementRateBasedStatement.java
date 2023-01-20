@@ -14,53 +14,21 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatement {
-    /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     private @Nullable String aggregateKeyType;
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
-    /**
-     * @return Limit on requests per 5-minute period for a single originating IP address.
-     * 
-     */
     private Integer limit;
-    /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-     * 
-     */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement scopeDownStatement;
 
     private WebAclRuleStatementRateBasedStatement() {}
-    /**
-     * @return Setting that indicates how to aggregate the request counts. Valid values include: `FORWARDED_IP` or `IP`. Default: `IP`.
-     * 
-     */
     public Optional<String> aggregateKeyType() {
         return Optional.ofNullable(this.aggregateKeyType);
     }
-    /**
-     * @return Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementForwardedIpConfig> forwardedIpConfig() {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
-    /**
-     * @return Limit on requests per 5-minute period for a single originating IP address.
-     * 
-     */
     public Integer limit() {
         return this.limit;
     }
-    /**
-     * @return Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
-     * 
-     */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatement> scopeDownStatement() {
         return Optional.ofNullable(this.scopeDownStatement);
     }

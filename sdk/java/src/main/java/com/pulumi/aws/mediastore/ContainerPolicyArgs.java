@@ -13,32 +13,16 @@ public final class ContainerPolicyArgs extends com.pulumi.resources.ResourceArgs
 
     public static final ContainerPolicyArgs Empty = new ContainerPolicyArgs();
 
-    /**
-     * The name of the container.
-     * 
-     */
     @Import(name="containerName", required=true)
     private Output<String> containerName;
 
-    /**
-     * @return The name of the container.
-     * 
-     */
     public Output<String> containerName() {
         return this.containerName;
     }
 
-    /**
-     * The contents of the policy.
-     * 
-     */
     @Import(name="policy", required=true)
     private Output<String> policy;
 
-    /**
-     * @return The contents of the policy.
-     * 
-     */
     public Output<String> policy() {
         return this.policy;
     }
@@ -68,44 +52,20 @@ public final class ContainerPolicyArgs extends com.pulumi.resources.ResourceArgs
             $ = new ContainerPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param containerName The name of the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(Output<String> containerName) {
             $.containerName = containerName;
             return this;
         }
 
-        /**
-         * @param containerName The name of the container.
-         * 
-         * @return builder
-         * 
-         */
         public Builder containerName(String containerName) {
             return containerName(Output.of(containerName));
         }
 
-        /**
-         * @param policy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(Output<String> policy) {
             $.policy = policy;
             return this;
         }
 
-        /**
-         * @param policy The contents of the policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }

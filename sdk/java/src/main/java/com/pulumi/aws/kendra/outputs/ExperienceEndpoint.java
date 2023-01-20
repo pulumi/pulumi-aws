@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ExperienceEndpoint {
-    /**
-     * @return The endpoint of your Amazon Kendra experience.
-     * 
-     */
     private @Nullable String endpoint;
-    /**
-     * @return The type of endpoint for your Amazon Kendra experience.
-     * 
-     */
     private @Nullable String endpointType;
 
     private ExperienceEndpoint() {}
-    /**
-     * @return The endpoint of your Amazon Kendra experience.
-     * 
-     */
     public Optional<String> endpoint() {
         return Optional.ofNullable(this.endpoint);
     }
-    /**
-     * @return The type of endpoint for your Amazon Kendra experience.
-     * 
-     */
     public Optional<String> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }

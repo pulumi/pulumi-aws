@@ -20,10 +20,6 @@ public final class GetResolverRulesResult {
     private @Nullable String nameRegex;
     private @Nullable String ownerId;
     private @Nullable String resolverEndpointId;
-    /**
-     * @return IDs of the matched resolver rules.
-     * 
-     */
     private List<String> resolverRuleIds;
     private @Nullable String ruleType;
     private @Nullable String shareStatus;
@@ -45,10 +41,6 @@ public final class GetResolverRulesResult {
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
-    /**
-     * @return IDs of the matched resolver rules.
-     * 
-     */
     public List<String> resolverRuleIds() {
         return this.resolverRuleIds;
     }
